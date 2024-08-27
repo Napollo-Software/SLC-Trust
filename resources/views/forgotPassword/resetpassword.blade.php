@@ -57,7 +57,7 @@
     @include('sweetalert::alert')
     <!-- Content -->
     @php
-    Session::forget('loginId');    
+    Session::forget('loginId');
     @endphp
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
@@ -79,7 +79,7 @@
               <div class="alert alert-danger">{{Session::get('fail')}}</div>
               @endif --}}
               @csrf
-              
+
               <input type="hidden" name="email" value="{{ $token->email }} "/>
               <!--<input type="hidden" name="token" value="{{ Request::segment(2) }}">-->
 

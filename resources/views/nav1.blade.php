@@ -43,7 +43,7 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ url('/assets/js/config.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
-  
+
 </head>
 <style>
     /* Scrollbar Styling */
@@ -129,7 +129,7 @@
     .loader-content {
         text-align: center; /* Optional: Center content horizontally */
     }
-    
+
 </style>
 
 <body class="">
@@ -152,11 +152,11 @@
         $search = $searchrequest['search'] ?? '';
         //
         ?>
-        
+
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme no-print">
             <div class="app-brand demo" style="height:120px">
                 <a href="{{ url('/dashboard') }}">
-                    <img src="{{ url('/assets/img/intrustpit-Logo.png') }}" style="height:110px">
+                    <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:120px">
                 </a>
 
 
@@ -179,7 +179,7 @@
                         </a>
                     </li>
                 @endif
-                
+
                 @if ($user->hasPermissionTo('Archive View'))
                 <li
                 class="menu-item {{in_array(Route::currentRouteName(),['archive','archived.bills']) ? 'open active' : '' }}">
@@ -261,7 +261,7 @@
                         </ul>
                     </li>
                 @endif
-               
+
                 <!-- Reports -->
                 @if ($user->hasPermissionTo('Adjustments Create'))
                     <li class="menu-item {{ Route::currentRouteName() === 'adjustment'? 'active' : '' }}">
@@ -279,7 +279,7 @@
                         </a>
                     </li>
                 @endif
-                
+
 
                 <li class="menu-item {{Route::currentRouteName()==='contact.list' ? 'active' : '' }}">
                     <a href="{{ route('contact.list') }}" class="menu-link">
@@ -569,7 +569,7 @@
                     <ul class="navbar-nav flex-row align-items-center ms-auto ">
                         {{-- <img src="{{url('assets/img/bell-trans.gif')}}" class="cursor-pointer" width="40px" data-bs-toggle="dropdown" style="margin-top:10px" onclick="window.location.href='/notifications'"><span  class="badge bg-label-info me-1 rounded" style="margin-left:-20px;margin-top:-20px;font-size:10px">{{App\Models\Notifcation::where('status','0')->where('user_id',$id->id)->count()}} </span> --}}
                         <!-- User -->
-                        
+
                         <li class="nav-item navbar-dropdown dropdown-user dropdown">
                             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                data-bs-toggle="dropdown">
@@ -1109,7 +1109,7 @@
                 });
             }
             $('.select-2').select2();
-        });    
+        });
         let canada = [
             'Alberta',
             'British Columbia',
@@ -1177,7 +1177,7 @@
             'Wisconsin',
             'Wyoming',
         ];
-    
+
         function getCountry(event) {
             let country;
             if (event.value == 'canada') {
@@ -1199,7 +1199,7 @@
         window.addEventListener("load", function () {
             var loader = document.getElementById("loader");
             loader.style.display = "block";
-    
+
             // Hide the loader after a certain duration (e.g., 1 second)
             setTimeout(function () {
                 loader.style.display = "none";
@@ -1216,7 +1216,7 @@
             windows.document.close();
             windows.print();
         }
-    
+
         //select function
         $(document).ready(function () {
             $("select").change(function () {
@@ -1230,14 +1230,14 @@
                     }
                 });
             }).change();
-    
+
         });
-    
+
         function erroralert(xhr) {
-    
+
             if (xhr.status == 419) {
                 window.location.href = '/';
-    
+
             }
             if (typeof xhr.responseJSON.errors === 'object') {
                 var error = '';
@@ -1256,7 +1256,7 @@
             } else {
             }
         }
-</script>    
+</script>
 @include('sweetalert::alert')
 	@yield("script")
     {{-- @include("layouts.theme-control") --}}

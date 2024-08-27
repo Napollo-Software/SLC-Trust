@@ -215,7 +215,7 @@
             <div class="card-body-auth">
               <!-- Logo -->
               <div class="app-brand justify-content-center mb-3">
-                  <img src="{{ url('/assets/img/intrustpit-Logo.png') }}" style="height:110px">
+                  <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:120px">
               </div>
               <!-- /Logo -->
 
@@ -241,7 +241,7 @@
                 <div class="pic-holder">
                   <!-- uploaded pic shown here -->
                   <img id="profilePic" class="pic" src="{{url('/blank-profile-picture-973460_1280.jpg')}}">
-              
+
                   <input class="uploadProfileInput" type="file" name="profile_pic" id="newProfilePhoto"  style="opacity: 0;" />
                   <label for="newProfilePhoto" class="upload-file-block">
                     <div class="text-center">
@@ -364,9 +364,9 @@
                     </div>
                     <span class="text-danger">@error('phone'){{$message}} @enderror</span>
                   </div>
-                 
+
               </div>
-              
+
               <div class="row">
                 <div class="mb-3 col-sm-6 form-password-toggle">
                   <label class="form-label" for="password">Password</label>
@@ -398,9 +398,9 @@
                     </div>
                     <span class="text-danger">@error('password'){{$message}} @enderror</span>
                   </div>
-                 
+
                 <div class="mb-3 d-none">
-                  <div class="form-check"> 
+                  <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" checked/>
                     <label class="form-check-label" for="terms-conditions">
                       I agree to <span><a href="#">privacy policy</a></span> & <span><a href="#">terms and Conditions</a></span>

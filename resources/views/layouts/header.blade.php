@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand gap-3">
             <div class="topbar-logo-header d-none d-lg-flex">
                 <div class="">
-                    <img src="{{ asset('assets/new_theme/images/intrustpit-new-Logo.png')}}" class="logo-text" alt="logo icon" style="width: 200px;">
+                    <img src="{{ asset('assets/new_theme/images/slc_trust.png')}}" class="logo-text" alt="logo icon" style="width: 120px;">
                 </div>
             </div>
             <div class="mobile-toggle-menu d-block d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="bx bx-menu"></i></div>

@@ -50,7 +50,7 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-  
+
   </head>
 
   <body>
@@ -65,7 +65,7 @@
             <div class="card-body-auth">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                  <img src="{{ url('/assets/img/intrustpit-Logo.png') }}" style="height:110px">
+                  <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:120px">
               </div>
 
               <form id="formAuthentication" class="mb-3" action="{{route('login-user')}}" method="post">
@@ -124,7 +124,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button  
+                  <button
                   {{-- g-recaptcha --}}
                   class=" btn btn-primary d-grid w-100"
                    data-sitekey="{{env('Captcha_site_key')}}"
