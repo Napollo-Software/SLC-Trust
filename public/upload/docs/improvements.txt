@@ -1,0 +1,14 @@
+1.  Date year field must be upto 4 digits
+2.  add contact number in all places for more information
+3.  transections ko center align kr dain
+4.  Print Transections 
+5.  Current balance py click krny sy transections py ly jai 
+6.  Remove all restirctions - upload document - all can be uploaded
+7.  Admin panel - edit mai zrori fields ko readonly krna ha
+8.  Customer field mai first and last name dal dain
+9.  add comma's in amounts
+10. Filters in transections
+12. Bills Paid Amount
+13. Rejected Bill Amount
+14. Filter in transection
+15. 

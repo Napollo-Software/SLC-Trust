@@ -1,0 +1,6 @@
+add video in the container and all in col 6 
+wiremesh is not the same this should look the same 
+change the background color of icon icmages
+dont use the wiremesh chooori wali
+dont use the repeated content
+remove the section above to how it works
