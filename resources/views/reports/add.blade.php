@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Add Report | Intrustpit')
+@section('title', 'Add Report | SLC Trust')
 @section('wrapper')
 <style>
     .data-table {

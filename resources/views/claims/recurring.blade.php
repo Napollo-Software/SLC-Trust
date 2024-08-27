@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Recurring bills | Intrustpit')
+@section('title', 'Recurring bills | SLC Trust')
 @section('wrapper')
     <style>
         /* .custom-row {

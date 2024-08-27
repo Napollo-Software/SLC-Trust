@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Edit Lead | Intrustpit')
+@section('title', 'Edit Lead | SLC Trust')
 @section('wrapper')
     <style>
         .card {

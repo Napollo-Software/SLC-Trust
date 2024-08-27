@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Bill Status | Intrustpit')
+@section('title', 'Bill Status | SLC Trust')
 @section("wrapper")
 <?php
     use App\Models\User;

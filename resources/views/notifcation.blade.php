@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Notifcations | Intrustpit')
+@section('title', 'Notifcations | SLC Trust')
 @section("wrapper")
 <style>
   @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap);

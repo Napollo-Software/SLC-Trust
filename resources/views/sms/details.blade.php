@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Referral | Intrustpit')
+@section('title', 'Referral | SLC Trust')
 @section('wrapper')
 <div class="page-content">
     <div class="card my-5">

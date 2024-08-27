@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Edit User | Intrustpit')
+@section('title', 'Edit User | SLC Trust')
 @section('wrapper')
     @php
         $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');

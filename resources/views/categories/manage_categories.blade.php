@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Manage Categories | Intrustpit') 
+@section('title', 'Manage Categories | SLC Trust') 
 @section("wrapper") 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>

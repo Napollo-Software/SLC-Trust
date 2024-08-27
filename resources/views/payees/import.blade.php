@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Add Balance | Intrustpit') 
+@section('title', 'Add Balance | SLC Trust') 
 @section("wrapper")
 <style type="text/css">
 #hidden_div {

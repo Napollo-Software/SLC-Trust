@@ -1,6 +1,6 @@
 @extends('myprint')
 
-@section('title', 'Print User Details | Intrustpit')
+@section('title', 'Print User Details | SLC Trust')
 @section('content')
 <style>
   @media print {

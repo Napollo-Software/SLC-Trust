@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'All Bills | Intrustpit')
+@section('title', 'All Bills | SLC Trust')
 @section("wrapper")
 <style>
   .paginate_button  {

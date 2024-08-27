@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Bills | Intrustpit')
+@section('title', 'Bills | SLC Trust')
 @section("wrapper")
 <style>
   

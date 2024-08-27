@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Follow-up | Intrustpit')
+@section('title', 'Follow-up | SLC Trust')
 @section('wrapper')
     @include('follow-up.create')
     @include('follow-up.update')

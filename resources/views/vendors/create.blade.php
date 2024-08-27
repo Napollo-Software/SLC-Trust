@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Add Account | Intrustpit')
+@section('title', 'Add Account | SLC Trust')
 @section('wrapper')
     @include('types.create')
     <div class="">

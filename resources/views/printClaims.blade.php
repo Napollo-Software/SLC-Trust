@@ -1,6 +1,6 @@
 
 @extends('myprint')
-@section('title', 'Bills download | Intrustpit')
+@section('title', 'Bills download | SLC Trust')
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Export Bills</title>
 <meta name="robots" content="noindex,nofollow" />

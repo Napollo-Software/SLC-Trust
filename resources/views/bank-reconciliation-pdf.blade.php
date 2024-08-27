@@ -1,6 +1,6 @@
 
 @extends('myprint')
-@section('title', 'Transactions download | Intrustpit')
+@section('title', 'Transactions download | SLC Trust')
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Transaction Ledger</title>
 <meta name="robots" content="noindex,nofollow" />
@@ -469,7 +469,7 @@
   </tr>
 </table>
 {{-- @extends('myprint')
-@section('title', 'Transactions download | Intrustpit')
+@section('title', 'Transactions download | SLC Trust')
 @section('content')
 @php
  $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');

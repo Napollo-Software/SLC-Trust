@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Types | Intrustpit')
+@section('title', 'Types | SLC Trust')
 @section('wrapper')
     @include('types.create')
     @include('types.update')

@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', ' Recurring Bill | Intrustpit')
+@section('title', ' Recurring Bill | SLC Trust')
 @section("wrapper")
 <style>
 .scrollable-container {

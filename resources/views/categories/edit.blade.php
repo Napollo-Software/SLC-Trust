@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Add Category | Intrustpit') 
+@section('title', 'Add Category | SLC Trust') 
 @section("wrapper")
           <div class="">
             <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Edit Category #{{ $category->id}}</h5>

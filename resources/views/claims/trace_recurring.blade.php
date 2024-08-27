@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Trace Recurring | Intrustpit')
+@section('title', 'Trace Recurring | SLC Trust')
 @section("wrapper")
 <style>
 

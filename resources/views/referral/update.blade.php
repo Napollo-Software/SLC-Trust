@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Update Referral | Intrustpit')
+@section('title', 'Update Referral | SLC Trust')
 @section('wrapper')
     @php
         $canada = [ 'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest

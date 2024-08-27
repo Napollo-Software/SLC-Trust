@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Search Results | Intrustpit')
+@section('title', 'Search Results | SLC Trust')
 @section("wrapper")
 @php
  

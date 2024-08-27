@@ -1,6 +1,6 @@
 @extends('myprint')
 
-@section('title', 'Print Bill Details | Intrustpit')
+@section('title', 'Print Bill Details | SLC Trust')
 @section('content')
    <?php
     use App\Models\User;

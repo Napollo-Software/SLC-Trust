@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Edit Account | Intrustpit')
+@section('title', 'Edit Account | SLC Trust')
 @section('wrapper')
     @php
         $canada = [ 'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia', 'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Yukon'];

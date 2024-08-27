@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'View Referrals | Intrustpit')
+@section('title', 'View Referrals | SLC Trust')
 @section('wrapper')
 
 <!-- BOOTSTRAP CSS -->

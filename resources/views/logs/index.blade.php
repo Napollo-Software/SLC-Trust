@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Logs List | Intrustpit')
+@section('title', 'Logs List | SLC Trust')
 <style>
 .word-wrap {
   width: 400px;

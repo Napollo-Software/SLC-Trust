@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Add User | Intrustpit')
+@section('title', 'Add User | SLC Trust')
 @section('wrapper')
     <div class="">
         <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Add User</h5>

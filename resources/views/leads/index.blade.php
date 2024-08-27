@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Leads | Intrustpit')
+@section('title', 'Leads | SLC Trust')
 @section('wrapper')
 @php
     $user = App\Models\User::find(Session::get('loginId'));

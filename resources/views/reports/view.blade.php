@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Lead | Intrustpit')
+@section('title', 'Lead | SLC Trust')
 @section("wrapper")
 @php
 $referralColumnMappings = [

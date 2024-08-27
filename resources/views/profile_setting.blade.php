@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Profile Settings | Intrustpit') 
+@section('title', 'Profile Settings | SLC Trust') 
 @section("wrapper")          
           <div class="">
             <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Profile Settings</h5>

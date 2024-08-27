@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Update Bill Status | Intrustpit')
+@section('title', 'Update Bill Status | SLC Trust')
 @section('wrapper')
     <style>
         #content {

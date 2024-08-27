@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Referral | Intrustpit')
+@section('title', 'Referral | SLC Trust')
 @section('wrapper')
 <style>
     @keyframes slideIn {

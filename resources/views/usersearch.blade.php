@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Search Results | Intrustpit')
+@section('title', 'Search Results | SLC Trust')
 @section("wrapper")
           <div class="container-xxl flex-grow-1 container-p-y">
             <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Search</h5>

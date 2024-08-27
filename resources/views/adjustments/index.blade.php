@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Adjustment | Intrustpit')
+@section('title', 'Adjustment | SLC Trust')
 @section('wrapper')
     <style>
         /* .nav-item {

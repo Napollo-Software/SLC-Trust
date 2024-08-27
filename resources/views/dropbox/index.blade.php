@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Dropbox | Intrustpit')
+@section('title', 'Dropbox | SLC Trust')
 @section("wrapper")
 <style>
    /* .paginate_button  {

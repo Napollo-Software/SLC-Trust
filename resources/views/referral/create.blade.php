@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Add Referral | Intrustpit')
+@section('title', 'Add Referral | SLC Trust')
 @section('wrapper')
     <style> .card {
             box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
