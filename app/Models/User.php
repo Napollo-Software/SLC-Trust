@@ -28,7 +28,7 @@ class User extends Model
         if ($value) {
             return asset('user/images' . $value);
         } else {
-            return asset('user/images/no-image.png' . $value);
+            return url('default-profile.png');
         }
     }
     public function followUps()
