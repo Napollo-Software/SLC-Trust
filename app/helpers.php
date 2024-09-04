@@ -203,11 +203,22 @@ if (!function_exists('createDocument')) {
         }
     }
 
-    if(!function_exists('errorLogs'))
-    {
+    if (!function_exists('errorLogs')) {
         function errorLogs($description)
         {
             ErrorLog::create(["description" => $description]);
+        }
+    }
+
+    if (!function_exists('ignoreAdminEmails')) {
+        function ignoreAdminEmails()
+        {
+            return [
+                'devops@napollo.net',
+                'svaldivia@trustedsurplus.org',
+                'ldurzieh@trustedsurplus.org',
+                'rbauman@trustedsurplus.org'
+            ];
         }
     }
 }
