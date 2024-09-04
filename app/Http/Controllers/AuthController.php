@@ -109,15 +109,6 @@ class AuthController extends Controller
             ]);
         }
 
-
-        $path = 'user/images';
-        $fontpath = public_path('fonts/oliciy.ttf');
-        $char = strtoupper($request->name[0]);
-        $newAvatarname = rand(12, 34355) . time() . '_avatar.png';
-        $dest = $path . $newAvatarname;
-
-        $createAvatar = makeAvatar($fontpath, $dest, $char);
-        $avatar = $createAvatar == true ? $newAvatarname : '';
         $user = new User();
 
         if ($role != "User") {
@@ -157,7 +148,6 @@ class AuthController extends Controller
         $user->gender = $request->gender;
         $user->date_of_withdrawal = $request->date_of_withdrawal;
         $user->email = $request->email;
-        $user->avatar = $avatar;
         $user->user_balance = '0';
         $user->token = $request->_token . rand();
         $user->password = Hash::make($request->password);
@@ -175,14 +165,10 @@ class AuthController extends Controller
 
             $admins_notification = User::where('role', "admin")->get();
 
-            $ignore_admin_notification = [
-                'devops@napollo.net',
-                'svaldivia@trustedsurplus.org',
-                'ldurzieh@trustedsurplus.org',
-                'rbauman@trustedsurplus.org'
-            ];
+            $ignore_admin_notification = ignoreAdminEmails();
 
-            foreach ($admins_notification as $notify) {
+            foreach ($admins_notification as $notify)
+            {
                 ///////////////Intrustpit Notification//////////
                 if (in_array($notify->email, $ignore_admin_notification))
                     continue;
@@ -199,8 +185,6 @@ class AuthController extends Controller
                 $url = '/show_user/' . $user->id;
                 if ($notify->notify_by == "email") {
                     SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
-                } else {
-
                 }
             }
         }
