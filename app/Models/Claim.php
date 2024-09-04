@@ -30,17 +30,5 @@ class Claim extends Model
 		return Claim::where('recurred',$this->id)->get(['id','created_at']);
 	}
     use HasFactory;
-    protected $fillable = [
-    	'claim_title',
-    	'expense_date',
-    	'claim_description',
-    	'claim_category',
-    	'claim_amount',
-    	'claim_bill_attachment',
-    	'payment_method',
-    	'claim_status',
-    	'claim_user',
-        'recurring_bill',
-		'recurring_day'
-    ];
+    protected $guarded = [];
 }

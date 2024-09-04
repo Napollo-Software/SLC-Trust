@@ -179,7 +179,7 @@
                                         </th>
                                         <td>
                                             @if ($u['role'] == 'User')
-                                                ${{ number_format((float) $u['user_balance'], 2, '.', ',') }}
+                                                ${{ number_format((float) userBalance($u['id']), 2, '.', ',') }}
                                         </td>
                                         @else
                                             N/A

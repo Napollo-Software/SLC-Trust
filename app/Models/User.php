@@ -12,6 +12,10 @@ class User extends Model
     use HasFactory, HasRoles;
     protected $guarded = [];
 
+    const Pending = 'Pending';
+
+    const Approved = 'Approved';
+
     public function calims()
     {
         return $this->hasMany(Claim::class, 'claim_user');
@@ -58,5 +62,10 @@ class User extends Model
     }
     public function trasactions(){
         return Transaction::where('user_id', '1009')->where('chart_of_account', null)->get();
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }

@@ -451,7 +451,9 @@
       processData : false,
       contentType : false,
       cache :false,
-      success:function(data){
+      success:function(data)
+      {
+        console.log(data);
         Swal.fire({
             title: data.header,
             text: data.message,
@@ -476,10 +478,10 @@
         if(xhr.responseJSON.errors.terms){
           $('.terms-error').text(xhr.responseJSON.errors.terms);
         };
-        $('.register-submit').attr('disabled',false);
       }
-    })
-  })
+    }),
+    $('.register-submit').attr('disabled',false);
+  });
 
   function erroralert(xhr) {
     if (typeof  xhr.responseJSON.errors === 'object') {

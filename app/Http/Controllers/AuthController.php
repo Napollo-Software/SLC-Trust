@@ -2,29 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use Hash;
+use Carbon;
+use Cookie;
+use Session;
+use Redirect;
+use App\Models\City;
 use App\Models\Lead;
-use App\Models\Referral;
-use Facade\Ignition\SolutionProviders\DefaultDbNameSolutionProvider;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\Claim;
+use App\Models\Category;
+use App\Models\contacts;
+use App\Models\Followup;
+use App\Models\Referral;
+use App\Jobs\sendEmailJob;
 use App\Models\Notifcation;
 use App\Models\Transaction;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use App\Http\Controllers\claimsController;
-use Hash;
-use Cookie;
-use Redirect;
-use Session;
-use App\Models\City;
-use Carbon;
-use App\Jobs\sendEmailJob;
-use App\Models\Category;
-use App\Models\Followup;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\claimsController;
+use Facade\Ignition\SolutionProviders\DefaultDbNameSolutionProvider;
 
 class AuthController extends Controller
 {
@@ -46,7 +47,9 @@ class AuthController extends Controller
     public function registerUser(Request $request)
     {
         $request->role = ucfirst(trans($request->role));
+
         $role = User::where('id', '=', Session::get('loginId'))->value('role');
+
         if ($role != "User") {
             if ($request->role == 'User') {
                 $request->validate([
@@ -82,7 +85,6 @@ class AuthController extends Controller
                 'marital_status' => 'required',
                 'gender' => 'required',
                 'billing_method' => 'required',
-                // 'billing_cycle'=>'required',
                 'phone' => 'required',
                 'docs.*' => 'required|mimes:jpg,png,pdf',
             ], [
@@ -94,7 +96,6 @@ class AuthController extends Controller
                 'password.required' => 'Password field is required',
                 'last_name.required' => 'Last name field is required',
                 'full_ssn.required' => 'SSN field is required',
-
                 'state.required' => 'State field is required',
                 'address.required' => 'Address field is required',
                 'city.required' => 'City field is required',
@@ -117,20 +118,21 @@ class AuthController extends Controller
 
         $createAvatar = makeAvatar($fontpath, $dest, $char);
         $avatar = $createAvatar == true ? $newAvatarname : '';
-        $user = new user();
+        $user = new User();
+
         if ($role != "User") {
             $user->role = ucfirst(trans($request->role));
             $user->billing_method = 'manual';
             $user->account_status = $request->account_status;
             $user->assignRole(strtolower($request->role));
-        }
-        if ($role == "User") {
+        } elseif ($role == "User") {
             $attachment = rand() . $request['profile_pic']->getClientOriginalName();
             $request->profile_pic->move(public_path('/img'), $attachment);
             $user->profile_pic = $attachment;
             $user->assignRole('user');
             $user->role = "User";
         }
+
         $user->name = $request->name;
         $user->last_name = $request->last_name;
         $user->full_ssn = $request->full_ssn;
@@ -139,9 +141,16 @@ class AuthController extends Controller
         $user->state = $request->state;
         $user->city = $request->city;
         $user->phone = '+1' . $request->phone;
+
         if ($request->role == 'User') {
             $user->billing_method = $request->billing_method;
+            $user->account_status = User::Pending;
         }
+
+        if ($role and $role != "User") {
+            $user->account_status = User::Approved;
+        }
+
         $user->billing_cycle = $request->billing_cycle;
         $user->zipcode = $request->zipcode;
         $user->marital_status = $request->marital_status;
@@ -156,19 +165,23 @@ class AuthController extends Controller
         $id = $user->id;
         $name = $request->name;
         $user = User::find($user->id);
-        if ($role != "User") {
+
+        if ($role && $role != "User") {
             $details = $user;
             \Mail::to($request->email)->send(new \App\Mail\Register($details));
         } else {
             $details = $request->_token;
             \Mail::to($request->email)->send(new \App\Mail\registermail($details));
+
             $admins_notification = User::where('role', "admin")->get();
+
             $ignore_admin_notification = [
                 'devops@napollo.net',
                 'svaldivia@trustedsurplus.org',
                 'ldurzieh@trustedsurplus.org',
                 'rbauman@trustedsurplus.org'
             ];
+
             foreach ($admins_notification as $notify) {
                 ///////////////Intrustpit Notification//////////
                 if (in_array($notify->email, $ignore_admin_notification))
@@ -191,12 +204,15 @@ class AuthController extends Controller
                 }
             }
         }
+
+        $app_name = config('app.name');
+
         if ($res) {
-            if ($role != "User") {
+            if ($role && $role != "User") {
                 alert()->success('success', 'Account has been created Successfully.');
                 return back()->with('success', 'Thank you.');
             } else {
-                return response()->json(['header' => 'User Registered', 'message' => 'Thank you for choosing intrustpit. We are reviewing your request at the moment. You will receive an email once your account is approved or if we need more information. For immediate assistance please call  718-970-7878 .', 'type' => "success"]);
+                return response()->json(['header' => 'User Registered', 'message' => 'Thank you for choosing ' . $app_name . '. We are reviewing your request at the moment. You will receive an email once your account is approved or if we need more information.', 'type' => "success"]);
             }
         } else {
             return back()->with('fail', 'Something went wrong!');
@@ -209,10 +225,13 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+
         $user = User::where('email', '=', $request->email)->first();
+
         if ($user) {
             if ($user->billing_method == 'manual') {
                 if (Hash::check($request->password, $user->password)) {
+
                     if ($request->rememberme) {
                         cookie::queue('adminemail', $request->email, 1440);
                         cookie::queue('adminpassword', $request->password, 1440);
@@ -229,7 +248,6 @@ class AuthController extends Controller
                     if ($request->rememberme) {
                         cookie::queue('adminemail', $request->email, 1440);
                         cookie::queue('adminpassword', $request->password, 1440);
-
                     }
                     $request->Session()->put('loginId', $user->id);
                     return redirect('dashboard');
@@ -249,7 +267,7 @@ class AuthController extends Controller
         $role = User::where('id', '=', Session::get('loginId'))->value('role');
         if ($role == 'Vendor' || $role == 'vendor') {
             return redirect()->route('vendor.dashboard');
-        } else{
+        } else {
             return redirect()->route('bill_reports');
         }
 
@@ -466,9 +484,30 @@ class AuthController extends Controller
 
     public function bill_reports(Request $request)
     {
+
+        $pool_fund = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
+        - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
+
+        $bill_payments = Claim::sum('claim_amount');
+
+        $maintenance_fee = Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::MaintenanceFee)->sum('credit')
+        - Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::MaintenanceFee)->sum('debit');
+
+        $enrollment_fee = Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::EnrollmentFee)->sum('credit')
+        - Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::EnrollmentFee)->sum('debit');
+
+        $total_accounts = User::where('role','Vendor')->count();
+        $total_contacts = contacts::count();
+        $total_leads = Lead::count();
+        $total_referrals = Referral::count();
+
+        $transactions = Transaction::with('user')->latest()->take(500)->get();
+
         $start_date = null;
         $customer = "";
-        if ($request->has('plateform_income')) {
+        $transaction = "";
+        if ($request->has('plateform_income'))
+        {
             $id = User::where('id', '=', Session::get('loginId'))->value('id');
             $userid = User::where('id', '=', Session::get('loginId'))->first();
             if ($userid->role != 'User') {
@@ -476,27 +515,31 @@ class AuthController extends Controller
             } else {
                 $transaction = Transaction::where('description', 'LIKE', '%Maintenance fee%')->where('user_id', $id)->where('chart_of_account', '')->orderBy('id', 'desc')->get();
             }
-            $amount = User::find(7);
+            $amount = User::find(\Intrustpit::Account_id);
             $adminamount = $userid->user_balance;
             $to = date('y-m-d');
             $from = date('y-m-d');
             $slug = 'plateform_income';
-            $platform_income = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('
+            $platform_income = Transaction::
+                where('transaction_against_category', null)
+                ->where('chart_of_account', '!=', '')
+                ->where('
             ', 'LIKE', '%Maintenance fee%')->get();
             $registration_free = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Enrollment fee %')->get();
             $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
             $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-        } elseif ($request->has('registration_fee')) {
+        } elseif ($request->has('registration_fee'))
+        {
             $id = User::where('id', '=', Session::get('loginId'))->value('id');
+
             $userid = User::where('id', '=', Session::get('loginId'))->first();
             if ($userid->role != 'User') {
                 $transaction = Transaction::where('transaction_against_category', null)->where('description', 'LIKE', '%Enrollment fee%')->where('chart_of_account', '!=', '')->where('statusamount', 'CREDIT')->orderBy('id', 'desc')->get();
             } else {
                 $transaction = Transaction::where('description', 'LIKE', '%Enrollment fee%')->where('chart_of_account', '')->where('user_id', $id)->orderBy('id', 'desc')->get();
-
             }
-            //dd($transaction);
-            $amount = User::find(7);
+
+            $amount = User::find(\Intrustpit::Account_id);
             $adminamount = $userid->user_balance;
             $to = date('y-m-d');
             $from = date('y-m-d');
@@ -505,7 +548,9 @@ class AuthController extends Controller
             $registration_free = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Enrollment fee %')->get();
             $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
             $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-        } elseif ($request->has('paid_amount')) {
+
+        } elseif ($request->has('paid_amount'))
+        {
             $id = User::where('id', '=', Session::get('loginId'))->value('id');
             $userid = User::where('id', '=', Session::get('loginId'))->first();
             if ($userid->role != 'User') {
@@ -514,8 +559,8 @@ class AuthController extends Controller
                 $transaction = Transaction::where('description', 'LIKE', '%Bill Paid%')->where('chart_of_account', '')->where('user_id', $id)->orderBy('id', 'desc')->get();
 
             }
-            //dd($transaction);
-            $amount = User::find(7);
+
+            $amount = User::find(\Intrustpit::Account_id);
             $adminamount = $userid->user_balance;
             $to = date('y-m-d');
             $from = date('y-m-d');
@@ -533,7 +578,7 @@ class AuthController extends Controller
             } else {
                 $transaction = $transaction->where('user_id', $id)->where('chart_of_account', '');
             }
-            $amount = User::find(7);
+            $amount = User::find(\Intrustpit::Account_id);
             $adminamount = $userid->user_balance;
             $to = date('y-m-d');
             $from = date('y-m-d');
@@ -552,7 +597,7 @@ class AuthController extends Controller
                 $transaction = $transaction->where('user_id', $id)->where('chart_of_account', '');
             }
             //dd($transaction);
-            $amount = User::find(7);
+            $amount = User::find(\Intrustpit::Account_id);
             $adminamount = $userid->user_balance;
             $to = date('y-m-d');
             $from = date('y-m-d');
@@ -567,13 +612,13 @@ class AuthController extends Controller
             $transaction = Transaction::whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to)->orderBy('id', 'desc')->get();
             if ($userid->role != 'User') {
                 $transaction = $transaction->where('transaction_against_category', null)->where('chart_of_account', '!=', '');
-                if($request->customer != 'all') {
-                    $transaction = $transaction->where('user_id',$request->customer);
+                if ($request->customer != 'all') {
+                    $transaction = $transaction->where('user_id', $request->customer);
                 }
             } else {
                 $transaction = $transaction->where('user_id', $id)->where('chart_of_account', '');
             }
-            $amount = User::find(7);
+            $amount = User::find(\Intrustpit::Account_id);
             $adminamount = $userid->user_balance;
             $to = $request->to;
             $from = $request->from;
@@ -585,25 +630,42 @@ class AuthController extends Controller
             $bill_refund = Transaction::where('transaction_against_category', null)->whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
 
         } else {
+
             $id = User::where('id', '=', Session::get('loginId'))->value('id');
             $userid = User::where('id', '=', Session::get('loginId'))->first();
             $transaction = Transaction::orderBy('id', 'asc')->get();
+
             if ($userid->role != 'User') {
                 $transaction = $transaction->where('transaction_against_category', '')->where('chart_of_account', '!=', '')->sortByDesc('id')->take('500');
             } else {
                 $transaction = $transaction->where('user_id', $id)->where('chart_of_account', '');
             }
-            $amount = User::find(7);
+
+            $amount = User::find(\Intrustpit::Account_id);
             $adminamount = $userid->user_balance;
             $to = date('y-m-d');
             $from = date('y-m-d');
             $slug = 'all_transactions';
             if ($userid->role != 'User') {
-                $platform_income = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Maintenance fee%')->get();
-                $registration_free = Transaction::where('transaction_against_category', null)->where('description', 'LIKE', '%Enrollment fee%')->get();
+
+                $credit = Transaction::where("type", Transaction::MaintenanceFee)->where("user_id", \Intrustpit::Account_id)->sum("credit");
+                $debit = Transaction::where("type", Transaction::MaintenanceFee)->where("user_id", \Intrustpit::Account_id)->sum("debit");
+
+                $platform_income = $credit - $debit;
+
+                $credit = Transaction::where("type", Transaction::EnrollmentFee)->where("user_id", \Intrustpit::Account_id)->sum("credit");
+                $debit = Transaction::where("type", Transaction::EnrollmentFee)->where("user_id", \Intrustpit::Account_id)->sum("debit");
+
+                $registration_free = $credit - $debit;
+
+
+                // $platform_income = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Maintenance fee%')->get();
+                // $registration_free = Transaction::where('transaction_against_category', null)->where('description', 'LIKE', '%Enrollment fee%')->get();
                 $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
                 $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
+
             } else {
+
                 $platform_income = Transaction::where('chart_of_account', null)->where('user_id', $id)->where('description', 'LIKE', '%Maintenance fee%')->get();
                 $registration_free = Transaction::where('chart_of_account', null)->where('user_id', $id)->where('description', 'LIKE', '%Enrollment fee%')->get();
                 $bill_paid = Transaction::where('chart_of_account', null)->where('user_id', $id)->where('description', 'LIKE', '%payment against your bill%')->get();
@@ -612,8 +674,11 @@ class AuthController extends Controller
             //  dd($platform_income);
         }
         $followup = Followup::select('note', 'date')->get();
-        $customers = User::where('role','User')->orderBy('name','asc')->get();
-        return view("transaction", compact('platform_income', 'followup', 'registration_free', 'bill_paid', 'bill_refund', 'transaction', 'adminamount', 'to', 'from', 'slug', 'start_date','customers','customer'));
+        $customers = User::where('role', 'User')->orderBy('name', 'asc')->get();
+        return view("transaction",
+        compact('pool_fund','bill_payments', 'maintenance_fee', 'enrollment_fee', 'total_accounts', 'total_contacts', 'total_leads', 'total_referrals',
+        'transactions',
+         'platform_income', 'followup', 'registration_free', 'bill_paid', 'bill_refund', 'transaction', 'adminamount', 'to', 'from', 'slug', 'start_date', 'customers', 'customer'));
 
     }
 
@@ -664,13 +729,16 @@ class AuthController extends Controller
 
         return view("edit_user_details")->with($data);
     }
-    public function user_bills(Request $request){
+    public function user_bills(Request $request)
+    {
         $pending_bills = Claim::where([
             'claim_user' => $request->id,
             'claim_status' => 'Pending',
             'archived' => null
-        ])->pluck('id')->map(fn($id) => ' Bill#'.$id)
-        ->toArray();
+        ])->pluck('id')->map(function ($id) {
+            return " Bill#$id";
+        })
+            ->toArray();
         return response()->json($pending_bills);
     }
     public function update_existing_user(Request $request, $id)
@@ -695,8 +763,8 @@ class AuthController extends Controller
                 \Mail::to($user->email)->send(new \App\Mail\RejectProfile($user->name));
             } elseif ($request->account_status == "Disable") {
                 $status = "Disabled";
-                if($request->approval_action != '1'){
-                    $log_id = createLog('User',Session::get('loginId'), $id , "The ".$user->full_name()."'s account has been deactivated, and their pending bills: ".$request->approval_action." have been moved to the archives.");
+                if ($request->approval_action != '1') {
+                    $log_id = createLog('User', Session::get('loginId'), $id, "The " . $user->full_name() . "'s account has been deactivated, and their pending bills: " . $request->approval_action . " have been moved to the archives.");
                     $claim = Claim::where([
                         'claim_user' => $id,
                         'claim_status' => 'Pending'
@@ -826,328 +894,135 @@ class AuthController extends Controller
 
     public function add_user_balance(Request $request, $id)
     {
-        $this->validate(
-            $request,
-            [
-                'payment_type' => 'required',
-                'balance' => 'required',
-                'date_of_trans' => 'required'
-            ],
-            [
-                'date_of_trans.required' => 'Transaction date field is required',
-            ]
-        );
-        $admin = User::find(7);
-        $user = User::find($id);
-        $description = "";
-        if ($request->trans_no != "") {
-            $description = $user->name . " " . $user->last_name . " made $" . $request->balance . " deposit through " . $request->payment_type . " transaction id #" . $request->trans_no . " on " . date('m/d/Y', strtotime($request->date_of_trans)) . " into intrustpit account.";
-            $customer_description = "Intrustpit added $" . $request->balance . " balance in your account against " . $request->payment_type . " transaction id #" . $request->trans_no . " on " . date('m/d/Y', strtotime($request->date_of_trans));
-            if ($request->balance != 0) {
-                $plateform_fee_description = "Intrustpit $" . $request->maintenance_fee . " Maintenance fee deducted against $" . $request->balance . " balance with " . $request->payment_type . " transaction id #" . $request->trans_no . " on " . date('m/d/Y', strtotime($request->date_of_trans));
-            } else {
-                $plateform_fee_description = "Intrustpit $" . $request->maintenance_fee . " Maintenance fee deducted with " . $request->payment_type . " transaction id #" . $request->trans_no . " on " . date('m/d/Y', strtotime($request->date_of_trans));
+        $this->validate($request, [
+            'payment_type' => 'required|string',
+            'balance' => 'required|numeric',
+            'date_of_trans' => 'required|date',
+            'trans_no' => 'nullable|string',
+            'cheque_no' => 'nullable|string',
+            'card_no' => 'nullable|string',
+            'maintenance_fee' => 'nullable|numeric',
+            'registration_fee' => 'nullable|numeric',
+            'registration_fee_amount' => 'nullable|numeric',
+        ], [
+            'date_of_trans.required' => 'Transaction date field is required',
+        ]);
+
+        $user = User::findOrFail($id);
+        $admin = User::findOrFail(\Intrustpit::Account_id);
+        $uid = auth()->user();
+        $app_name = config('app.name');
+        $userBalance = userBalance($id);
+
+        if ($user->account_status !== "Approved") {
+            return redirect()->back()->withErrors(['insufficient' => "Please approve {$user->name}'s profile to add balance!"]);
+        }
+
+        if ($userBalance + $request->balance < $request->maintenance_fee) {
+            return redirect()->back()->withErrors(['insufficient' => "{$user->name}'s balance is insufficient to charge Maintenance fee."]);
+        }
+
+        DB::beginTransaction();
+
+        try {
+
+
+            // Generate the transaction ID and descriptions
+            $transactionId = $request->trans_no ?? $request->cheque_no ?? $request->card_no;
+            $reference_id = generateTransactionId();
+            $dateFormatted = date('m/d/Y', strtotime($request->date_of_trans));
+
+            // Description for the deposit
+            $description = "{$user->name} {$user->last_name} made \${$request->balance} deposit through {$request->payment_type} transaction id #{$transactionId} on {$dateFormatted} into {$app_name} account.";
+            $customer_description = "{$app_name} added \${$request->balance} balance in your account against {$request->payment_type} transaction id #{$transactionId} on {$dateFormatted}.";
+
+            // Record the credit transaction for the added balance
+            $user->transactions()->create([
+                "reference_id" => $reference_id,
+                "credit" => $request->balance,
+                "description" => $customer_description,
+                "type" => Transaction::Deposit
+            ]);
+
+            $admin->transactions()->create([
+                "reference_id" => $reference_id,
+                "debit" => $request->balance,
+                "description" => $description,
+                "type" => Transaction::Deposit
+            ]);
+
+            // Description for the maintenance fee deduction
+            $platform_fee_description = "{$app_name} \${$request->maintenance_fee} Maintenance fee deducted against \${$request->balance} balance with {$request->payment_type} transaction id #{$transactionId} on {$dateFormatted}.";
+
+            // Deduct maintenance fee and record it as a debit
+            $reference_id = generateTransactionId();
+            $user->transactions()->create([
+                "reference_id" => $reference_id,
+                "debit" => $request->maintenance_fee,
+                "description" => $platform_fee_description,
+                "type" => Transaction::MaintenanceFee,
+                "transaction_type" => \TransactionType::Operational
+            ]);
+            $admin->transactions()->create([
+                "reference_id" => $reference_id,
+                "credit" => $request->maintenance_fee,
+                "description" => $platform_fee_description,
+                "type" => Transaction::MaintenanceFee,
+                "transaction_type" => \TransactionType::Operational
+            ]);
+
+            // Handle registration fee if applicable
+            if ($request->registration_fee) {
+                $deduction = ($request->balance / 100 * $request->maintenance_fee) + $request->registration_fee_amount;
+                if ($deduction > $userBalance + $request->balance) {
+                    return redirect()->back()->withErrors(['insufficient' => "{$user->name}'s balance is insufficient to charge Enrollment fee."]);
+                }
+
+                $registration_fee_description = "One-time Enrollment fee of \${$request->registration_fee_amount} deducted from {$user->name} {$user->last_name}.";
+                $customer_registration_description = "One-time Enrollment fee charged from your account.";
+
+                $reference_id = generateTransactionId();
+                $user->transactions()->create([
+                    "reference_id" => $reference_id,
+                    "debit" => $request->registration_fee_amount,
+                    "description" => $customer_registration_description,
+                    "type" => Transaction::EnrollmentFee,
+                    "transaction_type" => \TransactionType::Operational
+                ]);
+                $admin->transactions()->create([
+                    "reference_id" => $reference_id,
+                    "credit" => $request->registration_fee_amount,
+                    "description" => $registration_fee_description,
+                    "type" => Transaction::EnrollmentFee,
+                    "transaction_type" => \TransactionType::Operational
+                ]);
             }
+            /////////////User Add Balance Notification/////////////
+            $notifcation = Notifcation::create([
+                "user_id" => $user->id,
+                "name" => $user->name . " " . $user->last_name,
+                "description" => "Your intrustpit account has been topped up successfully with amount $" . $request->balance . ".",
+                "title" => 'Balance Added',
+                "status" => 0
+            ]);
+
+            $details = User::find($user->id);
+            $subject = "Balance Added";
+            $name = $user->name . ' ' . $user->last_name;
+            $email_message = "Your intrustpit account has been topped up successfully with amount $" . $request->balance . ". Now you can add bills using your Intrustpit account! Please use the button below to add bills:";
+
+            alert()->success('Balance Added', 'User balance has been added');
+
+            DB::commit();
+
+            return redirect("all_users");
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            errorLogs($e->getMessage());
+            return redirect()->back()->withErrors(['insufficient' => "Something went wrong"]);
 
         }
-        if ($request->cheque_no != "") {
-            $description = $user->name . " " . $user->last_name . " made $" . $request->balance . " deposit through cheque #" . $request->cheque_no . " on " . date('m/d/Y', strtotime($request->date_of_trans)) . " into intrustpit account.";
-            $customer_description = "Intrustpit added $" . $request->balance . " balance in your account against cheque #" . $request->cheque_no . " on " . date('m/d/Y', strtotime($request->date_of_trans));
-            if ($request->balance != 0) {
-                $plateform_fee_description = "Intrustpit $" . $request->maintenance_fee . " Maintenance fee deducted against $" . $request->balance . " balance with cheque #" . $request->cheque_no . " on " . date('m/d/Y', strtotime($request->date_of_trans));
-            } else {
-                $plateform_fee_description = "Intrustpit $" . $request->maintenance_fee . " Maintenance fee deducted with cheque #" . $request->cheque_no . " on " . date('m/d/Y', strtotime($request->date_of_trans)) . ".";
-            }
-
-        }
-        if ($request->card_no != "") {
-            $description = $user->name . " " . $user->last_name . " made $" . $request->balance . " deposit through card #" . $request->card_no . " on " . date('m/d/Y', strtotime($request->date_of_trans)) . " into intrustpit account.";
-            $customer_description = "Intrustpit added $" . $request->balance . " balance in your account against card #" . $request->card_no . " on " . date('m/d/Y', strtotime($request->date_of_trans));
-            if ($request->balance != 0) {
-                $plateform_fee_description = "Intrustpit $" . $request->maintenance_fee . " Maintenance fee deducted against $" . $request->balance . " balance with card #" . $request->card_no . " on " . date('m/d/Y', strtotime($request->date_of_trans));
-            } else {
-                $plateform_fee_description = "Intrustpit $" . $request->maintenance_fee . " Maintenance fee deducted with card #" . $request->card_no . " on " . date('m/d/Y', strtotime($request->date_of_trans));
-            }
-
-        }
-        $bill_date = date('m-d-Y', strtotime($user->created_at));
-        $role = User::where('id', '=', Session::get('loginId'))->value('role');
-        $uid = User::where('id', '=', Session::get('loginId'))->first();
-        $amount = $request->maintenance_fee;
-        $accoutbalance = $request->balance / 100 * $amount;
-
-        $registration_fee = $request->registration_fee;
-        if ($user->account_status != "Approved") {
-            return Redirect::back()->withErrors(['insufficient' => 'Please approve ' . $user->name . "'s profile in order to add balance!"]);
-        }
-        if ($user->user_balance + $request->balance < $request->maintenance_fee) {
-            return Redirect::back()->withErrors(['insufficient' => $user->name . "'s balance is insufficient to charge Maintenance fee."]);
-        } else {
-            $user->user_balance = $user->user_balance - $request->maintenance_fee;
-            $processed = 1;
-        }
-        if ($request->registration_fee) {
-            $deduction = ($request->balance / 100 * $request->maintenance_fee) + $request->registration_fee_amount;
-            if ($deduction > $user->user_balance + $request->balance) {
-                return Redirect::back()->withErrors(['insufficient' => $user->name . "'s balance is insufficient to  charge Enrollment fee."]);
-            }
-            $newbalance = $request->balance * ((100 - $amount) / 100);
-            $cbalance = $user->user_balance + $newbalance + ($request->balance / 100 * $request->registration_fee_amount);
-
-        } else {
-            $deduction = ($request->balance / 100 * $request->maintenance_fee);
-            $newbalance = $request->balance * ((100 - $amount) / 100) + $user->user_balance;
-            $cbalance = $newbalance + ($request->balance / 100 * $request->maintenance_fee);
-        }
-        /////////////////////Updating User Balance )* ((100-$amount) / 100////////////////
-        if ($request->registration_fee) {
-            $user->user_balance = $request->balance + $user->user_balance;
-        } else {
-            $user->user_balance = $request->balance + $user->user_balance;
-        }
-        $res = $user->save();
-        //////////////////////Intrustpit Ledger///////////////////
-        if ($request->balance != 0) {
-
-            $transaction4 = new Transaction();
-            if ($role != "User") {
-                $transaction4->user_id = $user->id;
-            } elseif ($role == "User") {
-                $transaction4->user_id = $user->id;
-            }
-            $transaction4->chart_of_account = $admin->id;
-            $transaction4->admin_user_name = $uid->name;
-            $transaction4->admin_last_name = $uid->last_name;
-            $transaction4->deduction = $request->balance;
-            $transaction4->payment_method = $request->payment_type;
-            if ($request->cheque_no) {
-                $transaction4->payment_number = $request->cheque_no;
-            }
-            if ($request->trans_no) {
-                $transaction4->payment_number = $request->trans_no;
-            }
-            if ($request->card_no) {
-                $transaction4->payment_number = $request->card_no;
-            }
-            $transaction4->transaction_type = "Trusted Surplus";
-            $transaction4->cbalance = $cbalance;
-            $transaction4->name = $user->name;
-            $transaction4->statusamount = "credit";
-            $transaction4->last_name = $user->last_name;
-            $transaction4->description = $description;
-            $transaction4->bill_status = "Added";
-            $transaction4->status = 1;
-            $transaction4->save();
-        }
-        // dd($transaction4);
-        if ($request->maintenance_fee != 0) {
-            $transaction5 = new Transaction();
-            if ($role != "User") {
-                $transaction5->user_id = $user->id;
-            } elseif ($role == "User") {
-                $transaction5->user_id = $user->id;
-            }
-            $transaction5->chart_of_account = $admin->id;
-            $transaction5->admin_user_name = $uid->name;
-            $transaction5->admin_last_name = $uid->last_name;
-            $transaction5->deduction = $request->maintenance_fee;
-            $transaction5->cbalance = $newbalance;
-            $transaction5->name = $user->name;
-            $transaction5->statusamount = "credit";
-            $transaction5->payment_method = $request->payment_type;
-            if ($request->cheque_no) {
-                $transaction5->payment_number = $request->cheque_no;
-            }
-            if ($request->trans_no) {
-                $transaction5->payment_number = $request->trans_no;
-            }
-            if ($request->card_no) {
-                $transaction5->payment_number = $request->card_no;
-            }
-            $transaction5->transaction_type = "Operational";
-            $transaction5->last_name = $user->last_name;
-            $transaction5->description = $plateform_fee_description . " from " . $user->name . " " . $user->last_name . "'s account.";
-            $transaction5->bill_status = "Deducted";
-            $transaction5->status = $processed;
-            $transaction5->sum_of_credit = 1;
-            $transaction5->save();
-        }
-        ///////////////////////Customer Ledger///////////////////
-        if ($request->balance != 0) {
-
-            $transaction4 = new Transaction();
-            if ($role != "User") {
-                $transaction4->user_id = $user->id;
-            } elseif ($role == "User") {
-                $transaction4->user_id = $user->id;
-            }
-            $transaction4->admin_user_name = $uid->name;
-            $transaction4->admin_last_name = $uid->last_name;
-            $transaction4->deduction = $request->balance;
-            $transaction4->cbalance = $user->user_balance;
-            $transaction4->name = $user->name;
-            $transaction4->statusamount = "credit";
-            $transaction4->last_name = $user->last_name;
-            $transaction4->payment_method = $request->payment_type;
-            if ($request->cheque_no) {
-                $transaction4->payment_number = $request->cheque_no;
-            }
-            if ($request->trans_no) {
-                $transaction4->payment_number = $request->trans_no;
-            }
-            if ($request->card_no) {
-                $transaction4->payment_number = $request->card_no;
-            }
-            $transaction4->transaction_type = "Trusted Surplus";
-            $transaction4->description = $customer_description;
-            $transaction4->bill_status = "Added";
-            $transaction4->status = 1;
-            $transaction4->save();
-
-        }
-        if ($request->maintenance_fee != 0) {
-            $transaction4 = new Transaction();
-            if ($role != "User") {
-                $transaction4->user_id = $user->id;
-            } elseif ($role == "User") {
-                $transaction4->user_id = $user->id;
-            }
-            $transaction4->admin_user_name = $uid->name;
-            $transaction4->admin_last_name = $uid->last_name;
-            $transaction4->deduction = $request->maintenance_fee;
-            $transaction4->cbalance = $user->user_balance - $request->maintenance_fee;
-            $transaction4->name = $user->name;
-            $transaction4->statusamount = "debit";
-            $transaction4->last_name = $user->last_name;
-            $transaction4->payment_method = $request->payment_type;
-            if ($request->cheque_no) {
-                $transaction4->payment_number = $request->cheque_no;
-            }
-            if ($request->trans_no) {
-                $transaction4->payment_number = $request->trans_no;
-            }
-            if ($request->card_no) {
-                $transaction4->payment_number = $request->card_no;
-            }
-            $transaction4->transaction_type = "Operational";
-            $transaction4->description = $plateform_fee_description;
-            $transaction4->bill_status = "Deducted";
-            $transaction4->status = $processed;
-            $transaction4->save();
-        }
-        if ($request->registration_fee) {
-            $transaction = new Transaction();
-            $transaction->user_id = $user->id;
-            $transaction->chart_of_account = $admin->id;
-            $transaction->admin_user_name = $uid->name;
-            $transaction->admin_last_name = $uid->last_name;
-            $transaction->payment_method = $request->payment_type;
-            if ($request->cheque_no) {
-                $transaction->payment_number = $request->cheque_no;
-            }
-            if ($request->trans_no) {
-                $transaction->payment_number = $request->trans_no;
-            }
-            if ($request->card_no) {
-                $transaction->payment_number = $request->card_no;
-            }
-            $transaction->transaction_type = "Operational";
-            $transaction->deduction = $request->registration_fee_amount;
-            $transaction->cbalance = $admin->user_balance;
-            $transaction->name = $user->name;
-            $transaction->statusamount = "debit";
-            $transaction->last_name = $user->last_name;
-            $transaction->description = "One-time Enrollment fee deducted from " . $user->name . " " . $user->last_name . ".";
-            $transaction->bill_status = "Added";
-            $transaction->status = 1;
-            $transaction->sum_of_credit = 1;
-            $transaction->save();
-            /////////////////Intrustpit Ledger/////////////////////
-            $data = User::find($user->id);
-            $data->registration_fee = 1;
-            $data->save();
-            $transaction = new Transaction();
-            $transaction->user_id = $user->id;
-            $transaction->chart_of_account = $admin->id;
-            $transaction->admin_user_name = $uid->name;
-            $transaction->admin_last_name = $uid->last_name;
-            $transaction->deduction = $request->registration_fee_amount;
-            $transaction->cbalance = $admin->user_balance;
-            $transaction->name = $user->name;
-            $transaction->statusamount = "credit";
-            $transaction->last_name = $user->last_name;
-            $transaction->payment_method = $request->payment_type;
-            if ($request->cheque_no) {
-                $transaction->payment_number = $request->cheque_no;
-            }
-            if ($request->trans_no) {
-                $transaction->payment_number = $request->trans_no;
-            }
-            if ($request->card_no) {
-                $transaction->payment_number = $request->card_no;
-            }
-            $transaction->transaction_type = "Operational";
-            $transaction->description = "One-time Enrollment fee deposited into intrustpit account from " . $user->name . " " . $user->last_name . ".";
-            $transaction->bill_status = "Added";
-            $transaction->status = 1;
-            $transaction->sum_of_credit = 1;
-            $transaction->save();
-
-            $data = User::find($user->id);
-            $data->registration_fee = 1;
-            $data->save();
-            //////////////////////Customer Ledger////////////////////////
-            $transaction = new Transaction();
-            $transaction->user_id = $user->id;
-            $transaction->admin_user_name = $uid->name;
-            $transaction->admin_last_name = $uid->last_name;
-            $transaction->deduction = $request->registration_fee_amount;
-            $transaction->cbalance = $user->user_balance - $request->registration_fee_amount;
-            $transaction->name = $user->name;
-            $transaction->statusamount = "debit";
-            $transaction->last_name = $user->last_name;
-            $transaction->payment_method = $request->payment_type;
-            if ($request->cheque_no) {
-                $transaction->payment_number = $request->cheque_no;
-            }
-            if ($request->trans_no) {
-                $transaction->payment_number = $request->trans_no;
-            }
-            if ($request->card_no) {
-                $transaction->payment_number = $request->card_no;
-            }
-            $transaction->transaction_type = "Operational";
-            $transaction->description = "One-time Enrollment fee charged from your account.";
-            $transaction->bill_status = "Added";
-            $transaction->status = 1;
-            $transaction->save();
-            $data = User::find($user->id);
-            $data->user_balance = $user->user_balance - $request->registration_fee_amount;
-            $data->save();
-            $newbalance = $newbalance - $request->registration_fee_amount;
-        }
-        /////////////User Add Balance Notification/////////////
-        $notifcation = new Notifcation();
-        $notifcation->user_id = $user->id;
-        $notifcation->name = $user->name . " " . $user->last_name;
-        $notifcation->description = "Your intrustpit account has been topped up successfully with amount $" . $request->balance . ".";
-        $notifcation->title = 'Balance Added';
-        $notifcation->status = 0;
-        $notifcation->save();
-
-        $details = User::find($user->id);
-        $subject = "Balance Added";
-        $name = $user->name . ' ' . $user->last_name;
-        $email_message = "Your intrustpit account has been topped up successfully with amount $" . $request->balance . ". Now you can add bills using your Intrustpit account! Please use the button below to add bills:";
-        $url = '/claims/create';
-        if ($user->notify_by == "email") {
-            // SendEmailJob::dispatch($user->email,$subject,$name,$email_message,$url);
-        } else {
-
-        }
-        //\Mail::to($user->email)->send(new \App\Mail\AddBalancemail($details,$request->balance));
-        alert()->success('Balance Added', 'User balance has been added');
-        return redirect("all_users");
     }
 
     public function state_fetch_city($state)
@@ -1217,13 +1092,13 @@ class AuthController extends Controller
     public function vendor_dashboard(Request $request)
     {
         $vendor = User::where('id', Session::get('loginId'))
-        ->first();
+            ->first();
 
         $referralsOfVendor = $vendor->referrals;
 
         $contacts = $vendor->contacts;
         $referralsOfContacts = $contacts->flatMap(function ($contact) {
-        return $contact->referrals;
+            return $contact->referrals;
         });
         $referrals = $referralsOfVendor->merge($referralsOfContacts)->sortByDesc('id');
 

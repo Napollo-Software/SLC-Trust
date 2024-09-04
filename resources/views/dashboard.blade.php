@@ -274,7 +274,7 @@
                                                 </td>
                                                 <td style="vertical-align: middle;" >{{ $claim->account_number }}</td>
                                                 <td style="vertical-align: middle;">
-                                                   {{$claim->user_details->user_balance}}
+                                                   {{userBalance($claim->claim_user)}}
                                                 </td>
                                                 <td style="vertical-align: middle;">${{ number_format((float) $claim['claim_amount'], 2, '.', ',') }}</td>
                                                 <td style="vertical-align: middle;" >

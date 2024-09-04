@@ -2,93 +2,85 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Transaction;
-use App\Models\Notifcation;
 use App\Jobs\sendEmailJob;
+use App\Models\Notifcation;
+use App\Models\Transaction;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdjustmentController extends Controller
 {
     public function index()
     {
-        $users = User::where('role','User')->get();
-        return view('adjustments.index',compact('users'));
+        $users = User::where('role', 'User')->get();
+        return view('adjustments.index', compact('users'));
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'type' => 'required',
-            'user' => 'required',
-            'amount' => 'required',
-            'details' => 'required'
-        ],[
-            'user.required' =>'Please select user to create adjustment'
+        $validated = $request->validate([
+            'type' => 'required|in:debit,credit',
+            'user' => 'required|exists:users,id',
+            'amount' => 'required|numeric|min:0.01',
+            'details' => 'required|string'
+        ], [
+            'user.required' => 'Please select a user to create an adjustment.'
         ]);
-        $user_balance = 0;
-        $intrustpit=User::find(\Intrustpit::Account_id);
-        $user = User::find($request->user);
-        if($request->type == 'debit' && $user->user_balance < $request->amount){
-            return response()->json(['type'=>0  , 'message' => $user->name.' '.$user->last_name."'s balance is $".$user->user_balance.' which is insufficient to add this adjustment.']);
-        }else{
-            $user_balance = $user->user_balance - $request->amount;
-            $admin_message =  "Adjustment : Intrustpit has processed adjustment entry and deduct amount $".$request->amount." form ".$user->name." ".$user->last_name."' account. Transaction reason is '".$request->details."'.";
-            $user_message = "Adjustment : Intrustpit has processed adjustment entry against your account and deduct amount $".$request->amount.". Transaction reason is '".$request->details."'.";
-            $type = 'debit';
-            $subject = 'Balance Deducted';
+
+        $admin = User::find(\Intrustpit::Account_id);
+
+        $user = User::find($validated['user']);
+
+        $userBalance = userBalance($user->id);
+
+        $app_name = config('app.name');
+
+        if ($validated['type'] == 'debit' && $userBalance < $validated['amount']) {
+            return response()->json(['type' => 0, 'message' => "{$user->name} {$user->last_name}'s balance of \${$userBalance} is insufficient."]);
         }
-        if($request->type == 'credit'){
-            $user_balance = $user->user_balance + $request->amount;
-            $admin_message =  "Adjustment : Intrustpit has processed adjustment entry and add amount $".$request->amount." to ".$user->name." ".$user->last_name."' account. Transaction reason is '".$request->details."'.";
-            $user_message = "Adjustment : Intrustpit has processed adjustment entry against your account and add amount $".$request->amount.". Transaction reason is '".$request->details."'.";
-            $type = 'credit';
-            $subject = 'Balance Added';
+
+        DB::beginTransaction();
+        try {
+            $transactionType = $validated['type'];
+            $adminDirection = $transactionType === 'credit' ? 'debit' : 'credit';
+            $admin_message = "Adjustment : {$app_name} has processed an adjustment entry to {$transactionType} amount \${$request->amount} for {$user->name} {$user->last_name}. Transaction reason: '{$request->details}'.";
+            $user_message = "Adjustment : Your account has been {$transactionType}ed by amount \${$request->amount}. Transaction reason: '{$request->details}'.";
+            $subject = $transactionType === 'credit' ? 'Balance Added' : 'Balance Deducted';
+
+            $reference_id = generateTransactionId();
+
+            $user->transactions()->create([
+                'status' => 1,
+                $transactionType => $validated['amount'],
+                'description' => $user_message,
+                'reference_id' => $reference_id,
+                'transaction_type' => \TransactionType::TrustedSurplus,
+            ]);
+
+            $admin->transactions()->create([
+                'status' => 1,
+                $adminDirection => $validated['amount'],
+                'description' => $admin_message,
+                'reference_id' => $reference_id,
+                'transaction_type' => \TransactionType::TrustedSurplus,
+            ]);
+
+            Notifcation::create([
+                'user_id' => $user->id,
+                'name' => $user->name,
+                'description' => $user_message,
+                'title' => $subject,
+                'status' => 0,
+            ]);
+
+            DB::commit();
+            return response()->json(['type' => 1, 'message' => 'Adjustment has been created successfully.']);
+        } catch (\Exception $e) {
+            DB::rollback();
+            errorLogs($e->getMessage());
+            return response()->json(['type' => 0, 'message' => 'Failed to create adjustment: ' . $e->getMessage()]);
         }
-        $user->user_balance = $user_balance;
-        $user->save();
-        $transaction=new Transaction();
-        $transaction->user_id=$user->id;
-        $transaction->chart_of_account=$intrustpit->id;
-        $transaction->admin_user_name=$intrustpit->name;
-        $transaction->admin_last_name=$intrustpit->last_name;
-        $transaction->deduction=$request->amount;
-        $transaction->name=$user->name;
-        $transaction->statusamount=$type;
-        $transaction->last_name=$user->last_name;
-        $transaction->description= $admin_message;
-        $transaction->status = 1;
-        $transaction->transaction_type="Trusted Surplus";
-        $transaction->save();
-        $transaction=new Transaction();
-        $transaction->user_id=$user->id;
-        $transaction->admin_user_name=$intrustpit->name;
-        $transaction->admin_last_name=$intrustpit->last_name;
-        $transaction->deduction=$request->amount;
-        $transaction->name=$user->name;
-        $transaction->statusamount=$type;
-        $transaction->cbalance= $user->user_balance;
-        $transaction->last_name=$user->last_name;
-        $transaction->description= $user_message;
-        $transaction->transaction_type="Trusted Surplus";
-        $transaction->status = 1;
-        $transaction->save();
-        $notifcation=new Notifcation();
-        $notifcation->user_id=$user->id;
-        $notifcation->name=$user->name;
-        $notifcation->description=$user_message;
-        $notifcation->title=$subject;
-        $notifcation->status = 0;
-        $notifcation->save();
-        $details = User::find($user->id);
-        $subject = $subject;
-        $name = $user->name.' '.$user->last_name;
-        $email_message = $user_message;
-        $url = '/main';
-        if($user->notify_by == "email"){
-           // SendEmailJob::dispatch($user->email,$subject,$name,$email_message,$url);
-        }else{
-            
-        }
-        return response()->json(['type'=>1 , 'message'=>'Adjustment has been created successfully.']);
     }
+
+
 }

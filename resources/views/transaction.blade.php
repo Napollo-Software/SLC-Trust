@@ -180,7 +180,7 @@
                                     <div>
                                         <p class="mb-0">Pool Fund</p>
                                         <h5 class="mb-0">
-                                            ${{ number_format((float) User::where('role', 'User')->sum('user_balance'), 2, '.', ',') }}
+                                            ${{ number_format((float) $pool_fund, 2, '.', ',') }}
                                         </h5>
                                     </div>
                                     <div class="ms-auto"> <i class='bx bx-cart font-30'></i>
@@ -197,7 +197,7 @@
                                     <div>
                                         <p class="mb-0">Bill Payments</p>
                                         <h5 class="mb-0">
-                                            ${{ number_format((float) Claim::sum('claim_amount'), 2, '.', ',') }}</h5>
+                                            ${{ number_format((float) $bill_payments, 2, '.', ',') }}</h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-wallet font-30"></i>
                                     </div>
@@ -213,7 +213,7 @@
                                     <div>
                                         <p class="mb-0">Maintenance Fee</p>
                                         <h5 class="mb-0">
-                                            ${{ number_format((float) $platform_income->where('statusamount', 'credit')->where('sum_of_credit', '1')->sum('deduction'),2,'.',',') }}
+                                            ${{ number_format((float) $maintenance_fee,2,'.',',') }}
                                         </h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-intersect font-30"></i>
@@ -230,7 +230,7 @@
                                     <div>
                                         <p class="mb-0">Enrollment Fee</p>
                                         <h5 class="mb-0">
-                                            ${{ number_format((float) $registration_free->sum('deduction'),2,'.',',') }}
+                                            ${{ number_format((float) $enrollment_fee,2,'.',',') }}
                                         </h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-minus-front font-30"></i>
@@ -248,7 +248,7 @@
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <p class="mb-0">Accounts</p>
-                                        <h5 class="mb-0">{{ $accounts }}</h5>
+                                        <h5 class="mb-0">{{ $total_accounts }}</h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-collection font-30"></i>
                                     </div>
@@ -265,7 +265,7 @@
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <p class="mb-0">Contacts</p>
-                                        <h5 class="mb-0">{{ $contacts }}</h5>
+                                        <h5 class="mb-0">{{ $total_contacts }}</h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-user-pin font-30"></i>
                                     </div>
@@ -282,7 +282,7 @@
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <p class="mb-0">Leads</p>
-                                        <h5 class="mb-0">{{ $leads }}</h5>
+                                        <h5 class="mb-0">{{ $total_leads }}</h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-user-circle font-30"></i>
                                     </div>
@@ -299,7 +299,7 @@
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <p class="mb-0">Referrals</p>
-                                        <h5 class="mb-0">{{ $referrals->count() }}</h5>
+                                        <h5 class="mb-0">{{ $total_referrals }}</h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-user-check font-30"></i>
                                     </div>
@@ -317,7 +317,7 @@
             @endphp
         </div>
         @if ($login_user->hasPermissionTo('Front Office'))
-            <div class="row row-cols-1 row-cols-xl-2">
+            <div class="row d-none row-cols-1 row-cols-xl-2">
                 <div class="col d-flex">
                     <div class="card radius-10 w-100">
                         <div class="card-body">
@@ -385,15 +385,15 @@
                                 </div>
                             </div>
                             <h4 style="text-align: center"><span class="bg bg-primary text-white p-2 rounded">Total
-                                    Balance:${{ number_format((float) $balance -$platform_income->where('statusamount', 'credit')->where('sum_of_credit', '1')->where('status', 0)->sum('deduction') +$registration_free->sum('deduction'),2,'.',',') }}</span>
+                                    Balance:${{ number_format((float) $balance -$platform_income +$registration_free,2,'.',',') }}</span>
                                 </h5>
                                 <div style="display: flex;justify-content:center;" class="custom-flex pt-2">
                                     <h6 style="margin-right:5%">Pool Amount
 
-                                        :${{ number_format((float) ($balance +$registration_free->sum('deduction') +$platform_income->where('statusamount', 'credit')->where('sum_of_credit', '1')->sum('deduction')) -($platform_income->where('statusamount', 'credit')->where('sum_of_credit', '1')->sum('deduction') +$registration_free->where('statusamount', 'credit')->where('sum_of_credit', '1')->sum('deduction')),2,'.',',') }}
+                                        :${{ number_format((float) ($balance +$registration_free + $platform_income) -($platform_income +$registration_free),2,'.',',') }}
                                     </h6>
                                     <h6 style="margin-right:10px">Revenue
-                                        :${{ number_format((float) $platform_income->where('statusamount', 'credit')->where('sum_of_credit', '1')->sum('deduction') + $registration_free->sum('deduction'),2,'.',',') }}
+                                        :${{ number_format((float) $platform_income + $registration_free,2,'.',',') }}
                                     </h6>
                                 </div>
                                 <hr>
@@ -442,28 +442,30 @@
                                     <table class="table align-middle mb-0 table-hover dataTable" id="">
                                         <thead class="table-light">
                                             <tr>
-                                                {{-- <th style="width:10px">TID#</th> --}}
+                                                <th style="width:10px">TID#</th>
                                                 <th style="width:10%">Date & Time</th>
-                                                <th style="width:10%">Account</th>
+                                                <th style="width:10%">Account Holder</th>
                                                 <th style="width:50%">Transaction Details</th>
                                                 <th style="width:15%"> Amount</th>
-                                                <th style="width:15%">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @php
                                                 $i = 1;
-                                                // $transaction= [];
                                             @endphp
-                                            @foreach ($transaction as $k => $data)
+                                            @foreach ($transactions as $k => $data)
                                                 <tr>
-                                                    {{-- <td>{{ $i++ }}</td> --}}
+                                                    <td>{{ $data->reference_id }}</td>
                                                     <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
                                                     <td>
-                                                        <?php
-                                                        $user = App\Models\User::find($data->chart_of_account);
-                                                        $customer = App\Models\User::find($data->user_id);
-                                                        ?> Intrustpit</td>
+                                                       @if($data->user_id == \Intrustpit::Account_id)
+                                                       {{
+                                                        \Intrustpit::Account_name
+                                                       }}
+                                                       @else
+                                                       {{ $data->user->name }}
+                                                       @endif
+                                                    </td>
 
                                                     @if ($data->bill_id)
                                                         <td style="width:50%"><a
@@ -477,24 +479,17 @@
                                                             </a></td>
                                                     @endif
                                                     <td style="text-align:left !important;">
-                                                        @if ($data->statusamount == 'credit')
-                                                            +
-                                                        @endif
-                                                        @if ($data->statusamount == 'debit')
-                                                            -
-                                                        @endif
-                                                        ${{ number_format((float) $data->deduction, 2, '.', ',') }}
-                                                    </td>
-                                                    <td>
-                                                        @if ($data->status == 1)
-                                                            <div class="badge rounded-pill bg-primary w-100">
-                                                                Processed
-                                                            </div>
-                                                        @else
-                                                            <div class="badge rounded-pill bg-warning w-100">
-                                                                Failed
-                                                            </div>
-                                                        @endif
+                                                        <span class="badge {{ $data->credit > 0 ? 'badge-success' : 'badge-danger' }}">
+                                                            @if ($data->credit > 0 )
+                                                                +
+                                                                ${{ number_format((float) $data->credit, 2, '.', ',') }}
+                                                            @elseif ($data->debit > 0 )
+                                                                -
+                                                                ${{ number_format((float) $data->debit, 2, '.', ',') }}
+                                                            @else
+                                                                $0.00
+                                                            @endif
+                                                        </span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -581,7 +576,7 @@
                                 </div>
                             </div>
                             <div class="" id="w-chart7"></div>
-                        </div>
+                        </div>All transactions
                     </div>
                 </div>
                 <div class="row">
@@ -607,8 +602,7 @@
                                                 <th style="width:10%">Date & Time</th>
                                                 <th style="width:40%">Transaction Details</th>
                                                 <th style="width:15%">Amount</th>
-                                                <th style="width:15%">Balance</th>
-                                                <th style="width:15%">Status</th>
+                                                <th class="text-center">Balance</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -632,31 +626,22 @@
                                                         {{-- ({{$data->name}} {{$data->last_name}}&nbsp;{{$data->user_id}}) --}}
                                                     @endif
                                                     <td>
-                                                        @if ($data->statusamount == 'credit')
-                                                            + ${{ number_format((float) $data->deduction, 2, '.', ',') }}
+                                                    <span class="badge {{ $data->credit ? 'badge-success' : 'badge-danger' }}">
+                                                        @if ($data->credit)
+                                                            + ${{ number_format((float) $data->credit, 2, '.', ',') }}
                                                             @php
-                                                                $balance = $balance + $data->deduction;
+                                                                $balance = $balance + $data->credit;
+                                                            @endphp
+                                                        @elseif ($data->debit)
+                                                            - ${{ number_format((float) $data->debit, 2, '.', ',') }}
+                                                            @php
+                                                                $balance = $balance - $data->debit;
                                                             @endphp
                                                         @endif
-                                                        @if ($data->statusamount == 'debit')
-                                                            - ${{ number_format((float) $data->deduction, 2, '.', ',') }}
-                                                            @php
-                                                                $balance = $balance - $data->deduction;
-                                                            @endphp
-                                                        @endif
+                                                    </span>
                                                     </td>
                                                     <td style="text-align:center !important;">
-                                                        ${{ number_format((float) $balance, 2, '.', ',') }}</td>
-                                                    <td>
-                                                        @if ($data->status == 1)
-                                                            <div class="badge rounded-pill bg-primary w-100">
-                                                                Processed
-                                                            </div>
-                                                        @else
-                                                            <div class="badge rounded-pill bg-warning w-100">
-                                                                Failed
-                                                            </div>
-                                                        @endif
+                                                        ${{ number_format((float) $balance, 2, '.', ',') }}
                                                     </td>
                                                 </tr>
                                             @endforeach

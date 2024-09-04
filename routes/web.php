@@ -196,7 +196,7 @@ Route::group(['prefix'=>'sms', 'middleware'=>['isLoggedIn']],function(){
     Route::post('/details', [SMSController::class, 'details'])->name('sms.details');
 });
 Route::group(['prefix' => 'preview', 'middleware' => ['isLoggedIn']], function(){
-    Route::get('/deposit', [ AuthController::class, 'deposit_preview'])->name('preview.deposit');
+    // Route::get('/deposit', [ AuthController::class, 'deposit_preview'])->name('preview.deposit');
 });
 Route::group(['prefix' => 'release', 'middleware' => ['isLoggedIn']], function(){
     Route::get('/notes', [ReleaseNotesController::class, 'index'])->name('release.notes');
