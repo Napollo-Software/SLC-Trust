@@ -1,6 +1,6 @@
 @extends("nav")
-@section('title', 'Profile Settings | SLC Trust') 
-@section("wrapper")          
+@section('title', 'Profile Settings | SLC Trust')
+@section("wrapper")
           <div class="">
             <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Profile Settings</h5>
             <div class="row">
@@ -40,7 +40,7 @@
                                 <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
                               </div>
                             </div>
-                          </div>                         
+                          </div>
                           <hr class="my-0" />
                           <div class="card-body">
                             <form id="formAccountSettings" method="POST" onsubmit="return false">
@@ -196,8 +196,8 @@
                           </div>
                           <!-- /Account -->
                       </div>
-                    </div>                    
-                </div>              
+                    </div>
+                </div>
               </div>
             </div>
           </div>
@@ -210,7 +210,7 @@
   <div class="row">
     <div class="col-lg-12 mb-12">
       <div class="card">
-        
+
         {{-- <a  class="btn btn-primary print-btn" href="{{ route('print.edit',$user['id'])}}">Print<i class='bx bx-printer'></i></a> --}}
         <form id="formAuthentication" class="mb-3" action="{{route('update_existing_user', $user['id'] )}}" method="post" enctype="multipart/form-data">
                   @method('post')
@@ -296,7 +296,7 @@
                           placeholder="City"
                           name="city"
                           value="{{$user['city']}}"
-                         
+
                         />
                         <span class="text-danger">@error('city'){{$message}} @enderror</span>
                       </div>
@@ -313,7 +313,7 @@
                         />
                         <span class="text-danger">@error('zipcode'){{$message}} @enderror</span>
                       </div>
-                   
+
                       <div class="col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label">Marital Status</label>
                         <select name="marital_status" class="form-control" id="marital_status">
@@ -325,7 +325,7 @@
                         <span class="text-danger">@error('marital_status'){{$message}} @enderror</span>
                       </div>
                     </div>
-                    
+
                     <div class="row mb-3">
                       <div class="col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label">Gender</label>
@@ -415,7 +415,7 @@
                           <option {{ $user->billing_method=="prepaid" ? 'selected' : ' '}} value="prepaid">Prepaid Credit Card</option>
                         </select>
                 </div>
-                
+
                    <div class="col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label">Email</label>
                         <input
@@ -428,7 +428,7 @@
                         />
                         <span class="text-danger">@error('email'){{$message}} @enderror</span>
                       </div>
-              
+
                   </div>
                   <div class="row mb-3">
                     {{-- <div class="col-lg-6">
@@ -438,7 +438,7 @@
                         <option value="text" @if ($user['notify_by'] == 'text') selected @endif>Text</option>
                       </select>
                     </div> --}}
-                    
+
                     <div class="col-lg-6 ">
                       <label for="logo8">Government Issued Photo ID</label>
                         <input type="file" class="form-control" id="profile_pic" name="profile_pic" />
@@ -453,10 +453,10 @@
                       </select>
                     </div>
                   </div>
-                  
+
              <div class="row mb-3">
 
-             
+
               @if ($user->profile_pic!=null)
                 {{-- <div class="col-lg-6"></div> --}}
                 <div class="col-lg-6 ">
@@ -465,7 +465,7 @@
                       <a href="{{url('img/'.$user->profile_pic)}}" target="_blank">
                         <img src="{{url('img/'.$user->profile_pic)}}" alt=""   class="img-thumbnail"></a>
                       </div>
-                    </div> 
+                    </div>
                 </div>
                 @endif
 
