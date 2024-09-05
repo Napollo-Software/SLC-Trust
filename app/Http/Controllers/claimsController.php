@@ -186,12 +186,6 @@ class claimsController extends Controller
         return view('claims.add_claim');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -218,8 +212,8 @@ class claimsController extends Controller
 
         $balance = userBalance($claimUser->id);
 
-        if ($balance < $validated['claim_amount']) {
-            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to add this bill, Please add balance first."]);
+        if ($user->role != "User" && $balance < $validated['claim_amount'] && $request->claim_status == 'Approved') {
+            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to approve this bill, Please add balance first."]);
         }
 
         DB::beginTransaction();
@@ -244,7 +238,7 @@ class claimsController extends Controller
                 'recurring_day' => $request->recurring_day,
             ]);
 
-            if ($request->claim_status == 'Approved') {
+            if ($request->claim_status == 'Approved' && $balance >= $request->claim_amount) {
 
                 $claim->claim_status = 'Approved';
                 $claim->save();
