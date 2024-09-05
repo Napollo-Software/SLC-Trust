@@ -42,7 +42,7 @@
                             <table class="table align-middle mb-0 table-hover dataTable">
                                 <thead class="table-light">
                                 <tr style="white-space: nowrap">
-                                    <th>ID</th>
+                                    <!--th>ID</th-->
                                     <th>Full name</th>
                                     <!-- TODO:/NEED TO BE DONE -->
                                     <!-- <th>Intake status</th> -->
@@ -65,14 +65,14 @@
                                 <tbody>
                                 @foreach ($data as $k => $u)
                                     <tr class="row-{{ $u['id'] }}" style="white-space: nowrap">
-                                        <td>
+                                        <!--td>
                                             {{ $u->id }}
-                                        </td>
+                                        </td-->
                                         <td class="row-{{ $u['id'] }}"
                                             onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';"
                                             style="cursor: pointer;">
                                             <div class="d-flex align-items-center">
-                                                <div class="user-details ms-2">
+                                                <div class="">
                                                     <small> {{ $u['first_name'] }} {{ $u['last_name'] }}</small> <br>
                                                 </div>
                                             </div>

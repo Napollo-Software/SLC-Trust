@@ -17,22 +17,22 @@
         <div class="row">
         <div class="col-md-6 p-2">
             <label for="form-label">First Name*</label>
-            <input type="text" class="form-control" id="contact_first_name" name="contact_first_name">
+            <input type="text" class="form-control" id="contact_first_name" name="contact_first_name" required>
         </div>
         <div class="col-md-6 p-2">
         <label for="form-label">Last Name*</label>
-        <input type="text" class="form-control" id="contact_last_name" name="contact_last_name">
+        <input type="text" class="form-control" id="contact_last_name" name="contact_last_name" required>
         </div>
 
         <div class="col-md-6 p-2">
             <label for="form-label">Phone*</label>
             <input type="text" class="form-control phone" placeholder="(___) ___-___"
             name="contact_phone"
-            value="{{ old('patient_phone') }}" id="contact_phone"/>
+            value="{{ old('patient_phone') }}" id="contact_phone" required/>
             </div>
             <div class="col-md-6 p-2">
-                <label for="form-label">Email</label>
-                <input type="email" class="form-control" id="contact_email" name="contact_email">
+                <label for="form-label">Email*</label>
+                <input type="email" class="form-control" id="contact_email" name="contact_email" required>
             </div>
             <div class="col-md-6 p-2">
             <label for="form-label">Language</label>
@@ -62,21 +62,21 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Patient First Name</label>
-                        <input type="text" class="form-control" id="patient_first_name" name="patient_first_name">
+                        <label for="form-label">Patient First Name*</label>
+                        <input type="text" class="form-control" id="patient_first_name" name="patient_first_name" required>
                     </div>
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Patient Last Name</label>
-                        <input type="text" class="form-control" id="patient_last_name" name="patient_last_name">
+                        <label for="form-label">Patient Last Name*</label>
+                        <input type="text" class="form-control" id="patient_last_name" name="patient_last_name" required>
                     </div>
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Patient Phone</label>
+                        <label for="form-label">Patient Phone*</label>
                         <input type="text" class="form-control phone" placeholder="(___) ___-___" name="patient_phone"
-                            value="{{ old('patient_phone') }}" id="patient_phone" />
+                            value="{{ old('patient_phone') }}" id="patient_phone" required />
                     </div>
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Patient Email</label>
-                        <input type="email" class="form-control" id="patient_email" name="patient_email">
+                        <label for="form-label">Patient Email*</label>
+                        <input type="email" class="form-control" id="patient_email" name="patient_email" required>
                     </div>
                 </div>
             </div>
@@ -88,8 +88,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Sub-Status</label>
-                        <select name="sub_status" class="form-control ">
+                        <label for="form-label">Sub-Status*</label>
+                        <select name="sub_status" class="form-control " required>
                             <option value="">Choose One</option>
                             <option value="open">Open</option>
                         </select>
@@ -101,9 +101,9 @@
 
 
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Case Type</label>
+                        <label for="form-label">Case Type*</label>
                         <select name="case_type" id="case_type" class="form-select select-2 form-control"
-                            onchange="showOtherInput()">
+                            onchange="showOtherInput()" required>
                             <option value="">Choose One</option>
                             <option value="other">Other</option>
                             @foreach (\App\Models\Type::where('category', 'Case Type')->get() as $type)
@@ -133,7 +133,7 @@
                     <div class="row">
                         <div class="col-md-6 p-2">
                             <label for="form-label">Source Type*</label>
-                            <select name="source_type" id="source_type" class="form-control ">
+                            <select name="source_type" id="source_type" class="form-control " required>
                                 <option value="">Choose One</option>
                                 <option value="account">Account</option>
                                 <option value="contact">Contact</option>
@@ -176,8 +176,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Assign To</label>
-                        <select name="assign_to" class="form-control ">
+                        <label for="form-label">Assign To*</label>
+                        <select name="assign_to" class="form-control " required>
                             <option value="">Choose One</option>
                             @foreach ($assignees as $assignee)
                             <option value="{{ $assignee->id }}">{{ $assignee->name }}</option>
@@ -186,23 +186,23 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="card mb-3">
             <div class="card-header d-flex pl-0 pb-1 pl-2"><h5>Follow-Up</h5></div>
             <div class="card-body">
 
                 <div class="row">
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Follow-Up Date</label>
-                        <input type="date" class="form-control" name="follow_up_date">
+                        <label for="form-label">Follow-Up Date*</label>
+                        <input type="date" class="form-control" name="follow_up_date" required>
                     </div>
                     <div class="col-md-6 p-2">
-                        <label for="form-label">Follow-Up Time</label>
-                        <input type="time" class="form-control" name="follow_up_time">
+                        <label for="form-label">Follow-Up Time*</label>
+                        <input type="time" class="form-control" name="follow_up_time" required>
                     </div>
                     <div class="col-md-12 p-2">
-                        <label for="form-label">Follow-Up Note</label>
-                        <textarea name="follow_up_note" class="form-control" rows="3"></textarea>
+                        <label for="form-label">Follow-Up Note*</label>
+                        <textarea name="follow_up_note" class="form-control" rows="3" required></textarea>
                     </div>
                 </div>
 

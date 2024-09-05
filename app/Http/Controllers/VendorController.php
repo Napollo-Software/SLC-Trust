@@ -76,7 +76,7 @@ class VendorController extends Controller
             'password' => Hash::make('123456')
         ]);
         $user->assignRole('Vendor');
-        alert()->success('Account Added', 'Account has been added successfully');
+        alert()->success('Vendor Added', 'Vendor has been added successfully');
         return redirect('/accounts');
     }
 
@@ -130,7 +130,7 @@ class VendorController extends Controller
                 'vendor_type' => $new_type,
             ]);
         }
-        alert()->success('Account Updated', 'Account has been updated successfully');
+        alert()->success('Vendor Updated', 'Vendor has been updated successfully');
         return redirect('/accounts');
     }
 

@@ -57,14 +57,14 @@
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-collection"></i>
                             </div>
-                            <div class="menu-title d-flex align-items-center">Vendors</div>
+                            <div class="menu-title d-flex align-items-center">Vendor</div>
                             <div class="ms-auto dropy-icon"><i class="bx bx-chevron-down"></i></div>
                         </a>
                         <ul class="dropdown-menu">
                             @if ($user->hasPermissionTo('Add Account'))
                             <li>
                                 <a class="dropdown-item {{in_array(Route::currentRouteName(),['add.accounts'])? 'active' : '' }}" href="{{ route('add.accounts') }}"><i class="bx bx-user-check"></i>Add
-                                    Vendors</a></li>
+                                    Vendor</a></li>
                             @endif
                             @if ($user->hasPermissionTo('View Account'))
                             <li>

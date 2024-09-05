@@ -151,6 +151,7 @@
                                 {{ $vendor->address_2 }}
                             </div>
                         </div>
+                        <hr>
                         <div class="row pt-4">
                             <div class="col-sm-12">
 
