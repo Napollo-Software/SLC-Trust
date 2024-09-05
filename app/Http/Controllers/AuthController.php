@@ -804,10 +804,16 @@ class AuthController extends Controller
             return redirect()->back()->withErrors(['insufficient' => "{$user->name}'s balance is insufficient to charge Maintenance fee."]);
         }
 
+        if ($request->registration_fee) {
+            $deduction = ($request->balance / 100 * $request->maintenance_fee) + $request->registration_fee_amount;
+            if ($deduction > $userBalance + $request->balance) {
+                return redirect()->back()->withErrors(['insufficient' => "{$user->name}'s balance is insufficient to charge Enrollment fee."]);
+            }
+        }
+
         DB::beginTransaction();
 
         try {
-
 
             // Generate the transaction ID and descriptions
             $transactionId = $request->trans_no ?? $request->cheque_no ?? $request->card_no;

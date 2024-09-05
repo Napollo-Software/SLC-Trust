@@ -213,13 +213,13 @@ class claimsController extends Controller
         $app_name = config('app.name');
 
         if ($claimUser->account_status == 'Disable') {
-            return response()->json(['header' => 'User Disabled!', 'message' => "You cannot add bill against disabled customer."], 403);
+            return response()->json(['type' => 'warning', 'header' =>  'User Disabled!', 'message' => "You cannot add bill against disabled customer."]);
         }
 
         $balance = userBalance($claimUser->id);
 
         if ($balance < $validated['claim_amount']) {
-            return response()->json(['header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to add this bill, Please add balance first."], 400);
+            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to add this bill, Please add balance first."]);
         }
 
         DB::beginTransaction();
