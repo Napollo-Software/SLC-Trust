@@ -16,17 +16,17 @@
                         <div class="col-md-4 p-2">
                             <label for="form-label">First Name*</label>
                             <input type="text" name="fname" maxlength="20" class="form-control"
-                                placeholder="Type first name here">
+                                placeholder="Type first name here" required>
                         </div>
                         <div class="col-md-4 p-2">
                             <label for="form-label">Last Name*</label>
                             <input type="text" name="lname" maxlength="20" class="form-control"
-                                placeholder="Type last name here">
+                                placeholder="Type last name here" required>
                         </div>
                         <div class="col-md-4 p-2">
                             <label for="form-label">Email*</label>
                             <input type="text" name="email" maxlength="40" class="form-control"
-                                placeholder="Type email here">
+                                placeholder="Type email here" required>
                         </div>
                         <div class="col-md-4 p-2">
                             <label for="form-label">Name of Practice</label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-md-4 p-2">
                             <label for="form-label">Account Name*</label>
-                            <select name="account" class="form-control">
+                            <select name="account" class="form-control" required>
                                 <option value="">Select Account</option>
                                 @foreach ($accounts as $item)
                                     <option value="{{ $item->id }}">{{ $item->name . ' ' . $item->last_name }}
@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-md-4 p-2">
                         <label for="form-label">Designation*</label>
-                        <select name="designation" class="form-control " id="designation">
+                        <select name="designation" class="form-control " id="designation" required>
                             <option value="">Select Designation</option>
                             <option value="other">Other</option>
                             @foreach ($designation as $item)
@@ -67,21 +67,21 @@
                         <div class="col-md-4 p-2">
                             <label for="form-label">Fax*</label>
                             <input type="number" name="fax" maxlength="40"class="form-control"
-                                placeholder="Type fax here">
+                                placeholder="Type fax here" required>
                         </div>
                         <div class="col-md-4 p-2">
                             <label for="form-label">Ext No</label>
                             <input type="text" name="ext_no" maxlength="40"class="form-control"
-                                placeholder="Type ext no here">
+                                placeholder="Type ext no here" required>
                         </div>
                         <div class="col-md-4 p-2">
                             <label for="form-label">Phone*</label>
                             <input type="text" class="form-control phone" placeholder="(___) ___-___" name="phone"
-                                    id="phone"/>
+                                    id="phone"required />
                         </div>
                         <div class="col-md-4 p-2">
                             <label for="form-label">Country*</label>
-                            <select name="country" class="form-control" onchange="getCountry(this)">
+                            <select name="country" class="form-control" onchange="getCountry(this)" required>
                                 <option value="" disabled selected hidden>--Select an option</option>
                                 <option @if (old('country') == 'United States of America') {{ 'selected' }} @endif
                                     value="United States of America">United States of America</option>
@@ -108,16 +108,16 @@
                         <div class="col-md-4 p-2">
                             <label for="form-label">City*</label>
                             <input type="text" name="city"maxlength="20" class="form-control"
-                                placeholder="Type city name here">
+                                placeholder="Type city name here" required>
                         </div>
                         <div class="col-md-4 p-2">
                             <label for="form-label">Zipcode*</label>
                             <input type="text" name="zipcode"maxlength="15" class="form-control"
-                                placeholder="Type zip code here">
+                                placeholder="Type zip code here" required>
                         </div>
                         <div class="col-md-8 p-2">
                             <label for="form-label">Address</label>
-                            <textarea type="text" name="address" maxlength="40"placeholder="Type Address here" class="form-control address"></textarea>
+                            <textarea type="text" name="address" maxlength="40"placeholder="Type Address here" class="form-control address" required></textarea>
                         </div>
                     </div>
                 </div>

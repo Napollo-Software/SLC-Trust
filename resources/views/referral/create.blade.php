@@ -45,25 +45,25 @@
                                     <label for="form-label">Patient First Name*</label>
                                     <input type="text" class="form-control" id="first_name" name="first_name"
                                            placeholder="eg: John"
-                                           value="{{ $lead->converted_to_referral == 1 ? $lead->patient_first_name : "" }}">
+                                           value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_first_name : "" }}" required>
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">Patient Last Name*</label>
                                     <input type="text" class="form-control" id="last_name" name="last_name"
-                                           value="{{ $lead->converted_to_referral == 1 ? $lead->patient_last_name : "" }}"
-                                           placeholder="eg: Smith">
+                                           value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_last_name : "" }}"
+                                           placeholder="eg: Smith" required>
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">Patient Phone Number*</label>
                                     <input type="text" class="form-control phone" placeholder="(___) ___-___"
-                                           value="{{ $lead->converted_to_referral == 1 ? $lead->patient_phone : "" }}"
-                                           id="phone" name="phone">
+                                           value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_phone : "" }}"
+                                           id="phone" name="phone" required>
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Patient Email</label>
+                                    <label for="form-label">Patient Email*</label>
                                     <input type="text" class="form-control" id="email" name="email"
                                            placeholder="example@email.com"
-                                           value="{{ $lead->converted_to_referral == 1 ? $lead->patient_email : "" }}">
+                                           value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_email : "" }}" required>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Gender</label>
+                                    <label for="form-label">Gender*</label>
                                     <select name="gender" class="form-select ">
                                         <option value="Female">Female</option>
                                         <option value="Male">Male</option>
@@ -81,23 +81,23 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Patient DOB</label>
+                                    <label for="form-label">Patient DOB*</label>
                                     <input type="date" class="form-control" name="date_of_birth"
-                                           placeholder="12/07/2003">
+                                           placeholder="12/07/2003" required>
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">Patient Age*</label>
                                     <input type="number" class="form-control" id="age" name="age"
-                                           placeholder="18">
+                                           placeholder="18" required>
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Patient SSN</label>
-                                    <input type="text" class="form-control" id="ssn" name="ssn">
+                                    <label for="form-label">Patient SSN*</label>
+                                    <input type="text" class="form-control" id="ssn" placeholder="Patient SSN" name="ssn" required>
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">Patient Language*</label>
                                     <input type="text" class="form-control" id="patient_language"
-                                           name="patient_language">
+                                           name="patient_language" placeholder="Patient Language">
                                 </div>
                             </div>
                         </div>
@@ -107,12 +107,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 text-secondary ">
-                                    <label for="form-label" class="form-label">Country</label>
+                                    <label for="form-label" class="form-label">Country*</label>
 
                                     <div class="col-md-12 text-secondary p-0">
                                         <select id="defaultSelect" onchange="getCountry(this)"
                                                 class="form-control select-2 "
-                                                name="country">
+                                                name="country" required>
                                             <option value="" disabled selected hidden>--Select an option</option>
                                             <option @if (old('country') == 'United States of America')
                                                         {{ 'selected' }}
@@ -135,7 +135,7 @@
                                 <div class="col-md-6 text-secondary  p-0 ">
                                     <div class="row  p-0 ">
                                         <div class="col-md-12 mr-md-3">
-                                            <label class=" form-label mb-1">State / Province<span
+                                            <label class=" form-label mb-1">State / Province*<span
                                                     class="text-danger">*</span></label>
                                             <select id="SelectState" class="form-control select-2" name="state">
                                                 <option disabled selected hidden>--Select State</option>
@@ -149,19 +149,19 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">City</label>
+                                    <label for="form-label">City*</label>
                                     <input type="text" class="form-control" id="city" name="city"
-                                           placeholder="eg: New York">
+                                           placeholder="eg: New York City" required>
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Address</label>
+                                    <label for="form-label">Address*</label>
                                     <input type="text" class="form-control" id="Address" name="address"
-                                           placeholder="house# 03 street 07/ new york city">
+                                           placeholder="house# 03 street 07/ new york city" required>
                                 </div>
 
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Zip Code/Postal Code</label>
-                                    <input type="text" class="form-control" id="zip" name="zip" placeholder="51000">
+                                    <label for="form-label">Zip Code/Postal Code*</label>
+                                    <input type="text" class="form-control" id="zip" name="zip" placeholder="51000" required>
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">APT/SUITE </label>
@@ -176,26 +176,26 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Medicaid Number</label>
+                                    <label for="form-label">Medicaid Number*</label>
                                     <input type="text" class="form-control phone" placeholder="(___) ___-___"
                                            id="medicaid_phone"
-                                           name="medicaid_phone">
+                                           name="medicaid_phone" required>
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Medicaid Plan</label>
+                                    <label for="form-label">Medicaid Plan*</label>
                                     <input type="text" class="form-control" id="medicaid_plan" name="medicaid_plan"
-                                           placeholder="Enter Medicaid Plan">
+                                           placeholder="Enter Medicaid Plan" required>
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Medicare Number</label>
+                                    <label for="form-label">Medicare Number*</label>
 
                                     <input type="text" class="form-control phone" placeholder="(___) ___-___"
                                            id="medicare_phone"
-                                           name="medicare_phone">
+                                           name="medicare_phone" required>
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="form-label">Admission Date</label>
-                                    <input type="date" class="form-control" id="admission_date" name="admission_date">
+                                    <label for="form-label">Admission Date*</label>
+                                    <input type="date" class="form-control" id="admission_date" name="admission_date" required>
                                 </div>
 
                             </div>
@@ -250,8 +250,8 @@
                                             <div class="text-secondary">
                                                 <label class="form-label mb-1 mt-2">Case Type<span
                                                         class="text-danger">*</span></label>
-                                                <select name="type" class="form-control">
-                                                    <option disabled selected hidden>Case Type</option>
+                                                <select name="type" class="form-control" required>
+                                                    <option value="">Select Case Type</option>
 
                                                     @foreach ($typeData as $key => $value)
                                                         <option value="{{ $value->id }}">{{ $value->name }}</option>
@@ -286,7 +286,7 @@
                                 <div class="col-md-12 p-2">
                                     <div>
                                         <label for="form-label">Source Type*</label>
-                                        <select name="source_type" id="source_type" class="form-control ">
+                                        <select name="source_type" id="source_type" class="form-control " required>
                                             <option value="">Choose One</option>
                                             <option value="account">Account</option>
                                             <option value="contact">Contact</option>
@@ -333,33 +333,33 @@
                                 <div class="row">
                                     <div class="col-md-6 p-2">
                                         <label for="form-label">First Name*</label>
-                                        <input type="text" class="form-control" id="emergency__first_name"
-                                               name="emergency_first_name">
+                                        <input type="text" class="form-control" id="emergency__first_name" placeholder="Enter First Name"
+                                               name="emergency_first_name" required>
                                     </div>
                                     <div class="col-md-6 p-2">
                                         <label for="form-label">Last Name*</label>
-                                        <input type="text" class="form-control" id="emergency_last_name"
-                                               name="emergency_last_name">
+                                        <input type="text" class="form-control" id="emergency_last_name" placeholder="Enter Last Name"
+                                               name="emergency_last_name" required>
                                     </div>
 
                                     <div class="col-md-12 p-2">
                                         <label for="form-label">Phone Number*</label>
                                         <input type="text" class="form-control phone" placeholder="(___) ___-___"
-                                               id="emergency_phone" name="emergency_phone">
+                                               id="emergency_phone" name="emergency_phone" required>
                                     </div>
                                     <div class="col-md-12 p-2">
                                         <label for="form-label">Ext Number*</label>
-                                        <input type="number" class="form-control" id="emergency_ext"
-                                               name="emergency_ext">
+                                        <input type="number" class="form-control" id="emergency_ext" placeholder="Enter Ext Number"
+                                               name="emergency_ext" required>
                                     </div>
                                     <div class="col-md-12 p-2">
                                         <label for="form-label">Email*</label>
-                                        <input type="text" class="form-control" id="emergency_email"
-                                               name="emergency_email">
+                                        <input type="text" class="form-control" id="emergency_email" placeholder="Enter Emergency Email"
+                                               name="emergency_email" required>
                                     </div>
                                     <div class="col-md-12 p-2">
-                                        <label for="form-label">Relationship To Patient</label>
-                                        <select name="emegency_relationship" class="form-control select-2">
+                                        <label for="form-label">Relationship To Patient*</label>
+                                        <select name="emegency_relationship" class="form-control select-2" required>
                                             <option value="">Select One</option>
                                             <option value="child">Child</option>
                                             <option value="client">Parent</option>
@@ -367,9 +367,9 @@
                                         </select>
                                     </div>
                                     <div class="col-md-12 p-2">
-                                        <label for="form-label">State/Province</label>
+                                        <label for="form-label">State/Province*</label>
 
-                                        <select id="defaultSelect" class="form-control select-2" name="emergency_state">
+                                        <select id="defaultSelect" class="form-control select-2" name="emergency_state" required>
                                             <option value="">Choose One</option>
                                             @foreach (App\Models\City::select('state')->distinct()->get() as $state)
                                                 <option @if (old('state')==$state->state)
@@ -387,19 +387,19 @@
 
 
                                     <div class="col-md-12 p-2">
-                                        <label for="form-label">City</label>
-                                        <input type="text" class="form-control" id="emergency_city"
-                                               name="emergency_city">
+                                        <label for="form-label">City*</label>
+                                        <input type="text" class="form-control" id="emergency_city" placeholder="Enter City"
+                                               name="emergency_city" required>
                                     </div>
                                     <div class="col-md-12 p-2">
-                                        <label for="form-label">Address</label>
+                                        <label for="form-label">Address*</label>
                                         <input type="text" class="form-control" id="emergency_address"
-                                               name="emergency_address">
+                                               name="emergency_address" required>
                                     </div>
                                     <div class="col-md-6 p-2">
-                                        <label for="form-label">Zip Code/Postal Code</label>
+                                        <label for="form-label">Zip Code/Postal Code*</label>
                                         <input type="number" class="form-control" id="emergency_zip"
-                                               name="emergency_zip">
+                                               name="emergency_zip" required>
                                     </div>
                                     <div class="col-md-6 p-2">
                                         <label for="form-label">APT/SUITE </label>

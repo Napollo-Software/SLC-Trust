@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Add Account | SLC Trust')
+@section('title', 'Add Vendor | SLC Trust')
 @section('wrapper')
     @include('types.create')
     <div class="">
@@ -13,7 +13,7 @@
                     <div class="card  mb-xl-0">
                         <div class="card-header">
                             <div class="d-flex">
-                                <h4 class="col-md-11">Account Information</h4>
+                                <h4 class="col-md-11">Vendor Information</h4>
                             </div>
                         </div>
                         <div class="card-body">
@@ -21,7 +21,7 @@
                                 <label for="exampleFormControlInput1" class="form-label">Name<span
                                         class="text-danger">*</span></label>
                                 <input type="text" class="form-control" placeholder="Name" name="name"
-                                       value="{{ old('name') }}"/>
+                                       value="{{ old('name') }}" required/>
                                 <span class="text-danger">
                                     @error('name')
                                     {{ $message }}
@@ -32,7 +32,7 @@
                                 <label for="exampleFormControlInput1" class="form-label mt-3">Email<span
                                         class="text-danger">*</span></label>
                                 <input type="Email" class="form-control" placeholder="Email" name="email"
-                                       value="{{ old('email') }}"/>
+                                       value="{{ old('email') }}" required/>
                                 <span class="text-danger">
                                     @error('email')
                                     {{ $message }}
@@ -46,7 +46,7 @@
                                             class="text-danger">*</span></label>
                                     <div class="d-flex">
                                         <select id="defaultSelect" class="form-select select-2" name="type"
-                                                onchange="showOtherInput(this)">
+                                                onchange="showOtherInput(this)" required>
                                             <option value="">Choose One</option>
                                             <option value="other" @if (old('type') == 'other') selected @endif>Other
                                             </option>
@@ -95,7 +95,7 @@
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control phone" placeholder="(___) ___-___" name="phone"
-                                       value="{{ old('phone') }}" id="phone"/>
+                                       value="{{ old('phone') }}" id="phone" required/>
                                 <span class="text-danger">
                                     @error('phone')
                                     {{ $message }}
@@ -110,7 +110,7 @@
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="url" class="form-control" placeholder="Website" name="website"
-                                       value="{{ old('website') }}"/>
+                                       value="{{ old('website') }}" required/>
                                 <span class="text-danger">
                                     @error('website')
                                     {{ $message }}
@@ -126,7 +126,7 @@
                             <div class="col-sm-4 text-secondary">
                                 <div class="form-group">
                                     <select id="defaultSelect" onchange="getCountry(this)" class="form-select select-2"
-                                            name="country">
+                                            name="country" required>
                                         <option value="" disabled selected hidden>--Select an option</option>
                                         <option @if (old('country') == 'United States of America')
                                                     {{ 'selected' }}
@@ -175,7 +175,7 @@
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control" placeholder="User City" name="city"
-                                       value="{{ old('city') }}"/>
+                                       value="{{ old('city') }}" required/>
                                 <span class="text-danger">
                                     @error('city')
                                     {{ $message }}
@@ -190,7 +190,7 @@
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control" placeholder="Zip Code" maxlength="6"
-                                       name="zipcode" value="{{ old('zipcode') }}"/>
+                                       name="zipcode" value="{{ old('zipcode') }}" required/>
                                 <span class="text-danger">
                                     @error('zipcode')
                                     {{ $message }}
@@ -204,7 +204,7 @@
                                 <h6 class="mb-0">Address 1<span class="text-danger">*</span></h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <textarea type="text" class="form-control" placeholder="Address"
+                                <textarea type="text" class="form-control" placeholder="Address" required
                                           name="address1">{{ old('address1') }}</textarea>
                                 <span class="text-danger">
                                     @error('address1')
@@ -255,8 +255,10 @@
         var otherInputDiv = document.getElementById('otherInputDiv');
         if (selectElement.value === 'other') {
             otherInputDiv.style.display = 'block';
+            $("#otherType").attr('required',true);
         } else {
             otherInputDiv.style.display = 'none';
+            $("#otherType").attr('required',false);
         }
     }
 </script>

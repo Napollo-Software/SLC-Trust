@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Accounts | SLC Trust')
+@section('title', 'Vendors | SLC Trust')
 @section('wrapper')
 
     <head>
@@ -20,21 +20,21 @@
         </style>
     </head>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / All Accounts</h5>
+        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / All Vendors</h5>
         <div class="row ">
             <div class="col-lg-12 mb-12 ">
                 <div class="card ">
                     <div class="d-flex align-items-center p-3 ">
                         <div>
-                          <h5 class="mb-1">Manage Accounts</h5>
-                          <p class="mb-0 font-13 text-secondary"><i class="bx bxs-calendar"></i>All Accounts</p>
+                          <h5 class="mb-1">Manage Vendors</h5>
+                          <p class="mb-0 font-13 text-secondary"><i class="bx bxs-calendar"></i>All Vendors</p>
                         </div>
                       </div>
                     <div class="table-responsive text-nowrap  overflow-auto p-3"  style="margin-top: -15px">
                         <table class="table align-middle mb-0 table-hover dataTable ">
                             <thead class="table-light">
                             <tr>
-                                <th>Account Name</th>
+                                <th>Name</th>
                                 <th style="width: 15%">Phone</th>
                                 <th style="width: 20%">Email</th>
                                 {{-- <th>Address</th> --}}

@@ -196,7 +196,7 @@
                     $('.fax').val(data.fax);
                     $('.ext_number').val(data.ext_number);
                     $('.country').val(data.country);
-                    $('.state').val(data.state);
+                    $('.state').val(data.state).change();
                     $('.city').val(data.city);
                     $('.zip_code').val(data.zip_code);
                     $('.address').val(data.address);

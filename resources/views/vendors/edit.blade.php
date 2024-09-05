@@ -1,12 +1,12 @@
 @extends('nav')
-@section('title', 'Edit Account | SLC Trust')
+@section('title', 'Edit Vendor | SLC Trust')
 @section('wrapper')
     @php
         $canada = [ 'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia', 'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Yukon'];
         $americanStates = [ 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
     @endphp
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Edit Account
+        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Edit Vendor
         </h5>
         <div class="row">
             <div class="col-xl-4">
@@ -15,7 +15,7 @@
                     <div class="card  mb-xl-0">
                         <div class="card-header pl-0 pb-0">
                             <div class="d-flex">
-                                <h4 class="col-md-11">Account Information</h4>
+                                <h4 class="col-md-11">Vendor Information</h4>
                             </div>
                         </div>
                         <div class="card-body">
