@@ -351,25 +351,32 @@ class AuthController extends Controller
 
     public function search_user_claim(Request $request)
     {
-        $search = $request['search'] ?? "";
-        $role = User::where('id', '=', Session::get('loginId'))->value('role');
-        $category_id = Category::where('category_name', 'LIKE', "%$search%")->first();
-        $all_users = User::where('id', Session::get('loginId'))->get();
-        if ($role == "User") {
-            $claims = [];
-            if ($category_id != null) {
-                $claims = Claim::where("claim_category", $category_id->id)->where('claim_user', Session::get('loginId'))->get();
+        $search = $request->input('search', '');
+        $loginId = Session::get('loginId');
+
+        $role = User::where('id', $loginId)->pluck('role')->first();
+
+        $claims = collect();
+
+        if ($role === 'User') {
+
+            $category_id = Category::where('category_name', 'LIKE', "%$search%")->pluck('id')->first();
+
+            if ($category_id) {
+                $claims = Claim::with(['payee_details','category_details'])->where('claim_category', $category_id)
+                ->where('claim_user', $loginId)
+                ->get();
             }
         } else {
-            $user = User::where('name', 'LIKE', "%$search%")->first();
-            $claims = [];
-            if ($user) {
-                $claims = Claim::where("claim_user", $user->id)->get();
-            }
+
+            $claims = User::where('name', 'LIKE', "%$search%")->first()->calims()->with(['payee_details','category_details'])->get();
+
         }
-        $data = compact('claims', 'search', 'all_users');
-        return view('claims.search')->with($data);
+
+        return view('claims.search', compact('claims', 'search'));
     }
+
+
 
     public function logout()
     {
@@ -522,11 +529,11 @@ class AuthController extends Controller
         $followup = Followup::select('note', 'date')->get();
 
         $customers = User::where('role', 'User')
-        ->leftJoin('transactions', 'users.id', '=', 'transactions.user_id')
-        ->select('users.id', 'users.name', 'users.email', \DB::raw('SUM(transactions.credit) - SUM(transactions.debit) as balance'))
-        ->groupBy('users.id', 'users.name', 'users.email')
-        ->orderBy('users.id', 'asc')
-        ->get();
+            ->leftJoin('transactions', 'users.id', '=', 'transactions.user_id')
+            ->select('users.id', 'users.name', 'users.email', \DB::raw('SUM(transactions.credit) - SUM(transactions.debit) as balance'))
+            ->groupBy('users.id', 'users.name', 'users.email')
+            ->orderBy('users.id', 'asc')
+            ->get();
 
 
         $userid = User::where('id', '=', Session::get('loginId'))->first();
