@@ -243,6 +243,7 @@
                 @endif
                 @if ($login_user->hasPermissionTo('Front Office'))
                     <div class="col">
+                        <a href="{{ url("accounts") }}">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
@@ -258,25 +259,29 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col">
-                        <div class="card radius-10 overflow-hidden">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <p class="mb-0">Contacts</p>
-                                        <h5 class="mb-0">{{ $total_contacts }}</h5>
+                        <a href="{{ url('/contact/list') }}">
+                            <div class="card radius-10 overflow-hidden">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <p class="mb-0">Contacts</p>
+                                            <h5 class="mb-0">{{ $total_contacts }}</h5>
+                                        </div>
+                                        <div class="ms-auto"> <i class="bx bx-user-pin font-30"></i>
+                                        </div>
                                     </div>
-                                    <div class="ms-auto"> <i class="bx bx-user-pin font-30"></i>
+                                    <div class="progress radius-10 mt-4" style="height:4.5px;">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 72%"></div>
                                     </div>
-                                </div>
-                                <div class="progress radius-10 mt-4" style="height:4.5px;">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 72%"></div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col">
+                    <a href="{{ url('leads') }}">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
@@ -292,8 +297,10 @@
                                 </div>
                             </div>
                         </div>
+                    </a>
                     </div>
                     <div class="col">
+                    <a href="{{ url('referral') }}">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
@@ -309,6 +316,7 @@
                                 </div>
                             </div>
                         </div>
+                    </a>
                     </div>
                 @endif
             </div>
@@ -385,15 +393,15 @@
                                 </div>
                             </div>
                             <h4 style="text-align: center"><span class="bg bg-primary text-white p-2 rounded">Total
-                                    Balance:${{ number_format((float) $balance -$platform_income +$registration_free,2,'.',',') }}</span>
+                                    Balance:${{ number_format((float) $total_balance,2,'.',',') }}</span>
                                 </h5>
                                 <div style="display: flex;justify-content:center;" class="custom-flex pt-2">
                                     <h6 style="margin-right:5%">Pool Amount
 
-                                        :${{ number_format((float) ($balance +$registration_free + $platform_income) -($platform_income +$registration_free),2,'.',',') }}
+                                        :${{ number_format((float) $pool_amount,2,'.',',') }}
                                     </h6>
                                     <h6 style="margin-right:10px">Revenue
-                                        :${{ number_format((float) $platform_income + $registration_free,2,'.',',') }}
+                                        :${{ number_format((float) $total_revenue,2,'.',',') }}
                                     </h6>
                                 </div>
                                 <hr>
@@ -411,7 +419,7 @@
                                                         <option value="{{ $item->id }}"
                                                             @if ($item->id == $customer) selected @endif>
                                                             {{ $item->name }} {{ $item->last_name }}
-                                                            ({{ $item->user_balance }})</option>
+                                                            ({{ $item->balance ?? 0 }})</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -442,17 +450,15 @@
                                     <table class="table align-middle mb-0 table-hover dataTable" id="">
                                         <thead class="table-light">
                                             <tr>
-                                                <th style="width:10px">TID#</th>
-                                                <th style="width:10%">Date & Time</th>
-                                                <th style="width:10%">Account Holder</th>
-                                                <th style="width:50%">Transaction Details</th>
-                                                <th style="width:15%"> Amount</th>
+                                                <th>TID#</>
+                                                <th>Date & Time</th>
+                                                <th>Account Holder</th>
+                                                <th>Transaction Details</th>
+                                                <th>Type</th>
+                                                <th class="text-center">Amount</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @php
-                                                $i = 1;
-                                            @endphp
                                             @foreach ($transactions as $k => $data)
                                                 <tr>
                                                     <td>{{ $data->reference_id }}</td>
@@ -481,15 +487,20 @@
                                                     <td style="text-align:left !important;">
                                                         <span class="badge {{ $data->credit > 0 ? 'badge-success' : 'badge-danger' }}">
                                                             @if ($data->credit > 0 )
-                                                                +
-                                                                ${{ number_format((float) $data->credit, 2, '.', ',') }}
+                                                                Credit
                                                             @elseif ($data->debit > 0 )
-                                                                -
-                                                                ${{ number_format((float) $data->debit, 2, '.', ',') }}
+                                                                Debit
+                                                            @endif
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @if ($data->credit > 0 )
+                                                        ${{ number_format((float) $data->credit, 2, '.', ',') }}
+                                                            @elseif ($data->debit > 0 )
+                                                            ${{ number_format((float) $data->debit, 2, '.', ',') }}
                                                             @else
                                                                 $0.00
                                                             @endif
-                                                        </span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -511,19 +522,6 @@
                     <div>
                         <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span></h5>
                     </div>
-                    {{-- <div style="margin-left:1%"><form action="{{route('transaction.data')}}"><input class="form-control p-2" type="text" id="search" value="{{ $search }}" name="search" placeholder="Search transaction.." > </form></div> --}}
-                    {{-- <div style="margin-left:auto">
-                        <form action="/main" type="post">
-                            @csrf<input class="form-control p-2" type="date" name="from"
-                                value="{{ $from }}" required>
-                    </div>
-                    <div class="pt-2 p-2"> to </div>
-                    <div style="margin-right:1%"><input class="form-control p-2" type="date"
-                            value="{{ $to }}" name="to" required></div>
-                    <div style="margin-right:1%"><input class="form-control p-2 btn btn-success" name="submit"
-                            type="submit" value="Filter"></div>
-                    </form>
-                </div> --}}
                 </div>
                 <div class="row">
                     <div class="col">
@@ -532,7 +530,7 @@
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <p class="mb-0">Current Balance</p>
-                                        <h5 class="mb-0">${{ number_format((float) $adminamount, 2, '.', ',') }}</h5>
+                                        <h5 class="mb-0">${{ number_format((float) $user_balance, 2, '.', ',') }}</h5>
                                     </div>
                                     <div class="ms-auto"> <i class='bx bx-cart font-30'></i>
                                     </div>
@@ -576,7 +574,7 @@
                                 </div>
                             </div>
                             <div class="" id="w-chart7"></div>
-                        </div>All transactions
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -599,50 +597,63 @@
                                     <table class="table align-middle mb-0 table-hover dataTable">
                                         <thead class="table-light">
                                             <tr>
-                                                <th style="width:10%">Date & Time</th>
-                                                <th style="width:40%">Transaction Details</th>
-                                                <th style="width:15%">Amount</th>
-                                                <th class="text-center">Balance</th>
+                                                <th>Transaction ID</th>
+                                                <th>Date & Time</th>
+                                                <th>Transaction Details</th>
+                                                <th>Type</th>
+                                                <th>Amount</th>
+                                                {{-- <th class="text-center">Balance</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $credit = $transaction->where('statusamount', 'credit')->sum('deduction');
-                                            $debit = $transaction->where('statusamount', 'debit')->sum('deduction');
+                                            $credit = $transactions->sum('credit');
+                                            $debit = $transactions->sum('debit');
                                             ?>
                                             @php
-                                                $i = 1;
                                                 $balance = 0;
                                             @endphp
-                                            @foreach ($transaction as $k => $data)
+                                            @foreach ($transactions as $k => $data)
                                                 <tr>
-                                                    {{-- <td>{{ $i++ }}</td> --}}
+                                                    <td>{{ $data->reference_id }}</td>
                                                     <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
                                                     @if ($data->bill_id)
-                                                        <td><a href="{{ route('claims.show', $data->bill_id ?? '#') }}">
-                                                                {{ $data->description }} </a></td>
+                                                        <td>
+                                                        <a href="{{ route('claims.show', $data->bill_id ?? '#') }}">
+                                                            {{ $data->description }}
+                                                        </a>
+                                                    </td>
                                                     @else
-                                                        <td>{{ $data->description }} </td>
-                                                        {{-- ({{$data->name}} {{$data->last_name}}&nbsp;{{$data->user_id}}) --}}
+                                                        <td>{{ $data->description }}
+                                                    </td>
                                                     @endif
                                                     <td>
-                                                    <span class="badge {{ $data->credit ? 'badge-success' : 'badge-danger' }}">
-                                                        @if ($data->credit)
-                                                            + ${{ number_format((float) $data->credit, 2, '.', ',') }}
+                                                    <span class="badge {{ $data->credit > 0 ? 'badge-success' : 'badge-danger' }}">
+                                                        @if ($data->credit > 0)
+                                                           Credit
+                                                        @endif
+                                                        @if ($data->debit > 0)
+                                                           Debit
+                                                        @endif
+                                                    </span>
+                                                    </td>
+                                                    <td>
+                                                        @if ($data->credit > 0)
+                                                            ${{ number_format((float) $data->credit, 2, '.', ',') }}
                                                             @php
                                                                 $balance = $balance + $data->credit;
                                                             @endphp
-                                                        @elseif ($data->debit)
-                                                            - ${{ number_format((float) $data->debit, 2, '.', ',') }}
+                                                        @endif
+                                                        @if ($data->debit > 0)
+                                                            ${{ number_format((float) $data->debit, 2, '.', ',') }}
                                                             @php
                                                                 $balance = $balance - $data->debit;
                                                             @endphp
                                                         @endif
-                                                    </span>
                                                     </td>
-                                                    <td style="text-align:center !important;">
+                                                    {{-- <td style="text-align:center !important;">
                                                         ${{ number_format((float) $balance, 2, '.', ',') }}
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

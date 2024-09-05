@@ -188,12 +188,6 @@
                                     Bills</a>
                             </li>
                             @endif
-                            @if ($user->hasPermissionTo('Update Bill Status'))
-                            <li>
-                                <a class="dropdown-item {{ Route::currentRouteName() === 'claim.preview' ? 'active' : '' }}" href="{{ url('claim/preview-file') }}"><i class="bx bx-layer"></i>Update
-                                    Bills Status</a>
-                            </li>
-                            @endif
                             @if ($user->hasPermissionTo('Recurring Bills'))
                             <li>
                                 <a class="dropdown-item {{ Route::currentRouteName()==='recurring.bills'? 'active' : '' }}""

@@ -167,8 +167,7 @@ class AuthController extends Controller
 
             $ignore_admin_notification = ignoreAdminEmails();
 
-            foreach ($admins_notification as $notify)
-            {
+            foreach ($admins_notification as $notify) {
                 ///////////////Intrustpit Notification//////////
                 if (in_array($notify->email, $ignore_admin_notification))
                     continue;
@@ -470,199 +469,98 @@ class AuthController extends Controller
     {
 
         $pool_fund = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
-        - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
+            - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
 
         $bill_payments = Claim::sum('claim_amount');
 
         $maintenance_fee = Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::MaintenanceFee)->sum('credit')
-        - Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::MaintenanceFee)->sum('debit');
+            - Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::MaintenanceFee)->sum('debit');
 
         $enrollment_fee = Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::EnrollmentFee)->sum('credit')
-        - Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::EnrollmentFee)->sum('debit');
+            - Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::EnrollmentFee)->sum('debit');
 
-        $total_accounts = User::where('role','Vendor')->count();
+        $total_balance = Transaction::where('user_id', \Intrustpit::Account_id)->sum('credit')
+            - Transaction::where('user_id', \Intrustpit::Account_id)->sum('debit');
+
+        $total_accounts = User::where('role', 'Vendor')->count();
         $total_contacts = contacts::count();
         $total_leads = Lead::count();
         $total_referrals = Referral::count();
 
-        $transactions = Transaction::with('user')->latest()->take(500)->get();
+        if ($request->customer) {
+            $to = $request->to;
+            $from = $request->from;
+            $transactions = Transaction::where('user_id', $request->customer)
+                ->whereBetween(\DB::raw('DATE(created_at)'), [$from, $to])
+                ->with('user')
+                ->latest()
+                ->take(500)
+                ->get();
+        } else {
+            $to = "";
+            $from = "";
+            $transactions = Transaction::with('user')
+                ->latest()
+                ->take(500)
+                ->get();
+        }
+
+        $pool_amount = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
+            - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
+
+        $pool_amount = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
+            - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
+
+        $total_revenue = $maintenance_fee + $enrollment_fee;
+
 
         $start_date = null;
         $customer = "";
         $transaction = "";
-        if ($request->has('plateform_income'))
-        {
-            $id = User::where('id', '=', Session::get('loginId'))->value('id');
-            $userid = User::where('id', '=', Session::get('loginId'))->first();
-            if ($userid->role != 'User') {
-                $transaction = Transaction::where('transaction_against_category', null)->where('description', 'LIKE', '%Maintenance fee%')->where('chart_of_account', '!=', '')->where('statusamount', 'CREDIT')->orderBy('id', 'desc')->get();
-            } else {
-                $transaction = Transaction::where('description', 'LIKE', '%Maintenance fee%')->where('user_id', $id)->where('chart_of_account', '')->orderBy('id', 'desc')->get();
-            }
-            $amount = User::find(\Intrustpit::Account_id);
-            $adminamount = $userid->user_balance;
-            $to = date('y-m-d');
-            $from = date('y-m-d');
-            $slug = 'plateform_income';
-            $platform_income = Transaction::
-                where('transaction_against_category', null)
-                ->where('chart_of_account', '!=', '')
-                ->where('
-            ', 'LIKE', '%Maintenance fee%')->get();
-            $registration_free = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Enrollment fee %')->get();
-            $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
-            $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-        } elseif ($request->has('registration_fee'))
-        {
-            $id = User::where('id', '=', Session::get('loginId'))->value('id');
+        $slug = "";
 
-            $userid = User::where('id', '=', Session::get('loginId'))->first();
-            if ($userid->role != 'User') {
-                $transaction = Transaction::where('transaction_against_category', null)->where('description', 'LIKE', '%Enrollment fee%')->where('chart_of_account', '!=', '')->where('statusamount', 'CREDIT')->orderBy('id', 'desc')->get();
-            } else {
-                $transaction = Transaction::where('description', 'LIKE', '%Enrollment fee%')->where('chart_of_account', '')->where('user_id', $id)->orderBy('id', 'desc')->get();
-            }
-
-            $amount = User::find(\Intrustpit::Account_id);
-            $adminamount = $userid->user_balance;
-            $to = date('y-m-d');
-            $from = date('y-m-d');
-            $slug = 'registration_fee';
-            $platform_income = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Maintenance fee%')->get();
-            $registration_free = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Enrollment fee %')->get();
-            $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
-            $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-
-        } elseif ($request->has('paid_amount'))
-        {
-            $id = User::where('id', '=', Session::get('loginId'))->value('id');
-            $userid = User::where('id', '=', Session::get('loginId'))->first();
-            if ($userid->role != 'User') {
-                $transaction = Transaction::where('transaction_against_category', null)->where('description', 'LIKE', '%Bill Payment%')->where('chart_of_account', '!=', '')->orderBy('id', 'desc')->get();
-            } else {
-                $transaction = Transaction::where('description', 'LIKE', '%Bill Paid%')->where('chart_of_account', '')->where('user_id', $id)->orderBy('id', 'desc')->get();
-
-            }
-
-            $amount = User::find(\Intrustpit::Account_id);
-            $adminamount = $userid->user_balance;
-            $to = date('y-m-d');
-            $from = date('y-m-d');
-            $slug = 'paid_amount';
-            $platform_income = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Maintenance fee%')->get();
-            $registration_free = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Enrollment fee %')->get();
-            $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
-            $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-        } elseif ($request->has('over_all_revenew')) {
-            $id = User::where('id', '=', Session::get('loginId'))->value('id');
-            $userid = User::where('id', '=', Session::get('loginId'))->first();
-            $transaction = Transaction::where('description', 'LIKE', '%Maintenance fee%')->orWhere('description', 'LIKE', '%Enrollment fee%')->orderBy('id', 'desc')->get();
-            if ($userid->role == 'Admin' || $userid->role == 'Moderator') {
-                $transaction = $transaction->where('transaction_against_category', null)->where('statusamount', 'credit')->where('chart_of_account', '!=', '');
-            } else {
-                $transaction = $transaction->where('user_id', $id)->where('chart_of_account', '');
-            }
-            $amount = User::find(\Intrustpit::Account_id);
-            $adminamount = $userid->user_balance;
-            $to = date('y-m-d');
-            $from = date('y-m-d');
-            $slug = 'over_all_revenew';
-            $platform_income = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Maintenance fee%')->get();
-            $registration_free = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Enrollment fee%')->get();
-            $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
-            $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-        } elseif ($request->has('bill_refund')) {
-            $id = User::where('id', '=', Session::get('loginId'))->value('id');
-            $userid = User::where('id', '=', Session::get('loginId'))->first();
-            $transaction = Transaction::where('description', 'LIKE', '%Bill Refund%')->where('statusamount', 'CREDIT')->orderBy('id', 'desc')->get();
-            if ($userid->role == 'Admin' || $userid->role == 'Moderator') {
-                $transaction = $transaction->where('transaction_against_category', null)->where('chart_of_account', '!=', '');
-            } else {
-                $transaction = $transaction->where('user_id', $id)->where('chart_of_account', '');
-            }
-            //dd($transaction);
-            $amount = User::find(\Intrustpit::Account_id);
-            $adminamount = $userid->user_balance;
-            $to = date('y-m-d');
-            $from = date('y-m-d');
-            $slug = 'bill_refund';
-            $platform_income = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Maintenance fee%')->get();
-            $registration_free = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Enrollment fee%')->get();
-            $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
-            $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-        } elseif ($request->has('submit')) {
-            $id = User::where('id', '=', Session::get('loginId'))->value('id');
-            $userid = User::where('id', '=', Session::get('loginId'))->first();
-            $transaction = Transaction::whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to)->orderBy('id', 'desc')->get();
-            if ($userid->role != 'User') {
-                $transaction = $transaction->where('transaction_against_category', null)->where('chart_of_account', '!=', '');
-                if ($request->customer != 'all') {
-                    $transaction = $transaction->where('user_id', $request->customer);
-                }
-            } else {
-                $transaction = $transaction->where('user_id', $id)->where('chart_of_account', '');
-            }
-            $amount = User::find(\Intrustpit::Account_id);
-            $adminamount = $userid->user_balance;
-            $to = $request->to;
-            $from = $request->from;
-            $customer = $request->customer;
-            $slug = 'filtered_transactions';
-            $platform_income = Transaction::where('transaction_against_category', null)->whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Maintenance fee%')->get();
-            $registration_free = Transaction::where('transaction_against_category', null)->whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Enrollment fee%')->get();
-            $bill_paid = Transaction::where('transaction_against_category', null)->whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
-            $bill_refund = Transaction::where('transaction_against_category', null)->whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-
-        } else {
-
-            $id = User::where('id', '=', Session::get('loginId'))->value('id');
-            $userid = User::where('id', '=', Session::get('loginId'))->first();
-            $transaction = Transaction::orderBy('id', 'asc')->get();
-
-            if ($userid->role != 'User') {
-                $transaction = $transaction->where('transaction_against_category', '')->where('chart_of_account', '!=', '')->sortByDesc('id')->take('500');
-            } else {
-                $transaction = $transaction->where('user_id', $id)->where('chart_of_account', '');
-            }
-
-            $amount = User::find(\Intrustpit::Account_id);
-            $adminamount = $userid->user_balance;
-            $to = date('y-m-d');
-            $from = date('y-m-d');
-            $slug = 'all_transactions';
-            if ($userid->role != 'User') {
-
-                $credit = Transaction::where("type", Transaction::MaintenanceFee)->where("user_id", \Intrustpit::Account_id)->sum("credit");
-                $debit = Transaction::where("type", Transaction::MaintenanceFee)->where("user_id", \Intrustpit::Account_id)->sum("debit");
-
-                $platform_income = $credit - $debit;
-
-                $credit = Transaction::where("type", Transaction::EnrollmentFee)->where("user_id", \Intrustpit::Account_id)->sum("credit");
-                $debit = Transaction::where("type", Transaction::EnrollmentFee)->where("user_id", \Intrustpit::Account_id)->sum("debit");
-
-                $registration_free = $credit - $debit;
-
-
-                // $platform_income = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Maintenance fee%')->get();
-                // $registration_free = Transaction::where('transaction_against_category', null)->where('description', 'LIKE', '%Enrollment fee%')->get();
-                $bill_paid = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Payment%')->get();
-                $bill_refund = Transaction::where('transaction_against_category', null)->where('chart_of_account', '!=', '')->where('description', 'LIKE', '%Bill Refund%')->get();
-
-            } else {
-
-                $platform_income = Transaction::where('chart_of_account', null)->where('user_id', $id)->where('description', 'LIKE', '%Maintenance fee%')->get();
-                $registration_free = Transaction::where('chart_of_account', null)->where('user_id', $id)->where('description', 'LIKE', '%Enrollment fee%')->get();
-                $bill_paid = Transaction::where('chart_of_account', null)->where('user_id', $id)->where('description', 'LIKE', '%payment against your bill%')->get();
-                $bill_refund = Transaction::where('chart_of_account', null)->where('user_id', $id)->where('description', 'LIKE', '%Bill Refund%')->get();
-            }
-            //  dd($platform_income);
-        }
         $followup = Followup::select('note', 'date')->get();
-        $customers = User::where('role', 'User')->orderBy('name', 'asc')->get();
-        return view("transaction",
-        compact('pool_fund','bill_payments', 'maintenance_fee', 'enrollment_fee', 'total_accounts', 'total_contacts', 'total_leads', 'total_referrals',
-        'transactions',
-         'platform_income', 'followup', 'registration_free', 'bill_paid', 'bill_refund', 'transaction', 'adminamount', 'to', 'from', 'slug', 'start_date', 'customers', 'customer'));
+
+        $customers = User::where('role', 'User')
+        ->leftJoin('transactions', 'users.id', '=', 'transactions.user_id')
+        ->select('users.id', 'users.name', 'users.email', \DB::raw('SUM(transactions.credit) - SUM(transactions.debit) as balance'))
+        ->groupBy('users.id', 'users.name', 'users.email')
+        ->orderBy('users.id', 'asc')
+        ->get();
+
+
+        $userid = User::where('id', '=', Session::get('loginId'))->first();
+        $user_balance = userBalance($userid->id);
+
+
+
+
+        return view(
+            "transaction",
+            compact(
+                'pool_fund',
+                'bill_payments',
+                'maintenance_fee',
+                'enrollment_fee',
+                'total_accounts',
+                'total_contacts',
+                'total_leads',
+                'total_referrals',
+                'total_balance',
+                'pool_amount',
+                'total_revenue',
+                'transactions',
+                'followup',
+                'transaction',
+                'user_balance',
+                'to',
+                'from',
+                'slug',
+                'start_date',
+                'customers',
+                'customer'
+            )
+        );
 
     }
 
