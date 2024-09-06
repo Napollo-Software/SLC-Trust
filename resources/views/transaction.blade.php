@@ -393,7 +393,7 @@
                                 </div>
                             </div>
                             <h4 style="text-align: center"><span class="bg bg-primary text-white p-2 rounded">Total
-                                    Balance:${{ number_format((float) $total_balance,2,'.',',') }}</span>
+                                    Balance:${{ number_format((float) $pool_amount+$total_revenue,2,'.',',') }}</span>
                                 </h5>
                                 <div style="display: flex;justify-content:center;" class="custom-flex pt-2">
                                     <h6 style="margin-right:5%">Pool Amount

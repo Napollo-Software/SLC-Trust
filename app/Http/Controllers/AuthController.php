@@ -18,14 +18,10 @@ use App\Models\Referral;
 use App\Jobs\sendEmailJob;
 use App\Models\Notifcation;
 use App\Models\Transaction;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\claimsController;
-use Facade\Ignition\SolutionProviders\DefaultDbNameSolutionProvider;
 
 class AuthController extends Controller
 {
@@ -158,10 +154,10 @@ class AuthController extends Controller
 
         if ($role && $role != "User") {
             $details = $user;
-            \Mail::to($request->email)->send(new \App\Mail\Register($details));
+            Mail::to($request->email)->send(new \App\Mail\Register($details));
         } else {
             $details = $request->_token;
-            \Mail::to($request->email)->send(new \App\Mail\registermail($details));
+            Mail::to($request->email)->send(new \App\Mail\registermail($details));
 
             $admins_notification = User::where('role', "admin")->get();
 
@@ -246,7 +242,6 @@ class AuthController extends Controller
     public function dashboard(Request $request)
     {
 
-        ini_set('memory_limit', '512M');
         $role = User::where('id', '=', Session::get('loginId'))->value('role');
         if ($role == 'Vendor' || $role == 'vendor') {
             return redirect()->route('vendor.dashboard');
@@ -254,80 +249,6 @@ class AuthController extends Controller
             return redirect()->route('bill_reports');
         }
 
-        $search = $request['search'] ?? "";
-        if ($search != "") {
-
-            $claims = Claim::where('id', 'LIKE', "%$search%")->orwhere('claim_title', 'LIKE', "%$search%.")->orwhere('claim_category', 'LIKE', "%$search%")->orwhere('claim_status', 'LIKE', "%$search%")->orwhere('claim_amount', 'LIKE', "%$search%")->orwhere('submission_date', 'LIKE', "%$search%")->get();
-            $data = compact('claims', 'search');
-            return view('claims.search')->with($data);
-
-        } else {
-
-
-            $role = User::where('id', '=', Session::get('loginId'))->first();
-            if ($role->role != 'User') {
-                $claim_details = Claim::orderBy('id', 'desc')->take(500)->get();
-                $claims = Claim::orderBy('id', 'desc')->get();
-                $all_users = User::all();
-                $total_users = DB::table('users')->count('id');
-                $user_balance = DB::table('users')->sum('user_balance');
-                $sum_processed = DB::table('claims')->where('claim_status', 'processed')->count('id');
-                $sum_pending = DB::table('claims')->where('claim_status', 'pending')->count('id');
-                $sum_approved = DB::table('claims')->where('claim_status', 'approved')->count('id');
-                $sum_refused = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'refused')->count('id');
-                $sum_processed_amount = DB::table('claims')->where('claim_status', 'processed')->sum('claim_amount');
-                $sum_approved_amount = DB::table('claims')->where('claim_status', 'approved')->sum('claim_amount');
-                $sum_refused_amount = DB::table('claims')->where('claim_status', 'refused')->sum('claim_amount');
-                $sum_pending_amount = DB::table('claims')->where('claim_status', 'pending')->sum('claim_amount');
-                $sum_claims = DB::table('claims')->count('id');
-                $sum_claims_amount = DB::table('claims')->sum('claim_amount');
-                $transaction = Transaction::orderBy('id', 'desc')->get();
-                if ($role->role != 'User') {
-                    $transaction = $transaction->where('chart_of_account', '!=', '');
-                } else {
-                    $transaction = $transaction->where('user_id', $role->id)->where('chart_of_account', '');
-                }
-            } else if ($role == 'User') {
-                $all_users = User::all();
-                $total_users = DB::table('users')->count('id');
-                $user_balance = DB::table('users')->sum('user_balance');
-                $sum_processed = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'processed')->count('id');
-                $sum_pending = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'pending')->count('id');
-                $sum_approved = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'approved')->count('id');
-                $sum_refused = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'refused')->count('id');
-                $sum_processed_amount = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'processed')->sum('claim_amount');
-                $sum_approved_amount = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'approved')->sum('claim_amount');
-                $sum_refused_amount = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'refused')->sum('claim_amount');
-                $sum_pending_amount = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'pending')->sum('claim_amount');
-                $sum_claims = DB::table('claims')->where('claim_user', Session::get('loginId'))->count('id');
-                $sum_claims_amount = DB::table('claims')->where('claim_user', Session::get('loginId'))->sum('claim_amount');
-                $claims = Claim::orderBy('id', 'desc')->where('claim_user', Session::get('loginId'))->get();
-            } else if ($role == 'Moderator') {
-                $claims = Claim::orderBy('id', 'desc')->get();
-                $all_users = User::all();
-                $claim_details = Claim::orderBy('id', 'desc')->take(500)->get();
-                $total_users = DB::table('users')->count('id');
-                $user_balance = DB::table('users')->sum('user_balance');
-                $sum_processed = DB::table('claims')->where('claim_status', 'processed')->count('id');
-                $sum_pending = DB::table('claims')->where('claim_status', 'pending')->count('id');
-                $sum_approved = DB::table('claims')->where('claim_status', 'approved')->count('id');
-                $sum_refused = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'refused')->count('id');
-                $sum_processed_amount = DB::table('claims')->where('claim_status', 'processed')->sum('claim_amount');
-                $sum_approved_amount = DB::table('claims')->where('claim_status', 'approved')->sum('claim_amount');
-                $sum_refused_amount = DB::table('claims')->where('claim_status', 'refused')->sum('claim_amount');
-                $sum_pending_amount = DB::table('claims')->where('claim_status', 'pending')->sum('claim_amount');
-                $sum_claims = DB::table('claims')->count('id');
-                $sum_claims_amount = DB::table('claims')->sum('claim_amount');
-            }
-
-
-
-            //dd($claims);
-            $data = compact('claims', 'transaction', 'search', 'claim_details', 'sum_processed', 'sum_claims', 'sum_claims_amount', 'sum_processed_amount', 'sum_pending', 'sum_processed_amount', 'sum_pending_amount', 'sum_approved', 'sum_approved_amount', 'sum_refused', 'sum_refused_amount', 'total_users', 'user_balance', 'all_users');
-
-
-            return view('dashboard')->with($data);
-        }
     }
 
     public function search_claim(Request $request)
@@ -363,13 +284,13 @@ class AuthController extends Controller
             $category_id = Category::where('category_name', 'LIKE', "%$search%")->pluck('id')->first();
 
             if ($category_id) {
-                $claims = Claim::with(['payee_details','category_details'])->where('claim_category', $category_id)
-                ->where('claim_user', $loginId)
-                ->get();
+                $claims = Claim::with(['payee_details', 'category_details'])->where('claim_category', $category_id)
+                    ->where('claim_user', $loginId)
+                    ->get();
             }
         } else {
 
-            $claims = User::where('name', 'LIKE', "%$search%")->first()->calims()->with(['payee_details','category_details'])->get();
+            $claims = User::where('name', 'LIKE', "%$search%")->first()->calims()->with(['payee_details', 'category_details'])->get();
 
         }
 
@@ -474,60 +395,93 @@ class AuthController extends Controller
 
     public function bill_reports(Request $request)
     {
-
+        // Calculate pool fund, bill payments, total accounts, contacts, leads, and referrals
         $pool_fund = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
             - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
 
         $bill_payments = Claim::sum('claim_amount');
-
-        $maintenance_fee = Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::MaintenanceFee)->sum('credit')
-            - Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::MaintenanceFee)->sum('debit');
-
-        $enrollment_fee = Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::EnrollmentFee)->sum('credit')
-            - Transaction::where('user_id', \Intrustpit::Account_id)->where("type", Transaction::EnrollmentFee)->sum('debit');
-
-        $total_balance = Transaction::where('user_id', \Intrustpit::Account_id)->sum('credit')
-            - Transaction::where('user_id', \Intrustpit::Account_id)->sum('debit');
-
         $total_accounts = User::where('role', 'Vendor')->count();
-        $total_contacts = contacts::count();
+        $total_contacts = Contacts::count();
         $total_leads = Lead::count();
         $total_referrals = Referral::count();
 
-        if ($request->customer) {
+        $loggedInUser = User::where('id', '=', Session::get('loginId'))->first();
+
+        // Check if customer and date range is provided
+        if ($request->customer && $request->to && $request->from) {
             $to = $request->to;
             $from = $request->from;
+
+            // Filter transactions by customer and date range
             $transactions = Transaction::where('user_id', $request->customer)
-                ->whereBetween(\DB::raw('DATE(created_at)'), [$from, $to])
+                ->whereBetween('created_at', [$from, $to]) // Use Laravel's built-in date handling
                 ->with('user')
-                ->latest()
+                ->latest('reference_id')
                 ->take(500)
                 ->get();
+
+            // Calculate pool amount for the specific customer
+            $pool_amount = Transaction::where('user_id', $request->customer)->sum('credit')
+                - Transaction::where('user_id', $request->customer)->sum('debit');
+
+            // Calculate maintenance fee
+            $maintenance_fee = Transaction::where('user_id', \Intrustpit::Account_id)
+                ->where('user_id', $request->customer) // Correct the user_id filter for customer
+                ->where("type", Transaction::MaintenanceFee)->sum('credit')
+                - Transaction::where('user_id', \Intrustpit::Account_id)
+                    ->where('user_id', $request->customer)
+                    ->where("type", Transaction::MaintenanceFee)->sum('debit');
+
+            // Calculate enrollment fee
+            $enrollment_fee = Transaction::where('user_id', \Intrustpit::Account_id)
+                ->where('user_id', $request->customer)
+                ->where("type", Transaction::EnrollmentFee)->sum('credit')
+                - Transaction::where('user_id', \Intrustpit::Account_id)
+                    ->where('user_id', $request->customer)
+                    ->where("type", Transaction::EnrollmentFee)->sum('debit');
+
+            // Calculate total revenue
+            $total_revenue = $maintenance_fee + $enrollment_fee;
+
         } else {
+            // If customer or date range is not provided
             $to = "";
             $from = "";
+
+            // Get the latest 500 transactions
             $transactions = Transaction::with('user')
-                ->latest()
+                ->when($loggedInUser->role == 'User', function ($query) use ($loggedInUser) {
+                    $query->where('user_id', $loggedInUser->id);
+                })
+                ->latest('reference_id')
                 ->take(500)
                 ->get();
+
+            // Calculate maintenance and enrollment fees
+            $maintenance_fee = Transaction::where('user_id', \Intrustpit::Account_id)
+                ->where("type", Transaction::MaintenanceFee)->sum('credit')
+                - Transaction::where('user_id', \Intrustpit::Account_id)
+                    ->where("type", Transaction::MaintenanceFee)->sum('debit');
+
+            $enrollment_fee = Transaction::where('user_id', \Intrustpit::Account_id)
+                ->where("type", Transaction::EnrollmentFee)->sum('credit')
+                - Transaction::where('user_id', \Intrustpit::Account_id)
+                    ->where("type", Transaction::EnrollmentFee)->sum('debit');
+
+            // Calculate pool amount
+            $pool_amount = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
+                - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
+
+            // Calculate total revenue
+            $total_revenue = $maintenance_fee + $enrollment_fee;
         }
 
-        $pool_amount = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
-            - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
-
-        $pool_amount = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
-            - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
-
-        $total_revenue = $maintenance_fee + $enrollment_fee;
-
-
+        // Fetch additional data
         $start_date = null;
         $customer = "";
-        $transaction = "";
-        $slug = "";
-
         $followup = Followup::select('note', 'date')->get();
 
+        // Fetch customers with balance
         $customers = User::where('role', 'User')
             ->leftJoin('transactions', 'users.id', '=', 'transactions.user_id')
             ->select('users.id', 'users.name', 'users.email', \DB::raw('SUM(transactions.credit) - SUM(transactions.debit) as balance'))
@@ -535,13 +489,10 @@ class AuthController extends Controller
             ->orderBy('users.id', 'asc')
             ->get();
 
+        // Fetch user balance
+        $user_balance = userBalance($loggedInUser->id);
 
-        $userid = User::where('id', '=', Session::get('loginId'))->first();
-        $user_balance = userBalance($userid->id);
-
-
-
-
+        // Return view with all data
         return view(
             "transaction",
             compact(
@@ -553,41 +504,19 @@ class AuthController extends Controller
                 'total_contacts',
                 'total_leads',
                 'total_referrals',
-                'total_balance',
                 'pool_amount',
                 'total_revenue',
                 'transactions',
                 'followup',
-                'transaction',
                 'user_balance',
                 'to',
                 'from',
-                'slug',
                 'start_date',
                 'customers',
                 'customer'
             )
         );
-
     }
-
-
-    public function nav(Request $request)
-    {
-
-        //$users = User::where('id', '=', Session::get('loginId'))->value('role');
-        //$data =  compact('users');
-        //dd($data);
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
 
 
     public function view_user(Request $request, $id)
@@ -642,14 +571,14 @@ class AuthController extends Controller
                     'title' => 'Mail from Intrustpit',
                     'body' => 'Your intrustpit account has been verified successfully.'
                 ];
-                \Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name));
+                Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name));
             } elseif ($request->account_status == "Not Approved") {
                 $status = "Not Approved";
                 $details = [
                     'title' => 'Mail from Intrustpit',
                     'body' => 'Your intrustpit account has been rejected.'
                 ];
-                \Mail::to($user->email)->send(new \App\Mail\RejectProfile($user->name));
+                Mail::to($user->email)->send(new \App\Mail\RejectProfile($user->name));
             } elseif ($request->account_status == "Disable") {
                 $status = "Disabled";
                 if ($request->approval_action != '1') {
@@ -799,8 +728,8 @@ class AuthController extends Controller
 
         $user = User::findOrFail($id);
         $admin = User::findOrFail(\Intrustpit::Account_id);
-        $uid = auth()->user();
         $app_name = config('app.name');
+
         $userBalance = userBalance($id);
 
         if ($user->account_status !== "Approved") {
@@ -825,20 +754,12 @@ class AuthController extends Controller
             // Generate the transaction ID and descriptions
             $transactionId = $request->trans_no ?? $request->cheque_no ?? $request->card_no;
             $reference_id = generateTransactionId();
-            $dateFormatted = date('m/d/Y', strtotime($request->date_of_trans));
 
             // Description for the deposit
-            $description = "{$user->name} {$user->last_name} made \${$request->balance} deposit through {$request->payment_type} transaction id #{$transactionId} on {$dateFormatted} into {$app_name} account.";
-            $customer_description = "{$app_name} added \${$request->balance} balance in your account against {$request->payment_type} transaction id #{$transactionId} on {$dateFormatted}.";
+            $description = "Deposit of \${$request->balance} made via {$request->payment_type} (Transaction ID: #{$transactionId}).";
+            $customer_description = "\${$request->balance} added in account against {$request->payment_type} transaction id #{$transactionId}";
 
             // Record the credit transaction for the added balance
-            $user->transactions()->create([
-                "reference_id" => $reference_id,
-                "credit" => $request->balance,
-                "description" => $customer_description,
-                "type" => Transaction::Deposit
-            ]);
-
             $admin->transactions()->create([
                 "reference_id" => $reference_id,
                 "debit" => $request->balance,
@@ -846,18 +767,27 @@ class AuthController extends Controller
                 "type" => Transaction::Deposit
             ]);
 
-            // Description for the maintenance fee deduction
-            $platform_fee_description = "{$app_name} \${$request->maintenance_fee} Maintenance fee deducted against \${$request->balance} balance with {$request->payment_type} transaction id #{$transactionId} on {$dateFormatted}.";
+            $user->transactions()->create([
+                "reference_id" => $reference_id,
+                "credit" => $request->balance,
+                "description" => $customer_description,
+                "type" => Transaction::Deposit
+            ]);
+
+            $platform_fee_description = "Maintenance fee of \${$request->maintenance_fee} has been charged.";
+            $customer_platform_fee_description = "Maintenance fee of \${$request->maintenance_fee} deducted.";
 
             // Deduct maintenance fee and record it as a debit
             $reference_id = generateTransactionId();
+
             $user->transactions()->create([
                 "reference_id" => $reference_id,
                 "debit" => $request->maintenance_fee,
-                "description" => $platform_fee_description,
+                "description" => $customer_platform_fee_description,
                 "type" => Transaction::MaintenanceFee,
                 "transaction_type" => \TransactionType::Operational
             ]);
+            
             $admin->transactions()->create([
                 "reference_id" => $reference_id,
                 "credit" => $request->maintenance_fee,
@@ -873,10 +803,11 @@ class AuthController extends Controller
                     return redirect()->back()->withErrors(['insufficient' => "{$user->name}'s balance is insufficient to charge Enrollment fee."]);
                 }
 
-                $registration_fee_description = "One-time Enrollment fee of \${$request->registration_fee_amount} deducted from {$user->name} {$user->last_name}.";
-                $customer_registration_description = "One-time Enrollment fee charged from your account.";
+                $registration_fee_description = "A one-time enrollment fee of \${$request->registration_fee_amount} has been charged.";
+                $customer_registration_description = "A one-time Enrollment fee of \${$request->registration_fee_amount} deducted.";
 
                 $reference_id = generateTransactionId();
+
                 $user->transactions()->create([
                     "reference_id" => $reference_id,
                     "debit" => $request->registration_fee_amount,
@@ -884,6 +815,7 @@ class AuthController extends Controller
                     "type" => Transaction::EnrollmentFee,
                     "transaction_type" => \TransactionType::Operational
                 ]);
+
                 $admin->transactions()->create([
                     "reference_id" => $reference_id,
                     "credit" => $request->registration_fee_amount,
@@ -892,19 +824,15 @@ class AuthController extends Controller
                     "transaction_type" => \TransactionType::Operational
                 ]);
             }
+
             /////////////User Add Balance Notification/////////////
-            $notifcation = Notifcation::create([
+            Notifcation::create([
                 "user_id" => $user->id,
                 "name" => $user->name . " " . $user->last_name,
-                "description" => "Your intrustpit account has been topped up successfully with amount $" . $request->balance . ".",
+                "description" => "Your {$app_name} account has been topped up successfully with amount $" . $request->balance . ".",
                 "title" => 'Balance Added',
                 "status" => 0
             ]);
-
-            $details = User::find($user->id);
-            $subject = "Balance Added";
-            $name = $user->name . ' ' . $user->last_name;
-            $email_message = "Your intrustpit account has been topped up successfully with amount $" . $request->balance . ". Now you can add bills using your Intrustpit account! Please use the button below to add bills:";
 
             alert()->success('Balance Added', 'User balance has been added');
 
