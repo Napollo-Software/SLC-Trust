@@ -245,18 +245,6 @@ class claimsController extends Controller
                 $details = $claim;
 
                 $reference_id = generateTransactionId();
-                ////////////////Admin Ledger/////////////////
-
-                $admin->transactions()->create([
-                    "status" => 1,
-                    "bill_id" => $claim->id,
-                    "reference_id" => $reference_id,
-                    "credit" => $request->claim_amount,
-                    "payment_method" => $request->payment_method,
-                    "payment_number" => $request->payment_number,
-                    "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => $app_name . " has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category."
-                ]);
 
                 ////////////////Customer Ledger/////////////////
 
@@ -269,6 +257,19 @@ class claimsController extends Controller
                     'payment_number' => $request->card_number,
                     'transaction_type' => \TransactionType::TrustedSurplus,
                     'description' => "{$app_name} has processed your payment against bill submitted for " . $name->category_name . " category."
+                ]);
+
+                ////////////////Admin Ledger/////////////////
+
+                $admin->transactions()->create([
+                    "status" => 1,
+                    "bill_id" => $claim->id,
+                    "reference_id" => $reference_id,
+                    "credit" => $request->claim_amount,
+                    "payment_method" => $request->payment_method,
+                    "payment_number" => $request->payment_number,
+                    "transaction_type" => \TransactionType::TrustedSurplus,
+                    "description" => $app_name . " has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category."
                 ]);
 
                 /////////////User Bill Notification/////////////

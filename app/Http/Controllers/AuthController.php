@@ -404,6 +404,7 @@ class AuthController extends Controller
         $total_contacts = Contacts::count();
         $total_leads = Lead::count();
         $total_referrals = Referral::count();
+        $customer = 'all';
 
         $loggedInUser = User::where('id', '=', Session::get('loginId'))->first();
 
@@ -411,6 +412,7 @@ class AuthController extends Controller
         if ($request->customer && $request->to && $request->from) {
             $to = $request->to;
             $from = $request->from;
+            $customer = $request->customer;
 
             // Filter transactions by customer and date range
             $transactions = Transaction::where('user_id', $request->customer)
@@ -478,7 +480,6 @@ class AuthController extends Controller
 
         // Fetch additional data
         $start_date = null;
-        $customer = "";
         $followup = Followup::select('note', 'date')->get();
 
         // Fetch customers with balance
@@ -509,6 +510,7 @@ class AuthController extends Controller
                 'transactions',
                 'followup',
                 'user_balance',
+                'customer',
                 'to',
                 'from',
                 'start_date',
@@ -787,7 +789,7 @@ class AuthController extends Controller
                 "type" => Transaction::MaintenanceFee,
                 "transaction_type" => \TransactionType::Operational
             ]);
-            
+
             $admin->transactions()->create([
                 "reference_id" => $reference_id,
                 "credit" => $request->maintenance_fee,

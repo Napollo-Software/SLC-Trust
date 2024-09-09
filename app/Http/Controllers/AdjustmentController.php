@@ -41,6 +41,7 @@ class AdjustmentController extends Controller
 
         DB::beginTransaction();
         try {
+
             $transactionType = $validated['type'];
             $adminDirection = $transactionType === 'credit' ? 'debit' : 'credit';
             $admin_message = "Adjustment : {$app_name} has processed an adjustment entry to {$transactionType} amount \${$request->amount} for {$user->name} {$user->last_name}. Transaction reason: '{$request->details}'.";
@@ -49,21 +50,42 @@ class AdjustmentController extends Controller
 
             $reference_id = generateTransactionId();
 
-            $user->transactions()->create([
-                'status' => 1,
-                $transactionType => $validated['amount'],
-                'description' => $user_message,
-                'reference_id' => $reference_id,
-                'transaction_type' => \TransactionType::TrustedSurplus,
-            ]);
+            if ($transactionType == 'debit') {
 
-            $admin->transactions()->create([
-                'status' => 1,
-                $adminDirection => $validated['amount'],
-                'description' => $admin_message,
-                'reference_id' => $reference_id,
-                'transaction_type' => \TransactionType::TrustedSurplus,
-            ]);
+                $user->transactions()->create([
+                    'status' => 1,
+                    $transactionType => $validated['amount'],
+                    'description' => $user_message,
+                    'reference_id' => $reference_id,
+                    'transaction_type' => \TransactionType::TrustedSurplus,
+                ]);
+
+                $admin->transactions()->create([
+                    'status' => 1,
+                    $adminDirection => $validated['amount'],
+                    'description' => $admin_message,
+                    'reference_id' => $reference_id,
+                    'transaction_type' => \TransactionType::TrustedSurplus,
+                ]);
+
+            } else {
+
+                $admin->transactions()->create([
+                    'status' => 1,
+                    $adminDirection => $validated['amount'],
+                    'description' => $admin_message,
+                    'reference_id' => $reference_id,
+                    'transaction_type' => \TransactionType::TrustedSurplus,
+                ]);
+
+                $user->transactions()->create([
+                    'status' => 1,
+                    $transactionType => $validated['amount'],
+                    'description' => $user_message,
+                    'reference_id' => $reference_id,
+                    'transaction_type' => \TransactionType::TrustedSurplus,
+                ]);
+            }
 
             Notifcation::create([
                 'user_id' => $user->id,
