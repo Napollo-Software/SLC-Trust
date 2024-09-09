@@ -27,7 +27,7 @@ class AdjustmentController extends Controller
             'user.required' => 'Please select a user to create an adjustment.'
         ]);
 
-        $admin = User::find(\Intrustpit::Account_id);
+        $admin = User::find(\Company::Account_id);
 
         $user = User::find($validated['user']);
 

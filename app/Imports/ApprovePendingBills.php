@@ -30,13 +30,13 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
             '*.bill_amount' => 'required',
             '*.user_balance' => 'required',
         ]);
-        
+
         foreach ($collection as $k => $item) {
             // dd($item);
             // if($k>0)
             if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] != "Pending") {
                 $claim = Claim::find($item['bill_id']);
-                if ($claim && $claim->claim_user != null) { 
+                if ($claim && $claim->claim_user != null) {
                     $claim->payment_method = $item['payment_method_achcardcheque_payment'];
                     $claim->card_number = $item['payment_number'];
                     $user = User::find($claim->claim_user);
@@ -64,7 +64,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             $transaction->save();
                             ////////////////Intrustpit Ledger/////////////////
                             $transaction = new Transaction();
-                            $transaction->chart_of_account = \Intrustpit::Account_id;
+                            $transaction->chart_of_account = \Company::Account_id;
                             $transaction->bill_id = $claim->id;
                             $transaction->user_id = $user->id;
                             $transaction->deduction = $claim->claim_amount;
@@ -118,7 +118,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             $transaction->save();
                             ////////////////Intrustpit Ledger/////////////////
                             $transaction = new Transaction();
-                            $transaction->chart_of_account = \Intrustpit::Account_id;
+                            $transaction->chart_of_account = \Company::Account_id;
                             $transaction->bill_id = $claim->id;
                             $transaction->user_id = $user->id;
                             $transaction->deduction = $item['paid_amount'];

@@ -203,7 +203,7 @@ class claimsController extends Controller
 
         $user = User::find(Session::get('loginId'));
         $claimUser = User::find($validated['claim_user'] ?? $user->id);
-        $admin = User::find(\Intrustpit::Account_id);
+        $admin = User::find(\Company::Account_id);
         $app_name = config('app.name');
 
         if ($claimUser->account_status == 'Disable') {
@@ -310,7 +310,7 @@ class claimsController extends Controller
                     'rbauman@trustedsurplus.org'
                 ];
                 foreach ($admins_notification as $notify) {
-                    ///////////////Intrustpit Notification//////////
+                    /////////////// Admin Notification//////////
                     if (in_array($notify->email, $ignore_admin_notification))
                         continue;
 
@@ -459,7 +459,7 @@ class claimsController extends Controller
             'refusal_reason.required_if' => 'Refusal reason is required to refuse bill'
         ]);
 
-        $admin = User::findOrFail(\Intrustpit::Account_id);
+        $admin = User::findOrFail(\Company::Account_id);
         $claim = Claim::findOrFail($request->id);
         $claimUser = User::findOrFail($claim->claim_user);
         $name = Category::findOrFail($request->claim_category);

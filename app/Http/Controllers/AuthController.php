@@ -164,7 +164,7 @@ class AuthController extends Controller
             $ignore_admin_notification = ignoreAdminEmails();
 
             foreach ($admins_notification as $notify) {
-                ///////////////Intrustpit Notification//////////
+                /////////////// Admin Notification//////////
                 if (in_array($notify->email, $ignore_admin_notification))
                     continue;
                 $notifcation = new Notifcation();
@@ -396,8 +396,8 @@ class AuthController extends Controller
     public function bill_reports(Request $request)
     {
         // Calculate pool fund, bill payments, total accounts, contacts, leads, and referrals
-        $pool_fund = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
-            - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
+        $pool_fund = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
+            - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
 
         $bill_payments = Claim::sum('claim_amount');
         $total_accounts = User::where('role', 'Vendor')->count();
@@ -427,18 +427,18 @@ class AuthController extends Controller
                 - Transaction::where('user_id', $request->customer)->sum('debit');
 
             // Calculate maintenance fee
-            $maintenance_fee = Transaction::where('user_id', \Intrustpit::Account_id)
+            $maintenance_fee = Transaction::where('user_id', \Company::Account_id)
                 ->where('user_id', $request->customer) // Correct the user_id filter for customer
                 ->where("type", Transaction::MaintenanceFee)->sum('credit')
-                - Transaction::where('user_id', \Intrustpit::Account_id)
+                - Transaction::where('user_id', \Company::Account_id)
                     ->where('user_id', $request->customer)
                     ->where("type", Transaction::MaintenanceFee)->sum('debit');
 
             // Calculate enrollment fee
-            $enrollment_fee = Transaction::where('user_id', \Intrustpit::Account_id)
+            $enrollment_fee = Transaction::where('user_id', \Company::Account_id)
                 ->where('user_id', $request->customer)
                 ->where("type", Transaction::EnrollmentFee)->sum('credit')
-                - Transaction::where('user_id', \Intrustpit::Account_id)
+                - Transaction::where('user_id', \Company::Account_id)
                     ->where('user_id', $request->customer)
                     ->where("type", Transaction::EnrollmentFee)->sum('debit');
 
@@ -460,19 +460,19 @@ class AuthController extends Controller
                 ->get();
 
             // Calculate maintenance and enrollment fees
-            $maintenance_fee = Transaction::where('user_id', \Intrustpit::Account_id)
+            $maintenance_fee = Transaction::where('user_id', \Company::Account_id)
                 ->where("type", Transaction::MaintenanceFee)->sum('credit')
-                - Transaction::where('user_id', \Intrustpit::Account_id)
+                - Transaction::where('user_id', \Company::Account_id)
                     ->where("type", Transaction::MaintenanceFee)->sum('debit');
 
-            $enrollment_fee = Transaction::where('user_id', \Intrustpit::Account_id)
+            $enrollment_fee = Transaction::where('user_id', \Company::Account_id)
                 ->where("type", Transaction::EnrollmentFee)->sum('credit')
-                - Transaction::where('user_id', \Intrustpit::Account_id)
+                - Transaction::where('user_id', \Company::Account_id)
                     ->where("type", Transaction::EnrollmentFee)->sum('debit');
 
             // Calculate pool amount
-            $pool_amount = Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('credit')
-                - Transaction::where('user_id', "!=", \Intrustpit::Account_id)->sum('debit');
+            $pool_amount = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
+                - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
 
             // Calculate total revenue
             $total_revenue = $maintenance_fee + $enrollment_fee;
@@ -729,8 +729,10 @@ class AuthController extends Controller
         ]);
 
         $user = User::findOrFail($id);
-        $admin = User::findOrFail(\Intrustpit::Account_id);
+        $admin = User::findOrFail(\Company::Account_id);
         $app_name = config('app.name');
+
+        $maintenance_fee_amount = $request->balance * ($request->maintenance_fee / 100);
 
         $userBalance = userBalance($id);
 
@@ -738,12 +740,12 @@ class AuthController extends Controller
             return redirect()->back()->withErrors(['insufficient' => "Please approve {$user->name}'s profile to add balance!"]);
         }
 
-        if ($userBalance + $request->balance < $request->maintenance_fee) {
+        if ($userBalance + $request->balance < $maintenance_fee_amount) {
             return redirect()->back()->withErrors(['insufficient' => "{$user->name}'s balance is insufficient to charge Maintenance fee."]);
         }
 
         if ($request->registration_fee) {
-            $deduction = ($request->balance / 100 * $request->maintenance_fee) + $request->registration_fee_amount;
+            $deduction = $maintenance_fee_amount + $request->registration_fee_amount;
             if ($deduction > $userBalance + $request->balance) {
                 return redirect()->back()->withErrors(['insufficient' => "{$user->name}'s balance is insufficient to charge Enrollment fee."]);
             }
@@ -763,10 +765,10 @@ class AuthController extends Controller
 
             // Record the credit transaction for the added balance
             $admin->transactions()->create([
-                "reference_id" => $reference_id,
                 "debit" => $request->balance,
                 "description" => $description,
-                "type" => Transaction::Deposit
+                "type" => Transaction::Deposit,
+                "reference_id" => $reference_id,
             ]);
 
             $user->transactions()->create([
@@ -776,34 +778,30 @@ class AuthController extends Controller
                 "type" => Transaction::Deposit
             ]);
 
-            $platform_fee_description = "Maintenance fee of \${$request->maintenance_fee} has been charged.";
-            $customer_platform_fee_description = "Maintenance fee of \${$request->maintenance_fee} deducted.";
+            $platform_fee_description = "Maintenance fee of \${$maintenance_fee_amount} has been charged.";
+            $customer_platform_fee_description = "Maintenance fee of \${$maintenance_fee_amount} deducted.";
 
             // Deduct maintenance fee and record it as a debit
             $reference_id = generateTransactionId();
 
             $user->transactions()->create([
                 "reference_id" => $reference_id,
-                "debit" => $request->maintenance_fee,
-                "description" => $customer_platform_fee_description,
+                "debit" => $maintenance_fee_amount,
                 "type" => Transaction::MaintenanceFee,
+                "description" => $customer_platform_fee_description,
                 "transaction_type" => \TransactionType::Operational
             ]);
 
             $admin->transactions()->create([
                 "reference_id" => $reference_id,
-                "credit" => $request->maintenance_fee,
-                "description" => $platform_fee_description,
+                "credit" => $maintenance_fee_amount,
                 "type" => Transaction::MaintenanceFee,
+                "description" => $platform_fee_description,
                 "transaction_type" => \TransactionType::Operational
             ]);
 
             // Handle registration fee if applicable
             if ($request->registration_fee) {
-                $deduction = ($request->balance / 100 * $request->maintenance_fee) + $request->registration_fee_amount;
-                if ($deduction > $userBalance + $request->balance) {
-                    return redirect()->back()->withErrors(['insufficient' => "{$user->name}'s balance is insufficient to charge Enrollment fee."]);
-                }
 
                 $registration_fee_description = "A one-time enrollment fee of \${$request->registration_fee_amount} has been charged.";
                 $customer_registration_description = "A one-time Enrollment fee of \${$request->registration_fee_amount} deducted.";
@@ -812,28 +810,28 @@ class AuthController extends Controller
 
                 $user->transactions()->create([
                     "reference_id" => $reference_id,
+                    "type" => Transaction::EnrollmentFee,
                     "debit" => $request->registration_fee_amount,
                     "description" => $customer_registration_description,
-                    "type" => Transaction::EnrollmentFee,
                     "transaction_type" => \TransactionType::Operational
                 ]);
 
                 $admin->transactions()->create([
                     "reference_id" => $reference_id,
+                    "type" => Transaction::EnrollmentFee,
                     "credit" => $request->registration_fee_amount,
                     "description" => $registration_fee_description,
-                    "type" => Transaction::EnrollmentFee,
                     "transaction_type" => \TransactionType::Operational
                 ]);
             }
 
             /////////////User Add Balance Notification/////////////
             Notifcation::create([
+                "status" => 0,
                 "user_id" => $user->id,
-                "name" => $user->name . " " . $user->last_name,
-                "description" => "Your {$app_name} account has been topped up successfully with amount $" . $request->balance . ".",
                 "title" => 'Balance Added',
-                "status" => 0
+                "name" => "{$user->name} {$user->last_name}",
+                "description" => "Your {$app_name} account has been topped up successfully with amount \${$request->balance}",
             ]);
 
             alert()->success('Balance Added', 'User balance has been added');

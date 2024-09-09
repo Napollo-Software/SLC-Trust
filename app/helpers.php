@@ -8,8 +8,8 @@ use App\Models\Log;
 use App\Models\Type;
 
 
-if (!class_exists('Intrustpit')) {
-    class Intrustpit
+if (!class_exists('Company')) {
+    class Company
     {
         const Account_id = 7;
         const Account_name = 'SLC TRUST';

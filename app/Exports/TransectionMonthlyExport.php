@@ -37,7 +37,7 @@ class TransectionMonthlyExport implements FromCollection, WithHeadings
            if($this->start_date != ' ' && $this->user_id  != ' '){
             $year = date('Y', strtotime($this->start_date));
             $month = date('m', strtotime($this->start_date));
-            $transactions = Transaction::where('user_id',$this->user_id)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->where('chart_of_account',\Intrustpit::Account_id)->get();
+            $transactions = Transaction::where('user_id',$this->user_id)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->where('chart_of_account',\Company::Account_id)->get();
                $result = array();
                $user_id = User::where('id',$this->user_id)->first();
                foreach($transactions as $transaction){

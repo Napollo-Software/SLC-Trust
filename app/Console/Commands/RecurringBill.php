@@ -42,7 +42,7 @@ class RecurringBill extends Command
     /**
      * Execute the console command.
      *
-     * @return int 
+     * @return int
      */
     public function handle()
     {
@@ -52,7 +52,7 @@ class RecurringBill extends Command
         ->where(function($query){
             $query->where('claim_status', 'Approved')
             ->orwhere('claim_status', 'Partially approved');
-        })->get(); 
+        })->get();
         foreach($claims as $k=>$claim){
             $claimUser = User::find($claim->claim_user);
             $Category=Category::find($claim->claim_category);
@@ -70,7 +70,7 @@ class RecurringBill extends Command
             //     $notifcation->title='Insufficient Balance';
             //     $notifcation->status = 0;
             //     $notifcation->save();
-                
+
             //     $subject = "Insufficient balance";
             //     $name = $claimUser->name.' '.$claimUser->last_name;
             //     $email_message = 'Your recurring bill#'.$claim->id.' added on '.date('m-d-Y', strtotime($claim->created_at)).' has not been processed because you have insuficient balance. Please use the button below to find the details of your bill:';
@@ -78,10 +78,10 @@ class RecurringBill extends Command
             //     if($claimUser->notify_by == "email"){
             //         \Mail::to($claimUser->email)->send(new \App\Mail\Email($subject,$name,$email_message,$url));
             //     }else{
-                    
+
             //     }
             // }else{
-            //         ////////////////Intrustpit Ledger/////////////////
+            //         ////////////////Admin Ledger/////////////////
             //         $transaction=new Transaction();
             //         $transaction->chart_of_account=$intrustpit->id;
             //         $transaction->bill_id = $claim->id;
@@ -126,9 +126,9 @@ class RecurringBill extends Command
             //         if($claimUser->notify_by == "email"){
             //             \Mail::to($claimUser->email)->send(new \App\Mail\Email($subject,$name,$email_message,$url));
             //         }else{
-                        
+
             //         }
-                
+
             // }
             $check = Claim::where('recurred', $claim->id)
             ->whereRaw('DATE_FORMAT(created_at, "%Y-%m") = ?', [$currentMonth])
@@ -154,7 +154,7 @@ class RecurringBill extends Command
             $notifcation->title='Bill Created';
             $notifcation->status = 0;
             $notifcation->save();
-            
+
             $subject = "Bill Created";
             $name = $claimUser->name.' '.$claimUser->last_name;
             $email_message = 'Your recurring bill#'.$new_claim->id.' has been created successfully against '.$Category->category_name.' category. Please use the button below to find the details of your bill:';
@@ -162,10 +162,10 @@ class RecurringBill extends Command
             if($claimUser->notify_by == "email"){
                 // \Mail::to($claimUser->email)->send(new \App\Mail\Email($subject,$name,$email_message,$url));
             }else{
-                
+
              }
-            
-             $admins_notification = User::where('role','!=',"User")->get(); 
+
+             $admins_notification = User::where('role','!=',"User")->get();
 			   $ignore_admin_notification = [
                     'devops@napollo.net',
                     'svaldivia@trustedsurplus.org',
@@ -173,7 +173,7 @@ class RecurringBill extends Command
                     'rbauman@trustedsurplus.org'
                 ];
             foreach($admins_notification as $notify){
-                 /////////////Intrustpit Notification/////////////
+                 ///////////// Admin Notification/////////////
 				 if(in_array($notify->email,$ignore_admin_notification))
                     continue;
                 $notifcation=new Notifcation();

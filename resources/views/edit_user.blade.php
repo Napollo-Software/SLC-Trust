@@ -137,13 +137,13 @@
                         </div>
                     </div>
             </div>
-            
+
             <div class="col-md-8">
                 <div class="card mb-3">
                     <div class="card-body">
                         <div style="display: flex">
                             <h4>Profile Details</h4>
-                            @if ($user->id != \Intrustpit::Account_id)
+                            @if ($user->id != \Company::Account_id)
                                 <div class="col-sm-3" style="margin-left:auto;margin-right:1%">
                                     <select id="defaultSelect"
                                         class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif"

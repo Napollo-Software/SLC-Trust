@@ -22,7 +22,7 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function collection(Collection $rows)
-    {   
+    {
         Validator::make($rows->toArray(), [
          '*.id' => 'required',
         //  '*.date_mmddyyyy' => 'required',
@@ -70,7 +70,7 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
                     if($data['amount'] != 0){
                         $transaction4=new Transaction();
                         $transaction4->user_id=$user->id;
-                        $transaction4->chart_of_account=\Intrustpit::Account_id;
+                        $transaction4->chart_of_account=\Company::Account_id;
                         $transaction4->deduction=$file_balance;
                         $transaction4->transaction_type="Trusted Surplus";
                         $transaction4->name=$user->name;
@@ -85,7 +85,7 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
                     if($data['maintenance_fee'] != 0){
                         $transaction5=new Transaction();
                         $transaction5->user_id=$user->id;
-                        $transaction5->chart_of_account=\Intrustpit::Account_id;
+                        $transaction5->chart_of_account=\Company::Account_id;
                         $transaction5->deduction=$data['maintenance_fee'];
                         $transaction5->name=$user->name;
                         $transaction5->statusamount="credit";

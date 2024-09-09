@@ -464,9 +464,9 @@
                                                     <td>{{ $data->reference_id }}</td>
                                                     <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
                                                     <td>
-                                                       @if($data->user_id == \Intrustpit::Account_id)
+                                                       @if($data->user_id == \Company::Account_id)
                                                        {{
-                                                        \Intrustpit::Account_name
+                                                        \Company::Account_name
                                                        }}
                                                        @else
                                                        {{ $data->user->name }}
