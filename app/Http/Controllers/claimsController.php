@@ -466,14 +466,14 @@ class claimsController extends Controller
         $app_name = config('app.name');
 
         if ($claimUser->account_status == 'Disable') {
-            return response()->json(['header' => 'User Disabled!', 'message' => "You cannot update bill for disabled customer."], 403);
+            return response()->json(['type' => 'warning', 'header' => 'User Disabled!', 'message' => "You cannot update bill for disabled customer."]);
         }
 
         $balance = userBalance($claimUser->id);
         $amountToUpdate = $request->claim_status == 'Partial' ? $validated['partial_amount'] : $claim->claim_amount;
 
         if ($balance < $amountToUpdate && $request->claim_status != 'Refused') {
-            return response()->json(['header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to update this bill."], 400);
+            return response()->json(['type' => 'warning','header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to update this bill."]);
         }
 
         $claim = Claim::find($id);
