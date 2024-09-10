@@ -349,7 +349,7 @@ class DocumentController extends Controller
     public function saveJoinder(Request $request)
     {
 
-        dd($request->all());
+//        dd($request->all());
         set_time_limit(200);
         $referralId = $request->referral_id;
         $referral = Referral::find($referralId);
@@ -367,7 +367,9 @@ class DocumentController extends Controller
 
         foreach ($signatureFields as $fieldName) {
             $imageData = $request->input($fieldName);
-
+//            if($fieldName == "joinder_signature_5"){
+//                dd($imageData);
+//            }
             if ($imageData) {
                 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
                 $filename = $fieldName . date('Ymd_His') . '.png';

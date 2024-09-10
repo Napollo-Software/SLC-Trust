@@ -1564,7 +1564,7 @@
             <div style="display: table-cell; width: 50%; text-align: center;">
                 <!-- Signature Image or Placeholder -->
                 @if($joinder_signature_4)
-                    <img src="{{ $joinder_signature_4 }}" alt="Signature 4" style="width: 100px; height: 50px;">
+                    <img src="{{ $joinder_signature_4 }}" alt="Signature 4" style="width: 300px; height: 150px;">
                 @else
                     <div style="width: 200px;height:50px; text-align: center;">
                         No Signature Provided
@@ -1666,23 +1666,25 @@
         financial
         institution a reasonable opportunity to act on it.
     </p>
-    <div style="display: table;">
-        <div style="display: table-cell; vertical-align: bottom;">
-            Beneficiary/Representative Signature:
-        </div>
-        <div style="display: table-cell; vertical-align: bottom;">
-            <div class="card-body" style="justify-content: space-around;">
+    <div style="display: flex; flex-direction: column; align-items: start; margin-top: 20px;">
+        <!-- Label for signature -->
+        <label style="font-weight: bold;">Beneficiary/Representative Signature:</label>
+
+        <!-- Signature Input and Canvas Preview Container -->
+        <div style="display: flex; flex-direction: column; align-items: start; margin-top: 10px;">
+            <div style="padding: 10px;">
                 @if($joinder_signature_5)
-                    <img src="{{ $joinder_signature_5 }}" alt="Signature 5" width="50px" height="50px">
+                    <img src="{{ $joinder_signature_5 }}" alt="Signature 5" style="max-width: 300px; height: auto;">
                 @else
-                    <div style="width: 200px;height:50px; text-align: center;">
+                    <div style="width: 200px; height: 50px; text-align: center;">
                         No Signature Provided
                     </div>
-
                 @endif
             </div>
+
         </div>
     </div>
+
 
 
     <table style="font-size: 13px !important;text-align: start; !important;">
