@@ -337,8 +337,9 @@ class DocumentController extends Controller
         if (!$referral) {
             return redirect()->route('login');
         }
-        $documentId = $documentId = Documents::where('name', '1-JoinderAgreement.pdf')
-            ->where('referral_id', $referral->id)
+
+        $documentId = Documents::where('name', '1-Joinder Agreement.pdf')
+            ->where('referral_id', 1)
             ->value('id');
 
 
@@ -348,6 +349,7 @@ class DocumentController extends Controller
     public function saveJoinder(Request $request)
     {
 
+        dd($request->all());
         set_time_limit(200);
         $referralId = $request->referral_id;
         $referral = Referral::find($referralId);
@@ -375,6 +377,7 @@ class DocumentController extends Controller
             }
         }
 
+
         $data = $request->all();
         $pdf = PDF::loadView('document.joinder-pdf', $data)->setPaper('A4', 'portrait');
 
@@ -382,9 +385,13 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        $document->status = "Recevied";
-        $document->uploaded_url = $savePathWithoutDirectory;
-        $document->save();
+        if ($document){
+            $document->status = "Received";
+            $document->uploaded_url = $savePathWithoutDirectory;
+
+            $document->save();
+        }
+
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
     }
 
