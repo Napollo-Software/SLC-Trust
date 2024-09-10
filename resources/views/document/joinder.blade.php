@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>1-Joinder Agreement</title>
+    <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <style>
         table {
             border-collapse: collapse;
@@ -117,7 +118,27 @@
         .card-body {
             padding: 2px 16px;
         }
-
+        @font-face {
+    font-family: 'Rage Italic';
+    src: url('/fonts/rage-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+#signature-canvas-1 {
+    pointer-events: none;
+}
+#signature-canvas-2 {
+    pointer-events: none;
+}
+#signature-canvas-3 {
+    pointer-events: none;
+}
+#signature-canvas-4 {
+    pointer-events: none;
+}
+#signature-canvas-5 {
+    pointer-events: none;
+}
 
     </style>
 </head>
@@ -1069,11 +1090,12 @@
             <div class="card-body">
 
                 <div id="signature-pad">
+                    <input type="text" class="no-border" style="width: 63%;margin-bottom: 10px" name="signature_input_1" id="signature_input_1" oninput="generateSignature()" maxlength="18">
                     <canvas id="signature-canvas-1"></canvas>
                     <div>
                         <div class="container-row">
 
-                            <button id="clear-1" style="margin-left: 10px;">Clear</button>
+                            <button id="clear-1" style="margin-left: 10px;" onclick="clearCanvas1()">Clear</button>
                         </div>
                         <br> SIGNATURE
 
@@ -1137,11 +1159,12 @@
             <div style="width: 48%;">
                 <div class="card-body">
                     <div id="signature-pad">
+                        <input type="text" class="no-border" style="width: 85%;margin-bottom: 10px" name="signature_input_2" id="signature_input_2" oninput="generateSignature2()" maxlength="18">
                         <canvas id="signature-canvas-2"></canvas>
                         <div>
                             <div class="container-row " style="justify-content: start">
 
-                                <button id="clear-2" style="margin-left: 10px;">Clear</button>
+                                <button id="clear-2" style="margin-left: 10px;" onclick="clearCanvas2()">Clear</button>
                             </div>
                             <br> SIGNATURE WITNESS ONE
                         </div>
@@ -1152,11 +1175,12 @@
             <div style="width: 48%; margin-left: auto;">
                 <div class="card-body">
                     <div id="signature-pad">
+                        <input type="text" class="no-border" style="width: 85%;margin-bottom: 10px" name="signature_input_3" id="signature_input_3" oninput="generateSignature3()" maxlength="18">
                         <canvas id="signature-canvas-3"></canvas>
                         <div>
                             <div class="container-row" style="justify-content: start">
 
-                                <button id="clear-3">Clear</button>
+                                <button id="clear-3" onclick="clearCanvas3()">Clear</button>
                             </div>
                             <br> SIGNATURE WITNESS TWO
                         </div>
@@ -1200,11 +1224,12 @@
             <div class="card-body" style="justify-content: space-around">
 
                 <div id="signature-pad">
+                    <input type="text" class="no-border" style="width: 71%;margin-bottom: 10px" name="signature_input_4" id="signature_input_4" oninput="generateSignature4()" maxlength="18">
                     <canvas id="signature-canvas-4"></canvas>
                     <div>
                         <div class="container-row" style="justify-content: start">
 
-                            <button id="clear-4" style="margin-left: 10px;">Clear</button>
+                            <button id="clear-4" style="margin-left: 10px;" onclick="clearCanvas4()">Clear</button>
                         </div>
                         <br> SIGNATURE
 
@@ -1296,13 +1321,17 @@
         <p style="font-weight: bold">
             Beneficiary/Representative Signature:
         <div class="card-body" style="justify-content: space-around">
-
+            
             <div id="signature-pad">
+                <div>
+                    <input type="text" class="no-border" style="width: 39%;margin-bottom: 10px" name="signature_input_5" id="signature_input_5" oninput="generateSignature5()" maxlength="18">
+                </div>
                 <canvas id="signature-canvas-5"></canvas>
                 <div>
                     <div class="container-row" style="justify-content: start">
 
-                        <button id="clear-5" style="margin-left: 10px;">Clear</button>
+                        <button id="clear-5" style="margin-left: 10px;" onclick="clearCanvas5()">Clear</button>
+                        
                     </div>
                     <br> SIGNATURE
 
@@ -1430,6 +1459,73 @@
         });
 
     });
+
+    function generateSignature() {
+        const name = document.getElementById('signature_input_1').value;
+    const canvas = document.getElementById('signature-canvas-1');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 20, 80);
+   
+}
+function generateSignature2() {
+    const name = document.getElementById('signature_input_2').value;
+    const canvas = document.getElementById('signature-canvas-2');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 10, 80);
+}
+function generateSignature3() {
+    const name = document.getElementById('signature_input_3').value;
+    const canvas = document.getElementById('signature-canvas-3');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 10, 80);
+}
+function generateSignature4() {
+    const name = document.getElementById('signature_input_4').value;
+    const canvas = document.getElementById('signature-canvas-4');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 10, 80);
+}
+function generateSignature5() {
+    const name = document.getElementById('signature_input_5').value;
+    const canvas = document.getElementById('signature-canvas-5');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 10, 80);
+}
+function clearCanvas1() {
+    document.getElementById('signature_input_1').value = '';
+}
+function clearCanvas2() {
+    document.getElementById('signature_input_2').value = '';
+}
+function clearCanvas3() {
+    document.getElementById('signature_input_3').value = '';
+}
+function clearCanvas4() {
+    document.getElementById('signature_input_4').value = '';
+}
+function clearCanvas5() {
+    document.getElementById('signature_input_5').value = '';
+}
 </script>
 
 
