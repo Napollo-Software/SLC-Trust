@@ -371,6 +371,7 @@
         };
         $('#hippa-form').submit(function (e) {
             e.preventDefault();
+            saveCanvasAsImage()
             let formdata = new FormData(this);
 
             $.ajax({
@@ -407,12 +408,17 @@
     ctx.font = '40px "Rage Italic", cursive';
     ctx.fillStyle = 'black';
     ctx.fillText(name, 15, 80);
-   
+
 }
 function clearHippaCanvas() {
     document.getElementById('hippa_signature').value = '';
 }
+    function saveCanvasAsImage() {
 
+            const canvas = document.getElementById("signature-canvas-hippa");
+            const signatureDataURL = canvas.toDataURL('image/png'); // Convert to Base64
+            document.getElementById("hippa_sign").value = signatureDataURL;
+    }
 </script>
 
 </body>

@@ -1410,7 +1410,7 @@
         <div style="display: table-row;">
             <div style="display: table-cell; width: 50%; text-align: center;">
                 @if($joinder_signature_1)
-                    <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="50px" height="50px"
+                    <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="150px"
                          style="display: block; margin: 0 auto;">
                 @else
                     <div style="width: 200px;height:50px; text-align: center;">
@@ -1498,7 +1498,7 @@
                 <!-- Display signature image if present, else show placeholder text -->
                 <!-- This part will need to be generated server-side to check for signature presence -->
                 @if($joinder_signature_2)
-                    <img src="{{$joinder_signature_2}}" alt="Signature 2" style="max-width:50px; max-height: 50px;">
+                    <img src="{{$joinder_signature_2}}" alt="Signature 2" style="max-width:300px; max-height: 150px;">
                     <br>
                 @else
                     <div style="width: 200px;height:50px; text-align: center;">
@@ -1509,7 +1509,7 @@
             </div>
             <div style="display: table-cell; width: 50%; text-align: center;">
                 @if($joinder_signature_3)
-                    <img src="{{$joinder_signature_3}}" alt="Signature 3" style="max-width: 50px; max-height: 50px;">
+                    <img src="{{$joinder_signature_3}}" alt="Signature 3" style="max-width: 300px; max-height: 150px;">
                     <br>
                 @else
                     <div style="width: 200px;height:50px; text-align: center;">

@@ -299,6 +299,7 @@
         };
         $('#map-form').submit(function (e) {
             e.preventDefault();
+            saveCanvasAsImage()
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({
@@ -332,12 +333,18 @@
     ctx.font = '40px "Rage Italic", cursive';
     ctx.fillStyle = 'black';
     ctx.fillText(name, 15, 80);
-   
+
 }
 function clearMapCanvas() {
     document.getElementById('map_signature').value = '';
 }
-
+    function saveCanvasAsImage() {
+        for (let i = 1; i <= 5; i++) {
+            const canvas = document.getElementById("signature-canvas-map");
+            const signatureDataURL = canvas.toDataURL('image/png'); // Convert to Base64
+            document.getElementById("map_sign").value = signatureDataURL;
+        }
+    }
 </script>
 </body>
 </html>

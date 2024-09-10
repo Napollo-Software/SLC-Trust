@@ -426,6 +426,7 @@
         };
         $('#doh-form').submit(function (e) {
             e.preventDefault();
+            saveCanvasAsImage()
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({
@@ -463,11 +464,18 @@
     ctx.font = '40px "Rage Italic", cursive';
     ctx.fillStyle = 'black';
     ctx.fillText(name, 19, 80);
-   
+
 }
 function clearDohCanvas() {
     document.getElementById('doh_signature').value = '';
 }
+    function saveCanvasAsImage() {
+        for (let i = 1; i <= 5; i++) {
+            const canvas = document.getElementById("signature-doh");
+            const signatureDataURL = canvas.toDataURL('image/png'); // Convert to Base64
+            document.getElementById("doh_sign").value = signatureDataURL;
+        }
+    }
 
 </script>
 </body>
