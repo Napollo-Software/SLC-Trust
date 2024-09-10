@@ -1321,7 +1321,7 @@
         <p style="font-weight: bold">
             Beneficiary/Representative Signature:
         <div class="card-body" style="justify-content: space-around">
-            
+
             <div id="signature-pad">
                 <div>
                     <input type="text" class="no-border" style="width: 39%;margin-bottom: 10px" name="signature_input_5" id="signature_input_5" oninput="generateSignature5()" maxlength="18">
@@ -1331,7 +1331,7 @@
                     <div class="container-row" style="justify-content: start">
 
                         <button id="clear-5" style="margin-left: 10px;" onclick="clearCanvas5()">Clear</button>
-                        
+
                     </div>
                     <br> SIGNATURE
 
@@ -1435,6 +1435,7 @@
         //save this form using ajax
         $('#joinderForm').submit(function (e) {
             e.preventDefault();
+            saveCanvasAsImage();
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({
@@ -1469,7 +1470,7 @@
     ctx.font = '40px "Rage Italic", cursive';
     ctx.fillStyle = 'black';
     ctx.fillText(name, 20, 80);
-   
+
 }
 function generateSignature2() {
     const name = document.getElementById('signature_input_2').value;
@@ -1510,6 +1511,7 @@ function generateSignature5() {
     ctx.font = '40px "Rage Italic", cursive';
     ctx.fillStyle = 'black';
     ctx.fillText(name, 10, 80);
+
 }
 function clearCanvas1() {
     document.getElementById('signature_input_1').value = '';
@@ -1525,6 +1527,13 @@ function clearCanvas4() {
 }
 function clearCanvas5() {
     document.getElementById('signature_input_5').value = '';
+}
+function saveCanvasAsImage() {
+    for (let i = 1; i <= 5; i++) {
+        const canvas = document.getElementById(`signature-canvas-${i}`);
+        const signatureDataURL = canvas.toDataURL('image/png'); // Convert to Base64
+        document.getElementById(`joinder_signature_${i}`).value = signatureDataURL;
+    }
 }
 </script>
 
