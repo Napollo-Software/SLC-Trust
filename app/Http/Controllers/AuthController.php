@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Hash;
-use Carbon;
 use Cookie;
 use Session;
 use Redirect;
@@ -147,6 +146,8 @@ class AuthController extends Controller
         $user->user_balance = '0';
         $user->token = $request->_token . rand();
         $user->password = Hash::make($request->password);
+        $user->last_renewal_at = \Carbon\Carbon::now();
+        $user->next_renewal_at = \Carbon\Carbon::now()->addYear();
         $res = $user->save();
         $id = $user->id;
         $name = $request->name;

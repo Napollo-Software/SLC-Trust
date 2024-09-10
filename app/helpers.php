@@ -210,7 +210,7 @@ if (!function_exists('createDocument')) {
     if (!class_exists('TransactionType')) {
         class TransactionType
         {
-            const Operational = "perational";
+            const Operational = "operational";
             const TrustedSurplus = "trusted surplus";
         }
     }

@@ -159,10 +159,13 @@
                                 class="badge
                     @if ($u->account_status == 'Pending') bg-success @endif
                     @if ($u->account_status == 'Approved') bg-primary @endif
-                    @if ($u->account_status == 'Not Approved') bg-danger @endif
+                    @if ($u->account_status == 'Not Approved' || $u->account_status == 'Suspended') bg-danger @endif
                     me-1  @if ($u->account_status == 'Disable') bg-danger @endif
                     me-1">
 
+                                @if ($u->account_status == 'Suspended')
+                                    {{ $u['account_status'] }}
+                                @endif
                                 @if ($u->account_status == 'Pending')
                                     {{ $u['account_status'] }}
                                 @endif
