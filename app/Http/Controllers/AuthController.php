@@ -658,7 +658,7 @@ class AuthController extends Controller
     public function update_existing_user_profile(Request $request, $id)
     {
 
-        $dt = new Carbon\Carbon();
+        $dt = new \Carbon\Carbon();
         $before = $dt->subYears(16)->format('Y-m-d');
         $request->validate([
             'fname' => 'required',
