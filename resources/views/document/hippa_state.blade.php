@@ -277,7 +277,7 @@
                     <div>
                         <div class="container-row" style="justify-content: start">
 
-                            <button id="clear-hippa-state" style="margin-left: 10px;" onclick="clearHippaStateCanvas()">Clear</button>
+                            <button id="clear-hippa-state" onclick="clearHippaStateCanvas()">Clear</button>
                         </div>
                         <label> SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW. </label>
                         <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">

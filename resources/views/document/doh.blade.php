@@ -356,7 +356,7 @@
 
                     <div class="container-row" style="justify-content: start">
 
-                        <button id="clear-doh" style="margin-left: 10px;" onclick="clearDohCanvas()">Clear</button>
+                        <button id="clear-doh" onclick="clearDohCanvas()">Clear</button>
                     </div>
 
                     <input type="hidden" id="doh_sign" name="doh_sign">

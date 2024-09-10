@@ -326,7 +326,7 @@
                     <div>
                         <div class="container-row" style="justify-content: start">
 
-                            <button id="clear-hippa" style="margin-left: 10px;" onclick="clearHippaCanvas()">Clear</button>
+                            <button id="clear-hippa" onclick="clearHippaCanvas()">Clear</button>
                         </div>
                         <label> Signature of patient or representative authorized by law. </label>
                         <input type="hidden" id="hippa_sign" name="hippa_sign">

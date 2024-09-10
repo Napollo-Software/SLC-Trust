@@ -207,7 +207,7 @@
                             <div>
                                 <div class="container-row" style="justify-content: start">
 
-                                    <button id="clear-map" style="margin-left: 10px;" onclick="clearMapCanvas()">Clear</button>
+                                    <button id="clear-map" onclick="clearMapCanvas()">Clear</button>
                                 </div>
 
                                 <input type="hidden" id="map_sign" name="map_sign">

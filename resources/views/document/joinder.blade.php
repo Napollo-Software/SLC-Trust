@@ -48,7 +48,7 @@
         }
 
         .no-border {
-            background-color: rgb(204, 204, 204);
+            /* background-color: rgb(204, 204, 204); */
             border: none;
 
         }
@@ -85,7 +85,7 @@
 
         .custom-input {
             width: 50%;
-            background-color: #CCCCCC;
+            /* background-color: #CCCCCC; */
             border: none;
         }
 
@@ -138,6 +138,17 @@
 }
 #signature-canvas-5 {
     pointer-events: none;
+}
+/* input:focus{
+    border: none;
+    outline: none
+} */
+input{
+    padding: 5px 6px;
+    border-radius: 2px;
+    
+    font-size: 12px;
+    background: #e9e9e9;
 }
 
     </style>
@@ -1095,7 +1106,7 @@
                     <div>
                         <div class="container-row">
 
-                            <button id="clear-1" style="margin-left: 10px;" onclick="clearCanvas1()">Clear</button>
+                            <button id="clear-1" onclick="clearCanvas1()">Clear</button>
                         </div>
                         <br> SIGNATURE
 
@@ -1164,7 +1175,7 @@
                         <div>
                             <div class="container-row " style="justify-content: start">
 
-                                <button id="clear-2" style="margin-left: 10px;" onclick="clearCanvas2()">Clear</button>
+                                <button id="clear-2" onclick="clearCanvas2()">Clear</button>
                             </div>
                             <br> SIGNATURE WITNESS ONE
                         </div>
@@ -1229,7 +1240,7 @@
                     <div>
                         <div class="container-row" style="justify-content: start">
 
-                            <button id="clear-4" style="margin-left: 10px;" onclick="clearCanvas4()">Clear</button>
+                            <button id="clear-4" onclick="clearCanvas4()">Clear</button>
                         </div>
                         <br> SIGNATURE
 
@@ -1330,7 +1341,7 @@
                 <div>
                     <div class="container-row" style="justify-content: start">
 
-                        <button id="clear-5" style="margin-left: 10px;" onclick="clearCanvas5()">Clear</button>
+                        <button id="clear-5" onclick="clearCanvas5()">Clear</button>
                         
                     </div>
                     <br> SIGNATURE
