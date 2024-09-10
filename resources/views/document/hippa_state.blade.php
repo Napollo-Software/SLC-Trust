@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DOH 5173-HIPPA State</title>
 </head>
@@ -106,6 +107,15 @@
     .card-body {
         padding: 2px 16px;
     }
+    @font-face {
+    font-family: 'Rage Italic';
+    src: url('/fonts/rage-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+#signature-canvas-hippa-state {
+    pointer-events: none;
+}
 </style>
 
 <body>
@@ -262,11 +272,12 @@
                 Disability Review Unit.</p>
             <div class="row-container">
                 <div id="signature-pad">
+                    <input type="text" class="no-border" style="width: 59%;margin-bottom: 10px" name="hippa_state_signature" id="hippa_state_signature" oninput="generateSignature()" maxlength="18">
                     <canvas id="signature-canvas-hippa-state"></canvas>
                     <div>
                         <div class="container-row" style="justify-content: start">
 
-                            <button id="clear-hippa-state" style="margin-left: 10px;">Clear</button>
+                            <button id="clear-hippa-state" style="margin-left: 10px;" onclick="clearHippaStateCanvas()">Clear</button>
                         </div>
                         <label> SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW. </label>
                         <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">
@@ -411,6 +422,21 @@
 
 
     });
+
+    function generateSignature() {
+    const name = document.getElementById('hippa_state_signature').value;
+    const canvas = document.getElementById('signature-canvas-hippa-state');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 19, 80);
+   
+}
+function clearHippaStateCanvas() {
+    document.getElementById('hippa_state_signature').value = '';
+}
 
 </script>
 </body>

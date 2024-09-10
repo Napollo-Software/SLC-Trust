@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <title>HIPPA</title>
     <style>
         table {
@@ -110,6 +111,15 @@
         .card-body {
             padding: 2px 16px;
         }
+        @font-face {
+    font-family: 'Rage Italic';
+    src: url('/fonts/rage-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+#signature-canvas-hippa {
+    pointer-events: none;
+}
     </style>
 </head>
 
@@ -311,11 +321,12 @@
             <div class="card-body" style="justify-content: space-around">
 
                 <div id="signature-pad">
+                    <input type="text" class="no-border" style="width: 63%;margin-bottom: 10px" name="hippa_signature" id="hippa_signature" oninput="generateSignature()" maxlength="18">
                     <canvas id="signature-canvas-hippa"></canvas>
                     <div>
                         <div class="container-row" style="justify-content: start">
 
-                            <button id="clear-hippa" style="margin-left: 10px;">Clear</button>
+                            <button id="clear-hippa" style="margin-left: 10px;" onclick="clearHippaCanvas()">Clear</button>
                         </div>
                         <label> Signature of patient or representative authorized by law. </label>
                         <input type="hidden" id="hippa_sign" name="hippa_sign">
@@ -386,6 +397,21 @@
 
 
     });
+
+    function generateSignature() {
+    const name = document.getElementById('hippa_signature').value;
+    const canvas = document.getElementById('signature-canvas-hippa');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 15, 80);
+   
+}
+function clearHippaCanvas() {
+    document.getElementById('hippa_signature').value = '';
+}
 
 </script>
 

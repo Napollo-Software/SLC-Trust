@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <title>Map</title>
     <style>
         table {
@@ -93,6 +94,15 @@
         .card-body {
             padding: 2px 16px;
         }
+        @font-face {
+    font-family: 'Rage Italic';
+    src: url('/fonts/rage-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+#signature-canvas-map {
+    pointer-events: none;
+}
     </style>
 </head>
 <body>
@@ -192,11 +202,12 @@
                     <div class="card-body" style="justify-content: space-around">
 
                         <div id="signature-pad">
+                            <input type="text" class="no-border" style="width: 100%;margin-bottom: 10px" name="map_signature" id="map_signature" oninput="generateSignature()" maxlength="18">
                             <canvas id="signature-canvas-map"></canvas>
                             <div>
                                 <div class="container-row" style="justify-content: start">
 
-                                    <button id="clear-map" style="margin-left: 10px;">Clear</button>
+                                    <button id="clear-map" style="margin-left: 10px;" onclick="clearMapCanvas()">Clear</button>
                                 </div>
 
                                 <input type="hidden" id="map_sign" name="map_sign">
@@ -311,6 +322,21 @@
 
 
     });
+
+    function generateSignature() {
+    const name = document.getElementById('map_signature').value;
+    const canvas = document.getElementById('signature-canvas-map');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 15, 80);
+   
+}
+function clearMapCanvas() {
+    document.getElementById('map_signature').value = '';
+}
 
 </script>
 </body>
