@@ -367,9 +367,6 @@ class DocumentController extends Controller
 
         foreach ($signatureFields as $fieldName) {
             $imageData = $request->input($fieldName);
-//            if($fieldName == "joinder_signature_5"){
-//                dd($imageData);
-//            }
             if ($imageData) {
                 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
                 $filename = $fieldName . date('Ymd_His') . '.png';
@@ -388,6 +385,26 @@ class DocumentController extends Controller
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
         if ($document){
+            //delete old file
+            if (Storage::exists('public/' . $document->uploaded_url)) {
+                Storage::delete('public/' . $document->uploaded_url);
+            }
+            //delete signature images
+            $email = explode('/', $document->uploaded_url)[0];
+            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+
+            // Check if the folder exists
+            if (Storage::exists($folderPath)) {
+                // Get all files in the folder
+                $files = Storage::files($folderPath);
+
+                // Loop through the files and delete only .png files
+                foreach ($files as $file) {
+                    if (pathinfo($file, PATHINFO_EXTENSION) === 'png') {
+                        Storage::delete($file);
+                    }
+                }
+            }
             $document->status = "Received";
             $document->uploaded_url = $savePathWithoutDirectory;
 
@@ -428,9 +445,33 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        $document->status = "Recevied";
-        $document->uploaded_url = $savePathWithoutDirectory;
-        $document->save();
+        if ($document){
+            //delete old file
+            if (Storage::exists('public/' . $document->uploaded_url)) {
+                Storage::delete('public/' . $document->uploaded_url);
+            }
+            //delete signature images
+            $email = explode('/', $document->uploaded_url)[0];
+            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+
+            // Check if the folder exists
+            if (Storage::exists($folderPath)) {
+                // Get all files in the folder
+                $files = Storage::files($folderPath);
+
+                // Loop through the files and delete only .png files
+                foreach ($files as $file) {
+                    if (pathinfo($file, PATHINFO_EXTENSION) === 'png') {
+                        Storage::delete($file);
+                    }
+                }
+            }
+            $document->status = "Received";
+            $document->uploaded_url = $savePathWithoutDirectory;
+
+            $document->save();
+        }
+
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
     }
 
@@ -471,9 +512,33 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        $document->status = "Recevied";
-        $document->uploaded_url = $savePathWithoutDirectory;
-        $document->save();
+        if ($document){
+            //delete old file
+            if (Storage::exists('public/' . $document->uploaded_url)) {
+                Storage::delete('public/' . $document->uploaded_url);
+            }
+            //delete signature images
+            $email = explode('/', $document->uploaded_url)[0];
+            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+
+            // Check if the folder exists
+            if (Storage::exists($folderPath)) {
+                // Get all files in the folder
+                $files = Storage::files($folderPath);
+
+                // Loop through the files and delete only .png files
+                foreach ($files as $file) {
+                    if (pathinfo($file, PATHINFO_EXTENSION) === 'png') {
+                        Storage::delete($file);
+                    }
+                }
+            }
+            $document->status = "Received";
+            $document->uploaded_url = $savePathWithoutDirectory;
+
+            $document->save();
+        }
+
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
     }
 
@@ -557,9 +622,33 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        $document->status = "Recevied";
-        $document->uploaded_url = $savePathWithoutDirectory;
-        $document->save();
+        if ($document){
+            //delete old file
+            if (Storage::exists('public/' . $document->uploaded_url)) {
+                Storage::delete('public/' . $document->uploaded_url);
+            }
+            //delete signature images
+            $email = explode('/', $document->uploaded_url)[0];
+            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+
+            // Check if the folder exists
+            if (Storage::exists($folderPath)) {
+                // Get all files in the folder
+                $files = Storage::files($folderPath);
+
+                // Loop through the files and delete only .png files
+                foreach ($files as $file) {
+                    if (pathinfo($file, PATHINFO_EXTENSION) === 'png') {
+                        Storage::delete($file);
+                    }
+                }
+            }
+            $document->status = "Received";
+            $document->uploaded_url = $savePathWithoutDirectory;
+
+            $document->save();
+        }
+
 
         // Return the URL of the saved PDF file
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
@@ -598,9 +687,33 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        $document->status = "Recevied";
-        $document->uploaded_url = $savePathWithoutDirectory;
-        $document->save();
+        if ($document){
+            //delete old file
+            if (Storage::exists('public/' . $document->uploaded_url)) {
+                Storage::delete('public/' . $document->uploaded_url);
+            }
+            //delete signature images
+            $email = explode('/', $document->uploaded_url)[0];
+            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+
+            // Check if the folder exists
+            if (Storage::exists($folderPath)) {
+                // Get all files in the folder
+                $files = Storage::files($folderPath);
+
+                // Loop through the files and delete only .png files
+                foreach ($files as $file) {
+                    if (pathinfo($file, PATHINFO_EXTENSION) === 'png') {
+                        Storage::delete($file);
+                    }
+                }
+            }
+            $document->status = "Received";
+            $document->uploaded_url = $savePathWithoutDirectory;
+
+            $document->save();
+        }
+
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
 
     }
@@ -631,9 +744,17 @@ class DocumentController extends Controller
 
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        $document->status = "Recevied";
-        $document->uploaded_url = $savePathWithoutDirectory;
-        $document->save();
+        if ($document){
+            //delete old file
+            if (Storage::exists('public/' . $document->uploaded_url)) {
+                Storage::delete('public/' . $document->uploaded_url);
+            }
+            $document->status = "Received";
+            $document->uploaded_url = $savePathWithoutDirectory;
+
+            $document->save();
+        }
+
 
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
 
