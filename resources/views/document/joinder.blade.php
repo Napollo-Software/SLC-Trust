@@ -167,7 +167,7 @@ input{
 <div class="card">
     <form id="joinderForm" method="POST" action="{{ route('save.joinder') }}">
         @csrf
-        <input type="hidden" id=referral_id" name="referral_id" value="{{$referral->id}}">
+        <input type="hidden" id="referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
 
         <div style="text-align: center;justify-content: center">
@@ -1715,7 +1715,7 @@ input{
             <div class="card-body">
 
                 <div id="signature-pad">
-                    <input type="text" class="no-border" style="width: 63%;margin-bottom: 10px" name="signature_input_1" id="signature_input_1" oninput="generateSignature()" maxlength="18">
+                    <input type="text" class="no-border" style="width: 61%;margin-bottom: 10px" name="signature_input_1" id="signature_input_1" oninput="generateSignature()" maxlength="18">
                     <canvas id="signature-canvas-1"></canvas>
                     <div>
                         <div class="container-row">
@@ -1784,7 +1784,7 @@ input{
             <div style="width: 48%;">
                 <div class="card-body">
                     <div id="signature-pad">
-                        <input type="text" class="no-border" style="width: 85%;margin-bottom: 10px" name="signature_input_2" id="signature_input_2" oninput="generateSignature2()" maxlength="18">
+                        <input type="text" class="no-border" style="width: 82%;margin-bottom: 10px" name="signature_input_2" id="signature_input_2" oninput="generateSignature2()" maxlength="18">
                         <canvas id="signature-canvas-2"></canvas>
                         <div>
                             <div class="container-row " style="justify-content: start">
@@ -1800,7 +1800,7 @@ input{
             <div style="width: 48%; margin-left: auto;">
                 <div class="card-body">
                     <div id="signature-pad">
-                        <input type="text" class="no-border" style="width: 85%;margin-bottom: 10px" name="signature_input_3" id="signature_input_3" oninput="generateSignature3()" maxlength="18">
+                        <input type="text" class="no-border" style="width: 82%;margin-bottom: 10px" name="signature_input_3" id="signature_input_3" oninput="generateSignature3()" maxlength="18">
                         <canvas id="signature-canvas-3"></canvas>
                         <div>
                             <div class="container-row" style="justify-content: start">
@@ -1849,7 +1849,7 @@ input{
             <div class="card-body" style="justify-content: space-around">
 
                 <div id="signature-pad">
-                    <input type="text" class="no-border" style="width: 71%;margin-bottom: 10px" name="signature_input_4" id="signature_input_4" oninput="generateSignature4()" maxlength="18">
+                    <input type="text" class="no-border" style="width: 69%;margin-bottom: 10px" name="signature_input_4" id="signature_input_4" oninput="generateSignature4()" maxlength="18">
                     <canvas id="signature-canvas-4"></canvas>
                     <div>
                         <div class="container-row" style="justify-content: start">
@@ -2018,7 +2018,7 @@ input{
 
             <div id="signature-pad">
                 <div>
-                    <input type="text" class="no-border" style="width: 39%;margin-bottom: 10px" name="signature_input_5" id="signature_input_5" oninput="generateSignature5()" maxlength="18">
+                    <input type="text" class="no-border" style="width: 38%;margin-bottom: 10px" name="signature_input_5" id="signature_input_5" oninput="generateSignature5()" maxlength="18">
                 </div>
                 <canvas id="signature-canvas-5"></canvas>
                 <div>

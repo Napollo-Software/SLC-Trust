@@ -343,7 +343,7 @@ textarea{
             <div class="card-body" style="justify-content: space-around">
 
                 <div id="signature-pad">
-                    <input type="text" class="no-border" style="width: 63%;margin-bottom: 10px" name="hippa_signature" id="hippa_signature" oninput="generateSignature()" maxlength="18">
+                    <input type="text"  style="width: 63%;margin-bottom: 10px" name="hippa_signature" id="hippa_signature" oninput="generateSignature()" maxlength="18">
                     <canvas id="signature-canvas-hippa"></canvas>
                     <div>
                         <div class="container-row" style="justify-content: start">
