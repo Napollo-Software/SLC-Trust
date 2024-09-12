@@ -31,6 +31,8 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
             '*.user_balance' => 'required',
         ]);
 
+        $app_name = config('app.name');
+
         foreach ($collection as $k => $item) {
             // dd($item);
             // if($k>0)
@@ -58,11 +60,11 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             // $transaction->payment_number=$request->card_number;
                             $transaction->transaction_type = "Trusted Surplus";
                             $transaction->statusamount = "debit";
-                            $transaction->description = "Intruspit has processed your payment against your bill submitted for " . $item['category'] . " category.";
+                            $transaction->description = "{$app_name} has processed your payment against your bill submitted for " . $item['category'] . " category.";
                             $transaction->bill_status = 'Deducted';
                             $transaction->status = 1;
                             $transaction->save();
-                            ////////////////Intrustpit Ledger/////////////////
+                            //////////////// Admin Ledger/////////////////
                             $transaction = new Transaction();
                             $transaction->chart_of_account = \Company::Account_id;
                             $transaction->bill_id = $claim->id;
@@ -72,7 +74,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             // $transaction->payment_number=$request->card_number;
                             $transaction->transaction_type = "Trusted Surplus";
                             $transaction->statusamount = "debit";
-                            $transaction->description = "Intruspit has processed " . $user->name . " " . $user->last_name . "'s payment against bill submitted for " . $item['category'] . " category.";
+                            $transaction->description = "{$app_name} has processed " . $user->name . " " . $user->last_name . "'s payment against bill submitted for " . $item['category'] . " category.";
                             $transaction->bill_status = 'Included';
                             $transaction->status = 1;
                             $transaction->save();
@@ -112,11 +114,11 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             // $transaction->payment_number=$request->card_number;
                             $transaction->transaction_type = "Trusted Surplus";
                             $transaction->statusamount = "debit";
-                            $transaction->description = "Intruspit has processed your payment against your bill submitted for " . $item['category'] . " category.";
+                            $transaction->description = "{$app_name} has processed your payment against your bill submitted for " . $item['category'] . " category.";
                             $transaction->bill_status = 'Deducted';
                             $transaction->status = 1;
                             $transaction->save();
-                            ////////////////Intrustpit Ledger/////////////////
+                            //////////////// Admin Ledger/////////////////
                             $transaction = new Transaction();
                             $transaction->chart_of_account = \Company::Account_id;
                             $transaction->bill_id = $claim->id;
@@ -126,7 +128,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             // $transaction->payment_number=$request->card_number;
                             $transaction->transaction_type = "Trusted Surplus";
                             $transaction->statusamount = "debit";
-                            $transaction->description = "Intruspit has processed " . $user->name . " " . $user->last_name . "'s payment against bill submitted for " . $item['category'] . " category.";
+                            $transaction->description = "{$app_name} has processed " . $user->name . " " . $user->last_name . "'s payment against bill submitted for " . $item['category'] . " category.";
                             $transaction->bill_status = 'Included';
                             $transaction->status = 1;
                             $transaction->save();

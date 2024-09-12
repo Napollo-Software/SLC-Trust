@@ -28,7 +28,8 @@ class Setpassword extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Set Password')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Set Password')
                     ->view('emails.setpassword');
     }
 }

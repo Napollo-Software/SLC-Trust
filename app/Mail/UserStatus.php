@@ -30,7 +30,8 @@ class UserStatus extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Account Verified')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Account Verified')
                     ->view('emails.userstatus');
     }
 }

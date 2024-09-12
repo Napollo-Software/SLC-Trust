@@ -28,7 +28,8 @@ class RejectProfile extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Profile Rejected!')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Profile Rejected!')
         ->view('emails.rejectprofile');
     }
 }

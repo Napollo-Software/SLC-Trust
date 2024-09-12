@@ -107,7 +107,7 @@
                     <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
                       <tbody>
                         <tr>
-                          <td align="left"> <img src="{{url('assets/img/intrustpit-Logo.png')}}" style="height:110px"  alt="logo" border="0" /></td>
+                          <td align="left"> <img src="{{url('assets/img/'.config('app.name').'-Logo.png')}}" style="height:110px"  alt="logo" border="0" /></td>
                         </tr>
                         <tr class="hiddenMobile">
                           <td height="40"></td>
@@ -119,7 +119,7 @@
                           <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
                             Hi Admin,
                             @php
-                            use App\Models\User; 
+                            use App\Models\User;
                                $role = User::where('id', '=', Session::get('loginId'))->first();
                             @endphp
                             @if ($role->role=='User')
@@ -128,10 +128,10 @@
                             <br> This is an automated ledger created against your account.
                             @endif
                             @if ($role->role == 'Admin')
-                          
+
                             <br>Detail of all bills are as follows.
                             @endif
-                            
+
                           </td>
                         </tr>
                       </tbody>
@@ -224,7 +224,7 @@
                         #0{{$claim->id}}
                       </td>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e;  line-height: 18px;  vertical-align: top; padding:10px 0;"><small>
-                      <?php 
+                      <?php
                        $user=App\Models\User::where('id',$claim->claim_user)->first();
                         echo $user->name.' '.$user->last_name;
                       ?></small></td>
@@ -274,7 +274,7 @@
                     </tr>
                     {{-- <tr>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                        Credit 
+                        Credit
                       </td>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
                         ${{$transactions->where('statusamount','credit')->sum('deduction')}}
@@ -282,7 +282,7 @@
                     </tr>
                     <tr>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
-                        Debit 
+                        Debit
                       </td>
                       <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
                         ${{$transactions->where('statusamount','debit')->sum('deduction')}}
@@ -296,7 +296,7 @@
                         <strong>${{$transactions->sum('deduction')}}</strong>
                       </td>
                     </tr> --}}
-                    
+
                   </tbody>
                 </table>
                 <!-- /Table Total -->

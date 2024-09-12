@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace App\Imports;
 
 use App\Models\User;
@@ -11,7 +11,7 @@ use \PhpOffice\PhpSpreadsheet\Shared\Date;
 class UsersImport implements ToModel, WithStartRow
 {
     /**
-    * @param array $row 
+    * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
@@ -51,8 +51,8 @@ class UsersImport implements ToModel, WithStartRow
         if($row['3']=="--" || $row['3']==""){
           $fname =  strtolower($row['1']);
           $lname =  strtolower($row['2']);
-          $email = $fname.$lname.'@intrustpit.com';  
-          $user = User::where('email',$email)->first();   
+          $email = $fname.$lname.'@slc-trust.com';
+          $user = User::where('email',$email)->first();
           if(!$user)
           {
             return  new User([
@@ -73,7 +73,7 @@ class UsersImport implements ToModel, WithStartRow
               'account_status'=>'Approved',
               'password' => \Hash::make(strtolower($row['1'])),
           ]);
-        }     
+        }
         }
     else{
           $email= $row['3'];

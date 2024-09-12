@@ -43,6 +43,8 @@ class AuthController extends Controller
     {
         $request->role = ucfirst(trans($request->role));
 
+        $app_name = config('app.name');
+
         $role = User::where('id', '=', Session::get('loginId'))->value('role');
 
         if ($role != "User") {
@@ -171,13 +173,13 @@ class AuthController extends Controller
                 $notifcation = new Notifcation();
                 $notifcation->user_id = $notify->id;
                 $notifcation->name = $request->name;
-                $notifcation->description = $request->name . ' ' . $request->last_name . " has registered with Intrustpit.";
+                $notifcation->description = $request->name . ' ' . $request->last_name . " has registered with {$app_name}.";
                 $notifcation->title = 'New User';
                 $notifcation->status = 0;
                 $notifcation->save();
                 $subject = "New user!";
                 $name = $notify->name . ' ' . $notify->last_name;
-                $email_message = $request->name . ' ' . $request->last_name . " has registered with Intrustpit and waiting for approval. Please preview the profile in order to approve it:";
+                $email_message = $request->name . ' ' . $request->last_name . " has registered with {$app_name} and waiting for approval. Please preview the profile in order to approve it:";
                 $url = '/show_user/' . $user->id;
                 if ($notify->notify_by == "email") {
                     SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
@@ -409,33 +411,28 @@ class AuthController extends Controller
 
         $loggedInUser = User::where('id', '=', Session::get('loginId'))->first();
 
-        // Check if customer and date range is provided
         if ($request->customer && $request->to && $request->from) {
             $to = $request->to;
             $from = $request->from;
             $customer = $request->customer;
 
-            // Filter transactions by customer and date range
             $transactions = Transaction::where('user_id', $request->customer)
-                ->whereBetween('created_at', [$from, $to]) // Use Laravel's built-in date handling
+                ->whereBetween('created_at', [$from, $to])
                 ->with('user')
                 ->latest('reference_id')
                 ->take(500)
                 ->get();
 
-            // Calculate pool amount for the specific customer
             $pool_amount = Transaction::where('user_id', $request->customer)->sum('credit')
                 - Transaction::where('user_id', $request->customer)->sum('debit');
 
-            // Calculate maintenance fee
             $maintenance_fee = Transaction::where('user_id', \Company::Account_id)
-                ->where('user_id', $request->customer) // Correct the user_id filter for customer
+                ->where('user_id', $request->customer)
                 ->where("type", Transaction::MaintenanceFee)->sum('credit')
                 - Transaction::where('user_id', \Company::Account_id)
                     ->where('user_id', $request->customer)
                     ->where("type", Transaction::MaintenanceFee)->sum('debit');
 
-            // Calculate enrollment fee
             $enrollment_fee = Transaction::where('user_id', \Company::Account_id)
                 ->where('user_id', $request->customer)
                 ->where("type", Transaction::EnrollmentFee)->sum('credit')
@@ -443,15 +440,13 @@ class AuthController extends Controller
                     ->where('user_id', $request->customer)
                     ->where("type", Transaction::EnrollmentFee)->sum('debit');
 
-            // Calculate total revenue
             $total_revenue = $maintenance_fee + $enrollment_fee;
 
         } else {
-            // If customer or date range is not provided
+
             $to = "";
             $from = "";
 
-            // Get the latest 500 transactions
             $transactions = Transaction::with('user')
                 ->when($loggedInUser->role == 'User', function ($query) use ($loggedInUser) {
                     $query->where('user_id', $loggedInUser->id);
@@ -460,7 +455,6 @@ class AuthController extends Controller
                 ->take(500)
                 ->get();
 
-            // Calculate maintenance and enrollment fees
             $maintenance_fee = Transaction::where('user_id', \Company::Account_id)
                 ->where("type", Transaction::MaintenanceFee)->sum('credit')
                 - Transaction::where('user_id', \Company::Account_id)
@@ -471,19 +465,15 @@ class AuthController extends Controller
                 - Transaction::where('user_id', \Company::Account_id)
                     ->where("type", Transaction::EnrollmentFee)->sum('debit');
 
-            // Calculate pool amount
             $pool_amount = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
                 - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
 
-            // Calculate total revenue
             $total_revenue = $maintenance_fee + $enrollment_fee;
         }
 
-        // Fetch additional data
         $start_date = null;
         $followup = Followup::select('note', 'date')->get();
 
-        // Fetch customers with balance
         $customers = User::where('role', 'User')
             ->leftJoin('transactions', 'users.id', '=', 'transactions.user_id')
             ->select('users.id', 'users.name', 'users.email', \DB::raw('SUM(transactions.credit) - SUM(transactions.debit) as balance'))
@@ -491,32 +481,29 @@ class AuthController extends Controller
             ->orderBy('users.id', 'asc')
             ->get();
 
-        // Fetch user balance
         $user_balance = userBalance($loggedInUser->id);
 
-        // Return view with all data
         return view(
             "transaction",
             compact(
                 'pool_fund',
                 'bill_payments',
                 'maintenance_fee',
+                'total_referrals',
                 'enrollment_fee',
                 'total_accounts',
                 'total_contacts',
-                'total_leads',
-                'total_referrals',
-                'pool_amount',
                 'total_revenue',
                 'transactions',
-                'followup',
+                'total_leads',
+                'pool_amount',
                 'user_balance',
-                'customer',
-                'to',
-                'from',
                 'start_date',
                 'customers',
-                'customer'
+                'followup',
+                'customer',
+                'from',
+                'to',
             )
         );
     }
@@ -564,6 +551,7 @@ class AuthController extends Controller
     }
     public function update_existing_user(Request $request, $id)
     {
+        $app_name = config('app.name');
         if ($request->has('approval_action')) {
             $user = User::find($id);
             $user->account_status = $request->account_status;
@@ -571,15 +559,15 @@ class AuthController extends Controller
             if ($request->account_status == "Approved") {
                 $status = "Approved";
                 $details = [
-                    'title' => 'Mail from Intrustpit',
-                    'body' => 'Your intrustpit account has been verified successfully.'
+                    'title' => 'Mail from '.$app_name,
+                    'body' => 'Your '.$app_name.' account has been verified successfully.'
                 ];
                 Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name));
             } elseif ($request->account_status == "Not Approved") {
                 $status = "Not Approved";
                 $details = [
-                    'title' => 'Mail from Intrustpit',
-                    'body' => 'Your intrustpit account has been rejected.'
+                    'title' => 'Mail from '.$app_name,
+                    'body' => 'Your '.$app_name.' account has been rejected.'
                 ];
                 Mail::to($user->email)->send(new \App\Mail\RejectProfile($user->name));
             } elseif ($request->account_status == "Disable") {
@@ -593,7 +581,7 @@ class AuthController extends Controller
                 }
                 $subject = 'Account Deactivate';
                 $name = $user->name . ' ' . $user->last_name;
-                $email_message = 'Your profile has been deactivated by Intrustpit,For immediate assistance please call 646-854 3004.';
+                $email_message = 'Your profile has been deactivated by '.$app_name.',For immediate assistance please call 646-854 3004.';
                 $url = "";
                 if ($user->notify_by == "email") {
                     SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);

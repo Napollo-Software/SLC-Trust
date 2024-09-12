@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Excel;
+use Session;
 use App\Models\Claim;
 use App\Models\User;
 use App\Models\Category;
+use App\Jobs\sendEmailJob;
+use App\Models\PayeeModel;
 use App\Models\Notifcation;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\DB;
-use App\Imports\CustomerDepositImport;
-use Session;
-use Excel;
-use App\Jobs\sendEmailJob;
 use App\Imports\UsersImport;
+use Illuminate\Support\Facades\DB;
 use App\Imports\ApprovePendingBills;
-use App\Models\PayeeModel;
+use App\Imports\CustomerDepositImport;
 
 class claimsController extends Controller
 {
@@ -28,7 +27,7 @@ class claimsController extends Controller
 
         if ($search != "") {
 
-            $claims = Claim::orderBy('id', 'desc')->get();
+            $claims = Claim::with('payee_details')->orderBy('id', 'desc')->get();
             $all_users = User::all();
             $total_users = DB::table('users')->count('id');
             $user_balance = DB::table('users')->sum('user_balance');
@@ -54,7 +53,7 @@ class claimsController extends Controller
 
             if ($role != 'User') {
 
-                $claims = Claim::orderBy('id', 'desc')->get();
+                $claims = Claim::with('payee_details')->orderBy('id', 'desc')->get();
                 $claim_details = Claim::orderBy('id', 'desc')->where('archived', null)->take(200)->get();
                 $all_users = User::all();
                 $total_users = DB::table('users')->count('id');
@@ -594,15 +593,15 @@ class claimsController extends Controller
                 /////////////User Bill Partically approved Notification/////////////
 
                 Notifcation::create([
-                    'user_id' => $claimUser->id,
-                    'name' => $claimUser->name,
-                    'bill_id' => $claim->id,
-                    'description' => "Your Bill # " . $claim->id . " with $" . $claim->claim_amount . " amount added on " . date('m/d/Y', strtotime(now())) . " has been partically approved with amount $" . $request->partial_amount . ".",
-                    'title' => 'Partically approved',
                     'status' => 0,
+                    'bill_id' => $claim->id,
+                    'name' => $claimUser->name,
+                    'user_id' => $claimUser->id,
+                    'title' => 'Partically approved',
+                    'description' => "Your Bill # " . $claim->id . " with $" . $claim->claim_amount . " amount added on " . date('m/d/Y', strtotime(now())) . " has been partically approved with amount $" . $request->partial_amount . ".",
                 ]);
 
-                $name = $claimUser->name . ' ' . $claimUser->last_name;
+                $name = "{$claimUser->name} {$claimUser->last_name}";
 
                 DB::commit();
 

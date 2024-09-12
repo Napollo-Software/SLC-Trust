@@ -62,6 +62,7 @@ class ForgotController extends Controller
     public function changepassworduser(Request $request)
     {
         $user = User::where('email', $request->email)->first();
+        $app_name = config('app.name');
         if ($request->password == $request->confirm_password) {
             $user->password = Hash::make($request->password);
             $user->save();
@@ -80,7 +81,7 @@ class ForgotController extends Controller
                 //$notifcation->save();
 
                 $details = [
-                    'title' => 'Mail from Intrustpit',
+                    'title' => 'Mail from '.$app_name,
                     'body' => ' Password Generated Succeussfully'
                 ];
                 $user = User::find(Session::get('loginId'));
@@ -101,7 +102,7 @@ class ForgotController extends Controller
                 //$notifcation->save();
 
                 $details = [
-                    'title' => 'Mail from Intrustpit',
+                    'title' => 'Mail from '.$app_name,
                     'body' => ' Password Not Generated'
                 ];
                 $user = User::find(Session::get('loginId'));

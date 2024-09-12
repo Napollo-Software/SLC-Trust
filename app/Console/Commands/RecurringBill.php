@@ -46,7 +46,7 @@ class RecurringBill extends Command
      */
     public function handle()
     {
-        $intrustpit = User::find(7);
+        $app_name = config('app.name');
         $currentMonth = Carbon::now()->format('Y-m');
         $claims=Claim::where('recurring_bill', 1)
         ->where(function($query){
@@ -90,7 +90,7 @@ class RecurringBill extends Command
             //         $transaction->last_name=$claimUser->last_name;
             //         $transaction->deduction=$claim->claim_amount;
             //         $transaction->statusamount="debit";
-            //         $transaction->description="Intruspit has processed ".$claimUser->name."'s payment against bill submitted for ".$Category->category_name." category.";
+            //         $transaction->description="{$app_name} has processed ".$claimUser->name."'s payment against bill submitted for ".$Category->category_name." category.";
             //         $transaction->bill_status = 'Deducted';
             //         $transaction->status = 0;
             //         $transaction->save();
@@ -103,7 +103,7 @@ class RecurringBill extends Command
             //         $transaction->deduction=$claim->claim_amount;
             //         $transaction->cbalance=$claimUser->user_balance-$claim->claim_amount;
             //         $transaction->statusamount="debit";
-            //         $transaction->description="Intruspit has processed your payment against bill submitted for ".$Category->category_name." category.";
+            //         $transaction->description="{$app_name} has processed your payment against bill submitted for ".$Category->category_name." category.";
             //         $transaction->bill_status = 'Deducted';
             //         $transaction->status = 0;
             //         $transaction->save();

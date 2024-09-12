@@ -28,7 +28,8 @@ class BillApproved extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Bill Approved')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Bill Approved')
         ->view('emails.billapproved');
     }
 }

@@ -67,7 +67,7 @@
             <div class="card-body-auth">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                  <img src="{{ url('/assets/img/intrustpit-Logo.png') }}" style="height:110px" >
+                  <img src="{{ url('/assets/img/'.config('app.name').'-Logo.png') }}" style="height:110px" >
               </div>
 
               <form id="formAuthentication" class="mb-3" action="{{ route('password.reset.user') }}" method="post">
