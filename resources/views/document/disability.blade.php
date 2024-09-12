@@ -209,7 +209,7 @@
                 </b>
                 <p>A. Please list all of your medical conditions (diagnoses):
                 </p>
-                <textarea class="no-border" style="width: 100%" name="medical_conditions"></textarea>
+                <textarea class="no-border" style="width: 98%" name="medical_conditions"></textarea>
             </td>
         </tr>
         <tr>
@@ -219,7 +219,7 @@
                     in your ability to perform activities
                     of daily living and work-related activities.)
                 </p>
-                <textarea class="no-border" style="width: 100%" name="medical_condition_impact"></textarea>
+                <textarea class="no-border" style="width: 98%" name="medical_condition_impact"></textarea>
             </td>
         </tr>
         <tr>
@@ -229,7 +229,7 @@
                     C. Please list your medications (or attach a list).
 
                 </p>
-                <textarea class="no-border" style="width: 100%" name="medications"></textarea>
+                <textarea class="no-border" style="width: 98%" name="medications"></textarea>
             </td>
         </tr>
     </table>
@@ -257,7 +257,7 @@
                     <input type="checkbox" name="primary_care_provider_no" value="no"> no
                 </p>
                 <p>(If “Yes”, please provide name, address, phone number.)</p>
-                <textarea class="no-border" style="width: 100%" name="care_provider_text"></textarea>
+                <textarea class="no-border" style="width: 98%" name="care_provider_text"></textarea>
             </td>
         </tr>
         <tr>
