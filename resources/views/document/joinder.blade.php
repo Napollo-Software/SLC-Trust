@@ -149,7 +149,7 @@ input{
     padding: 4px 6px;
     border: 1px solid #b2b2b2;
     border-radius: 2px;
-    
+
     font-size: 12px;
     background: #e9e9e9;
 }
@@ -268,7 +268,7 @@ input{
 
         <div style="display: flex; flex-direction: column; justify-content: center; gap: 15px;">
             <div style="display: flex; align-items: center;justify-content:space-between">
-               
+
                 <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
                  <label for="">Name:</label>
                  <label for="">First</label>
@@ -301,7 +301,7 @@ input{
                 </div>
             </div>
                 </div>
-    
+
                 <div style="flex:1;display: flex;justify-content: center;align-items: center;gap:8px">
                     <label style="min-width: fit-content">Gender</label>
                     <input type="text" class="custom-input" name="sponsor_gender" value="{{$referral->gender}}"
@@ -314,7 +314,7 @@ input{
                         <input type="checkbox" name="sponsor_citizen1" value="Yes">Yes
                         <input type="checkbox" name="sponsor_citizen2" value="No">No
                  </div>
-                 
+
              </div> --}}
              <div style="display: flex;padding-right: 70px;">
                 <div style="flex: 0.5 ;display: flex;align-items: center; gap: 8px">
@@ -328,7 +328,7 @@ input{
                     <input type="checkbox" name="sponsor_citizen2" value="No">
                     <label for="">No</label>
                     </div>
-                
+
             </div>
                 </div>
             </div>
@@ -342,7 +342,7 @@ input{
                      <input type="date" style="flex: 1"  name="sponsor_dob" value="{{$referral->date_of_birth}}">
                  </div>
              </div>
-             
+
              <div style="display: flex; align-items: center;gap:70px">
                  <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                      <label for="">Tel:</label>
@@ -353,7 +353,7 @@ input{
                      <label for="">Cell</label>
                      <input type="text" style="flex: 1" name="sponsor_tel_cell" value="{{$referral->phone_number}}">
                  </div>
-                 
+
              </div>
              <div style="display: flex; align-items: center;gap:70px">
                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
@@ -395,7 +395,7 @@ input{
                     <input type="text" style="flex: 1" name="sponsor_if_married">
                 </div>
             </div>
-            
+
      </div>
 
 
@@ -523,7 +523,7 @@ input{
 
         <div style="display: flex; align-items: center;padding-right: 70px;margin-top:15px">
             <div style="flex: 0.5;display: flex; align-items: center;gap:8px;"">
-            <label >Spouse's Name if Married:</label> 
+            <label >Spouse's Name if Married:</label>
             <input type="text" class="" name="sponsor_if_married" style="flex:1">
         </div>
         </div> --}}
@@ -852,33 +852,33 @@ input{
         <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
         <div style="display: flex; align-items: center;gap:70px">
             <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
-                <label >Name of Funeral Home:</label> 
-                <input type="text" style="flex: 1">
+                <label >Name of Funeral Home:</label>
+                <input type="text" style="flex: 1"  name="funeral_home">
             </div>
             <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
-                <label>Address:</label> 
+                <label>Address:</label>
                 <input type="text" class="no-border" name="funeral_address" style="flex: 1">
             </div>
         </div>
         <div style="display: flex; align-items: center;gap:70px">
             <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
-                <label>City:</label> 
+                <label>City:</label>
                 <input type="text" class="no-border" name="funeral_city" style="flex: 1">
             </div>
             <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
-                <label>State:</label> 
+                <label>State:</label>
                 <input type="text" class="no-border" name="funeral_state" style="flex: 1">
             </div>
         </div>
         <div style="display: flex; align-items: center;gap:70px">
             <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
-            <label>State</label> 
+            <label>State</label>
             <input type="text" style="flex: 1" name="funeral_state">
         </div>
         <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
-            <label >Zip:</label> 
-            <input type="text" style="flex: 1" name="funeral_zip"> 
-        </div> 
+            <label >Zip:</label>
+            <input type="text" style="flex: 1" name="funeral_zip">
+        </div>
         </div>
         <div style="display: flex; align-items: center;padding-right: 70px;">
             <div style="flex: 0.5;display: flex; align-items: center;gap:8px;">
@@ -1011,7 +1011,7 @@ input{
                 <label for="">3</label>
                 <input type="text" style="flex: 1" name="qualifying_disability_three">
             </div>
-           
+
 
         </div>
         <hr>
@@ -1038,7 +1038,7 @@ input{
             <b>POWER OF ATTORNEY</b></p>
             <div style="display: flex; flex-direction: column; justify-content: center; gap:10px">
                    <div style="display: flex; align-items: center;gap:57px">
-                      
+
                        <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
                         <label for="">Name:</label>
                         <label for="">First</label>
@@ -1073,6 +1073,16 @@ input{
                             <input type="text" style="flex: 1" name="power_state">
                         </div>
                     </div>
+                <div style="display: flex; align-items: center;gap:70px">
+                    <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Country</label>
+                        <input type="text" style="flex: 1" name="power_country">
+                    </div>
+                    <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Zip</label>
+                        <input type="text" style="flex: 1" name="power_zip">
+                    </div>
+                </div>
                     <div style="display: flex; align-items: center;gap:70px">
                         <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                             <label for="">Tel:</label>
@@ -1083,7 +1093,7 @@ input{
                             <label for="">Cell</label>
                             <input type="text" style="flex: 1" name="power_tel_cell">
                         </div>
-                        
+
                     </div>
                     <div style="display: flex; align-items: center;padding-right: 70px;">
                         <div style="flex: 0.5;display: flex; align-items: center;gap:8px;">
@@ -1130,7 +1140,7 @@ input{
 
         <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
             <div style="display: flex; align-items: center;justify-content:space-between">
-               
+
                 <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
                  <label for="">Name:</label>
                  <label for="">First</label>
@@ -1174,7 +1184,7 @@ input{
                      <label for="">Zip</label>
                      <input type="text" style="flex: 1" name="guardianship_zip">
                  </div>
-                 
+
              </div>
              <div style="display: flex; align-items: center;gap:70px">
                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
@@ -1185,7 +1195,7 @@ input{
                     <label for="">Email</label>
                     <input type="text" style="flex: 1" name="guardianship_email">
                 </div>
-                
+
             </div>
      </div>
 
@@ -1240,7 +1250,7 @@ input{
 
         <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
             <div style="display: flex; align-items: center;justify-content: space-between;">
-               
+
                 <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
                  <label for="">Name:</label>
                  <label for="">First</label>
@@ -1284,7 +1294,7 @@ input{
                      <label for="">Zip</label>
                      <input type="text" style="flex: 1" name="auth_rep_one_zip">
                  </div>
-                 
+
              </div>
              <div style="display: flex; align-items: center;gap:70px">
                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
@@ -1295,18 +1305,18 @@ input{
                     <label for="">Cell</label>
                     <input type="text" style="flex: 1" name="auth_rep_one_cell">
                 </div>
-                
+
             </div>
             <div style="display: flex; align-items: center;gap:70px">
                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                     <label for="">Email</label>
-                    <input type="text" style="flex: 1" name="auth_rep_one_relation_beneficiary">
+                    <input type="text" style="flex: 1" name="auth_rep_one_email">
                 </div>
                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                     <label for="">Relationship to Beneficiary</label>
                     <input type="text" style="flex: 1" name="auth_rep_one_relation_beneficiary">
                 </div>
-                
+
             </div>
      </div>
 
@@ -1351,7 +1361,7 @@ input{
 
         <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
             <div style="display: flex; align-items: center;justify-content: space-between;">
-               
+
                 <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
                  <label for="">Name:</label>
                  <label for="">First</label>
@@ -1395,7 +1405,7 @@ input{
                      <label for="">Zip</label>
                      <input type="text" style="flex: 1" name="auth_rep_two_zip">
                  </div>
-                 
+
              </div>
              <div style="display: flex; align-items: center;gap:70px">
                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
@@ -1406,7 +1416,7 @@ input{
                     <label for="">Cell</label>
                     <input type="text" style="flex: 1" name="auth_rep_two_cell">
                 </div>
-                
+
             </div>
             <div style="display: flex; align-items: center;gap:70px">
                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
@@ -1417,7 +1427,7 @@ input{
                     <label for="">Relationship to Beneficiary</label>
                     <input type="text" style="flex: 1" name="auth_rep_two_relation_beneficiary">
                 </div>
-                
+
             </div>
      </div>
 
@@ -1484,8 +1494,20 @@ input{
                          <label for="">State</label>
                          <input type="text" style="flex: 1" name="referring_state">
                      </div>
-                     
+
                  </div>
+
+                <div style="display: flex; align-items: center;gap:70px">
+                    <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Country</label>
+                        <input type="text" style="flex: 1" name="referring_country">
+                    </div>
+                    <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Zip</label>
+                        <input type="text" style="flex: 1" name="referring_zip">
+                    </div>
+
+                </div>
                  <div style="display: flex; align-items: center;gap:70px">
                     <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                         <label for="">Telephone</label>
@@ -1493,9 +1515,9 @@ input{
                     </div>
                     <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                         <label for="">Email</label>
-                        <input type="text" style="flex: 1" name="auth_rep_two_cell">
+                        <input type="text" style="flex: 1" name="referring_email">
                     </div>
-                    
+
                 </div>
                 <div style="display: flex; align-items: center;padding-right: 70px;">
                     <div style="flex: 0.5;display: flex; align-items: center;gap:8px;">
@@ -1504,9 +1526,9 @@ input{
                     </div>
                 </div>
          </div>
-        
 
-        
+
+
         {{-- <p> Name of Agency <input type="text" class="no-border" name="referring_agency"> Name of Contact <input
                 type="text"
                 class="no-border"
@@ -1883,7 +1905,7 @@ input{
         <p style="color: #16b6d5">DIRECT DEBIT REQUEST FORM</p>
 
         <div style="display: flex; flex-direction: column; justify-content: center; gap: 15px;">
-           
+
              <div style="display: flex; align-items: center;gap:70px">
                  <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                      <label for="">Donor/Beneficiary:</label>
@@ -1894,7 +1916,7 @@ input{
                      <input type="date" style="flex: 1"  name="direct_debit_representative">
                  </div>
              </div>
-             
+
              <div style="display: flex; align-items: center;gap:70px">
                  <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                      <label for="">Bank Name:</label>
@@ -1904,7 +1926,7 @@ input{
                      <label for="">City:</label>
                      <input type="text" style="flex: 1" name="direct_debit_city">
                  </div>
-                 
+
              </div>
              <div style="display: flex; align-items: center;gap:70px">
                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
@@ -1938,12 +1960,12 @@ input{
                     <input type="checkbox" name="direct_debit_bank_type2" value="Savings">
                     <label for="">Savings</label>
                     </div>
-                
+
             </div>
                 </div>
             </div>
-            
-            
+
+
      </div>
 
 
@@ -2003,7 +2025,7 @@ input{
                     <div class="container-row" style="justify-content: start">
 
                         <button id="clear-5" onclick="clearCanvas5()">Clear</button>
-                        
+
                     </div>
                     <br> SIGNATURE
 
