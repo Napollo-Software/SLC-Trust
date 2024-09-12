@@ -1791,7 +1791,7 @@ return $colors[$randomIndex];
                         </div>
                         <div class="card-body pt-0 text-center">
                             <div class="file-manger-icon">
-                                <a href="{{ url($item->uploaded_url) }}">
+                                <a href="{{ url('storage/' . $item->uploaded_url) }}">
                                     <img src="{{ url('/img/pdf_icon.png') }}" alt="img" class="br-7">
                                 </a>
                             </div>
