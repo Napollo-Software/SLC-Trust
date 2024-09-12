@@ -120,6 +120,28 @@
 #signature-canvas-hippa {
     pointer-events: none;
 }
+.new_input{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+input{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+textarea{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+
     </style>
 </head>
 
@@ -127,7 +149,7 @@
 <div class="card">
     <form id="hippa-form">
         @csrf
-        <input type="hidden" id=referral_id" name="referral_id" value="{{$referral->id}}">
+        <input type="hidden" id="referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
         <div class="oca">
             <h5>
@@ -147,22 +169,22 @@
             <tr>
                 <td>
                     <label>Name</label>
-                    <input type="text" name="hippa_name" class="no-border"
+                    <input type="text" name="hippa_name" class="new_input"
                            value="{{$referral->first_name}} {{$referral->last_name}}">
                 </td>
                 <td>
                     <label for="Date of Birth">Date of Birth</label>
-                    <input type="date" name="hippa_dob" class="no-border" value="{{$referral->date_of_birth}}">
+                    <input type="date" name="hippa_dob" class="new_input" value="{{$referral->date_of_birth}}">
                 </td>
                 <td>
                     <label for="SSN Number">Social Security Number</label>
-                    <input type="number" class="no-border" name="hippa_ssn" value="{{$referral->patient_ssn}}">
+                    <input type="number" class="new_input" name="hippa_ssn" value="{{$referral->patient_ssn}}">
                 </td>
             </tr>
             <tr>
                 <td colspan="3">
                     <label for="Address">Address</label><br>
-                    <input type="text" name="hippa_address" class="no-border" style="width: 100%"
+                    <input type="text" name="hippa_address" class="new_input" style="width: 98%;margin-top: 3px;"
                            value="{{$referral->address}},{{$referral->city}},{{$referral->state}},{{$referral->country}},{{$referral->zip_code}}">
                 </td>
             </tr>
@@ -208,7 +230,7 @@
                     <div>
                         <label>7. Name and address of health provider or entity to release this information:</label>
                     </div>
-                    <textarea type="text" name="health_provider" rows="5" cols="100" class="no-border"></textarea>
+                    <textarea type="text" name="health_provider" style="margin-top: 3px;" rows="5" cols="100" ></textarea>
                 </th>
 
             </tr>
@@ -227,9 +249,9 @@
                     </p>
 
                     <input type="checkbox" name="info_released1" value="dated">
-                    Medical Record from (insert date) <input type="date" class="no-border" name="info_released_from"> to
+                    Medical Record from (insert date) <input type="date"  name="info_released_from"> to
                     (insert date) <input
-                        type="date" class="no-border" name="info_released_to">
+                        type="date"  name="info_released_to">
 
                     <div style="padding: 0;margin: 0;">
                         <input type="checkbox" name="info_released2" value="Entire_med">
@@ -247,7 +269,7 @@
                         <div style="padding: 0;margin: 0;">
                             <input type="checkbox" name="info_released3" value="other"> other: <input type="text"
                                                                                                       name="info_other"
-                                                                                                      class="no-border">
+                                                                                                      >
                         </div>
                         <div style="padding: 0;margin: 0;">
                             <p>Include: (Indicate by Initialing) </p>
@@ -268,9 +290,9 @@
                     <p>(b)</p> <input type="checkbox" name="discuss" value="discuss"> By initialing here <input type="text"
                                                                                                                 name="authorised_person"
                                                                                                                 placeholder="initials"
-                                                                                                                class="no-border">
-                    I authorize <input type="text" name="authorize" class="no-border"
-                                       placeholder="Name of individual health cure provider" style="width:50%">
+                                                                                                                >
+                    I authorize <input type="text" name="authorize"
+                                       placeholder="Name of individual health cure provider" style="width:50%;margin-top: 6px;">
                     <div style="max-width: 100%; text-align: center;">
                         <div style="text-align: start;">
                             to discuss my health information with my attorney, or a governmental agency, listed here:
@@ -292,7 +314,7 @@
                     <s>At request of indvidual</s>
                     <br>
                     <input type="checkbox" name="reason" value="reason"> Other:
-                    <input type="text" name="reason_other"  class="no-border" >
+                    <input type="text" name="reason_other"  >
                 </td>
                 <td>
                     <p>
@@ -304,11 +326,11 @@
             <tr>
                 <td>
                     12. If not the patient, name of person signing form:
-                    <input type="text" name="person_signing" class="no-border">
+                    <input type="text" name="person_signing">
                 </td>
                 <td>
                     13. Authority to sign on behalf of patient:
-                    <input type="text" name="authority_sign" class="no-border">
+                    <input type="text" name="authority_sign">
                 </td>
             </tr>
         </table>
@@ -334,7 +356,7 @@
                 </div>
             </div>
 
-            <label for="">Date<input type="date" class="no-border" name="sign_date"></label>
+            <label for="">Date<input type="date" name="sign_date"></label>
 
         </div>
         <br>

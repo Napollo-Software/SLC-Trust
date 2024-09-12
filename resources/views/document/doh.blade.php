@@ -127,6 +127,22 @@
 #signature-doh{
     pointer-events: none;
 }
+input{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+    margin-top: 5px
+}
+textarea{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+    margin-top: 5px
+}
     </style>
 </head>
 
@@ -146,7 +162,7 @@
             </h4>
         </div>
         <hr class="custom-hr">
-        <div style="width: 100%; background-color: rgb(184, 182, 182);">
+        <div style="width: 100%; background-color: #e9e9e9;">
             <h4>
                 Section I – Identification
             </h4>
@@ -165,15 +181,15 @@
                 <br>
                 <label>Name (Last, First, Middle)</label>
                 <br>
-                <input type="text" class="no-border" name="first_name"><br>
+                <input type="text"  name="first_name"><br>
                 <br>
                 <label> Address (Street, City, State & Zip Code):</label>
                 <br>
-                <textarea rows="10" class="no-border" name="address_text"></textarea>
+                <textarea rows="10"  name="address_text"></textarea>
             </p>
             <p style="padding: 12px">
                 <label>Date of Birth</label> <br>
-                <input type="date" class="no-border" name="dob"><br>
+                <input type="date"  name="dob"><br>
 
                 Sex <input type="checkbox" name="sex1" value="male">Male<input type="checkbox" name="sex2"
                                                                                value="female"> Female
@@ -182,21 +198,21 @@
                 <br>
                 Case Number
                 <br>
-                <input type="text" name="case_number" class="no-border">
+                <input type="text" name="case_number">
             </p>
             <p>
                 Client ID Number <br>
-                <input type="text" name="client_id" class="no-border">
+                <input type="text" name="client_id">
                 <br>
                 Disability ID Number <br>
-                <input type="text" name="disability_id" class="no-border">
+                <input type="text" name="disability_id">
                 <br>
                 SSN(Lsat four digits) <br>
-                <input type="text" name="ssn_last_four" class="no-border">
+                <input type="text" name="ssn_last_four">
                 <br>
             </p>
         </div>
-        <div style="width: 100%; background-color: rgb(184, 182, 182);">
+        <div style="width: 100%; background-color: #e9e9e9">
             <h4>
                 Section I – Medical Report – Note to Provider
             </h4>
@@ -217,19 +233,19 @@
             <p>
                 Diagnosis(es)
                 <br>
-                <textarea class="no-border" rows="3" name="diagnosis" cols="50"></textarea>
+                <textarea  rows="3" name="diagnosis" cols="50"></textarea>
             </p>
             <p style="padding: 10px">
-                Date of last Exam <input type="date" class="no-border" name="last_exam_date"><br>
+                Date of last Exam <input type="date" name="last_exam_date"><br>
                 Height
-                <input type="number" class="no-border" name="height_ft"> ft.
+                <input type="number"  name="height_ft"> ft.
 
-                <input type="number" class="no-border" name="height_in" style="margin-left: 50px"> In.
+                <input type="number"  name="height_in" style="margin-left: 50px"> In.
                 <br>
-                Weight <input type="number" name="weight" class="no-border">lbs.
+                Weight <input type="number" name="weight" >lbs.
             </p>
         </div>
-        <div style="width: 100%; background-color: rgb(184, 182, 182);">
+        <div style="width: 100%; background-color: #e9e9e9;">
             <h4>
                 Exertional Functions. Please indicate what the individual is CAPABLE of doing:
             </h4>
@@ -287,7 +303,7 @@
         </table>
 
 
-        <div style="width: 100%; background-color: rgb(184, 182, 182);">
+        <div style="width: 100%; background-color: #e9e9e9">
             <h4>
                 Non-Exertional Functions. Please check if LIMITATIONS exist in any of the areas below:
             </h4>
@@ -350,7 +366,7 @@
                 Provider Signature
             </p>
             <div id="signature-pad">
-                <input type="text" class="no-border" style="width: 72%;margin-bottom: 10px" name="doh_signature" id="doh_signature" oninput="generateSignature()" maxlength="18">
+                <input type="text"  style="width: 71%;margin-bottom: 10px" name="doh_signature" id="doh_signature" oninput="generateSignature()" maxlength="18">
                 <canvas id="signature-doh"></canvas>
                 <div>
 
@@ -366,30 +382,30 @@
             <p>
                 Print Name
                 <br>
-                <input type="text" name="print_name" class="no-border">
+                <input type="text" name="print_name" >
             </p>
-            <p>
+            <p style="margin-left: 10px;">
                 Date Signed
                 <br>
-                <input type="date" name="date_signed" class="no-border">
+                <input type="date" name="date_signed">
             </p>
         </div>
         <div class="container-row">
             <p>
                 Speciality
                 <br>
-                <input type="text" name="speciallity" class="no-border">
+                <input type="text" name="speciallity" >
 
             </p>
             <p>
                 Office Address
                 <br>
-                <input type="text" name="office_address" class="no-border">
+                <input type="text" name="office_address" >
             </p>
             <p>
                 Office Phone
                 <br>
-                <input type="text" name="office_phone" class="no-border">
+                <input type="text" name="office_phone" >
             </p>
         </div>
         <div class="container-row" style="justify-content: space-between">

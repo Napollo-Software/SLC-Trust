@@ -103,6 +103,13 @@
 #signature-canvas-map {
     pointer-events: none;
 }
+input{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+}
     </style>
 </head>
 <body>
@@ -127,11 +134,11 @@
             <tr>
                 <td>
                     <label>Name and address of source(with zip code) </label><br>
-                    <input type="text" name="name_address" class="no-border">
+                    <input type="text" name="name_address" style="margin-top: 5px">
                 </td>
                 <td>
                     <label>RELATIONSHIP TO DISABLED PERSON </label><br>
-                    <input type="text" name="relationship_disabled" class="no-border">
+                    <input type="text" name="relationship_disabled" style="margin-top: 5px">
                 </td>
             </tr>
         </table>
@@ -145,17 +152,17 @@
                 <td>
                     <label for="Patient Name">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON
                         HAD CONTACT WITH SOURCE (Include Zip Code) </label><br>
-                    <input type="text" name="source_contact_name_address" class="no-border">
+                    <input type="text" name="source_contact_name_address" style="margin-top: 5px">
                 </td>
                 <td>
                     <label for="Patient Name">Date Of Birth </label><br>
-                    <input type="date" name="dob" class="no-border">
+                    <input type="date" name="dob" style="margin-top: 5px">
                 </td>
                 <td>
                     <label for="Patient Name">DISABLED PERSON'S I.D.
                         NUMBER (If known and if
                         different than SSN.) </label><br>
-                    <input type="text" name="disabled_id" class="no-border">
+                    <input type="text" name="disabled_id" style="margin-top: 5px">
                 </td>
 
             </tr>
@@ -166,7 +173,7 @@
                         treatment, discharges,
                         etc.)
                     </label><br>
-                    <input type="text" name="disabled_contact_time" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_contact_time" style="width:98%;margin-top:5px">
                 </td>
             </tr>
 
@@ -202,7 +209,7 @@
                     <div class="card-body" style="justify-content: space-around">
 
                         <div id="signature-pad">
-                            <input type="text" class="no-border" style="width: 100%;margin-bottom: 10px" name="map_signature" id="map_signature" oninput="generateSignature()" maxlength="18">
+                            <input type="text"  style="width: 96%;margin-bottom: 10px" name="map_signature" id="map_signature" oninput="generateSignature()" maxlength="18">
                             <canvas id="signature-canvas-map"></canvas>
                             <div>
                                 <div class="container-row" style="justify-content: start">
@@ -220,18 +227,18 @@
                         RELATION TO DISABLED PERSON
                         (If other than self)
                     </label><br>
-                    <input type="text" name="disabled_relation_other" class="no-border">
+                    <input type="text" name="disabled_relation_other" style="margin-top: 5px">
                 </td>
                 <td style="width: 20%;">
                     <label>DISABLED PERSON'S I.D.
                         NUMBER (If known and if
                         different than SSN.) </label><br>
-                    <input type="text" name="disabled_id_other" class="no-border">
+                    <input type="text" name="disabled_id_other" style="margin-top: 5px">
                 </td>
                 <td style="width: 20%;">
 
                     <label>Date</label><br>
-                    <input type="date" name="date_map" class="no-border">
+                    <input type="date" name="date_map" style="margin-top: 5px">
 
                 </td>
             </tr>
@@ -240,13 +247,13 @@
                     <label>
                         STREET ADDRESS
                     </label><br>
-                    <input type="text" name="disabled_relation_street" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;width:98%">
                 </td>
                 <td colspan="2">
                     <label>
                         TELEPHONE NUMBER
                     </label><br>
-                    <input type="text" name="disabled_relation_street" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_street" style="margin-top: 5px" style="width:100%">
                 </td>
             </tr>
             <tr>
@@ -254,19 +261,19 @@
                     <label>
                         City
                     </label><br>
-                    <input type="text" name="disabled_relation_city" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_city"  style="width:98%;margin-top:5px">
                 </td>
                 <td>
                     <label>
                         STATE
                     </label><br>
-                    <input type="text" name="disabled_relation_state" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_state"  style="width:92%;margin-top:5px">
                 </td>
                 <td>
                     <label>
                         ZIP CODE
                     </label><br>
-                    <input type="text" name="disabled_relation_zip" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_zip" style="width:92%;margin-top:5px">
                 </td>
             </tr>
 

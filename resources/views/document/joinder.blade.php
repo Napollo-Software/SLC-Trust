@@ -49,7 +49,8 @@
 
         .no-border {
             /* background-color: rgb(204, 204, 204); */
-            border: none;
+            /* border: none; */
+            border: 1px solid #b2b2b2
 
         }
 
@@ -80,13 +81,14 @@
             flex: 0 0 calc(25% - 10px);
             margin-right: 10px;
             margin-bottom: 3px;
-            margin-top: 3px;
+            margin-top: 8px;
         }
 
         .custom-input {
             width: 50%;
             /* background-color: #CCCCCC; */
-            border: none;
+            /* border: none; */
+            border: 1px solid #b2b2b2
         }
 
         .custom-radio {
@@ -144,11 +146,17 @@
     outline: none
 } */
 input{
-    padding: 5px 6px;
+    padding: 4px 6px;
+    border: 1px solid #b2b2b2;
     border-radius: 2px;
     
     font-size: 12px;
     background: #e9e9e9;
+}
+.new-form{
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
     </style>
@@ -256,117 +264,269 @@ input{
         </p>
         <br>
 
-        <div class="form-container">
-            <label class="form-row" style="font-weight: bold">Legal Name:</label>
-            <div class="form-row">
+        {{-- New --}}
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 15px;">
+            <div style="display: flex; align-items: center;justify-content:space-between">
+               
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Name:</label>
+                 <label for="">First</label>
+                 <input type="text" style="flex: 1" name="sponsor_first_name" value="{{$referral->first_name}}">
+                </div>
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Middle</label>
+                 <input type="text" style="flex: 1" name="sponsor_middle_name">
+                </div>
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Last</label>
+                 <input type="text" style="flex: 1" name="sponsor_last_name" value="{{$referral->last_name}}">
+                </div>
+            </div>
+            <div style="display: flex;gap:70px">
+                <div style="flex: 1 ;display: flex;align-items: center; gap: 8px">
+                    <label style="font-weight: bold">Marital Status:</label>
+                    <div style="display: flex;justify-content: space-between;align-items: center;flex: 1;">
+                    <div>
+                    <input type="checkbox" name="sponsor_marital_status1" value="Married">
+                    <label for="">Married</label>
+                </div>
+                  <div>
+                    <input type="checkbox" name="sponsor_marital_status2" value="Widowed">
+                    <label for="">Widowed</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="sponsor_marital_status3" value="Single">
+                    <label for="">Single</label>
+                </div>
+            </div>
+                </div>
+    
+                <div style="flex:1;display: flex;justify-content: center;align-items: center;gap:8px">
+                    <label style="min-width: fit-content">Gender</label>
+                    <input type="text" class="custom-input" name="sponsor_gender" value="{{$referral->gender}}"
+                           style="width: 100%;">
+                </div>
+            </div>
+             {{-- <div style="display: flex; align-items: center;">
+                 <div style="flex: 0.5;display: flex; align-items: center;gap:8px;">
+                    <label>Citizen:</label>
+                        <input type="checkbox" name="sponsor_citizen1" value="Yes">Yes
+                        <input type="checkbox" name="sponsor_citizen2" value="No">No
+                 </div>
+                 
+             </div> --}}
+             <div style="display: flex;padding-right: 70px;">
+                <div style="flex: 0.5 ;display: flex;align-items: center; gap: 8px">
+                    <label style="font-weight: bold">Citizen:</label>
+                    <div style="display: flex;align-items: center;flex: 1;gap: 8px;">
+                    <div>
+                        <input type="checkbox" name="sponsor_citizen1" value="Yes">
+                        <label for="">Yes</label>
+                    </div>
+                    <div>
+                    <input type="checkbox" name="sponsor_citizen2" value="No">
+                    <label for="">No</label>
+                    </div>
+                
+            </div>
+                </div>
+            </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">SSN:</label>
+                     <input type="text" style="flex: 1" name="sponsor_ssn" value="{{$referral->patient_ssn}}">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Date of Birth:</label>
+                     <input type="date" style="flex: 1"  name="sponsor_dob" value="{{$referral->date_of_birth}}">
+                 </div>
+             </div>
+             
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Tel:</label>
+                     <label for="">Home</label>
+                     <input type="text" style="flex: 1" name="sponsor_tel_home">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Cell</label>
+                     <input type="text" style="flex: 1" name="sponsor_tel_cell" value="{{$referral->phone_number}}">
+                 </div>
+                 
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Place of Birth</label>
+                    <input type="text" style="flex: 1" name="sponsor_place_of_birth">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Address:</label>
+                    <input type="text" style="flex: 1" name="sponsor_address" value="{{$referral->address}}">
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Apt#</label>
+                    <input type="text" style="flex: 1" name="sponsor_apt" value="{{$referral->apt_suite}}">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">State</label>
+                    <input type="text" style="flex: 1" name="sponsor_state" value="{{$referral->state}}">
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">City</label>
+                    <input type="text" style="flex: 1" name="sponsor_city" value="{{$referral->city}}">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Country</label>
+                    <input type="text" style="flex: 1" name="sponsor_country" value="{{$referral->country}}">
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Zip Code</label>
+                    <input type="text" style="flex: 1" name="sponsor_zip" value="{{$referral->zip_code}}">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Spouse's Name if Married:</label>
+                    <input type="text" style="flex: 1" name="sponsor_if_married">
+                </div>
+            </div>
+            
+     </div>
+
+
+
+
+
+
+
+        {{-- <div style="display: flex;gap: 8px;align-items: center;">
+            <label class="" style="font-weight: bold">Legal Name:</label>
+            <div class="">
                 <label>First Name</label>
-                <input type="text" class="custom-input" name="sponsor_first_name" value="{{$referral->first_name}}">
+                <input type="text" class="" name="sponsor_first_name" value="{{$referral->first_name}}">
             </div>
-            <div class="form-row">
+            <div class="">
                 <label>Middle</label>
-                <input type="text" class="custom-input" name="sponsor_middle_name">
+                <input type="text" class="" name="sponsor_middle_name">
             </div>
-            <div class="form-row">
+            <div class="">
                 <label>Last</label>
-                <input type="text" class="custom-input" name="sponsor_last_name" value="{{$referral->last_name}}">
+                <input type="text" class="" name="sponsor_last_name" value="{{$referral->last_name}}">
             </div>
         </div>
 
-        <div class="form-container"
-             style="display: flex; justify-content: space-between;  max-width: fit-content; margin-top: 3px; align-items: center;">
-            <!-- Marital Status Section -->
-            <div>
+        <div style="display: flex; margin-top: 15px;gap:70px">
+            <div style="flex: 1 ;display: flex;align-items: center; gap: 8px">
                 <label style="font-weight: bold">Marital Status:</label>
-                <input type="checkbox" name="sponsor_marital_status1" value="Married"> Married
-                <input type="checkbox" name="sponsor_marital_status2" value="Widowed"> Widowed
-                <input type="checkbox" name="sponsor_marital_status3" value="Single"> Single
+                <div style="display: flex;justify-content: space-between;align-items: center;flex: 1;">
+                <div>
+                <input type="checkbox" name="sponsor_marital_status1" value="Married">
+                <label for="">Married</label>
             </div>
-
-            <!-- Gender Section -->
+              <div>
+                <input type="checkbox" name="sponsor_marital_status2" value="Widowed">
+                <label for="">Widowed</label>
+            </div>
             <div>
-                <input type="checkbox" name="gender" value="gender">
-                <label>Gender</label>
+                <input type="checkbox" name="sponsor_marital_status3" value="Single">
+                <label for="">Single</label>
+            </div>
+        </div>
+            </div>
+
+            <div style="flex:1;display: flex;justify-content: center;align-items: center;gap:8px">
+                <label style="min-width: fit-content">Gender</label>
                 <input type="text" class="custom-input" name="sponsor_gender" value="{{$referral->gender}}"
-                       style="width: 100px;">
+                       style="width: 100%;">
             </div>
         </div>
 
 
-        <div class="form-container">
-            <div class="form-row">
-                <label>SSN:</label>
-                <input type="text" class="custom-input" name="sponsor_ssn" value="{{$referral->patient_ssn}}">
+        <div style="display: flex;  margin-top: 15px;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label style="min-width: fit-content">SSN:</label>
+                <input type="text" style="flex:1" name="sponsor_ssn" value="{{$referral->patient_ssn}}">
             </div>
-            <div class="form-row">
-                <label>Date of Birth:</label>
-                <input type="date" class="custom-input" name="sponsor_dob" value="{{$referral->date_of_birth}}">
+            <div style="flex:1;display: flex;justify-content: center;align-items: center;gap: 8px;">
+                <label style="min-width: fit-content">Date of Birth:</label>
+                <input type="date" style="flex:1" name="sponsor_dob" value="{{$referral->date_of_birth}}">
             </div>
         </div>
 
-        <div class="form-row" style="display: flex; align-items: center;">
+        <div style="display: flex; align-items: center; margin-top:15px;gap:5px">
             <label>Citizen:</label>
             <div class="custom-radio">
-                <input type="checkbox" name="sponsor_citizen1" value="Yes"> Yes
-                <input type="checkbox" name="sponsor_citizen2" value="No"> No
+                <input type="checkbox" name="sponsor_citizen1" value="Yes">Yes
+                <input type="checkbox" name="sponsor_citizen2" value="No">No
             </div>
         </div>
 
-        <div class="form-row" style="width: 100%">
-            <label>Tel: Home
-                <input type="text" class="custom-input" name="sponsor_tel_home" style="width: 30%"></label>
+        <div style="display: flex;  margin-top: 15px;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+            <label style="min-width: fit-content">Tel: Home </label>
+                <input type="text" class="" name="sponsor_tel_home" style="flex: 1">
+            </div>
 
-            <label>Cell:
-                <input type="text" class="custom-input" name="sponsor_tel_cell"
-                       value="{{$referral->phone_number}}"></label>
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+
+            <label style="min-width: fit-content">Cell:</label>
+                <input type="text" class="" name="sponsor_tel_cell"
+                       value="{{$referral->phone_number}}" style="flex: 1">
+            </div>
 
         </div>
 
-        <div class="form-row">
+        <div style="display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;">
+        <div class="">
             <label>Place of Birth</label>
-            <input type="text" class="custom-input" name="sponsor_place_of_birth" style="width: 85%">
+            <input type="text" class="" name="">
         </div>
 
-        <div class="form-row">
-            <div class="form-row">
+            <div class="">
                 <label>Address:</label>
-                <input type="text" class="custom-input" style="width: 90% !important;" name="sponsor_address"
+                <input type="text" class="" name="sponsor_address"
                        value="{{$referral->address}}">
             </div>
-        </div>
 
-        <div class="form-row">
+        <div class="">
             <label>Apt#</label>
-            <input type="text" class="custom-input" name="sponsor_apt" value="{{$referral->apt_suite}}"
-                   style="width: 90%">
+            <input type="text" class="" name="sponsor_apt" value="{{$referral->apt_suite}}" >
         </div>
+    </div>
 
-        <div class="form-container">
-            <div class="form-row">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+            <div style="width: 25%">
                 <label>State</label>
-                <input type="text" class="custom-input" name="sponsor_state" value="{{$referral->state}}"
-                       style="width:auto">
+                <input type="text" class="" style="width: 50%" name="sponsor_state" value="{{$referral->state}}">
             </div>
-            <div class="form-row">
+            <div style="width: 25%">
                 <label>City</label>
-                <input type="text" class="custom-input" name="sponsor_city" value="{{$referral->city}}"
-                       style="width:auto">
+                <input type="text" class="" style="width: 55%" name="sponsor_city" value="{{$referral->city}}">
             </div>
-            <div class="form-row">
+            <div style="width: 25%">
                 <label>Country</label>
-                <input type="text" class="custom-input" name="sponsor_country" value="{{$referral->country}}"
-                       style="width:auto">
+                <input type="text" class="" style="width: 55%" name="sponsor_country" value="{{$referral->country}}">
             </div>
-            <div class="form-row">
+            <div style="width: 25%">
                 <label>Zip Code</label>
-                <input type="text" class="custom-input" name="sponsor_zip" value="{{$referral->zip_code}}"
-                       style="width:auto">
+                <input type="text" style="width: 55%" class="" name="sponsor_zip" value="{{$referral->zip_code}}">
             </div>
         </div>
 
-        <div class="form-row">
-            <p>Spouse's Name if Married: <input type="text" class="custom-input" name="sponsor_if_married"
-                                                style="width: 50%;">
+        <div style="display: flex; align-items: center;padding-right: 70px;margin-top:15px">
+            <div style="flex: 0.5;display: flex; align-items: center;gap:8px;"">
+            <label >Spouse's Name if Married:</label> 
+            <input type="text" class="" name="sponsor_if_married" style="flex:1">
         </div>
+        </div> --}}
         <div style="text-align: center; ">
             <p>
                 Please mail all trust documents to :
@@ -384,7 +544,7 @@ input{
         <p style="font-weight: bold">
             Indicate reason for establishing an account.
         </p>
-        <div class="container-row" style="justify-content: start;background-color: #CCCCCC; max-width: fit-content">
+        <div class="container-row" style="justify-content: start;background-color: #e9e9e9; max-width: fit-content">
             <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"> Shelter
             Monthly
             Excess Income
@@ -396,14 +556,14 @@ input{
         </p>
 
         <div style="display: flex; justify-content: flex-start">
-            <p style="background-color: #CCCCCC">
+            <p style="background-color: #e9e9e9">
                 Is Spouse Deceased?
                 <input type="checkbox" name="spouse_decreased1" value="Yes"> Yes
                 <input type="checkbox" name="spouse_decreased2" value="No"> No</p>
         </div>
 
         <div style="display: flex; justify-content: flex-start; max-width: fit-content">
-            <p style="margin-right: 60px;background-color: #CCCCCC;">
+            <p style="margin-right: 60px;background-color: #e9e9e9;">
                 is Applicant & Spouse applying together?
                 <input type="checkbox" name="applying_together1" value="Yes"> Yes
                 <input type="checkbox" name="applying_together2" value="No"> No</p>
@@ -414,14 +574,14 @@ input{
             SPOUSE INFORMATION:
         </b>
         <br>
-        <div style="display: flex; justify-self: auto">
-            <div>
-                <label> First Name</label>
-                <input type="text" class="no-border" name="spouse_fname">
+        <div style="display: flex; align-items: center; margin-top: 15px;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label style="min-width: fit-content"> First Name</label>
+                <input type="text" class="no-border" name="spouse_fname" style="flex: 1">
             </div>
-            <div>
-                <label> Last Name</label>
-                <input type="text" class="no-border" name="spouse_lname">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label style="min-width: fit-content"> Last Name</label>
+                <input type="text" class="no-border" name="spouse_lname" style="flex: 1">
             </div>
         </div>
         <br>
@@ -600,14 +760,14 @@ input{
                     </p>
                 </td>
                 <td>
-                    <div class="container-row" style="background-color: #cccccc">
+                    <div class="container-row" style="background-color: #e9e9e9">
                         <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"> Yes
                         <input type="checkbox" name="beneficiary_receive_medicaid_applicant2" value="No"> No
                         <input type="checkbox" name="beneficiary_receive_medicaid_applicant3" value="Pending"> Pending
                     </div>
                 </td>
                 <td>
-                    <div class="container-row" style="background-color: #cccccc">
+                    <div class="container-row" style="background-color: #e9e9e9">
                         <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"> Yes
                         <input type="checkbox" name="beneficiary_receive_medicaid_spouse2" value="No"> No
                         <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"> Pending
@@ -656,31 +816,29 @@ input{
 
 
         <br>
-        <div class="container-row" style="max-width: fit-content">
+        <div style="display: flex;align-items: center;gap: 8px">
 
             <p> Medicare part B Supplement <label> Plan Name:</label></p>
-            <input type="text" class="no-border" name="healthcare_partb_plan" style="width: 400px">
+            <input type="text" class="no-border" name="healthcare_partb_plan" style="flex:1">
         </div>
-        <div class="container-row">
-            <div>
+        <div style="display: flex; align-items: center;gap:70px">
+            <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                 <label>Premium $</label>
-                <input type="text" class="no-border" name="healthcare_partb_premium">
+                <input type="text" style="flex:1" name="healthcare_partb_premium">
             </div>
-            <div>
+            <div style="flex:1;display: flex;align-items: center;gap: 8px;">
                 <label>Frequency</label>
-                <input type="text" class="no-border" name="healthcare_partb_frequency">
+                <input type="text" style="flex:1" name="healthcare_partb_frequency">
             </div>
         </div>
-        <div class="container-row">
-            <div>
-                <p>
-                    Medicare Part D Plan Name <input type="text" class="no-border" name="healthcare_partd_plan">
-                </p>
+        <div style="display: flex; align-items: center; margin-top: 15px;gap:70px">
+            <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                   <label>Medicare Part D Plan Name</label>
+                   <input type="text" style="flex:1" name="healthcare_partd_plan">
             </div>
-            <div>
-                <p>
-                    Premium $: <input type="text" class="no-border" name="healthcare_partd_premium">
-                </p>
+            <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                <label>Premium $:</label>
+                <input type="text" style="flex:1" name="healthcare_partd_premium">
             </div>
         </div>
         <hr>
@@ -690,13 +848,46 @@ input{
         <p style="font-weight: bold">
             Please attach pre-need funeral agreement.
         </p>
-        <p>Name of Funeral Home: <input type="text" class="no-border" name="funeral_home"></p>
-        <p>Address <input type="text" class="no-border" name="funeral_address">City <input type="text" class="no-border"
-                                                                                           name="funeral_city"></p>
-        <p>State <input type="text" class="no-border" name="funeral_state"> Zip: <input type="text" class="no-border"
-                                                                                        name="funeral_zip"> Telephone
-            <input
-                type="text" class="no-border" name="funeral_telephone"></p>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+        <div style="display: flex; align-items: center;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label >Name of Funeral Home:</label> 
+                <input type="text" style="flex: 1">
+            </div>
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label>Address:</label> 
+                <input type="text" class="no-border" name="funeral_address" style="flex: 1">
+            </div>
+        </div>
+        <div style="display: flex; align-items: center;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label>City:</label> 
+                <input type="text" class="no-border" name="funeral_city" style="flex: 1">
+            </div>
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label>State:</label> 
+                <input type="text" class="no-border" name="funeral_state" style="flex: 1">
+            </div>
+        </div>
+        <div style="display: flex; align-items: center;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+            <label>State</label> 
+            <input type="text" style="flex: 1" name="funeral_state">
+        </div>
+        <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+            <label >Zip:</label> 
+            <input type="text" style="flex: 1" name="funeral_zip"> 
+        </div> 
+        </div>
+        <div style="display: flex; align-items: center;padding-right: 70px;">
+            <div style="flex: 0.5;display: flex; align-items: center;gap:8px;">
+                <label>Telephone</label>
+                <input
+                    type="text" style="flex: 1" name="funeral_telephone">
+                </div>
+        </div>
+    </div>
         <hr>
         <p style="color: #16b6d5">
             <b>BURIAL PLOT</b>
@@ -704,26 +895,94 @@ input{
         <p style="font-weight: bold">
             Please attach a copy of plot deed
         </p>
-        <p>Name of Cemetery: <input type="text" class="no-border" name="burial_cemetery"></p>
-        <p>Address <input type="text" class="no-border" name="burial_address">City <input type="text" class="no-border"
-                                                                                          name="burial_city"></p>
-        <p>State <input type="text" class="no-border" name="burial_state"> Zip: <input type="text" class="no-border"
-                                                                                       name="burial_zip"> Telephone
-            <input
-                type="text" class="no-border" name="burial_telephone"></p>
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+            <div style="display: flex; align-items: center;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label for="">Name of Cemetery:</label>
+                <input type="text" style="flex: 1" name="burial_cemetery">
+            </div>
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label for="">Address</label>
+                <input type="text" style="flex: 1" name="burial_address">
+            </div>
+        </div>
+            <div style="display: flex; align-items: center;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label for="">City</label>
+                <input type="text" style="flex: 1" name="burial_city">
+            </div>
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label for="">State</label>
+                <input type="text" style="flex: 1" name="burial_state">
+            </div>
+        </div>
+            <div style="display: flex; align-items: center;gap:70px">
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label for="">Zip:</label>
+                <input type="text" style="flex: 1" name="burial_zip">
+            </div>
+            <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                <label for="">Telephone</label>
+                <input type="text" style="flex: 1" name="burial_telephone">
+            </div>
+        </div>
+        </div>
+        <hr>
 
         <p style="color: #16b6d5">
             <b>LIFE INSURANCE</b>
         </p>
         <p> Please attach a copy of policy </p>
-        <p>Name of Insured: <input type="text" class="no-border" name="insured_name"> Name of Owner <input type="text"
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+            <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                    <label for="">Name of Insured:</label>
+                    <input type="text" style="flex: 1" name="insured_name">
+                </div>
+                <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                    <label for="">Name of Owner</label>
+                    <input type="text" style="flex: 1" name="insured_owner">
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                    <label for="">Name of insurance company</label>
+                    <input type="text" style="flex: 1" name="insurance_company">
+                </div>
+                <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                    <label for="">Policy #:</label>
+                    <input type="text" style="flex: 1" name="insurance_policy_number">
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;gap:70px">
+                {{-- <label for="">Term of policy</label> --}}
+                <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                    <label for="">Term of policy:</label>
+                    <input type="checkbox" class="no-border" name="type_of_policy1" value="Term">
+                    <label for="">Term</label>
+                    <input type="text" style="flex: 1" name="term_name">
+                </div>
+                <div style="flex:1;display: flex;justify-content: space-between;align-items: center;gap: 8px;">
+                    <input type="checkbox" class="no-border" name="type_of_policy2" value="Life">
+                    <label for="">Life</label>
+                    <input type="text" style="flex: 1" name="life_name">
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;padding-right: 70px;">
+                <div style="flex: 0.5;display: flex; align-items: center;gap:8px;">
+                <label for="">Cash Surrender Value $:</label>
+                <input type="text" style="flex: 1" name="cash_surrender_value">
+                </div>
+            </div>
+        </div>
+        {{-- <p>Name of Insured: <input type="text" class="no-border" name="insured_name"> Name of Owner <input type="text"
                                                                                                            class="no-border"
                                                                                                            name="insured_owner">
-        </p>
-        <p>Name of insurance company <input type="text" class="no-border" name="insurance_company">Policy #: <input
+        </p> --}}
+        {{-- <p>Name of insurance company <input type="text" class="no-border" name="insurance_company">Policy #: <input
                 type="text"
-                class="no-border" name="insurance_policy_number"></p>
-        <p>Term of policy <input type="checkbox" class="no-border" name="type_of_policy1" value="Term"> Term <input
+                class="no-border" name="insurance_policy_number"></p> --}}
+        {{-- <p>Term of policy <input type="checkbox" class="no-border" name="type_of_policy1" value="Term"> Term <input
                 type="text" class="no-border" name="term_name"><input
                 type="checkbox" class="no-border" name="type_of_policy2" value="Life"> Life <input type="text"
                                                                                                    class="no-border"
@@ -731,7 +990,7 @@ input{
             Cash
             Surrender Value $
             <input type="text" class="no-border" name="cash_surrender_value">
-        </p>
+        </p> --}}
         <p>Upon the death of the Beneficiary, amounts remaining in the Beneficiary's sub-account shall be reined in the
             Trust solely for the benefit of individuals who are disabled as defined in Soc. Sec. Law Section 1614(a)(3)
             [42
@@ -739,12 +998,20 @@ input{
         <p style="color: #16b6d5">
             <b>QUALIFYING DISABILITIES</b>
         </p>
-        <div class="container-row">
-            <p>1 <input type="text" class="no-border" name="qualifying_disability_one"> 2. <input type="text"
-                                                                                                  class="no-border"
-                                                                                                  name="qualifying_disability_two">
-                3. <input
-                    type="text" class="no-border" name="qualifying_disability_three"></p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="flex: 0.3; display: flex; align-items: center; gap: 8px;">
+                <label for="">1</label>
+                <input type="text" style="flex: 1" name="qualifying_disability_one">
+            </div>
+            <div style="flex: 0.3; display: flex; align-items: center; gap: 8px;">
+                <label for="">2</label>
+                <input type="text" style="flex: 1" name="qualifying_disability_two">
+            </div>
+            <div style="flex: 0.3; display: flex; align-items: center; gap: 8px;">
+                <label for="">3</label>
+                <input type="text" style="flex: 1" name="qualifying_disability_three">
+            </div>
+           
 
         </div>
         <hr>
@@ -769,7 +1036,63 @@ input{
         <hr>
         <p style="color: #16b6d5">
             <b>POWER OF ATTORNEY</b></p>
-        <p><b>Name:</b> First <input type="text" class="no-border" name="power_fname"> Middle <input type="text"
+            <div style="display: flex; flex-direction: column; justify-content: center; gap:10px">
+                   <div style="display: flex; align-items: center;gap:57px">
+                      
+                       <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Name:</label>
+                        <label for="">First</label>
+                        <input type="text" style="flex: 1" name="power_fname">
+                       </div>
+                       <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Middle</label>
+                        <input type="text" style="flex: 1" name="power_midname">
+                       </div>
+                       <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Last</label>
+                        <input type="text" style="flex: 1" name="power_lname">
+                       </div>
+                   </div>
+                    <div style="display: flex; align-items: center;gap:70px">
+                        <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                            <label for="">Address</label>
+                            <input type="text" style="flex: 1" name="power_address">
+                        </div>
+                        <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                            <label for="">Apt#:</label>
+                            <input type="text" style="flex: 1" name="power_apt">
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center;gap:70px">
+                        <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                            <label for="">City</label>
+                            <input type="text" style="flex: 1" name="power_city">
+                        </div>
+                        <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                            <label for="">State</label>
+                            <input type="text" style="flex: 1" name="power_state">
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center;gap:70px">
+                        <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                            <label for="">Tel:</label>
+                            <label for="">Home</label>
+                            <input type="text" style="flex: 1" name="power_tel_home">
+                        </div>
+                        <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                            <label for="">Cell</label>
+                            <input type="text" style="flex: 1" name="power_tel_cell">
+                        </div>
+                        
+                    </div>
+                    <div style="display: flex; align-items: center;padding-right: 70px;">
+                        <div style="flex: 0.5;display: flex; align-items: center;gap:8px;">
+                            <label for="">Email</label>
+                            <input type="text" style="flex: 1" name="power_email">
+                        </div>
+                    </div>
+            </div>
+        {{-- <p><b>Name:</b> First <input type="text" class="no-border" name="power_fname"> Middle <input type="text"
                                                                                                      class="no-border"
                                                                                                      name="power_midname">
             Last <input type="text" class="no-border" name="power_lname"></p><br>
@@ -784,7 +1107,8 @@ input{
                                                                                               name="power_tel_cell">
             Email
             <input type="text" class="no-border" name="power_email">
-        </p><br>
+        </p><br> --}}
+        <br>
         <p>is this person the sole POA? <input type="checkbox" name="sole_poa1" value="Yes"> Yes <input type="checkbox"
                                                                                                         name="sole_poa2"
                                                                                                         value="No">No
@@ -803,7 +1127,71 @@ input{
             <input type="checkbox" name="guardian_appointed_for2" value="Property"> Property<input
                 type="checkbox" name="guardian_appointed_for3" value="Both"> Both
         </p>
-        <p><b>Name:</b> First <input type="text" class="no-border" name="guardianship_fname"> Middle <input type="text"
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+            <div style="display: flex; align-items: center;justify-content:space-between">
+               
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Name:</label>
+                 <label for="">First</label>
+                 <input type="text" style="flex: 1" name="guardianship_fname">
+                </div>
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Middle</label>
+                 <input type="text" style="flex: 1" name="guardianship_midname">
+                </div>
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Last</label>
+                 <input type="text" style="flex: 1" name="guardianship_lname">
+                </div>
+            </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Address</label>
+                     <input type="text" style="flex: 1" name="guardianship_address">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Apt#:</label>
+                     <input type="text" style="flex: 1" name="guardianship_apt">
+                 </div>
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">City</label>
+                     <input type="text" style="flex: 1" name="guardianship_city">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">State</label>
+                     <input type="text" style="flex: 1" name="guardianship_state">
+                 </div>
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Country</label>
+                     <input type="text" style="flex: 1" name="guardianship_country">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Zip</label>
+                     <input type="text" style="flex: 1" name="guardianship_zip">
+                 </div>
+                 
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Telephone</label>
+                    <input type="text" style="flex: 1" name="guardianship_telephone">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Email</label>
+                    <input type="text" style="flex: 1" name="guardianship_email">
+                </div>
+                
+            </div>
+     </div>
+
+
+
+        {{-- <p><b>Name:</b> First <input type="text" class="no-border" name="guardianship_fname"> Middle <input type="text"
                                                                                                             class="no-border"
                                                                                                             name="guardianship_midname">
             Last <input type="text" class="no-border" name="guardianship_lname"></p><br>
@@ -818,7 +1206,7 @@ input{
                 type="text" class="no-border" name="guardianship_country"> Zip <input type="text" class="no-border"
                                                                                       name="guardianship_zip"></p><br>
         Telephone <input type="text" class="no-border" name="guardianship_telephone"> Email
-        <input type="text" class="no-border" name="guardianship_email">
+        <input type="text" class="no-border" name="guardianship_email"> --}}
 
         <br>
         <hr>
@@ -830,13 +1218,13 @@ input{
             program, etc.)
         </p>
         <div class="container-row" style="max-width:fit-content">
-            <p style="margin-right: 50px">Service <br> <input type="text" class="no-border"
+            <p style="margin-right: 50px">Service <br> <input type="text" style="margin-bottom: 8px;margin-top:5px"
                                                               name="beneficiary_service_one"><br>
-                <input type="text" class="no-border" name="beneficiary_service_two"><br>
+                <input type="text"  style="margin-bottom: 8px" name="beneficiary_service_two"><br>
                 <input type="text" class="no-border" name="beneficiary_service_three">
             </p>
-            <p>Name of Provider <br> <input type="text" class="no-border" name="beneficiary_provider_one"><br>
-                <input type="text" class="no-border" name="beneficiary_provider_two"><br>
+            <p>Name of Provider <br> <input type="text" style="margin-bottom: 8px;margin-top:5px" name="beneficiary_provider_one"><br>
+                <input type="text" style="margin-bottom: 8px" name="beneficiary_provider_two"><br>
                 <input type="text" class="no-border" name="beneficiary_provider_three">
             </p>
         </div>
@@ -849,7 +1237,83 @@ input{
             individual
             to: Make Deposits, Request Statements and Disbursements.
         </p>
-        <p><b>Name:</b> First <input type="text" class="no-border" name="auth_rep_one_fname"> Middle <input type="text"
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+            <div style="display: flex; align-items: center;justify-content: space-between;">
+               
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Name:</label>
+                 <label for="">First</label>
+                 <input type="text" style="flex: 1" name="auth_rep_one_fname">
+                </div>
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Middle</label>
+                 <input type="text" style="flex: 1" name="auth_rep_one_midname">
+                </div>
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Last</label>
+                 <input type="text" style="flex: 1" name="auth_rep_one_lname">
+                </div>
+            </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Address</label>
+                     <input type="text" style="flex: 1" name="auth_rep_one_address">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Apt#:</label>
+                     <input type="text" style="flex: 1" name="auth_rep_one_apt">
+                 </div>
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">City</label>
+                     <input type="text" style="flex: 1" name="auth_rep_one_city">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">State</label>
+                     <input type="text" style="flex: 1" name="auth_rep_one_state">
+                 </div>
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Country</label>
+                     <input type="text" style="flex: 1" name="auth_rep_one_country">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Zip</label>
+                     <input type="text" style="flex: 1" name="auth_rep_one_zip">
+                 </div>
+                 
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Telephone</label>
+                    <input type="text" style="flex: 1" name="auth_rep_one_tel">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Cell</label>
+                    <input type="text" style="flex: 1" name="auth_rep_one_cell">
+                </div>
+                
+            </div>
+            <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Email</label>
+                    <input type="text" style="flex: 1" name="auth_rep_one_relation_beneficiary">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Relationship to Beneficiary</label>
+                    <input type="text" style="flex: 1" name="auth_rep_one_relation_beneficiary">
+                </div>
+                
+            </div>
+     </div>
+
+
+
+
+        {{-- <p><b>Name:</b> First <input type="text" class="no-border" name="auth_rep_one_fname"> Middle <input type="text"
                                                                                                             class="no-border"
                                                                                                             name="auth_rep_one_midname">
             Last <input type="text" class="no-border" name="auth_rep_one_lname"></p>
@@ -868,9 +1332,9 @@ input{
         </p>
         <p> Email <input type="text" class="no-border" name="auth_rep_one_email"> Relationship to Beneficiary
             <input type="text" class="no-border" name="auth_rep_one_relation_beneficiary">
-        </p>
+        </p> --}}
         <br>
-        <p style="background-color: #cccccc;max-width: fit-content">Would you like this representative to be the primary
+        <p style="background-color: #e9e9e9;max-width: fit-content">Would you like this representative to be the primary
             contact? <input type="checkbox" class="no-border"
                             name="auth_rep_one_primary1" value="Yes">Yes
             <input type="checkbox" class="no-border" name="auth_rep_one_primary2" value="No">No
@@ -884,7 +1348,81 @@ input{
             individual
             to: Make Deposits, Request Statements and Disbursements.
         </p>
-        <p><b>Name:</b> First <input type="text" class="no-border" name="auth_rep_two_fname"> Middle <input type="text"
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+            <div style="display: flex; align-items: center;justify-content: space-between;">
+               
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Name:</label>
+                 <label for="">First</label>
+                 <input type="text" style="flex: 1" name="auth_rep_two_fname">
+                </div>
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Middle</label>
+                 <input type="text" style="flex: 1" name="auth_rep_two_midname">
+                </div>
+                <div style="flex:0.3;display: flex;align-items: center;gap: 8px;">
+                 <label for="">Last</label>
+                 <input type="text" style="flex: 1" name="auth_rep_two_lname">
+                </div>
+            </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Address</label>
+                     <input type="text" style="flex: 1" name="auth_rep_two_address">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Apt#:</label>
+                     <input type="text" style="flex: 1" name="auth_rep_two_apt">
+                 </div>
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">City</label>
+                     <input type="text" style="flex: 1" name="auth_rep_two_city">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">State</label>
+                     <input type="text" style="flex: 1" name="auth_rep_two_state">
+                 </div>
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Country</label>
+                     <input type="text" style="flex: 1" name="auth_rep_two_country">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Zip</label>
+                     <input type="text" style="flex: 1" name="auth_rep_two_zip">
+                 </div>
+                 
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Telephone</label>
+                    <input type="text" style="flex: 1" name="auth_rep_two_tel">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Cell</label>
+                    <input type="text" style="flex: 1" name="auth_rep_two_cell">
+                </div>
+                
+            </div>
+            <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Email</label>
+                    <input type="text" style="flex: 1" name="auth_rep_two_email">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Relationship to Beneficiary</label>
+                    <input type="text" style="flex: 1" name="auth_rep_two_relation_beneficiary">
+                </div>
+                
+            </div>
+     </div>
+
+
+        {{-- <p><b>Name:</b> First <input type="text" class="no-border" name="auth_rep_two_fname"> Middle <input type="text"
                                                                                                             class="no-border"
                                                                                                             name="auth_rep_two_midname">
             Last <input type="text" class="no-border" name="auth_rep_two_lname"></p><br>
@@ -903,9 +1441,9 @@ input{
         </p>
         <p> Email <input type="text" class="no-border" name="auth_rep_two_email"> Relationship to Beneficiary
             <input type="text" class="no-border" name="auth_rep_two_relation_beneficiary">
-        </p>
+        </p> --}}
         <br>
-        <p style="background-color: #cccccc;max-width: fit-content">Would you like this representative to be the primary
+        <p style="background-color: #e9e9e9;max-width: fit-content">Would you like this representative to be the primary
             contact? <input type="checkbox" class="no-border"
                             name="auth_rep_two_primary1" value="Yes">Yes
             <input type="checkbox" class="no-border" name="auth_rep_two_primary2" value="No">No
@@ -915,7 +1453,61 @@ input{
         <p> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
             individual
             to: Make Deposits, Request Statements and Disbursements.</p>
-        <p> Name of Agency <input type="text" class="no-border" name="referring_agency"> Name of Contact <input
+
+            <div style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+                 <div style="display: flex; align-items: center;gap:70px">
+                     <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                         <label for="">Name of Agency</label>
+                         <input type="text" style="flex: 1" name="referring_agency">
+                     </div>
+                     <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                         <label for="">Name of Contact</label>
+                         <input type="text" style="flex: 1" name="referring_contact">
+                     </div>
+                 </div>
+                 <div style="display: flex; align-items: center;gap:70px">
+                     <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                         <label for="">Address</label>
+                         <input type="text" style="flex: 1" name="referring_address">
+                     </div>
+                     <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                         <label for="">Apt#</label>
+                         <input type="text" style="flex: 1" name="referring_apt">
+                     </div>
+                 </div>
+                 <div style="display: flex; align-items: center;gap:70px">
+                     <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                         <label for="">City</label>
+                         <input type="text" style="flex: 1" name="referring_city">
+                     </div>
+                     <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                         <label for="">State</label>
+                         <input type="text" style="flex: 1" name="referring_state">
+                     </div>
+                     
+                 </div>
+                 <div style="display: flex; align-items: center;gap:70px">
+                    <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Telephone</label>
+                        <input type="text" style="flex: 1" name="referring_tel">
+                    </div>
+                    <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                        <label for="">Email</label>
+                        <input type="text" style="flex: 1" name="auth_rep_two_cell">
+                    </div>
+                    
+                </div>
+                <div style="display: flex; align-items: center;padding-right: 70px;">
+                    <div style="flex: 0.5;display: flex; align-items: center;gap:8px;">
+                        <label for="">Relationship to Beneficiary</label>
+                        <input type="text" style="flex: 1" name="referring_relation_beneficiary">
+                    </div>
+                </div>
+         </div>
+        
+
+        
+        {{-- <p> Name of Agency <input type="text" class="no-border" name="referring_agency"> Name of Contact <input
                 type="text"
                 class="no-border"
                 name="referring_contact">
@@ -933,9 +1525,9 @@ input{
                 type="text"
                 class="no-border"
                 name="referring_relation_beneficiary">
-        </p>
+        </p> --}}
         <br>
-        <p style="background-color: #cccccc;max-width: fit-content">I authorize any applicable documents necessary for
+        <p style="background-color: #e9e9e9;max-width: fit-content">I authorize any applicable documents necessary for
             reporting to Government Agencies to be send referring source
             above. <input type="checkbox" class="no-border" name="referring_auth1" value="Yes">Yes
             <input type="checkbox" class="no-border" name="referring_auth2" value="No">No
@@ -1289,9 +1881,78 @@ input{
             </table>
         </div>
         <p style="color: #16b6d5">DIRECT DEBIT REQUEST FORM</p>
-        <p>
-            Donor/Beneficiary: <input type="text" class="no-border" name="direct_debit_donor_beneficiary"> <br>
-            Representative:<input type="text" class="no-border" name="direct_debit_representative"> <br>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 15px;">
+           
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Donor/Beneficiary:</label>
+                     <input type="text" style="flex: 1" name="direct_debit_donor_beneficiary">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Representative:</label>
+                     <input type="date" style="flex: 1"  name="direct_debit_representative">
+                 </div>
+             </div>
+             
+             <div style="display: flex; align-items: center;gap:70px">
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">Bank Name:</label>
+                     <input type="text" style="flex: 1" name="direct_debit_bank_name">
+                 </div>
+                 <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                     <label for="">City:</label>
+                     <input type="text" style="flex: 1" name="direct_debit_city">
+                 </div>
+                 
+             </div>
+             <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">State:</label>
+                    <input type="text" style="flex: 1" name="direct_debit_state">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Bank Routing Number:</label>
+                    <input type="text" style="flex: 1" name="direct_debit_bank_routing">
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;gap:70px">
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Account Number:</label>
+                    <input type="text" style="flex: 1" name="direct_debit_account_number">
+                </div>
+                <div style="flex:1;display: flex;align-items: center;gap: 8px;">
+                    <label for="">Account Name:</label>
+                    <input type="text" style="flex: 1" name="direct_debit_account_name">
+                </div>
+            </div>
+            <div style="display: flex;padding-right: 70px;">
+                <div style="flex: 0.5 ;display: flex;align-items: center; gap: 8px">
+                    <label style="font-weight: bold">Account type</label>
+                    <div style="display: flex;align-items: center;flex: 1;gap: 8px;">
+                    <div>
+                        <input type="checkbox" name="direct_debit_bank_type1" value="Checking">
+                        <label for="">Checking</label>
+                    </div>
+                    <div>
+                    <input type="checkbox" name="direct_debit_bank_type2" value="Savings">
+                    <label for="">Savings</label>
+                    </div>
+                
+            </div>
+                </div>
+            </div>
+            
+            
+     </div>
+
+
+
+
+
+        {{-- <p>
+            Donor/Beneficiary: <input type="text" class="no-border" name="direct_debit_donor_beneficiary"> <br><br>
+            Representative: <input type="text" class="no-border" name="direct_debit_representative"> <br>
         </p>
         <div>
             <p>
@@ -1316,7 +1977,7 @@ input{
                 Checking
                 <input type="checkbox" class="no-border" name="direct_debit_bank_type2" value="Savings"> Savings
             </p>
-        </div>
+        </div> --}}
         <p>
             PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.
         </p>
