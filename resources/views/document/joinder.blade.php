@@ -23,6 +23,9 @@
             border-radius: 4px; /* Rounded corners */
             cursor: pointer; /* Pointer cursor */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
+            position: relative;
+            display: inline-flex;
+            align-items: center;
         }
 
         .submit-button:hover {
@@ -157,6 +160,33 @@ input{
     display: flex;
     gap: 8px;
     align-items: center;
+}
+
+
+.loader {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 10%;
+    top: 22%;
+    transform: translateY(-50%);
+}
+.btn-size{
+    width: 12%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
     </style>
@@ -2095,7 +2125,10 @@ input{
             A $100 annual-renewal fee will be charged on the anniversary of the account
         </p>
 
-        <button type="submit" class="submit-button"> Submit</button>
+        <button type="submit" id="submit-button" class="submit-button">
+            Submit
+            <span class="loader" style="display: none;"></span>
+        </button>
     </form>
 </div>
 
@@ -2129,6 +2162,10 @@ input{
         //save this form using ajax
         $('#joinderForm').submit(function (e) {
             e.preventDefault();
+            
+            $('#submit-button').addClass('btn-size');
+            $('#submit-button').prop('disabled', true);
+            $('.loader').show();
             saveCanvasAsImage();
             let formdata = new FormData(this);
             //add dd in laravel format
@@ -2145,10 +2182,16 @@ input{
                         icon: 'success',
                         confirmButtonText: 'Great!'
                     });
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
 
                 },
                 error: function (response) {
                     alert('Error in saving file');
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
                 }
             });
         });
