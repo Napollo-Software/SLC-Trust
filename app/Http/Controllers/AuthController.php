@@ -423,24 +423,19 @@ class AuthController extends Controller
                 ->take(500)
                 ->get();
 
-            $pool_amount = Transaction::where('user_id', $request->customer)->sum('credit')
-                - Transaction::where('user_id', $request->customer)->sum('debit');
+            $pool_amount = userBalance($request->customer);
 
-            $maintenance_fee = Transaction::where('user_id', \Company::Account_id)
-                ->where('user_id', $request->customer)
+            $maintenance_fee = Transaction::where('user_id', $request->customer)
                 ->where("type", Transaction::MaintenanceFee)->sum('credit')
                 - Transaction::where('user_id', \Company::Account_id)
                     ->where('user_id', $request->customer)
                     ->where("type", Transaction::MaintenanceFee)->sum('debit');
 
-            $enrollment_fee = Transaction::where('user_id', \Company::Account_id)
-                ->where('user_id', $request->customer)
+            $enrollment_fee = Transaction::where('user_id', $request->customer)
                 ->where("type", Transaction::EnrollmentFee)->sum('credit')
                 - Transaction::where('user_id', \Company::Account_id)
                     ->where('user_id', $request->customer)
                     ->where("type", Transaction::EnrollmentFee)->sum('debit');
-
-            $total_revenue = $maintenance_fee + $enrollment_fee;
 
         } else {
 
@@ -467,9 +462,9 @@ class AuthController extends Controller
 
             $pool_amount = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
                 - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
+            }
 
-            $total_revenue = $maintenance_fee + $enrollment_fee;
-        }
+        $total_revenue = $maintenance_fee + $enrollment_fee;
 
         $start_date = null;
         $followup = Followup::select('note', 'date')->get();
@@ -750,7 +745,7 @@ class AuthController extends Controller
 
             // Description for the deposit
             $description = "Deposit of \${$request->balance} made via {$request->payment_type} Transaction ID: #{$transactionId}.";
-            $customer_description = "\${$request->balance} added in account against {$request->payment_type} transaction id #{$transactionId}.";
+            $customer_description = "\${$request->balance} added in account against {$request->payment_type} Transaction ID: #{$transactionId}.";
 
             // Record the credit transaction for the added balance
             $admin->transactions()->create([
