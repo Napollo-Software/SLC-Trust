@@ -749,8 +749,8 @@ class AuthController extends Controller
             $reference_id = generateTransactionId();
 
             // Description for the deposit
-            $description = "Deposit of \${$request->balance} made via {$request->payment_type} (Transaction ID: #{$transactionId}).";
-            $customer_description = "\${$request->balance} added in account against {$request->payment_type} transaction id #{$transactionId}";
+            $description = "Deposit of \${$request->balance} made via {$request->payment_type} Transaction ID: #{$transactionId}.";
+            $customer_description = "\${$request->balance} added in account against {$request->payment_type} transaction id #{$transactionId}.";
 
             // Record the credit transaction for the added balance
             $admin->transactions()->create([
