@@ -762,4 +762,17 @@ class DocumentController extends Controller
     }
 
 
+
+    public
+    function approval(Request $request)
+    {
+        return  view('document.approval-letter-pdf');
+
+    }
+    public
+    function trusted(Request $request)
+    {
+        return  view('document.trusted-surplus-pdf');
+
+    }
 }

@@ -210,6 +210,8 @@ Route::post('/update-medicaid', [MedicaidController::class, 'updateMedicaid'])->
 Route::get('/get-table-columns', [ReportController::class, 'getTableColumns'])->name('get-table-columns');
 Route::match(['get', 'post'], '/get-submited-columns', [ReportController::class, 'submitSelectedColumns'])->name('get.submited.columns');
 
+Route::get('/approval', [DocumentController::class, 'approval'])->name('approval.letter');
+Route::get('/trusted', [DocumentController::class, 'trusted'])->name('trusted.surplus');
 
 Route::get('/save-signature', [DocumentController::class, 'generateSignature'])->name('save.signature');
 Route::get('/hippa_state', [DocumentController::class, 'hippaState'])->name('hippa_state.signature');
