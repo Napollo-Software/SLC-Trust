@@ -363,6 +363,7 @@ class DocumentController extends Controller
             mkdir($directory, 0777, true);
         }
 
+        
         $signatureFields = ['joinder_signature_1', 'joinder_signature_2', 'joinder_signature_3', 'joinder_signature_4', 'joinder_signature_5'];
 
         foreach ($signatureFields as $fieldName) {
@@ -371,8 +372,10 @@ class DocumentController extends Controller
                 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
                 $filename = $fieldName . date('Ymd_His') . '.png';
                 $imagePath = $directory . '/' . $filename;
+            
                 file_put_contents($imagePath, $imageData);
                 $request->merge([$fieldName => $imagePath]);
+            
             }
         }
 
@@ -380,10 +383,13 @@ class DocumentController extends Controller
         $data = $request->all();
         $pdf = PDF::loadView('document.joinder-pdf', $data)->setPaper('A4', 'portrait');
 
+        
         $savePath = $directory . '/joinder_' . date('Ymd_His') . '.pdf';
+    
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
+        
         if ($document){
             //delete old file
             if (Storage::exists('public/' . $document->uploaded_url)) {
