@@ -1135,6 +1135,48 @@ tr.ind-th td{
 #signature-canvas-5 {
     pointer-events: none;
 }
+.submit-button{
+    margin-left: 10%;
+    padding: 10px;
+    width: 10%;
+    border-radius: 4px;
+    cursor:pointer;
+    background-color: rgb(184 221 219);
+    color:rgb(52 159 153);
+    border:none;
+    font-weight: bold;
+    font-size:1.3rem;
+    position: relative;
+    align-items: center;
+}
+.submit-button:hover{
+    background-color: rgb(168 236 217)
+}
+.loader {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 2px solid rgb(52 159 153);
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 10%;
+    top: 28%;
+    /* transform: translateY(-50%); */
+}
+.btn-size{
+    width: 11%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
 /* html{
     font-size: 62.5%;
@@ -1315,9 +1357,11 @@ tr.ind-th td{
                                  </div>
                                  <div>
                                      <input type="checkbox" value="Cell" name="prefered_cell" class="cell" id="cell">
+                                     <label for="">Cell</label>
                                  </div>
                                  <div>
                                      <input type="checkbox" value="Phone" name="prefered_phone" id="phone" class="phone">
+                                     <label for="">Home</label>
                                  </div>
                              </div>
     
@@ -3386,7 +3430,7 @@ tr.ind-th td{
                                     <label for="">Date</label>
                                 </div>
                                 <div style="width: 30%;">
-                                    <canvas id="signature-canvas-1" style="width: 100%; height: 100px;"></canvas>
+                                    <canvas id="signature-canvas-1" style="width: 100%; height: 100px; background-color:#f2f2f2"></canvas>
                                 </div>
                                 
                                           
@@ -3485,7 +3529,7 @@ tr.ind-th td{
                                     <label for="">Sign Here</label>
                                 </div>
                                 <div style="width: 80%;">
-                                    <canvas id="signature-canvas-2" style="width: 100%; height: 100px;"></canvas>
+                                    <canvas id="signature-canvas-2" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                                      <button style="width:10%" type="button" id="clear-2" onclick="clearCanvas(2)">Clear</button>
                                      <input type="hidden" id="joinder_signature_2" name="joinder_signature_2">
                                 </div>
@@ -3518,7 +3562,7 @@ tr.ind-th td{
                                         <label for="">Sign Here</label>
                                     </div>
                                     <div style="width: 100%;">
-                                    <canvas id="signature-canvas-3" style="width: 100%; height: 100px;"></canvas>
+                                    <canvas id="signature-canvas-3" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                                     <button style="width:10%" type="button" id="clear-2" onclick="clearCanvas(3)">Clear</button>
                                     <input type="hidden" id="joinder_signature_3" name="joinder_signature_3">
                                 </div>
@@ -3560,7 +3604,7 @@ tr.ind-th td{
                                 <label for="">Date</label>
                             </div>
                             <div style="width: 40%;">
-                                <canvas id="signature-canvas-4" style="width: 100%; height: 100px;"></canvas>
+                                <canvas id="signature-canvas-4" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                             </div>
                            
                         </div>
@@ -3708,7 +3752,7 @@ tr.ind-th td{
                            
                         </div>
                         <div style="width: 40%;margin-top: 15px;">
-                                 <canvas id="signature-canvas-5" style="width: 100%; height: 100px;"></canvas> 
+                                 <canvas id="signature-canvas-5" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas> 
                         </div>
                         <button type="button" style="width:10%" id="clear-4" onclick="clearCanvas(5)">Clear</buttonty>
                         <input type="hidden" id="joinder_signature_5" name="joinder_signature_5">
@@ -3757,7 +3801,10 @@ tr.ind-th td{
                             A $150 annual - renewal fee will be charged on the anniversary of the account
                         </p>
                     </div>
-                    <button type="submit" style="margin-left: 10%;padding: 10px;width: 130px;cursor:pointer;background-color: rgb(184 221 219);color:rgb(52 159 153);border:none;font-weight: bold;font-size:1.3rem;"> Submit</button>
+                    <button type="submit" id="submit-button" class="submit-button">
+                        Submit
+                        <span class="loader" style="display: none;"></span>
+                    </button>
                     <div style="display: flex; justify-content: center; align-items: center;">
                         <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 450px; object-fit: cover;">
                     </div>
@@ -3796,9 +3843,9 @@ tr.ind-th td{
         $('#joinderForm').submit(function (e) {
             e.preventDefault();
             
-            // $('#submit-button').addClass('btn-size');
-            // $('#submit-button').prop('disabled', true);
-            // $('.loader').show();
+            $('#submit-button').addClass('btn-size');
+            $('#submit-button').prop('disabled', true);
+            $('.loader').show();
             saveCanvasAsImage();
             let formdata = new FormData(this);
             //add dd in laravel format
@@ -3822,6 +3869,9 @@ tr.ind-th td{
                 },
                 error: function (response) {
                     alert('Error in saving file');
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
                 }
             });
         });
