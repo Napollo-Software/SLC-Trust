@@ -1455,15 +1455,20 @@ tr.ind-th td{
                                   <p style="min-width: fit-content;">Who will be your primary contact?</p>
                                   <div class="authorized-des-checkbox">
                                       <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
-                                          <input type="checkbox" name="beneficiary" id="beneficiary" class="beneficiary">
+                                          <input type="checkbox" name="auth_beneficiary"
+                                          value="Beneficiary" id="beneficiary" class="beneficiary">
                                           <label for="beneficiary">Beneficiary</label>
                                       </div>
                                       <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
-                                          <input type="checkbox" name="auth-1" id="auth-1" class="auth-1">
+                                          <input type="checkbox" name="auth_auth_1" id="auth-1" 
+                                          value="Auth. Rep.1"
+                                          class="auth-1">
                                           <label for="auth-1">Auth. Rep. 1</label>
                                       </div>
                                       <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
-                                          <input type="checkbox" name="auth-2" id="auth-2" class="auth-2">
+                                          <input type="checkbox" name="auth_auth_2" 
+                                          value="Auth. Rep. 2"
+                                          id="auth-2" class="auth-2">
                                           <label for="auth-2">Auth. Rep. 2</label>
                                       </div>
                                   </div>
@@ -1572,7 +1577,8 @@ tr.ind-th td{
                                                   <span>State</span>
                                               </div>
                                               <div class="zip-form">
-                                                  <input type="text" name="auth_rep_one_country" id="zip" class="zip"> <br>
+                                                  <input type="text" 
+                                                  name="auth_rep_one_zip" id="zip" class="zip"> <br>
                                                   <span>Zip</span>
                                               </div>
                                           </div>
@@ -1625,13 +1631,16 @@ tr.ind-th td{
                                                   Phone</label>
                                               <div class="authorized-preferred-form-checkbox">
                                                   <div>
-                                                      <input type="checkbox" name="authorized-preferred-cell-form-inp"
+                                                      <input type="checkbox" name="authorized_preferred_cell2"
+                                                      value="Cell"
                                                           id="authorized-preferred-cell-form-inp"
                                                           class="authorized-preferred-cell-form-inp">
                                                       <span>Cell</span>
                                                   </div>
                                                   <div>
-                                                      <input type="checkbox" name="authorized-preferred-home-form-inp"
+                                                      <input type="checkbox"
+                                                      value="Home"
+                                                       name="authorized_preferred_phone2"
                                                           id="authorized-preferred-home-form-inp"
                                                           class="authorized-preferred-home-form-inp">
                                                       <span>Home</span>
@@ -1703,7 +1712,7 @@ tr.ind-th td{
                               <span>Name of Agency</span>
                           </div>
                           <div class="referring-source-form">
-                              <input type="text" class="referring-source-contract" name="referring-contract">
+                              <input type="text" class="referring-source-contract" name="referring_contract">
                               <br>
                               <span>Name of Contract</span>
                           </div>
@@ -2308,12 +2317,16 @@ tr.ind-th td{
                                 align-items: center;
                                 gap: 10px;">
                                     <div>
-                                        <input type="checkbox" name="healthcare-b" id="healthcare-b"
+                                        <input type="checkbox" 
+                                        value="B"
+                                        name="healthcare_b" id="healthcare-b"
                                             class="healthcare-b">
                                         <label for="healthcare-b">B</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="healthcare-d" id="healthcare-d"
+                                        <input 
+                                        value="D"
+                                        type="checkbox" name="healthcare_d" id="healthcare-d"
                                             class="healthcare-d">
                                         <label for="healthcare-d">D</label>
                                     </div>
@@ -2329,12 +2342,16 @@ tr.ind-th td{
                                 align-items: center;
                                 gap: 10px;">
                                     <div>
-                                        <input type="checkbox" name="" id="">
-                                        <label for="">Yes</label>
+                                        <input 
+                                        value="Yes"
+                                        type="checkbox" name="supplemental_yes" id="supplemental_yes">
+                                        <label for="supplemental_yes">Yes</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="" id="">
-                                        <label for="">No</label>
+                                        <input
+                                        value="No"
+                                         type="checkbox" name="supplemental_no" id="supplemental_no">
+                                        <label for="supplemental_no">No</label>
                                     </div>
                                 </div>
                             </div>
@@ -2371,12 +2388,14 @@ tr.ind-th td{
                         align-items: center;
                         gap: 10px;">
                                 <div>
-                                    <input type="checkbox" name="funeral-information-body-yes"
+                                    <input type="checkbox" name="funeral_information_body_yes"
+                                    value="Yes"
                                         id="funeral-information-body-yes" class="funeral-information-body-yes">
                                     <label for="funeral-information-body-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="funeral-information-body-no"
+                                    <input type="checkbox" name="funeral_information_body_no"
+                                    value="No"
                                         id="funeral-information-body-no">
                                     <label for="funeral-information-body-no">No</label>
                                 </div>
@@ -2406,13 +2425,17 @@ tr.ind-th td{
                                 align-items: center;
                                 gap: 10px;">
                                     <div>
-                                        <input type="checkbox" name="life-insurance-information-body-yes"
+                                        <input type="checkbox"
+                                        value="Yes"
+                                         name="life_insurance_information_body_yes"
                                             id="life-insurance-information-body-yes"
                                             class="life-insurance-information-body-yes">
                                         <label for="life-insurance-information-body-yes">Yes</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="life-insurance-information-body-no"
+                                        <input type="checkbox"
+                                        value="No"
+                                         name="life_insurance_information_body_no"
                                             id="life-insurance-information-body-no">
                                         <label for="life-insurance-information-body-no">No</label>
                                     </div>
@@ -2478,7 +2501,7 @@ tr.ind-th td{
                                     gap: 3px;">
                                         <input type="checkbox" name="type_of_policy1" value="Term" id="life-insurance-term">
                                         <label for="life-insurance-term">Term</label>
-                                        <input type="text" name="healthcare-plan" id="healthcare-plan"
+                                        <input type="text" name="healthcare_plan" id="healthcare-plan"
                                             style="border: none; border-bottom: 1px solid black;">
                                     </div>
                                     <div style="display: flex;
@@ -2487,7 +2510,7 @@ tr.ind-th td{
                                     gap: 3px;">
                                         <input type="checkbox" name="type_of_policy2" value="Life" id="life-insurance-life">
                                         <label for="life-insurance-life">Life</label>
-                                        <input type="text" name="healthcare-plan" id="healthcare-plan"
+                                        <input type="text" name="healthcare_plan2" id="healthcare-plan"
                                             style="border: none; border-bottom: 1px solid black;">
                                     </div>
                                 </div>
@@ -2532,27 +2555,27 @@ tr.ind-th td{
                             <label for="with-parents">With Parents/other family </label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement" value="Assisted Living facility" id="assisted">
+                            <input type="checkbox" name="living_arrangement4" value="Assisted Living facility" id="assisted">
                             <label for="assisted">Assisted Living Facility</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement4" value="Family Care Program" id="family-care">
+                            <input type="checkbox" name="living_arrangement5" value="Family Care Program" id="family-care">
                             <label for="family-care">Family Care Program</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement5" value="Nursing Home" id="nursing-home">
+                            <input type="checkbox" name="living_arrangement6" value="Nursing Home" id="nursing-home">
                             <label for="nursing-home">Nursing Home</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement6" value="CR/IRA/ICF(supervised)" id="cr">
+                            <input type="checkbox" name="living_arrangement7" value="CR/IRA/ICF(supervised)" id="cr">
                             <label for="cr"> CR/IRA/ICF (supervised) </label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement7" value="CR/IRA(Supportive)" id="ira">
+                            <input type="checkbox" name="living_arrangement8" value="CR/IRA(Supportive)" id="ira">
                             <label for="ira">CR/IRA (supportive)</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement8" value="living arrangement Other" id="other">
+                            <input type="checkbox" name="living_arrangement9" value="Other" id="other">
                             <label for="other"> Other -</label>
                         </div>
                         <div style="flex: 1;">
@@ -2584,12 +2607,15 @@ tr.ind-th td{
                         align-items: center;
                         gap: 10px;">
                                 <div>
-                                    <input type="checkbox" name="living-arrangements-yes" id="living-arrangements-yes"
+                                    <input type="checkbox" name="living_arrangements_yes" id="living-arrangements-yes"
+                                    value="Yes"
                                         class="living-arrangements-yes">
                                     <label for="living-arrangements-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="living-arrangements-no" id="living-arrangements-no">
+                                    <input type="checkbox" name="living_arrangements_no"
+                                    value="No" 
+                                    id="living-arrangements-no">
                                     <label for="living-arrangements-no">No</label>
                                 </div>
                             </div>
@@ -2608,17 +2634,24 @@ tr.ind-th td{
                         align-items: center;
                         gap: 10px;">
                                 <div>
-                                    <input type="checkbox" name="living-arrangements-person"
+                                    <input type="checkbox"
+                                    value="Person" 
+                                     name="living_arrangements_person"
                                         id="living-arrangements-person" class="living-arrangements-person">
+                                        
                                     <label for="living-arrangements-person">Person</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="living-arrangements-property"
+                                    <input type="checkbox"
+                                    value="Property" 
+                                     name="living_arrangements_property"
                                         id="living-arrangements-property">
                                     <label for="living-arrangements-property">Property</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="living-arrangements-both"
+                                    <input type="checkbox"
+                                    value="Both"  
+                                    name="living_arrangements_both"
                                         id="living-arrangements-both">
                                     <label for="living-arrangements-both">Both</label>
                                 </div>
@@ -2635,22 +2668,22 @@ tr.ind-th td{
                         align-items: center;
                         flex-wrap: wrap;">
                                 <div style="width: 50%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="living_arrangement_first" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">First</label>
                                 </div>
                                 <div style="width: 50%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="living_arrangement_last" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Last</label>
                                 </div>
                                 <div style="width: 50%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="living_arrangement_primary" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Primary Phone</label>
                                 </div>
                                 <div style="width: 50%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="living_arrangement_email" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Email</label>
                                 </div>
@@ -2756,7 +2789,9 @@ tr.ind-th td{
                                     align-items: center;
                                     gap: 10px;">
                                             <div>
-                                                <input type="checkbox" name="sole_poa1" value="Yes" id="power-of-attorney-yes"
+                                                <input type="checkbox" 
+                                                value="Yes"
+                                                name="sole_poa1" value="Yes" id="power-of-attorney-yes"
                                                     class="power-of-attorney-yes">
                                                 <label for="power-of-attorney-yes">Yes</label>
                                             </div>
@@ -2777,7 +2812,8 @@ tr.ind-th td{
                                         align-items: center;
                                         gap: 10px;">
                                                 <div>
-                                                    <input type="checkbox" name="act_seprately1" value="Yes" id="power-of-attorney-authorized-yes"
+                                                    <input type="checkbox"
+                                                     name="act_seprately1" value="Yes" id="power-of-attorney-authorized-yes"
                                                         class="power-of-attorney-authorized-yes">
                                                     <label for="power-of-attorney-authorized-yes">Yes</label>
                                                 </div>
@@ -2799,47 +2835,47 @@ tr.ind-th td{
                             
                             <div class="power-of-attorney-body-1-form">
                                 <div style="width: 48%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_fname2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">First</label>
                                 </div>
                                 <div style="width: 48%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_lname2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Last</label>
                                 </div>
                                 <div style="width: 48%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_tel_home2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Primary Phone</label>
                                 </div>
                                 <div style="width: 48%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_email2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Email</label>
                                 </div>
                                 <div style="width: 40%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_address2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Address</label>
                                 </div>
                                 <div style="width: 10%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_apt2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Apt #</label>
                                 </div>
                                 <div style="width: 25%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_city2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">City</label>
                                 </div>
                                 <div style="width: 10%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_state2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">State</label>
                                 </div>
                                 <div style="width: 10%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="power_zip2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Zip</label>
                                 </div>
@@ -2859,12 +2895,16 @@ tr.ind-th td{
                                     align-items: center;
                                     gap: 10px;">
                                             <div>
-                                                <input type="checkbox" name="power-of-attorney2-yes" id="power-of-attorney2-yes"
+                                                <input
+                                                value="Yes" 
+                                                type="checkbox" name="power_of_attorney2_yes" id="power-of-attorney2-yes"
                                                     class="power-of-attorney2-yes">
                                                 <label for="power-of-attorney2-yes">Yes</label>
                                             </div>
                                             <div>
-                                                <input type="checkbox" name="power-of-attorney2-no" id="power-of-attorney2-no">
+                                                <input
+                                                value="No"
+                                                 type="checkbox" name="power_of_attorney2_no" id="power-of-attorney2-no">
                                                 <label for="power-of-attorney2-no">No</label>
                                             </div>
                                         </div>
@@ -2880,12 +2920,16 @@ tr.ind-th td{
                                         align-items: center;
                                         gap: 10px;">
                                                 <div>
-                                                    <input type="checkbox" name="power-of-attorney2-authorized-yes" id="power-of-attorney2-authorized-yes"
+                                                    <input
+                                                    value="Yes"
+                                                     type="checkbox" name="power_of_attorney2_authorized_yes" id="power-of-attorney2-authorized-yes"
                                                         class="power-of-attorney2-authorized-yes">
                                                     <label for="power-of-attorney2-authorized-yes">Yes</label>
                                                 </div>
                                                 <div>
-                                                    <input type="checkbox" name="power-of-attorney2-authorized-no" id="power-of-attorney-authorized2-no">
+                                                    <input
+                                                    value="No"
+                                                     type="checkbox" name="power_of_attorney2_authorized_no" id="power-of-attorney-authorized2-no">
                                                     <label for="power-of-attorney-authorized2-no">No</label>
                                                 </div>
                                             </div>
@@ -2918,12 +2962,16 @@ tr.ind-th td{
                                         align-items: center;
                                         gap: 10px;">
                                                 <div>
-                                                    <input type="checkbox" name="guardian-information-yes" id="guardian-information-yes"
+                                                    <input
+                                                    value="Yes"
+                                                     type="checkbox" name="guardian_information_yes" id="guardian-information-yes"
                                                         class="guardian-information-yes">
                                                     <label for="guardian-information-yes">Yes</label>
                                                 </div>
                                                 <div>
-                                                    <input type="checkbox" name="guardian-information-no" id="guardian-information-no">
+                                                    <input
+                                                    value="No"
+                                                     type="checkbox" name="guardian_information_no" id="guardian-information-no">
                                                     <label for="guardian-information-no">No</label>
                                                 </div>
                                             </div>
@@ -2947,7 +2995,9 @@ tr.ind-th td{
                                                 justify-content: center;
                                                 align-items: center;
                                                 gap: 3px;">
-                                                    <input type="checkbox" name="guardian_appointed_for1" value="Person" id="guardian-information-person"
+                                                    <input
+                                                    value="Person" 
+                                                     type="checkbox" name="guardian_appointed_for1" value="Person" id="guardian-information-person"
                                                         class="guardian-information-person">
                                                     <label for="guardian-information-person">Person</label>
                                                 </div>
@@ -2955,14 +3005,18 @@ tr.ind-th td{
                                                 justify-content: center;
                                                 align-items: center;
                                                 gap: 3px;">
-                                                    <input type="checkbox" name="guardian_appointed_for2" value="Property" id="guardian-information-property">
+                                                    <input
+                                                    value="Property"
+                                                     type="checkbox" name="guardian_appointed_for2" value="Property" id="guardian-information-property">
                                                     <label for="guardian-information-property">Property</label>
                                                 </div>
                                                 <div style="display: flex;
                                                 justify-content: center;
                                                 align-items: center;
                                                 gap: 3px;">
-                                                    <input type="checkbox" name="guardian_appointed_for3" value="Both" id="guardian-information-both">
+                                                    <input
+                                                    value="Both"
+                                                     type="checkbox" name="guardian_appointed_for3" value="Both" id="guardian-information-both">
                                                     <label for="guardian-information-both">Both</label>
                                                 </div>
                                             </div>
@@ -3391,17 +3445,23 @@ tr.ind-th td{
                         align-items: center;
                         gap: 10px;">
                                 <div>
-                                    <input type="checkbox" name="agreement-signature-beneficiary"
+                                    <input type="checkbox"
+                                    value="Beneficiary"
+                                     name="agreement_signature_beneficiary"
                                         id="agreement-signature-beneficiary" class="agreement-signature-beneficiary">
                                     <label for="agreement-signature-beneficiary">Beneficiary</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="agreement-signature-attorney"
+                                    <input type="checkbox"
+                                    value="Power of Attorney"
+                                     name="agreement_signature_attorney"
                                         id="agreement-signature-attorney">
                                     <label for="agreement-signature-attorney">Power of Attorney</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="agreement-signature-guardian"
+                                    <input type="checkbox"
+                                    value="Guardian"
+                                     name="agreement_signature_guardian"
                                         id="agreement-signature-guardian">
                                     <label for="agreement-signature-guardian">Guardian</label>
                                 </div>
@@ -3519,7 +3579,7 @@ tr.ind-th td{
                                     <label for="">Witness 1</label>
                                 </div>
                                 <div style="width: 80%;">
-                                    <input type="text" name="" id=""
+                                    <input type="text" name="sig_date1" id=""
                                         style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                     <label for="">Date</label>
                                 </div>
@@ -3552,7 +3612,7 @@ tr.ind-th td{
                                         <label for="">Witness 2</label>
                                     </div>
                                     <div style="width: 100%;">
-                                        <input type="text" name="" id=""
+                                        <input type="text" name="sig_date2" id=""
                                             style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                         <label for="">Date</label>
                                     </div>
