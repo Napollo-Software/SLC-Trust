@@ -54,7 +54,7 @@
 <body>
 <div class="row-container" style="text-align: center">
     <h4>
-        <img src="{{public_path('/images/intrustpit.png')}}" alt="int" style="max-width: 100%; height: 100px;">
+        <img src="{{public_path('/images/slc_trust.png')}}" alt="int" style="max-width: 100%; height: 100px;">
     </h4>
 
 </div>
@@ -66,12 +66,13 @@
 <hr>
 <div style="width: 90%;margin:0 auto">
     <div style="font-weight: bold;text-align:left;">
-        <p>Date: 05/09/2024</p>
+        <p>Date: {{\Carbon\Carbon::today()->format('m/d/Y')}}</p>
     </div>
     <div style="font-weight: bold;text-align:right;">
-        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Beneficiary Name: <span style="font-weight: lighter;">Name</span></p>
-        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Account Number: <span style="font-weight: lighter">9955</span></p>
-        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Data Established: <span style="font-weight: lighter">04/29/2024</span></p>
+        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Beneficiary Name: <span style="font-weight: lighter;">{{$user->name.' '.$user->last_name}}</span></p>
+        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Account Number: <span style="font-weight: lighter">{{'000'.$user->id}}</span></p>
+        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Data Established: <span style="font-weight: lighter">{{\Carbon\Carbon::today()->format('m/d/Y')}}</span></p>
+
     </div>
 </div>
 <div style="width: 90%;margin:40px auto">
@@ -86,13 +87,13 @@
     </div>
     <div style="font-size: 18px">
         <p>Sincerely</p>
-        <p style="font-family: Rage Italic;font-weight: bold;">signatue</p>
+        <p style="font-family: Rage Italic;font-weight: bold;">SLC</p>
         <p>Enrollment Department</p>
     </div>
 </div>
 <div>
     <p style="text-align: center">PO Box 297-050, NY 11229 <span style="color: #16b6d3">TF:</span> 8772987878 <span style="color: #16b6d3">Tel:</span>718.970.7878 <span style="color: #16b6d3">Fax:</span> 646.904.8963</p>
-    <p style="text-align: center;color:#16b6d3">www.trustedsurplus.org</p>
+    <p style="text-align: center;color:#16b6d3">www.example.org</p>
 
 </div>
 

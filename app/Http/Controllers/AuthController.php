@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Hash;
 use Carbon;
 use Cookie;
@@ -158,7 +159,19 @@ class AuthController extends Controller
 
         if ($role && $role != "User") {
             $details = $user;
-            \Mail::to($request->email)->send(new \App\Mail\Register($details));
+            $directory = storage_path('app/public/'.$user->email);
+            if (!is_dir($directory)) {
+                mkdir($directory, 0777, true);
+            }
+            
+            $pdf = PDF::loadView('document.approval-letter-pdf', ['user'=>$user]);
+
+
+            $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+            // Save the PDF file to the specified location
+            $pdf->save($savePath);
+
+            Mail::to($request->email)->send(new \App\Mail\Register($details,$savePath));
         } else {
             $details = $request->_token;
             \Mail::to($request->email)->send(new \App\Mail\registermail($details));
@@ -631,11 +644,23 @@ class AuthController extends Controller
             $user->save();
             if ($request->account_status == "Approved") {
                 $status = "Approved";
+                $directory = storage_path('app/public/'.$user->email);
+                if (!is_dir($directory)) {
+                    mkdir($directory, 0777, true);
+                }
+
+
+                $pdf = PDF::loadView('document.approval-letter-pdf', ['user'=>$user]);
+
+
+                $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+                // Save the PDF file to the specified location
+                $pdf->save($savePath);
                 $details = [
-                    'title' => 'Mail from Intrustpit',
-                    'body' => 'Your intrustpit account has been verified successfully.'
+                    'title' => 'Mail from SLC',
+                    'body' => 'Your SLC account has been verified successfully.'
                 ];
-                \Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name));
+                Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name,$savePath));
             } elseif ($request->account_status == "Not Approved") {
                 $status = "Not Approved";
                 $details = [
