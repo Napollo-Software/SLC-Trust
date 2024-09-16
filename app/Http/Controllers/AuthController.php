@@ -6,6 +6,7 @@ use Hash;
 use Cookie;
 use Session;
 use Redirect;
+use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Lead;
 use App\Models\User;
@@ -64,7 +65,7 @@ class AuthController extends Controller
 
         } else {
 
-            $dt = new Carbon\Carbon();
+            $dt = new Carbon();
             $before = $dt->subYears(16)->format('Y-m-d');
             $request->validate([
                 'profile_pic' => 'required|mimes:jpeg,png,jpg,gif,pdf',
@@ -128,7 +129,7 @@ class AuthController extends Controller
         $user->address = $request->address;
         $user->state = $request->state;
         $user->city = $request->city;
-        $user->phone = '+1' . $request->phone;
+        $user->phone = "+1{$request->phone}";
 
         if ($request->role == 'User') {
             $user->billing_method = $request->billing_method;
@@ -148,8 +149,8 @@ class AuthController extends Controller
         $user->user_balance = '0';
         $user->token = $request->_token . rand();
         $user->password = Hash::make($request->password);
-        $user->last_renewal_at = \Carbon\Carbon::now();
-        $user->next_renewal_at = \Carbon\Carbon::now()->addYear();
+        $user->last_renewal_at = Carbon::now();
+        $user->next_renewal_at = Carbon::now()->addYear();
         $res = $user->save();
         $id = $user->id;
         $name = $request->name;
@@ -178,16 +179,14 @@ class AuthController extends Controller
                 $notifcation->status = 0;
                 $notifcation->save();
                 $subject = "New user!";
-                $name = $notify->name . ' ' . $notify->last_name;
+                $name = "{$notify->name} {$notify->last_name}";
                 $email_message = $request->name . ' ' . $request->last_name . " has registered with {$app_name} and waiting for approval. Please preview the profile in order to approve it:";
-                $url = '/show_user/' . $user->id;
+                $url = "/show_user/$user->id";
                 if ($notify->notify_by == "email") {
                     SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
                 }
             }
         }
-
-        $app_name = config('app.name');
 
         if ($res) {
             if ($role && $role != "User") {
@@ -412,6 +411,7 @@ class AuthController extends Controller
         $loggedInUser = User::where('id', '=', Session::get('loginId'))->first();
 
         if ($request->customer && $request->to && $request->from) {
+
             $to = $request->to;
             $from = $request->from;
             $customer = $request->customer;
@@ -425,15 +425,11 @@ class AuthController extends Controller
 
             $pool_amount = userBalance($request->customer);
 
-            $maintenance_fee = Transaction::where('user_id', $request->customer)
-                ->where("type", Transaction::MaintenanceFee)->sum('credit')
-                - Transaction::where('user_id', \Company::Account_id)
+            $maintenance_fee = Transaction::where('user_id', \Company::Account_id)
                     ->where('user_id', $request->customer)
                     ->where("type", Transaction::MaintenanceFee)->sum('debit');
 
-            $enrollment_fee = Transaction::where('user_id', $request->customer)
-                ->where("type", Transaction::EnrollmentFee)->sum('credit')
-                - Transaction::where('user_id', \Company::Account_id)
+            $enrollment_fee = Transaction::where('user_id', \Company::Account_id)
                     ->where('user_id', $request->customer)
                     ->where("type", Transaction::EnrollmentFee)->sum('debit');
 
@@ -744,8 +740,8 @@ class AuthController extends Controller
             $reference_id = generateTransactionId();
 
             // Description for the deposit
-            $description = "Deposit of \${$request->balance} made via {$request->payment_type} Transaction ID: #{$transactionId}.";
-            $customer_description = "\${$request->balance} added in account against {$request->payment_type} Transaction ID: #{$transactionId}.";
+            $description = "Deposit of \${$request->balance} made via {$request->payment_type} on {$request->date_of_trans} Transaction ID: #{$transactionId}.";
+            $customer_description = "\${$request->balance} added in account on {$request->date_of_trans} against {$request->payment_type} Transaction ID: #{$transactionId}.";
 
             // Record the credit transaction for the added balance
             $admin->transactions()->create([

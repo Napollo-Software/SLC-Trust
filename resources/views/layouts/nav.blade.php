@@ -8,6 +8,10 @@
         display: none !important;
     }
 
+    body {
+        font-family: 'Arial' !important;
+    }
+
 </style>
 <div class="primary-menu">
     <nav class="navbar navbar-expand-lg align-items-center">

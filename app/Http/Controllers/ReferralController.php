@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\CheckList as ModelsCheckList;
 use App\Models\contacts;
 use App\Models\DocumentESign;
 use App\Models\EmergencyContacts;
@@ -12,17 +10,15 @@ use App\Models\Documents;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\CheckList;
-use App\Models\Followup;
 use Hash;
 
 class ReferralController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Referral::orderBy('id','desc')->get();    
+        $data = Referral::orderBy('id','desc')->get();
         return view('referral.index', compact('data'));
     }
     public function updateDoc(Request $request, $id)
@@ -226,6 +222,7 @@ class ReferralController extends Controller
             'ssn' => 'required|string|max:250',
             'patient_language'=>'required|string|max:250',
             'zip' => 'required|string|max:250',
+            'apt_suite' => 'required|string|max:250',
             'medicaid_phone' => 'required|string',
             'medicaid_plan' => 'required|string',
             'medicare_phone' => 'required|string',
@@ -267,7 +264,7 @@ class ReferralController extends Controller
             'state' => $request->state,
             'address' => $request->address,
             'zip_code' => $request->zip,
-            'apt_suite' => $request->apt,
+            'apt_suite' => $request->apt_suite,
             'patient_ssn' => $request->ssn,
             'patient_language' => $request->patient_language,
             'medicaid_plan' => $request->medicaid_plan,
@@ -416,7 +413,7 @@ class ReferralController extends Controller
         $referralTrust->save();
         return response()->json(['trust' => $totalTrust, 'message' => 'Success']);
     }
-    
+
     public function convert_to_customer(Request $request){
 
         $referral = Referral::find($request->id);

@@ -432,7 +432,7 @@
                                             <div class="col-md-3">
                                                 <label class="form-label">End Date</label>
                                                 <input class="form-control text-center " type="date" id="endDate"
-                                                    value="{{ $to }}" name="to" onchange="validateDate()"
+                                                    value="{{ $to }}" name="to" onblur="validateDate()"
                                                     required>
                                             </div>
                                             <div class="col-md-3 pt-4">

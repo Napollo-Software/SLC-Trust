@@ -33,6 +33,7 @@ class CreateReferralsTable extends Migration
             $table->string('medicaid_number');
             $table->string('medicaid_plan');
             $table->string('medicare_number');
+            $table->string('convert_to_customer')->nullable();
             $table->timestamps();
         });
     }
