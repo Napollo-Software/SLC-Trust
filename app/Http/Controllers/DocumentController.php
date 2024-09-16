@@ -14,6 +14,7 @@ use App\Models\Documents;
 use App\Models\Referral;
 use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Jobs\sendEmailJob;
 use App\Jobs\DocumentJob;
@@ -363,7 +364,7 @@ class DocumentController extends Controller
             mkdir($directory, 0777, true);
         }
 
-        
+
         $signatureFields = ['joinder_signature_1', 'joinder_signature_2', 'joinder_signature_3', 'joinder_signature_4', 'joinder_signature_5'];
 
         foreach ($signatureFields as $fieldName) {
@@ -372,10 +373,10 @@ class DocumentController extends Controller
                 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
                 $filename = $fieldName . date('Ymd_His') . '.png';
                 $imagePath = $directory . '/' . $filename;
-            
+
                 file_put_contents($imagePath, $imageData);
                 $request->merge([$fieldName => $imagePath]);
-            
+
             }
         }
 
@@ -383,21 +384,21 @@ class DocumentController extends Controller
         $data = $request->all();
         $pdf = PDF::loadView('document.joinder-pdf', $data)->setPaper('A4', 'portrait');
 
-        
+
         $savePath = $directory . '/joinder_' . date('Ymd_His') . '.pdf';
-    
+
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        
-        if ($document){
+
+        if ($document) {
             //delete old file
             if (Storage::exists('public/' . $document->uploaded_url)) {
                 Storage::delete('public/' . $document->uploaded_url);
             }
             //delete signature images
             $email = explode('/', $document->uploaded_url)[0];
-            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+            $folderPath = 'public/' . $email . '/'; // Adjust the folder path as needed
 
             // Check if the folder exists
             if (Storage::exists($folderPath)) {
@@ -451,14 +452,14 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        if ($document){
+        if ($document) {
             //delete old file
             if (Storage::exists('public/' . $document->uploaded_url)) {
                 Storage::delete('public/' . $document->uploaded_url);
             }
             //delete signature images
             $email = explode('/', $document->uploaded_url)[0];
-            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+            $folderPath = 'public/' . $email . '/'; // Adjust the folder path as needed
 
             // Check if the folder exists
             if (Storage::exists($folderPath)) {
@@ -518,14 +519,14 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        if ($document){
+        if ($document) {
             //delete old file
             if (Storage::exists('public/' . $document->uploaded_url)) {
                 Storage::delete('public/' . $document->uploaded_url);
             }
             //delete signature images
             $email = explode('/', $document->uploaded_url)[0];
-            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+            $folderPath = 'public/' . $email . '/'; // Adjust the folder path as needed
 
             // Check if the folder exists
             if (Storage::exists($folderPath)) {
@@ -628,14 +629,14 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        if ($document){
+        if ($document) {
             //delete old file
             if (Storage::exists('public/' . $document->uploaded_url)) {
                 Storage::delete('public/' . $document->uploaded_url);
             }
             //delete signature images
             $email = explode('/', $document->uploaded_url)[0];
-            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+            $folderPath = 'public/' . $email . '/'; // Adjust the folder path as needed
 
             // Check if the folder exists
             if (Storage::exists($folderPath)) {
@@ -693,14 +694,14 @@ class DocumentController extends Controller
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        if ($document){
+        if ($document) {
             //delete old file
             if (Storage::exists('public/' . $document->uploaded_url)) {
                 Storage::delete('public/' . $document->uploaded_url);
             }
             //delete signature images
             $email = explode('/', $document->uploaded_url)[0];
-            $folderPath = 'public/'.$email.'/'; // Adjust the folder path as needed
+            $folderPath = 'public/' . $email . '/'; // Adjust the folder path as needed
 
             // Check if the folder exists
             if (Storage::exists($folderPath)) {
@@ -750,7 +751,7 @@ class DocumentController extends Controller
 
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
-        if ($document){
+        if ($document) {
             //delete old file
             if (Storage::exists('public/' . $document->uploaded_url)) {
                 Storage::delete('public/' . $document->uploaded_url);
@@ -768,17 +769,46 @@ class DocumentController extends Controller
     }
 
 
-
     public
     function approval(Request $request)
     {
-        return  view('document.approval-letter-pdf');
+//        return view('document.approval-letter-pdf');
 
+        $directory = storage_path('app/public/inamgoodboy@gmail.com');
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+
+        $data = $request->all();
+        $pdf = PDF::loadView('document.approval-letter-pdf', $data);
+
+
+        $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+        // Save the PDF file to the specified location
+        $pdf->save($savePath);
+
+        return response()->json(['success' => 'PDF saved successfully'], 200);
     }
+
     public
     function trusted(Request $request)
     {
-        return  view('document.trusted-surplus-pdf');
+        $directory = storage_path('app/public/inamgoodboy@gmail.com');
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+
+        $data = $request->all();
+        $pdf = PDF::loadView('document.trusted-surplus-pdf', $data);
+
+
+        $savePath = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
+        // Save the PDF file to the specified location
+        $pdf->save($savePath);
+
+        return response()->json(['success' => 'PDF saved successfully'], 200);
 
     }
 }
