@@ -272,10 +272,10 @@
                     </li>
                 @endif
                 @if ($user->hasPermissionTo('Vendor View'))
-                    <li class="menu-item {{in_array(Route::currentRouteName(),['accounts.list','add.accounts','view.accounts','edit.accounts'])? 'active' : '' }}">
-                        <a href="{{ url('/accounts') }}" class="menu-link">
+                    <li class="menu-item {{in_array(Route::currentRouteName(),['vendors.list','add.vendors','view.vendors','edit.vendors'])? 'active' : '' }}">
+                        <a href="{{ url('/vendors') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-group"></i>
-                            <div data-i18n="Layouts">Accounts</div>
+                            <div data-i18n="Layouts">Vendors</div>
                         </a>
                     </li>
                 @endif

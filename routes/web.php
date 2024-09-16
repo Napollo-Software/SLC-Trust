@@ -67,9 +67,9 @@ Route::group(['prefix' => 'developer'], function () {
     Route::get('/import-payee', [DeveloperController::class, 'ImportPayee']);
     Route::post('/save-imported-payee', [DeveloperController::class, 'saveImportedPayee']);
     Route::get('/create-bills', [DeveloperController::class, 'create_recurring_bills']);
-    Route::get('/email-documents',[DeveloperController::class, 'EmailDoc']);
-    Route::get('/create-documents',[DeveloperController::class, 'makeAcutualDocument']);
-    Route::get('/set_recurring_day',[DeveloperController::class, 'set_recurring_day']);
+    Route::get('/email-documents', [DeveloperController::class, 'EmailDoc']);
+    Route::get('/create-documents', [DeveloperController::class, 'makeAcutualDocument']);
+    Route::get('/set_recurring_day', [DeveloperController::class, 'set_recurring_day']);
 });
 
 Route::group(['prefix' => 'payees', 'middleware' => 'isLoggedIn'], function () {
@@ -77,7 +77,7 @@ Route::group(['prefix' => 'payees', 'middleware' => 'isLoggedIn'], function () {
     Route::post('/store-payee', [PayeeController::class, 'store'])->name('store.payee');
 });
 
-Route::group(['prefix' => 'roles', 'middleware' => 'isLoggedIn','Roles&Permissions'], function () {
+Route::group(['prefix' => 'roles', 'middleware' => 'isLoggedIn', 'Roles&Permissions'], function () {
     Route::get('/', [RoleController::class, 'index'])->name('roles.list');
     Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('roles.edit');
     Route::post('/update', [RoleController::class, 'update'])->name('roles.update');
@@ -95,13 +95,13 @@ Route::group(['prefix' => 'types', 'middleware' => ['isLoggedIn', 'permission:Ma
     Route::post('/update', [TypesController::class, 'update'])->name('update.type');
 });
 
-Route::group(['prefix' => 'accounts', 'middleware' => 'isLoggedIn'], function () {
-    Route::get('/', [VendorController::class, 'index'])->name('accounts.list')->middleware('permission:View Account');
-    Route::get('/add', [VendorController::class, 'create'])->name('add.accounts');
-    Route::post('/add', [VendorController::class, 'store'])->name('store.accounts');
-    Route::get('/view/{id}', [VendorController::class,  'view'])->name('view.accounts');
-    Route::get('/edit/{id}', [VendorController::class, 'edit'])->name('edit.accounts');
-    Route::post('/edit/{id}', [VendorController::class, 'update'])->name('update.accounts');
+Route::group(['prefix' => 'vendors', 'middleware' => 'isLoggedIn'], function () {
+    Route::get('/', [VendorController::class, 'index'])->name('vendors.list')->middleware('permission:View Account');
+    Route::get('/add', [VendorController::class, 'create'])->name('add.vendors');
+    Route::post('/add', [VendorController::class, 'store'])->name('store.vendors');
+    Route::get('/view/{id}', [VendorController::class, 'view'])->name('view.vendors');
+    Route::get('/edit/{id}', [VendorController::class, 'edit'])->name('edit.vendors');
+    Route::post('/edit/{id}', [VendorController::class, 'update'])->name('update.vendors');
 });
 
 Route::group(['prefix' => 'contact', 'middleware' => ['isLoggedIn']], function () {
@@ -111,7 +111,6 @@ Route::group(['prefix' => 'contact', 'middleware' => ['isLoggedIn']], function (
     Route::post('update', [ContactController::class, 'update'])->name('contact.update');
     Route::post('delete', [ContactController::class, 'delete'])->name('contact.delete');
 });
-
 
 Route::group(['prefix' => 'follow-up', 'middleware' => ['isLoggedIn']], function () {
     Route::get('list', [FollowupController::class, 'index'])->name('follow_up.list');
@@ -130,8 +129,6 @@ Route::group(['prefix' => 'leads', 'middleware' => ['isLoggedIn']], function () 
     Route::post('/update/{id}', [LeadController::class, 'update'])->name('update.lead');
 });
 
-
-
 Route::group(['prefix' => 'referral', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [ReferralController::class, 'index'])->name('referral.list');
     Route::get('/create', [ReferralController::class, 'create'])->name('create.referral');
@@ -142,15 +139,15 @@ Route::group(['prefix' => 'referral', 'middleware' => ['isLoggedIn']], function 
     Route::post('/updateChecklist', [ReferralController::class, 'updateCheckList'])->name('update.checkList');
     Route::get('/view/{id}', [ReferralController::class, 'view'])->name('view.referral');
     Route::get('/delete/{id}', [ReferralController::class, 'delete'])->name('delete.referral');
-    Route::get('emergency/{id}', [EmergencyController::class,  'index'])->name('emergency.referral');
-    Route::post('/status/{id}', [ReferralController::class,  'status'])->name('update-status');
-    Route::post('/email/{id}', [ReferralController::class,  'documentStatus'])->name('email');
-    Route::post('/email-status/{id}', [ReferralController::class,  'emailStatus'])->name('email-status');
-    Route::post('/referralDocument/{id}', [ReferralController::class,  'referralDocument'])->name('referralDocument');
+    Route::get('emergency/{id}', [EmergencyController::class, 'index'])->name('emergency.referral');
+    Route::post('/status/{id}', [ReferralController::class, 'status'])->name('update-status');
+    Route::post('/email/{id}', [ReferralController::class, 'documentStatus'])->name('email');
+    Route::post('/email-status/{id}', [ReferralController::class, 'emailStatus'])->name('email-status');
+    Route::post('/referralDocument/{id}', [ReferralController::class, 'referralDocument'])->name('referralDocument');
     Route::post('/upload-document', [DocumentController::class, 'uploadDocument'])->name('upload.document');
     Route::post('/trust', [ReferralController::class, 'UserTrust'])->name('referral.trust');
     Route::get('/preview-document/{filename}', [DocumentController::class, 'previewDocument'])->name('preview.document');
-    Route::post('/convert-to-customer', [ ReferralController::class, 'convert_to_customer'])->name('convert.to.referral');
+    Route::post('/convert-to-customer', [ReferralController::class, 'convert_to_customer'])->name('convert.to.referral');
 });
 
 Route::group(['prefix' => 'medicaid', 'middleware' => ['isLoggedIn']], function () {
@@ -160,26 +157,29 @@ Route::group(['prefix' => 'medicaid', 'middleware' => ['isLoggedIn']], function 
     Route::get('/edit/{id}', [MedicaidController::class, 'edit'])->name('edit.medicaid');
     Route::post('/update', [MedicaidController::class, 'update'])->name('update.medicaid');
     Route::get('/view/{id}', [MedicaidController::class, 'view'])->name('view.medicaid');
-    Route::get('emergency/{id}', [EmergencyController::class,  'index'])->name('emergency.medicaid');
+    Route::get('emergency/{id}', [EmergencyController::class, 'index'])->name('emergency.medicaid');
 });
+
 Route::group(['prefix' => 'document', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [DocumentController::class, 'index'])->name('document.list');
-    Route::get('/view', [DocumentController::class,  'generatePDF'])->name('document.genratePdf');
-    Route::get('/share', [DocumentController::class,  'generatePDF'])->name('document.sahre');
-    Route::post('/upload-docs', [DocumentController::class,  'uploadDocs'])->name('upload.docs');
+    Route::get('/view', [DocumentController::class, 'generatePDF'])->name('document.genratePdf');
+    Route::get('/share', [DocumentController::class, 'generatePDF'])->name('document.sahre');
+    Route::post('/upload-docs', [DocumentController::class, 'uploadDocs'])->name('upload.docs');
     Route::get('/documnt-view', [DocumentController::class, 'index'])->name('document.view');
     Route::get('/delete/{id}', [DocumentController::class, 'deleteDoc'])->name('delete-doc');
     Route::post('/update/{id}', [DocumentController::class, 'updateDoc'])->name('update-doc');
     Route::post('/send-selected-email', [DocumentController::class, 'sendSelectedEmail'])->name('document.sendSelectedEmail');
     Route::post('/send-referral-email', [DocumentController::class, 'sendReferralEmail'])->name('document.referralEmail');
 });
+
 Route::group(['prefix' => 'leadreport', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [LeadReportController::class, 'index'])->name('leadreport.list');
     Route::get('/add_report', [LeadReportController::class, 'create'])->name('add.report');
     Route::get('/get-data', [LeadReportController::class, 'getData'])->name('get.data');
 
 });
-Route::group(['prefix'=>'reports', 'middleware'=>['isLoggedIn']],function(){
+
+Route::group(['prefix' => 'reports', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [ReportController::class, 'index'])->name('reports.index');
     Route::match(['get', 'post'], '/add-report', [ReportController::class, 'add_report'])->name('reports.add_report');
     Route::get('/upload-file', [ReportController::class, 'upload_file'])->name('reports.upload_file');
@@ -190,26 +190,29 @@ Route::group(['prefix'=>'reports', 'middleware'=>['isLoggedIn']],function(){
     Route::get('/view/{id}', [ReportController::class, 'view'])->name('view.report');
 
 });
-Route::group(['prefix'=>'sms', 'middleware'=>['isLoggedIn']],function(){
+
+Route::group(['prefix' => 'sms', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [SMSController::class, 'index'])->name('sms.index');
     Route::post('/send', [SMSController::class, 'sendMessage'])->name('sms.send');
     Route::post('/details', [SMSController::class, 'details'])->name('sms.details');
 });
-Route::group(['prefix' => 'preview', 'middleware' => ['isLoggedIn']], function(){
+Route::group(['prefix' => 'preview', 'middleware' => ['isLoggedIn']], function () {
     // Route::get('/deposit', [ AuthController::class, 'deposit_preview'])->name('preview.deposit');
 });
-Route::group(['prefix' => 'release', 'middleware' => ['isLoggedIn']], function(){
+
+Route::group(['prefix' => 'release', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/notes', [ReleaseNotesController::class, 'index'])->name('release.notes');
     Route::post('/store', [ReleaseNotesController::class, 'store'])->name('add.release.note');
 });
+
 Route::get('/calendar', [CalendarController::class, 'index']);
+
 Route::get('/submit-forms', [CreateChequeController::class, 'submitForms'])->name('submit.forms');
 
 Route::post('/update-physician', [MedicaidController::class, 'updatePhysician'])->name('update-physician');
 Route::post('/update-medicaid', [MedicaidController::class, 'updateMedicaid'])->name('update-medicaid');
 Route::get('/get-table-columns', [ReportController::class, 'getTableColumns'])->name('get-table-columns');
 Route::match(['get', 'post'], '/get-submited-columns', [ReportController::class, 'submitSelectedColumns'])->name('get.submited.columns');
-
 
 Route::get('/save-signature', [DocumentController::class, 'generateSignature'])->name('save.signature');
 Route::get('/hippa_state', [DocumentController::class, 'hippaState'])->name('hippa_state.signature');
@@ -219,12 +222,12 @@ Route::get('/joinder', [DocumentController::class, 'joinder'])->name('joinder.si
 Route::get('/doh', [DocumentController::class, 'doh'])->name('doh.signature');
 Route::get('/disability', [DocumentController::class, 'disability'])->name('disability.signature');
 Route::post('signature/upload', [DocumentController::class, 'generateSignature'])->name('signaturepad.upload');
-Route::post('/save-joinder',[DocumentController::class, 'saveJoinder'])->name('save.joinder');
-Route::post('/save-hippa',[DocumentController::class, 'saveHippa'])->name('save.hippa');
-Route::post('/save-hippa-state',[DocumentController::class, 'saveHippaState'])->name('save.hippaState');
-Route::post('/save-map',[DocumentController::class, 'saveMap'])->name('save.map');
-Route::post('/save-doh',[DocumentController::class, 'saveDoh'])->name('save.doh');
-Route::post('/save-disability',[DocumentController::class, 'saveDisability'])->name('save.disability');
+Route::post('/save-joinder', [DocumentController::class, 'saveJoinder'])->name('save.joinder');
+Route::post('/save-hippa', [DocumentController::class, 'saveHippa'])->name('save.hippa');
+Route::post('/save-hippa-state', [DocumentController::class, 'saveHippaState'])->name('save.hippaState');
+Route::post('/save-map', [DocumentController::class, 'saveMap'])->name('save.map');
+Route::post('/save-doh', [DocumentController::class, 'saveDoh'])->name('save.doh');
+Route::post('/save-disability', [DocumentController::class, 'saveDisability'])->name('save.disability');
 
 Route::post('/upload-multiple-documents', [DocumentController::class, 'uploadMultipleDocuments'])->name('upload.multiple.documents');
 
@@ -263,10 +266,12 @@ Route::get('state-fetch-city/{state}', [AuthController::class, 'state_fetch_city
 
 
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('isLoggedIn', );
+
 Route::get('/vendor-dashboard', [AuthController::class, 'vendor_dashboard'])->middleware('isLoggedIn', )->name('vendor.dashboard');
+
 Route::get('/all-customers', [VendorController::class, 'all_customers'])->middleware('isLoggedIn', )->name('vendor.all_customers');
 
-Route::get('/signature', [DocumentController::class,  'signature'])->name('document.signature');
+Route::get('/signature', [DocumentController::class, 'signature'])->name('document.signature');
 
 Route::get('/nav', [AuthController::class, 'nav'])->middleware('isLoggedIn');
 
@@ -280,7 +285,7 @@ Route::get('/user-search-bill', [AuthController::class, 'search_user_claim'])->n
 
 Route::Resource('claims', '\App\Http\Controllers\claimsController')->middleware('isLoggedIn');
 
-Route::get('claim/preview-file',[claimsController::class, 'preview_file'])->name('claim.preview');
+Route::get('claim/preview-file', [claimsController::class, 'preview_file'])->name('claim.preview');
 
 Route::post('duplicate-bill', [claimsController::class, 'duplicate_bill'])->name('duplicate.bill');
 
@@ -329,7 +334,8 @@ Route::match(['GET', 'POST'], '/main', [AuthController::class, 'bill_reports'])-
 Route::get('/notifications', [AuthController::class, 'notifications'])->name('notifications')->middleware('isLoggedIn', 'permission:Notification View');
 
 Route::get('adjustments/index', [AdjustmentController::class, 'index'])->name('adjustment')->middleware('permission:Adjustments');
-Route::post('adjustments/save', [AdjustmentController::class, 'store'])->name('adjustment.store')->middleware('permission:Adjustments');;
+
+Route::post('adjustments/save', [AdjustmentController::class, 'store'])->name('adjustment.store')->middleware('permission:Adjustments');
 
 Route::post('/read-notificaion', [AuthController::class, 'read_all_notificaion'])->name('read.all.notificaion');
 //forgot password
@@ -345,7 +351,7 @@ Route::post('deposit', [claimsController::class, 'customerdeposit'])->name('cust
 
 Route::match(['GET', 'POST'], '/archive', [ArchiveController::class, 'archive'])->name('archive');
 Route::post('import-archive', [ArchiveController::class, 'import_archive'])->name('import.archive');
-Route::get('archived-bill', [ArchiveController::class,'archived_bills'])->name('archived.bills');
+Route::get('archived-bill', [ArchiveController::class, 'archived_bills'])->name('archived.bills');
 //////////////////////Reports///////////////////
 Route::get('/transaction-report/{type?}', [ReportController::class, 'transaction'])->name('transaction.report');
 Route::get('/reconciliation-report/{type?}', [ReportController::class, 'bank_reconciliation'])->name('reconciliation.report');
@@ -399,20 +405,8 @@ Route::get('csvtransaction', [PrintController::class, 'csvtransaction'])->name('
 Route::get('export/trasaction', [PrintController::class, 'exportusertransaction'])->name('exportusertransaction');
 Route::get('csv/transaction', [PrintController::class, 'csvusertransaction'])->name('csvusertransaction');
 Route::get('/search-user-transaction', [AuthController::class, 'search_transaction_user_data'])->name('transaction.user.data');
+
 /////////Repoerts Section//////////
 Route::get('/report', [ReportController::class, 'reports_list'])->name('report.list');
 Route::get('/report/new', [ReportController::class, 'create_new_report'])->name('report.new');
 Route::post('/report/save-fields', [ReportController::class, 'save_fields'])->name('report.save.fields');
-
-
-Route::get('email-test', function () {
-    $email = "usama.fiaz@napollo.net";
-    $subject = "Queue Email";
-    $name = "Usama";
-    $email_message = "Hallo from usama";
-    $url = "/cliams";
-    for ($i = 0; $i < 5; $i++) {
-        dispatch(new App\Jobs\SendEmailJob($email, $subject, $name, $email_message, $url))->delay(now()->addMinutes(3));
-    }
-    dd('done');
-});

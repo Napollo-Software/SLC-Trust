@@ -10,7 +10,7 @@
         </h5>
         <div class="row">
             <div class="col-xl-4">
-                <form class="mb-3" action="{{ route('update.accounts', $vendor->id) }}" method="post">
+                <form class="mb-3" action="{{ route('update.vendors', $vendor->id) }}" method="post">
                     @csrf
                     <div class="card  mb-xl-0">
                         <div class="card-header pl-0 pb-0">
@@ -222,7 +222,7 @@
                         <div class="row pt-4">
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary update-bill-button"> <i class="bx bx-save pb-1"></i>Update</button>
-                                <a href="{{ url('/accounts') }}" class="btn btn-secondary"><i class="bx bx-window-close pb-1"></i>Close</a>
+                                <a href="{{ url('/vendors') }}" class="btn btn-secondary"><i class="bx bx-window-close pb-1"></i>Close</a>
                             </div>
                         </div>
                     </div>

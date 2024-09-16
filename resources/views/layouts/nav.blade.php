@@ -67,12 +67,12 @@
                         <ul class="dropdown-menu">
                             @if ($user->hasPermissionTo('Add Account'))
                             <li>
-                                <a class="dropdown-item {{in_array(Route::currentRouteName(),['add.accounts'])? 'active' : '' }}" href="{{ route('add.accounts') }}"><i class="bx bx-user-check"></i>Add
+                                <a class="dropdown-item {{in_array(Route::currentRouteName(),['add.vendors'])? 'active' : '' }}" href="{{ route('add.vendors') }}"><i class="bx bx-user-check"></i>Add
                                     Vendor</a></li>
                             @endif
                             @if ($user->hasPermissionTo('View Account'))
                             <li>
-                                <a class="dropdown-item {{in_array(Route::currentRouteName(),['accounts.list','view.accounts','edit.accounts'])? 'active' : '' }}" href="{{ route('accounts.list') }}"><i class="bx bx-user-pin"></i>All
+                                <a class="dropdown-item {{in_array(Route::currentRouteName(),['vendors.list','view.vendors','edit.vendors'])? 'active' : '' }}" href="{{ route('vendors.list') }}"><i class="bx bx-user-pin"></i>All
                                     Vendors</a></li>
                             @if ($user->hasPermissionTo('View Contact'))
                             <li>

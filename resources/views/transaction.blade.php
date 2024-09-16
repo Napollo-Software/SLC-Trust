@@ -243,12 +243,12 @@
                 @endif
                 @if ($login_user->hasPermissionTo('Front Office'))
                     <div class="col">
-                        <a href="{{ url("accounts") }}">
+                        <a href="{{ url("vendors") }}">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <p class="mb-0">Accounts</p>
+                                        <p class="mb-0">Vendors</p>
                                         <h5 class="mb-0">{{ $total_accounts }}</h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-collection font-30"></i>

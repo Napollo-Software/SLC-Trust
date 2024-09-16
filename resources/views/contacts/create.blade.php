@@ -34,9 +34,9 @@
                                 placeholder="Type name of practice here">
                         </div>
                         <div class="col-md-4 p-2">
-                            <label for="form-label">Account Name*</label>
+                            <label for="form-label">Vendor Name*</label>
                             <select name="account" class="form-control" required>
-                                <option value="">Select Account</option>
+                                <option value="">Select Vendor</option>
                                 @foreach ($accounts as $item)
                                     <option value="{{ $item->id }}">{{ $item->name . ' ' . $item->last_name }}
                                     </option>

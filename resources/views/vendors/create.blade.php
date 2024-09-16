@@ -8,7 +8,7 @@
         <div class="row">
 
             <div class="col-xl-4">
-                <form class="mb-3" action="{{ route('store.accounts') }}" method="post">
+                <form class="mb-3" action="{{ route('store.vendors') }}" method="post">
                     @csrf
                     <div class="card  mb-xl-0">
                         <div class="card-header">
@@ -234,7 +234,7 @@
                                 <button type="submit" class="btn btn-primary update-bill-button" style="color: white;">
                                     <i class="bx bx-save pb-1"></i>Add Account
                                 </button>
-                                <a href="{{ url('/accounts') }}" class="btn btn-secondary"><i
+                                <a href="{{ url('/vendors') }}" class="btn btn-secondary"><i
                                         class="bx bx-window-close pb-1"></i>Close </a>
                             </div>
                         </div>
