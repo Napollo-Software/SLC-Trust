@@ -772,8 +772,23 @@ class DocumentController extends Controller
     public
     function approval(Request $request)
     {
-        return view('document.approval-letter-pdf');
+//        return view('document.approval-letter-pdf');
 
+        $directory = storage_path('app/public/inamgoodboy@gmail.com');
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+
+        $data = $request->all();
+        $pdf = PDF::loadView('document.approval-letter-pdf', $data);
+
+
+        $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+        // Save the PDF file to the specified location
+        $pdf->save($savePath);
+
+        return response()->json(['success' => 'PDF saved successfully'], 200);
     }
 
     public
