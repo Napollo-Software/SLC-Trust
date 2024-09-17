@@ -12,9 +12,9 @@
 }
 
 .dataTables_paginate   a.current {
-  background-color: #2ecfde;
+  background-color: #559e99;
   color: white;
-  border: 1px solid #2ecfde;
+  border: 1px solid #559e99;
 }
 
 .dataTables_paginate  a:hover:not(.current) {background-color: #ddd;}

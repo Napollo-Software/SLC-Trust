@@ -55,7 +55,7 @@ a {
   border-left: 2px solid #0355d0;
 }
 .notification-list--read {
-  border-left: 2px solid #2ecfde;
+  border-left: 2px solid #559e99;
 }
 .notification-list .notification-list_content {
   display: -webkit-box;

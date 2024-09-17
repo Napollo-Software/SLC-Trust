@@ -401,7 +401,7 @@
                         title: data.header,
                         text: data.message,
                         icon: data.type,
-                        confirmButtonColor: '#2ecfde',
+                        confirmButtonColor: '#559e99',
                         confirmButtonText: 'Ok, Thank you!'
                     }).then((result) => {
                         if (result.isConfirmed) {

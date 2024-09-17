@@ -158,7 +158,7 @@ License        :   Licensed under ThemeForest License
 /*Dark Theme Variables*/
 /*Transparent variables*/
 :root {
-    --primary-bg-color: #2ecfde;
+    --primary-bg-color: #559e99;
     --primary-bg-hover: #17d1e2;
     --primary-bg-border: #096e77;
 }
@@ -63411,7 +63411,7 @@ table.dataTable.dtr-column>tbody>tr>th.control:before {
     font-family: "Courier New", Courier, monospace;
     line-height: 1em;
     content: "+";
-    background-color: #2ecfde;
+    background-color: #559e99;
 }
 
 table.dataTable.dtr-column>tbody>tr.parent td.dtr-control:before,

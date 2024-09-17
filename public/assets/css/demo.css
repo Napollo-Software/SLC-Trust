@@ -143,7 +143,7 @@ span.relative.inline-flex.items-center.px-4.py-2.-ml-px.text-sm.font-medium.text
     left: 24px;
 }
 .swal2-styled.swal2-confirm {
-    background-color: #2ecfde !important;
+    background-color: #559e99 !important;
 }
 .btn-btn-custom {
   background: transparent;
@@ -151,7 +151,7 @@ span.relative.inline-flex.items-center.px-4.py-2.-ml-px.text-sm.font-medium.text
   transition: .5s ease;
 }
 .btn-btn-custom:hover {
-  color: #2ecfde;
+  color: #559e99;
   transition: .5s ease;
 }
 .search-user {

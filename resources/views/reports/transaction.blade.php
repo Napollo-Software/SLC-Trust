@@ -18,7 +18,7 @@
     <style>
         .two-value {
             border: 2px solid;
-            border-color: #2ecfde #2ecfde;
+            border-color: #559e99 #559e99;
         }
 
         /* button {

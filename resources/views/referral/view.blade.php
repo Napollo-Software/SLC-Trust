@@ -17,7 +17,7 @@ return $colors[$randomIndex];
 @endphp
 <style>
     .custom-hover:hover {
-        color: #2ecfde !important;
+        color: #559e99 !important;
     }
 
 

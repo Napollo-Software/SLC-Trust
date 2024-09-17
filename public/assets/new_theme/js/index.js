@@ -247,7 +247,7 @@
 // 			width: 2,
 // 			colors: ["transparent"]
 // 		},
-// 		colors: ["#0dcaf0", "#2ecfde", "#e5e7e8"],
+// 		colors: ["#0dcaf0", "#559e99", "#e5e7e8"],
 // 		xaxis: {
 // 			categories: ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"]
 // 		},
@@ -289,7 +289,7 @@
 // 				left: 14,
 // 				blur: 4,
 // 				opacity: .12,
-// 				color: "#2ecfde"
+// 				color: "#559e99"
 // 			},
 // 			sparkline: {
 // 				enabled: !0
@@ -297,7 +297,7 @@
 // 		},
 // 		markers: {
 // 			size: 0,
-// 			colors: ["#2ecfde"],
+// 			colors: ["#559e99"],
 // 			strokeColors: "#fff",
 // 			strokeWidth: 2,
 // 			hover: {
@@ -312,7 +312,7 @@
 // 			width: 2,
 // 			curve: "smooth"
 // 		},
-// 		colors: ["#2ecfde"],
+// 		colors: ["#559e99"],
 // 		xaxis: {
 // 			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 // 		},
@@ -360,7 +360,7 @@
 // 				left: 14,
 // 				blur: 4,
 // 				opacity: .12,
-// 				color: "#2ecfde"
+// 				color: "#559e99"
 // 			},
 // 			sparkline: {
 // 				enabled: !0
@@ -368,7 +368,7 @@
 // 		},
 // 		markers: {
 // 			size: 0,
-// 			colors: ["#2ecfde"],
+// 			colors: ["#559e99"],
 // 			strokeColors: "#fff",
 // 			strokeWidth: 2,
 // 			hover: {
@@ -383,7 +383,7 @@
 // 			width: 2,
 // 			curve: "smooth"
 // 		},
-// 		colors: ["#2ecfde"],
+// 		colors: ["#559e99"],
 // 		xaxis: {
 // 			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 // 		},
@@ -431,7 +431,7 @@
 // 				left: 14,
 // 				blur: 4,
 // 				opacity: .12,
-// 				color: "#2ecfde"
+// 				color: "#559e99"
 // 			},
 // 			sparkline: {
 // 				enabled: !0
@@ -439,7 +439,7 @@
 // 		},
 // 		markers: {
 // 			size: 0,
-// 			colors: ["#2ecfde"],
+// 			colors: ["#559e99"],
 // 			strokeColors: "#fff",
 // 			strokeWidth: 2,
 // 			hover: {
@@ -454,7 +454,7 @@
 // 			width: 2,
 // 			curve: "smooth"
 // 		},
-// 		colors: ["#2ecfde"],
+// 		colors: ["#559e99"],
 // 		xaxis: {
 // 			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 // 		},
@@ -502,7 +502,7 @@
 // 				left: 14,
 // 				blur: 4,
 // 				opacity: .12,
-// 				color: "#2ecfde"
+// 				color: "#559e99"
 // 			},
 // 			sparkline: {
 // 				enabled: !0
@@ -510,7 +510,7 @@
 // 		},
 // 		markers: {
 // 			size: 0,
-// 			colors: ["#2ecfde"],
+// 			colors: ["#559e99"],
 // 			strokeColors: "#fff",
 // 			strokeWidth: 2,
 // 			hover: {
@@ -525,7 +525,7 @@
 // 			width: 2,
 // 			curve: "smooth"
 // 		},
-// 		colors: ["#2ecfde"],
+// 		colors: ["#559e99"],
 // 		xaxis: {
 // 			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 // 		},
@@ -573,7 +573,7 @@
 // 				left: 14,
 // 				blur: 4,
 // 				opacity: .12,
-// 				color: "#2ecfde"
+// 				color: "#559e99"
 // 			},
 // 			sparkline: {
 // 				enabled: !0
@@ -581,7 +581,7 @@
 // 		},
 // 		markers: {
 // 			size: 0,
-// 			colors: ["#2ecfde"],
+// 			colors: ["#559e99"],
 // 			strokeColors: "#fff",
 // 			strokeWidth: 2,
 // 			hover: {
@@ -596,7 +596,7 @@
 // 			width: 2,
 // 			curve: "smooth"
 // 		},
-// 		colors: ["#2ecfde"],
+// 		colors: ["#559e99"],
 // 		xaxis: {
 // 			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 // 		},
@@ -644,7 +644,7 @@
 // 				left: 14,
 // 				blur: 4,
 // 				opacity: .12,
-// 				color: "#2ecfde"
+// 				color: "#559e99"
 // 			},
 // 			sparkline: {
 // 				enabled: !0
@@ -652,7 +652,7 @@
 // 		},
 // 		markers: {
 // 			size: 0,
-// 			colors: ["#2ecfde"],
+// 			colors: ["#559e99"],
 // 			strokeColors: "#fff",
 // 			strokeWidth: 2,
 // 			hover: {
@@ -667,7 +667,7 @@
 // 			width: 2,
 // 			curve: "smooth"
 // 		},
-// 		colors: ["#2ecfde"],
+// 		colors: ["#559e99"],
 // 		xaxis: {
 // 			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 // 		},
@@ -925,7 +925,7 @@
 // 				}
 // 			}
 // 		},
-// 		colors: ["#17a00e", "#2ecfde", "#f41127", "#ffc107"],
+// 		colors: ["#17a00e", "#559e99", "#f41127", "#ffc107"],
 // 		dataLabels: {
 // 			enabled: !1
 // 		},
@@ -1202,7 +1202,7 @@
 // 				left: 14,
 // 				blur: 4,
 // 				opacity: .12,
-// 				color: "#2ecfde"
+// 				color: "#559e99"
 // 			},
 // 			sparkline: {
 // 				enabled: !1
@@ -1210,7 +1210,7 @@
 // 		},
 // 		markers: {
 // 			size: 0,
-// 			colors: ["#2ecfde"],
+// 			colors: ["#559e99"],
 // 			strokeColors: "#fff",
 // 			strokeWidth: 2,
 // 			hover: {
@@ -1237,7 +1237,7 @@
 // 			width: 3,
 // 			curve: "smooth"
 // 		},
-// 		colors: ["#2ecfde"],
+// 		colors: ["#559e99"],
 // 		xaxis: {
 // 			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 // 		},
@@ -1353,7 +1353,7 @@
 // 				left: 10,
 // 				blur: 3,
 // 				opacity: .1,
-// 				color: "#2ecfde"
+// 				color: "#559e99"
 // 			},
 // 			sparkline: {
 // 				enabled: !1
@@ -1373,7 +1373,7 @@
 // 		},
 // 		markers: {
 // 			size: 0,
-// 			colors: ["#2ecfde"],
+// 			colors: ["#559e99"],
 // 			strokeColors: "#fff",
 // 			strokeWidth: 2,
 // 			hover: {
@@ -1388,7 +1388,7 @@
 // 			width: 3,
 // 			curve: "smooth"
 // 		},
-// 		colors: ["#2ecfde"],
+// 		colors: ["#559e99"],
 // 		xaxis: {
 // 			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
 // 		},

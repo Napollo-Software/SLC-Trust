@@ -72,7 +72,7 @@
 
             .two-value {
                 border: 2px solid;
-                border-color: #2ecfde #2ecfde;
+                border-color: #559e99 #559e99;
             }
 
             button {
@@ -928,7 +928,7 @@
                     width: 2,
                     colors: ["transparent"]
                 },
-                colors: ["#0dcaf0", "#2ecfde", "#e5e7e8"],
+                colors: ["#0dcaf0", "#559e99", "#e5e7e8"],
                 xaxis: {
                     categories: [<?php foreach ($months as $m) {
                         echo '"' . $m . '",';
@@ -971,7 +971,7 @@
                         left: 14,
                         blur: 4,
                         opacity: .12,
-                        color: "#2ecfde"
+                        color: "#559e99"
                     },
                     sparkline: {
                         enabled: !0
@@ -979,7 +979,7 @@
                 },
                 markers: {
                     size: 0,
-                    colors: ["#2ecfde"],
+                    colors: ["#559e99"],
                     strokeColors: "#fff",
                     strokeWidth: 2,
                     hover: {
@@ -994,7 +994,7 @@
                     width: 2,
                     curve: "smooth"
                 },
-                colors: ["#2ecfde"],
+                colors: ["#559e99"],
                 xaxis: {
                     categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
                         "Dec"
@@ -1067,7 +1067,7 @@
                 droppable: true, // this allows things to be dropped onto the calendar
                 // ... (other options)
                 // themeSystem: 'bootstrap', // Use the Bootstrap theme
-                themeColor: '#2ecfde', // Set the primary color to #2ecfde
+                themeColor: '#559e99', // Set the primary color to #559e99
                 dayMaxEvents: true, // allow "more" link when too many events
                 // events: events,
                 events: followupEvents.map(function(event) {

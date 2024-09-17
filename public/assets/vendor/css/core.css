@@ -1,6 +1,6 @@
 @charset "UTF-8";
 :root {
-  --bs-blue: #2ecfde;
+  --bs-blue: #559e99;
   --bs-indigo: #6610f2;
   --bs-purple: #696cff;
   --bs-pink: #e83e8c;
@@ -16787,10 +16787,10 @@ html:not(.layout-footer-fixed) .content-wrapper {
     box-shadow: none !important;
 }
 .gray-300 {
-  color: #2ecfde !important;
+  color: #559e99 !important;
 }
 .text-gray-500 {
-    color: #2ecfde !important;
+    color: #559e99 !important;
 }
 .print-btn {
     display: flex;

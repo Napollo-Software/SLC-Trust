@@ -34,7 +34,7 @@
 
         /* Button styles */
         .cta-button {
-            background-color: #2ecfde;
+            background-color: #559e99;
             color: #ffffff;
             text-decoration: none;
             font-weight: 700;
@@ -59,7 +59,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 
     <tr>
-        <td bgcolor="#2ecfde" align="center">
+        <td bgcolor="#559e99" align="center">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                 <tr>
                     <td align="center" valign="top" style="padding: 20px 0;">

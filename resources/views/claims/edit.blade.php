@@ -41,7 +41,7 @@
                         <!-- Profile picture help block-->
                         @if ($claim->recurred != "0")
                         <div class="col-lg-12 pt-3 text-center">
-                       <b for="exampleFormControlInput1" >Bill Reference :  <a href="{{url('claims/'.$claim->recurred)}}"  style="color: #2ecfde"><strong><i class=" tf-icons bx bx-copy-alt"></i>Bill#{{$claim->recurred}}</strong></b></a>
+                       <b for="exampleFormControlInput1" >Bill Reference :  <a href="{{url('claims/'.$claim->recurred)}}"  style="color: #559e99"><strong><i class=" tf-icons bx bx-copy-alt"></i>Bill#{{$claim->recurred}}</strong></b></a>
                         </div>
                         @endif
                         @if ($claim->recurred == "0")
