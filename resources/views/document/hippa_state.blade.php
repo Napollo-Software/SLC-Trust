@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DOH 5173-HIPPA State</title>
 </head>
@@ -38,6 +39,9 @@
         border-radius: 4px; /* Rounded corners */
         cursor: pointer; /* Pointer cursor */
         transition: background-color 0.3s; /* Smooth transition for hover effect */
+        position: relative;
+        display: inline-flex;
+        align-items: center;
     }
 
     .submit-button:hover {
@@ -106,6 +110,47 @@
     .card-body {
         padding: 2px 16px;
     }
+    @font-face {
+    font-family: 'Rage Italic';
+    src: url('/fonts/rage-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+#signature-canvas-hippa-state {
+    pointer-events: none;
+}
+input{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+.loader {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 10%;
+    top: 22%;
+    transform: translateY(-50%);
+}
+.btn-size{
+    width: 12%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 </style>
 
 <body>
@@ -130,29 +175,29 @@
             <tr >
                 <td >
                     <label for="Patient Name">Patient Name</label>
-                    <input type="text"  name="patient_name" class="no-border">
+                    <input type="text"  name="patient_name" style="margin-top: 3px">
                 </td>
                 <td>
-                    <label for="Date of Birth">Date of Birth</label>
-                    <input type="date"  name="dob" class="no-border">
+                    <label for="Date of Birth">Date of Birth</label> <br>
+                    <input type="date"  name="dob" style="margin-top: 3px">
                 </td>
                 <td>
                     <label for="SSN Number">SSN Number</label>
-                    <input type="number" name="ssn" class="no-border">
+                    <input type="number" name="ssn" style="margin-top: 3px">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="Address">Address</label>
-                    <input type="text"  name="address" class="no-border">
+                    <label for="Address">Address</label> <br>
+                    <input type="text"  name="address" style="margin-top: 3px">
                 </td>
                 <td>
                     <label for="Client ID Number">Client ID Number</label>
-                    <input type="text"  name="client_id" class="no-border">
+                    <input type="text"  name="client_id" style="margin-top: 3px">
                 </td>
                 <td>
                     <label for="Disability Number">Disability Number</label>
-                    <input type="number" name="disablity_number" class="no-border">
+                    <input type="number" name="disablity_number" style="margin-top: 3px">
                 </td>
             </tr>
         </table>
@@ -199,7 +244,7 @@
 
         <hr>
         <p>7. Name and address of the health provider or entity authorized to release this information:</p>
-        <input type="text" name="name_address" class="no-border" style="width: 100%">
+        <input type="text" name="name_address"  style="width: 98%">
         <hr>
 
         <p>8. Name and address of person(s) or agency to whom this information is to be sent:
@@ -211,16 +256,16 @@
         <div class="authorization">
             9(a). Specific information to be released:
             <p><input type="checkbox" name="released_info"  value="medical_dated"> Medical records from
-                <input type="date" name="medical_record_from" class="no-border"> to <input type="date" name="medical_record_to" class="no-border">
+                <input type="date" name="medical_record_from"> to <input type="date" name="medical_record_to">
             </p>
             <p><input type="checkbox" name="released_info" value="medical_entire"> Entire Medical Record, including patient histories, office notes (except
                 psychotherapy notes), test results, radiology studies, films, referrals, consults, billing records,
                 insurance records, and records sent to you by other health care providers.</p>
-            <p> <input type="checkbox" name="released_info"  value="medical_other"> Other: <input type="text"  name="other" class="no-border"></p>
+            <p> <input type="checkbox" name="released_info"  value="medical_other"> Other: <input type="text"  name="other"></p>
 
             <p>9(b). Authorization to discuss Health Information:</p>
-            <label>By initialing here: <input type="text"  name="init" class="no-border"></label>
-            <label>I authorize <input type="text"  name="auth_name" class="no-border" style="width:45%"
+            <label>By initialing here: <input type="text"  name="init" ></label>
+            <label>I authorize <input type="text"  name="auth_name" style="width:45%"
                                       placeholder="Name of indvidual/Health care provider"></label>
             <p>to discuss my health information with the <b>State Disability Review Unit</b>
             </p>
@@ -245,16 +290,16 @@
                     <input type="checkbox" name="other_individual" value="other_individual">
                     At request of individual</label>
                 <label> Other:
-                    <input type="text"   id="other_indiviual_name" class="no-border" name="other_indiviual_name">
+                    <input type="text"   id="other_indiviual_name" name="other_indiviual_name">
                 </label>
             </p>
             <hr>
             <p>11. Purpose of the Use/Disclosure:<b>Disability Determination and Review</b></p>
             <hr>
             <p>12. If not the patient, name of the person signing this form (print): <input type="text" name="person_signing"
-                                                                                            class="no-border"></p>
+                                                                                            ></p>
             <hr>
-            <p>13. Type of authority to sign on behalf of the patient:: <input type="text"  name="auth_info" class="no-border"></p>
+            <p>13. Type of authority to sign on behalf of the patient:: <input type="text"  name="auth_info"></p>
             <hr>
             <p>All sections on this form have been completed and my questions about this form have been answered.
                 I authorize the facility/person noted on this page to release health information of the person named on this
@@ -262,18 +307,19 @@
                 Disability Review Unit.</p>
             <div class="row-container">
                 <div id="signature-pad">
+                    <input type="text"  style="width: 57%;margin-bottom: 10px" name="hippa_state_signature" id="hippa_state_signature" oninput="generateSignature()" maxlength="18">
                     <canvas id="signature-canvas-hippa-state"></canvas>
                     <div>
                         <div class="container-row" style="justify-content: start">
 
-                            <button id="clear-hippa-state" style="margin-left: 10px;">Clear</button>
+                            <button id="clear-hippa-state" onclick="clearHippaStateCanvas()">Clear</button>
                         </div>
                         <label> SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW. </label>
                         <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">
                     </div>
                 </div>
-                <div>
-                    <input type="date" name="date_hippa_state" class="no-border" style="width: 100%">
+                <div style="margin-right: 10px;">
+                    <input type="date" name="date_hippa_state"  style="width: 100%">
                     <labal>Date</labal>
                 </div>
             </div>
@@ -358,7 +404,10 @@
             If you want your healthcare provider to send your medical records, this form must be signed and dated by the patient or the patient’s legal representative.
         </p>
         <br>
-        <button type="submit" class="submit-button"> Submit</button>
+        <button type="submit" id="submit-button" class="submit-button">
+            Submit
+            <span class="loader" style="display: none;"></span>
+        </button>
     </form>
 </div>
 
@@ -385,6 +434,10 @@
         };
         $('#hippa-state-form').submit(function (e) {
             e.preventDefault();
+            $('#submit-button').addClass('btn-size');
+            $('#submit-button').prop('disabled', true);
+            $('.loader').show();
+            saveCanvasAsImage()
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({
@@ -401,16 +454,44 @@
                         icon: 'success',
                         confirmButtonText: 'Great!'
                     });
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
 
                 },
                 error: function (response) {
                     alert('Error in saving file');
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
                 }
             });
         });
 
 
     });
+
+    function generateSignature() {
+    const name = document.getElementById('hippa_state_signature').value;
+    const canvas = document.getElementById('signature-canvas-hippa-state');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 19, 80);
+
+}
+function clearHippaStateCanvas() {
+    document.getElementById('hippa_state_signature').value = '';
+}
+    function saveCanvasAsImage() {
+        for (let i = 1; i <= 5; i++) {
+            const canvas = document.getElementById("signature-canvas-hippa-state");
+            const signatureDataURL = canvas.toDataURL('image/png'); // Convert to Base64
+            document.getElementById("hippa_state_sign").value = signatureDataURL;
+        }
+    }
 
 </script>
 </body>

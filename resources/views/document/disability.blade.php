@@ -29,6 +29,9 @@
             border-radius: 4px; /* Rounded corners */
             cursor: pointer; /* Pointer cursor */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
+            position: relative;
+            display: inline-flex;
+            align-items: center;
         }
 
         .submit-button:hover {
@@ -51,6 +54,7 @@
             border-top: none;
             border-left: none;
             border-right: none;
+            
 
         }
 
@@ -70,7 +74,8 @@
 
         /* Adjusted margin for h6 */
         h6 {
-            margin: 5px 0;
+            /* margin: 5px 0; */
+            margin: 20px 0 10px 0;
             /* You can adjust this margin value as needed */
         }
 
@@ -106,6 +111,39 @@
         .card-body {
             padding: 2px 16px;
         }
+        td{
+            font-size: 14px;
+        }
+        .no-border:focus{
+            border-radius: 5px;
+            padding: 4px 8px
+        }
+        .loader {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 10%;
+    top: 22%;
+    transform: translateY(-50%);
+}
+.btn-size{
+    width: 12%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+        
 
     </style>
 </head>
@@ -127,33 +165,33 @@
     <div class="container-row">
         <div>
             <h4>Disability Form</h4>
-            <h6>First Name</h6>
+            <h6 style="font-size: 14px">First Name</h6>
             <input type="text" class="no-border" name="first_name">
-            <h6>Middle Name</h6>
+            <h6 style="font-size: 14px">Middle Name</h6>
             <input type="text" class="no-border" name="middle_name">
-            <h6>Last Name</h6>
+            <h6 style="font-size: 14px">Last Name</h6>
             <input type="text" class="no-border" name="last_name">
-            <h6>SSN Number (last 4 digits)</h6>
+            <h6 style="font-size: 14px">SSN Number (last 4 digits)</h6>
             <input type="text" class="no-border" name="ssn_last_4">
-            <h6>Date Of Birth</h6>
+            <h6 style="font-size: 14px">Date Of Birth</h6>
             <input type="date" class="no-border" name="date_of_birth">
-            <h6>Telephone Number</h6>
+            <h6 style="font-size: 14px">Telephone Number</h6>
             <input type="text" class="no-border" name="telephone_number">
         </div>
         <div>
             <h4>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</h4>
-            <h6>Case Number</h6>
+            <h6 style="font-size: 14px">Case Number</h6>
             <input type="text" class="no-border" name="case_number">
-            <h6>Client ID Number</h6>
+            <h6 style="font-size: 14px">Client ID Number</h6>
             <input type="text" class="no-border" name="client_id_number">
-            <h6>Disability ID Number</h6>
+            <h6 style="font-size: 14px">Disability ID Number</h6>
             <input type="text" class="no-border" name="disability_id_number">
-            <h6>Medicaid Application date</h6>
+            <h6 style="font-size: 14px">Medicaid Application date</h6>
             <input type="date" class="no-border" name="medicaid_application" >
-            <h6>Medicaid Waiver</h6>
+            <h6 style="font-size: 14px">Medicaid Waiver</h6>
             <input type="checkbox" class="no-border" name="medicaid_waiver_yes" value="yes" >Yes
             <input type="checkbox" class="no-border" name="medicaid_waiver_no" value="no" >No
-            <h6>Waiver type</h6>
+            <h6 style="font-size: 14px">Waiver type</h6>
             <input type="text" class="no-border" name="waiver_type">
         </div>
     </div>
@@ -193,41 +231,41 @@
 
     <table>
         <tr>
-            <td>
+            <td style="font-size: 14px">
                 <b>
                     PART I – INFORMATION ABOUT YOUR MEDICAL CONDITIONS
                 </b>
                 <p>A. Please list all of your medical conditions (diagnoses):
                 </p>
-                <textarea class="no-border" style="width: 100%" name="medical_conditions"></textarea>
+                <textarea class="no-border" style="width: 98%" name="medical_conditions"></textarea>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-size: 14px">
                 <p>
                     B. How do your medical conditions affect your ability to function? (Please include any limitations
                     in your ability to perform activities
                     of daily living and work-related activities.)
                 </p>
-                <textarea class="no-border" style="width: 100%" name="medical_condition_impact"></textarea>
+                <textarea class="no-border" style="width: 98%" name="medical_condition_impact"></textarea>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-size: 14px">
 
                 <p>
                     C. Please list your medications (or attach a list).
 
                 </p>
-                <textarea class="no-border" style="width: 100%" name="medications"></textarea>
+                <textarea class="no-border" style="width: 98%" name="medications"></textarea>
             </td>
         </tr>
     </table>
 
     <br>
     <table>
-        <tr>
-            <td colspan="3">
+        <tr >
+            <td colspan="3" style="font-size: 14px">
                 <b>
                     PART I INFORMATION ABOUT YOUR MEDICAL RECORDS
                 </b>
@@ -241,29 +279,29 @@
         </tr>
 
         <tr>
-            <td colspan="3">
+            <td colspan="3" style="font-size: 14px">
                 <p>
                     A. Do you have a primary care provider? <input type="checkbox" name="primary_care_provider_yes" value="yes"> yes
                     <input type="checkbox" name="primary_care_provider_no" value="no"> no
                 </p>
                 <p>(If “Yes”, please provide name, address, phone number.)</p>
-                <textarea class="no-border" style="width: 100%" name="care_provider_text"></textarea>
+                <textarea class="no-border" style="width: 98%" name="care_provider_text"></textarea>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="3" style="font-size: 14px">
                 <p>Date of last visit (mont/year):
                     <textarea class="no-border" name="primary_care_provider_details"></textarea>
                 </p>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="3" style="font-size: 14px">
                 B. Have you seen any other medical provider(s) within the past 12 months? <input type="checkbox" name="medical_provider_yes" value="yes"> Yes
                 <input type="checkbox" name="medical_provider_no" value="no">No
                 <br>
-                (If “Yes”, please complete the section below.)
-                <br>
+                <p>(If “Yes”, please complete the section below.)</p>
+                {{-- <br> --}}
                 <b>
                     Please list the name, address, and phone number of all medical providers you have seen for the past
                     12 months (for example
@@ -274,67 +312,67 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-size: 14px">
                 <p>Name</p>
                 <input type="text" class="no-border" name="medical_provider_1_name">
             </td>
-            <td>
+            <td style="font-size: 14px">
                 <p>Phone</p>
                 <input type="number" class="no-border" name="medical_provider_1_phone">
             </td>
-            <td rowspan="2">
+            <td rowspan="2" style="font-size: 14px">
                 <p>Address</p>
                 <input type="text" class="no-border" name="medical_provider_1_address">
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="font-size: 14px">
                 <p>Reason for seeing:</p>
                 <input type="text" class="no-border" name="medical_provider_1_reason">
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-size: 14px">
                 <p>Name</p>
                 <input type="text" class="no-border" name="medical_provider_2_name">
             </td>
-            <td>
+            <td style="font-size: 14px">
                 <p>Phone</p>
                 <input type="number" class="no-border" name="medical_provider_2_phone">
             </td>
-            <td rowspan="2">
+            <td rowspan="2" style="font-size: 14px">
                 <p>Address</p>
                 <input type="text" class="no-border" name="medical_provider_2_address">
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="font-size: 14px">
                 <p>Reason for seeing:</p>
                 <input type="text" class="no-border" name="medical_provider_2_reason">
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-size: 14px">
                 <p>Name</p>
                 <input type="text" class="no-border" name="medical_provider_3_name">
             </td>
-            <td>
+            <td style="font-size: 14px">
                 <p>Phone</p>
                 <input type="number" class="no-border" name="medical_provider_3_phone">
             </td>
-            <td rowspan="2">
+            <td rowspan="2" style="font-size: 14px">
                 <p>Address</p>
                 <input type="text" class="no-border" name="medical_provider_3_address">
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="font-size: 14px">
                 <p>Reason for seeing:</p>
                 <input type="text" class="no-border" name="medical_provider_3_reason">
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td colspan="3" style="font-size: 14px">
                 <p>
                     C. Have you received medical care in a hospital or other health care facility within the past 12
                     months?
@@ -354,61 +392,61 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-size: 14px">
                 <p>Name</p>
                 <input type="text" class="no-border" name="medicare_rec_1_name">
             </td>
-            <td>
+            <td style="font-size: 14px">
                 <p>Phone</p>
                 <input type="number" class="no-border" name="medicare_rec_1_phone">
             </td>
-            <td rowspan="2">
+            <td rowspan="2" style="font-size: 14px">
                 <p>Address</p>
                 <input type="text" class="no-border" name="medicare_rec_1_address">
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="font-size: 14px">
                 <p>Reason for seeing:</p>
                 <input type="text" class="no-border" name="medicare_rec_1_reason">
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-size: 14px">
                 <p>Name</p>
                 <input type="text" class="no-border" name="medicare_rec_2_name">
             </td>
-            <td>
+            <td style="font-size: 14px">
                 <p>Phone</p>
                 <input type="number" class="no-border" name="medicare_rec_2_phone">
             </td>
-            <td rowspan="2">
+            <td rowspan="2" style="font-size: 14px">
                 <p>Address</p>
                 <input type="text" class="no-border" name="medicare_rec_2_address">
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="font-size: 14px">
                 <p>Reason for seeing:</p>
                 <input type="text" class="no-border" name="medicare_rec_2_reason">
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="font-size: 14px">
                 <p>Name</p>
                 <input type="text" class="no-border" name="medicare_rec_3_name">
             </td>
-            <td>
+            <td style="font-size: 14px">
                 <p>Phone</p>
                 <input type="number" class="no-border" name="medicare_rec_3_phone">
             </td>
-            <td rowspan="2">
+            <td rowspan="2" style="font-size: 14px">
                 <p>Address</p>
                 <input type="text" name="medicare_rec_3_address" class="no-border">
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="2" style="font-size: 14px">
                 <p>Reason for seeing:</p>
                 <input type="text" name="medicare_rec_3_reason" class="no-border">
             </td>
@@ -990,7 +1028,10 @@
         </tr>
     </table>
     <br>
-    <button type="submit" class="submit-button"> Submit</button>
+    <button type="submit" id="submit-button" class="submit-button">
+        Submit
+        <span class="loader" style="display: none;"></span>
+    </button>
 </form>
 </div>
 
@@ -1004,6 +1045,9 @@
         //save this form using ajax
         $('#disability-form').submit(function (e) {
             e.preventDefault();
+            $('#submit-button').addClass('btn-size');
+            $('#submit-button').prop('disabled', true);
+            $('.loader').show();
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({
@@ -1021,10 +1065,16 @@
                         icon: 'success',
                         confirmButtonText: 'Great!'
                     });
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
 
                 },
                 error: function (response) {
                     alert('Error in saving file');
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
                 }
             });
         });

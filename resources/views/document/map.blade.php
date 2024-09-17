@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <title>Map</title>
     <style>
         table {
@@ -28,6 +29,9 @@
             border-radius: 4px; /* Rounded corners */
             cursor: pointer; /* Pointer cursor */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
+            position: relative;
+            display: inline-flex;
+            align-items: center;
         }
 
         .submit-button:hover {
@@ -93,6 +97,47 @@
         .card-body {
             padding: 2px 16px;
         }
+        @font-face {
+    font-family: 'Rage Italic';
+    src: url('/fonts/rage-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+#signature-canvas-map {
+    pointer-events: none;
+}
+input{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+}
+.loader {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 10%;
+    top: 22%;
+    transform: translateY(-50%);
+}
+.btn-size{
+    width: 12%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
     </style>
 </head>
 <body>
@@ -117,11 +162,11 @@
             <tr>
                 <td>
                     <label>Name and address of source(with zip code) </label><br>
-                    <input type="text" name="name_address" class="no-border">
+                    <input type="text" name="name_address" style="margin-top: 5px">
                 </td>
                 <td>
                     <label>RELATIONSHIP TO DISABLED PERSON </label><br>
-                    <input type="text" name="relationship_disabled" class="no-border">
+                    <input type="text" name="relationship_disabled" style="margin-top: 5px">
                 </td>
             </tr>
         </table>
@@ -135,17 +180,17 @@
                 <td>
                     <label for="Patient Name">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON
                         HAD CONTACT WITH SOURCE (Include Zip Code) </label><br>
-                    <input type="text" name="source_contact_name_address" class="no-border">
+                    <input type="text" name="source_contact_name_address" style="margin-top: 5px">
                 </td>
                 <td>
                     <label for="Patient Name">Date Of Birth </label><br>
-                    <input type="date" name="dob" class="no-border">
+                    <input type="date" name="dob" style="margin-top: 5px">
                 </td>
                 <td>
                     <label for="Patient Name">DISABLED PERSON'S I.D.
                         NUMBER (If known and if
                         different than SSN.) </label><br>
-                    <input type="text" name="disabled_id" class="no-border">
+                    <input type="text" name="disabled_id" style="margin-top: 5px">
                 </td>
 
             </tr>
@@ -156,7 +201,7 @@
                         treatment, discharges,
                         etc.)
                     </label><br>
-                    <input type="text" name="disabled_contact_time" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_contact_time" style="width:98%;margin-top:5px">
                 </td>
             </tr>
 
@@ -192,11 +237,12 @@
                     <div class="card-body" style="justify-content: space-around">
 
                         <div id="signature-pad">
+                            <input type="text"  style="width: 96%;margin-bottom: 10px" name="map_signature" id="map_signature" oninput="generateSignature()" maxlength="18">
                             <canvas id="signature-canvas-map"></canvas>
                             <div>
                                 <div class="container-row" style="justify-content: start">
 
-                                    <button id="clear-map" style="margin-left: 10px;">Clear</button>
+                                    <button id="clear-map" onclick="clearMapCanvas()">Clear</button>
                                 </div>
 
                                 <input type="hidden" id="map_sign" name="map_sign">
@@ -209,18 +255,18 @@
                         RELATION TO DISABLED PERSON
                         (If other than self)
                     </label><br>
-                    <input type="text" name="disabled_relation_other" class="no-border">
+                    <input type="text" name="disabled_relation_other" style="margin-top: 5px">
                 </td>
                 <td style="width: 20%;">
                     <label>DISABLED PERSON'S I.D.
                         NUMBER (If known and if
                         different than SSN.) </label><br>
-                    <input type="text" name="disabled_id_other" class="no-border">
+                    <input type="text" name="disabled_id_other" style="margin-top: 5px">
                 </td>
                 <td style="width: 20%;">
 
                     <label>Date</label><br>
-                    <input type="date" name="date_map" class="no-border">
+                    <input type="date" name="date_map" style="margin-top: 5px">
 
                 </td>
             </tr>
@@ -229,13 +275,13 @@
                     <label>
                         STREET ADDRESS
                     </label><br>
-                    <input type="text" name="disabled_relation_street" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;width:98%">
                 </td>
                 <td colspan="2">
                     <label>
                         TELEPHONE NUMBER
                     </label><br>
-                    <input type="text" name="disabled_relation_street" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_street" style="margin-top: 5px" style="width:100%">
                 </td>
             </tr>
             <tr>
@@ -243,25 +289,29 @@
                     <label>
                         City
                     </label><br>
-                    <input type="text" name="disabled_relation_city" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_city"  style="width:98%;margin-top:5px">
                 </td>
                 <td>
                     <label>
                         STATE
                     </label><br>
-                    <input type="text" name="disabled_relation_state" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_state"  style="width:92%;margin-top:5px">
                 </td>
                 <td>
                     <label>
                         ZIP CODE
                     </label><br>
-                    <input type="text" name="disabled_relation_zip" class="no-border" style="width:100%">
+                    <input type="text" name="disabled_relation_zip" style="width:92%;margin-top:5px">
                 </td>
             </tr>
 
         </table>
         <br>
-        <button type="submit" class="submit-button"> Submit</button>
+
+        <button type="submit" id="submit-button" class="submit-button">
+            Submit
+            <span class="loader" style="display: none;"></span>
+        </button>
     </form>
 </div>
 
@@ -288,6 +338,10 @@
         };
         $('#map-form').submit(function (e) {
             e.preventDefault();
+            $('#submit-button').addClass('btn-size');
+            $('#submit-button').prop('disabled', true);
+            $('.loader').show();
+            saveCanvasAsImage()
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({
@@ -304,7 +358,16 @@
                         icon: 'success',
                         confirmButtonText: 'Great!'
                     });
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
 
+                },
+                error: function (response) {
+                    alert('Error in saving file');
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
                 }
             });
         });
@@ -312,6 +375,27 @@
 
     });
 
+    function generateSignature() {
+    const name = document.getElementById('map_signature').value;
+    const canvas = document.getElementById('signature-canvas-map');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 15, 80);
+
+}
+function clearMapCanvas() {
+    document.getElementById('map_signature').value = '';
+}
+    function saveCanvasAsImage() {
+        for (let i = 1; i <= 5; i++) {
+            const canvas = document.getElementById("signature-canvas-map");
+            const signatureDataURL = canvas.toDataURL('image/png'); // Convert to Base64
+            document.getElementById("map_sign").value = signatureDataURL;
+        }
+    }
 </script>
 </body>
 </html>

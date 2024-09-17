@@ -418,7 +418,7 @@
             <p>Provider Signature</p>
             <div class="card-body" style="max-width: fit-content;">
                 @if($doh_sign)
-                    <img src="{{ $doh_sign }}" alt="Signature 1" width="70" height="70">
+                    <img src="{{ $doh_sign }}" alt="Signature 1" width="300" height="150">
                 @else
                     No Signature Provided
                 @endif
