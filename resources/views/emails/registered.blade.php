@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -98,12 +97,13 @@
         div[style*="margin: 16px 0;"] {
             margin: 0 !important;
         }
+
     </style>
 </head>
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
     <!-- HIDDEN PREHEADER TEXT -->
-    
+
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <!-- LOGO -->
         <tr>
@@ -120,7 +120,8 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
-                            <img src="https://billing.intrustpit.org/assets/img/intrustpit-Logo.png" style="height:110px" style="display: block; border: 0px;" /> <h1 style="font-size: 30px; font-weight: 400; margin: 2;">Hi {{$details->name}}!</h1> 
+                            <img src="{{ url('/assets/img/'.config('app.name').'-Logo.png') }}" style="height:110px" style="display: block; border: 0px;" />
+                            <h1 style="font-size: 30px; font-weight: 400; margin: 2;">Hi {{$details->name}}!</h1>
                         </td>
                     </tr>
                 </table>
@@ -131,7 +132,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" > You have successfully registered with Intrustpit. Please set your password.</p>
+                            <p style="margin: 0;text-align:center;"> You have successfully registered with {{ config('app.name') }}. Please set your password.</p>
                         </td>
                     </tr>
                     <tr>
@@ -148,14 +149,10 @@
                                 </tr>
                             </table>
                         </td>
-                    </tr> <!-- COPY -->
-                    
+                    </tr>
                 </table>
             </td>
         </tr>
-    
-        
     </table>
 </body>
-
 </html>

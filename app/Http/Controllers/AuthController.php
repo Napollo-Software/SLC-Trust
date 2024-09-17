@@ -601,14 +601,14 @@ class AuthController extends Controller
                 $status = "Disabled";
                 if ($request->approval_action != '1') {
                     $log_id = createLog('User', Session::get('loginId'), $id, "The " . $user->full_name() . "'s account has been deactivated, and their pending bills: " . $request->approval_action . " have been moved to the archives.");
-                    $claim = Claim::where([
+                    Claim::where([
                         'claim_user' => $id,
                         'claim_status' => 'Pending'
                     ])->update(['archived' => $log_id]);
                 }
                 $subject = 'Account Deactivate';
-                $name = $user->name . ' ' . $user->last_name;
-                $email_message = 'Your profile has been deactivated by ' . $app_name . ',For immediate assistance please call 646-854 3004.';
+                $name = "{$user->name}  {$user->last_name}";
+                $email_message = "Your profile has been deactivated by {$app_name},For immediate assistance please call {config('app.contact')}.";
                 $url = "";
                 if ($user->notify_by == "email") {
                     SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);

@@ -17,7 +17,7 @@ class Register extends Mailable
      *
      * @return void
      */
-    public function __construct($details,$pdfpath)
+    public function __construct($details, $pdfpath)
     {
         $this->details = $details;
         $this->pdfpath = $pdfpath;
@@ -31,8 +31,8 @@ class Register extends Mailable
     public function build()
     {
 
-        return $this->subject('SLC | Set Password')
-                    ->view('emails.registered')
+        return $this->subject(config('app.name') . ' | Set Password')
+            ->view('emails.registered')
             ->attach($this->pdfpath, [
                 'as' => 'approval_letter.pdf',
                 'mime' => 'application/pdf',
