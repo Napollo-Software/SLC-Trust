@@ -176,16 +176,15 @@
                                                     name="emergency_apt" value="{{ $u->emergency_apt_suite }}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="option1">Lives with parents</label>
                                                 <input type="checkbox" id="live_with_parent" name="live_with_parent"
                                                     value="1">
+                                                <label for="option1">Lives with parents</label>
                                             </div>
                                             <div class="form-group">
-                                                <label for="option2">Have keys</label>
                                                 <input type="checkbox" id="have_keys" name="have_keys" value="1">
+                                                <label for="option2">Have keys</label>
                                             </div>
                                             <input type="hidden" name="id" value="{{ $u->id }}">
-
                                             <div>
                                             </div>
                                             <div>
