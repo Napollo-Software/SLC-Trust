@@ -3921,7 +3921,12 @@ tr.ind-th td{
                         text: '1-JoinderAgreement has been saved successfully.',
                         icon: 'success',
                         confirmButtonText: 'Great!'
-                    });
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '{{ route("login") }}';
+                        }
+                    })
+                    ;
                     $('#submit-button').removeClass('btn-size');
                     $('.loader').hide();
                     $('#submit-button').prop('disabled', false);
