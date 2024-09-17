@@ -259,7 +259,7 @@
         <div style="display: table; width: 100%;">
             <div style="display: table-cell; vertical-align: bottom;">
                 @if($hippa_state_sign)
-                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="90" height="90">
+                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="300" height="150">
                 @else
                     <div style=" width:150px; height:150px;vertical-align: center;text-align: center"><p>
                             <b style="vertical-align: bottom">No Signature Provided</b>

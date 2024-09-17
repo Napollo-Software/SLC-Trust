@@ -6,131 +6,1197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>1-Joinder Agreement</title>
+    <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            border: 1px solid black;
-        }
+:root{
+    --primary: rgb(52 159 153);
+    --bgColor: rgb(184 221 219)
+}
 
-        .submit-button {
-            background-color: #134b7e; /* Dark blue background */
-            color: white; /* White text */
-            padding: 8px 16px; /* Reduced padding */
-            font-size: 14px; /* Smaller font size */
-            border: none; /* No border */
-            border-radius: 4px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor */
-            transition: background-color 0.3s; /* Smooth transition for hover effect */
-        }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 
-        .submit-button:hover {
-            background-color: #16b6d3; /* Light blue on hover */
-        }
+}
+body{
+    font-family: Arial, sans-serif;
+}
+:root{
+    --primary: rgb(52 159 153);
+    --bgColor: rgb(184 221 219)
+}
 
-        .submit-button:focus {
-            outline: none; /* Removing the outline on focus for cleaner look */
-            box-shadow: 0 0 0 2px rgba(19, 75, 126, 0.25); /* Adding a subtle focus shadow with the dark blue color */
-        }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 
-
-        th,
-        td {
-            border: 1px solid black;
-            padding: 8px;
-            font-size: 10px;
-            text-align: center;
-        }
-
-        tr:first-child th {
-            font-size: 12px;
-        }
-
-        .no-border {
-            background-color: rgb(204, 204, 204);
-            border: none;
-
-        }
-
-        .container-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-
-        h6 {
-            margin: 5px 0;
-        }
-
-        .radio-row label {
-            margin-right: 20px;
-        }
-
-
-        .form-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-
-        }
-
-        .form-row {
-            flex: 0 0 calc(25% - 10px);
-            margin-right: 10px;
-            margin-bottom: 3px;
-            margin-top: 3px;
-        }
-
-        .custom-input {
-            width: 50%;
-            background-color: #CCCCCC;
-            border: none;
-        }
-
-        .custom-radio {
-            display: flex;
-            align-items: center;
-        }
+}
+body{
+    font-family: Arial, sans-serif;
+}
+/* html{
+    font-size: 62.5%;
+} */
+header{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    /* height: 670px; */
+    /* height: 75vh; */
+}
+.logo-style{
+     width: 30%;
+}
+.logo-img{
+    width: 100%;
+    /* height: 180px; */
+    object-fit: contain;
+}
+.header-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--primary);
+    
+    
+}
+.header-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 550px;
+    /* gap: 100px; */
+    background-color: rgb(238 248 245);
+    padding: 1.5rem ;
+    width: 90%;
+}
+.header-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+.header-email{
+    color: var(--primary);
+}
 
 
-        .card {
-            width: 794px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            border-radius: 5px;
-            margin: 10px;
-            overflow: hidden;
-            padding: 10px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -3%);
-        }
+main{
+    margin: 50px 0;
+}
+
+.supplemental-header{
+    background-color: var(--bgColor);
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+}
+.supplemental-header-heading{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.supplemental-header-title{
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+.supplemental-des{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 10px;
+}
+.beneficiary-heading{
+    color: var(--primary);
+    width:fit-content;
+    padding: 10px;
+    /* margin-left: 30px; */
+    font-size: 18px;
+    background-color: var(--bgColor);
+}
+.beneficiary-des{
+    width: 90%;
+    margin: 0 auto;
+}
+.beneficiary-information{
+    width: 90%;
+    margin: auto;
+}
+.beneficiary-indormation-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+.beneficiary-information-form{
+    width: 90%;
+    margin: 20px auto;
+}
+.label-name{
+    font-weight: bold;
+}
+.inp-first{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+.inp-middle{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+.inp-last{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+input:focus{
+    /* border: none; */
+    outline: none;
+    border-bottom: 1px solid black;
+}
+.name-form-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    /* flex-wrap: wrap; */
+    /* width: 25%; */
+}
+.name-form{
+    width: 30%;
+}
 
 
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
-        }
 
 
-        .card-body {
-            padding: 2px 16px;
-        }
 
 
+  canvas {
+    border: 1px solid #000;
+    /* margin-top: 10px; */
+}
+.martial-status{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Old Css Version */
+
+.d-table {
+    display: table;
+}
+.table-cell {
+    display: table-cell;
+}
+.items-center {
+    vertical-align: center;
+}
+.items-bottom {
+    vertical-align: bottom;
+}
+.items-top {
+    vertical-align: top;
+}
+
+
+
+.status{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    width: 30%;
+}
+.label-status{
+    font-weight: bold;
+}
+.gender{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.inp-gender{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.citizenship{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.dob{
+    width: 25%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.social-security-number{
+    width: 25%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.security-form{
+    min-width: 30%;
+}
+.dob-form{
+    min-width: 25%;
+}
+.citizenship-form{
+    width: 35%;
+}
+.contact{
+    margin-top: 25px;
+}
+.contact-form-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    margin-top: 18px;
+}
+.home-phone{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.cell-phone{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.contact-form{
+    width: 35%;
+}
+.preferred-phone{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
+.email-form{
+    width: 60%;
+    margin-top: 20px;
+}
+.email{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.beneficiary-information-address-form{
+    margin-top: 35px;
+}
+.address-form-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    margin-top: 18px;
+}
+.address{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.apt{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.city{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.state{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.zip{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.address-form{
+    width: 30%;
+}
+.apt-form{
+    width: 10%;
+}
+.city-form{
+    width: 20%;
+}
+.state-form{
+    width: 10%;
+}
+.zip-form{
+    width: 20%;
+}
+.qualifying-disabilities{
+    margin-top: 35px;
+}
+.disabilities{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.d1{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.d2{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.d3{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.d1-form{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.d2-form{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.d3-form{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.mail-trust{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.mail-trust-des{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+.footer-beneficiary-information{
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+.footer-mid{
+    /* border: 1px solid var(--primary); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
+    flex: 1;
+}
+.footer-left{
+    flex: 1;
+}
+.footer-right{
+    flex: 1;
+}
+.footer-right-dis{
+    text-align: right;
+}
+.footer-mid-dis{
+    text-align: center;
+    border: 1px solid var(--primary);
+    min-width: 5%;
+    padding: 5px;
+}
+.authorized-representative{
+    width: 90%;
+    margin: 40px auto;
+}
+.authorized-representative-header{
+
+}
+.authorized-heading{
+    color: var(--primary);
+    width:fit-content;
+    padding: 10px;
+    font-size: 18px;
+    /* margin-left: 30px; */
+    background-color: var(--bgColor);
+}
+.authorized-des{
+    width: 85%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    /* font-size: 20px; */
+}
+.authorized-des-checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.authorized-representative-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.authorized-representative-body-content-1{
+    width: 90%;
+    margin: auto;
+    border: 1px solid var(--bgColor);
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.authorized-representative-body-content-2{
+    width: 90%;
+    margin: auto;
+    border: 1px solid var(--bgColor);
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.authorized-representative-body-content-1-des{
+    width: 90%;
+    margin: auto;
+}
+.authorized-representative-body-content-1-form{
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.authorized-inp-first{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.authorized-inp-last{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.authorized-name-form{
+    width: 45%;
+}
+.authorized-representative-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.authorized-contact-form-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.authorized-home-form-inp{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.authorized-cell-form-inp{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.authorized-home-form{
+    width: 35%;
+}
+.authorized-cell-form{
+    width: 35%;
+}
+.authorized-preferred-form{
+    min-width: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+.authorized-preferred-form-checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.authorized-contact-form-container-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+.authorized-contact-form-2-email{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.authorized-contact-form-2-relationship{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.authorized-contact-form-2{
+    width: 40%;
+}
+.authorized-contact-form-2-relationship-container{
+    min-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.authorized-address-form{
+    margin-top: 25px;
+}
+.referring-source{
+    width: 90%;
+    margin: 25px auto;
+}
+.referring-source-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.referring-source-agency{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.referring-source-contract{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.referring-source-home{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.referring-source-email{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.referring-source-form{
+    width: 45%;
+}
+.referring-source-para{
+    width: 90%;
+    margin: auto;
+}
+.footer-referring-source{
+    margin: 35px auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+.purpose-of-enr-container{
+    width: 90%;
+    margin: auto;
+}
+.purpose-of-enr-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+}
+.purpose-of-enr-checkbox{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+}
+.medicaid-information{
+    width: 90%;
+    margin: auto;
+}
+.medicaid-information-body{
+    width: 90%;
+    margin: 20px auto;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-right: none;
+  }
+  thead tr td {
+    border: 2px solid var(--bgColor);
+    text-align: left;
+    padding: 14px;
+  }
+tbody tr td{
+    padding: 14px;
+    border-right: 2px solid var(--bgColor);
+
+}
+tbody tr{
+    border-bottom: 2px solid var(--bgColor);
+}
+tbody tr td:last-child {
+    border-right: none;
+}
+tbody tr td:nth-child(2),
+tbody tr td:nth-child(3) {
+    text-align: center;
+}
+tbody tr.individual-tr td:nth-child(2),
+tbody tr.individual-tr td:nth-child(3) {
+    text-align: left;
+}
+tr.ind-th td{
+    color: var(--primary);
+}
+
+.medicaid-information-footer-inp{
+    border: none;
+    border-bottom: 1px solid black;
+    /* width: 80%; */
+}
+.medicaid-information-footer{
+    width: 90%;
+    margin: auto;
+    font-size: 18px;
+    word-spacing: 2px;
+
+}
+.medicaid-information-footer-inp{
+    width: 40%;
+}
+.applicant{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.household-income{
+    width: 90%;
+    margin: 20px auto;
+}
+.household-income-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+.spouse-info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+.spouse-deceased{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+.spouse-applying{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+.spouse-applying-check{
+    display: flex;
+    min-width: fit-content;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.house-hold-first{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+.house-hold-last{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+.house-hold-name{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+.house-hold-last-form{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.house-hold-first-form{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.house-hold-note{
+    width: 98%;
+    margin: auto;
+    font-size: 18px;
+    word-spacing: 2px;
+}
+.footer-house-hold{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+
+.applicable-item{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.healthcare-premium-header-heading{
+    color: var(--primary);
+    width:fit-content;
+    padding: 10px;
+    font-size: 18px;
+    /* margin-left: 30px; */
+    background-color: var(--bgColor);
+}
+.healthcare-premium{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+
+}
+.healthcare-premium-body{
+    width: 90%;
+    margin: auto;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.funeral-information{
+    width: 90%;
+    margin: auto;
+}
+.funeral-information-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.life-insurance-information{
+    width: 90%;
+    margin: auto;
+}
+.life-insurance-information-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.life-insurance-information-body-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.life-insurance-information-body-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.life-insurance-type{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.living-arrangements{
+    width: 90%;
+    margin: auto;
+}
+.living-arrangement-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+}
+.living-arrangement-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+.living-arrangements-body{
+    width: 90%;
+    margin: 20px auto;
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+    /* align-items: center; */
+    gap: 10px;
+}
+.footer-living-arrangements{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 60px;
+}
+.page-6{
+    width: 90%;
+    margin: 50px auto;
+}
+.information-disclosures-body{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.information-disclosures-body-left{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.information-disclosures-body-right{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* padding: 0 15px; */
+}
+.page-5{
+    width: 90%;
+    margin: 50px auto;
+}
+.power-of-attorney-body{
+    width: 95%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.power-of-attorney-body-1{
+    border: 2px solid var(--bgColor);
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.power-of-attorney-body-1-header{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 16px;
+}
+.power-of-attorney-body-1-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.guardian-information-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.beneficiary-service-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+
+.page-7{
+    width: 90%;
+    margin: auto;
+}
+
+.page-8{
+    /* width: 80%;
+    margin: 50px auto; */
+}
+.agreement-signature{
+    width: 90%;
+    margin: 50px auto;
+}
+.signature-of-notary{
+    width: 80%;
+    margin: 50px auto;
+}
+.signature-of-two-witnesses{
+    width: 90%;
+    margin: 50px auto;
+}
+.agreement-signature-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.signature-of-notary{
+    width: 90%;
+    margin: 50px auto;
+}
+.signature-of-notary-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+}
+.signature-of-two-witnesses-body{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.for-office-use-only-header{
+    background-color: var(--bgColor);
+    color: var(--primary);
+    padding: 10px;
+}
+.for-office-use-only-body{
+    width: 70%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.for-office-use-only-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    /* margin-top: 60px; */
+    width: 90%;
+    margin: 50px auto;
+}
+.page-9{
+    margin-top: 80px;
+    /* page-break-before: always; */
+}
+.for-office-use-only-2{
+    width: 80%;
+    margin: auto;
+}
+.direct-debit-req-form{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.direct-debit-req-form-body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 17px;
+}
+.for-office-use-3{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.for-office-use-3-body{
+    width: 70%; 
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-for-office-use-3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    width: 90%;
+    margin: auto;
+    /* margin-top: 60px; */
+}
+@font-face {
+    font-family: 'Rage Italic';
+    src: url('/fonts/rage-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+#signature-canvas-1 {
+    pointer-events: none;
+}
+#signature-canvas-2 {
+    pointer-events: none;
+}
+#signature-canvas-3 {
+    pointer-events: none;
+}
+#signature-canvas-4 {
+    pointer-events: none;
+}
+#signature-canvas-5 {
+    pointer-events: none;
+}
+.submit-button{
+    margin-left: 10%;
+    padding: 10px;
+    width: 10%;
+    border-radius: 4px;
+    cursor:pointer;
+    background-color: rgb(184 221 219);
+    color:rgb(52 159 153);
+    border:none;
+    font-weight: bold;
+    font-size:1.3rem;
+    position: relative;
+    align-items: center;
+}
+.submit-button:hover{
+    background-color: rgb(168 236 217)
+}
+.loader {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 2px solid rgb(52 159 153);
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 10%;
+    top: 28%;
+    /* transform: translateY(-50%); */
+}
+.btn-size{
+    width: 11%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* html{
+    font-size: 62.5%;
+} */
+
+
+/* ------------------------------------------------------------------------------------------------- */
+    
     </style>
 </head>
 
 <body>
-
+<!-- method="POST" action="{{ route('save.joinder') }}" -->
 <div class="card">
-    <form id="joinderForm" method="POST" action="{{ route('save.joinder') }}">
+    <form id="joinderForm" >
         @csrf
-        <input type="hidden" id=referral_id" name="referral_id" value="{{$referral->id}}">
+        <input type="hidden" id="referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
 
-        <div style="text-align: center;justify-content: center">
+        <!-- <div style="text-align: center;justify-content: center">
             <img src="{{ asset('images/intrustpit.png') }}" alt="Example Image">
         </div>
         <div style="text-align: center;">
@@ -144,1236 +1210,2686 @@
         <br> <br>
         <br> <br>
         <br> <br>
-        <br>
-        <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
-            <div style="display: table-row;">
-                <div style="color: #16B7D4; display: table-cell; width:45%;text-align: right;"><b>TF :</b></div>
-                <div style="display: table-cell; text-align: left;color:#134C7F;padding-left: 5px;">877-298-7878</div>
+        <br> -->
+        <header>
+        <div class="logo-style">
+            <img src="{{asset('assets/images/logo.png')}}" alt="logo" class="logo-img" />
+        </div>
+        <div class="header-content">
+            <div class="header-heading">
+                <h1>JOINDER</h1>
+                <h1>AGREEMENT</h1>
             </div>
-        </div>
-
-        <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
-            <div style="display: table-row;">
-                <div style="color: #16B7D4; display: table-cell; padding-left: 60px; font-size: 11px;">2 9 T R U S T
-                </div>
-            </div>
-        </div>
-
-        <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
-            <div style="display: table-row;">
-                <div style="color: #16B7D4; display: table-cell;width:45%;text-align: right;"><b>Tel :</b></div>
-                <div style="display: table-cell; text-align: left;color:#134C7F;padding-left: 5px;">718-970-7878</div>
-            </div>
-        </div>
-
-        <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
-            <div style="display: table-row;">
-                <div style="color: #16B7D4; display: table-cell;width:45%;text-align: right;"><b>Fax :</b></div>
-                <div style="display: table-cell; text-align: left;color:#134C7F;padding-left: 5px;">646-904-8963</div>
-            </div>
-        </div>
-
-        <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
-            <div style="display: table-row;">
-                <div style="display: table-cell;color:#134C7F;font-size: 11px">info@trustedsurplus.org</div>
-            </div>
-        </div>
-
-        <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
-            <div style="display: table-row;">
-                <div style="color: #16B7D4; font-weight: bold; display: table-cell;"><b>trustedsurplus.org</b></div>
-            </div>
-        </div>
-        <br>
-        <hr>
-        <div style="text-align: center">
-            <p>
-                TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST
-            </p>
-            <p>
-                Joinder Agreement / Beneficiary Profile Sheet
-            </p>
-        </div>
-        <div style="background-color:#daeff5">
-            <p style="padding: 10px;text-align: justify;">
-                This is a legal document. It is an agreement pertaining to a supplemental needs trust created pursuant
-                to 42
-                United States
-                Code §1396. You are encouraged to seek independent, professional advice before signing this agreement.
-                The
-                undersigned
-                hereby adopts, enrolls in and establishes a sub-trust account under the TRUSTED SURPLUS SOLUTIONS
-                DISABILITY
-                POOLED TRUST, dated February 13, 2023. The Trust is Irrevocable.
-            </p>
-
-            <p style="padding-bottom: 10px;padding-left: 10px">
-                NOTE: All questions must be answered or your application will be delayed.
-
-            </p>
-        </div>
-        <div style="color: #16b6d5">
-            <p>
-                <b>SPONSOR/BENEFICIARY INFORMATION</b>
-
-            </p>
-        </div>
-        <p>
-            The Beneficiary and Donor must always be the same person. Only funds belonging to the Beneficiary may
-            be contributed to the Trust.
-        </p>
-        <br>
-
-        <div class="form-container">
-            <label class="form-row" style="font-weight: bold">Legal Name:</label>
-            <div class="form-row">
-                <label>First Name</label>
-                <input type="text" class="custom-input" name="sponsor_first_name" value="{{$referral->first_name}}">
-            </div>
-            <div class="form-row">
-                <label>Middle</label>
-                <input type="text" class="custom-input" name="sponsor_middle_name">
-            </div>
-            <div class="form-row">
-                <label>Last</label>
-                <input type="text" class="custom-input" name="sponsor_last_name" value="{{$referral->last_name}}">
-            </div>
-        </div>
-
-        <div class="form-container"
-             style="display: flex; justify-content: space-between;  max-width: fit-content; margin-top: 3px; align-items: center;">
-            <!-- Marital Status Section -->
-            <div>
-                <label style="font-weight: bold">Marital Status:</label>
-                <input type="checkbox" name="sponsor_marital_status1" value="Married"> Married
-                <input type="checkbox" name="sponsor_marital_status2" value="Widowed"> Widowed
-                <input type="checkbox" name="sponsor_marital_status3" value="Single"> Single
-            </div>
-
-            <!-- Gender Section -->
-            <div>
-                <input type="checkbox" name="gender" value="gender">
-                <label>Gender</label>
-                <input type="text" class="custom-input" name="sponsor_gender" value="{{$referral->gender}}"
-                       style="width: 100px;">
-            </div>
-        </div>
-
-
-        <div class="form-container">
-            <div class="form-row">
-                <label>SSN:</label>
-                <input type="text" class="custom-input" name="sponsor_ssn" value="{{$referral->patient_ssn}}">
-            </div>
-            <div class="form-row">
-                <label>Date of Birth:</label>
-                <input type="date" class="custom-input" name="sponsor_dob" value="{{$referral->date_of_birth}}">
-            </div>
-        </div>
-
-        <div class="form-row" style="display: flex; align-items: center;">
-            <label>Citizen:</label>
-            <div class="custom-radio">
-                <input type="checkbox" name="sponsor_citizen1" value="Yes"> Yes
-                <input type="checkbox" name="sponsor_citizen2" value="No"> No
-            </div>
-        </div>
-
-        <div class="form-row" style="width: 100%">
-            <label>Tel: Home
-                <input type="text" class="custom-input" name="sponsor_tel_home" style="width: 30%"></label>
-
-            <label>Cell:
-                <input type="text" class="custom-input" name="sponsor_tel_cell"
-                       value="{{$referral->phone_number}}"></label>
-
-        </div>
-
-        <div class="form-row">
-            <label>Place of Birth</label>
-            <input type="text" class="custom-input" name="sponsor_place_of_birth" style="width: 85%">
-        </div>
-
-        <div class="form-row">
-            <div class="form-row">
-                <label>Address:</label>
-                <input type="text" class="custom-input" style="width: 90% !important;" name="sponsor_address"
-                       value="{{$referral->address}}">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <label>Apt#</label>
-            <input type="text" class="custom-input" name="sponsor_apt" value="{{$referral->apt_suite}}"
-                   style="width: 90%">
-        </div>
-
-        <div class="form-container">
-            <div class="form-row">
-                <label>State</label>
-                <input type="text" class="custom-input" name="sponsor_state" value="{{$referral->state}}"
-                       style="width:auto">
-            </div>
-            <div class="form-row">
-                <label>City</label>
-                <input type="text" class="custom-input" name="sponsor_city" value="{{$referral->city}}"
-                       style="width:auto">
-            </div>
-            <div class="form-row">
-                <label>Country</label>
-                <input type="text" class="custom-input" name="sponsor_country" value="{{$referral->country}}"
-                       style="width:auto">
-            </div>
-            <div class="form-row">
-                <label>Zip Code</label>
-                <input type="text" class="custom-input" name="sponsor_zip" value="{{$referral->zip_code}}"
-                       style="width:auto">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <p>Spouse's Name if Married: <input type="text" class="custom-input" name="sponsor_if_married"
-                                                style="width: 50%;">
-        </div>
-        <div style="text-align: center; ">
-            <p>
-                Please mail all trust documents to :
-                <br>
-                Trusted Surplus Solution <br>
-                PO Box 297-050
-                <br>
-                Brooklyn, NY 11229
-            </p>
-        </div>
-        <br>
-        <p style="color: #16b6d5;font-size: 12px;">
-            <b>PURPOSE OF ENROLLMENT</b>
-        </p>
-        <p style="font-weight: bold">
-            Indicate reason for establishing an account.
-        </p>
-        <div class="container-row" style="justify-content: start;background-color: #CCCCCC; max-width: fit-content">
-            <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"> Shelter
-            Monthly
-            Excess Income
-            <input type="checkbox" name="account_establishing_reason2" value="Shelter Excess Resources"> Shelter Excess
-            Resources
-        </div>
-        <p style="color: #16b6d5;font-size: 12px;">
-            <b>HOUSEHOLD INCOME INFORMATION ( please include proof of income)</b>
-        </p>
-
-        <div style="display: flex; justify-content: flex-start">
-            <p style="background-color: #CCCCCC">
-                Is Spouse Deceased?
-                <input type="checkbox" name="spouse_decreased1" value="Yes"> Yes
-                <input type="checkbox" name="spouse_decreased2" value="No"> No</p>
-        </div>
-
-        <div style="display: flex; justify-content: flex-start; max-width: fit-content">
-            <p style="margin-right: 60px;background-color: #CCCCCC;">
-                is Applicant & Spouse applying together?
-                <input type="checkbox" name="applying_together1" value="Yes"> Yes
-                <input type="checkbox" name="applying_together2" value="No"> No</p>
-            <br>
-            <p>if yes fill in spouse's income</p>
-        </div>
-        <b>
-            SPOUSE INFORMATION:
-        </b>
-        <br>
-        <div style="display: flex; justify-self: auto">
-            <div>
-                <label> First Name</label>
-                <input type="text" class="no-border" name="spouse_fname">
-            </div>
-            <div>
-                <label> Last Name</label>
-                <input type="text" class="no-border" name="spouse_lname">
-            </div>
-        </div>
-        <br>
-        <div style="display: flex; justify-self: auto">
-            <div>
-                <label>
-                    Spouse Applied for Medicaid with beneficiary?
-                </label>
-                <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes">Yes
-                <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary2" value="No">No
-            </div>
-        </div>
-        <table>
-            <tr>
-                <th>
-                    <p> Type of Benefit</p>
-                </th>
-                <th>
-                    <p> Application <br>
-                        Monthly Amount</p>
-                </th>
-                <th>
-                    <p> Spouse <br>
-                        Monthly Amount</p>
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    Supplement Security Income(SSI)
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_ssi"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_ssi"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Supplement Security Disability Income(SSDI)
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_ssdi"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_ssdi"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Supplement Security Retirement Income(SSA)
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_ssa"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_ssa"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    VA Benefits
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_va_ben"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_va_ben"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Employment Benefits
-
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_employee_ben"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_employee_ben"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Survivor Benefits
-
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_survivor_ben"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_survivor_ben"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    IRA Distribution
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_ira_dist"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_ira_dist"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Pension / Annuities
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_pension_annuities"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_pension_annuities"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Interest / Dividends
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_interest_dividends"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_interest_dividends"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Reparations
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_reparations"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_reparations"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Other
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="applicant_other"></p>
-                </td>
-                <td>
-                    <p>$ <input type="text" class="no-border" name="spouse_other"></p>
-                </td>
-            </tr>
-        </table>
-        <br>
-        <p>
-            Please note: All disbursements must be for sole benefit of the country beneficiary.
-            <br>
-            A spouse is not a beneficiary for the account.
-        </p>
-        <p style="color: #16b6d5; display: inline-block; margin-right: 10px;">
-            <b>MEDICAID INFORMATION</b>
-        </p>
-        <p style="display: inline-block;">
-            - Please Attach MAP / LDSS Notice of Decision
-        </p>
-
-        <table>
-            <tr>
-                <th></th>
-                <th>Applicant</th>
-                <th>Spouse</th>
-            </tr>
-            <tr>
-                <td>
-                    <p>
-                        Application Status
-                        <br>
-                        Does the beneficiary receive Medicaid?
-                    </p>
-                </td>
-                <td>
-                    <div class="container-row" style="background-color: #cccccc">
-                        <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"> Yes
-                        <input type="checkbox" name="beneficiary_receive_medicaid_applicant2" value="No"> No
-                        <input type="checkbox" name="beneficiary_receive_medicaid_applicant3" value="Pending"> Pending
-                    </div>
-                </td>
-                <td>
-                    <div class="container-row" style="background-color: #cccccc">
-                        <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"> Yes
-                        <input type="checkbox" name="beneficiary_receive_medicaid_spouse2" value="No"> No
-                        <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"> Pending
-                    </div>
-                </td>
-
-            </tr>
-            <tr>
-                <td>
-                    CIN Number/medicaid Number
-                </td>
-                <td>
-                    <input type="text" class="no-border" name="applicant_medicaid_cin_number">
-                </td>
-                <td>
-                    <input type="text" class="no-border" name="spouse_medicaid_cin_number">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Monthly Spend Down $
-                </td>
-                <td>
-                    <input type="text" class="no-border" name="medicaid_applicant_monthly_spend_down">
-                </td>
-                <td>
-                    <input type="text" class="no-border" name="medicaid_spouse_monthly_spend_down">
-                </td>
-            </tr>
-
-        </table>
-        <p>
-            if the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these benefits.
-        </p>
-        <input type="text" class="no-border" name="beneficiary_benefits" style="width: 100%"> </input>
-        <div style="background-color:#daeff5">
-            <p style="padding: 2%">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECESSARY PROOF.</p>
-        </div>
-        <br>
-        <p style="color: #16b6d5">
-            <b>HEALTH CARE PREMIUM</b>
-        </p>
-        <p style="font-weight: bold">
-            Please attach current statement and proof of payment.
-        </p>
-
-
-        <br>
-        <div class="container-row" style="max-width: fit-content">
-
-            <p> Medicare part B Supplement <label> Plan Name:</label></p>
-            <input type="text" class="no-border" name="healthcare_partb_plan" style="width: 400px">
-        </div>
-        <div class="container-row">
-            <div>
-                <label>Premium $</label>
-                <input type="text" class="no-border" name="healthcare_partb_premium">
-            </div>
-            <div>
-                <label>Frequency</label>
-                <input type="text" class="no-border" name="healthcare_partb_frequency">
-            </div>
-        </div>
-        <div class="container-row">
-            <div>
-                <p>
-                    Medicare Part D Plan Name <input type="text" class="no-border" name="healthcare_partd_plan">
-                </p>
-            </div>
-            <div>
-                <p>
-                    Premium $: <input type="text" class="no-border" name="healthcare_partd_premium">
-                </p>
-            </div>
-        </div>
-        <hr>
-        <p style="color: #16b6d5">
-            <b>FUNERAL ARRANGEMENT</b>
-        </p>
-        <p style="font-weight: bold">
-            Please attach pre-need funeral agreement.
-        </p>
-        <p>Name of Funeral Home: <input type="text" class="no-border" name="funeral_home"></p>
-        <p>Address <input type="text" class="no-border" name="funeral_address">City <input type="text" class="no-border"
-                                                                                           name="funeral_city"></p>
-        <p>State <input type="text" class="no-border" name="funeral_state"> Zip: <input type="text" class="no-border"
-                                                                                        name="funeral_zip"> Telephone
-            <input
-                type="text" class="no-border" name="funeral_telephone"></p>
-        <hr>
-        <p style="color: #16b6d5">
-            <b>BURIAL PLOT</b>
-        </p>
-        <p style="font-weight: bold">
-            Please attach a copy of plot deed
-        </p>
-        <p>Name of Cemetery: <input type="text" class="no-border" name="burial_cemetery"></p>
-        <p>Address <input type="text" class="no-border" name="burial_address">City <input type="text" class="no-border"
-                                                                                          name="burial_city"></p>
-        <p>State <input type="text" class="no-border" name="burial_state"> Zip: <input type="text" class="no-border"
-                                                                                       name="burial_zip"> Telephone
-            <input
-                type="text" class="no-border" name="burial_telephone"></p>
-
-        <p style="color: #16b6d5">
-            <b>LIFE INSURANCE</b>
-        </p>
-        <p> Please attach a copy of policy </p>
-        <p>Name of Insured: <input type="text" class="no-border" name="insured_name"> Name of Owner <input type="text"
-                                                                                                           class="no-border"
-                                                                                                           name="insured_owner">
-        </p>
-        <p>Name of insurance company <input type="text" class="no-border" name="insurance_company">Policy #: <input
-                type="text"
-                class="no-border" name="insurance_policy_number"></p>
-        <p>Term of policy <input type="checkbox" class="no-border" name="type_of_policy1" value="Term"> Term <input
-                type="text" class="no-border" name="term_name"><input
-                type="checkbox" class="no-border" name="type_of_policy2" value="Life"> Life <input type="text"
-                                                                                                   class="no-border"
-                                                                                                   name="life_name">
-            Cash
-            Surrender Value $
-            <input type="text" class="no-border" name="cash_surrender_value">
-        </p>
-        <p>Upon the death of the Beneficiary, amounts remaining in the Beneficiary's sub-account shall be reined in the
-            Trust solely for the benefit of individuals who are disabled as defined in Soc. Sec. Law Section 1614(a)(3)
-            [42
-            USC 1382c(a)(3)] and any subsequent definitions that are enacted into law.</p> <br>
-        <p style="color: #16b6d5">
-            <b>QUALIFYING DISABILITIES</b>
-        </p>
-        <div class="container-row">
-            <p>1 <input type="text" class="no-border" name="qualifying_disability_one"> 2. <input type="text"
-                                                                                                  class="no-border"
-                                                                                                  name="qualifying_disability_two">
-                3. <input
-                    type="text" class="no-border" name="qualifying_disability_three"></p>
-
-        </div>
-        <hr>
-        <p style="color: #16b6d5">
-            <b>LIVING ARRANGEMENTS</b>
-        </p>
-        <p style="font-weight: bold">Indicate the living arrangement of the Beneficiary
-
-        </p>
-        <p><input type="checkbox" name="living_arrangement1" value="Independently">independently <input type="checkbox"
-                                                                                                        name="living_arrangement2"
-                                                                                                        value="With Spouse">With
-            Spouse <input type="checkbox" name="living_arrangement3" value="With Parents">With
-            parents/other family <input type="checkbox" name="living_arrangement" value="Assisted Living facility">Assisted
-            living facility</p><br>
-        <p><input type="checkbox" name="living_arrangement4" value="Family Care Program">Family care program <input
-                type="checkbox" name="living_arrangement5" value="Nursing Home">Nursing home <input
-                type="checkbox" name="living_arrangement6" value="CR/IRA/ICF(supervised)">CR/IRA/ICF(supervised) <input
-                type="checkbox" name="living_arrangement7" value="CR/IRA(Supportive)">CR/IRA(Supportive)</p><br>
-        <p><input type="checkbox" name="living_arrangement8" value="living arrangement Other ">Other Explain <input
-                type="text" class="no-border" name="living_arrangement_other"></p>
-        <hr>
-        <p style="color: #16b6d5">
-            <b>POWER OF ATTORNEY</b></p>
-        <p><b>Name:</b> First <input type="text" class="no-border" name="power_fname"> Middle <input type="text"
-                                                                                                     class="no-border"
-                                                                                                     name="power_midname">
-            Last <input type="text" class="no-border" name="power_lname"></p><br>
-        <p> Address <input type="text" class="no-border" name="power_address"> Apt#:<input type="text" class="no-border"
-                                                                                           name="power_apt"></p>
-        <p>City <input type="text" class="no-border" name="power_city"> State <input type="text" class="no-border"
-                                                                                     name="power_state"> Country <input
-                type="text" class="no-border" name="power_country"> Zip <input type="text" class="no-border"
-                                                                               name="power_zip"></p><br>
-        <p>Tel. Home: <input type="text" class="no-border" name="power_tel_home"> Cell <input type="text"
-                                                                                              class="no-border"
-                                                                                              name="power_tel_cell">
-            Email
-            <input type="text" class="no-border" name="power_email">
-        </p><br>
-        <p>is this person the sole POA? <input type="checkbox" name="sole_poa1" value="Yes"> Yes <input type="checkbox"
-                                                                                                        name="sole_poa2"
-                                                                                                        value="No">No
-        </p>
-        <p>if No, are the agents authorized to act separately? <input type="checkbox" name="act_seprately1" value="Yes">
-            Yes <input type="checkbox" name="act_seprately2" value="No">No</p>
-        <hr>
-        <p style="color: #16b6d5">
-            <b>GUARDIANSHIP</b>
-        </p>
-        <p style="font-weight: bold">
-            Please attach a copy of Decree or Letter of guardianship
-        </p>
-        <p>
-            Guardian appointed for the : <input type="checkbox" name="guardian_appointed_for1" value="Person"> Person
-            <input type="checkbox" name="guardian_appointed_for2" value="Property"> Property<input
-                type="checkbox" name="guardian_appointed_for3" value="Both"> Both
-        </p>
-        <p><b>Name:</b> First <input type="text" class="no-border" name="guardianship_fname"> Middle <input type="text"
-                                                                                                            class="no-border"
-                                                                                                            name="guardianship_midname">
-            Last <input type="text" class="no-border" name="guardianship_lname"></p><br>
-        <p> Address <input type="text" class="no-border" name="guardianship_address"> Apt#:<input type="text"
-                                                                                                  class="no-border"
-                                                                                                  name="guardianship_apt">
-        </p>
-        <p>City <input type="text" class="no-border" name="guardianship_city"> State <input type="text"
-                                                                                            class="no-border"
-                                                                                            name="guardianship_state">
-            Country <input
-                type="text" class="no-border" name="guardianship_country"> Zip <input type="text" class="no-border"
-                                                                                      name="guardianship_zip"></p><br>
-        Telephone <input type="text" class="no-border" name="guardianship_telephone"> Email
-        <input type="text" class="no-border" name="guardianship_email">
-
-        <br>
-        <hr>
-        <p style="color: #16b6d5">
-            <b>BENEFICIARY SERVICES</b>
-        </p>
-        <p style="font-weight: bold">
-            List other services that the Beneficiary receives (include day services, service coordination, employment
-            program, etc.)
-        </p>
-        <div class="container-row" style="max-width:fit-content">
-            <p style="margin-right: 50px">Service <br> <input type="text" class="no-border"
-                                                              name="beneficiary_service_one"><br>
-                <input type="text" class="no-border" name="beneficiary_service_two"><br>
-                <input type="text" class="no-border" name="beneficiary_service_three">
-            </p>
-            <p>Name of Provider <br> <input type="text" class="no-border" name="beneficiary_provider_one"><br>
-                <input type="text" class="no-border" name="beneficiary_provider_two"><br>
-                <input type="text" class="no-border" name="beneficiary_provider_three">
-            </p>
-        </div>
-        <p style="color: #16b6d5">
-            <b>AUTHORIZED PREVENTATIVE: #1</b>
-        </p>
-        <p style="font-weight: bold">
-            The following individual will be authorized to communicate with Trusted Pooled Trust.
-            I authorize this
-            individual
-            to: Make Deposits, Request Statements and Disbursements.
-        </p>
-        <p><b>Name:</b> First <input type="text" class="no-border" name="auth_rep_one_fname"> Middle <input type="text"
-                                                                                                            class="no-border"
-                                                                                                            name="auth_rep_one_midname">
-            Last <input type="text" class="no-border" name="auth_rep_one_lname"></p>
-        <p> Address <input type="text" class="no-border" name="auth_rep_one_address"> Apt#:<input type="text"
-                                                                                                  class="no-border"
-                                                                                                  name="auth_rep_one_apt">
-        </p>
-        <p>City <input type="text" class="no-border" name="auth_rep_one_city"> State <input type="text"
-                                                                                            class="no-border"
-                                                                                            name="auth_rep_one_state">
-            Country <input
-                type="text" class="no-border" name="auth_rep_one_country"> Zip <input type="text" class="no-border"
-                                                                                      name="auth_rep_one_zip"></p>
-        <p> Telephone <input type="text" class="no-border" name="auth_rep_one_tel"> Cell
-            <input type="text" class="no-border" name="auth_rep_one_cell">
-        </p>
-        <p> Email <input type="text" class="no-border" name="auth_rep_one_email"> Relationship to Beneficiary
-            <input type="text" class="no-border" name="auth_rep_one_relation_beneficiary">
-        </p>
-        <br>
-        <p style="background-color: #cccccc;max-width: fit-content">Would you like this representative to be the primary
-            contact? <input type="checkbox" class="no-border"
-                            name="auth_rep_one_primary1" value="Yes">Yes
-            <input type="checkbox" class="no-border" name="auth_rep_one_primary2" value="No">No
-        </p>
-        <hr>
-        <p style="color: #16b6d5">
-            <b>AUTHORIZED PREVENTATIVE: #2</b>
-        </p>
-        <p>
-            The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
-            individual
-            to: Make Deposits, Request Statements and Disbursements.
-        </p>
-        <p><b>Name:</b> First <input type="text" class="no-border" name="auth_rep_two_fname"> Middle <input type="text"
-                                                                                                            class="no-border"
-                                                                                                            name="auth_rep_two_midname">
-            Last <input type="text" class="no-border" name="auth_rep_two_lname"></p><br>
-        <p> Address <input type="text" class="no-border" name="auth_rep_two_address"> Apt#:<input type="text"
-                                                                                                  class="no-border"
-                                                                                                  name="auth_rep_two_apt">
-        </p>
-        <p>City <input type="text" class="no-border" name="auth_rep_two_city"> State <input type="text"
-                                                                                            class="no-border"
-                                                                                            name="auth_rep_two_state">
-            Country <input
-                type="text" class="no-border" name="auth_rep_two_country"> Zip <input type="text" class="no-border"
-                                                                                      name="auth_rep_two_zip"></p>
-        <p> Telephone <input type="text" class="no-border" name="auth_rep_two_tel"> Cell
-            <input type="text" class="no-border" name="auth_rep_two_cell">
-        </p>
-        <p> Email <input type="text" class="no-border" name="auth_rep_two_email"> Relationship to Beneficiary
-            <input type="text" class="no-border" name="auth_rep_two_relation_beneficiary">
-        </p>
-        <br>
-        <p style="background-color: #cccccc;max-width: fit-content">Would you like this representative to be the primary
-            contact? <input type="checkbox" class="no-border"
-                            name="auth_rep_two_primary1" value="Yes">Yes
-            <input type="checkbox" class="no-border" name="auth_rep_two_primary2" value="No">No
-        </p>
-        <hr>
-        <p style="color: #16b6d5"><b>REFERRING SOURCE</b></p>
-        <p> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
-            individual
-            to: Make Deposits, Request Statements and Disbursements.</p>
-        <p> Name of Agency <input type="text" class="no-border" name="referring_agency"> Name of Contact <input
-                type="text"
-                class="no-border"
-                name="referring_contact">
-        </p><br>
-        <p> Address <input type="text" class="no-border" name="referring_address"> Apt#:<input type="text"
-                                                                                               class="no-border"
-                                                                                               name="referring_apt"></p>
-        <p>City <input type="text" class="no-border" name="referring_city"> State <input type="text" class="no-border"
-                                                                                         name="referring_state"> Country
-            <input
-                type="text" class="no-border" name="referring_country"> Zip <input type="text" class="no-border"
-                                                                                   name="referring_zip"></p>
-        <p> Telephone <input type="text" class="no-border" name="referring_tel"></p>
-        <p> Email <input type="text" class="no-border" name="referring_email"> Relationship to Beneficiary<input
-                type="text"
-                class="no-border"
-                name="referring_relation_beneficiary">
-        </p>
-        <br>
-        <p style="background-color: #cccccc;max-width: fit-content">I authorize any applicable documents necessary for
-            reporting to Government Agencies to be send referring source
-            above. <input type="checkbox" class="no-border" name="referring_auth1" value="Yes">Yes
-            <input type="checkbox" class="no-border" name="referring_auth2" value="No">No
-        </p>
-
-        <p style="color: #16b6d5"><b>INFORMATION AND DISCLOSURES</b>:
-        </p>
-        <p style="font-weight: bold">
-            Death of Beneficiary:
-        </p>
-        <p style="  text-align: justify;
-  text-justify: inter-word;">
-            The Beneficiary's sub-trust account terminates upon his or her death. If, upon the death of the Beneficiary,
-            funds remain in his or her sub-trust account, such funds shall be deemed to be property of the Trust and all
-            funds that are remaining in the Beneficiary's separate sub-trust account shall be retained by TRUSTED
-            SURPLUS
-            SOLUTIONS DISABILITY POOLED TRUST to further the purposes of that Trust. However, to the extent that amounts
-            remaining in the individual's sub-trust account upon the death of the individual are not in fact retained by
-            the
-            Trust, the Trust shall pay to the State(s) from such remaining amounts in the sub-trust account an amount
-            equal
-            to the total amount of medical assistance paid on behalf of the individual under the State Medicaid plan
-            (s). To
-            the extent that the trust does not retain the funds in the account, the State(s) shall be the first payee(s)
-            of
-            any such funds and the State(s) shall have priority over payment of other debts and administrative expenses
-            except as listed in POMS SI 01120.203E.
-            Funeral expenses will only be paid pursuant to a Medicaid eligible pre-need funeral arrangement established
-            and
-            funded prior to the Beneficiary's death. Funeral expenses will not be paid after the Beneficiary's death.
-            <br><b>Contributions/Deposits:</b><br>
-            All contributions made to the sub-trust account will be held and administered pursuant to the provisions of
-            the
-            TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST which are incorporated by reference herein.
-            The Trustees shall have the sole and absolute right to accept or refuse additional deposits to the sub-trust
-            account.
-            In the event that a Beneficiary has a zero ($0) sub-trust account balance for sixty (60) or more consecutive
-            days, the Trustee shall retain the right to close the Beneficiary's sub-trust account. Please be advised
-            that
-            the Trustee may continue to charge administrative fees for the management of the sub-trust account prior to
-            its
-            closure. In the event that a Beneficiary wishes to re-open a sub-trust account, the Beneficiary may be
-            required
-            to pay any outstanding administrative fees stemming from the prior sub-trust account. Additionally, the
-            Beneficiary shall be required to pay a new enrollment fee when re-opening a sub-trust account.
-            <br><b>Disbursements: </b><br>
-            All disbursement requests shall be reviewed and approved on an individual basis.
-            Disbursements for expenses incurred more than 90 days prior to submission of a disbursement request form
-            shall
-            not be paid.
-            The Trustees, in their discretion, have determined that disbursements for the following items shall not be
-            paid:
-            purchases of firearms, alcohol, tobacco, items relating to illegal activity, bail, or restitution.
-            All disbursements shall be made at the sole and absolute discretion of the Trustee. No disbursements will be
-            made after the death of the beneficiary, even for expenses incurred or due prior to death.
-            <br>
-            <b>Disability Determination:</b> <br>
-            In the event that a determination of disability is required for Medicaid purposes, please be advised that
-            administrative fees shall be incurred while the determination of disability is being made.
-            The Donor acknowledges that contributions to the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST are not
-            tax-deductible as charitable gifts, or otherwise.
-            Sub-trust account income may be taxable to the Beneficiary.
-            <br><b>
-                Disclosure of Potential Conflict of Interest:
-            </b><br>
-            There may be a potential conflict of interest in the administration of the Trust since the Trust retains
-            those
-            funds remaining in the sub-trust account at the time of death of the Beneficiary. Funds remaining in the
-            Trust
-            may be used to pay for ancillary and/or supplemental services for Beneficiaries and potential Beneficiaries
-            for
-            which services may be rendered by TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST.
-            The Donor executing this Joinder Agreement is aware of the potential conflicts of interest that exist in the
-            Trustee's administration of the Trust. The Trustee shall not be liable to Donor or to any party for any act
-            of
-            self-dealing or conflict of interest resulting from their affiliations with SCF Charitable Organization or
-            with
-            any Beneficiary or constituent agencies and/or Chapters.
-            <br>
-            <b>
-                Situs:
-
-            </b>
-            <br>
-
-            The sub-trust account created by this Agreement has been accepted by the Trustee in the State of New York
-            and
-            will be administered by SCF Charitable Organization Inc. and a financial institution in the State of New
-            York.
-            The validity, construction, and all rights under this Agreement shall be governed by the laws of the State
-            of
-            New York. The situs of this Trust for administrative, account and legal purposes shall be in the County of
-            Kings, the County where the majority of meetings concerning establishment of the Trust occurred.
-            <br>
-            Invalidity of any Provision: <br>
-            Should any provision of this Agreement be or become invalid or unenforceable, the remaining provisions of
-            this
-            Agreement shall be and continue to be fully effective. <br>
-            By signing below, you affirm that you understand and agree to the following:
-            I have received and read a copy of the applicable Master Trust prior to the signing of this Joinder
-            Agreement
-            and acknowledge that I understand the contents thereof. I also understand that said document may be amended
-            from
-            time to time. I have been provided with the applicable fee schedule and acknowledge that I understand the
-            contents thereof. I also understand there may be changes from time to time.
-            <br>
-            I am entering into this Joinder Agreement voluntarily and acting on my own free accord.
-            The Donor acknowledges that the Beneficiary is disabled as defined in Social Security Law Section 1614(a)(3)
-            [42
-            USC 1382c(a) (3)].
-            Under penalty of perjury, all statements made in this document are true and accurate to the best of my
-            knowledge.
-            The TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST is authorized to be used by individuals with
-            disabilities
-            pursuant to federal and state law. By agreeing to accept a donor's property pursuant to this Joinder
-            Agreement,
-            TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, Inc. agrees only to manage the trust funds in accordance
-            with
-            the terms of the Master Trust Agreement and in compliance with applicable federal and state law and
-            regulation.
-            It is the sole responsibility of the donor and/or the donor's representative to determine whether the donor
-            is
-            "disabled" as that term is defined under federal law, to determine whether they have the legal authority to
-            transfer property to fund the trust, and the impact that a transfer of property to the TRUSTED SURPLUS
-            SOLUTIONS
-            DISABILITY POOLED TRUST will have on the donor's continuing eligibility for government benefit programs.
-            SCF Charitable Organization is not assuming any responsibility as counsel for the donor or Beneficiary, or
-            providing any legal advice as it relates to the consequences of a transfer of property to the TRUSTED
-            SURPLUS
-            SOLUTIONS DISABILITY POOLED TRUST.
-            The Trustees in their discretion may require an intermediary to assist in the administration of the
-            Beneficiary's sub-trust account. The cost of which may be charged to the sub-trust account.
-            The party authorized to speak with us on your behalf or the intermediary must notify TRUSTED SURPLUS
-            SOLUTIONS
-            DISABILITY POOLED TRUST, Inc. immediately upon your death and will be required to provide us with a
-            certified
-            death certificate. An individual requesting and/or receiving disbursements in contravention of the Master
-            Trust
-            Agreement and the Joinder Agreement will be required to repay the amount disbursed.
-            This Joinder Agreement and the participation of the Beneficiary in the TRUSTED SURPLUS SOLUTIONS DISABILITY
-            POOLED TRUST is an important legal decision that may have significant and lasting consequences for the
-            Beneficiary and as a result you may want to consider obtaining advice from an attorney or another
-            professional
-            adviser before entering into this Agreement. By signing this Agreement you are acknowledging that you have
-            had a
-            full and complete opportunity to confer with an attorney or other adviser and that no employee of SCF
-            Charitable
-            Organization has provided you (or the Beneficiary, if different from the person signing this Agreement) with
-            any
-            legal advice in connection with this Joinder Agreement, the participation by the Beneficiary in the TRUSTED
-            SURPLUS SOLUTIONS DISABILITY POOLED TRUST or the suitability of such participation by the Beneficiary in the
-            TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST based upon the particular circumstances of the
-            Beneficiary.
-        </p>
-
-
-        <p style="color: #16b6d5">SIGNATURE</p>
-        <p style="font-weight: bold">I certify that the above information is accurate and the completed to the best of
-            my knowledge.</p>
-
-        <div class="container-row" style="justify-content: space-around">
-
-            <div class="card-body">
-
-                <div id="signature-pad">
-                    <canvas id="signature-canvas-1"></canvas>
-                    <div>
-                        <div class="container-row">
-
-                            <button id="clear-1" style="margin-left: 10px;">Clear</button>
-                        </div>
-                        <br> SIGNATURE
-
-                    </div>
-
-                    <input type="hidden" id="joinder_signature_1" name="joinder_signature_1">
-                </div>
-            </div>
-
-
-            <p>
-                <input type="date" class="no-border" style="width: 50%" name="joinder_date">
-                <br> DATE
-            </p>
-        </div>
-        <div class="container-row">
-            <p style="width: 50%">
-                <input type="text" class="no-border" style="width: 50%" name="joinder_print">
-                <br> PRINT
-            </p>
-            <p style="width: 50%">
-                <input type="text" class="no-border" style="width: 50%" name="joinder_relationship">
-                <br> RELATIONSHIP
-            </p>
-        </div>
-        <hr>
-        <p style="color: #16b6d5">SIGNATURE OF NOTARY</p>
-        <p>STATE OF New York <input type="text" class="no-border" name="notary_state_of_ny"> SS:</p>
-        <p>COUNTY OF <input type="text" class="no-border" name="notary_county_of"> )</p>
-        <p>ON<input type="date" class="no-border" name="notary_on_date"> ,20 <input type="text" class="no-border"
-                                                                                    name="notary_year"> Before me the
-            undersigned,
-            aNotary Public in and for said State, personally appeared <input type="text"
-                                                                             class="no-border" name="notary_appeared">
-            personally known to me or proved to me on the basis of satisfactory evidence
-            to me the individual whose name is subscribed to the within instrument
-            and acknowledge to me that he/she/they executed the same in his/her capacity, and that by his/her signature
-            on the instrument, the individual or the person upon behalf of which the individual acted executed this
-            instrument.
-            <br>
-            <input type="text" class="no-border" name="notary_public">
-            <br>
-            NOTARY PUBLIC
-        </p>
-
-        <p>(New York Residents only)</p>
-        Or in lieu of Notarization, the following two witness signatures are provided:
-        <div class="container-row">
-            <p style="width: 50%">
-                <input type="text" class="no-border" style="width: 50%" name="notary_witness_one_name">
-                <br> WITNESS 1
-            </p>
-            <p style="width: 50%">
-                <input type="text" class="no-border" style="width: 50%" name="notary_witness_two_name">
-                <br> WITNESS 2
-            </p>
-        </div>
-
-
-        <div class="container-row" style="display: flex; justify-content: space-between;">
-            <div style="width: 48%;">
-                <div class="card-body">
-                    <div id="signature-pad">
-                        <canvas id="signature-canvas-2"></canvas>
-                        <div>
-                            <div class="container-row " style="justify-content: start">
-
-                                <button id="clear-2" style="margin-left: 10px;">Clear</button>
-                            </div>
-                            <br> SIGNATURE WITNESS ONE
-                        </div>
-                        <input type="hidden" id="joinder_signature_2" name="joinder_signature_2">
-                    </div>
-                </div>
-            </div>
-            <div style="width: 48%; margin-left: auto;">
-                <div class="card-body">
-                    <div id="signature-pad">
-                        <canvas id="signature-canvas-3"></canvas>
-                        <div>
-                            <div class="container-row" style="justify-content: start">
-
-                                <button id="clear-3">Clear</button>
-                            </div>
-                            <br> SIGNATURE WITNESS TWO
-                        </div>
-                        <input type="hidden" id="joinder_signature_3" name="joinder_signature_3">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container-row">
-            <p style="width: 50%">
-                <input type="text" class="no-border" style="width: 50%" name="notary_witness_one_full_name">
-                <br> FULL NAME
-            </p>
-            <p style="width: 50%">
-                <input type="text" class="no-border" style="width: 50%" name="notary_witness_two_full_name">
-                <br> FULL NAME
-            </p>
-        </div>
-        <div class="container-row">
-            <p style="width: 50%">
-                <input type="text" class="no-border" style="width: 50%" name="notary_witness_one_full_address">
-                <br> FULL ADDRESS
-            </p>
-            <p style="width: 50%">
-                <input type="text" class="no-border" style="width: 50%" name="notary_witness_two_full_address">
-                <br> FULL ADDRESS
-            </p>
-        </div>
-        <div
-            style=" color:#16b6d3; text-align: center; background-color:#daeff5; padding:1%; flex:auto">
-            <p>FOR OFFICE USE ONLY</p>
-        </div>
-        <p style="font-weight: bold">
-            Accepted by Trustee or Designated Representative of the Trustees, Trusted Supplemental Needs Trust.
-            <br>
-        <div class="container-row">
-
-
-            <div class="card-body" style="justify-content: space-around">
-
-                <div id="signature-pad">
-                    <canvas id="signature-canvas-4"></canvas>
-                    <div>
-                        <div class="container-row" style="justify-content: start">
-
-                            <button id="clear-4" style="margin-left: 10px;">Clear</button>
-                        </div>
-                        <br> SIGNATURE
-
-                    </div>
-
-                    <input type="hidden" id="joinder_signature_4" name="joinder_signature_4">
-                </div>
-            </div>
-
-
-            <p style="width: 50%">
-                <input type="date" class="no-border" style="width: 50%" name="office_use_date_approved">
-                <br> DATE APPROVED
-            </p>
-        </div>
-        <p style="width: 50%">
-            <input type="text" class="no-border" style="width: 50%" name="office_use_title">
-            <br> TITLE
-        </p>
-
-        <br>
-        <div class="container-row">
-            <img src="{{ asset('images/intrustpit.png') }}" alt="Logo Image">
-            <table>
-                <tr>
-                    <td colspan="2">
-                        FOR OFFICE USE ONLY
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Member ID#:
-                    </td>
-                    <td>
-                        <input type="text" class="no-border" name="office_use_member_id_above">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Effective Date
-                    </td>
-                    <td>
-                        <input type="date" class="no-border" name="office_use_effective_date">
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <p style="color: #16b6d5">DIRECT DEBIT REQUEST FORM</p>
-        <p>
-            Donor/Beneficiary: <input type="text" class="no-border" name="direct_debit_donor_beneficiary"> <br>
-            Representative:<input type="text" class="no-border" name="direct_debit_representative"> <br>
-        </p>
-        <div>
-            <p>
-                Bank Name: <input type="text" class="no-border" name="direct_debit_bank_name">
-                City: <input type="text" class="no-border" name="direct_debit_city">
-                State: <input type="text" class="no-border" name="direct_debit_state">
-            </p>
-        </div>
-        <br>
-        <div>
-            <p>
-                Bank Routing Number: <input type="text" class="no-border" name="direct_debit_bank_routing">
-                Account Number: <input type="text" class="no-border" name="direct_debit_account_number">
-            </p>
-        </div>
-        <div>
-            <p>
-                Account Name: <input type="text" class="no-border" name="direct_debit_account_name">
-            </p>
-            <p style="max-width: fit-content;background-color:#cccccc">
-                Account type<input type="checkbox" class="no-border" name="direct_debit_bank_type1" value="Checking">
-                Checking
-                <input type="checkbox" class="no-border" name="direct_debit_bank_type2" value="Savings"> Savings
-            </p>
-        </div>
-        <p>
-            PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.
-        </p>
-        <p>
-            I authorize and request Trusted Pooled Trust to initiate debit entries to my account at the depository
-            financial
-            institution indicated above. This authorization is to remain in full force and affect until Trusted has
-            written
-            notification from me of its termination in such time and manner as to afford Trusted and depository
-            financial
-            institution a reasonable opportunity to act on it.
-        </p>
-        <p style="font-weight: bold">
-            Beneficiary/Representative Signature:
-        <div class="card-body" style="justify-content: space-around">
-
-            <div id="signature-pad">
-                <canvas id="signature-canvas-5"></canvas>
+            <div class="header-contact">
                 <div>
-                    <div class="container-row" style="justify-content: start">
-
-                        <button id="clear-5" style="margin-left: 10px;">Clear</button>
-                    </div>
-                    <br> SIGNATURE
-
+                    <p>Tel: 718.500.3235</p>
+                    <p>Fax: 718.500.3225</p>
                 </div>
-
-                <input type="hidden" id="joinder_signature_5" name="joinder_signature_5">
+                <div>
+                    <p>info@slctrusts.org</p>
+                </div>
+                <div>
+                    <p class="header-email">seniorlifecaretrusts.org</p>
+                </div>
             </div>
         </div>
+    </header>
+    <main>
+        <!-- Page 1 -->
+         <section>
+             <div class="supplemental-header">
+                 <p class="supplemental-header-heading">
+                     SLC SUPPLEMENTAL NEEDS TRUST
+                 </p>
+                 <p class="supplemental-header-title">
+                     Joinder Agreement / Beneficiary Profile Sheet
+                 </p>
+             </div>
+             <div class="supplemental-des">
+                 <p>
+                     This is a legal document. It is an agreement pertaining
+                     to a
+                     supplemental needs trust created pursuant to 42 United
+                     States Code
+                     §1396p(d)(4). You are encouraged to seek independent,
+                     professional
+                     advice before signing this agreement. The undersigned
+                     hereby adopts,
+                     enrolls in and establishes a sub-trust account under the
+                     SLC
+                     Supplemental Needs Trust, dated December 24, 2017.
+                 </p>
+                 <p>
+                     NOTE: All questions must be answered or your application
+                     will be
+                     delayed.
+                 </p>
+             </div>
 
-        <table>
-            <tr>
-                <td colspan="6">
-                    <p style="font-weight: bold">For Office Use:</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Account#:
-                </td>
-                <td>
-                    <input type="text" class="no-border" name="office_use_account_number">
-                </td>
-                <td>
-                    MemberID#:
-                </td>
-                <td>
-                    <input type="text" class="no-border" name="office_use_member_id_below">
-                </td>
-                <td>
-                    Processed By:
-                </td>
-                <td>
-                    <input type="text" class="no-border" name="office_use_processed_by">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    <p>
-                        Monthly Debit Amount: $ <input type="text" class="no-border"
-                                                       name="office_use_monthly_debit_amount">
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    <p>
-                        Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or
-                        around
-                        the date selected)
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    <p>
-                        Date of Monthly Debit: <input type="date" class="no-border"
-                                                      name="office_use_monthly_debit_date">
-                        First Debit Month:: <input type="text" class="no-border"
-                                                   name="office_use_monthly_debit_first_month">
+             <!-- BENEFICIARY INFORMATION -->
+    
+             <div class="beneficiary-information">
+                 <div class="beneficiary-indormation-header">
+                     <h3 class="beneficiary-heading">BENEFICIARY
+                         INFORMATION</h1>
+                         <p class="beneficiary-des">The Beneficiary and Donor
+                             must always be the same person. Only funds
+                             belonging to the Beneficiary may be contributed to
+                             the Trust</p>
+                 </div>
+                 <div class="beneficiary-information-form">
+                     <div>
+                         <div class="beneficiary-information-name-form">
+                             <label class="label-name">Name:</label>
+                             <div class="name-form-container">
+                                 <div class="name-form">
+                                     <input type="text" name="sponsor_first_name" value="{{$referral->first_name}}" id="first" class="inp-first"  > <br>
+                                     <span>First</span>
+                                 </div>
+                                 <div class="name-form">
+                                     <input type="text" name="sponsor_middle_name" id="middle" class="inp-middle"> <br>
+                                     <span>Middle</span>
+                                 </div>
+                                 <div class="name-form">
+                                     <input type="text" name="sponsor_last_name" value="{{$referral->last_name}}" id="last" class="inp-last"> <br>
+                                     <span>Last</span>
+                                 </div>
+                             </div>
+                             <div class="martial-status">
+                                 <div class="status">
+                                     <div style="min-width: fit-content;">
+                                         <label class="label-status">Marital Status</label>
+                                     </div>
+                                     <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
+                                         <input  type="checkbox" value="Married" name="sponsor_marital_status1" class="married" id="married">Married
+                                     </div>
+                                     <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
+                                         <input type="checkbox" value="Widowed" name="sponsor_marital_status2" class="widowed" id="widowed">Widowed
+                                     </div>
+                                     <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
+                                         <input type="checkbox" value="Single" name="sponsor_marital_status3" class="single" id="label">Single
+                                     </div>
+    
+                                 </div>
+                                 <div class="gender">
+                                     <label for="gender">Gender</label>
+                                     <input type="text"  name="sponsor_gender" value="{{$referral->gender}}" id="gender" class="inp-gender">
+                                 </div>
+                             </div>
+                             <div class="name-form-container">
+                                 <div class="security-form">
+                                 <input type="text" class="inp-last" name="sponsor_ssn" value="{{$referral->patient_ssn}}">
+                                          <br>
+                                     <span>Social Security Number</span>
+                                 </div>
+                                 <div class="dob-form">
+                                 <input type="date" class="inp-last" name="sponsor_dob" value="{{$referral->date_of_birth}}">
+                                      <br>
+                                     <span>Date of Birth</span>
+                                 </div>
+                                 <div class="citizenship-form">
+                                    <div class="custom-radio">
+                                        <input type="checkbox" name="sponsor_citizen1" value="Yes"> Yes
+                                        <input type="checkbox" name="sponsor_citizen2" value="No"> No
+                                    </div>
+                                     <span>Citizenship</span>
+                                 </div>
+                             </div>
+    
+                             <div class="contact">
+                                 <label class="label-name">Contact
+                                     Information:</label>
+                                 <div class="contact-form-container">
+                                     <div class="contact-form">
+                                         <input type="text" name="sponsor_tel_home" id="home-phone" class="home-phone"> <br>
+                                         <span>Home Phone</span>
+                                     </div>
+                                     <div class="contact-form">
+                                         <input type="text" name="sponsor_tel_cell" value="{{$referral->phone_number}}" id="cell-phone" class="cell-phone"> <br>
+                                         <span>Cell Phone</span>
+                                     </div>
+                                 </div>
+                             </div>
+    
+                             <div class="preferred-phone">
+                                 <div>
+                                     <label class="label-status">Preferred Phone</label>
+                                 </div>
+                                 <div>
+                                     <input type="checkbox" value="Cell" name="prefered_cell" class="cell" id="cell">
+                                     <label for="">Cell</label>
+                                 </div>
+                                 <div>
+                                     <input type="checkbox" value="Phone" name="prefered_phone" id="phone" class="phone">
+                                     <label for="">Home</label>
+                                 </div>
+                             </div>
+    
+                             <div class="email-form">
+                                 <input type="email" name="beneficiary_email" id="email" class="inp-first"> <br>
+                                 <span>Email</span>
+                             </div>
+                         </div>
+                         <div class="beneficiary-information-address-form">
+                             <label class="label-name">Address:</label>
+                             <div class="address-form-container">
+                                 <div class="address-form">
+                                     <input type="text" name="sponsor_address"  value="{{$referral->address}}" id="address" class="address"> <br>
+                                     <span>Address</span>
+                                 </div>
+                                 <div class="apt-form">
+                                     <input type="text" name="sponsor_apt" value="{{$referral->apt_suite}}" id="apt" class="apt"> <br>
+                                     <span>Apt #</span>
+                                 </div>
+                                 <div class="city-form">
+                                     <input type="text" name="sponsor_city" value="{{$referral->city}}" id="city" class="city"> <br>
+                                     <span>City</span>
+                                 </div>
+                                 <div class="state-form">
+                                     <input type="text"  name="sponsor_state" value="{{$referral->state}}" id="state" class="state"> <br>
+                                     <span>State</span>
+                                 </div>
+                                 <div class="zip-form">
+                                     <input type="text" name="sponsor_zip" value="{{$referral->zip_code}}" id="zip" class="zip"> <br>
+                                     <span>Zip</span>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="qualifying-disabilities">
+                             <label class="label-name">Qualifying
+                                 Disabilities:</label>
+                             <div class="disabilities">
+                                 <div class="d1-form">
+                                     <span>1.</span>
+                                     <input type="text" name="d1" id="d1" class="d1">
+                                 </div>
+                                 <div class="d2-form">
+                                     <span>2.</span>
+                                     <input type="text" name="d2" id="d2" class="d2">
+                                 </div>
+                                 <div class="d3-form">
+                                     <span>3.</span>
+                                     <input type="text" name="d3" id="d3" class="d3">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="mail-trust">
+                             <p>Please mail all trust documents to:</p>
+                             <div class="mail-trust-des">
+                                 <p>SLC Supplemental Needs Trust</p>
+                                 <p>5014-16th Ave, Suite 489</p>
+                                 <p>Brooklyn, NY 11204</p>
+                             </div>
+                         </div>
+                     </div>
 
-                    </p>
-                </td>
-            </tr>
-        </table>
-        <p>
-            If any direct debits are returned for insufficient funds, a $53 charge will apply
-            A $100 annual-renewal fee will be charged on the anniversary of the account
-        </p>
+                 </div>
+                 <div class="footer-living-arrangements">
+                    <div class="footer-left">
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                            NEEDS TRUST</p>
+                    </div>
+                    <div class="footer-mid">
+                        <p class="footer-mid-dis">1</p>
+                    </div>
+                    <div class="footer-right">
+                        <p class="footer-right-dis">JOINDER
+                            AGREEMENT</p>
+                    </div>
+                </div>
+             </div>
 
-        <button type="submit" class="submit-button"> Submit</button>
-    </form>
+         </section>
+
+
+         <!-- Page 2 -->
+
+          <section>
+              <!-- AUTHORIZED REPRESENTATIVES: -->
+              <div class="authorized-representative">
+                  <div>
+                      <div class="authorized-representative-header">
+                          <h3 class="authorized-heading">AUTHORIZED
+                              REPRESENTATIVES:</h1>
+                              <div class="authorized-des">
+                                  <p style="min-width: fit-content;">Who will be your primary contact?</p>
+                                  <div class="authorized-des-checkbox">
+                                      <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
+                                          <input type="checkbox" name="auth_beneficiary"
+                                          value="Beneficiary" id="beneficiary" class="beneficiary">
+                                          <label for="beneficiary">Beneficiary</label>
+                                      </div>
+                                      <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
+                                          <input type="checkbox" name="auth_auth_1" id="auth-1" 
+                                          value="Auth. Rep.1"
+                                          class="auth-1">
+                                          <label for="auth-1">Auth. Rep. 1</label>
+                                      </div>
+                                      <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
+                                          <input type="checkbox" name="auth_auth_2" 
+                                          value="Auth. Rep. 2"
+                                          id="auth-2" class="auth-2">
+                                          <label for="auth-2">Auth. Rep. 2</label>
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                      <div class="authorized-representative-body">
+                          <div class="authorized-representative-body-content-1">
+                              <div class="authorized-representative-body-content-1-des">
+                                  <p>The following individual will be
+                                      authorized to communicate with SLC
+                                      Supplemental Needs Trust. I authorize
+                                      this individual to: Make Deposits,
+                                      Request Statements and Request
+                                      Disbursements.</p>
+                              </div>
+                              <div class="authorized-representative-body-content-1-form">
+                                  <h4>Authorized Representative #1</h4>
+                                  <div class="authorized-representative-container">
+                                      <div class="authorized-name-form">
+                                          <input type="text" name="auth_rep_one_fname" id="authorized-first"
+                                              class="authorized-inp-first">
+                                          <br>
+                                          <span>First</span>
+                                      </div>
+                                      <div class="authorized-name-form">
+                                          <input type="text" name="auth_rep_one_lname" id="authorized-last"
+                                              class="authorized-inp-last">
+                                          <br>
+                                          <span>Last</span>
+                                      </div>
+                                  </div>
+                                  <div class="authorized-contact-form-container">
+                                      <h4>Contact Information</h4>
+                                      <div class="authorized-contact-form-content">
+                                          <div class="authorized-home-form">
+                                              <input type="text" name="auth_rep_one_tel"
+                                                  id="authorized-home-form-inp" class="authorized-home-form-inp">
+                                              <br>
+                                              <span>Home Phone</span>
+                                          </div>
+                                          <div class="authorized-cell-form">
+                                              <input type="text" name="auth_rep_one_cell"
+                                                  id="authorized-cell-form-inp" class="authorized-cell-form-inp">
+                                              <br>
+                                              <span>Cell Phone</span>
+                                          </div>
+                                          <div class="authorized-preferred-form">
+                                              <label for>Preferred
+                                                  Phone</label>
+                                              <div class="authorized-preferred-form-checkbox">
+                                                  <div>
+                                                      <input type="checkbox" name="authorized_preferred_cell_form_inp"
+                                                          id="authorized-preferred-cell-form-inp"
+                                                          class="authorized-preferred-cell-form-inp"
+                                                           value="Authorized_1_cell"
+                                                          >
+                                                      <span>Cell</span>
+                                                  </div>
+                                                  <div>
+                                                      <input type="checkbox" name="authorized_preferred_cell_home_inp"
+                                                          id="authorized-preferred-home-form-inp"
+                                                          class="authorized-preferred-home-form-inp"
+                                                          value="Authorized_1_home"
+                                                          >
+                                                      <span>Home</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+    
+                                      </div>
+    
+                                      <div class="authorized-contact-form-container-2">
+                                          <div class="authorized-contact-form-2">
+                                              <input type="text" name="auth_rep_one_email"
+                                                  id="authorized-contact-form-2-email"
+                                                  class="authorized-contact-form-2-email">
+                                              <br>
+                                              <span>Email</span>
+                                          </div>
+                                          <div class="authorized-contact-form-2-relationship-container">
+                                              <label style="min-width: fit-content;">Relationship
+                                                  to Beneficiary</label>
+                                              <input type="text"
+                                                 class="inp-last"
+                                                  id="authorized-contact-form-2-relationship"
+                                                  name="auth_rep_one_relation_beneficiary">
+                                          </div>
+                                      </div>
+                                      <div class="authorized-address-form">
+                                          <label class="label-name">Address:</label>
+                                          <div class="address-form-container">
+                                              <div class="address-form">
+                                                  <input type="text" name="auth_rep_one_address" id="address" class="address"> <br>
+                                                  <span>Address</span>
+                                              </div>
+                                              <div class="apt-form">
+                                                  <input type="text" name="auth_rep_one_apt" id="apt" class="apt"> <br>
+                                                  <span>Apt #</span>
+                                              </div>
+                                              <div class="city-form">
+                                                  <input type="text" name="auth_rep_one_city" id="city" class="city"> <br>
+                                                  <span>City</span>
+                                              </div>
+                                              <div class="state-form">
+                                                  <input type="text" name="auth_rep_one_state" id="state" class="state"> <br>
+                                                  <span>State</span>
+                                              </div>
+                                              <div class="zip-form">
+                                                  <input type="text" 
+                                                  name="auth_rep_one_zip" id="zip" class="zip"> <br>
+                                                  <span>Zip</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="authorized-representative-body-content-2">
+                              <div class="authorized-representative-body-content-1-des">
+                                  <p>The following individual will be
+                                      authorized to communicate with SLC
+                                      Supplemental Needs Trust. I authorize
+                                      this individual to: Make Deposits,
+                                      Request Statements and Request
+                                      Disbursements.</p>
+                              </div>
+                              <div class="authorized-representative-body-content-1-form">
+                                  <h4>Authorized Representative #2</h4>
+                                  <div class="authorized-representative-container">
+                                      <div class="authorized-name-form">
+                                          <input type="text" name="auth_rep_two_fname" id="authorized-first"
+                                              class="authorized-inp-first">
+                                          <br>
+                                          <span>First</span>
+                                      </div>
+                                      <div class="authorized-name-form">
+                                          <input type="text" name="auth_rep_two_lname" id="authorized-last"
+                                              name="auth_rep_one_lname" class="authorized-inp-last">
+                                          <br>
+                                          <span>Last</span>
+                                      </div>
+                                  </div>
+                                  <div class="authorized-contact-form-container">
+                                      <h4>Contact Information</h4>
+                                      <div class="authorized-contact-form-content">
+                                          <div class="authorized-home-form">
+                                              <input type="text" name="auth_rep_two_tel"
+                                                  id="authorized-home-form-inp" class="authorized-home-form-inp">
+                                              <br>
+                                              <span>Home Phone</span>
+                                          </div>
+                                          <div class="authorized-cell-form">
+                                              <input type="text" name="auth_rep_two_cell"
+                                                  id="authorized-cell-form-inp" class="authorized-cell-form-inp">
+                                              <br>
+                                              <span>Cell Phone</span>
+                                          </div>
+                                          <div class="authorized-preferred-form">
+                                              <label for>Preferred
+                                                  Phone</label>
+                                              <div class="authorized-preferred-form-checkbox">
+                                                  <div>
+                                                      <input type="checkbox" name="authorized_preferred_cell2"
+                                                      value="Cell"
+                                                          id="authorized-preferred-cell-form-inp"
+                                                          class="authorized-preferred-cell-form-inp">
+                                                      <span>Cell</span>
+                                                  </div>
+                                                  <div>
+                                                      <input type="checkbox"
+                                                      value="Home"
+                                                       name="authorized_preferred_phone2"
+                                                          id="authorized-preferred-home-form-inp"
+                                                          class="authorized-preferred-home-form-inp">
+                                                      <span>Home</span>
+                                                  </div>
+                                              </div>
+                                          </div>
+    
+                                      </div>
+    
+                                      <div class="authorized-contact-form-container-2">
+                                          <div class="authorized-contact-form-2">
+                                              <input type="text" name="authorized-contact-form-2-email"
+                                                  name="auth_rep_two_email"
+                                                  class="authorized-contact-form-2-email">
+                                              <br>
+                                              <span>Email</span>
+                                          </div>
+                                          <div class="authorized-contact-form-2-relationship-container">
+                                              <label style="width: 100%;text-align: right;">Relationship
+                                                  to Beneficiary</label>
+                                              <input type="text" name="auth_rep_two_relation_beneficiary"
+                                                  id="authorized-contact-form-2-relationship"
+                                                  class="authorized-contact-form-2-relationship">
+                                          </div>
+                                      </div>
+                                      <div class="authorized-address-form">
+                                          <label class="label-name">Address:</label>
+                                          <div class="address-form-container">
+                                              <div class="address-form">
+                                                  <input type="text" name="auth_rep_two_address" id="address" class="address"> <br>
+                                                  <span>Address</span>
+                                              </div>
+                                              <div class="apt-form">
+                                                  <input type="text" name="auth_rep_two_apt" id="apt" class="apt"> <br>
+                                                  <span>Apt #</span>
+                                              </div>
+                                              <div class="city-form">
+                                                  <input type="text" name="auth_rep_two_city" id="city" class="city"> <br>
+                                                  <span>City</span>
+                                              </div>
+                                              <div class="state-form">
+                                                  <input type="text" name="auth_rep_two_state" id="state" class="state"> <br>
+                                                  <span>State</span>
+                                              </div>
+                                              <div class="zip-form">
+                                                  <input type="text" name="auth_rep_two_zip" id="zip" class="zip"> <br>
+                                                  <span>Zip</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+    
+              <!-- REFERRING SOURCE -->
+    
+              <div class="referring-source">
+                  <div>
+                      <div class="referring-source-header">
+                          <h3 class="authorized-heading">REFERRING SOURCE</h3>
+                      </div>
+                      <div class="referring-source-body">
+                          <div class="referring-source-form">
+                              <input type="text" name="referring_agency" class="referring-source-agency">
+                              <br>
+                              <span>Name of Agency</span>
+                          </div>
+                          <div class="referring-source-form">
+                              <input type="text" class="referring-source-contract" name="referring_contract">
+                              <br>
+                              <span>Name of Contract</span>
+                          </div>
+                          <div class="referring-source-form">
+                              <input type="text" name="referring_tel" class="referring-source-home">
+                              <br>
+                              <span>Home</span>
+                          </div>
+                          <div class="referring-source-form">
+                              <input name="referring_email" type="text" class="referring-source-email">
+                              <br>
+                              <span>Email</span>
+                          </div>
+                          <div class="address-form">
+                              <input type="text" name="referring_address" class="address"> <br>
+                              <span>Address</span>
+                          </div>
+                          <div class="apt-form">
+                              <input type="text" name="referring_apt" class="apt"> <br>
+                              <span>Apt #</span>
+                          </div>
+                          <div class="city-form">
+                              <input type="text" name="referring_city" id="city" class="city"> <br>
+                              <span>City</span>
+                          </div>
+                          <div class="state-form">
+                              <input type="text" name="referring_state" id="state" class="state"> <br>
+                              <span>State</span>
+                          </div>
+                          <div class="zip-form">
+                              <input type="text" name="referring_zip" id="zip" class="zip"> <br>
+                              <span>Zip</span>
+                          </div>
+    
+                      </div>
+                      <div class="referring-source-para">
+                          <p style="font-size: 18px;word-spacing: 3px;">I
+                              Authorize any applicable documents necessary for
+                              reporting to Government Agencies to be<br>sent
+                              to the referring source above.
+                              <input type="checkbox" name="referring_auth1" value="Yes" id="referring-source-para-yes">
+                              <label for="referring-source-para-yes">Yes</label>
+                              <input type="checkbox" name="referring_auth2" value="No" id="referring-source-para-no">
+                              <label for="referring-source-para-no">No</label>
+                          </p>
+                      </div>
+                  </div>
+                  <div class="footer-living-arrangements">
+                    <div class="footer-left">
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                            NEEDS TRUST</p>
+                    </div>
+                    <div class="footer-mid">
+                        <p class="footer-mid-dis">2</p>
+                    </div>
+                    <div class="footer-right">
+                        <p class="footer-right-dis">JOINDER
+                            AGREEMENT</p>
+                    </div>
+                </div>
+                </div>
+          </section>
+
+          <!-- Page 3 -->
+
+          <section>
+            
+              <!-- PURPOSE OF ENROLLMENT -->
+              <div class="purpose-of-enr-container">
+                  <div>
+                      <div class="purpose-of-enr-header">
+                          <h3 class="authorized-heading">PURPOSE OF
+                              ENROLLMENT</h3>
+                      </div>
+                      <div class="purpose-of-enr-body">
+                          <p style="font-size: 18px;">Indicate reason for
+                              establishing an account.</p>
+                          <div class="purpose-of-enr-checkbox">
+                              <div>
+                                  <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income" id="purpose-of-enr-income">
+                                  <label >Shelter
+                                      Monthly Excess
+                                      Income</label>
+                              </div>
+                              <div>
+                                  <input type="checkbox" name="account_establishing_reason2" value="Shelter Excess Resources" id="purpose-of-enr-shelter">
+                                  <label >Shelter
+                                      Excess Resources</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+    
+              <!-- MEDICAID INFORMATION -->
+    
+              <div class="medicaid-information">
+                  <div class="medicaid-information-header">
+                      <h3 class="authorized-heading">MEDICAID INFORMATION</h3>
+                  </div>
+                  <div class="medicaid-information-body">
+                      <table>
+                          <thead>
+                              <tr class="medicaidl-thead">
+                                  <td>Please Attach MAP / LDSS Notice of
+                                      Decision</td>
+                                  <td>Applicant</td>
+                                  <td>Spouse</td>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr class="medicaidl-tbody">
+                                  <td>Application Status Does the beneficiary
+                                      receive Medicaid?</td>
+                                  <td>
+                                      <div class="applicant">
+                                          <div>
+                                              <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes" id="applicant-yes">
+                                              <label for="applicant-yes"> Yes</label>
+                                          </div>
+                                          <div>
+                                              <input type="checkbox" name="beneficiary_receive_medicaid_applicant2" value="No" id="applicant-no"> <label
+                                                  for="applicant-no"> No</label>
+                                          </div>
+                                          <div>
+                                              <input type="checkbox" name="beneficiary_receive_medicaid_applicant3" value="Pending" id="applicant-pending"><label for="applicant-pending"> Pending</label>
+                                          </div>
+    
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="applicant">
+                                          <div>
+                                              <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes" id="spouse-yes">
+                                              <label for="spouse-yes"> Yes</label>
+                                          </div>
+                                          <div>
+                                              <input type="checkbox" name="beneficiary_receive_medicaid_spouse2" value="No" id="spouse-no">
+                                              <label for="spouse-no"> No</label>
+                                          </div>
+                                          <div>
+                                              <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending" id="spouse-pending">
+                                              <label for="spouse-pending"> Pending</label>
+                                          </div>
+    
+                                      </div>
+    
+                                  </td>
+                              </tr>
+                              <tr class="medicaidl-tbody">
+                                  <td>CIN Number/medicaid Number</td>
+                                  <td>
+                                    <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                        <div>
+                                            <span>$</span>
+                                        </div>
+                                        <div>
+                                            <input name="applicant_medicaid_cin_number" style="border: none; border-bottom: 1px solid black;" type="text" >
+                                        </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                        <div>
+                                            <span>$</span>
+                                        </div>
+                                        <div>
+                                            <input name="spouse_medicaid_cin_number" style="border: none; border-bottom: 1px solid black;" type="text"  >
+                                        </div>
+                                    </div>
+                                  </td>
+                              </tr>
+                              <tr class="medicaidl-tbody">
+                                  <td>Monthly Spend Down $</td>
+                                  <td>
+                                    <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                        <div>
+                                            <span>$</span>
+                                        </div>
+                                        <div>
+                                            <input style="border: none; border-bottom: 1px solid black;" type="text"  name="medicaid_applicant_monthly_spend_down">
+                                        </div>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                        <div>
+                                            <span>$</span>
+                                        </div>
+                                        <div>
+                                            <input style="border: none; border-bottom: 1px solid black;" type="text"  name="medicaid_spouse_monthly_spend_down">
+                                        </div>
+                                    </div>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="medicaid-information-footer">
+                      <p>If the Beneficiary receives other benefits, such as
+                          Food Stamps, HUD Section 8, etc. list these benefits <br>and monthly amounts
+                          <input type="text" name="beneficiary_benefits"
+                              class="medicaid-information-footer-inp" id="medicaid-information-footer-inp">
+                      </p>
+                  </div>
+                </div>
+    
+    
+              <!-- HOUSEHOLD INCOME -->
+    
+              <div class="household-income">
+                  <div>
+                      <div class="household-income-header">
+                          <h3 class="authorized-heading">HOUSEHOLD INCOME</h3>
+                      </div>
+                      <div class="household-income-body">
+                        
+                          <div class="spouse-info">
+                              <h4>Spouse Information</h4>
+                              <span> (please include proof of income)</span>
+                          </div>
+                          <div style="gap: 5px;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;">
+                              <div class="spouse-deceased">
+                                  <p>Is Spouse Deceased?</p>
+                                  <div>
+                                      <input type="checkbox" name="spouse_decreased1" value="Yes" id="dec-yes" class="dec-yes">
+                                      <label for="dec-yes">Yes</label>
+                                  </div>
+                                  <div>
+                                      <input type="checkbox" name="spouse_decreased2" value="No" id="dec-no" class="dec-no">
+                                      <label for="dec-no">No</label>
+                                  </div>
+                              </div>
+                              <div class="spouse-applying">
+                                  <p style="min-width: fit-content;">Is Applicant & Spouse Applying Together?</p>
+                                  <div class="spouse-applying-check">
+                                      <div>
+                                          <input type="checkbox" name="applying_together1" value="Yes" id="app-yes" class="app-yes">
+                                          <label for="app-yes"> Yes</label>
+                                      </div>
+                                      <div>
+                                          <input type="checkbox" name="applying_together2" value="No" id="app-no" class="app-no">
+                                          <label for="app-no"> No</label>
+                                      </div>
+                                      <div>
+                                          <p>If Yes, Fill in Spouse’s Income.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+    
+                          <div style="gap: 5px;
+                      display: flex;
+                      flex-direction: column;
+                      justify-content: center;">
+    
+                              <div class="house-hold-name">
+                                  <span>Name:</span>
+                                  <div class="house-hold-first-form">
+                                      <label for="house-hold-first">First</label>
+                                      <input type="text" name="spouse_fname" id="house-hold-first"  class="house-hold-first">
+                                  </div>
+                                  <div class="house-hold-last-form">
+                                      <label for="house-hold-last">Last</label>
+                                      <input type="text" name="spouse_lname" id="house-hold-last" class="house-hold-last">
+                                  </div>
+                              </div>
+                              <div class="spouse-applying">
+                                  <p>Spouse applied for Medicaid with beneficiary?</p>
+                                  <div class="spouse-applying-check">
+                                      <div>
+                                          <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes" id="med-yes" class="med-yes">
+                                          <label for="med-yes"> Yes</label>
+                                      </div>
+                                      <div>
+                                          <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary2" value="No" id="med-no" class="med-no">
+                                          <label for="med-no"> No</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+    
+                          <div>
+                              <table>
+                                  <thead>
+                                      <tr class="ind-th">
+                                          <td>TYPE OF BENEFIT MONTHLY AMOUNT</td>
+                                          <td>Applicant</td>
+                                          <td>Spouse</td>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr class="individual-tr">
+                                          <td>Supplement Security Income (SSI)</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_ssi">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_ssi">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>Social Security Disability Income (SSDI)</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_ssdi">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_ssdi">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>Social Security Retirement Income (SSA)</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_ssa">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_ssa">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>VA Benefits</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_va_ben">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_va_ben">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>Employment Benefits</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_employee_ben">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_employee_ben">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>Survivor Benefits</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_survivor_ben">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_survivor_ben">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>IRA Distribution</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_ira_dist">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_ira_dist">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>Pensions / Annuities</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_pension_annuities">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_pension_annuities">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>Interest / Dividends</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_interest_dividends">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_interest_dividends">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>Reparations</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_reparations">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_reparations">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                      <tr class="individual-tr">
+                                          <td>Other</td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_other">
+                                                </div>
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                                <div>
+                                                    <span>$</span>
+                                                </div>
+                                                <div>
+                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_other">
+                                                </div>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                          <div class="house-hold-note">
+                              <p>Please Note: All disbursements must be for sole benefit of the account beneficiary. <br>A
+                                  spouse is not a beneficiary for the account.</p>
+                          </div>
+    
+                      </div>
+</div>
+                  <div class="footer-living-arrangements">
+                    <div class="footer-left">
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                            NEEDS TRUST</p>
+                    </div>
+                    <div class="footer-mid">
+                        <p class="footer-mid-dis">3</p>
+                    </div>
+                    <div class="footer-right">
+                        <p class="footer-right-dis">JOINDER
+                            AGREEMENT</p>
+                    </div>
+                </div>
+                </div>
+          </section>
+
+
+
+
+
+            <!-- Page 4 -->
+
+            <section class="applicable-item">
+                <div class="applicable-item-para">
+                    <p style="text-align: center;">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECCESARY PROOF.
+                    </p>
+                </div>
+                <!-- HEALTHCARE PREMIUMS -->
+                <div class="healthcare-premium">
+                    <div class="healthcare-premium-header">
+                        <h3 class="healthcare-premium-header-heading">HEALTHCARE PREMIUMS</h3>
+                    </div>
+                    <div class="healthcare-premium-body">
+                        <div style="display: flex;
+                        justify-content: space-between;
+                        align-items: center;">
+                            <div style="display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;">
+                                <p>Medicare Part:</p>
+                                <div style="display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 10px;">
+                                    <div>
+                                        <input type="checkbox" 
+                                        value="B"
+                                        name="healthcare_b" id="healthcare-b"
+                                            class="healthcare-b">
+                                        <label for="healthcare-b">B</label>
+                                    </div>
+                                    <div>
+                                        <input 
+                                        value="D"
+                                        type="checkbox" name="healthcare_d" id="healthcare-d"
+                                            class="healthcare-d">
+                                        <label for="healthcare-d">D</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;">
+                                <p>Does the applicant have a supplemental policy?</p>
+                                <div style="display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 10px;">
+                                    <div>
+                                        <input 
+                                        value="Yes"
+                                        type="checkbox" name="supplemental_yes" id="supplemental_yes">
+                                        <label for="supplemental_yes">Yes</label>
+                                    </div>
+                                    <div>
+                                        <input
+                                        value="No"
+                                         type="checkbox" name="supplemental_no" id="supplemental_no">
+                                        <label for="supplemental_no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: flex-start; align-items: center;">
+                            <!-- <div> -->
+                                <span style="min-width: fit-content;">If yes, what is the monthly premium? $</span>
+                                <input type="text" name="healthcare_partb_premium" id="healthcare-pre"
+                                    style="border: none; border-bottom: 1px solid black; ">
+                            <!-- </div> -->
+                            <!-- <div style="width: 50%;"> -->
+                                <span style="min-width: fit-content;"> Plan Name?</span>
+                                <input type="text" name="healthcare_partb_plan" id="healthcare-plan"
+                                    style="border: none; border-bottom: 1px solid black; flex: 1;">
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FUNERAL INFORMATION -->
+
+                <div class="funeral-information">
+                    <div class="funeral-information-header">
+                        <h3 class="healthcare-premium-header-heading">FUNERAL INFORMATION</h3>
+                    </div>
+                    <div class="funeral-information-body">
+                        <div style="display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;">
+                            <p>Does the Beneficiary have any funeral provisions in place?</p>
+                            <div style="display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;">
+                                <div>
+                                    <input type="checkbox" name="funeral_information_body_yes"
+                                    value="Yes"
+                                        id="funeral-information-body-yes" class="funeral-information-body-yes">
+                                    <label for="funeral-information-body-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="funeral_information_body_no"
+                                    value="No"
+                                        id="funeral-information-body-no">
+                                    <label for="funeral-information-body-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>If you answered yes, please attach funeral provision documents.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LIFE INSURANCE INFORMATION -->
+
+                <div class="life-insurance-information">
+                    <div class="life-insurance-information-header">
+                        <h3 class="healthcare-premium-header-heading">LIFE INSURANCE INFORMATION</h3>
+                    </div>
+                    <div class="life-insurance-information-body">
+                        <div class="life-insurance-information-body-info">
+                            <div style="display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            gap: 10px;">
+                                <p>Is there a life insurance policy in place for the Beneficiary?</p>
+                                <div style="display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 10px;">
+                                    <div>
+                                        <input type="checkbox"
+                                        value="Yes"
+                                         name="life_insurance_information_body_yes"
+                                            id="life-insurance-information-body-yes"
+                                            class="life-insurance-information-body-yes">
+                                        <label for="life-insurance-information-body-yes">Yes</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox"
+                                        value="No"
+                                         name="life_insurance_information_body_no"
+                                            id="life-insurance-information-body-no">
+                                        <label for="life-insurance-information-body-no">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p>If you answered yes, please attach funeral provision documents</p>
+                            </div>
+                        </div>
+                        <div class="life-insurance-information-body-form">
+                            <div style="display: flex;
+                            width: 100%;
+                            justify-content: space-between;
+                            align-items: center; gap: 5px;">
+                                <div style="width: 50%;
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;">
+                                    <p>Name of Insured</p>
+                                    <input type="text" name="insured_name" id="healthcare-pre"
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                </div>
+                                <div style="width: 50%;
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;">
+                                    <p>Name of Owner</p>
+                                    <input type="text" name="insured_owner" id="healthcare-plan"
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                </div>
+                            </div>
+                            <div style="display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        align-items: center; gap: 5px;">
+                                <div style="width: 50%;
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;">
+                                    <p>Name of Insurance Company</p>
+                                    <input type="text" name="insurance_company" id="healthcare-plan"
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                </div>
+                                <div style="width: 50%;
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;">
+                                    <p>Policy #</p>
+                                    <input type="text" name="insurance_policy_number" id="healthcare-plan"
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                </div>
+                            </div>
+                            <div class="life-insurance-type">
+                                <div>
+                                    <p>Type of Policy:</p>
+                                </div>
+                                <div style="display: flex;
+                                justify-content: center;
+                                align-items: center; gap: 5px;">
+                                    <div style="display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: 3px;">
+                                        <input type="checkbox" name="type_of_policy1" value="Term" id="life-insurance-term">
+                                        <label for="life-insurance-term">Term</label>
+                                        <input type="text" name="healthcare_plan" id="healthcare-plan"
+                                            style="border: none; border-bottom: 1px solid black;">
+                                    </div>
+                                    <div style="display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: 3px;">
+                                        <input type="checkbox" name="type_of_policy2" value="Life" id="life-insurance-life">
+                                        <label for="life-insurance-life">Life</label>
+                                        <input type="text" name="healthcare_plan2" id="healthcare-plan"
+                                            style="border: none; border-bottom: 1px solid black;">
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex: 1;">
+                                    <p>Cash Surrender Value $ </p>
+                                    <input type="text" name="cash_surrender_value" id="healthcare-plan"
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div>
+                            <p style="font-size: 14px;">Upon the death of the Beneficiary, amounts remaining in the Beneficiary’s sub-account
+                                shall be <br>
+                                retained in the Trust solely for the benefit of individuals who are disabled as defined
+                                in Soc. Sec. Law <br>
+                                Section 1614(a) (3) [42 USC 1382c(a) (3)] and any subsequent definitions that are
+                                enacted into law.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LIVING ARRANGEMENTS (indicate the living arrangement of the Beneficiary) -->
+
+                <div class="living-arrangements">
+                    <div class="living-arrangement-header">
+                        <h3 class="healthcare-premium-header-heading">LIVING ARRANGEMENTS</h3>
+                        <p>(indicate the living arrangement of the Beneficiary)</p>
+                    </div>
+                    <div class="living-arrangement-body">
+                        <div>
+                            <input type="checkbox"  name="living_arrangement1" value="Independently" id="independently">
+                            <label for="independently">Independently</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"   name="living_arrangement2" value="With Spouse" id="with-spouse">
+                            <label for="with-spouse">With Spouse</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="living_arrangement3" value="With Parents" id="with-parents">
+                            <label for="with-parents">With Parents/other family </label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="living_arrangement4" value="Assisted Living facility" id="assisted">
+                            <label for="assisted">Assisted Living Facility</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="living_arrangement5" value="Family Care Program" id="family-care">
+                            <label for="family-care">Family Care Program</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="living_arrangement6" value="Nursing Home" id="nursing-home">
+                            <label for="nursing-home">Nursing Home</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="living_arrangement7" value="CR/IRA/ICF(supervised)" id="cr">
+                            <label for="cr"> CR/IRA/ICF (supervised) </label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="living_arrangement8" value="CR/IRA(Supportive)" id="ira">
+                            <label for="ira">CR/IRA (supportive)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="living_arrangement9" value="Other" id="other">
+                            <label for="other"> Other -</label>
+                        </div>
+                        <div style="flex: 1;">
+                            <input type="text" name="living_arrangement_other" id="healthcare-plan"
+                                style="border: none; border-bottom: 1px solid black; width: 100%;">
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- LIVING ARRANGEMENTS -->
+
+                <div class="living-arrangements">
+                    <div class="living-arrangement-header">
+                        <h3 class="healthcare-premium-header-heading">LIVING ARRANGEMENTS</h3>
+                    </div>
+                    <div class="living-arrangements-body">
+                        <div>
+                            <p>Please attach a copy of the guardianship order with this Joinder Agreement.</p>
+                        </div>
+                        <div style="display: flex;
+                    align-items: center;
+                    gap: 8px;">
+                            <div>
+                                <p>Does the Beneficiary have a court appointed Guardian? </p>
+                            </div>
+                            <div style="display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;">
+                                <div>
+                                    <input type="checkbox" name="living_arrangements_yes" id="living-arrangements-yes"
+                                    value="Yes"
+                                        class="living-arrangements-yes">
+                                    <label for="living-arrangements-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="living_arrangements_no"
+                                    value="No" 
+                                    id="living-arrangements-no">
+                                    <label for="living-arrangements-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>If you answered yes, continue to fill out below:</p>
+                        </div>
+                        <div style="display: flex;
+                    align-items: center;
+                    gap: 8px;">
+                            <div>
+                                <p>Guardian of the: </p>
+                            </div>
+                            <div style="display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;">
+                                <div>
+                                    <input type="checkbox"
+                                    value="Person" 
+                                     name="living_arrangements_person"
+                                        id="living-arrangements-person" class="living-arrangements-person">
+                                        
+                                    <label for="living-arrangements-person">Person</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox"
+                                    value="Property" 
+                                     name="living_arrangements_property"
+                                        id="living-arrangements-property">
+                                    <label for="living-arrangements-property">Property</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox"
+                                    value="Both"  
+                                    name="living_arrangements_both"
+                                        id="living-arrangements-both">
+                                    <label for="living-arrangements-both">Both</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex;
+                    flex-direction: column;
+                    gap: 20px;">
+                            <div>
+                                <p>Court Appointed Guardian Information</p>
+                            </div>
+                            <div style="display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;">
+                                <div style="width: 50%;">
+                                    <input type="text" name="living_arrangement_first" id=""
+                                        style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">First</label>
+                                </div>
+                                <div style="width: 50%;">
+                                    <input type="text" name="living_arrangement_last" id=""
+                                        style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Last</label>
+                                </div>
+                                <div style="width: 50%;">
+                                    <input type="text" name="living_arrangement_primary" id=""
+                                        style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Primary Phone</label>
+                                </div>
+                                <div style="width: 50%;">
+                                    <input type="text" name="living_arrangement_email" id=""
+                                        style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Email</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="footer-living-arrangements">
+                        <div class="footer-left">
+                            <p class="footer-left-dis">SLC SUPPLEMENTAL
+                                NEEDS TRUST</p>
+                        </div>
+                        <div class="footer-mid">
+                            <p class="footer-mid-dis">4</p>
+                        </div>
+                        <div class="footer-right">
+                            <p class="footer-right-dis">JOINDER
+                                AGREEMENT</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+
+            <!-- Page 5 -->
+
+            <section class="page-5">
+
+                <!-- POWER OF ATTORNEY -->
+                 <div class="power-of-attorney">
+                    <div class="power-of-attorney-header">
+                        <h3 class="healthcare-premium-header-heading">POWER OF ATTORNEY</h3>
+                    </div>
+                    <div class="power-of-attorney-body">
+                        <div class="power-of-attorney-body-1">
+                            <div class="power-of-attorney-body-1-header">
+                                <div style="display: flex;gap: 30px;">
+                                <h4>Power of Attornery</h4>
+                                <p>Please attach a copy of Power of Attorney</p>
+                            </div>
+                            
+                            <div class="power-of-attorney-body-1-form">
+                                <div style="width: 48%;">
+                                    <input type="text" name="power_fname" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">First</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="power_lname" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Last</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="power_tel_home" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Primary Phone</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="power_email" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Email</label>
+                                </div>
+                                <div style="width: 40%;">
+                                    <input type="text" name="power_address" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Address</label>
+                                </div>
+                                <div style="width: 10%;">
+                                    <input type="text" name="power_apt" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Apt #</label>
+                                </div>
+                                <div style="width: 25%;">
+                                    <input type="text" name="power_city" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">City</label>
+                                </div>
+                                <div style="width: 10%;">
+                                    <input type="text" name="power_state" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">State</label>
+                                </div>
+                                <div style="width: 10%;">
+                                    <input type="text" name="power_zip" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Zip</label>
+                                </div>
+                            </div>
+                        </div>
+                            <div style="display: flex;
+                            flex-direction: column;
+                            gap: 6px;">
+                                <div style="display: flex;
+                                align-items: center;
+                                gap: 8px;">
+                                        <div>
+                                            <p>Is this person the sole POA?</p>
+                                        </div>
+                                        <div style="display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: 10px;">
+                                            <div>
+                                                <input type="checkbox" 
+                                                value="Yes"
+                                                name="sole_poa1" value="Yes" id="power-of-attorney-yes"
+                                                    class="power-of-attorney-yes">
+                                                <label for="power-of-attorney-yes">Yes</label>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" name="sole_poa2" value="No" id="power-of-attorney-no">
+                                                <label for="power-of-attorney-no">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;
+                                    align-items: center;
+                                    gap: 8px;">
+                                            <div>
+                                                <p>If No, are the agents authorized to act separately?</p>
+                                            </div>
+                                            <div style="display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 10px;">
+                                                <div>
+                                                    <input type="checkbox"
+                                                     name="act_seprately1" value="Yes" id="power-of-attorney-authorized-yes"
+                                                        class="power-of-attorney-authorized-yes">
+                                                    <label for="power-of-attorney-authorized-yes">Yes</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" name="act_seprately2" value="No" id="power-of-attorney-authorized-no">
+                                                    <label for="power-of-attorney-authorized-no">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                            </div>
+                        </div>
+                        <div class="power-of-attorney-body-1">
+                            <div class="power-of-attorney-body-1-header">
+                                <div style="display: flex;gap: 30px;">
+                                <h4>Power of Attornery - Second Agent</h4>
+                                <p>Please attach a copy of Power of Attorney</p>
+                            </div>
+                            
+                            <div class="power-of-attorney-body-1-form">
+                                <div style="width: 48%;">
+                                    <input type="text" name="power_fname2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">First</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="power_lname2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Last</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="power_tel_home2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Primary Phone</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="power_email2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Email</label>
+                                </div>
+                                <div style="width: 40%;">
+                                    <input type="text" name="power_address2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Address</label>
+                                </div>
+                                <div style="width: 10%;">
+                                    <input type="text" name="power_apt2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Apt #</label>
+                                </div>
+                                <div style="width: 25%;">
+                                    <input type="text" name="power_city2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">City</label>
+                                </div>
+                                <div style="width: 10%;">
+                                    <input type="text" name="power_state2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">State</label>
+                                </div>
+                                <div style="width: 10%;">
+                                    <input type="text" name="power_zip2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Zip</label>
+                                </div>
+                            </div>
+                        </div>
+                            <div style="display: flex;
+                            flex-direction: column;
+                            gap: 6px;">
+                                <div style="display: flex;
+                                align-items: center;
+                                gap: 8px;">
+                                        <div>
+                                            <p>Is this person the sole POA?</p>
+                                        </div>
+                                        <div style="display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    gap: 10px;">
+                                            <div>
+                                                <input
+                                                value="Yes" 
+                                                type="checkbox" name="power_of_attorney2_yes" id="power-of-attorney2-yes"
+                                                    class="power-of-attorney2-yes">
+                                                <label for="power-of-attorney2-yes">Yes</label>
+                                            </div>
+                                            <div>
+                                                <input
+                                                value="No"
+                                                 type="checkbox" name="power_of_attorney2_no" id="power-of-attorney2-no">
+                                                <label for="power-of-attorney2-no">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex;
+                                    align-items: center;
+                                    gap: 8px;">
+                                            <div>
+                                                <p>If No, are the agents authorized to act separately?</p>
+                                            </div>
+                                            <div style="display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 10px;">
+                                                <div>
+                                                    <input
+                                                    value="Yes"
+                                                     type="checkbox" name="power_of_attorney2_authorized_yes" id="power-of-attorney2-authorized-yes"
+                                                        class="power-of-attorney2-authorized-yes">
+                                                    <label for="power-of-attorney2-authorized-yes">Yes</label>
+                                                </div>
+                                                <div>
+                                                    <input
+                                                    value="No"
+                                                     type="checkbox" name="power_of_attorney2_authorized_no" id="power-of-attorney-authorized2-no">
+                                                    <label for="power-of-attorney-authorized2-no">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- GUARDIAN INFORMATION -->
+
+                 <div class="guardian-information">
+                    <div class="guardian-information-header">
+                        <h3 class="healthcare-premium-header-heading">GUARDIAN INFORMATION</h3>
+                    </div>
+                    <div class="guardian-information-body">
+                        <div>
+                            <p>Please attach a copy of Decree or Letter of guardianship.</p>
+                        </div>
+                        <div>
+                            <div style="display: flex;
+                                    align-items: center;
+                                    gap: 8px;">
+                                            <div>
+                                                <p>Does the Beneficiary have a court appointed Guardian?</p>
+                                            </div>
+                                            <div style="display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 10px;">
+                                                <div>
+                                                    <input
+                                                    value="Yes"
+                                                     type="checkbox" name="guardian_information_yes" id="guardian-information-yes"
+                                                        class="guardian-information-yes">
+                                                    <label for="guardian-information-yes">Yes</label>
+                                                </div>
+                                                <div>
+                                                    <input
+                                                    value="No"
+                                                     type="checkbox" name="guardian_information_no" id="guardian-information-no">
+                                                    <label for="guardian-information-no">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <div>
+                                    <p>If you answered yes, continue to fill out below:</p>
+                                </div>
+                        </div>
+                        <div>
+                            <div style="display: flex;
+                                    align-items: center;
+                                    gap: 8px;">
+                                            <div>
+                                                <p>Guardian of the:</p>
+                                            </div>
+                                            <div style="display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 10px;">
+                                                <div style="display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                gap: 3px;">
+                                                    <input
+                                                    value="Person" 
+                                                     type="checkbox" name="guardian_appointed_for1" value="Person" id="guardian-information-person"
+                                                        class="guardian-information-person">
+                                                    <label for="guardian-information-person">Person</label>
+                                                </div>
+                                                <div style="display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                gap: 3px;">
+                                                    <input
+                                                    value="Property"
+                                                     type="checkbox" name="guardian_appointed_for2" value="Property" id="guardian-information-property">
+                                                    <label for="guardian-information-property">Property</label>
+                                                </div>
+                                                <div style="display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                gap: 3px;">
+                                                    <input
+                                                    value="Both"
+                                                     type="checkbox" name="guardian_appointed_for3" value="Both" id="guardian-information-both">
+                                                    <label for="guardian-information-both">Both</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </div>
+                        <div style="display: flex;
+                        flex-direction: column;
+                        gap: 15px;">
+                            <div>
+                                <p>Court Appointed Guardian Information</p>
+                            </div>
+                            <div style="display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+                            align-items: center;">
+                                <div style="width: 48%;">
+                                    <input type="text" name="guardianship_fname" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">First</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="guardianship_lname" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Last</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="guardianship_telephone" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Primary Phone</label>
+                                </div>
+                                <div style="width: 48%;">
+                                    <input type="text" name="guardianship_email" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Email</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- BENEFICIARY SERVICE -->
+
+                 <div class="beneficiary-service">
+                    <div class="beneficiary-service-header">
+                        <h3 class="healthcare-premium-header-heading">BENEFICIARY SERVICE</h3>
+                    </div>
+                    <div class="beneficiary-service-body">
+                        <div>
+                            <p style="font-size: 18px;">List other services that the Beneficiary receives (include day services, service coordination,
+                                employment programs, etc.):</p>
+                        </div>
+                        <div style="display: flex;
+                        justify-content: space-between;
+                        align-items: center;">
+                            <div style="width: 50%;">
+                                <div style=" display: flex; gap: 5px;">
+                                    <p>Service</p>
+                                    <div style="display: flex;
+                                    flex-direction: column;
+                                    gap: 10px;
+                                    width: 100%;">
+                                    <input type="text" name="beneficiary_service_one" id=""
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    <input type="text" name="beneficiary_service_two" id=""
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    <input type="text" name="beneficiary_service_three" id=""
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                </div>
+
+
+                                </div>
+                            </div>
+                            <div style="width: 50%;">
+                                <div style="width: 100%; display: flex; gap: 5px;">
+                                    <p style="min-width: fit-content;">Name of Provider</p>
+                                    <div style="display: flex;
+                                    flex-direction: column;
+                                    gap: 10px;
+                                    width: 90%;">
+                                    <input type="text" name="beneficiary_provider_one" id=""
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    <input type="text" name="beneficiary_provider_two" id=""
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    <input type="text" name="beneficiary_provider_three" id=""
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="footer-living-arrangements">
+                            <div class="footer-left">
+                                <p class="footer-left-dis">SLC SUPPLEMENTAL
+                                    NEEDS TRUST</p>
+                            </div>
+                            <div class="footer-mid">
+                                <p class="footer-mid-dis">5</p>
+                            </div>
+                            <div class="footer-right">
+                                <p class="footer-right-dis">JOINDER
+                                    AGREEMENT</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+            </section>
+
+
+
+
+            <!-- Page 6 -->
+
+            <section class="page-6">
+                <!-- INFORMATION AND DISCLOSURES: -->
+                <div class="information-disclosures">
+                    <div class="information-disclosures-header">
+                        <h3 class="healthcare-premium-header-heading">INFORMATION AND DISCLOSURES:</h3>
+                    </div>
+                    <div class="information-disclosures-body">
+                        <div class="information-disclosures-body-left">
+                            <div>
+                                <h3 style="font-size: 16px;">Death of Beneficiary:</h3>
+                                <div style="display: flex;
+                                flex-direction: column;
+                                gap: 10px;">
+                                <p>The Beneficiary’s sub-trust account terminates
+                                    upon his or her death. If, upon the death of the
+                                    Beneficiary, funds remain in his or her sub-trust
+                                    account, such funds shall be deemed to be property
+                                    of the Trust and all funds that are remaining in the
+                                    Beneficiary’s separate sub-trust account shall
+                                    be retained by SLC Supplemental Needs Trust to
+                                    further the purposes of that Trust. However, to the
+                                    extent that amounts remaining in the individual’s
+                                    subtrust account upon the death of the individual
+                                    are not in fact retained by the Trust, the Trust shall
+                                    pay to the State(s) from such remaining amounts in
+                                    the sub-trust account an amount equal to the total
+                                    amount of medical assistance paid on behalf of the
+                                    individual under the State Medicaid plan (s). To the
+                                    extent that the trust does not retain the funds in the
+                                    account, the State(s) shall be the first payee(s) of
+                                    any such funds and the State(s) shall have priority
+                                    over payment of other debts and administrative
+                                    expenses except as listed in POMS SI 01120.203E.</p>
+                                <p>Funeral expenses will only be paid pursuant to a
+                                    Medicaid eligible pre-need funeral arrangement
+                                    established and funded prior to the Beneficiary’s
+                                    death. Funeral expenses will not be paid after the
+                                    Beneficiary’s death.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 16px;">Death of Beneficiary:</h3>
+                                <div style="display: flex;
+                                flex-direction: column;
+                                gap: 10px;">
+                                <p>All contributions made to the sub-trust account
+                                    will be held and administered pursuant to the
+                                    provisions of the SLC Supplemental Needs Trust
+                                    which are incorporated by reference herein.
+                                    The Trustees shall have the sole and absolute right
+                                    to accept or refuse additional deposits to the subtrust account.</p>
+                                <p>In the event that a Beneficiary has a zero ($0)
+                                    sub-trust account balance for sixty (60) or more
+                                    consecutive days, the Trustee shall retain the right
+                                    to close the Beneficiary’s sub-trust account. Please
+                                    be advised that the Trustee may continue to charge
+                                    administrative fees for the management of the
+                                    sub-trust account prior to its closure. In the event
+                                    that a Beneficiary wishes to re-open a sub-trust
+                                    account, the Beneficiary may be required to pay any
+                                    outstanding administrative fees stemming from the
+                                    prior sub-trust account. Additionally, the Beneficiary
+                                    shall be required to pay a new enrollment fee when re-opening a sub-trust account.
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="information-disclosures-body-right">
+                            <div>
+                                <h3 style="font-size: 16px;">Disbursements:</h3>
+                                <div style="display: flex;
+                                flex-direction: column;
+                                gap: 10px;">
+                                <p>All disbursement requests shall be reviewed and
+                                    approved on an individual basis.
+                                    Disbursements for expenses incurred more than 90
+                                    days prior to submission of a disbursement request
+                                    form shall not be paid.
+                                </p>
+                                <p>The Trustees, in their discretion, have determined
+                                    that disbursements for the following items shall not
+                                    be paid: purchases of firearms, alcohol, tobacco,
+                                    items relating to illegal activity, bail, or restitution.
+                                </p>
+                                <p>
+                                    All disbursements shall be made at the sole and
+                                    absolute discretion of the Trustee. No disbursements
+                                    will be made after the death of the beneficiary, even
+                                    for expenses incurred or due prior to death.
+                                </p>
+                            </div>
+
+                            </div>
+                            <div>
+                                <h3 style="font-size: 16px;">Disability Determination:</h3>
+                                <div  style="display: flex;
+                                flex-direction: column;
+                                gap: 10px;">
+                                <p>In the event that a determination of disability is
+                                    required for Medicaid purposes, please be advised
+                                    that administrative fees shall be incurred while the
+                                    determination of disability is being made.</p>
+                                <p>The Donor acknowledges that contributions to
+                                    the SLC Supplemental Needs Trust are not tax
+                                    deductible as charitable gifts, or otherwise.</p>
+                                <p>Sub-trust account income may be taxable to the
+                                    Beneficiary.
+                                </p>
+                            </div>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 16px;">Disclosure of Potential Conflict of Interest:</h3>
+                                <div style="display: flex;
+                                flex-direction: column;
+                                gap: 10px;">
+                                <p>There may be a potential conflict of interest in the
+                                    administration of the Trust since the Trust retains
+                                    those funds remaining in the sub-trust account at
+                                    the time of death of the Beneficiary. Funds remaining
+                                    in the Trust may be used to pay for ancillary and/
+                                    or supplemental services for Beneficiaries and
+                                    potential Beneficiaries for which services may be
+                                    rendered by SLC Supplemental Needs Trust.</p>
+                                <p>The Donor executing this Joinder Agreement is
+                                    aware of the potential conflicts of interest that exist
+                                    in the Trustee’s</p>
+                                <p>administration of the Trust. The Trustee shall not
+                                    be liable to Donor or to any party for any act of
+                                    self-dealing or conflict of interest resulting from
+                                    their a liations with Senior Lifecare Corp or with
+                                    any Beneficiary or constituent agencies and/or
+                                    Chapters.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-living-arrangements">
+                        <div class="footer-left">
+                            <p class="footer-left-dis">SLC SUPPLEMENTAL
+                                NEEDS TRUST</p>
+                        </div>
+                        <div class="footer-mid">
+                            <p class="footer-mid-dis">6</p>
+                        </div>
+                        <div class="footer-right">
+                            <p class="footer-right-dis">JOINDER
+                                AGREEMENT</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page 7 -->
+
+            <section class="page-7">
+                <div class="information-disclosures-body">
+                    <div class="information-disclosures-body-left">
+                        <div>
+                            <h3 style="font-size: 16px;">Situs:</h3>
+                            <p>The sub-trust account created by this Agreement
+                                has been accepted by the Trustee in the State of
+                                New York and will be administered by Senior Lifecare
+                                Corp and a financial institution in the State of New
+                                York. The validity, construction, and all rights under
+                                this Agreement shall be governed by the laws
+                                of the State of New York. The situs of this Trust for
+                                administrative, account and legal purposes shall
+                                be in the County of Kings, the County where the
+                                majority of meetings concerning establishment of
+                                the Trust occurred.</p>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 16px;">Invalidity of any Provision:</h3>
+                            <div style="display: flex;
+                    flex-direction: column;
+                    gap: 10px;">
+                                <p>Should any provision of this Agreement be or
+                                    become invalid or unenforceable, the remaining
+                                    provisions of this Agreement shall be and continue
+                                    to be fully e ective.
+                                </p>
+                                <p>By signing below, you a rm that you understand
+                                    and agree to the following:
+                                    I have received and read a copy of the applicable
+                                    Master Trust prior to the signing of this Joinder
+                                    Agreement and acknowledge that I understand
+                                    the contents thereof. I also understand that said
+                                    document may be amended from time to time.
+                                    I have been provided with the applicable fee
+                                    schedule and acknowledge that I understand the
+                                    contents thereof. I also understand there may be
+                                    changes from time to time.</p>
+                                <p>
+                                    I am entering into this Joinder Agreement voluntarily
+                                    and acting on my own free accord.
+                                </p>
+                                <p>
+                                    The Donor acknowledges that the Beneficiary is
+                                    disabled as defined in Social Security Law Section
+                                    1614(a)(3) [42 USC 1382c(a) (3)].
+                                </p>
+                                <p>
+                                    Under penalty of perjury, all statements made in this
+                                    document are true and accurate to the best of my
+                                    knowledge.
+                                </p>
+                                <p>The SLC Supplemental Needs Trust is authorized to
+                                    be used by individuals with disabilities pursuant to
+                                    federal and state law. By agreeing to accept a donor’s
+                                    property pursuant to this Joinder Agreement, SLC
+                                    Supplemental Needs Trust agrees only to manage
+                                    the trust funds in accordance with the terms of the
+                                    Master Trust Agreement and in compliance with
+                                    applicable federal and state law and regulation.
+                                    It is the sole responsibility of the donor and/or the
+                                    donor’s representative to determine whether the </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="information-disclosures-body-right">
+                        <div style="display: flex;
+                flex-direction: column;
+                gap: 10px;">
+                            <p>donor is “disabled” as that term is defined under
+                                federal law, to determine whether they have the
+                                legal authority to transfer property to fund the
+                                trust, and the impact that a transfer of property to
+                                the SLC Supplemental Needs Trust will have on the
+                                donor’s continuing eligibility for government benefit
+                                programs
+                            </p>
+                            <p>Senior Lifecare Corp is not assuming any
+                                responsibility as counsel for the donor or Beneficiary,
+                                or providing any legal advice as it relates to the
+                                consequences of a transfer of property to the SLC
+                                Supplemental Needs Trust.
+                            </p>
+                            <p>The Trustees in their discretion may require an
+                                intermediary to assist in the administration of the
+                                Beneficiary’s sub-trust account. The cost of which
+                                may be charged to the sub-trust account.
+                            </p>
+                            <p>The party authorized to speak with us on your behalf
+                                or the intermediary must notify SLC Supplemental
+                                Needs Trust. immediately upon your death and
+                                will be required to provide us with a certified death
+                                certificate. An individual requesting and/or receiving
+                                disbursements in contravention of the Master Trust
+                                Agreement and the Joinder Agreement will be
+                                required to repay the amount disbursed.
+                            </p>
+                            <p>This Joinder Agreement and the participation of the
+                                Beneficiary in the SLC Supplemental Needs Trust is an
+                                important legal decision that may have significant
+                                and lasting consequences for the Beneficiary and as
+                                a result you may want to consider obtaining advice
+                                from an attorney or another professional adviser
+                                before entering into this Agreement. By signing this
+                                Agreement you are acknowledging that you have
+                                had a full and complete opportunity to confer with
+                                an attorney or other adviser and that no employee
+                                of Senior Lifecare Corp has provided you (or the
+                                Beneficiary, if di erent from the person signing this
+                                Agreement) with any legal advice in connection
+                                with this Joinder Agreement, the participation by
+                                the Beneficiary in the SLC Supplemental Needs
+                                Trust or the suitability of such participation by the
+                                Beneficiary in the SLC Supplemental Needs Trust
+                                based upon the particular circumstances of the
+                                Beneficiary.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-living-arrangements">
+                    <div class="footer-left">
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                            NEEDS TRUST</p>
+                    </div>
+                    <div class="footer-mid">
+                        <p class="footer-mid-dis">7</p>
+                    </div>
+                    <div class="footer-right">
+                        <p class="footer-right-dis">JOINDER
+                            AGREEMENT</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Page 8 -->
+
+            <section class="page-8">
+
+                <!-- AGREEMENT SIGNATURE -->
+                 <div class="agreement-signature">
+                    <div class="agreement-signature-header">
+                        <h3 class="healthcare-premium-header-heading">AGREEMENT SIGNATURE</h3>
+                    </div>
+                    <div class="agreement-signature-body">
+                        <div style="display: flex;
+                    align-items: center;
+                    gap: 8px;">
+                            <div>
+                                <p>Who is signing this Joinder Agreement? </p>
+                            </div>
+                            <div style="display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 10px;">
+                                <div>
+                                    <input type="checkbox"
+                                    value="Beneficiary"
+                                     name="agreement_signature_beneficiary"
+                                        id="agreement-signature-beneficiary" class="agreement-signature-beneficiary">
+                                    <label for="agreement-signature-beneficiary">Beneficiary</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox"
+                                    value="Power of Attorney"
+                                     name="agreement_signature_attorney"
+                                        id="agreement-signature-attorney">
+                                    <label for="agreement-signature-attorney">Power of Attorney</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox"
+                                    value="Guardian"
+                                     name="agreement_signature_guardian"
+                                        id="agreement-signature-guardian">
+                                    <label for="agreement-signature-guardian">Guardian</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex;
+                    flex-direction: column;
+                    gap: 20px;">
+                            <div>
+                                <p>I certify that the above Information is accurate and completed to the best of my knowledge.</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                                <div style="width: 30%;">
+                                    <input type="text" name="joinder_signature_1" id="signature_input_1" style="width: 100%; border: none; border-bottom: 1px solid black;" oninput="generateSignature(1)" maxlength="18"> <br>
+                                    <label for="">Sign Here</label> 
+                        
+                                </div>         
+                                <div style="width: 30%;">
+                                    <input type="text" name="joinder_print" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <label for="">Print</label>
+                                </div>
+                                <div style="width: 30%;">
+                                        <input type="date" class="inp-last" style="" name="joinder_date">
+                                        <br>
+                                    <label for="">Date</label>
+                                </div>
+                                <div style="width: 30%;">
+                                    <canvas id="signature-canvas-1" style="width: 100%; height: 100px; background-color:#f2f2f2"></canvas>
+                                </div>
+                                
+                                          
+                            </div>
+                            <button style="width:10%" type="button" id="clear-1" onclick="clearCanvas(1)">Clear</button>
+                            <input type="hidden" id="joinder_signature_1" name="joinder_signature_1">
+                        </div>
+                    </div>
+                 </div>
+
+
+                 <!-- SIGNATURE OF NOTARY  -->
+                  <div class="signature-of-notary">
+                    <div class="signature-of-notary-header">
+                        <h3 class="healthcare-premium-header-heading">SIGNATURE OF NOTARY</h3>
+                    </div>
+                    <div class="signature-of-notary-body">
+                        <div style="display: flex; gap: 3px;">
+                            <p>STATE OF</p>
+                            <input type="text" name="notary_state_of_ny" id="" style="border: none; border-bottom: 1px solid black;">
+                        </div>
+                        <div style="display: flex; gap: 3px;">
+                            <p>COUNTY OF</p>
+                            <input type="text" name="notary_county_of" id="" style="border: none; border-bottom: 1px solid black;">
+                        </div>
+                        <div style="display: flex; padding: 0px 20px;">
+                            <div style="display: flex;">
+                            <p>On</p>
+                            <input type="text" name="notary_on_date" id="" style="border: none; border-bottom: 1px solid black;">
+                        </div>
+                            <div style="display: flex;">
+                                <p> , 20</p>
+                            <input type="text" name="notary_year" id="" style="border: none; border-bottom: 1px solid black;">
+                            <p> before me, the</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-size: 16px;">undersigned, a Notary Public in and for said State,</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 16px;">personally appeared,</p>
+                        </div>
+                        <div style="width: 30%;">
+                            <input type="text" name="notary_appeared" id="" style="border: none; border-bottom: 1px solid black; width: 97%;">
+                            <span>,</span>
+                        </div>
+                        <div>
+                            <p style="width: 40%;">personally known to me or proved to me on the basis of
+                                satisfactory evidence to be the individual whose name is
+                                subscribed to the within instrument and acknowledge to
+                                me that he/she/they executed the same in his/her
+                                capacity, and that by his/her signature on the instrument,
+                                the individual or the person upon behalf of which the
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <p>individual acted, executed this instrument.</p>
+                                    </div>
+                                        <div style="width: 40%;">
+                                            <input type="text" name="notary_public" id=""
+                                                style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                            <p style="font-size: 13px; margin-top: 5px;">NOTARY PUBLIC</p>
+                                        </div>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- OR SIGNATURE OF TWO WITNESSES -->
+
+                  <div class="signature-of-two-witnesses">
+                    <div class="signature-of-two-witnesses-header">
+                        <h3 class="healthcare-premium-header-heading">OR SIGNATURE OF TWO WITNESSES</h3>
+                    </div>
+                    <div class="signature-of-two-witnesses-body">
+                        <div>
+                            <p>(New York Residents Only)</p>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <p>Or in lieu of Notarization, the following two witness signatures are provided:</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="width: 50%; border-right: 1px solid black; display: flex; flex-direction: column; gap: 10px;">
+                                <div style="width: 80%;">
+                                    <input type="text" name="notary_witness_one_name" id=""
+                                        style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                    <label for="">Witness 1</label>
+                                </div>
+                                <div style="width: 80%;">
+                                    <input type="text" name="sig_date1" id=""
+                                        style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                    <label for="">Date</label>
+                                </div>
+                                <div style="width: 80%;">
+                                    <input type="text" name="joinder_signature_2" id="signature_input_2" oninput="generateSignature(2)" maxlength="18"
+                                        style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                    <label for="">Sign Here</label>
+                                </div>
+                                <div style="width: 80%;">
+                                    <canvas id="signature-canvas-2" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
+                                     <button style="width:10%" type="button" id="clear-2" onclick="clearCanvas(2)">Clear</button>
+                                     <input type="hidden" id="joinder_signature_2" name="joinder_signature_2">
+                                </div>
+                                <div style="width: 80%;">
+                                    <input type="text" name="notary_witness_one_full_name" id=""
+                                        style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                    <label for="">Print Full Name</label>
+                                </div>
+                                <div style="width: 80%;">
+                                    <input type="text" name="notary_witness_one_full_address" id=""
+                                        style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                    <label for="">Full Address</label>
+                                </div>
+                                
+                                </div>
+                                <div style="width: 40%; display: flex; flex-direction: column; gap: 10px;">
+                                    <div style="width: 100%;">
+                                        <input type="text" name="notary_witness_two_name" id=""
+                                            style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                        <label for="">Witness 2</label>
+                                    </div>
+                                    <div style="width: 100%;">
+                                        <input type="text" name="sig_date2" id=""
+                                            style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                        <label for="">Date</label>
+                                    </div>
+                                    <div style="width: 100%;">
+                                        <input type="text" name="joinder_signature_3" id="signature_input_3" oninput="generateSignature(3)" maxlength="18"
+                                            style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                        <label for="">Sign Here</label>
+                                    </div>
+                                    <div style="width: 100%;">
+                                    <canvas id="signature-canvas-3" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
+                                    <button style="width:10%" type="button" id="clear-2" onclick="clearCanvas(3)">Clear</button>
+                                    <input type="hidden" id="joinder_signature_3" name="joinder_signature_3">
+                                </div>
+                                    <div style="width: 100%;">
+                                        <input type="text" name="notary_witness_two_full_name" id=""
+                                            style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                        <label for="">Print Full Name</label>
+                                    </div>
+                                    <div style="width: 100%;">
+                                        <input type="text" name="notary_witness_two_full_address" id=""
+                                            style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                        <label for="">Full Address</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- FOR OFFICE USE ONLY -->
+
+                  <div class="for-office-use-only">
+                    <div class="for-office-use-only-header">
+                        <h3 style="text-align: center;">FOR OFFICE USE ONLY</h3>
+                    </div>
+                    <div class="for-office-use-only-body">
+                        <div style="font-size: 20px; text-align: center;">
+                            <p>Accepted by Trustee or Designated Representative of the Trustees, SLC Supplemental Needs Trust.</p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                            <div style="width: 40%;">
+                                <input type="text" name="joinder_signature_4" id="signature_input_4" oninput="generateSignature(4)" maxlength="18"
+                                    style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                <label for="">Sign Here</label>
+                            </div>
+                            <div style="width: 40%;">
+                                <input type="date" class="inp-last"  name="office_use_date_approved">
+                                    <br>
+                                <label for="">Date</label>
+                            </div>
+                            <div style="width: 40%;">
+                                <canvas id="signature-canvas-4" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
+                            </div>
+                           
+                        </div>
+                        <button type="button" style="width:10%" id="clear-4" onclick="clearCanvas(4)">Clear</button>
+                        <input type="hidden" id="joinder_signature_4" name="joinder_signature_4">
+                    </div>
+                  </div>
+                  <div class="for-office-use-only-footer">
+                    <div class="footer-left">
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                            NEEDS TRUST</p>
+                    </div>
+                    <div class="footer-mid">
+                        <p class="footer-mid-dis">8</p>
+                    </div>
+                    <div class="footer-right">
+                        <p class="footer-right-dis">JOINDER
+                            AGREEMENT</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Page 9 -->
+
+            <section class="page-9">
+                <!-- FOR OFFICE USE ONLY 2 -->
+                 <div class="for-office-use-only-2">
+                    <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                        <div style="text-align: center; background-color: rgb(184 221 219); color: rgb(52 159 153); padding: 10px; width: 25%;">
+                            <h5>FOR OFFICE USE ONLY</h5>
+                        </div>
+                        <div style="background-color: hsl(185.45deg 40.74% 94.71%); width: 25%; padding: 10px; display: flex;
+                        flex-direction: column; justify-content: center; align-items: center; gap: 20px;">
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                                <label style="font-size: 0.9rem;  min-width: fit-content; " for="">Member ID#:</label>
+                                <input type="text" name="office_use_member_id_above" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                                <label style="font-size: 0.9rem;  min-width: fit-content; " for="">Effective Date:</label>
+                                <input type="text" name="office_use_effective_date" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
+                            </div>
+                        </div>
+                </div>
+                 </div>
+
+                 <!-- DIRECT DEBIT REQUEST FORM -->
+                  <div class="direct-debit-req-form">
+                     <div class="direct-debit-req-form-header">
+                        <h3 class="healthcare-premium-header-heading">DIRECT DEBIT REQUEST FORM</h3>
+                     </div>
+                     <div class="direct-debit-req-form-body">
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <label for="">Donor/Beneficiary</label>
+                            <div style="flex: 1;">
+                                <input type="text" name="direct_debit_donor_beneficiary" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            </div>
+                        </div>
+                   
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <label for="">Representative</label>
+                        <div style="flex: 1;">
+                            <input type="text" name="direct_debit_representative" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; justify-content: center; align-items: center; width: 50%;">
+                        <label for="">Bank Name</label>
+                        <div style="flex: 1;">
+                            <input type="text" name="direct_debit_bank_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center; width: 25%;">
+                        <label for="">City</label>
+                        <div style="flex: 1;">
+                            <input type="text" name="direct_debit_city" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center; width: 25%;">
+                        <label for="">State</label>
+                        <div style="flex: 1;">
+                            <input type="text" name="direct_debit_state" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; justify-content: center; align-items: center; width: 48%;">
+                        <label for="">Bank Routing Number </label>
+                        <div style="flex: 1;">
+                            <input type="text" name="direct_debit_bank_routing" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center; width: 48%;">
+                        <label for="">Account Number</label>
+                        <div style="flex: 1;">
+                            <input type="text" name="direct_debit_account_number" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                    <div style="display: flex; justify-content: center; align-items: center; width: 70%;">
+                        <label for="">Account Name</label>
+                        <div style="flex: 1;">
+                            <input type="text" name="direct_debit_account_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div>
+                            <p>Account Type: </p>
+                        </div>
+                        <div style="display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;">
+                            <div>
+                                <input type="checkbox" name="direct_debit_bank_type1" value="Checking"
+                                    id="direct-debit-req-form-checking" class="direct-debit-req-form-checking">
+                                <label for="direct-debit-req-form-checking">Checking</label>
+                            </div>
+                            <div>
+                                <input type="checkbox"name="direct_debit_bank_type2" value="Savings"
+                                    id="direct-debit-req-form-savings">
+                                <label for="direct-debit-req-form-savings">Savings</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <h4>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</h4>
+                        <p>I authorize and request SLC Supplemental Needs Trust, dated December 24, 2017 to initiate debit entries
+                            to my account at the depository financial institution indicated above. This authorization is to remain in full
+                            force and affect until SLC Supplemental Needs Trust has written notification from me of its termination in
+                            such time and manner as to afford SLC Supplemental Needs Trust and depository financial institution a
+                            reasonable opportunity to act on it. </p>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <label for="">Beneficiary/ Representative Sign Here</label>
+                            <div style="flex: 1;">
+                                <input type="text" id='signature_input_5' oninput="generateSignature(5)" maxlength="18" name="joinder_signature_5" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            </div>
+                           
+                        </div>
+                        <div style="width: 40%;margin-top: 15px;">
+                                 <canvas id="signature-canvas-5" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas> 
+                        </div>
+                        <button type="button" style="width:10%" id="clear-4" onclick="clearCanvas(5)">Clear</buttonty>
+                        <input type="hidden" id="joinder_signature_5" name="joinder_signature_5">
+                    </div>
+
+                </div>
+                  </div>
+
+                  <!-- FOR OFFICE USE 3 -->
+
+                  <div class="for-office-use-3">
+                    <div class="for-office-use-only-header">
+                        <h3 style="text-align: center;">FOR OFFICE USE:</h3>
+                    </div>
+                    <div class="for-office-use-3-body">
+                                <div style="width: 50%; display: flex; align-items: center;">
+                                    <p>Account #:</p>
+                                    <input type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                </div> 
+                                <div style="width: 50%; display: flex; align-items: center;">
+                                    <p>Member #:</p>
+                                    <input type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                </div> 
+                                <div style="display: flex; width: 50%; margin-top: 15px; ">
+                                    <p>Processed By:</p>
+                                    <input type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                </div> 
+                                <div style="display: flex; width: 50%; justify-content: flex-end; align-items: center; margin-top: 15px;">
+                                    <p>Monthly Debit Amount: $</p>
+                                    <input type="text" name="office_use_monthly_debit_amount" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                </div> 
+                                <div style="margin-top: 10px;">
+                                    <p>Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)</p>
+                                </div>
+                                <div style="display: flex; width: 50%; margin-top: 15px;">
+                                    <p>Date of Monthly Debit:</p>
+                                    <input type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                </div> 
+                                <div style="display: flex; justify-content: center; width: 50%; margin-top: 15px;">
+                                    <p>First Debit Month:</p>
+                                    <input type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                </div> 
+                    </div>
+                    <div style="width: 80%; margin: auto;">
+                        <p>If any direct debits are returned for insu cient funds, a $53 charge will apply <br>
+                            A $150 annual - renewal fee will be charged on the anniversary of the account
+                        </p>
+                    </div>
+                    <button type="submit" id="submit-button" class="submit-button">
+                        Submit
+                        <span class="loader" style="display: none;"></span>
+                    </button>
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 450px; object-fit: cover;">
+                    </div>
+                    <div class="footer-for-office-use-3">
+                        <div class="footer-left">
+                            <p class="footer-left-dis">SLC SUPPLEMENTAL
+                                NEEDS TRUST</p>
+                        </div>
+                        <div class="footer-mid">
+                            <p class="footer-mid-dis">9</p>
+                        </div>
+                        <div class="footer-right">
+                            <p class="footer-right-dis">JOINDER
+                                AGREEMENT</p>
+                        </div>
+                    </div>
+
+                  </div>
+            </section>
+
+            
+
+    </main>
+
+</form>
 </div>
 
 
@@ -1382,30 +3898,15 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        for (let i = 1; i <= 5; i++) {
-            const canvas = document.getElementById(`signature-canvas-${i}`);
-            const signaturePad = new SignaturePad(canvas, {
-                backgroundColor: '#f2f2f2',
-                penColor: '#000000',
-            });
-
-            $(`#clear-${i}`).click(function (e) {
-                e.preventDefault();
-                signaturePad.clear();
-                $(`#joinder_signature_${i}`).val('');
-            });
-
-            //on canvas value change save
-            signaturePad.onEnd = function () {
-                $(`#joinder_signature_${i}`).val(signaturePad.toDataURL());
-            };
-
-
-        }
-
+    
         //save this form using ajax
         $('#joinderForm').submit(function (e) {
             e.preventDefault();
+            
+            $('#submit-button').addClass('btn-size');
+            $('#submit-button').prop('disabled', true);
+            $('.loader').show();
+            saveCanvasAsImage();
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({
@@ -1421,17 +3922,56 @@
                         icon: 'success',
                         confirmButtonText: 'Great!'
                     });
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
 
                 },
                 error: function (response) {
                     alert('Error in saving file');
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
                 }
             });
         });
 
     });
-</script>
 
+    
+
+    function generateSignature(id) {
+    const name = document.getElementById(`signature_input_${id}`).value;
+    const canvas = document.getElementById(`signature-canvas-${id}`);
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 10, 80);
+}
+
+function clearCanvas(id) {
+    document.getElementById(`signature_input_${id}`).value = '';
+    const canvas = document.getElementById(`signature-canvas-${id}`);
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+
+
+function saveCanvasAsImage() {
+
+    for (let i = 1; i <= 5; i++) {
+        const canvas = document.getElementById(`signature-canvas-${i}`);
+        console.log(canvas);
+        const signatureDataURL = canvas.toDataURL('image/png'); // Convert to Base64
+        console.log(signatureDataURL);
+        document.getElementById(`joinder_signature_${i}`).value = signatureDataURL;
+    }
+}
+</script>
 
 </body>
 

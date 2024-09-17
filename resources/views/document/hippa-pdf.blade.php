@@ -283,7 +283,7 @@
             <div class="card-body" style="display: flex; justify-content: space-around; align-items: center;">
                 <div style="max-width: 50%; max-width: fit-content">
                     @if($hippa_sign)
-                        <img src="{{ $hippa_sign }}" alt="Signature 1" width="70 " height="70">
+                        <img src="{{ $hippa_sign }}" alt="Signature 1" width="300 " height="150">
                     @else
                         No Signature Provided
                     @endif

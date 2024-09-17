@@ -127,7 +127,7 @@
                 <div class="card-body" style="justify-content: space-around">
 
                     @if($map_sign)
-                        <img src="{{ $map_sign }}" alt="map_sign" width="100" height="100">
+                        <img src="{{ $map_sign }}" alt="map_sign" width="150" height="100">
                     @else
                         No Signature Provided
                 @endif

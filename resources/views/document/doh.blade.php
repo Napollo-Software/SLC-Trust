@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <title>Document</title>
     <style>
         table {
@@ -22,6 +23,9 @@
             border-radius: 4px; /* Rounded corners */
             cursor: pointer; /* Pointer cursor */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
+            position: relative;
+            display: inline-flex;
+            align-items: center;
         }
 
         .submit-button:hover {
@@ -117,6 +121,56 @@
             }
 
         }
+        @font-face {
+    font-family: 'Rage Italic';
+    src: url('/fonts/rage-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+#signature-doh{
+    pointer-events: none;
+}
+input{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+    margin-top: 5px
+}
+textarea{
+    background: #e9e9e9;
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    padding: 4px 6px;
+    margin-top: 5px
+}
+.loader {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 10%;
+    top: 22%;
+    transform: translateY(-50%);
+}
+.btn-size{
+    width: 12%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
     </style>
 </head>
 
@@ -136,7 +190,7 @@
             </h4>
         </div>
         <hr class="custom-hr">
-        <div style="width: 100%; background-color: rgb(184, 182, 182);">
+        <div style="width: 100%; background-color: #e9e9e9;">
             <h4>
                 Section I – Identification
             </h4>
@@ -155,15 +209,15 @@
                 <br>
                 <label>Name (Last, First, Middle)</label>
                 <br>
-                <input type="text" class="no-border" name="first_name"><br>
+                <input type="text"  name="first_name"><br>
                 <br>
                 <label> Address (Street, City, State & Zip Code):</label>
                 <br>
-                <textarea rows="10" class="no-border" name="address_text"></textarea>
+                <textarea rows="10"  name="address_text"></textarea>
             </p>
             <p style="padding: 12px">
                 <label>Date of Birth</label> <br>
-                <input type="date" class="no-border" name="dob"><br>
+                <input type="date"  name="dob"><br>
 
                 Sex <input type="checkbox" name="sex1" value="male">Male<input type="checkbox" name="sex2"
                                                                                value="female"> Female
@@ -172,21 +226,21 @@
                 <br>
                 Case Number
                 <br>
-                <input type="text" name="case_number" class="no-border">
+                <input type="text" name="case_number">
             </p>
             <p>
                 Client ID Number <br>
-                <input type="text" name="client_id" class="no-border">
+                <input type="text" name="client_id">
                 <br>
                 Disability ID Number <br>
-                <input type="text" name="disability_id" class="no-border">
+                <input type="text" name="disability_id">
                 <br>
                 SSN(Lsat four digits) <br>
-                <input type="text" name="ssn_last_four" class="no-border">
+                <input type="text" name="ssn_last_four">
                 <br>
             </p>
         </div>
-        <div style="width: 100%; background-color: rgb(184, 182, 182);">
+        <div style="width: 100%; background-color: #e9e9e9">
             <h4>
                 Section I – Medical Report – Note to Provider
             </h4>
@@ -207,19 +261,19 @@
             <p>
                 Diagnosis(es)
                 <br>
-                <textarea class="no-border" rows="3" name="diagnosis" cols="50"></textarea>
+                <textarea  rows="3" name="diagnosis" cols="50"></textarea>
             </p>
             <p style="padding: 10px">
-                Date of last Exam <input type="date" class="no-border" name="last_exam_date"><br>
+                Date of last Exam <input type="date" name="last_exam_date"><br>
                 Height
-                <input type="number" class="no-border" name="height_ft"> ft.
+                <input type="number"  name="height_ft"> ft.
 
-                <input type="number" class="no-border" name="height_in" style="margin-left: 50px"> In.
+                <input type="number"  name="height_in" style="margin-left: 50px"> In.
                 <br>
-                Weight <input type="number" name="weight" class="no-border">lbs.
+                Weight <input type="number" name="weight" >lbs.
             </p>
         </div>
-        <div style="width: 100%; background-color: rgb(184, 182, 182);">
+        <div style="width: 100%; background-color: #e9e9e9;">
             <h4>
                 Exertional Functions. Please indicate what the individual is CAPABLE of doing:
             </h4>
@@ -277,7 +331,7 @@
         </table>
 
 
-        <div style="width: 100%; background-color: rgb(184, 182, 182);">
+        <div style="width: 100%; background-color: #e9e9e9">
             <h4>
                 Non-Exertional Functions. Please check if LIMITATIONS exist in any of the areas below:
             </h4>
@@ -340,13 +394,13 @@
                 Provider Signature
             </p>
             <div id="signature-pad">
-
+                <input type="text"  style="width: 71%;margin-bottom: 10px" name="doh_signature" id="doh_signature" oninput="generateSignature()" maxlength="18">
                 <canvas id="signature-doh"></canvas>
                 <div>
 
                     <div class="container-row" style="justify-content: start">
 
-                        <button id="clear-doh" style="margin-left: 10px;">Clear</button>
+                        <button id="clear-doh" onclick="clearDohCanvas()">Clear</button>
                     </div>
 
                     <input type="hidden" id="doh_sign" name="doh_sign">
@@ -356,30 +410,30 @@
             <p>
                 Print Name
                 <br>
-                <input type="text" name="print_name" class="no-border">
+                <input type="text" name="print_name" >
             </p>
-            <p>
+            <p style="margin-left: 10px;">
                 Date Signed
                 <br>
-                <input type="date" name="date_signed" class="no-border">
+                <input type="date" name="date_signed">
             </p>
         </div>
         <div class="container-row">
             <p>
                 Speciality
                 <br>
-                <input type="text" name="speciallity" class="no-border">
+                <input type="text" name="speciallity" >
 
             </p>
             <p>
                 Office Address
                 <br>
-                <input type="text" name="office_address" class="no-border">
+                <input type="text" name="office_address" >
             </p>
             <p>
                 Office Phone
                 <br>
-                <input type="text" name="office_phone" class="no-border">
+                <input type="text" name="office_phone" >
             </p>
         </div>
         <div class="container-row" style="justify-content: space-between">
@@ -389,7 +443,10 @@
             </p>
         </div>
 
-        <button type="submit" class="submit-button"> Submit</button>
+        <button type="submit" id="submit-button" class="submit-button">
+            Submit
+            <span class="loader" style="display: none;"></span>
+        </button>
     </form>
 </div>
 
@@ -416,6 +473,10 @@
         };
         $('#doh-form').submit(function (e) {
             e.preventDefault();
+            $('#submit-button').addClass('btn-size');
+            $('#submit-button').prop('disabled', true);
+            $('.loader').show();
+            saveCanvasAsImage()
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({
@@ -433,16 +494,44 @@
                         icon: 'success',
                         confirmButtonText: 'Great!'
                     });
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
 
                 },
                 error: function (response) {
                     alert('Error in saving file');
+                    $('#submit-button').removeClass('btn-size');
+                    $('.loader').hide();
+                    $('#submit-button').prop('disabled', false);
                 }
             });
         });
 
 
     });
+
+    function generateSignature() {
+    const name = document.getElementById('doh_signature').value;
+    const canvas = document.getElementById('signature-doh');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#f2f2f2';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '40px "Rage Italic", cursive';
+    ctx.fillStyle = 'black';
+    ctx.fillText(name, 19, 80);
+
+}
+function clearDohCanvas() {
+    document.getElementById('doh_signature').value = '';
+}
+    function saveCanvasAsImage() {
+        for (let i = 1; i <= 5; i++) {
+            const canvas = document.getElementById("signature-doh");
+            const signatureDataURL = canvas.toDataURL('image/png'); // Convert to Base64
+            document.getElementById("doh_sign").value = signatureDataURL;
+        }
+    }
 
 </script>
 </body>
