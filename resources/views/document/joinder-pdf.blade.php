@@ -95,40 +95,40 @@
     <div class="container-page-end"></div>
     <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
         <div style="display: table-row;">
-            <div style="color: #16B7D4; display: table-cell; width:45%;text-align: right;"><b>TF :</b></div>
-            <div style="display: table-cell; text-align: left;color:#134C7F;padding-left: 5px;">877-298-7878</div>
+            <div style="color: #16B7D4; display: table-cell; width:45%;text-align: right;"><b>Tel:</b></div>
+            <div style="display: table-cell; text-align: left;color:#134C7F;padding-left: 5px;">718.500.3235</div>
         </div>
     </div>
 
-    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+    {{-- <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
         <div style="display: table-row;">
             <div style="color: #16B7D4; display: table-cell; padding-left: 60px; font-size: 11px;">2 9 T R U S T</div>
         </div>
-    </div>
+    </div> --}}
 
     <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
         <div style="display: table-row;">
-            <div style="color: #16B7D4; display: table-cell;width:45%;text-align: right;"><b>Tel :</b></div>
-            <div style="display: table-cell; text-align: left;color:#134C7F;padding-left: 5px;">718-970-7878</div>
+            <div style="color: #16B7D4; display: table-cell;width:45%;text-align: right;"><b>Email:</b></div>
+            <div style="display: table-cell; text-align: left;color:#134C7F;padding-left: 5px;">info@slctrusts.org</div>
         </div>
     </div>
 
-    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+    {{-- <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
         <div style="display: table-row;">
             <div style="color: #16B7D4; display: table-cell;width:45%;text-align: right;"><b>Fax :</b></div>
             <div style="display: table-cell; text-align: left;color:#134C7F;padding-left: 5px;">646-904-8963</div>
         </div>
-    </div>
+    </div> --}}
 
-    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+    {{-- <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
         <div style="display: table-row;">
             <div style="display: table-cell;color:#134C7F;font-size: 11px">info@trustedsurplus.org</div>
         </div>
-    </div>
+    </div> --}}
 
     <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
         <div style="display: table-row;">
-            <div style="color: #16B7D4; font-weight: bold; display: table-cell;"><b>trustedsurplus.org</b></div>
+            <div style="color: #16B7D4; font-weight: bold; display: table-cell;"><b>www.seniorlifecaretrusts.org</b></div>
         </div>
     </div>
     <br>
@@ -2138,7 +2138,7 @@
         If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
         A $100 annual-renewal fee will be charged on the anniversary of the account
     </p>
-    <div style="text-align: center;margin: 0;padding: 0;">
+    <div style="text-align: center;margin: 30px 0;padding: 0;">
         <img src="{{public_path('images/slc_logo.png')}}" alt="logo" width="200" height="100">
         <p style="margin: 0;padding: 0;">9</p>
     </div>

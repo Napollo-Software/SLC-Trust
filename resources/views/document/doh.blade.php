@@ -493,7 +493,12 @@ textarea{
                         text: '6-DOH-5143 has been saved successfully.',
                         icon: 'success',
                         confirmButtonText: 'Great!'
-                    });
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '{{ route("login") }}';
+                        }
+                    })
+                    ;
                     $('#submit-button').removeClass('btn-size');
                     $('.loader').hide();
                     $('#submit-button').prop('disabled', false);
