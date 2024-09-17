@@ -204,7 +204,7 @@ class DocumentController extends Controller
 
         Documents::whereIn('name', $selected_documents)->where('referral_id', $referral->id)->update(['status' => 'Sent']);
         $name = $referral->full_name();
-        $email_message = 'Please fill the following documents and share it on intrurpit@gmail.com';
+        $email_message = 'Please fill the following documents and share it on info@slctrusts.org';
 
         DocumentJob::dispatch($referral->email, $name, $email_message, $filtered_links, $filtered_names, $referralId);
         return response()->json(['success' => 'Documents sent to ' . $referral->full_name() . ' successfully!', 'filtered_links' => $filtered_links, 'filtered_names' => $filtered_names, 'referralId' => $referralId]);
@@ -341,8 +341,10 @@ class DocumentController extends Controller
             return redirect()->route('login');
         }
 
+//        dd($request->referralId);
+        $referralID = Crypt::decryptString($request->referralId);
         $documentId = Documents::where('name', '1-Joinder Agreement.pdf')
-            ->where('referral_id', 1)
+            ->where('referral_id', $referralID)
             ->value('id');
 
 
@@ -414,10 +416,12 @@ class DocumentController extends Controller
                     }
                 }
             }
+
             $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
 
             $document->save();
+//            dd($document);
         }
 
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);

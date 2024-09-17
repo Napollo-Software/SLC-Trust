@@ -467,10 +467,10 @@ return $colors[$randomIndex];
                                                                     @if ($item->status == 'Approved') btn-primary custom-hover {{ 'changeStatus' . $item->id }} @endif
                                                                     @if ($item->status == 'pending') btn-warning {{ 'changeStatus' . $item->id }} @endif
                                                                     @if ($item->status == 'Rejected') btn-danger {{ 'changeStatus' . $item->id }} @endif
-                                                                    @if ($item->status == 'Doc Sent') btn-secondary {{ 'changeStatus' . $item->id }} @endif
-                                                                    @if ($item->status == 'Recieved') btn-info {{ 'changeStatus' . $item->id }} @endif
+                                                                    @if ($item->status == 'Sent') btn-secondary {{ 'changeStatus' . $item->id }} @endif
+                                                                    @if ($item->status == 'Recieved' || $item->status == 'Received') btn-info {{ 'changeStatus' . $item->id }} @endif
                                                                    dropdown-toggle" type="button" id="statusDropdown{{ $item->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                {{ $item->status }}
+                                                                {{ $item->status == 'Recieved' ? "Received" : $item->status }}
                                                             </button>
                                                             <div class="dropdown-menu" aria-labelledby="statusDropdown{{ $item->id }}">
                                                                 <a class="dropdown-item status-option" href="#" data-value="pending" data-id="{{ $item->id }}">Pending</a>
