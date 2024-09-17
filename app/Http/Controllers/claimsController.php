@@ -302,12 +302,8 @@ class claimsController extends Controller
                 }
 
                 $admins_notification = User::where('role', '!=', "User")->get();
-                $ignore_admin_notification = [
-                    'devops@napollo.net',
-                    'svaldivia@trustedsurplus.org',
-                    'ldurzieh@trustedsurplus.org',
-                    'rbauman@trustedsurplus.org'
-                ];
+                $ignore_admin_notification = ignoreAdminEmails();
+
                 foreach ($admins_notification as $notify) {
                     /////////////// Admin Notification//////////
                     if (in_array($notify->email, $ignore_admin_notification))
@@ -320,7 +316,6 @@ class claimsController extends Controller
                         'user_id' => $notify->id,
                         'name' => $claimUser->name,
                         'description' => "Bill # " . $claim->id . " with $" . $request->claim_amount . " amount has been added by " . $claimUser->name . " on " . date('m/d/Y', strtotime(now())) . ".",
-
                     ]);
 
                     $details = $claim;

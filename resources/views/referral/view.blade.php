@@ -22,7 +22,7 @@ return $colors[$randomIndex];
 
 
     .fancy-plus-button {
-        background-color: #16b6d3;
+        background-color: #559e99;
         border: none;
         padding: 5px 10px;
         text-align: center;
