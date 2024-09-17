@@ -65,7 +65,7 @@
                     <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
                       <tbody>
                         <tr>
-                          <td align="left"> <img src="{{url('assets/img/intrustpit-Logo.png')}}" style="height:110px"  alt="logo" border="0" /></td>
+                          <td align="left"> <img src="{{url('assets/img/'.config('app.name').'-Logo.png')}}" style="height:110px"  alt="logo" border="0" /></td>
                         </tr>
                         <tr class="hiddenMobile">
                           <td height="5"></td>

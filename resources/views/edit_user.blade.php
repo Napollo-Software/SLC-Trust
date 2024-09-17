@@ -114,7 +114,8 @@
                                 <div class="card-body" style="padding: 0.5rem 0.5rem;margin-left:auto;margin-right:auto; ">
                                     @if ($user->profile_pic == null)
                                         @php
-                                            $profile = 'intrustpit-Logo.png';
+                                        $app_name = config('app.name');
+                                            $profile = $app_name.'-Logo.png';
                                         @endphp
                                     @else
                                         @php
@@ -137,13 +138,13 @@
                         </div>
                     </div>
             </div>
-            
+
             <div class="col-md-8">
                 <div class="card mb-3">
                     <div class="card-body">
                         <div style="display: flex">
                             <h4>Profile Details</h4>
-                            @if ($user->id != \Intrustpit::Account_id)
+                            @if ($user->id != \Company::Account_id)
                                 <div class="col-sm-3" style="margin-left:auto;margin-right:1%">
                                     <select id="defaultSelect"
                                         class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif"
@@ -257,7 +258,7 @@
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 @if ($user->role == 'User')
-                                    ${{ number_format($user->user_balance, 2, '.', ',') }}
+                                    ${{ number_format(userBalance($user->id), 2, '.', ',') }}
                                 @else
                                     N/A
                                 @endif

@@ -108,7 +108,7 @@ class ReportController extends Controller
         $user_id = '';
         $type = $request->type ? $request->type : ' ';
         $users = User::where('role', 'User')->get();
-        $transactions = Transaction::where('chart_of_account', \Intrustpit::Account_id);
+        $transactions = Transaction::where('chart_of_account', \Company::Account_id);
         if ($request->type == 'operational') {
             $transactions = $transactions->where('transaction_type', 'Operational')->orderBy('id', 'DESC')->get();
         } elseif ($request->type == 'trusted_surplus') {
@@ -135,14 +135,14 @@ class ReportController extends Controller
         $startDate = Carbon::now()->subMonths(2)->startOfMonth();
         $endDate = Carbon::now()->subMonths(2)->endOfMonth();
 
-        $payments = Transaction::where('chart_of_account', \Intrustpit::Account_id)
+        $payments = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$startDate, $endDate])
             ->where(function ($query) {
                 $query->where('description', 'LIKE', '%payment against%')
                     ->orwhere('description', 'LIKE', '%deduct amount%');
             })
             ->get();
-        $deposits = Transaction::where('chart_of_account', \Intrustpit::Account_id)
+        $deposits = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$startDate, $endDate])
             ->where(function ($query) {
                 $query->where('description', 'LIKE', '%deposit%')
@@ -153,14 +153,14 @@ class ReportController extends Controller
         $opening_start_date = Carbon::now()->subMonth(3)->startOfMonth();
         $opening_end_date = Carbon::now()->subMonth(3)->endOfMonth();
 
-        $opening_payments = Transaction::where('chart_of_account', \Intrustpit::Account_id)
+        $opening_payments = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$opening_start_date, $opening_end_date])
             ->where(function ($query) {
                 $query->where('description', 'LIKE', '%payment against%')
                     ->orwhere('description', 'LIKE', '%deduct amount%');
             })
             ->sum('deduction');
-        $opening_deposits = Transaction::where('chart_of_account', \Intrustpit::Account_id)
+        $opening_deposits = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$opening_start_date, $opening_end_date])
             ->where(function ($query) {
                 $query->where('description', 'LIKE', '%deposit%')
@@ -186,15 +186,15 @@ class ReportController extends Controller
         $month = $date[1];
         $start_date = Carbon::create($year, $month, 1)->startOfMonth();
         $endDate = $start_date->copy()->endOfMonth();
-        $opening_balance = Transaction::where('chart_of_account', \Intrustpit::Account_id)->whereBetween('created_at', [$start_date, $endDate])->sum('deduction');
-        $payments = Transaction::where('chart_of_account', \Intrustpit::Account_id)
+        $opening_balance = Transaction::where('chart_of_account', \Company::Account_id)->whereBetween('created_at', [$start_date, $endDate])->sum('deduction');
+        $payments = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$start_date, $endDate])
             ->where(function ($query) {
                 $query->where('description', 'LIKE', '%payment against%')
                     ->orwhere('description', 'LIKE', '%deduct amount%');
             })
             ->get();
-        $deposits = Transaction::where('chart_of_account', \Intrustpit::Account_id)
+        $deposits = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$start_date, $endDate])
             ->where(function ($query) {
                 $query->where('description', 'LIKE', '%deposit%')
@@ -255,7 +255,7 @@ class ReportController extends Controller
         $year = date('Y', strtotime($start_date));
         $month = date('m', strtotime($start_date));
         $users = User::where('role', 'User')->get();
-        $transactions = Transaction::where('user_id', $request->user)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->where('chart_of_account', \Intrustpit::Account_id)->get();
+        $transactions = Transaction::where('user_id', $request->user)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->where('chart_of_account', \Company::Account_id)->get();
 
         return view('reports.monthly-statement', compact('users', 'transactions', 'start_date', 'user_id'));
     }

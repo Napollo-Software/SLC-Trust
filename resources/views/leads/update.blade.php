@@ -265,13 +265,13 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5 m-2">
                     <button class="btn btn-primary submit-btn">Save</button>
-                    <button class="btn btn-secondary m-2 clear-form">Cancel</button>
+                    <a class="btn btn-secondary" href="{{ route('lead.list') }}">Cancel</a>
                 </div>
             </div>
 

@@ -34,11 +34,13 @@ class UserStatus extends Mailable
      */
     public function build()
     {
+
         return $this->subject('SLC | Account Verified')
             ->view('emails.userstatus')
             ->attach($this->pdfPath, [
                 'as' => 'approval_letter.pdf',
                 'mime' => 'application/pdf',
             ]);
+
     }
 }

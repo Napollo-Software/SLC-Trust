@@ -104,7 +104,8 @@ color:#69707a;
                       <div class="card-body" style="padding: 0.5rem 0.5rem;margin-left:auto;margin-right:auto; ">
                         @if ($user->profile_pic==null)
                             @php
-                                $profile = 'intrustpit-Logo.png'
+                            $app_name = config('app.name');
+                                $profile = $app_name.'-Logo.png'
                             @endphp
                         @else
                           @php

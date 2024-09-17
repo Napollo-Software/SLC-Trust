@@ -228,7 +228,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-md-6 p-2 mt-2">
                                     <label for="amount-in-number">Amount in Number</label>
                                     <input type="number" id="amount-in-number"
@@ -277,7 +277,7 @@
                     </div>
                     <div class="memo memo-text"><small>Aleksandra Gelman-Apt 9F, 2775 West 5ht streat(3B) Brooklyn, NY
                             11224</small></div>
-                    <div class="sig signature">Intrustpit</div>
+                    <div class="sig signature">{{ config('app.name') }}</div>
                 </div>
         </div> --}}
     </div>

@@ -28,7 +28,8 @@ class BillNotification extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | New Bill!')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | New Bill!')
         ->view('emails.billnofication');
     }
 }

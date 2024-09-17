@@ -272,10 +272,10 @@
                     </li>
                 @endif
                 @if ($user->hasPermissionTo('Vendor View'))
-                    <li class="menu-item {{in_array(Route::currentRouteName(),['accounts.list','add.accounts','view.accounts','edit.accounts'])? 'active' : '' }}">
-                        <a href="{{ url('/accounts') }}" class="menu-link">
+                    <li class="menu-item {{in_array(Route::currentRouteName(),['vendors.list','add.vendors','view.vendors','edit.vendors'])? 'active' : '' }}">
+                        <a href="{{ url('/vendors') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-group"></i>
-                            <div data-i18n="Layouts">Accounts</div>
+                            <div data-i18n="Layouts">Vendors</div>
                         </a>
                     </li>
                 @endif
@@ -646,7 +646,7 @@
                     <div
                         class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                         <div class="mb-2 mb-md-0">
-                            <a href="#" target="_blank" class="footer-link fw-bolder">Intrustpit</a> ©
+                            <a href="#" target="_blank" class="footer-link fw-bolder">{{ config('app.name') }}</a> ©
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
@@ -931,7 +931,7 @@
     <link rel="stylesheet" href="{{ asset('assets/new_theme/css/dark-theme.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/new_theme/css/semi-dark.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/new_theme/css/header-colors.css')}}" />
-    <title>Intrustpit - Dashboard</title>
+    <title>{{ config('app.name') }} - Dashboard</title>
     <style>
         .fw-bold{
             display: none !important;

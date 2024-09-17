@@ -41,7 +41,9 @@ class Notify extends Command
      */
     public function handle()
     {
-        $notifications = Claim::where('recurring_bill', 1)->where('claim_status','Approved')->orwhere('claim_status','Partially approved')->get(); 
+        $app_name = config('app.name');
+
+        $notifications = Claim::where('recurring_bill', 1)->where('claim_status','Approved')->orwhere('claim_status','Partially approved')->get();
         foreach($notifications as $notify){
             $claimUser = User::find($notify->claim_user);
             $category = Category::find($notify->claim_category);
@@ -65,7 +67,7 @@ class Notify extends Command
                     if($claimUser->notify_by == "email"){
                         \Mail::to($claimUser->email)->send(new \App\Mail\Email($subject,$name,$email_message,$url));
                     }else{
-                        
+
                     }
                 }else{
                     /////////////User Notification/////////////
@@ -84,7 +86,7 @@ class Notify extends Command
                     if($claimUser->notify_by == "email"){
                         \Mail::to($claimUser->email)->send(new \App\Mail\Email($subject,$name,$email_message,$url));
                     }else{
-                        
+
                     }
                 }
             }
@@ -95,18 +97,18 @@ class Notify extends Command
                 $notifcation=new Notifcation();
                 $notifcation->user_id=$user->id;
                 $notifcation->name=$user->name;
-                $notifcation->description='Hey ! This is deposit reminder from intrustpit, Your intrustpit account needs to be topped up.';
+                $notifcation->description='Hey ! This is deposit reminder from '.$app_name.', Your '.$app_name.' account needs to be topped up.';
                 $notifcation->title='Deposit Reminder ';
                 $notifcation->status = 0;
                 $notifcation->save();
                 $subject = "Deposit Reminder ";
                 $name = $user->name.' '.$user->last_name;
-                $email_message = 'This is deposit reminder from intrustpit, Your intrustpit account needs to be topped up.';
+                $email_message = 'This is deposit reminder from '.$app_name.', Your '.$app_name.' account needs to be topped up.';
                 $url = '';
                 if($claimUser->notify_by == "email"){
                     \Mail::to($claimUser->email)->send(new \App\Mail\Email($subject,$name,$email_message,$url));
                 }else{
-                    
+
                 }
             }
         }

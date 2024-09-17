@@ -35,6 +35,7 @@ class EmailDocuments extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Documents')->view('emails.email_documents');
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Documents')->view('emails.email_documents');
     }
 }

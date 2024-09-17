@@ -29,6 +29,8 @@ class Kernel extends ConsoleKernel
         //      ->daily()->withoutOverlapping();
         // $schedule->command('monthly_mass_report:cron')
         //       ->daily()->withoutOverlapping();
+
+        $schedule->command('renewal:charge')->daily();
     }
 
     /**

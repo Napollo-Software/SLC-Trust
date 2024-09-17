@@ -28,7 +28,8 @@ class Billemail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Bill Rejected')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Bill Rejected')
                     ->view('emails.billMail');
     }
 }

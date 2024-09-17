@@ -30,11 +30,13 @@ class Register extends Mailable
      */
     public function build()
     {
+
         return $this->subject('SLC | Set Password')
                     ->view('emails.registered')
             ->attach($this->pdfpath, [
                 'as' => 'approval_letter.pdf',
                 'mime' => 'application/pdf',
             ]);
+
     }
 }

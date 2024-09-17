@@ -31,7 +31,8 @@ class Email extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | '.$this->subject)
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | '.$this->subject)
         ->view('emails.mail');
     }
 }

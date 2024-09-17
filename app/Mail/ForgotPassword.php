@@ -30,7 +30,8 @@ class ForgotPassword extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Reset your password ')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Reset your password ')
         ->view('forgotPassword.forgotPassword');
     }
 }

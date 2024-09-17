@@ -28,7 +28,8 @@ class addbillmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Bill Added Successfully')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Bill Added Successfully')
                     ->view('emails.addbillmail');
     }
 }

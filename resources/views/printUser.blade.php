@@ -65,7 +65,7 @@
                     <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
                       <tbody>
                         <tr>
-                          <td align="left"> <img src="{{url('assets/img/intrustpit-Logo.png')}}" style="height:110px"  alt="logo" border="0" /></td>
+                          <td align="left"> <img src="{{url('assets/img/'.config('app.name').'-Logo.png')}}" style="height:110px"  alt="logo" border="0" /></td>
                         </tr>
                         <tr class="hiddenMobile">
                           <td height="40"></td>
@@ -75,7 +75,7 @@
                         </tr>
                         <tr>
                           <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
-                          
+
                           </td>
                         </tr>
                       </tbody>
@@ -138,7 +138,7 @@
                       <td height="10" colspan="4"></td>
                     </tr>
                     @foreach ($users as $u)
-                      @if ($u->role=='User')   
+                      @if ($u->role=='User')
                         <tr>
                           <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000;  line-height: 18px;  vertical-align: top; padding:10px 0;" class="article">
                             {{ $u['name'] }} {{ $u['last_name'] }}

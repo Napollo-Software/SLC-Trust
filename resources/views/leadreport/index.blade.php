@@ -106,7 +106,7 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item"
-                                                            href="{{ route('view.accounts', $u['id']) }}">
+                                                            href="{{ route('view.vendors', $u['id']) }}">
                                                             <i class='bx bxs-show'></i>
                                                             View</a>
                                                         <a class="dropdown-item"

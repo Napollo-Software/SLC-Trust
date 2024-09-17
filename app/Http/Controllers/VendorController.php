@@ -77,7 +77,7 @@ class VendorController extends Controller
         ]);
         $user->assignRole('Vendor');
         alert()->success('Vendor Added', 'Vendor has been added successfully');
-        return redirect('/accounts');
+        return redirect('/vendors');
     }
 
     public function edit($id)
@@ -131,7 +131,7 @@ class VendorController extends Controller
             ]);
         }
         alert()->success('Vendor Updated', 'Vendor has been updated successfully');
-        return redirect('/accounts');
+        return redirect('/vendors');
     }
 
     public function view($id)

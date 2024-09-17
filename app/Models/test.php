@@ -2,6 +2,7 @@
  function update(Request $request)
  {
      $id = $request->id;
+     $app_name = config('app.name');
      $request->validate(
          [
              'claim_status' => 'required',
@@ -77,11 +78,11 @@
          $transaction->payment_number = $request->card_number;
          $transaction->transaction_type = "Trusted Surplus";
          $transaction->statusamount = "debit";
-         $transaction->description = "Intruspit has processed your payment against your bill submitted for " . $name->category_name . " category.";
+         $transaction->description = "{$app_name} has processed your payment against your bill submitted for " . $name->category_name . " category.";
          $transaction->bill_status = 'Deducted';
          $transaction->status = 1;
          $transaction->save();
-         ////////////////Intrustpit Ledger/////////////////
+         //////////////// Admin Ledger/////////////////
 
          $transaction = new Transaction();
          $transaction->chart_of_account = $intrustpit->id;
@@ -94,7 +95,7 @@
          $transaction->payment_number = $request->card_number;
          $transaction->transaction_type = "Trusted Surplus";
          $transaction->statusamount = "debit";
-         $transaction->description = "Intruspit has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category.";
+         $transaction->description = "{$app_name} has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category.";
          $transaction->bill_status = 'Included';
          $transaction->status = 1;
          $transaction->save();
@@ -157,11 +158,11 @@
          $transaction->transaction_type = "Trusted Surplus";
          $transaction->cbalance = $claimUser->user_balance - $claim_amount;
          $transaction->statusamount = "debit";
-         $transaction->description = "Intruspit has processed your payment against your bill submitted for " . $name->category_name . " category.";
+         $transaction->description = "{$app_name} has processed your payment against your bill submitted for " . $name->category_name . " category.";
          $transaction->bill_status = 'Deducted';
          $transaction->status = 1;
          $transaction->save();
-         ////////////////Intrustpit Ledger/////////////////
+         //////////////// Admin Ledger/////////////////
          $transaction = new Transaction();
          $transaction->chart_of_account = $intrustpit->id;
          $transaction->bill_id = $claim->id;
@@ -173,7 +174,7 @@
          $transaction->transaction_type = "Trusted Surplus";
          $transaction->deduction = $claim_amount;
          $transaction->statusamount = "debit";
-         $transaction->description = "Intruspit has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category.";
+         $transaction->description = "{$app_name} has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category.";
          $transaction->bill_status = 'Included';
          $transaction->status = 1;
          $transaction->save();
