@@ -650,7 +650,7 @@
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
-                            | All rights reserved
+                            | All Rights Reserved
                         </div>
                     </div>
                 </footer>
