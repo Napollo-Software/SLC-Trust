@@ -3935,7 +3935,7 @@ tr.ind-th td{
                                 
                                           
                             </div>
-                            <button style="width:10%" type="button" id="clear-1" onclick="clearCanvas(1)">Clear</button>
+                            <button style="width:50px" type="button" id="clear-1" onclick="clearCanvas(1)">Clear</button>
                             <input type="hidden" id="joinder_signature_1" name="joinder_signature_1">
                         </div>
                     </div>
@@ -4030,7 +4030,7 @@ tr.ind-th td{
                                 </div>
                                 <div class="w-80">
                                     <canvas id="signature-canvas-2" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
-                                     <button style="width:10%" type="button" id="clear-2" onclick="clearCanvas(2)">Clear</button>
+                                     <button style="width:50px" type="button" id="clear-2" onclick="clearCanvas(2)">Clear</button>
                                      <input type="hidden" id="joinder_signature_2" name="joinder_signature_2">
                                 </div>
                                 <div class="w-80">
@@ -4063,7 +4063,7 @@ tr.ind-th td{
                                     </div>
                                     <div style="width: 100%;">
                                     <canvas id="signature-canvas-3" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
-                                    <button style="width:10%" type="button" id="clear-2" onclick="clearCanvas(3)">Clear</button>
+                                    <button style="width:50px" type="button" id="clear-2" onclick="clearCanvas(3)">Clear</button>
                                     <input type="hidden" id="joinder_signature_3" name="joinder_signature_3">
                                 </div>
                                     <div style="width: 100%;">
@@ -4108,7 +4108,7 @@ tr.ind-th td{
                             </div>
                            
                         </div>
-                        <button type="button" style="width:10%" id="clear-4" onclick="clearCanvas(4)">Clear</button>
+                        <button type="button" style="width:50px" id="clear-4" onclick="clearCanvas(4)">Clear</button>
                         <input type="hidden" id="joinder_signature_4" name="joinder_signature_4">
                     </div>
                   </div>
@@ -4253,7 +4253,7 @@ tr.ind-th td{
                         <div style="width: 40%;margin-top: 15px;">
                                  <canvas id="signature-canvas-5" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas> 
                         </div>
-                        <button type="button" style="width:10%" id="clear-4" onclick="clearCanvas(5)">Clear</buttonty>
+                        <button type="button" style="width:50px" id="clear-4" onclick="clearCanvas(5)">Clear</buttonty>
                         <input type="hidden" id="joinder_signature_5" name="joinder_signature_5">
                     </div>
 
