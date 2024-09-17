@@ -269,7 +269,7 @@ Route::get('/logs', [LogController::class, 'index'])->name('logs')->middleware('
 Route::get('state-fetch-city/{state}', [AuthController::class, 'state_fetch_city'])->name('state.fetch.city');
 
 
-Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('isLoggedIn', );
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('isLoggedIn', )->name('dashboard');
 
 Route::get('/vendor-dashboard', [AuthController::class, 'vendor_dashboard'])->middleware('isLoggedIn', )->name('vendor.dashboard');
 

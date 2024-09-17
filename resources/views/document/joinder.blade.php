@@ -49,7 +49,7 @@ header{
     /* height: 75vh; */
 }
 .logo-style{
-     width: 30%;
+     width: 25%;
 }
 .logo-img{
     width: 100%;
@@ -1673,11 +1673,12 @@ tr.ind-th td{
         <br> <br>
         <br> <br>
         <br> -->
-        <header>
+        <header style="background-image: url('{{ asset('assets/images/joinder-bg.png') }}');background-size: cover;
+    background-repeat: no-repeat;">
         <div class="logo-style">
             <img src="{{asset('assets/images/logo.png')}}" alt="logo" class="logo-img" />
         </div>
-        <div class="header-content" style="background-image: url('{{ asset('assets/images/joinder-bg.png') }}')">
+        <div class="header-content">
             <div class="header-heading">
                 <h1 class="j-heading">JOINDER</h1>
                 <h1 class="j-heading">AGREEMENT</h1>
@@ -4305,7 +4306,7 @@ tr.ind-th td{
                         <span class="loader" style="display: none;"></span>
                     </button>
                     <div style="display: flex; justify-content: center; align-items: center;">
-                        <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 50%; object-fit: cover;">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 25%; object-fit: cover;">
                     </div>
                     <div class="footer-for-office-use-3">
                         <div class="footer-left">
@@ -4362,9 +4363,14 @@ tr.ind-th td{
                         confirmButtonText: 'Great!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '{{ route("login") }}';
+                            @if (auth()->check())
+                                window.location.href = "{{ route('dashboard') }}";
+                            @else
+                                window.location.href = "{{ route('login') }}"; 
+                            @endif
+                            // window.location.href = "{{ route('login') }}"; // Replace 'login' with your actual login route
                         }
-                    })
+                    });
                     ;
                     $('#submit-button').removeClass('btn-size');
                     $('.loader').hide();
