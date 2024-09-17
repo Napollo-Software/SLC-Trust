@@ -22,7 +22,7 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function collection(Collection $rows)
-    {   
+    {
         Validator::make($rows->toArray(), [
          '*.id' => 'required',
         //  '*.date_mmddyyyy' => 'required',
@@ -31,6 +31,7 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
          '*.maintenance_fee'=>'required'
         ])->validate();
         $array=$rows;
+        $app_name = config('app.name');
         foreach($array as $k=>$data){
             // if($k!=0)
             {
@@ -66,17 +67,17 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
                         //     $user->user_balance = $file_balance;
                         //     $user->save();
                         // }
-                    //////////////////////Intrustpit Ledger///////////////////
+                    //////////////////////Admin Ledger///////////////////
                     if($data['amount'] != 0){
                         $transaction4=new Transaction();
                         $transaction4->user_id=$user->id;
-                        $transaction4->chart_of_account=\Intrustpit::Account_id;
+                        $transaction4->chart_of_account=\Company::Account_id;
                         $transaction4->deduction=$file_balance;
                         $transaction4->transaction_type="Trusted Surplus";
                         $transaction4->name=$user->name;
                         $transaction4->statusamount="credit";
                         $transaction4->last_name=$user->last_name;
-                        $transaction4->description= $user->name." ".$user->last_name." made $".$file_balance." deposit on ".date('m/d/Y',strtotime(now()))." into intrustpit account.";
+                        $transaction4->description= $user->name." ".$user->last_name." made $".$file_balance." deposit on ".date('m/d/Y',strtotime(now()))." into {$app_name} account.";
                         $transaction4->bill_status = "Added";
                         $transaction4->status = 1;
                         $transaction4->created_at = $date;
@@ -85,19 +86,19 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
                     if($data['maintenance_fee'] != 0){
                         $transaction5=new Transaction();
                         $transaction5->user_id=$user->id;
-                        $transaction5->chart_of_account=\Intrustpit::Account_id;
+                        $transaction5->chart_of_account=\Company::Account_id;
                         $transaction5->deduction=$data['maintenance_fee'];
                         $transaction5->name=$user->name;
                         $transaction5->statusamount="credit";
                         $transaction5->transaction_type="Operational";
                         $transaction5->last_name=$user->last_name;
                         if($data['amount'] == 0){
-                            $transaction5->description="Intrustpit $".$data['maintenance_fee']." Maintenance fee deducted on ".date('m/d/Y',strtotime(now()))." from ".$user->name." ".$user->last_name."'s account.";
+                            $transaction5->description="{$app_name} $".$data['maintenance_fee']." Maintenance fee deducted on ".date('m/d/Y',strtotime(now()))." from ".$user->name." ".$user->last_name."'s account.";
                         }else{
-                            $transaction5->description="Intrustpit $".$data['maintenance_fee']." Maintenance fee deducted against $".$file_balance." balance  on ".date('m/d/Y',strtotime(now()))." from ".$user->name." ".$user->last_name."'s account.";
+                            $transaction5->description="{$app_name} $".$data['maintenance_fee']." Maintenance fee deducted against $".$file_balance." balance  on ".date('m/d/Y',strtotime(now()))." from ".$user->name." ".$user->last_name."'s account.";
                         }
                         if($prcessed == 0){
-                            $transaction5->description="Intrustpit $".$data['maintenance_fee']." Maintenance fee against ".$user->name." ".$user->last_name."'s account bounced back because customer has insufficient balance.";
+                            $transaction5->description="{$app_name} $".$data['maintenance_fee']." Maintenance fee against ".$user->name." ".$user->last_name."'s account bounced back because customer has insufficient balance.";
                         }
                         $transaction5->bill_status = "Deducted";
                         $transaction5->status = $prcessed;
@@ -115,7 +116,7 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
                         $transaction4->statusamount="credit";
                         $transaction4->last_name=$user->last_name;
                         $transaction4->transaction_type="Trusted Surplus";
-                        $transaction4->description="Intrustpit added $".$file_balance." balance in your account on ".date('m/d/Y',strtotime(now()));
+                        $transaction4->description="{$app_name} added $".$file_balance." balance in your account on ".date('m/d/Y',strtotime(now()));
                         $transaction4->bill_status = "Added";
                         $transaction4->status = 1;
                         $transaction4->created_at = $date;
@@ -131,9 +132,9 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
                         $transaction4->last_name=$user->last_name;
                         $transaction4->transaction_type="Operational";
                         if($data['amount'] == 0){
-                            $transaction4->description="Intrustpit $".$data['maintenance_fee']." Maintenance fee deducted on ".date('m/d/Y',strtotime(now())).".";
+                            $transaction4->description="{$app_name} $".$data['maintenance_fee']." Maintenance fee deducted on ".date('m/d/Y',strtotime(now())).".";
                         }else{
-                            $transaction4->description="Intrustpit $".$data['maintenance_fee']." Maintenance fee deducted against $".$file_balance." balance  on ".date('m/d/Y',strtotime(now())).".";
+                            $transaction4->description="{$app_name} $".$data['maintenance_fee']." Maintenance fee deducted against $".$file_balance." balance  on ".date('m/d/Y',strtotime(now())).".";
                         }
                         $transaction4->bill_status = "Deducted";
                         $transaction4->status = $prcessed;

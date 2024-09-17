@@ -132,9 +132,9 @@ class LeadController extends Controller
             $query->where('name', 'vendor');
         })->get();
         $contacts = contacts::select('id', 'fname', 'lname')->get();
-        
+
         $lead = Lead::find($id);
-    
+
         $assignees = User::select('id', 'name')
             ->whereDoesntHave('roles', function ($query) {
                 $query->whereIn('name', ['vendor', 'user']);

@@ -155,7 +155,7 @@
                         <div class="row pt-4">
                             <div class="col-sm-12">
 
-                                <a href="{{ url('/accounts') }}" class="btn btn-secondary">Close <i
+                                <a href="{{ url('/vendors') }}" class="btn btn-secondary">Close <i
                                         class="bx bx-window-close"></i></a>
                             </div>
                         </div>

@@ -29,7 +29,8 @@ class PasswordGenerate extends Mailable
      */
     public function build()
     {
-       return $this->subject('Intrustpit | Password Generated!')
+        $app_name = config('app.name');
+       return $this->subject($app_name.' | Password Generated!')
                     ->view('emails.passwordGenerate');
     }
 }

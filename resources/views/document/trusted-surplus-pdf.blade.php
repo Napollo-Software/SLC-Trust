@@ -54,7 +54,7 @@
 <body>
 <div class="row-container" style="text-align: center">
     <h4>
-        <img src="{{public_path('/images/intrustpit.png')}}" alt="int" style="max-width: 100%; height: 100px;">
+        <img src="{{public_path('/images/slc_trust.png')}}" alt="int" style="max-width: 100%; height: 100px;">
     </h4>
 
 </div>

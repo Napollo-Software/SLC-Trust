@@ -31,7 +31,8 @@ class paymentDetectMail extends Mailable
      */
     public function build()
     {
-          return $this->subject('Intrustpit |Your recurring bill was charged successfully!')
+        $app_name = config('app.name');
+          return $this->subject($app_name.' |Your recurring bill was charged successfully!')
                     ->view('emails.paymentdetect');
     }
 }

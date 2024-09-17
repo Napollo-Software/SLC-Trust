@@ -234,7 +234,7 @@ class PrintController extends Controller
         $end_date = $request->to ? Carbon::parse($request->to) : null;
         $user = $request->user;
         $type = $request->type;
-        $transactions = Transaction::where('chart_of_account', \Intrustpit::Account_id);
+        $transactions = Transaction::where('chart_of_account', \Company::Account_id);
         if ($request->from != null && $request->to != null && $request->user == 'null' && $request->type == null) {
             $transactions = $transactions->whereDate('created_at', '>=', $start_date)->whereDate('created_at', '<=', $end_date)->get();
         } else if ($request->from != null && $request->to != null && $request->user != 'null' && $request->type == null) {
@@ -249,7 +249,7 @@ class PrintController extends Controller
         } else if ($request->from != null && $request->to != null && $request->user != 'null'  && $request->type == 'operational') {
             $transactions = $transactions->where('user_id', $request->user)->whereDate('created_at', '>=', $start_date)->whereDate('created_at', '<=', $end_date)->where('transaction_type', 'Operational')->get();
         } else if ($request->user != 'null'  && $request->type == 'operational' && $request->from == null && $request->to == null) {
-            $transactions = $transactions->where('user_id', $request->user)->where('transaction_type', 'Operational')->where('chart_of_account', \Intrustpit::Account_id)->get();
+            $transactions = $transactions->where('user_id', $request->user)->where('transaction_type', 'Operational')->where('chart_of_account', \Company::Account_id)->get();
         } else if ($request->type == 'operational' && $request->user == 'null' && $request->from == null && $request->to == null) {
             $transactions = $transactions->where('transaction_type', 'Operational')->get();
         }
@@ -273,7 +273,7 @@ class PrintController extends Controller
         $user_id = $request->user;
         $year = date('Y', strtotime($start_date));
         $month = date('m', strtotime($start_date));
-        $transactions = Transaction::where('user_id', $request->user)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->where('chart_of_account', \Intrustpit::Account_id)->get();
+        $transactions = Transaction::where('user_id', $request->user)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->where('chart_of_account', \Company::Account_id)->get();
         return view('monthly-transaction-pdf', compact('transactions', 'year', 'month', 'user_id'));
     }
     public function reconciliationprintpdf(Request $request)
@@ -281,7 +281,7 @@ class PrintController extends Controller
         $start_date = $request->from;
         $end_date = $request->to;
         $user_id = $request->user;
-        $transactions = Transaction::where('user_id', $user_id)->whereBetween('created_at', [$start_date, $end_date])->where('chart_of_account', \Intrustpit::Account_id)->get();
+        $transactions = Transaction::where('user_id', $user_id)->whereBetween('created_at', [$start_date, $end_date])->where('chart_of_account', \Company::Account_id)->get();
         return view('bank-reconciliation-pdf', compact('transactions', 'start_date', 'end_date', 'user_id'));
     }
     public function transactionsexport(Request $request)

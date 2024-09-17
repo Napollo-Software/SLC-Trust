@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Excel;
+use Session;
 use App\Models\Claim;
 use App\Models\User;
 use App\Models\Category;
+use App\Jobs\sendEmailJob;
+use App\Models\PayeeModel;
 use App\Models\Notifcation;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\DB;
-use App\Imports\CustomerDepositImport;
-use Session;
-use Excel;
-use App\Jobs\sendEmailJob;
 use App\Imports\UsersImport;
+use Illuminate\Support\Facades\DB;
 use App\Imports\ApprovePendingBills;
-use App\Models\PayeeModel;
+use App\Imports\CustomerDepositImport;
 
 class claimsController extends Controller
 {
@@ -28,7 +27,7 @@ class claimsController extends Controller
 
         if ($search != "") {
 
-            $claims = Claim::orderBy('id', 'desc')->get();
+            $claims = Claim::with('payee_details')->orderBy('id', 'desc')->get();
             $all_users = User::all();
             $total_users = DB::table('users')->count('id');
             $user_balance = DB::table('users')->sum('user_balance');
@@ -54,7 +53,7 @@ class claimsController extends Controller
 
             if ($role != 'User') {
 
-                $claims = Claim::orderBy('id', 'desc')->get();
+                $claims = Claim::with('payee_details')->orderBy('id', 'desc')->get();
                 $claim_details = Claim::orderBy('id', 'desc')->where('archived', null)->take(200)->get();
                 $all_users = User::all();
                 $total_users = DB::table('users')->count('id');
@@ -186,12 +185,6 @@ class claimsController extends Controller
         return view('claims.add_claim');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -209,7 +202,7 @@ class claimsController extends Controller
 
         $user = User::find(Session::get('loginId'));
         $claimUser = User::find($validated['claim_user'] ?? $user->id);
-        $admin = User::find(\Intrustpit::Account_id);
+        $admin = User::find(\Company::Account_id);
         $app_name = config('app.name');
 
         if ($claimUser->account_status == 'Disable') {
@@ -218,8 +211,8 @@ class claimsController extends Controller
 
         $balance = userBalance($claimUser->id);
 
-        if ($balance < $validated['claim_amount']) {
-            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to add this bill, Please add balance first."]);
+        if ($user->role != "User" && $balance < $validated['claim_amount'] && $request->claim_status == 'Approved') {
+            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to approve this bill, Please add balance first."]);
         }
 
         DB::beginTransaction();
@@ -244,25 +237,13 @@ class claimsController extends Controller
                 'recurring_day' => $request->recurring_day,
             ]);
 
-            if ($request->claim_status == 'Approved') {
+            if ($request->claim_status == 'Approved' && $balance >= $request->claim_amount) {
 
                 $claim->claim_status = 'Approved';
                 $claim->save();
                 $details = $claim;
 
                 $reference_id = generateTransactionId();
-                ////////////////Admin Ledger/////////////////
-
-                $admin->transactions()->create([
-                    "status" => 1,
-                    "bill_id" => $claim->id,
-                    "reference_id" => $reference_id,
-                    "credit" => $request->claim_amount,
-                    "payment_method" => $request->payment_method,
-                    "payment_number" => $request->payment_number,
-                    "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => $app_name . " has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category."
-                ]);
 
                 ////////////////Customer Ledger/////////////////
 
@@ -275,6 +256,19 @@ class claimsController extends Controller
                     'payment_number' => $request->card_number,
                     'transaction_type' => \TransactionType::TrustedSurplus,
                     'description' => "{$app_name} has processed your payment against bill submitted for " . $name->category_name . " category."
+                ]);
+
+                ////////////////Admin Ledger/////////////////
+
+                $admin->transactions()->create([
+                    "status" => 1,
+                    "bill_id" => $claim->id,
+                    "reference_id" => $reference_id,
+                    "credit" => $request->claim_amount,
+                    "payment_method" => $request->payment_method,
+                    "payment_number" => $request->payment_number,
+                    "transaction_type" => \TransactionType::TrustedSurplus,
+                    "description" => $app_name . " has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category."
                 ]);
 
                 /////////////User Bill Notification/////////////
@@ -315,7 +309,7 @@ class claimsController extends Controller
                     'rbauman@trustedsurplus.org'
                 ];
                 foreach ($admins_notification as $notify) {
-                    ///////////////Intrustpit Notification//////////
+                    /////////////// Admin Notification//////////
                     if (in_array($notify->email, $ignore_admin_notification))
                         continue;
 
@@ -464,21 +458,21 @@ class claimsController extends Controller
             'refusal_reason.required_if' => 'Refusal reason is required to refuse bill'
         ]);
 
-        $admin = User::findOrFail(\Intrustpit::Account_id);
+        $admin = User::findOrFail(\Company::Account_id);
         $claim = Claim::findOrFail($request->id);
         $claimUser = User::findOrFail($claim->claim_user);
         $name = Category::findOrFail($request->claim_category);
         $app_name = config('app.name');
 
         if ($claimUser->account_status == 'Disable') {
-            return response()->json(['header' => 'User Disabled!', 'message' => "You cannot update bill for disabled customer."], 403);
+            return response()->json(['type' => 'warning', 'header' => 'User Disabled!', 'message' => "You cannot update bill for disabled customer."]);
         }
 
         $balance = userBalance($claimUser->id);
         $amountToUpdate = $request->claim_status == 'Partial' ? $validated['partial_amount'] : $claim->claim_amount;
 
         if ($balance < $amountToUpdate && $request->claim_status != 'Refused') {
-            return response()->json(['header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to update this bill."], 400);
+            return response()->json(['type' => 'warning','header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to update this bill."]);
         }
 
         $claim = Claim::find($id);
@@ -599,15 +593,15 @@ class claimsController extends Controller
                 /////////////User Bill Partically approved Notification/////////////
 
                 Notifcation::create([
-                    'user_id' => $claimUser->id,
-                    'name' => $claimUser->name,
-                    'bill_id' => $claim->id,
-                    'description' => "Your Bill # " . $claim->id . " with $" . $claim->claim_amount . " amount added on " . date('m/d/Y', strtotime(now())) . " has been partically approved with amount $" . $request->partial_amount . ".",
-                    'title' => 'Partically approved',
                     'status' => 0,
+                    'bill_id' => $claim->id,
+                    'name' => $claimUser->name,
+                    'user_id' => $claimUser->id,
+                    'title' => 'Partically approved',
+                    'description' => "Your Bill # " . $claim->id . " with $" . $claim->claim_amount . " amount added on " . date('m/d/Y', strtotime(now())) . " has been partically approved with amount $" . $request->partial_amount . ".",
                 ]);
 
-                $name = $claimUser->name . ' ' . $claimUser->last_name;
+                $name = "{$claimUser->name} {$claimUser->last_name}";
 
                 DB::commit();
 

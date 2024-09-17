@@ -209,10 +209,7 @@
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody  >
-                                        @php
-                                            // $claim_details = [];
-                                        @endphp
+                                    <tbody >
                                         @foreach ($claim_details as $claim)
                                             <tr  class="row-{{ $claim['id'] }}">
                                                 <td style="vertical-align: middle;"><a
@@ -270,7 +267,7 @@
                                                     </div>
                                                 </td>
                                                 <td  style="vertical-align: middle;">
-                                                    {{-- {{$claim->payee_details->name}} --}}
+                                                    {{$claim->payee_details->name}}
                                                 </td>
                                                 <td style="vertical-align: middle;" >{{ $claim->account_number }}</td>
                                                 <td style="vertical-align: middle;">

@@ -35,7 +35,7 @@ class BankReconciliationExport implements FromCollection, WithHeadings
         $result = array();
 
         if($this->start_date != ' ' && $this->end_date != ' ' && $this->user_id  != ' '){
-            $transactions =  Transaction::whereBetween('created_at', [$this->start_date, $this->end_date])->where('user_id',$this->user_id)->where('chart_of_account',\Intrustpit::Account_id)->get();
+            $transactions =  Transaction::whereBetween('created_at', [$this->start_date, $this->end_date])->where('user_id',$this->user_id)->where('chart_of_account',\Company::Account_id)->get();
             $result = array();
             $user_id = User::where('id',$this->user_id)->first();
             foreach($transactions as $transaction){

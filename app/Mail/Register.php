@@ -11,14 +11,16 @@ class Register extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
+    public $pdfpath;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($details,$pdfpath)
     {
         $this->details = $details;
+        $this->pdfpath = $pdfpath;
     }
 
     /**
@@ -28,7 +30,13 @@ class Register extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Set Password')
-                    ->view('emails.registered');
+
+        return $this->subject('SLC | Set Password')
+                    ->view('emails.registered')
+            ->attach($this->pdfpath, [
+                'as' => 'approval_letter.pdf',
+                'mime' => 'application/pdf',
+            ]);
+
     }
 }

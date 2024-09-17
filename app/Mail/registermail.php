@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class registermail extends Mailable
 {
     use Queueable, SerializesModels;
-     
+
      public $details;
     /**
      * Create a new message instance.
@@ -30,7 +30,8 @@ class registermail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Welcome to Intrustpit!')
+        $app_name = config('app.name');
+        return $this->subject('Welcome to '.$app_name.'!')
                     ->view('emails.registermail');
     }
 }

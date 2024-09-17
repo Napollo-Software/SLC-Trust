@@ -243,12 +243,12 @@
                 @endif
                 @if ($login_user->hasPermissionTo('Front Office'))
                     <div class="col">
-                        <a href="{{ url("accounts") }}">
+                        <a href="{{ url("vendors") }}">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <p class="mb-0">Accounts</p>
+                                        <p class="mb-0">Vendors</p>
                                         <h5 class="mb-0">{{ $total_accounts }}</h5>
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-collection font-30"></i>
@@ -393,7 +393,7 @@
                                 </div>
                             </div>
                             <h4 style="text-align: center"><span class="bg bg-primary text-white p-2 rounded">Total
-                                    Balance:${{ number_format((float) $total_balance,2,'.',',') }}</span>
+                                    Balance:${{ number_format((float) $pool_amount+$total_revenue,2,'.',',') }}</span>
                                 </h5>
                                 <div style="display: flex;justify-content:center;" class="custom-flex pt-2">
                                     <h6 style="margin-right:5%">Pool Amount
@@ -432,7 +432,7 @@
                                             <div class="col-md-3">
                                                 <label class="form-label">End Date</label>
                                                 <input class="form-control text-center " type="date" id="endDate"
-                                                    value="{{ $to }}" name="to" onchange="validateDate()"
+                                                    value="{{ $to }}" name="to" onblur="validateDate()"
                                                     required>
                                             </div>
                                             <div class="col-md-3 pt-4">
@@ -464,9 +464,9 @@
                                                     <td>{{ $data->reference_id }}</td>
                                                     <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
                                                     <td>
-                                                       @if($data->user_id == \Intrustpit::Account_id)
+                                                       @if($data->user_id == \Company::Account_id)
                                                        {{
-                                                        \Intrustpit::Account_name
+                                                        \Company::Account_name
                                                        }}
                                                        @else
                                                        {{ $data->user->name }}

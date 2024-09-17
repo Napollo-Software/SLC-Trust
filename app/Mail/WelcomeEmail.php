@@ -31,8 +31,8 @@ class WelcomeEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | Welcome Email')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Welcome Email')
         ->view('emails.welcome-email');
     }
 }
- 

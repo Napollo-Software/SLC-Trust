@@ -8,8 +8,8 @@ use App\Models\Log;
 use App\Models\Type;
 
 
-if (!class_exists('Intrustpit')) {
-    class Intrustpit
+if (!class_exists('Company')) {
+    class Company
     {
         const Account_id = 7;
         const Account_name = 'SLC TRUST';
@@ -190,15 +190,27 @@ if (!function_exists('createDocument')) {
     if (!function_exists('generateTransactionId')) {
         function generateTransactionId()
         {
-            $lastInsertedId = App\Models\Transaction::max('id') + 1;
-            return "TRX" . str_pad($lastInsertedId, 10, '0', STR_PAD_LEFT);
+
+            $lastTransaction = App\Models\Transaction::orderBy('id', 'desc')->first();
+
+            if ($lastTransaction && !empty($lastTransaction->reference_id)) {
+                $lastReferenceId = $lastTransaction->reference_id;
+
+                $lastNumber = intval(substr($lastReferenceId, -8));
+
+                $newNumber = $lastNumber + 1;
+            } else {
+                $newNumber = 1;
+            }
+            return "TRX_" . date('Y_m_d') . "_" . str_pad($newNumber, 8, '0', STR_PAD_LEFT);
         }
     }
+
 
     if (!class_exists('TransactionType')) {
         class TransactionType
         {
-            const Operational = "perational";
+            const Operational = "operational";
             const TrustedSurplus = "trusted surplus";
         }
     }

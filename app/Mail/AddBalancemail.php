@@ -27,10 +27,11 @@ class AddBalancemail extends Mailable
      * Build the message.
      *
      * @return $this
-     */ 
+     */
     public function build()
     {
-        return $this->subject('Intrustpit | Balance Added Successfully')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | Balance Added Successfully')
         ->view('emails.addbalance');
     }
 }

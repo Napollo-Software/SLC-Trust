@@ -30,7 +30,8 @@ class RegisterNotification extends Mailable
      */
     public function build()
     {
-        return $this->subject('Intrustpit | New User!')
+        $app_name = config('app.name');
+        return $this->subject($app_name.' | New User!')
         ->view('emails.registeralert');
     }
 }

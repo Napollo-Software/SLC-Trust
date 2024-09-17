@@ -46,7 +46,7 @@
                             @foreach ($vendors as $k => $u)
                                 <tr>
                                     <td>
-                                       <a href="{{ route('view.accounts', ['id'=>$u->id]) }}">{{ $u->name . ' ' . $u->last_name }}</a>
+                                       <a href="{{ route('view.vendors', ['id'=>$u->id]) }}">{{ $u->name . ' ' . $u->last_name }}</a>
                                     </td>
 
                                     <td>{{ $u['phone'] }}</td>
@@ -60,10 +60,10 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
-                                                   href="{{ route('view.accounts', $u['id']) }}"><i
+                                                   href="{{ route('view.vendors', $u['id']) }}"><i
                                                         class='bx bxs-show'></i> View</a>
                                                 <a class="dropdown-item"
-                                                   href="{{ route('edit.accounts', $u['id']) }}"><i
+                                                   href="{{ route('edit.vendors', $u['id']) }}"><i
                                                         class="bx bx-edit-alt me-1"></i> Edit</a>
                                             </div>
                                         </div>
