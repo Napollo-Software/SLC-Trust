@@ -400,7 +400,8 @@ input:focus{
     width: 10%;
 }
 .zip-form{
-    width: 20%;
+    /* width: 20%; */
+    flex: 1
 }
 .qualifying-disabilities{
     margin-top: 35px;
