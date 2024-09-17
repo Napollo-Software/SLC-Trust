@@ -414,7 +414,7 @@ class DocumentController extends Controller
                     }
                 }
             }
-            $document->status = "Received";
+            $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
 
             $document->save();
@@ -475,7 +475,7 @@ class DocumentController extends Controller
                     }
                 }
             }
-            $document->status = "Received";
+            $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
 
             $document->save();
@@ -542,7 +542,7 @@ class DocumentController extends Controller
                     }
                 }
             }
-            $document->status = "Received";
+            $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
 
             $document->save();
@@ -654,7 +654,7 @@ class DocumentController extends Controller
                     }
                 }
             }
-            $document->status = "Received";
+            $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
 
             $document->save();
@@ -719,7 +719,7 @@ class DocumentController extends Controller
                     }
                 }
             }
-            $document->status = "Received";
+            $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
 
             $document->save();
@@ -760,7 +760,7 @@ class DocumentController extends Controller
             if (Storage::exists('public/' . $document->uploaded_url)) {
                 Storage::delete('public/' . $document->uploaded_url);
             }
-            $document->status = "Received";
+            $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
 
             $document->save();
