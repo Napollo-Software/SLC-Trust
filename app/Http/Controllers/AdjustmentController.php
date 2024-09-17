@@ -45,7 +45,7 @@ class AdjustmentController extends Controller
             $transactionType = $validated['type'];
             $adminDirection = $transactionType === 'credit' ? 'debit' : 'credit';
             $admin_message = "Adjustment : {$app_name} has processed an adjustment entry to {$transactionType} amount \${$request->amount} for {$user->name} {$user->last_name}. Transaction reason: '{$request->details}'.";
-            $user_message = "Adjustment : Your account has been {$transactionType}ed by amount \${$request->amount}. Transaction reason: '{$request->details}'.";
+            $user_message = "Adjustment : Account has been {$transactionType}ed by amount \${$request->amount}. Transaction reason: '{$request->details}'.";
             $subject = $transactionType === 'credit' ? 'Balance Added' : 'Balance Deducted';
 
             $reference_id = generateTransactionId();

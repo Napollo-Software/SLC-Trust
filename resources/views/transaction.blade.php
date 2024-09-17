@@ -4,6 +4,7 @@
     @php
         use App\Models\User;
         use App\Models\Claim;
+        use App\Models\Transaction;
         $all_users = User::where('role', '!=', 'Admin')
             ->where('role', '!=', 'Moderator')
             ->get();
@@ -464,13 +465,13 @@
                                                     <td>{{ $data->reference_id }}</td>
                                                     <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
                                                     <td>
-                                                       @if($data->user_id == \Company::Account_id)
-                                                       {{
-                                                        \Company::Account_name
-                                                       }}
-                                                       @else
-                                                       {{ $data->user->name }}
-                                                       @endif
+                                                        @if ($data->user_id == \Company::Account_id && in_array($data->type, [Transaction::MaintenanceFee, Transaction::EnrollmentFee, Transaction::RenewalFee]))
+                                                            {{ \Company::Account_name_income }}
+                                                        @elseif ($data->user_id == \Company::Account_id)
+                                                            {{ \Company::Account_name }}
+                                                        @else
+                                                            {{ $data->user->name }}
+                                                        @endif
                                                     </td>
 
                                                     @if ($data->bill_id)

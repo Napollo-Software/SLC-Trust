@@ -78,7 +78,7 @@
          $transaction->payment_number = $request->card_number;
          $transaction->transaction_type = "Trusted Surplus";
          $transaction->statusamount = "debit";
-         $transaction->description = "{$app_name} has processed your payment against your bill submitted for " . $name->category_name . " category.";
+         $transaction->description = "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category.";
          $transaction->bill_status = 'Deducted';
          $transaction->status = 1;
          $transaction->save();
@@ -158,7 +158,7 @@
          $transaction->transaction_type = "Trusted Surplus";
          $transaction->cbalance = $claimUser->user_balance - $claim_amount;
          $transaction->statusamount = "debit";
-         $transaction->description = "{$app_name} has processed your payment against your bill submitted for " . $name->category_name . " category.";
+         $transaction->description = "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category.";
          $transaction->bill_status = 'Deducted';
          $transaction->status = 1;
          $transaction->save();

@@ -255,7 +255,7 @@ class claimsController extends Controller
                     'payment_method' => $request->payment_method,
                     'payment_number' => $request->card_number,
                     'transaction_type' => \TransactionType::TrustedSurplus,
-                    'description' => "{$app_name} has processed your payment against bill submitted for " . $name->category_name . " category."
+                    'description' => "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category."
                 ]);
 
                 ////////////////Admin Ledger/////////////////
@@ -508,7 +508,7 @@ class claimsController extends Controller
                     "payment_number" => $request->card_number,
                     "payment_method" => $request->payment_method,
                     "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => "{$app_name} has processed your payment against your bill submitted for " . $name->category_name . " category.",
+                    "description" => "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category.",
                 ]);
 
                 ////////////////Admin Ledger/////////////////
@@ -574,7 +574,7 @@ class claimsController extends Controller
                     'payment_number' => $request->card_number,
                     'payment_method' => $request->payment_method,
                     'transaction_type' => \TransactionType::TrustedSurplus,
-                    'description' => "{$app_name} has processed your payment against your bill submitted for " . $name->category_name . " category.",
+                    'description' => "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category.",
                 ]);
 
                 ////////////////Admin Ledger/////////////////

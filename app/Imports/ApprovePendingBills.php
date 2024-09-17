@@ -60,7 +60,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             // $transaction->payment_number=$request->card_number;
                             $transaction->transaction_type = "Trusted Surplus";
                             $transaction->statusamount = "debit";
-                            $transaction->description = "{$app_name} has processed your payment against your bill submitted for " . $item['category'] . " category.";
+                            $transaction->description = "{$app_name} has processed payment against bill submitted for " . $item['category'] . " category.";
                             $transaction->bill_status = 'Deducted';
                             $transaction->status = 1;
                             $transaction->save();
@@ -114,7 +114,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             // $transaction->payment_number=$request->card_number;
                             $transaction->transaction_type = "Trusted Surplus";
                             $transaction->statusamount = "debit";
-                            $transaction->description = "{$app_name} has processed your payment against your bill submitted for " . $item['category'] . " category.";
+                            $transaction->description = "{$app_name} has processed payment against bill submitted for " . $item['category'] . " category.";
                             $transaction->bill_status = 'Deducted';
                             $transaction->status = 1;
                             $transaction->save();

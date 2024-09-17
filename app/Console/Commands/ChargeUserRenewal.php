@@ -69,7 +69,7 @@ class ChargeUserRenewal extends Command
                     'status' => 0,
                     'user_id' => $user->id,
                     'title' => 'Renewal Charged',
-                    'description' => "A renewal fee of \${$renewalFee} has been deducted from your account.",
+                    'description' => "A renewal fee of \${$renewalFee} has been deducted.",
                 ]);
 
             } catch (\Exception $e) {

@@ -160,19 +160,19 @@ class AuthController extends Controller
         if ($role && $role != "User") {
             $details = $user;
 
-            $directory = storage_path('app/public/'.$user->email);
+            $directory = storage_path('app/public/' . $user->email);
             if (!is_dir($directory)) {
                 mkdir($directory, 0777, true);
             }
-            
-            $pdf = PDF::loadView('document.approval-letter-pdf', ['user'=>$user]);
+
+            $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
 
             $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
             // Save the PDF file to the specified location
             $pdf->save($savePath);
 
-            Mail::to($request->email)->send(new \App\Mail\Register($details,$savePath));
+            Mail::to($request->email)->send(new \App\Mail\Register($details, $savePath));
 
         } else {
             $details = $request->_token;
@@ -302,16 +302,15 @@ class AuthController extends Controller
 
             if ($category_id) {
                 $claims = Claim::with(['payee_details', 'category_details'])->where('claim_category', $category_id)
-                ->where('claim_user', $loginId)
-                ->get();
+                    ->where('claim_user', $loginId)
+                    ->get();
             }
 
         } else {
 
             $user = User::where('name', 'LIKE', "%$search%")->first();
 
-            if($user)
-            {
+            if ($user) {
                 $claims = $user->calims()->with(['payee_details', 'category_details'])->get();
             }
 
@@ -437,8 +436,10 @@ class AuthController extends Controller
             $from = $request->from;
             $customer = $request->customer;
 
-            $transactions = Transaction::where('user_id', $request->customer)
-                ->whereBetween('created_at', [$from, $to])
+            $transactions = Transaction::when($customer != 'all', function ($query) use ($customer) {
+                $query->where('user_id', $customer);
+            })
+                ->whereBetween('created_at', [Carbon::parse($from)->startOfDay(), Carbon::parse($to)->endOfDay()])
                 ->with('user')
                 ->latest('reference_id')
                 ->take(500)
@@ -447,12 +448,12 @@ class AuthController extends Controller
             $pool_amount = userBalance($request->customer);
 
             $maintenance_fee = Transaction::where('user_id', \Company::Account_id)
-                    ->where('user_id', $request->customer)
-                    ->where("type", Transaction::MaintenanceFee)->sum('debit');
+                ->where('user_id', $request->customer)
+                ->where("type", Transaction::MaintenanceFee)->sum('debit');
 
             $enrollment_fee = Transaction::where('user_id', \Company::Account_id)
-                    ->where('user_id', $request->customer)
-                    ->where("type", Transaction::EnrollmentFee)->sum('debit');
+                ->where('user_id', $request->customer)
+                ->where("type", Transaction::EnrollmentFee)->sum('debit');
 
         } else {
 
@@ -479,7 +480,7 @@ class AuthController extends Controller
 
             $pool_amount = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
                 - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
-            }
+        }
 
         $total_revenue = $maintenance_fee + $enrollment_fee;
 
@@ -570,13 +571,13 @@ class AuthController extends Controller
             $user->save();
             if ($request->account_status == "Approved") {
                 $status = "Approved";
-                $directory = storage_path('app/public/'.$user->email);
+                $directory = storage_path('app/public/' . $user->email);
                 if (!is_dir($directory)) {
                     mkdir($directory, 0777, true);
                 }
 
 
-                $pdf = PDF::loadView('document.approval-letter-pdf', ['user'=>$user]);
+                $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
 
                 $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
@@ -584,16 +585,16 @@ class AuthController extends Controller
                 $pdf->save($savePath);
                 $details = [
 
-                    'title' => 'Mail from '.$app_name,
-                    'body' => 'Your '.$app_name.' account has been verified successfully.'
+                    'title' => 'Mail from ' . $app_name,
+                    'body' => 'Your ' . $app_name . ' account has been verified successfully.'
                 ];
-                 Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name,$savePath));
+                Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name, $savePath));
 
             } elseif ($request->account_status == "Not Approved") {
                 $status = "Not Approved";
                 $details = [
-                    'title' => 'Mail from '.$app_name,
-                    'body' => 'Your '.$app_name.' account has been rejected.'
+                    'title' => 'Mail from ' . $app_name,
+                    'body' => 'Your ' . $app_name . ' account has been rejected.'
                 ];
                 Mail::to($user->email)->send(new \App\Mail\RejectProfile($user->name));
             } elseif ($request->account_status == "Disable") {
@@ -607,7 +608,7 @@ class AuthController extends Controller
                 }
                 $subject = 'Account Deactivate';
                 $name = $user->name . ' ' . $user->last_name;
-                $email_message = 'Your profile has been deactivated by '.$app_name.',For immediate assistance please call 646-854 3004.';
+                $email_message = 'Your profile has been deactivated by ' . $app_name . ',For immediate assistance please call 646-854 3004.';
                 $url = "";
                 if ($user->notify_by == "email") {
                     SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
