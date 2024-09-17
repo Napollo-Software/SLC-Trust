@@ -66,6 +66,12 @@ header{
     
     
 }
+.service-container{
+    display: flex;
+     justify-content: space-between; 
+     align-items: center; 
+     flex-wrap:wrap
+}
 .header-content{
     display: flex;
     flex-direction: column;
@@ -84,6 +90,12 @@ header{
     justify-content: center;
     align-items: center;
     font-size: 1.4rem;
+}
+.life-policy-style{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 3px;
 }
 .header-email{
     color: var(--primary);
@@ -149,6 +161,12 @@ main{
     width: 90%;
     margin: 20px auto;
 }
+.acc-name-style{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 .label-name{
     font-weight: bold;
 }
@@ -177,14 +195,24 @@ input:focus{
     justify-content: space-between;
     align-items: center;
     margin-top: 18px;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     /* width: 25%; */
 }
 .name-form{
     width: 30%;
 }
 
-
+.referring-source-para-style{
+    font-size: 18px;
+    word-spacing: 3px;
+    
+}
+.footer-left{
+    /* min-width: fit-content; */
+}
+.footer-right{
+    min-width: fit-content;
+}
 
 
 
@@ -198,8 +226,14 @@ input:focus{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
-
+.life-insurance-information-body-style{
+    width: 50%;
+    display: flex; 
+    align-items: flex-start; 
+    justify-content: center;
+}
 
 /* Old Css Version */
 
@@ -276,6 +310,7 @@ input:focus{
     align-items: center;
     gap: 30px;
     margin-top: 18px;
+    flex-wrap: wrap
 }
 .home-phone{
     width: 100%;
@@ -315,6 +350,13 @@ input:focus{
     align-items: center;
     gap: 30px;
     margin-top: 18px;
+    flex-wrap: wrap;
+}
+.healthcare-plane{
+    display: flex; 
+    justify-content: flex-start;
+    align-items: center; 
+    flex-wrap:wrap
 }
 .address{
     width: 100%;
@@ -364,6 +406,12 @@ input:focus{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap
+}
+.for-office-use-only-2-container{
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end;
 }
 .d1{
     width: 100%;
@@ -468,10 +516,18 @@ input:focus{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
     /* font-size: 20px; */
 }
 .authorized-des-checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap
+}
+.for-office-use-only-2-body-style{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -537,12 +593,14 @@ input:focus{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 .authorized-contact-form-content{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 .authorized-home-form-inp{
     width: 80%;
@@ -567,6 +625,13 @@ input:focus{
     align-items: center;
     gap: 15px;
 }
+.life-policy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap:wrap
+}
 .authorized-preferred-form-checkbox{
     display: flex;
     justify-content: center;
@@ -578,6 +643,13 @@ input:focus{
     justify-content: space-between;
     align-items: center;
     margin-top: 25px;
+    flex-wrap: wrap;
+}
+.mda{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
 }
 .authorized-contact-form-2-email{
     width: 100%;
@@ -619,6 +691,19 @@ input:focus{
     border: none;
     border-bottom: 1px solid black;
 }
+.witness-1{
+    width: 50%; 
+    border-right: 1px solid black; 
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
+.witness-2{
+    width: 40%; 
+    display: flex; 
+    flex-direction: column;
+     gap: 10px;"
+}
 .referring-source-contract{
     width: 100%;
     border: none;
@@ -628,6 +713,13 @@ input:focus{
     width: 100%;
     border: none;
     border-bottom: 1px solid black;
+}
+.healthcare-applicant{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 5px;
+    flex-wrap: wrap;
 }
 .referring-source-email{
     width: 100%;
@@ -641,6 +733,12 @@ input:focus{
     width: 90%;
     margin: auto;
 }
+.direct-debit-bank{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 .footer-referring-source{
     margin: 35px auto;
     width: 90%;
@@ -652,6 +750,12 @@ input:focus{
 .purpose-of-enr-container{
     width: 90%;
     margin: auto;
+}
+.healthcare-premium-body-style{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap;
 }
 .purpose-of-enr-body{
     width: 90%;
@@ -667,6 +771,7 @@ input:focus{
     justify-content: flex-start;
     align-items: center;
     gap: 25px;
+    flex-wrap: wrap
 }
 .medicaid-information{
     width: 90%;
@@ -675,6 +780,7 @@ input:focus{
 .medicaid-information-body{
     width: 90%;
     margin: 20px auto;
+    overflow-x: auto
 }
 table {
     border-collapse: collapse;
@@ -734,6 +840,11 @@ tr.ind-th td{
     width: 90%;
     margin: 20px auto;
 }
+.sig-para{
+    display: flex;
+    padding: 0px 20px;
+    flex-wrap:wrap
+}
 .household-income-body{
     width: 90%;
     margin: 20px auto;
@@ -758,6 +869,7 @@ tr.ind-th td{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 .spouse-applying-check{
@@ -782,6 +894,7 @@ tr.ind-th td{
     justify-content: flex-start;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
 }
 .house-hold-last-form{
     width: 45%;
@@ -825,6 +938,7 @@ tr.ind-th td{
     font-size: 18px;
     /* margin-left: 30px; */
     background-color: var(--bgColor);
+    min-width: fit-content;
 }
 .healthcare-premium{
     width: 90%;
@@ -855,6 +969,55 @@ tr.ind-th td{
     flex-direction: column;
     gap: 5px;
 }
+.for-office-use-only-2-header{
+    text-align: center;
+    background-color: rgb(184 221 219); 
+    color: rgb(52 159 153);
+    padding: 10px; 
+    width: 25%;   
+}
+.for-office-use-only-2-body{
+    background-color: hsl(185.45deg 40.74% 94.71%);
+    width: 25%;
+    padding: 10px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.w-50{
+    width: 50%
+}
+.w-70{
+    width: 70%
+}
+.w-40{
+    width: 40%
+}
+.w-80{
+    width: 80%
+}
+.w-48{
+    width: 48%
+}
+.w-10{
+    width: 10%
+}
+.w-25{
+    width: 25%
+}
+.w-30{
+    width: 30%
+}
+.f-75{
+    flex: 0.75
+}
+.f-full{
+    flex: 1
+}
 .life-insurance-information{
     width: 90%;
     margin: auto;
@@ -884,8 +1047,9 @@ tr.ind-th td{
     display: flex;
     width: 100%;
     gap: 5px;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    flex-wrap: wrap;
 }
 .living-arrangements{
     width: 90%;
@@ -933,6 +1097,7 @@ tr.ind-th td{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap
     
 }
 .information-disclosures-body-left{
@@ -1041,6 +1206,7 @@ tr.ind-th td{
     flex-direction: column;
     gap: 6px;
     font-size: 14px;
+    flex-wrap: wrap;
 }
 .signature-of-two-witnesses-body{
     width: 90%;
@@ -1049,6 +1215,12 @@ tr.ind-th td{
     flex-direction: column;
     gap: 6px;
 }
+.list-para{
+        font-size: 18px
+    }
+.list-para2{
+        font-size: 14px
+    }
 .for-office-use-only-header{
     background-color: var(--bgColor);
     color: var(--primary);
@@ -1138,6 +1310,7 @@ tr.ind-th td{
 .submit-button{
     margin-left: 10%;
     padding: 10px;
+    min-width: fit-content;
     width: 10%;
     border-radius: 4px;
     cursor:pointer;
@@ -1184,6 +1357,289 @@ tr.ind-th td{
 
 
 /* ------------------------------------------------------------------------------------------------- */
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 800px) {
+
+/* Beneficiary Information */
+
+  .name-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .status{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .gender{
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+  .security-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .dob-form{
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+  .citizenship-form{
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+  .contact-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .address-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .apt-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .city-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .state-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .zip-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .d1-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .d2-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .d3-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .disabilities{
+    gap: 10px;
+  }
+
+  /* Authorized Representatives */
+
+  .authorized-name-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .authorized-home-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .authorized-cell-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .authorized-preferred-form{
+    width: 100%;
+    font-size: 0.8rem;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+  .authorized-contact-form-2{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .authorized-contact-form-2-relationship-container{
+    width: 100%;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  /* Referring Source */
+
+  .referring-source-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .referring-source-para-style{
+    font-size: 1rem;
+  }
+
+  /* Household Income */
+  .house-hold-first-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .house-hold-last-form{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .spouse-applying{
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  /* Life Insurance Information */
+
+  .life-insurance-information-body-style{
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .life-insurance-type{
+    font-size: 0.8rem;
+  }
+
+  /* Healthcare Premiums */
+
+  .healthcare-applicant{
+    justify-content: flex-start
+  }
+  .healthcare-plane{
+    gap: 2px;
+  }
+  .healthcare-premium-body{
+    font-size: 0.8rem
+  }
+
+  body{
+    font-size: 0.8rem;
+  }
+
+  /* Living Arrangements */
+  .w-50{
+    width: 100%
+}
+   .w-10{
+    width: 100%;
+   }
+   .w-25{
+    width: 100%;
+   }
+   .w-48{
+    width: 100%;
+   }
+   .w-40{
+    width: 100%
+}
+    
+    .service-container{
+        gap: 20px
+    }
+    .information-disclosures-body{
+        margin-top: 15px;
+    }
+    .information-disclosures-body-left{
+        width: 100%
+    }
+    .information-disclosures-body-right{
+        width: 100%
+    }
+    .w-30{
+    width: 100%
+}
+    .witness-1{
+        width: 100%;
+        border-right: none
+    }
+    .witness-2{
+        width: 100%;
+    }
+    .w-80{
+    width: 100%
+}
+    .for-office-use-only-2-container{
+        align-items: flex-start
+    }
+    .for-office-use-only-2-header{
+        width: 100%;
+    }
+    .for-office-use-only-2-body{
+        width: 100%;
+    }
+    .for-office-use-only-2-body-style{
+        width: 100%;
+    }
+    .direct-debit-bank{
+        gap: 20px
+    }
+    .acc-name-style{
+        gap: 20px
+    }
+    .mda{
+        justify-content: flex-start
+    }
+    .for-office-use-3-body{
+        gap: 20px
+    }
+    .f-75{
+        flex: 1
+    }
+    .w-70{
+    width: 100%
+}
+    .authorized-home-form-inp{
+        width: 100%;
+    }
+    .authorized-cell-form-inp{
+        width: 100%
+    }
+    thead tr td{
+        padding: 10px;
+    }
+    tbody tr td{
+        padding: 10px;
+    }
+    .sig-para{
+        padding: 0;
+    }
+    .life-policy{
+        justify-content: flex-start
+    }
+    .life-policy-style{
+        width: 100%;
+        justify-content: flex-start;
+    }  
+    .j-heading{
+        font-size: 2.5rem
+    }
+    .supplemental-header-heading{
+        font-size: 1rem
+    }
+    .supplemental-header-title{
+        font-size: 1rem
+    }
+    .authorized-des-checkbox{
+        justify-content: flex-start
+    }
+    .authorized-heading{
+        font-size: 0.8rem
+    }
+    .beneficiary-heading{
+        font-size: 0.8rem
+    }
+    .healthcare-premium-header-heading{
+        font-size: 0.8rem
+    }
+    .list-para{
+        font-size: 0.8rem
+    }
+    .list-para2{
+        font-size: 0.8rem
+    }
+    .email-form{
+        width: 100%;
+    }
+
+
+}
+
     
     </style>
 </head>
@@ -1217,8 +1673,8 @@ tr.ind-th td{
         </div>
         <div class="header-content">
             <div class="header-heading">
-                <h1>JOINDER</h1>
-                <h1>AGREEMENT</h1>
+                <h1 class="j-heading">JOINDER</h1>
+                <h1 class="j-heading">AGREEMENT</h1>
             </div>
             <div class="header-contact">
                 <div>
@@ -1659,7 +2115,7 @@ tr.ind-th td{
                                               <span>Email</span>
                                           </div>
                                           <div class="authorized-contact-form-2-relationship-container">
-                                              <label style="width: 100%;text-align: right;">Relationship
+                                              <label style="min-width: fit-content;text-align: right;">Relationship
                                                   to Beneficiary</label>
                                               <input type="text" name="auth_rep_two_relation_beneficiary"
                                                   id="authorized-contact-form-2-relationship"
@@ -1749,7 +2205,7 @@ tr.ind-th td{
     
                       </div>
                       <div class="referring-source-para">
-                          <p style="font-size: 18px;word-spacing: 3px;">I
+                          <p class="referring-source-para-style">I
                               Authorize any applicable documents necessary for
                               reporting to Government Agencies to be<br>sent
                               to the referring source above.
@@ -1791,13 +2247,13 @@ tr.ind-th td{
                           <p style="font-size: 18px;">Indicate reason for
                               establishing an account.</p>
                           <div class="purpose-of-enr-checkbox">
-                              <div>
+                              <div style="min-width: fit-content">
                                   <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income" id="purpose-of-enr-income">
                                   <label >Shelter
                                       Monthly Excess
                                       Income</label>
                               </div>
-                              <div>
+                              <div style="min-width: fit-content;">
                                   <input type="checkbox" name="account_establishing_reason2" value="Shelter Excess Resources" id="purpose-of-enr-shelter">
                                   <label >Shelter
                                       Excess Resources</label>
@@ -1998,7 +2454,7 @@ tr.ind-th td{
                               </div>
                           </div>
     
-                          <div>
+                          <div style="overflow-x: auto">
                               <table>
                                   <thead>
                                       <tr class="ind-th">
@@ -2304,9 +2760,7 @@ tr.ind-th td{
                         <h3 class="healthcare-premium-header-heading">HEALTHCARE PREMIUMS</h3>
                     </div>
                     <div class="healthcare-premium-body">
-                        <div style="display: flex;
-                        justify-content: space-between;
-                        align-items: center;">
+                        <div class="healthcare-premium-body-style">
                             <div style="display: flex;
                             justify-content: center;
                             align-items: center;
@@ -2332,10 +2786,7 @@ tr.ind-th td{
                                     </div>
                                 </div>
                             </div>
-                            <div style="display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 5px;">
+                            <div class="healthcare-applicant">
                                 <p>Does the applicant have a supplemental policy?</p>
                                 <div style="display: flex;
                                 justify-content: center;
@@ -2356,7 +2807,7 @@ tr.ind-th td{
                                 </div>
                             </div>
                         </div>
-                        <div style="display: flex; justify-content: flex-start; align-items: center;">
+                        <div class="healthcare-plane">
                             <!-- <div> -->
                                 <span style="min-width: fit-content;">If yes, what is the monthly premium? $</span>
                                 <input type="text" name="healthcare_partb_premium" id="healthcare-pre"
@@ -2381,7 +2832,7 @@ tr.ind-th td{
                         <div style="display: flex;
                     justify-content: flex-start;
                     align-items: center;
-                    gap: 10px;">
+                    gap: 10px; flex-wrap:wrap">
                             <p>Does the Beneficiary have any funeral provisions in place?</p>
                             <div style="display: flex;
                         justify-content: center;
@@ -2418,7 +2869,7 @@ tr.ind-th td{
                             <div style="display: flex;
                             justify-content: flex-start;
                             align-items: center;
-                            gap: 10px;">
+                            gap: 10px; flex-wrap:wrap">
                                 <p>Is there a life insurance policy in place for the Beneficiary?</p>
                                 <div style="display: flex;
                                 justify-content: center;
@@ -2446,23 +2897,21 @@ tr.ind-th td{
                             </div>
                         </div>
                         <div class="life-insurance-information-body-form">
-                            <div style="display: flex;
+                            <div
+                             style="display: flex;
                             width: 100%;
                             justify-content: space-between;
-                            align-items: center; gap: 5px;">
-                                <div style="width: 50%;
-                            display: flex;
-                            align-items: flex-start;
-                            justify-content: center;">
-                                    <p>Name of Insured</p>
+                            align-items: center; gap: 5px;
+                            flex-wrap:wrap ">
+                                <div 
+                                class="life-insurance-information-body-style"
+                                >
+                                    <p style="min-width: fit-content">Name of Insured</p>
                                     <input type="text" name="insured_name" id="healthcare-pre"
                                         style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
-                                <div style="width: 50%;
-                            display: flex;
-                            align-items: flex-start;
-                            justify-content: center;">
-                                    <p>Name of Owner</p>
+                                <div  class="life-insurance-information-body-style">
+                                    <p style="min-width: fit-content">Name of Owner</p>
                                     <input type="text" name="insured_owner" id="healthcare-plan"
                                         style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
@@ -2470,48 +2919,34 @@ tr.ind-th td{
                             <div style="display: flex;
                         width: 100%;
                         justify-content: space-between;
-                        align-items: center; gap: 5px;">
-                                <div style="width: 50%;
-                            display: flex;
-                            align-items: flex-start;
-                            justify-content: center;">
-                                    <p>Name of Insurance Company</p>
+                        align-items: center; gap: 5px; flex-wrap:wrap">
+                                <div class="life-insurance-information-body-style">
+                                    <p style="min-width: fit-content">Name of Insurance Company</p>
                                     <input type="text" name="insurance_company" id="healthcare-plan"
                                         style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
-                                <div style="width: 50%;
-                            display: flex;
-                            align-items: flex-start;
-                            justify-content: center;">
-                                    <p>Policy #</p>
+                                <div class="life-insurance-information-body-style">
+                                    <p style="min-width: fit-content">Policy #</p>
                                     <input type="text" name="insurance_policy_number" id="healthcare-plan"
                                         style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
                             </div>
                             <div class="life-insurance-type">
                                 <div>
-                                    <p>Type of Policy:</p>
+                                    <p style="min-width: fit-content">Type of Policy:</p>
                                 </div>
-                                <div style="display: flex;
-                                justify-content: center;
-                                align-items: center; gap: 5px;">
-                                    <div style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    gap: 3px;">
+                                <div class="life-policy">
+                                    <div class="life-policy-style">
                                         <input type="checkbox" name="type_of_policy1" value="Term" id="life-insurance-term">
                                         <label for="life-insurance-term">Term</label>
                                         <input type="text" name="healthcare_plan" id="healthcare-plan"
-                                            style="border: none; border-bottom: 1px solid black;">
+                                            style="border: none; border-bottom: 1px solid black; flex:1">
                                     </div>
-                                    <div style="display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    gap: 3px;">
+                                    <div class="life-policy-style">
                                         <input type="checkbox" name="type_of_policy2" value="Life" id="life-insurance-life">
                                         <label for="life-insurance-life">Life</label>
                                         <input type="text" name="healthcare_plan2" id="healthcare-plan"
-                                            style="border: none; border-bottom: 1px solid black;">
+                                            style="border: none; border-bottom: 1px solid black; flex:1">
                                     </div>
                                 </div>
                                 <div style="display: flex; flex: 1;">
@@ -2524,7 +2959,7 @@ tr.ind-th td{
 
                         </div>
                         <div>
-                            <p style="font-size: 14px;">Upon the death of the Beneficiary, amounts remaining in the Beneficiary’s sub-account
+                            <p class="list-para2">Upon the death of the Beneficiary, amounts remaining in the Beneficiary’s sub-account
                                 shall be <br>
                                 retained in the Trust solely for the benefit of individuals who are disabled as defined
                                 in Soc. Sec. Law <br>
@@ -2598,7 +3033,7 @@ tr.ind-th td{
                         </div>
                         <div style="display: flex;
                     align-items: center;
-                    gap: 8px;">
+                    gap: 8px; flex-wrap:wrap">
                             <div>
                                 <p>Does the Beneficiary have a court appointed Guardian? </p>
                             </div>
@@ -2667,22 +3102,22 @@ tr.ind-th td{
                         justify-content: space-between;
                         align-items: center;
                         flex-wrap: wrap;">
-                                <div style="width: 50%;">
+                                <div class="w-50">
                                     <input type="text" name="living_arrangement_first" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">First</label>
                                 </div>
-                                <div style="width: 50%;">
+                                <div class="w-50">
                                     <input type="text" name="living_arrangement_last" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Last</label>
                                 </div>
-                                <div style="width: 50%;">
+                                <div class="w-50">
                                     <input type="text" name="living_arrangement_primary" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Primary Phone</label>
                                 </div>
-                                <div style="width: 50%;">
+                                <div class="w-50">
                                     <input type="text" name="living_arrangement_email" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Email</label>
@@ -2723,52 +3158,52 @@ tr.ind-th td{
                         <div class="power-of-attorney-body-1">
                             <div class="power-of-attorney-body-1-header">
                                 <div style="display: flex;gap: 30px;">
-                                <h4>Power of Attornery</h4>
+                                <h4 style="min-width: fit-content">Power of Attornery</h4>
                                 <p>Please attach a copy of Power of Attorney</p>
                             </div>
                             
                             <div class="power-of-attorney-body-1-form">
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="power_fname" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">First</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="power_lname" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Last</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="power_tel_home" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Primary Phone</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="power_email" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Email</label>
                                 </div>
-                                <div style="width: 40%;">
+                                <div class="w-48">
                                     <input type="text" name="power_address" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Address</label>
                                 </div>
-                                <div style="width: 10%;">
+                                <div class="w-10">
                                     <input type="text" name="power_apt" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Apt #</label>
                                 </div>
-                                <div style="width: 25%;">
+                                <div class="w-25">
                                     <input type="text" name="power_city" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">City</label>
                                 </div>
-                                <div style="width: 10%;">
+                                <div class="w-10">
                                     <input type="text" name="power_state" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">State</label>
                                 </div>
-                                <div style="width: 10%;">
+                                <div class="w-10">
                                     <input type="text" name="power_zip" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Zip</label>
@@ -2803,7 +3238,7 @@ tr.ind-th td{
                                     </div>
                                     <div style="display: flex;
                                     align-items: center;
-                                    gap: 8px;">
+                                    gap: 8px; flex-wrap:wrap">
                                             <div>
                                                 <p>If No, are the agents authorized to act separately?</p>
                                             </div>
@@ -2834,47 +3269,47 @@ tr.ind-th td{
                             </div>
                             
                             <div class="power-of-attorney-body-1-form">
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="power_fname2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">First</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="power_lname2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Last</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="power_tel_home2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Primary Phone</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="power_email2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Email</label>
                                 </div>
-                                <div style="width: 40%;">
+                                <div class="w-40">
                                     <input type="text" name="power_address2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Address</label>
                                 </div>
-                                <div style="width: 10%;">
+                                <div class="w-10">
                                     <input type="text" name="power_apt2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Apt #</label>
                                 </div>
-                                <div style="width: 25%;">
+                                <div class="w-25">
                                     <input type="text" name="power_city2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">City</label>
                                 </div>
-                                <div style="width: 10%;">
+                                <div class="w-10">
                                     <input type="text" name="power_state2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">State</label>
                                 </div>
-                                <div style="width: 10%;">
+                                <div class="w-10">
                                     <input type="text" name="power_zip2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Zip</label>
@@ -2911,7 +3346,7 @@ tr.ind-th td{
                                     </div>
                                     <div style="display: flex;
                                     align-items: center;
-                                    gap: 8px;">
+                                    gap: 8px; flex-wrap:wrap">
                                             <div>
                                                 <p>If No, are the agents authorized to act separately?</p>
                                             </div>
@@ -2953,7 +3388,7 @@ tr.ind-th td{
                         <div>
                             <div style="display: flex;
                                     align-items: center;
-                                    gap: 8px;">
+                                    gap: 8px; flex-wrap:wrap">
                                             <div>
                                                 <p>Does the Beneficiary have a court appointed Guardian?</p>
                                             </div>
@@ -3032,22 +3467,22 @@ tr.ind-th td{
                             flex-wrap: wrap;
                             justify-content: space-between;
                             align-items: center;">
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="guardianship_fname" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">First</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="guardianship_lname" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Last</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="guardianship_telephone" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Primary Phone</label>
                                 </div>
-                                <div style="width: 48%;">
+                                <div class="w-48">
                                     <input type="text" name="guardianship_email" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Email</label>
@@ -3065,13 +3500,11 @@ tr.ind-th td{
                     </div>
                     <div class="beneficiary-service-body">
                         <div>
-                            <p style="font-size: 18px;">List other services that the Beneficiary receives (include day services, service coordination,
+                            <p class="list-para">List other services that the Beneficiary receives (include day services, service coordination,
                                 employment programs, etc.):</p>
                         </div>
-                        <div style="display: flex;
-                        justify-content: space-between;
-                        align-items: center;">
-                            <div style="width: 50%;">
+                        <div class="service-container">
+                            <div class="w-50">
                                 <div style=" display: flex; gap: 5px;">
                                     <p>Service</p>
                                     <div style="display: flex;
@@ -3089,7 +3522,7 @@ tr.ind-th td{
 
                                 </div>
                             </div>
-                            <div style="width: 50%;">
+                            <div class="w-50">
                                 <div style="width: 100%; display: flex; gap: 5px;">
                                     <p style="min-width: fit-content;">Name of Provider</p>
                                     <div style="display: flex;
@@ -3436,7 +3869,7 @@ tr.ind-th td{
                     <div class="agreement-signature-body">
                         <div style="display: flex;
                     align-items: center;
-                    gap: 8px;">
+                    gap: 8px; flex-wrap:wrap">
                             <div>
                                 <p>Who is signing this Joinder Agreement? </p>
                             </div>
@@ -3474,22 +3907,22 @@ tr.ind-th td{
                                 <p>I certify that the above Information is accurate and completed to the best of my knowledge.</p>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                                <div style="width: 30%;">
+                                <div class="w-30">
                                     <input type="text" name="joinder_signature_1" id="signature_input_1" style="width: 100%; border: none; border-bottom: 1px solid black;" oninput="generateSignature(1)" maxlength="18"> <br>
                                     <label for="">Sign Here</label> 
                         
                                 </div>         
-                                <div style="width: 30%;">
+                                <div class="w-30">
                                     <input type="text" name="joinder_print" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Print</label>
                                 </div>
-                                <div style="width: 30%;">
+                                <div class="w-30">
                                         <input type="date" class="inp-last" style="" name="joinder_date">
                                         <br>
                                     <label for="">Date</label>
                                 </div>
-                                <div style="width: 30%;">
+                                <div class="w-30">
                                     <canvas id="signature-canvas-1" style="width: 100%; height: 100px; background-color:#f2f2f2"></canvas>
                                 </div>
                                 
@@ -3516,7 +3949,7 @@ tr.ind-th td{
                             <p>COUNTY OF</p>
                             <input type="text" name="notary_county_of" id="" style="border: none; border-bottom: 1px solid black;">
                         </div>
-                        <div style="display: flex; padding: 0px 20px;">
+                        <div class="sig-para">
                             <div style="display: flex;">
                             <p>On</p>
                             <input type="text" name="notary_on_date" id="" style="border: none; border-bottom: 1px solid black;">
@@ -3538,14 +3971,14 @@ tr.ind-th td{
                             <span>,</span>
                         </div>
                         <div>
-                            <p style="width: 40%;">personally known to me or proved to me on the basis of
+                            <p class="w-40">personally known to me or proved to me on the basis of
                                 satisfactory evidence to be the individual whose name is
                                 subscribed to the within instrument and acknowledge to
                                 me that he/she/they executed the same in his/her
                                 capacity, and that by his/her signature on the instrument,
                                 the individual or the person upon behalf of which the
-                                <div style="display: flex; justify-content: space-between;">
-                                    <div>
+                                <div style="display: flex; justify-content: space-between; flex-wrap:wrap">
+                                    <div class="w-50">
                                         <p>individual acted, executed this instrument.</p>
                                     </div>
                                         <div style="width: 40%;">
@@ -3571,41 +4004,41 @@ tr.ind-th td{
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 15px;">
                             <p>Or in lieu of Notarization, the following two witness signatures are provided:</p>
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div style="width: 50%; border-right: 1px solid black; display: flex; flex-direction: column; gap: 10px;">
-                                <div style="width: 80%;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap:wrap">
+                                <div class="witness-1">
+                                <div class="w-80">
                                     <input type="text" name="notary_witness_one_name" id=""
                                         style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                     <label for="">Witness 1</label>
                                 </div>
-                                <div style="width: 80%;">
+                                <div class="w-80">
                                     <input type="text" name="sig_date1" id=""
                                         style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                     <label for="">Date</label>
                                 </div>
-                                <div style="width: 80%;">
+                                <div class="w-80">
                                     <input type="text" name="joinder_signature_2" id="signature_input_2" oninput="generateSignature(2)" maxlength="18"
                                         style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                     <label for="">Sign Here</label>
                                 </div>
-                                <div style="width: 80%;">
+                                <div class="w-80">
                                     <canvas id="signature-canvas-2" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                                      <button style="width:10%" type="button" id="clear-2" onclick="clearCanvas(2)">Clear</button>
                                      <input type="hidden" id="joinder_signature_2" name="joinder_signature_2">
                                 </div>
-                                <div style="width: 80%;">
+                                <div class="w-80">
                                     <input type="text" name="notary_witness_one_full_name" id=""
                                         style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                     <label for="">Print Full Name</label>
                                 </div>
-                                <div style="width: 80%;">
+                                <div class="w-80">
                                     <input type="text" name="notary_witness_one_full_address" id=""
                                         style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                     <label for="">Full Address</label>
                                 </div>
                                 
                                 </div>
-                                <div style="width: 40%; display: flex; flex-direction: column; gap: 10px;">
+                                <div class="witness-2">
                                     <div style="width: 100%;">
                                         <input type="text" name="notary_witness_two_name" id=""
                                             style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
@@ -3653,17 +4086,17 @@ tr.ind-th td{
                             <p>Accepted by Trustee or Designated Representative of the Trustees, SLC Supplemental Needs Trust.</p>
                         </div>
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                            <div style="width: 40%;">
+                            <div class="w-40">
                                 <input type="text" name="joinder_signature_4" id="signature_input_4" oninput="generateSignature(4)" maxlength="18"
                                     style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                 <label for="">Sign Here</label>
                             </div>
-                            <div style="width: 40%;">
+                            <div class="w-40">
                                 <input type="date" class="inp-last"  name="office_use_date_approved">
                                     <br>
                                 <label for="">Date</label>
                             </div>
-                            <div style="width: 40%;">
+                            <div class="w-40">
                                 <canvas id="signature-canvas-4" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                             </div>
                            
@@ -3693,17 +4126,16 @@ tr.ind-th td{
             <section class="page-9">
                 <!-- FOR OFFICE USE ONLY 2 -->
                  <div class="for-office-use-only-2">
-                    <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                        <div style="text-align: center; background-color: rgb(184 221 219); color: rgb(52 159 153); padding: 10px; width: 25%;">
+                    <div class="for-office-use-only-2-container">
+                        <div class="for-office-use-only-2-header">
                             <h5>FOR OFFICE USE ONLY</h5>
                         </div>
-                        <div style="background-color: hsl(185.45deg 40.74% 94.71%); width: 25%; padding: 10px; display: flex;
-                        flex-direction: column; justify-content: center; align-items: center; gap: 20px;">
-                            <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                        <div class="for-office-use-only-2-body">
+                            <div class="for-office-use-only-2-body-style">
                                 <label style="font-size: 0.9rem;  min-width: fit-content; " for="">Member ID#:</label>
                                 <input type="text" name="office_use_member_id_above" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
                             </div>
-                            <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                            <div class="for-office-use-only-2-body-style">
                                 <label style="font-size: 0.9rem;  min-width: fit-content; " for="">Effective Date:</label>
                                 <input type="text" name="office_use_effective_date" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
                             </div>
@@ -3730,42 +4162,42 @@ tr.ind-th td{
                             <input type="text" name="direct_debit_representative" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                    <div style="display: flex; justify-content: center; align-items: center; width: 50%;">
+                    <div class="direct-debit-bank">
+                    <div style="display: flex; justify-content: center; align-items: center;" class="w-50">
                         <label for="">Bank Name</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_bank_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: center; align-items: center; width: 25%;">
+                    <div style="display: flex; justify-content: center; align-items: center;" class="w-25">
                         <label for="">City</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_city" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: center; align-items: center; width: 25%;">
+                    <div style="display: flex; justify-content: center; align-items: center;" class="w-25">
                         <label for="">State</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_state" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                    <div style="display: flex; justify-content: center; align-items: center; width: 48%;">
+                <div class="direct-debit-bank">
+                    <div style="display: flex; justify-content: center; align-items: center;" class="w-48">
                         <label for="">Bank Routing Number </label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_bank_routing" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: center; align-items: center; width: 48%;">
+                    <div style="display: flex; justify-content: center; align-items: center;" class="w-48">
                         <label for="">Account Number</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_account_number" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                    <div style="display: flex; justify-content: center; align-items: center; width: 70%;">
+                <div class="acc-name-style">
+                    <div style="display: flex; justify-content: center; align-items: center;" class="w-70">
                         <label for="">Account Name</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_account_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
@@ -3828,32 +4260,32 @@ tr.ind-th td{
                         <h3 style="text-align: center;">FOR OFFICE USE:</h3>
                     </div>
                     <div class="for-office-use-3-body">
-                                <div style="width: 50%; display: flex; align-items: center;">
+                                <div style="display: flex; align-items: center;" class="w-50">
                                     <p>Account #:</p>
-                                    <input type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                    <input type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div> 
-                                <div style="width: 50%; display: flex; align-items: center;">
+                                <div style="display: flex; align-items: center;" class="w-50">
                                     <p>Member #:</p>
-                                    <input type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                    <input type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div> 
-                                <div style="display: flex; width: 50%; margin-top: 15px; ">
+                                <div style="display: flex; margin-top: 15px; " class="w-50">
                                     <p>Processed By:</p>
                                     <input type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div> 
-                                <div style="display: flex; width: 50%; justify-content: flex-end; align-items: center; margin-top: 15px;">
+                                <div  class="w-50 mda">
                                     <p>Monthly Debit Amount: $</p>
-                                    <input type="text" name="office_use_monthly_debit_amount" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                    <input type="text" name="office_use_monthly_debit_amount" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div> 
                                 <div style="margin-top: 10px;">
                                     <p>Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)</p>
                                 </div>
-                                <div style="display: flex; width: 50%; margin-top: 15px;">
+                                <div style="display: flex; margin-top: 15px;" class="w-50">
                                     <p>Date of Monthly Debit:</p>
-                                    <input type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                    <input type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div> 
-                                <div style="display: flex; justify-content: center; width: 50%; margin-top: 15px;">
+                                <div style="display: flex; justify-content: center; margin-top: 15px;" class="w-50">
                                     <p>First Debit Month:</p>
-                                    <input type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 0.75;">
+                                    <input type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div> 
                     </div>
                     <div style="width: 80%; margin: auto;">
@@ -3862,11 +4294,11 @@ tr.ind-th td{
                         </p>
                     </div>
                     <button type="submit" id="submit-button" class="submit-button">
-                        Submit
+                        <span >Submit</span>
                         <span class="loader" style="display: none;"></span>
                     </button>
                     <div style="display: flex; justify-content: center; align-items: center;">
-                        <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 450px; object-fit: cover;">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 50%; object-fit: cover;">
                     </div>
                     <div class="footer-for-office-use-3">
                         <div class="footer-left">
