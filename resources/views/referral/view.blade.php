@@ -78,7 +78,7 @@ return $colors[$randomIndex];
     <!-- PAGE-HEADER -->
     <div class="page-header m-0 fw-bold">
         <div>
-            <h1 class="page-title">Referral#ID:{{ $referral->id }}
+            <h1 class="page-title">Referral ID:{{ $referral->id }}
             </h1>
         </div>
         <div class="ms-auto pageheader-btn">
@@ -101,7 +101,7 @@ return $colors[$randomIndex];
                             Referral</a>
                     </div> --}}
                 <div class="card-body p-2">
-                    <h4>Referral#ID:{{ $referral->id }}</h4>
+                    <h4>Referral ID:{{ $referral->id }}</h4>
                     <ul class="nav1 nav-column flex-column br-7 p-3">
                         <li class="nav-item1 mt-0 services-tab">
                             <a class="nav-link thumb active" onclick="showTab('services-card')">
@@ -121,12 +121,12 @@ return $colors[$randomIndex];
                                 Follow Up
                             </a>
                         </li>
-                        <li class="nav-item1 sms-tab">
+                        {{-- <li class="nav-item1 sms-tab">
                             <a class="nav-link thumb" onclick="showTab('sms-card')">
                                 <i class="menu-icon tf-icons bx bx-message "></i>
                                 SMS
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item1 esign-tab">
                             <a class="nav-link thumb" onclick="showTab('esign-card')">
                                 <i class="menu-icon tf-icons bx bx-file "></i>

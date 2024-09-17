@@ -288,6 +288,7 @@
                                         <label for="form-label">Source Type*</label>
                                         <select name="source_type" id="source_type" class="form-control " required>
                                             <option value="">Choose One</option>
+                                            <option value="manual">Manual</option>
                                             <option value="account">Account</option>
                                             <option value="contact">Contact</option>
                                             <option value="FnF">Family / Friend</option>
@@ -413,7 +414,6 @@
                                         <input type="checkbox" id="have_keys" name="have_keys" value="1">
                                         <label for="option2 mb-1">Have keys</label>
                                     </div>
-
                                     <div>
                                     </div>
                                 </div>
@@ -424,9 +424,7 @@
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary"><i class="bx bx-save pb-1"></i>Submit</button>
                 </div>
-
         </form>
-
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
