@@ -1683,15 +1683,15 @@ tr.ind-th td{
                 <h1 class="j-heading">AGREEMENT</h1>
             </div>
             <div class="header-contact">
-                <div>
+                <div style="display: flex; flex-direction: column; justify-content:center;align-items: center; gap: 5px;">
                     <p>Tel: 718.500.3235</p>
-                    <p>Fax: 718.500.3225</p>
+                    {{-- <p>Address: 5014-16th Ave, Suite 489 Brooklyn, NY 11204</p> --}}
                 </div>
                 <div>
-                    <p>info@slctrusts.org</p>
+                    <p>Email: info@slctrusts.org</p>
                 </div>
                 <div>
-                    <p class="header-email">seniorlifecaretrusts.org</p>
+                    <p class="header-email">www.seniorlifecaretrusts.org</p>
                 </div>
             </div>
         </div>
