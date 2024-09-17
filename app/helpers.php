@@ -13,6 +13,7 @@ if (!class_exists('Company')) {
     {
         const Account_id = 7;
         const Account_name = 'SLC TRUST';
+        const Account_name_income = 'SLC INCOME';
     }
 }
 
@@ -178,12 +179,16 @@ if (!function_exists('createDocument')) {
         {
             $user = \App\Models\User::find($id);
 
-            $credit = $user->transactions()->sum("credit");
-            $debit = $user->transactions()->sum("debit");
+            if($user)
+            {
+                $credit = $user->transactions()->sum("credit");
+                $debit = $user->transactions()->sum("debit");
 
-            $balance = $credit - $debit;
-
-            return $balance;
+                return $credit - $debit;
+            }
+            else {
+                return "N/A";
+            }
         }
     }
 

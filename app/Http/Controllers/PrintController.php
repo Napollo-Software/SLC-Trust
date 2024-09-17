@@ -217,12 +217,16 @@ class PrintController extends Controller
         $start_date = null;
         $type = null;
         $user = 'null';
-        $transactions = null;
-        $role = User::where('id', '=', Session::get('loginId'))->value('role');
-        if ($role != 'User') {
-            $transactions = Transaction::where('chart_of_account', '!=', '')->orderBy('id', 'desc')->get();
-        } else if ($role == 'User') {
+        $transactions = collect();
 
+        $role = User::where('id', '=', Session::get('loginId'))->value('role');
+
+        if ($role != 'User')
+        {
+            $transactions = Transaction::where('chart_of_account', '!=', '')->orderBy('id', 'desc')->get();
+        }
+        elseif ($role == 'User')
+        {
             $transactions = Transaction::where('chart_of_account', null)->where('user_id', Session::get('loginId'))->orderBy('id', 'desc')->get();
         }
 

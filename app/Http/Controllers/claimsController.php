@@ -53,8 +53,8 @@ class claimsController extends Controller
 
             if ($role != 'User') {
 
-                $claims = Claim::with('payee_details')->orderBy('id', 'desc')->get();
-                $claim_details = Claim::orderBy('id', 'desc')->where('archived', null)->take(200)->get();
+                $claims = Claim::with(['payee_details','user_details'])->orderBy('id', 'desc')->get();
+                $claim_details = Claim::with(['payee_details','user_details'])->orderBy('id', 'desc')->where('archived', null)->take(200)->get();
                 $all_users = User::all();
                 $total_users = DB::table('users')->count('id');
                 $user_balance = DB::table('users')->sum('user_balance');
@@ -89,7 +89,7 @@ class claimsController extends Controller
 
             } else if ($role == 'Moderator') {
 
-                $claims = Claim::orderBy('id', 'desc')->where('archived', null)->get();
+                $claims = Claim::with(['payee_details','user_details'])->orderBy('id', 'desc')->where('archived', null)->get();
                 $all_users = User::all();
                 $total_users = DB::table('users')->count('id');
                 $user_balance = DB::table('users')->sum('user_balance');

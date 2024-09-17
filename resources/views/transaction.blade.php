@@ -524,7 +524,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-4">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
@@ -539,7 +539,7 @@
                             <div class="" id="w-chart5"></div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-4">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
@@ -556,7 +556,7 @@
                             <div class="" id="w-chart6"></div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-4">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">

@@ -256,7 +256,7 @@ color:#69707a;
                               class="form-control"
                               placeholder="$"
                               name="balance"
-                             @if ($user['role'] == "User")  value="{{$user['user_balance']}}" @else  value="N/A" @endif
+                             @if ($user['role'] == "User")  value="{{userBalance($user['id'])}}" @else  value="N/A" @endif
                               disabled
                             />
                           </div>

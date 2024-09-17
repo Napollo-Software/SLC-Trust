@@ -287,12 +287,18 @@ class AuthController extends Controller
 
             if ($category_id) {
                 $claims = Claim::with(['payee_details', 'category_details'])->where('claim_category', $category_id)
-                    ->where('claim_user', $loginId)
-                    ->get();
+                ->where('claim_user', $loginId)
+                ->get();
             }
+
         } else {
 
-            $claims = User::where('name', 'LIKE', "%$search%")->first()->calims()->with(['payee_details', 'category_details'])->get();
+            $user = User::where('name', 'LIKE', "%$search%")->first();
+
+            if($user)
+            {
+                $claims = $user->calims()->with(['payee_details', 'category_details'])->get();
+            }
 
         }
 
@@ -583,7 +589,7 @@ class AuthController extends Controller
             alert()->success('Account ' . $status . '!', 'Customer account has been updated successfully!');
             return redirect("show_user/" . $id);
         }
-        $dt = new Carbon\Carbon();
+        $dt = new Carbon();
         $before = $dt->subYears(16)->format('Y-m-d');
         $this->validate($request, [
             'dob' => 'date|before:' . $before,
@@ -637,7 +643,7 @@ class AuthController extends Controller
     public function update_existing_user_profile(Request $request, $id)
     {
 
-        $dt = new \Carbon\Carbon();
+        $dt = new Carbon();
         $before = $dt->subYears(16)->format('Y-m-d');
         $request->validate([
             'fname' => 'required',

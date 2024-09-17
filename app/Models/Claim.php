@@ -12,7 +12,7 @@ class Claim extends Model
 	protected $table = 'claims';
     use SoftDeletes;
     public function user_details(){
-        return $this->belongsTo(User::class,'claim_user','id');
+        return $this->belongsTo(User::class,'claim_user','id')->withDefault();
     }
 	public function log_details(){
 		return $this->belongsTo(Log::class,'archived','id');
