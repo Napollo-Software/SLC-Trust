@@ -117,7 +117,7 @@ a:before, a:after, a > span:before, a > span:after {
           <h5 class="modal-title" id="customerdpositLabel">ADD DETAILS <br> <small style="font-size: 12px">(You can filter with customer name and month)</small></h5>
           <button type="button" class="close btn-dark close-btn" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button> 
+          </button>
         </div>
         <form action="{{ route('monthly.filter')}}" method="post">
         @csrf
@@ -193,13 +193,13 @@ a:before, a:after, a > span:before, a > span:after {
                         @endforeach
                       </select>
                     </div>
-        
+
                     <div class="col-md-6 p-3">
                          <h5 class="form-label">Month</h5>
                          <input class="@error('from') is-invalid @enderror form-control start" type="month" name="from" value="{{$start_date}}" required>
                          <span class="text-danger month-date">@error('from'){{$message}} @enderror</span>
                     </div>
-        
+
                  </div>
                 </div>
                 <div class="modal-footer pr-3">
@@ -261,30 +261,29 @@ a:before, a:after, a > span:before, a > span:after {
                                     $user = App\Models\User::find($transaction->user_id);
                                 @endphp
                                 <td> {{$user->name.' '.$user->last_name  }}</td>
-                                <td>TID# {{$transaction->id}}</td>
+                                <td>{{$transaction->reference_id}}</td>
                                 <td>{{$transaction->created_at->format('M d-Y h:i')}}</td>
                                 <td class="text-center">
-                                  @if (strpos($transaction->description, 'bill') !== false)
+                                  @if ($transaction->claim_id)
                                      {{$transaction->description}}
                                   @else
                                    --
                                   @endif
                                 </td>
                                 <td class="text-center">
-                                  @if (strpos($transaction->description, 'deposit') !== false || strpos($transaction->description, 'Maintenance') !== false || strpos($transaction->description, 'Enrollment') !== false )
+                                  @if (in_array($transaction->type, [\App\Models\Transaction::Deposit,\App\Models\Transaction::MaintenanceFee,\App\Models\Transaction::RenewalFee,\App\Models\Transaction::EnrollmentFee]))
                                     {{$transaction->description}}
                                   @else
                                     --
                                   @endif
                                 </td>
                                 <td class="text-center">
-                                  @if (strpos($transaction->description, 'adjustment') !== false)
+                                  @if ($transaction->type == \App\Models\Transaction::Adjustment)
                                    {{$transaction->description}}
                                    @else
                                       --
                                   @endif
                                 </td>
-                                {{-- <td>${{number_format($transaction->deduction,2,'.',',')}}</td> --}}
                               </tr>
                           @endforeach
                         </tbody>

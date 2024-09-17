@@ -13,6 +13,7 @@ class Transaction extends Model
     const Deposit = "deposit";
     const EnrollmentFee = "enrollment_fee";
     const RenewalFee = "renewal_fee";
+    const Adjustment = "adjustment";
 
     protected $fillable = [
         "type",

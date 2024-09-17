@@ -54,35 +54,38 @@ class AdjustmentController extends Controller
 
                 $user->transactions()->create([
                     'status' => 1,
-                    $transactionType => $validated['amount'],
+                    'type' => Transaction::Deposit,
                     'description' => $user_message,
                     'reference_id' => $reference_id,
+                    $transactionType => $validated['amount'],
                     'transaction_type' => \TransactionType::TrustedSurplus,
                 ]);
 
                 $admin->transactions()->create([
                     'status' => 1,
-                    $adminDirection => $validated['amount'],
+                    'type' => Transaction::Deposit,
                     'description' => $admin_message,
                     'reference_id' => $reference_id,
-                    'transaction_type' => \TransactionType::TrustedSurplus,
+                    $adminDirection => $validated['amount'],
                 ]);
 
             } else {
 
                 $admin->transactions()->create([
                     'status' => 1,
-                    $adminDirection => $validated['amount'],
+                    'type' => Transaction::Deposit,
                     'description' => $admin_message,
                     'reference_id' => $reference_id,
+                    $adminDirection => $validated['amount'],
                     'transaction_type' => \TransactionType::TrustedSurplus,
                 ]);
 
                 $user->transactions()->create([
                     'status' => 1,
-                    $transactionType => $validated['amount'],
+                    'type' => Transaction::Deposit,
                     'description' => $user_message,
                     'reference_id' => $reference_id,
+                    $transactionType => $validated['amount'],
                     'transaction_type' => \TransactionType::TrustedSurplus,
                 ]);
             }
@@ -103,6 +106,5 @@ class AdjustmentController extends Controller
             return response()->json(['type' => 0, 'message' => 'Failed to create adjustment: ' . $e->getMessage()]);
         }
     }
-
-
+    
 }

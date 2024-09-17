@@ -250,12 +250,17 @@ class ReportController extends Controller
             'from' => 'required',
             'user' => 'required'
         ]);
+
         $start_date = $request->from;
         $user_id = $request->user;
+        
         $year = date('Y', strtotime($start_date));
         $month = date('m', strtotime($start_date));
         $users = User::where('role', 'User')->get();
-        $transactions = Transaction::where('user_id', $request->user)->whereYear('created_at', '=', $year)->whereMonth('created_at', '=', $month)->where('chart_of_account', \Company::Account_id)->get();
+
+        $transactions = Transaction::where('user_id', $request->user)
+        ->whereYear('created_at', '=', $year)
+        ->whereMonth('created_at', '=', $month)->get();
 
         return view('reports.monthly-statement', compact('users', 'transactions', 'start_date', 'user_id'));
     }
