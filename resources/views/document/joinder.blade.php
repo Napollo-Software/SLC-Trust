@@ -79,7 +79,7 @@ header{
     align-items: center;
     height: 550px;
     /* gap: 100px; */
-    background-color: rgb(238 248 245);
+    /* background-color: rgb(238 248 245); */
     padding: 1.5rem ;
     width: 90%;
 }
@@ -296,10 +296,14 @@ input:focus{
     min-width: 30%;
 }
 .dob-form{
-    min-width: 25%;
+    min-width: 30%;
 }
 .citizenship-form{
-    width: 35%;
+    width: 30%;
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+    flex-wrap: wrap
 }
 .contact{
     margin-top: 25px;
@@ -1372,6 +1376,7 @@ tr.ind-th td{
   .status{
     width: 100%;
     font-size: 0.8rem;
+    flex-wrap: wrap
   }
   .gender{
     width: 100%;
@@ -1671,7 +1676,7 @@ tr.ind-th td{
         <div class="logo-style">
             <img src="{{asset('assets/images/logo.png')}}" alt="logo" class="logo-img" />
         </div>
-        <div class="header-content">
+        <div class="header-content" style="background-image: url('{{ asset('assets/images/joinder-bg.png') }}')">
             <div class="header-heading">
                 <h1 class="j-heading">JOINDER</h1>
                 <h1 class="j-heading">AGREEMENT</h1>
@@ -1784,11 +1789,12 @@ tr.ind-th td{
                                      <span>Date of Birth</span>
                                  </div>
                                  <div class="citizenship-form">
+                                    <span>Citizenship</span>
                                     <div class="custom-radio">
                                         <input type="checkbox" name="sponsor_citizen1" value="Yes"> Yes
                                         <input type="checkbox" name="sponsor_citizen2" value="No"> No
                                     </div>
-                                     <span>Citizenship</span>
+                                     
                                  </div>
                              </div>
     
