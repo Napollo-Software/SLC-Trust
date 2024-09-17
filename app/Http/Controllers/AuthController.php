@@ -49,7 +49,7 @@ class AuthController extends Controller
 
         $role = User::where('id', '=', Session::get('loginId'))->value('role');
 
-        if ($role != "User") {
+        if ($role && $role != "User") {
             if ($request->role == 'User') {
                 $request->validate([
                     'name' => 'required',
