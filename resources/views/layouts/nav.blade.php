@@ -76,8 +76,7 @@
                                     Vendors</a></li>
                             @if ($user->hasPermissionTo('View Contact'))
                             <li>
-                                <a class="dropdown-item {{Route::currentRouteName()==='contact.list' ? 'active' : '' }}" href="{{ route('contact.list') }}"><i class="bx bx-user-check"></i>All
-                                    Contacts</a></li>
+                                <a class="dropdown-item {{Route::currentRouteName()==='contact.list' ? 'active' : '' }}" href="{{ route('contact.list') }}"><i class="bx bx-user-check"></i>List Contacts</a></li>
                             @endif
                             @endif
                         </ul>
