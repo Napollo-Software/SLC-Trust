@@ -94,6 +94,8 @@ class DocumentController extends Controller
 
     public function generatePDF()
     {
+        $app_name = config('app.name');
+
         $referrals = Referral::where('status', 'Pending')->get();
         $message = "Emails sent successfully";
         foreach ($referrals as $referral) {
@@ -106,9 +108,9 @@ class DocumentController extends Controller
             Storage::disk('public')->put($pdfPath, $pdf->output());
             $pdfUrl = '/signature';
             $recipientEmail = $referral->email;
-            $subject = "Document By Intruspit";
+            $subject = "Document By {$app_name}";
             $name = $referral->first_name . ' ' . $referral->last_name;
-            $email_message = "Intrustpit has sent a document to sign. Please use the button below to find the details of your document:";
+            $email_message = "{$app_name} has sent a document to sign. Please use the button below to find the details of your document:";
             $url = $pdfUrl;
             try {
                 SendEmailJob::dispatch($recipientEmail, $subject, $name, $email_message, $url);
@@ -558,6 +560,8 @@ class DocumentController extends Controller
             'uploadedfile.*' => 'required|mimes:pdf',
         ]);
 
+        $app_name = config('app.name');
+
         if ($request->uploadedfile != null) {
             foreach ($request->uploadedfile as $item) {
                 $attachment = $item->getClientOriginalName();
@@ -577,7 +581,7 @@ class DocumentController extends Controller
             $recipientEmail = $referral->email;
             $subject = "Document By Intruspit";
             $name = $referral->first_name . ' ' . $referral->last_name;
-            $email_message = "Intrustpit has sent the following documents to sign:";
+            $email_message = "{$app_name} has sent the following documents to sign:";
             try {
                 SendEmailJob::dispatch($recipientEmail, $subject, $name, $email_message, $urls);
             } catch (\Exception $e) {

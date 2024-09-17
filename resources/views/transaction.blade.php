@@ -453,7 +453,7 @@
                                             <tr>
                                                 <th>TID#</>
                                                 <th>Date & Time</th>
-                                                <th>Account Holder</th>
+                                                <th>Account Name</th>
                                                 <th>Transaction Details</th>
                                                 <th>Type</th>
                                                 <th class="text-center">Amount</th>

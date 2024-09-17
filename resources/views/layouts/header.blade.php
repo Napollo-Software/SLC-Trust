@@ -178,7 +178,7 @@
             </div>
             <div class="user-box dropdown px-3">
                 <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret dropdown-padding" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{url('/user/images93561655300919_avatar.png')}}" class="user-img" alt="user avatar">
+                    <img src="{{url($user->avatar)}}" class="user-img" alt="user avatar">
                     <div class="user-info">
                         <p class="user-name mb-0">{{ $user->full_name() }}</p>
                         <p class="designattion mb-0">{{ $user->role == "Front office" ? "Lead Admin" : ($user->role == "Back office" ? "Billing Admin" : $user->role) }}</p>
