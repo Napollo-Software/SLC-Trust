@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Map</title>
     <style>
         table {
@@ -174,7 +173,7 @@ footer img {
         </div>
         <div class="footer-row">
             <div class="footer-cell" style="visibility: hidden">
-                <i  class="fa fa-globe" aria-hidden="true"></i> &nbsp;
+                
                 <span>www.seniorlifecaretrusts.org</span>
             </div>
             <div class="footer-cell">

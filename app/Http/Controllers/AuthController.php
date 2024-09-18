@@ -118,7 +118,7 @@ class AuthController extends Controller
             $user->account_status = $request->account_status;
             $user->assignRole(strtolower($request->role));
         }
-        if ($request->role == "User") {
+        if (!$role && $request->role == "User") {
             $attachment = rand() . $request['profile_pic']->getClientOriginalName();
             $request->profile_pic->move(public_path('/img'), $attachment);
             $user->profile_pic = $attachment;
