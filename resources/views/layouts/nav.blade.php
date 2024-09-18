@@ -12,6 +12,11 @@
         font-family: 'Arial' !important;
     }
 
+    .btn-primary:hover {
+        background-color: #6bb0aa !important;
+        border-color: #5da298 !important;
+    }
+
 </style>
 <div class="primary-menu">
     <nav class="navbar navbar-expand-lg align-items-center">
