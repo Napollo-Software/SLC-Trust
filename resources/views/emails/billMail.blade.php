@@ -108,7 +108,7 @@
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
     <!-- HIDDEN PREHEADER TEXT -->
-    
+
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <!-- LOGO -->
         <tr>
@@ -125,7 +125,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
-                            <img src="https://billing.intrustpit.org/assets/img/intrustpit-Logo.png" style="height:110px" style="display: block; border: 0px;" />  <h1 style="font-size: 30px; font-weight: 400; margin: 2;">Hi {{App\Models\User::where('id',$details->claim_user)->pluck('name')->first();}}!</h1>
+                            <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />  <h1 style="font-size: 30px; font-weight: 400; margin: 2;">Hi {{App\Models\User::where('id',$details->claim_user)->pluck('name')->first();}}!</h1>
                         </td>
                     </tr>
                 </table>
@@ -151,7 +151,7 @@
                                 <th  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">Bill Status</th>
                                 <th  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">Amount</th>
                                 <th></th>
-                                <th bgcolor="#ffffff" class="two"></th>   
+                                <th bgcolor="#ffffff" class="two"></th>
                             </tr>
                              <tr>
                                 <td bgcolor="#ffffff" class="two"></td>
@@ -166,7 +166,7 @@
                                 <td bgcolor="#ffffff" class="two"></td>
                             </tr>
                         </table>
-                        
+
                     </tr>
                     @if($details->refusal_reason)
                        <tr>
@@ -190,12 +190,12 @@
                             </table>
                         </td>
                     </tr> <!-- COPY -->
-                    
+
                 </table>
             </td>
         </tr>
-    
-        
+
+
     </table>
 </body>
 
