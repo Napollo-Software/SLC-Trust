@@ -282,9 +282,10 @@ class claimsController extends Controller
                 ]);
 
                 $subject = "Bill Approved";
-                $name = $claimUser->name . ' ' . $claimUser->last_name;
-                $email_message = "Your bill#" . $details->id . " added on " . date('m-d-Y', strtotime($details->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
-                $url = '/claims/' . $details->id;
+                $name = $claimUser->name.' '.$claimUser->last_name;
+                $email_message = "Your bill#".$details->id." added on ".date('m-d-Y', strtotime($details->created_at))." has been approved. Please use the button below to find the details of your bill:";
+                $url = '/claims/'.$details->id;
+                SendEmailJob::dispatch($claimUser->email,$subject,$name,$email_message,$url);
 
             } else {
                 $claim->claim_status = 'Pending';
@@ -294,12 +295,7 @@ class claimsController extends Controller
                 $name = $claimUser->name . ' ' . $claimUser->last_name;
                 $email_message = "Your bill#" . $details->id . " has been added on " . date('m-d-Y', strtotime($claim->created_at)) . ". Please use the button below to find the details of your bill:";
                 $url = '/claims/' . $details->id;
-
-                if ($claimUser->notify_by == "email") {
-                    SendEmailJob::dispatch($claimUser->email, $subject, $name, $email_message, $url);
-                } else {
-                    notify($claimUser->email, $subject, $name, $email_message, $url);
-                }
+                SendEmailJob::dispatch($claimUser->email, $subject, $name, $email_message, $url);
 
                 $admins_notification = User::where('role', '!=', "User")->get();
                 $ignore_admin_notification = ignoreAdminEmails();
@@ -324,9 +320,7 @@ class claimsController extends Controller
                     $email_message = $claimUser->name . ' ' . $claimUser->last_name . " has submitted bill#" . $details->id . " on " . date('m-d-Y', strtotime($claim->created_at)) . " and waiting for approval. Please use the button below to find the details of the bill:";
 
                     $url = '/claims/' . $details->id;
-                    if ($notify->notify_by == "email") {
-                        SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
-                    }
+                    SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
                 }
             }
 
@@ -531,6 +525,10 @@ class claimsController extends Controller
                 ]);
 
                 $name = "$claimUser->name  $claimUser->last_name";
+                $subject = "Bill Approved";
+                $email_message = "Your bill#".$claim->id." added on ".date('m-d-Y', strtotime($claim->created_at))." has been approved. Please use the button below to find the details of your bill:";
+                $url = '/claims/'.$claim->id;
+                SendEmailJob::dispatch($claimUser->email,$subject,$name,$email_message,$url);
 
             }
             if ($request->claim_status == 'Refused') {
@@ -597,7 +595,10 @@ class claimsController extends Controller
                 ]);
 
                 $name = "{$claimUser->name} {$claimUser->last_name}";
-
+                $subject = "Bill Partially Approved";
+                $email_message = "Your bill#".$claim->id." added on ".date('m-d-Y', strtotime($claim->created_at))." has been partially approved. Please use the button below to find the details of your bill:";
+                $url = '/claims/'.$claim->id;
+                SendEmailJob::dispatch($claimUser->email,$subject,$name,$email_message,$url);
                 DB::commit();
 
                 return response()->json(['header' => 'Partially approved!', 'type' => 'success', 'message' => "Bill#" . $request->id . " has been Partial approved successfully."]);
