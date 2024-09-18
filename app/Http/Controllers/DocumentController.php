@@ -780,7 +780,7 @@ class DocumentController extends Controller
     public
     function approval(Request $request)
     {
-//        return view('document.approval-letter-pdf');
+       return view('document.approval-letter-pdf');
 
         $directory = storage_path('app/public/inamgoodboy@gmail.com');
         if (!is_dir($directory)) {
