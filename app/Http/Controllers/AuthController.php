@@ -611,7 +611,7 @@ class AuthController extends Controller
                 }
                 $subject = 'Account Deactivate';
                 $name = "{$user->name}  {$user->last_name}";
-                $email_message = "Your profile has been deactivated by {$app_name},For immediate assistance please call {config('app.contact')}.";
+                $email_message = "Your profile has been deactivated by {$app_name},For immediate assistance please call ".config('app.contact');
                 $url = "";
                 if ($user->notify_by == "email") {
                     SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
