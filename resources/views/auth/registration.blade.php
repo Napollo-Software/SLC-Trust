@@ -204,7 +204,7 @@
                 <div class="card">
                     <div class="card-body-auth">
                         <div class="app-brand justify-content-center mb-3">
-                            <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:120px">
+                            <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:88px">
                         </div>
 
                         <form id="formAuthentication" class="mb-3" method="post" enctype="multipart/form-data">
