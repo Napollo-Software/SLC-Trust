@@ -802,6 +802,7 @@ class DocumentController extends Controller
     public
     function trusted(Request $request)
     {
+        return view('document.trusted-surplus-pdf');
         $directory = storage_path('app/public/inamgoodboy@gmail.com');
         if (!is_dir($directory)) {
             mkdir($directory, 0777, true);

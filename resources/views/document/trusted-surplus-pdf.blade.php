@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Map</title>
     <style>
         table {
@@ -49,12 +50,58 @@
             border-left: none;
             border-right: none;
         }
+        .footer-table {
+    display: table;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer-row {
+    display: table-row;
+}
+
+.footer-cell {
+    display: table-cell;
+    padding: 10px 20px;
+    vertical-align: middle;
+    text-align: center;
+}
+.footer-cell-1 {
+    display: table-cell;
+    padding: 10px 20px;
+    vertical-align: middle;
+    text-align: left;
+}
+.footer-cell2 {
+    display: table-cell;
+    padding: 10px 20px;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.footer-cell img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 24px;
+    height: 24px;
+}
+
+.footer-cell p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+footer img {
+    width: 25px;
+    height: 25px;
+}
     </style>
 </head>
 <body>
-<div class="row-container" style="text-align: center">
+<div class="row-container">
     <h4>
-        <img src="{{public_path('/images/slc_trust.png')}}" alt="int" style="max-width: 100%; height: 100px;">
+        <img src="{{asset('assets/images/logo.png')}}" alt="int" style="max-width: 100%; height: 100px;">
     </h4>
 
 </div>
@@ -119,11 +166,47 @@
     </tr>
 
 </table>
-<div style="margin-top: 100px">
-    <p style="text-align: center">PO Box 297-050, NY 11229 <span style="color: #16b6d3">TF:</span> 8772987878 <span style="color: #16b6d3">Tel:</span>718.970.7878 <span style="color: #16b6d3">Fax:</span> 646.904.8963</p>
-    <p style="text-align: center;color:#16b6d3">www.trustedsurplus.org</p>
-
-</div>
+<footer>
+    <div class="footer-table">
+        <div class="footer-row">
+            <div class="footer-cell-1">
+                <i style="color: #559e99;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 3px;" class="fa fa-phone" aria-hidden="true"></i> &nbsp;
+                <span>718.500.3235</span>
+            </div>
+            <div class="footer-cell">
+                <i style="color: #559e99;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 5px;" class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;
+                <span>5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
+            </div>
+            <div class="footer-cell2">
+                <i style="color: #559e99;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 5px;" class="fa fa-envelope" aria-hidden="true"></i> &nbsp;
+                <span>info@slctrusts.org</span>
+            </div>
+        
+        </div>
+        <div class="footer-row">
+            <div class="footer-cell" style="visibility: hidden">
+                <i  class="fa fa-globe" aria-hidden="true"></i> &nbsp;
+                <span>www.seniorlifecaretrusts.org</span>
+            </div>
+            <div class="footer-cell">
+                <i style="color: #559e99;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 5px;" class="fa fa-globe" aria-hidden="true"></i> &nbsp;
+                <span>www.seniorlifecaretrusts.org</span>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 </body>

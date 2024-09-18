@@ -72,7 +72,7 @@
     vertical-align: middle;
     text-align: center;
 }
-.footer-cell1 {
+.footer-cell-1 {
     display: table-cell;
     padding: 10px 20px;
     vertical-align: middle;
