@@ -46,7 +46,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                 <tr>
                     <td align="center"  style="padding: 20px 0;vertical-align: center">
-                        <img src="https://billing.intrustpit.org/assets/img/intrustpit-Logo.png" alt="Logo" style="height: 130px; display: block; border: 0;" />
+                        <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" alt="Logo" style="height: 130px; display: block; border: 0;" />
                     </td>
                 </tr>
             </table>
