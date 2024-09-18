@@ -65,7 +65,7 @@
             <div class="card-body-auth">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                  <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:120px">
+                  <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:88px">
               </div>
 
               <form id="formAuthentication" class="mb-3" action="{{route('login-user')}}" method="post">
