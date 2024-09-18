@@ -100,7 +100,7 @@ footer img {
 <body>
 <div class="row-container">
     <h4>
-        <img src="{{ url('/assets/img/'.config('app.name').'-Logo.png') }}" alt="int" style="max-width: 100%; height: 100px;">
+        <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" alt="int" style="height: 50px;">
     </h4>
 
 </div>
@@ -156,34 +156,31 @@ footer img {
             </td>
         </tr>
     </table>
-    <footer>
-    <div class="footer-table">
-        <div class="footer-row">
-            <div class="footer-cell-1">
+</div>
+    <div style="margin-top: 20px">
+        <div>
+            <div style="width: 100%;">
+                <div style="width: 25%; float: left">
 
-                <span>718.500.3235</span>
+                    <span>718.500.3235</span>
+                </div>
+                <div style="width: 50%; float: left;text-align: center">
+
+                    <span>5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
+                </div>
+                <div style="width: 25%; float: left; text-align: right">
+
+                    <span style="float: right">info@slctrusts.org</span>
+                </div>
+
             </div>
-            <div class="footer-cell">
+            <div>
+                <div style="width: 100%;text-align: center">
 
-                <span>5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
-            </div>
-            <div class="footer-cell2">
-
-                <span>info@slctrusts.org</span>
-            </div>
-
-        </div>
-        <div class="footer-row">
-            <div class="footer-cell" style="visibility: hidden">
-
-                <span>www.seniorlifecaretrusts.org</span>
-            </div>
-            <div class="footer-cell">
-
-                <span>www.seniorlifecaretrusts.org</span>
+                    <span>www.seniorlifecaretrusts.org</span>
+                </div>
             </div>
         </div>
     </div>
-</footer>
 </body>
 </html>
