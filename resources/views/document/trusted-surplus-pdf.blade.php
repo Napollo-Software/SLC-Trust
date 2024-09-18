@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Map</title>
     <style>
         table {
@@ -101,7 +100,7 @@ footer img {
 <body>
 <div class="row-container">
     <h4>
-        <img src="{{asset('assets/images/logo.png')}}" alt="int" style="max-width: 100%; height: 100px;">
+        <img src="{{ url('/assets/img/'.config('app.name').'-Logo.png') }}" alt="int" style="max-width: 100%; height: 100px;">
     </h4>
 
 </div>
@@ -113,17 +112,6 @@ footer img {
 
 </div>
 <div style="width: 90%;margin:0 auto">
-    <div style="font-weight: bold;text-align:right;">
-        <p>Date: 05/09/2024</p>
-        <p>Account: 99554</p>
-        <p>Status: Active</p>
-    </div>
-    <div>
-        <h2 style="text-align: center;font-size: 20px;margin-top:0;margin-bottom: 0;">
-            Trusted Surplus Solution
-        </h2>
-        <p style="text-align: center;">VERIFICATION OF DEPOSITS</p>
-    </div>
     <div style="width: 90%;margin:0 auto">
         <div style="font-weight: bold;text-align:right;">
             <p>Date: {{ date('m/d/Y') }}</p>
@@ -168,9 +156,34 @@ footer img {
             </td>
         </tr>
     </table>
-    <div style="margin-top: 100px">
-        <p style="text-align: center">PO Box 297-050, NY 11229 <span style="color: #16b6d3">TF:</span> 8772987878 <span style="color: #16b6d3">Tel:</span>718.970.7878 <span style="color: #16b6d3">Fax:</span> 646.904.8963</p>
-        <p style="text-align: center;color:#16b6d3">www.trustedsurplus.org</p>
+    <footer>
+    <div class="footer-table">
+        <div class="footer-row">
+            <div class="footer-cell-1">
+
+                <span>718.500.3235</span>
+            </div>
+            <div class="footer-cell">
+
+                <span>5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
+            </div>
+            <div class="footer-cell2">
+
+                <span>info@slctrusts.org</span>
+            </div>
+
+        </div>
+        <div class="footer-row">
+            <div class="footer-cell" style="visibility: hidden">
+
+                <span>www.seniorlifecaretrusts.org</span>
+            </div>
+            <div class="footer-cell">
+
+                <span>www.seniorlifecaretrusts.org</span>
+            </div>
+        </div>
     </div>
+</footer>
 </body>
 </html>
