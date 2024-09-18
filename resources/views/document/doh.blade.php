@@ -495,7 +495,12 @@ textarea{
                         confirmButtonText: 'Great!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '{{ route("login") }}';
+                            @if (auth()->check())
+                                window.location.href = "{{ route('dashboard') }}";
+                            @else
+                                window.location.href = "{{ route('bill_reports') }}";
+                            @endif
+                            // window.location.href = "{{ route('login') }}"; // Replace 'login' with your actual login route
                         }
                     })
                     ;
