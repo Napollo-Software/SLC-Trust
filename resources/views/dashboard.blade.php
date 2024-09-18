@@ -37,7 +37,7 @@
     $role = User::where('id', '=', Session::get('loginId'))->value('role');
     $billing_method = User::where('id', '=', Session::get('loginId'))->value('billing_method');
     $current_user_name = User::where('id', '=', Session::get('loginId'))->value('name');
-    $current_user_balance = User::where('id', '=', Session::get('loginId'))->value('user_balance');
+    $current_user_balance = userBalance(Session::get('loginId'));
     $users = User::where('role', 'User')->get();
     ?>
 @if ($role != 'User')
