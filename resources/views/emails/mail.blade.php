@@ -67,6 +67,7 @@
                     </td>
                 </tr>
                 <!-- Button Links -->
+                @if(count($urls) > 0)
                 <tr>
                     <td align="center">
                         @foreach($urls as $url)
@@ -74,6 +75,7 @@
                         @endforeach
                     </td>
                 </tr>
+                @endif
             </table>
         </td>
     </tr>
