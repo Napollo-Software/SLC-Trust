@@ -215,7 +215,7 @@ Route::get('/get-table-columns', [ReportController::class, 'getTableColumns'])->
 Route::match(['get', 'post'], '/get-submited-columns', [ReportController::class, 'submitSelectedColumns'])->name('get.submited.columns');
 
 
-Route::get('/approval', [DocumentController::class, 'approval'])->name('approval.letter');
+// Route::get('/approval', [DocumentController::class, 'approval'])->name('approval.letter');
 // Route::get('/trusted', [DocumentController::class, 'trusted'])->name('trusted.surplus');
 
 Route::get('/save-signature', [DocumentController::class, 'generateSignature'])->name('save.signature');

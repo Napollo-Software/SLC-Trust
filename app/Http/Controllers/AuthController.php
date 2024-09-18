@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Barryvdh\DomPDF\Facade\Pdf;
 use Hash;
 use Cookie;
 use Session;
@@ -19,7 +18,10 @@ use App\Models\Referral;
 use App\Jobs\sendEmailJob;
 use App\Models\Notifcation;
 use App\Models\Transaction;
+use App\Jobs\CashDepositJob;
 use Illuminate\Http\Request;
+use App\Mail\CashDepositMail;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Mail;
@@ -787,12 +789,26 @@ class AuthController extends Controller
                 "reference_id" => $reference_id,
             ]);
 
-            $user->transactions()->create([
+            $transaction = $user->transactions()->create([
                 "reference_id" => $reference_id,
                 "credit" => $request->balance,
                 "description" => $customer_description,
                 "type" => Transaction::Deposit
             ]);
+
+            $directory = storage_path('app/public/'.$user->id);
+            if (!is_dir($directory)) {
+                mkdir($directory, 0777, true);
+            }
+
+
+            $pdf = PDF::loadView('document.trusted-surplus-pdf', ["user" => $user, "transaction" => $transaction]);
+
+            $pdfLink = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
+
+            $pdf->save($pdfLink);
+
+            Mail::to($user->email)->send(new CashDepositMail($pdfLink));
 
             $platform_fee_description = "Maintenance fee of \${$maintenance_fee_amount} has been charged.";
             $customer_platform_fee_description = "Maintenance fee of \${$maintenance_fee_amount} deducted.";
