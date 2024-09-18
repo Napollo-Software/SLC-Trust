@@ -150,7 +150,9 @@
                                         class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif"
                                         id="account_status" name="account_status"
                                         data-id="{{ $user->id }}">
+                                        @if($user->account_status == 'Pending')
                                         <option class="bg-white text-black" value="Pending">Pending</option>
+                                        @endif
                                         <option
                                             class="bg-white text-black"@if ($user->account_status == 'Approved') selected @endif
                                             value="Approved">Approved</option>
