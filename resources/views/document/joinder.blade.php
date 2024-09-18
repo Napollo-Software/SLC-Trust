@@ -1646,6 +1646,32 @@ tr.ind-th td{
 
 }
 
+@media only screen and (min-width: 370px) and (max-width: 700px){
+    .header-content{
+        height: 260px;
+        gap: 3rem;
+    }
+    .j-heading{
+        font-size: 1.5rem
+    }
+    .header-contact{
+        font-size: 1rem
+    }
+}
+
+@media only screen and (max-width: 370px){
+    .header-content{
+        height: 200px;
+        gap: 2rem;
+    }
+    .j-heading{
+        font-size: 1.5rem
+    }
+    .header-contact{
+        font-size: 1rem
+    }
+}
+
     
     </style>
 </head>
