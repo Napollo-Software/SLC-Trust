@@ -161,6 +161,7 @@ class AuthController extends Controller
         $user = User::find($user->id);
 
         if ($role && $role != "User") {
+//            set_time_limit(13000);
             $details = $user;
 
             $directory = storage_path('app/public/' . $user->email);
