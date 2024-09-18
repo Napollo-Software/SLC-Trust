@@ -67,12 +67,18 @@
                     </td>
                 </tr>
                 <!-- Button Links -->
-                @if(count($urls) > 0)
+                @if(!empty($urls) && is_array($urls))
                 <tr>
                     <td align="center">
                         @foreach($urls as $url)
                             <a href="{{ $url }}" target="_blank" class="cta-button">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</a><br><br>
                         @endforeach
+                    </td>
+                </tr>
+                @elseif(!empty($urls))
+                <tr>
+                    <td align="center">
+                        <a href="{{ $urls }}" target="_blank" class="cta-button">Click here</a><br><br>
                     </td>
                 </tr>
                 @endif
