@@ -577,7 +577,7 @@ return $colors[$randomIndex];
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary m-2 custom-hover" style="text-align: center; float: right;">
-                                Save <i class="bx bx-save custom-hover" style="color: white; margin-bottom: 5px;"></i>
+                                Save <i class="bx bx-save custom-hover"></i>
                             </button>
                         </div>
                     </form>
