@@ -1805,7 +1805,7 @@ return $colors[$randomIndex];
                         </div>
                         <div class="card-body pt-0 text-center">
                             <div class="file-manger-icon">
-                                <a href="{{ url('storage/' . $item->uploaded_url) }}">
+                                <a target="_blank" href="{{ url('storage/' . $item->uploaded_url) }}">
                                     <img src="{{ url('/img/pdf_icon.png') }}" alt="img" class="br-7">
                                 </a>
                             </div>
@@ -2347,7 +2347,7 @@ enctype="multipart/form-data">
 
         e.preventDefault();
         $('.form-control').removeClass('is-invalid');
-    $('.invalid-feedback.is-invalid').remove();
+        $('.invalid-feedback.is-invalid').remove();
 
         $.ajax({
             url: "{{ route('update-bank-info') }}",
