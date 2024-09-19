@@ -1622,6 +1622,7 @@
                         {{ isset($life_insurance_information_body_no) && $life_insurance_information_body_no === 'No' ? 'checked' : '' }}>
                     No
                 </p>
+                <br>
                 <p>If you answered yes, please attach funeral provision documents</p> <br>
 
                 <div style="display: table-row;">
@@ -1631,13 +1632,13 @@
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
                         </div>
                     
-                </div>
+                </div> <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <label>Name of Owner</label> &nbsp;
                         <input type="text" value="{{ $insured_owner }}" name="insured_owner" />
                     </div>
-                </div>
+                </div> <br>
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -1646,13 +1647,13 @@
                         <input type="text" value="{{ $insurance_company }}" name="insurance_company" /> 
                     </div>
 
-            </div>
+            </div>  <br>
             <div style="display: table-row;">
                 <div style="display: table-cell">
                     <label>Policy #</label> &nbsp;
                     <input type="text" value="{{ $insurance_policy_number }}" name="insurance_policy_number" />
                 </div>
-            </div>
+            </div> <br>
 
 
                 <div style="display: table-row;">
@@ -1669,7 +1670,7 @@
                             name="healthcare_plan2">
                     </div>
                     <br>
-                </div>
+                </div> <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <label>Cash Surrender Value</label> &nbsp;
@@ -2614,16 +2615,16 @@
                 <div style="display: table-row;">
                     <table>
                         <tr>
-                            <td colspan="2" style="color: rgb(52 159 153);">FOR OFFICE USE ONLY</td>
+                            <td colspan="2" style="color: rgb(52 159 153);font-size: 15px">FOR OFFICE USE ONLY</td>
                         </tr>
                         <tr>
-                            <td>Member ID#:</td>
-                            <td><input type="text" value="{{ $office_use_member_id_above }}"
+                            <td style="font-size: 14px">Member ID#:</td>
+                            <td style="font-size: 14px"><input type="text" value="{{ $office_use_member_id_above }}"
                                     class="no-border"></td>
                         </tr>
                         <tr>
-                            <td>Effective Date:</td>
-                            <td><input type="text" value="{{ $office_use_effective_date }}"
+                            <td style="font-size: 14px">Effective Date:</td>
+                            <td style="font-size: 14px"><input type="text" value="{{ $office_use_effective_date }}"
                                     class="no-border"></td>
                         </tr>
                     </table>

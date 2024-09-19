@@ -161,22 +161,22 @@ footer img {
         <div>
             <div style="width: 100%;">
                 <div style="width: 25%; float: left">
-
+                    <span style="color: rgb(52 159 153)">Tell:</span>
                     <span>718.500.3235</span>
                 </div>
                 <div style="width: 50%; float: left;text-align: center">
-
+                    <span style="color: rgb(52 159 153)">Address:</span>
                     <span>5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
                 </div>
                 <div style="width: 25%; float: left; text-align: right">
-
+                    <span style="color: rgb(52 159 153)">Email:</span>
                     <span style="float: right">info@slctrusts.org</span>
                 </div>
 
             </div>
             <div>
+                <br>
                 <div style="width: 100%;text-align: center">
-
                     <span>www.seniorlifecaretrusts.org</span>
                 </div>
             </div>
