@@ -78,7 +78,7 @@
                 @elseif(!empty($urls))
                 <tr>
                     <td align="center">
-                        <a href="{{ $urls }}" target="_blank" class="cta-button">Click here</a><br><br>
+                        <a href="{{ url($urls) }}" target="_blank" class="cta-button" style="color:white !important;">Click here</a><br><br>
                     </td>
                 </tr>
                 @endif
