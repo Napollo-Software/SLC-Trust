@@ -2648,44 +2648,19 @@
                     class="no-border" style="width: 100%"> <br>
                 Representative: <input type="text" value="{{ $direct_debit_representative }}"
                     class="no-border" style="width: 100%;"> <br>
-                {{-- <br style="height: 2px"> --}}
-                <div style="display: table">
-                    <div style="display: table-row;">
-                        <div style="display: table-cell;">
-    
-                            <input type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" /> <br>
-                            <label>Bank Name</label>
-                        </div>
-                        &nbsp;&nbsp;
-    
-                        <div style="display: table-cell">
-                            <label>City</label>
-                            <input type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" />
-                        </div>
-                        &nbsp;
-
-                        <div style="display: table-cell">
-                            <label>State</label>
-                            <input type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" /> 
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div style="display: table">
-                    <div style="display: table-row;">
-                        <div style="display: table-cell;">
-    
-                            <label>Bank Routing Number</label>
-                            <input type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" />
-                        </div>
-                        {{-- &nbsp;&nbsp; --}}
-    
-                        <div style="display: table-cell">
-                            <label>Account Number</label>
-                            <input type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" />
-                        </div>
-                    </div>
-                </div>
+                    Bank Name: <input type="text" value="{{ $direct_debit_bank_name }}"
+                    class="no-border" style="width: 100%;" name="direct_debit_bank_name"> <br>
+                    Bank Routing Number: <input type="text" value="{{ $direct_debit_bank_routing }}"
+                    class="no-border" style="width: 100%;" name="direct_debit_bank_routing"> <br>
+                    Account Number: <input type="text" value="{{ $direct_debit_account_number }}"
+                    class="no-border" style="width: 100%;" name="direct_debit_account_number"> <br>
+                    Account Name: <input type="text" value="{{ $direct_debit_account_name }}"
+                    class="no-border" style="width: 100%;" name="direct_debit_account_name"> <br>
+                    City:  <input type="text" value="{{ $direct_debit_city }}"
+                    class="no-border" style="width: 100%;" name="direct_debit_city"> <br>
+                    State: <input type="text" value="{{ $direct_debit_state }}"
+                    class="no-border" style="width: 100%;" name="direct_debit_state">
+                
                 
 
 
@@ -2705,10 +2680,86 @@
 
             </p>
 
+            <p style=" ">Account type: 
+                <label>
+                    <input style="height:20px" type="radio" name="direct_debit_bank_type1" value="Checking"
+                        {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>
+                    <label>Checking</label>
+                </label>
+                <label>
+                    <input style="height:20px" type="radio" name="direct_debit_bank_type1" value="Savings"
+                    {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }}>
+                <label>Savings</label>
+                </label>
+                
+            </p>
+
             <br>
 
+            {{-- <div style="display: table; width: 100%;">
+                <div style="display: table-row;">
+                    <div style="display: table-cell;">
+                        City: <input type="text" value="{{ $direct_debit_city }}"
+                            class="no-border" name="direct_debit_city">
+                    </div>
+                    <div style="display: table-cell;">
+                        State: <input type="text" value="{{ $direct_debit_state }}"
+                            class="no-border" name="direct_debit_state">
+                    </div>
+                </div>
+            </div> --}}
+            <br>
 
-            <div style="display: table; width: 100%;">
+            {{-- <div style="display: table">
+                <div style="display: table-row;">
+                    <div style="display: table-cell;">
+
+                        <input type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" /> <br>
+                        <label>Bank Name</label>
+                    </div>
+                    &nbsp;&nbsp;
+
+                    <div style="display: table-cell">
+                        <label>City</label>
+                        <input type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" />
+                    </div>
+                    &nbsp;
+                    &nbsp;
+                    <div style="display: table-cell">
+                        <label>State</label>
+                        <input type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" /> 
+                    </div>
+                </div>
+            </div>
+            <br> --}}
+            {{-- <div style="display: table">
+                <div style="display: table-row;">
+                    <div style="display: table-cell;">
+
+                        <label>Bank Routing Number</label>
+                        <input type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" />
+                    </div>
+
+                    <div style="display: table-cell">
+                        <label>Account Number</label>
+                        <input type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" />
+                    </div>
+                </div>
+            </div>
+
+            <br> --}}
+
+
+            
+
+
+            
+
+
+
+
+
+            {{-- <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         Account Name: <input type="text" value="{{ $direct_debit_account_name }}"
@@ -2726,7 +2777,7 @@
                     </div>
                 </div>
             </div>
-            <br>
+            <br> --}}
 
             <p>
                 <b>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</b>
@@ -2818,9 +2869,7 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell font-size: 13px !important;text-align: start; !important">
                         <p>
-                            Monthly Debit Amount: $ <input type="text" class="no-border"
-                                name="office_use_monthly_debit_amount"
-                                value="{{ $office_use_monthly_debit_amount }}">
+                            Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)
                         </p>
                     </div>
                 </div>
@@ -2844,7 +2893,7 @@
 
             
             <br>
-            <p style="padding:0;margin:0;font-size: 11px;color: grey">
+            <p style="padding:0;margin:0;font-size: 14px">
                 If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
                 A $100 annual-renewal fee will be charged on the anniversary of the account
             </p>
