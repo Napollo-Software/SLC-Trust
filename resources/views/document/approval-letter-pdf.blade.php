@@ -128,7 +128,7 @@ footer img {
     </h2>
 </div>
 <hr>
-<div style="width: 90%;margin:0 auto">
+{{-- <div style="width: 90%;margin:0 auto">
     <div style="font-weight: bold;text-align:left;">
         <p>Date: {{\Carbon\Carbon::today()->format('m/d/Y')}}</p>
     </div>
@@ -139,7 +139,7 @@ footer img {
             <p style="font-weight: bold;text-decoration: underline;">Data Established: <span style="font-weight: lighter">{{\Carbon\Carbon::today()->format('m/d/Y')}}</span></p>
         </div>
     </div>
-</div>
+</div> --}}
 <div style="width: 90%;margin:40px auto">
     <div>
         <p style="font-size: 18px">This letter is to confirm that Joinder Agreement application for the above named Beneficiary to join Senior Care Life Pooled trust has been approved and a sub-account has been established. The account is effective upon receipt
@@ -160,7 +160,7 @@ footer img {
     <div>
         <div style="width: 100%;">
             <div style="width: 25%; float: left">
-                <span style="color: rgb(52 159 153)">Tell:</span>
+                <span style="color: rgb(52 159 153)">Tel:</span>
                 <span>718.500.3235</span>
             </div>
             <div style="width: 50%; float: left;text-align: center">
@@ -169,7 +169,7 @@ footer img {
             </div>
             <div style="width: 25%; float: left; text-align: right">
                 <span style="color: rgb(52 159 153)">Email:</span>
-                <span style="float: right">info@slctrusts.org</span>
+                <span>info@slctrusts.org</span>
             </div>
 
         </div>
