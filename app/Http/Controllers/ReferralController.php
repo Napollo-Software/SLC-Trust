@@ -1,24 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\contacts;
-use App\Models\DocumentESign;
-use App\Models\EmergencyContacts;
+use Hash;
 use App\Models\Lead;
-use App\Models\Referral;
-use App\Models\Documents;
 use App\Models\Type;
 use App\Models\User;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
+use App\Mail\Register;
+use App\Models\contacts;
+use App\Models\Referral;
 use App\Models\CheckList;
-use Hash;
+use App\Models\Documents;
+use Illuminate\Http\Request;
+use App\Models\DocumentESign;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\EmergencyContacts;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class ReferralController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Referral::orderBy('id','desc')->get();
+        $data = Referral::orderBy('id', 'desc')->get();
         return view('referral.index', compact('data'));
     }
     public function updateDoc(Request $request, $id)
@@ -42,7 +45,7 @@ class ReferralController extends Controller
             $query->where('name', 'vendor');
         })->get();
         $intakeCordinator = User::where('role', 'Admin')->get();
-        return view('referral.create', compact('typeData', 'intakeCordinator', 'referal', 'contacts', 'vendors','lead'));
+        return view('referral.create', compact('typeData', 'intakeCordinator', 'referal', 'contacts', 'vendors', 'lead'));
     }
 
     public function store(Request $request)
@@ -61,7 +64,7 @@ class ReferralController extends Controller
             'state' => 'required|string',
             'address' => 'required|string|max:250',
             'ssn' => 'required|string|max:250',
-            'patient_language'=>'required|string|max:250',
+            'patient_language' => 'required|string|max:250',
             'zip' => 'required|string|max:250',
             'medicaid_phone' => 'required|string',
             'medicaid_plan' => 'required|string',
@@ -149,7 +152,7 @@ class ReferralController extends Controller
     public function edit($id)
     {
         $typeData = Type::where('category', 'Case Type')->get();
-        $Referral = Referral::with(['accounts_source:id,name', 'contact_source:id,fname,lname','bankAccount'])->find($id);
+        $Referral = Referral::with(['accounts_source:id,name', 'contact_source:id,fname,lname', 'bankAccount'])->find($id);
         $contacts = contacts::select('id', 'fname', 'lname')->get();
         $checklistData = CheckList::where('referral_id', $id)->first();
         $vendors = User::select('id', 'name')->whereHas('roles', function ($query) {
@@ -220,7 +223,7 @@ class ReferralController extends Controller
             'state' => 'required|string',
             'address' => 'required|string|max:250',
             'ssn' => 'required|string|max:250',
-            'patient_language'=>'required|string|max:250',
+            'patient_language' => 'required|string|max:250',
             'zip' => 'required|string|max:250',
             'apt_suite' => 'required|string|max:250',
             'medicaid_phone' => 'required|string',
@@ -414,7 +417,8 @@ class ReferralController extends Controller
         return response()->json(['trust' => $totalTrust, 'message' => 'Success']);
     }
 
-    public function convert_to_customer(Request $request){
+    public function convert_to_customer(Request $request)
+    {
 
         $referral = Referral::find($request->id);
         $path = 'user/images';
@@ -445,10 +449,23 @@ class ReferralController extends Controller
         $user->token = $request->_token . rand();
         $user->password = Hash::make(123456);
         $user->save();
+
         $referral->convert_to_customer = $user->id;
         $referral->save();
-        $details = $user;
-        //\Mail::to($referral->email)->send(new \App\Mail\Register($details));
-        return response()->json(['success'=>'Customer created successfully!']);
+
+        $directory = storage_path('app/public/' . $user->email);
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
+
+        $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+
+        $pdf->save($savePath);
+
+        Mail::to($referral->email)->send(new Register($user, $savePath));
+
+        return response()->json(['success' => 'Customer created successfully!']);
     }
 }
