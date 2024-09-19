@@ -382,7 +382,7 @@
             // Ensure consistent button selectors
             let $submitButton = $('#sign-up-btn');
 
-            $submitButton.attr('disabled', true).text("Creating account...");
+            $submitButton.attr('disabled', true).text("Creating...");
 
             // Clear previous error states
             $('.form-control').removeClass('is-invalid');
