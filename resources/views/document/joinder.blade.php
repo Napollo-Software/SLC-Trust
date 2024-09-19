@@ -156,6 +156,8 @@ main{
     justify-content: center;
     align-items: flex-start;
     gap: 15px;
+    width: 90%;
+    margin: auto;
 }
 .beneficiary-information-form{
     width: 90%;
@@ -485,6 +487,26 @@ input:focus{
     color: var(--primary);
     flex: 1;
 }
+.medicaid-information-header{
+    width: 90%;
+    margin: auto;
+}
+.household-income-header{
+    width: 90%;
+    margin: auto;
+}
+.life-insurance-information-header{
+    width: 90%;
+    margin: auto;
+}
+.healthcare-premium-header{
+    width: 90%;
+    margin: auto;
+}
+.funeral-information-header{
+    width: 90%;
+    margin: auto;
+}
 .footer-left{
     flex: 1;
 }
@@ -505,6 +527,8 @@ input:focus{
     margin: 40px auto;
 }
 .authorized-representative-header{
+    width: 90%;
+    margin: auto;
 
 }
 .authorized-heading{
@@ -545,6 +569,14 @@ input:focus{
     justify-content: center;
     align-items: center;
     gap: 8px;
+}
+.referring-source-header{
+    width: 90%;
+    margin: auto;
+}
+.purpose-of-enr-header{
+    width: 90%;
+    margin: auto;
 }
 
 .authorized-representative-body-content-1{
@@ -1060,11 +1092,17 @@ tr.ind-th td{
     width: 90%;
     margin: auto;
 }
+.power-of-attorney-header{
+    width: 90%;
+    margin: auto;
+}
 .living-arrangement-header{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 25px;
+    width: 90%;
+    margin: auto;
 }
 .living-arrangement-body{
     width: 90%;
@@ -1126,8 +1164,32 @@ tr.ind-th td{
     width: 90%;
     margin: 50px auto;
 }
-.power-of-attorney-body{
+.guardian-information-header{
+    width: 90%;
+    margin: auto;
+}
+.information-disclosures-header{
     width: 95%;
+    margin: auto;
+}
+.signature-of-two-witnesses-header{
+    width: 90%;
+    margin: auto;
+}
+.signature-of-notary-header{
+    width: 90%;
+    margin: auto;
+}
+.agreement-signature-header{
+    width: 90%;
+    margin: auto;
+}
+.beneficiary-service-header{
+    width: 90%;
+    margin: auto;
+}
+.power-of-attorney-body{
+    width: 90%;
     margin: 20px auto;
     display: flex;
     flex-direction: column;
@@ -2142,7 +2204,7 @@ tr.ind-th td{
 
                                       <div class="authorized-contact-form-container-2">
                                           <div class="authorized-contact-form-2">
-                                              <input type="text" name="authorized-contact-form-2-email"
+                                              <input type="text"
                                                   name="auth_rep_two_email"
                                                   class="authorized-contact-form-2-email">
                                               <br>
@@ -3956,7 +4018,7 @@ tr.ind-th td{
                                         <br>
                                     <label for="">Date</label>
                                 </div>
-                                <div class="w-30">
+                                <div class="w-25">
                                     <canvas id="signature-canvas-1" style="width: 100%; height: 100px; background-color:#f2f2f2"></canvas>
                                 </div>
 
@@ -4055,7 +4117,7 @@ tr.ind-th td{
                                         style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                     <label for="">Sign Here</label>
                                 </div>
-                                <div class="w-80">
+                                <div class="w-50">
                                     <canvas id="signature-canvas-2" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                                      <button style="width:50px" type="button" id="clear-2" onclick="clearCanvas(2)">Clear</button>
                                      <input type="hidden" id="joinder_signature_2" name="joinder_signature_2">
@@ -4088,7 +4150,7 @@ tr.ind-th td{
                                             style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                         <label for="">Sign Here</label>
                                     </div>
-                                    <div style="width: 100%;">
+                                    <div class="w-50">
                                     <canvas id="signature-canvas-3" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                                     <button style="width:50px" type="button" id="clear-2" onclick="clearCanvas(3)">Clear</button>
                                     <input type="hidden" id="joinder_signature_3" name="joinder_signature_3">
@@ -4130,7 +4192,7 @@ tr.ind-th td{
                                     <br>
                                 <label for="">Date</label>
                             </div>
-                            <div class="w-40">
+                            <div class="w-25">
                                 <canvas id="signature-canvas-4" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                             </div>
 
@@ -4277,7 +4339,7 @@ tr.ind-th td{
                             </div>
 
                         </div>
-                        <div style="width: 40%;margin-top: 15px;">
+                        <div style="width: 25%;margin-top: 15px;">
                                  <canvas id="signature-canvas-5" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                         </div>
                         <button type="button" style="width:50px" id="clear-4" onclick="clearCanvas(5)">Clear</buttonty>
@@ -4422,9 +4484,9 @@ tr.ind-th td{
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#f2f2f2';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = '40px "Rage Italic", cursive';
+    ctx.font = '42px "Rage Italic", cursive';
     ctx.fillStyle = 'black';
-    ctx.fillText(name, 10, 80);
+    ctx.fillText(name, 5, 80);
 }
 
 function clearCanvas(id) {
