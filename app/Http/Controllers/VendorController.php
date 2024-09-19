@@ -15,13 +15,7 @@ class VendorController extends Controller
     public function index()
     {
 
-        $vendors = User::whereHas(
-            'roles',
-
-            function ($q) {
-                $q->where('name', 'vendor');
-            }
-        )->orderBy('id', 'desc')->get();
+        $vendors = User::where('role', 'Vendor')->orderBy('id', 'desc')->get();
 
         return view('vendors.index', compact('vendors'));
     }

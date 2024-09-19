@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand gap-3">
             <div class="topbar-logo-header d-none d-lg-flex">
                 <div class="">
-                    <img src="{{ asset('assets/new_theme/images/slc_trust.png')}}" class="logo-text" alt="logo icon" style="width: 120px;">
+                    <img src="{{ asset('assets/new_theme/images/slc_trust.png')}}" class="logo-text" alt="logo icon" style="width: 88px;">
                 </div>
             </div>
             <div class="mobile-toggle-menu d-block d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="bx bx-menu"></i></div>
@@ -79,7 +79,7 @@
                         </div>
                     </li>
                     @if ($user->hasPermissionTo('Front Office'))
-                    <li class="nav-item dropdown dropdown-large">
+                    <li class="nav-item dropdown d-none dropdown-large">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">0</span>
                             <i class='bx bx-comment'></i>
                         </a>

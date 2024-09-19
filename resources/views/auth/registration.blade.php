@@ -204,7 +204,7 @@
                 <div class="card">
                     <div class="card-body-auth">
                         <div class="app-brand justify-content-center mb-3">
-                            <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:120px">
+                            <img src="{{ url('/assets/img/slc_trust.png') }}" style="width:88px">
                         </div>
 
                         <form id="formAuthentication" class="mb-3" method="post" enctype="multipart/form-data">
@@ -342,7 +342,7 @@
                                         <input type="password" id="confirm_password" autocomplete="off" class="form-control" name="confirm_password" placeholder="Confirm Password" aria-describedby="password" />
                                         <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                     </div>
-                                    <span class="text-danger">@error('password'){{$message}} @enderror</span>
+                                    <small><span class="text-danger password-error"></span></small>
                                 </div>
 
                                 <div class="mb-3 d-none">
@@ -355,7 +355,9 @@
                                         <small><span class="text-danger terms-error"></span></small>
                                     </div>
                                 </div>
-                                <button id="sign-up-btn" class="btn btn-primary d-grid w-100 register-submit" type="submit">Sign up</button>
+                                <div class="d-flex justify-content-center">
+                                    <button id="sign-up-btn" class="btn btn-primary text-center d-grid register-submit" style="width:150px !important;" type="submit">Sign up </button>
+                                </div>
                             </div>
                         </form>
                         <p class="text-center">
@@ -380,7 +382,7 @@
             // Ensure consistent button selectors
             let $submitButton = $('#sign-up-btn');
 
-            $submitButton.attr('disabled', true).text("Creating account...");
+            $submitButton.attr('disabled', true).text("Creating...");
 
             // Clear previous error states
             $('.form-control').removeClass('is-invalid');

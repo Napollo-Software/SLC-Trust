@@ -37,7 +37,7 @@
     $role = User::where('id', '=', Session::get('loginId'))->value('role');
     $billing_method = User::where('id', '=', Session::get('loginId'))->value('billing_method');
     $current_user_name = User::where('id', '=', Session::get('loginId'))->value('name');
-    $current_user_balance = User::where('id', '=', Session::get('loginId'))->value('user_balance');
+    $current_user_balance = userBalance(Session::get('loginId'));
     $users = User::where('role', 'User')->get();
     ?>
 @if ($role != 'User')
@@ -207,7 +207,7 @@
                                     <td style="vertical-align: middle;"><a href="claims/{{ $claim['id'] }}">Bill#{{ str_pad($claim['id'], 2, '0', STR_PAD_LEFT) }}</a>
                                     </td>
                                     <td style="vertical-align: middle;">
-                                        {{$claim->user_details->full_name()}}dddddd
+                                        {{$claim->user_details->full_name()}}
                                     </td>
                                     <td style="vertical-align: middle;"> {{ date('m/d/Y h:i A', strtotime($claim['created_at'])) }}</td>
                                     <td style="vertical-align: middle;">{{ $claim->category_details->category_name }}</td>

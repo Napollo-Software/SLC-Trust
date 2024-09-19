@@ -16,10 +16,22 @@ return $colors[$randomIndex];
 }
 @endphp
 <style>
-    .custom-hover:hover {
-        color: #559e99 !important;
+    .btn-primary{
+        color: white !important;
+        background-color: #559e99 !important;
+        border-color: #4a8f8b !important;
+    }
+    .btn-primary:hover {
+        color: white !important;
+        background-color: #6bb0aa !important;
+        border-color: #5da298 !important;
     }
 
+    .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle{
+        color: white !important;
+        background-color: #467f7b !important;
+        border-color: #3e726f !important;
+    }
 
     .fancy-plus-button {
         background-color: #559e99;
@@ -172,8 +184,8 @@ return $colors[$randomIndex];
                 @if ($referral->get_followup->isNotEmpty())
                 <div class="card-header">
                     <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <h5 style="margin-top: 10px;">Follow Up</h5>
+                        <div class="col-md-9">
+                            <h5 style="margin-top: 9px;">Follow Up</h5>
                         </div>
                         <div class="col-3 text-end">
                             <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal">
@@ -645,15 +657,15 @@ return $colors[$randomIndex];
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="routingABA" class="form-label">Routing ABA</label>
-                                    <input type="text" class="form-control" id="routingABA" value="xxxxxxx">
+                                    <input type="text" class="form-control" id="routingABA" placeholder="xxxxxxx">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="accountNumber" class="form-label">Account Number</label>
-                                    <input type="text" class="form-control" id="accountNumber" value="0321 xxxxxx">
+                                    <input type="text" class="form-control" id="accountNumber" placeholder="0321 xxxxxx">
                                 </div>
                             </div>
-                            <button class="btn btn-primary" id="submitBtn" type="submit" style="float: right; margin-bottom:10px">Create Account <i class="bx bx-save" style="color: white; "></i>
-                            </button>
+                            <button class="btn btn-primary m-1 disabled" id="submitBtn" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
+                            <button class="btn btn-primary m-1 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if($referral->convert_to_customer!=null)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
                         </form>
 
                     </div>
@@ -2253,7 +2265,42 @@ enctype="multipart/form-data">
 <script src="{{ url('/assets/custom/custom.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
+<script>
+     $('.convert-btn').on('click', function (e) {
+        e.preventDefault();
+        var id = $(this).attr('data-id');
+        Swal.fire({
+            title: 'Need Approval!',
+            text: "Are you sure ,You want to convert this account to customer account",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: 'secondary',
+            confirmButtonText: 'Yes, convert it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(this).text('Converting to customer...');
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('convert.to.referral') }}",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        id: id,
+                    },
+                    success: function (data) {
+                        swal.fire('success', data.success, 'success')
+                        $('.convert-btn').text('Converted to Customer');
+                        $('.convert-btn').attr('disabled',true);
 
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            }
+        })
+    })
+</script>
 <script>
     function showTab(tabName) {
         $("#alwaysShow").removeClass('d-none');

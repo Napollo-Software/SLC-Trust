@@ -102,6 +102,7 @@ footer img {
     height: 25px;
 }
 
+
 @media (max-width: 768px) {
     .footer-table {
         display: block;
@@ -117,7 +118,7 @@ footer img {
 <body>
 <div class="row-container" >
     <h4>
-        <img src="{{ url('/assets/img/'.config('app.name').'-Logo.png') }}" alt="int" style="max-width: 100%; height: 100px;">
+        <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" alt="int" style="height: 50px;">
     </h4>
 
 </div>
@@ -131,58 +132,55 @@ footer img {
     <div style="font-weight: bold;text-align:left;">
         <p>Date: {{\Carbon\Carbon::today()->format('m/d/Y')}}</p>
     </div>
-    <div style="font-weight: bold;text-align:right;">
-        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Beneficiary Name: <span style="font-weight: lighter;">{{$user->name.' '.$user->last_name}}</span></p>
-        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Account Number: <span style="font-weight: lighter">{{'000'.$user->id}}</span></p>
-        <p style="font-weight: bold;text-align:right;text-decoration: underline;">Data Established: <span style="font-weight: lighter">{{\Carbon\Carbon::today()->format('m/d/Y')}}</span></p>
-
+    <div style="text-align: center; margin: auto;">
+        <div style="font-weight: bold;text-align:left; width: 50%; margin: auto;">
+            <p style="font-weight: bold;text-decoration: underline;">Beneficiary Name: <span style="font-weight: lighter;">{{$user->name.' '.$user->last_name}}</span></p>
+            <p style="font-weight: bold;text-decoration: underline;">Account Number: <span style="font-weight: lighter">{{'000'.$user->id}}</span></p>
+            <p style="font-weight: bold;text-decoration: underline;">Data Established: <span style="font-weight: lighter">{{\Carbon\Carbon::today()->format('m/d/Y')}}</span></p>
+        </div>
     </div>
 </div>
 <div style="width: 90%;margin:40px auto">
     <div>
-        <p style="font-size: 18px">This letter is to confirm that Joinder Agreement application for the above named Beneficiary to join Trusted Surplus
-            Solution Pooled trus has been approved and a sub-account has been established. The account is effective upon receipt
+        <p style="font-size: 18px">This letter is to confirm that Joinder Agreement application for the above named Beneficiary to join Senior Care Life Pooled trust has been approved and a sub-account has been established. The account is effective upon receipt
             of surplus deposit.
         </p>
         <p style="font-size: 18px">
-            Should you have any further inquiries please do not hesitate to contact our office at 718-970-7878
+            Should you have any further inquiries please do not hesitate to contact our office at 718-500-3235
         </p>
     </div>
     <div style="font-size: 18px">
-        <p>Sincerely</p>
-        <p style="font-family: Rage Italic;font-weight: bold;">SLC</p>
-        <p>Enrollment Department</p>
+        <p style="margin: 0">Sincerely</p>
+        <p style="font-family: serif; font-style: italic; font-weight: bold;margin: 0">Senior Care Life</p>
+
+        <p style="margin: 0">Enrollment Department</p>
     </div>
 </div>
-<footer>
-    <div class="footer-table">
-        <div class="footer-row">
-            <div class="footer-cell-1">
+<div>
+    <div>
+        <div style="width: 100%;">
+            <div style="width: 25%; float: left">
 
                 <span>718.500.3235</span>
             </div>
-            <div class="footer-cell">
+            <div style="width: 50%; float: left;text-align: center">
 
                 <span>5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
             </div>
-            <div class="footer-cell2">
+            <div style="width: 25%; float: left; text-align: right">
 
-                <span>info@slctrusts.org</span>
+                <span style="float: right">info@slctrusts.org</span>
             </div>
 
         </div>
-        <div class="footer-row">
-            <div class="footer-cell" style="visibility: hidden">
-                
-                <span>www.seniorlifecaretrusts.org</span>
-            </div>
-            <div class="footer-cell">
+        <div>
+            <div style="width: 100%;text-align: center">
 
                 <span>www.seniorlifecaretrusts.org</span>
             </div>
         </div>
     </div>
-</footer>
+</div>
 
 </body>
 </html>

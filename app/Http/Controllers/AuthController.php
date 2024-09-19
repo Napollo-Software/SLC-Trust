@@ -161,6 +161,7 @@ class AuthController extends Controller
         $user = User::find($user->id);
 
         if ($role && $role != "User") {
+//            set_time_limit(13000);
             $details = $user;
 
             $directory = storage_path('app/public/' . $user->email);
@@ -211,7 +212,7 @@ class AuthController extends Controller
                 alert()->success('success', 'Account has been created Successfully.');
                 return back()->with('success', 'Thank you.');
             } else {
-                return response()->json(['header' => 'User Registered', 'message' => 'Thank you for choosing ' . $app_name . '. We are reviewing your request at the moment. You will receive an email once your account is approved or if we need more information.', 'type' => "success"]);
+                return response()->json(['header' => 'User Registered', 'message' => 'Thank you for choosing ' . $app_name . '. We are reviewing your request at the moment. You will receive an email once your account is approved or if we need more information. For immediate assistance, please call '.config('app.contact'), 'type' => "success"]);
             }
         } else {
             return back()->with('fail', 'Something went wrong!');
@@ -611,7 +612,7 @@ class AuthController extends Controller
                 }
                 $subject = 'Account Deactivate';
                 $name = "{$user->name}  {$user->last_name}";
-                $email_message = "Your profile has been deactivated by {$app_name},For immediate assistance please call {config('app.contact')}.";
+                $email_message = "Your profile has been deactivated by {$app_name},For immediate assistance please call ".config('app.contact');
                 $url = "";
                 if ($user->notify_by == "email") {
                     SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
