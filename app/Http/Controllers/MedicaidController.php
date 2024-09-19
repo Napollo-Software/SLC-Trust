@@ -12,8 +12,8 @@ class MedicaidController extends Controller
     public function index()
     {
         $medicaid = Medicaid::all();
-        $referral_name= Referral::get();
-        return view('medicaid.index',compact('medicaid' ,'referral_name'));
+        $referral_name = Referral::get();
+        return view('medicaid.index', compact('medicaid', 'referral_name'));
     }
     public function store(Request $request)
     {
@@ -28,8 +28,8 @@ class MedicaidController extends Controller
         $physician->npi = $request->npi;
         $physician->physician_address = $request->address;
         $physician->save();
-        
-        
+
+
         $data = new medicaid();
         $data->medicaid_number = $physician->id;
         $data->referral_name = $physician->referral_name;
@@ -54,9 +54,9 @@ class MedicaidController extends Controller
             'address' => 'required|string',
             'fax' => 'required|string',
         ]);
-    
+
         $userId = $request->input('userId');
-        
+
         if ($userId) {
             $physician = Physician::findOrFail($userId);
         } else {
@@ -71,14 +71,14 @@ class MedicaidController extends Controller
         $physician->physician_address = $request->input('address');
         $physician->fax = $request->input('fax');
         $physician->save();
-    
+
         if ($userId) {
             return response()->json(['message' => 'Physician information updated successfully']);
         } else {
             return response()->json(['message' => 'New physician information created successfully']);
         }
     }
-    
+
     public function updateMedicaid(Request $request)
     {
         $request->validate([
@@ -89,9 +89,9 @@ class MedicaidController extends Controller
             'activeMedicaid' => 'required|string',
             'code' => 'required|string',
         ]);
-    
+
         $inputId = $request->input('inputId');
-    
+
         if ($inputId) {
             $medicaid = Medicaid::findOrFail($inputId);
         } else {
@@ -105,12 +105,39 @@ class MedicaidController extends Controller
         $medicaid->active_medicaid = $request->input('activeMedicaid');
         $medicaid->code = $request->input('code');
         $medicaid->save();
-    
+
         if ($inputId) {
             return response()->json(['message' => 'Medicaid information updated successfully']);
         } else {
             return response()->json(['message' => 'New Medicaid information created successfully']);
         }
     }
-    
+
+    public function updateBankInfo(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|numeric',
+            'account_type' => 'required|string',
+            'bank_name' => 'required|string',
+            'routing_aba' => 'required|string',
+            'account_number' => 'required|string',
+        ]);
+
+        $id = $request->input('id');
+        $referral = Referral::findOrFail($id);
+
+        $referral->bankAccount()->updateOrCreate(
+            ['referral_id' => $referral->id],
+            [
+                'account_type' => $request->input('account_type'),
+                'bank_name' => $request->input('bank_name'),
+                'routing_aba' => $request->input('routing_aba'),
+                'account_number' => $request->input('account_number'),
+            ]
+        );
+
+        return response()->json(['message' => 'Bank information updated successfully']);
+    }
+
+
 }

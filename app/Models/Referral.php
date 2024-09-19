@@ -149,4 +149,9 @@ class Referral extends Model
     public function customer(){
         return $this->belongsTo(User::class, 'convert_to_customer','id');
     }
+
+    public function bankAccount()
+    {
+        return $this->hasOne(BankAccount::class);
+    }
 }
