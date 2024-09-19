@@ -3040,13 +3040,13 @@ tr.ind-th td{
                                 </div>
                                 <div class="life-policy">
                                     <div class="life-policy-style">
-                                        <input type="checkbox" name="type_of_policy1" value="Term" id="life-insurance-term">
+                                        <input type="radio" name="type_of_policy1" value="Term" id="life-insurance-term">
                                         <label for="life-insurance-term">Term</label>
                                         <input type="text" name="healthcare_plan" id="healthcare-plan"
                                             style="border: none; border-bottom: 1px solid black; flex:1">
                                     </div>
                                     <div class="life-policy-style">
-                                        <input type="checkbox" name="type_of_policy2" value="Life" id="life-insurance-life">
+                                        <input type="radio" name="type_of_policy1" value="Life" id="life-insurance-life">
                                         <label for="life-insurance-life">Life</label>
                                         <input type="text" name="healthcare_plan2" id="healthcare-plan"
                                             style="border: none; border-bottom: 1px solid black; flex:1">
@@ -3081,39 +3081,39 @@ tr.ind-th td{
                     </div>
                     <div class="living-arrangement-body">
                         <div>
-                            <input type="checkbox"  name="living_arrangement1" value="Independently" id="independently">
+                            <input type="radio"  name="living_arrangement1" value="Independently" id="independently">
                             <label for="independently">Independently</label>
                         </div>
                         <div>
-                            <input type="checkbox"   name="living_arrangement2" value="With Spouse" id="with-spouse">
+                            <input type="radio"   name="living_arrangement1" value="With Spouse" id="with-spouse">
                             <label for="with-spouse">With Spouse</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement3" value="With Parents" id="with-parents">
+                            <input type="radio" name="living_arrangement1" value="With Parents" id="with-parents">
                             <label for="with-parents">With Parents/other family </label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement4" value="Assisted Living facility" id="assisted">
+                            <input type="radio" name="living_arrangement1" value="Assisted Living facility" id="assisted">
                             <label for="assisted">Assisted Living Facility</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement5" value="Family Care Program" id="family-care">
+                            <input type="radio" name="living_arrangement1" value="Family Care Program" id="family-care">
                             <label for="family-care">Family Care Program</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement6" value="Nursing Home" id="nursing-home">
+                            <input type="radio" name="living_arrangement1" value="Nursing Home" id="nursing-home">
                             <label for="nursing-home">Nursing Home</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement7" value="CR/IRA/ICF(supervised)" id="cr">
+                            <input type="radio" name="living_arrangement1" value="CR/IRA/ICF(supervised)" id="cr">
                             <label for="cr"> CR/IRA/ICF (supervised) </label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement8" value="CR/IRA(Supportive)" id="ira">
+                            <input type="radio" name="living_arrangement1" value="CR/IRA(Supportive)" id="ira">
                             <label for="ira">CR/IRA (supportive)</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="living_arrangement9" value="Other" id="other">
+                            <input type="radio" name="living_arrangement1" value="Other" id="other">
                             <label for="other"> Other -</label>
                         </div>
                         <div style="flex: 1;">

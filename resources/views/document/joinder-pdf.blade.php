@@ -1664,8 +1664,8 @@
                         <input style="height:20px" type="text" value="{{ $healthcare_plan }}" class="no-border"
                             name="healthcare_plan">
 
-                        <input style="height:20px" type="radio" name="type_of_policy2" value="Life"
-                            {{ isset($type_of_policy2) && $type_of_policy2 === 'Life' ? 'checked' : '' }}> Life
+                        <input style="height:20px" type="radio" name="type_of_policy1" value="Life"
+                            {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}> Life
                         <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
                             name="healthcare_plan2">
                     </div>
@@ -1714,17 +1714,17 @@
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Independently' ? 'checked' : '' }}>
                 <label for="independently" style="vertical-align: middle;">Independently</label> &nbsp;&nbsp;
 
-                <input style="height:20px" type="radio" id="with_spouse" name="living_arrangement2" value="With Spouse"
-                    {{ isset($living_arrangement2) && $living_arrangement2 === 'With Spouse' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" id="with_spouse" name="living_arrangement1" value="With Spouse"
+                    {{ isset($living_arrangement1) && $living_arrangement1 === 'With Spouse' ? 'checked' : '' }}>
                 <label for="with_spouse" style="vertical-align: middle;">With Spouse</label> &nbsp;&nbsp;
 
-                <input style="height:20px" type="radio" id="with_parents" name="living_arrangement3" value="With Parents"
-                    {{ isset($living_arrangement3) && $living_arrangement3 === 'With Parents' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" id="with_parents" name="living_arrangement1" value="With Parents"
+                    {{ isset($living_arrangement1) && $living_arrangement1 === 'With Parents' ? 'checked' : '' }}>
                 <label for="with_parents" style="vertical-align: middle;">With parents/other family</label> &nbsp;&nbsp;
 
-                <input style="height:20px" type="radio" id="assisted_living" name="living_arrangement4"
+                <input style="height:20px" type="radio" id="assisted_living" name="living_arrangement1"
                     value="Assisted Living facility"
-                    {{ isset($living_arrangement4) && $living_arrangement4 === 'Assisted Living facility' ? 'checked' : '' }}>
+                    {{ isset($living_arrangement1) && $living_arrangement1 === 'Assisted Living facility' ? 'checked' : '' }}>
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
             <br>
@@ -1732,27 +1732,27 @@
 
 
             <p style="padding: 0; margin: 0;">
-                <input style="height:20px" type="radio" id="family_care" name="living_arrangement5" value="Family Care Program"
-                    {{ isset($living_arrangement5) && $living_arrangement5 === 'Family Care Program' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" id="family_care" name="living_arrangement1" value="Family Care Program"
+                    {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
                 <label for="family_care" style="vertical-align: middle;">Family care program</label> &nbsp;&nbsp;
 
-                <input style="height:20px" type="radio" id="nursing_home" name="living_arrangement6" value="Nursing Home"
-                    {{ isset($living_arrangement6) && $living_arrangement6 === 'Nursing Home' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" id="nursing_home" name="living_arrangement1" value="Nursing Home"
+                    {{ isset($living_arrangement1) && $living_arrangement1 === 'Nursing Home' ? 'checked' : '' }}>
                 <label for="nursing_home" style="vertical-align: middle;">Nursing home</label> &nbsp;&nbsp;
 
-                <input style="height:20px" type="radio" id="supervised" name="living_arrangement7" value="CR/IRA/ICF(supervised)"
-                    {{ isset($living_arrangement7) && $living_arrangement7 === 'CR/IRA/ICF(supervised)' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" id="supervised" name="living_arrangement1" value="CR/IRA/ICF(supervised)"
+                    {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA/ICF(supervised)' ? 'checked' : '' }}>
                 <label for="supervised" style="vertical-align: middle;">CR/IRA/ICF(supervised)</label> &nbsp;&nbsp;
 
-                <input style="height:20px" type="radio" id="supportive" name="living_arrangement8" value="CR/IRA(Supportive)"
-                    {{ isset($living_arrangement8) && $living_arrangement8 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" id="supportive" name="living_arrangement1" value="CR/IRA(Supportive)"
+                    {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
                 <label for="supportive" style="vertical-align: middle;">CR/IRA(Supportive)</label>
             </p>
             <br>
 
             <p style="padding: 0; margin: 0;">
-                <input style="height:20px" type="radio" id="other_living_arrangement" name="living_arrangement9" value="Other"
-                    {{ isset($living_arrangement9) && $living_arrangement9 === 'Other' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" id="other_living_arrangement" name="living_arrangement1" value="Other"
+                    {{ isset($living_arrangement1) && $living_arrangement1 === 'Other' ? 'checked' : '' }}>
                 <label for="other_living_arrangement" style="vertical-align: middle;">Other Explain</label> &nbsp;&nbsp;
                 <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
                     name="living_arrangement_other">
