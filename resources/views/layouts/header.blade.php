@@ -79,7 +79,7 @@
                         </div>
                     </li>
                     @if ($user->hasPermissionTo('Front Office'))
-                    <li class="nav-item dropdown dropdown-large">
+                    <li class="nav-item dropdown d-none dropdown-large">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">0</span>
                             <i class='bx bx-comment'></i>
                         </a>

@@ -63,7 +63,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                 <tr>
                     <td align="center" valign="top" style="padding: 20px 0;">
-                        <img src="{{url('assets/images/'.config('app.name').'-Logo.png')}}" alt="Logo" style="height: 80px; display: block; border: 0;" />
+                        <img src="{{url('assets/img/'.config('app.name').'-Logo.png')}}" alt="Logo" style="height: 80px; display: block; border: 0;" />
                     </td>
                 </tr>
             </table>
