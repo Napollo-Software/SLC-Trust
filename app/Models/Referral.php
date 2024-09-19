@@ -152,6 +152,6 @@ class Referral extends Model
 
     public function bankAccount()
     {
-        return $this->hasOne(BankAccount::class);
+        return $this->hasOne(BankAccount::class)->withDefault();
     }
 }
