@@ -149,7 +149,7 @@ class ReferralController extends Controller
     public function edit($id)
     {
         $typeData = Type::where('category', 'Case Type')->get();
-        $Referral = Referral::with('accounts_source:id,name', 'contact_source:id,fname,lname')->find($id);
+        $Referral = Referral::with(['accounts_source:id,name', 'contact_source:id,fname,lname','bankAccount'])->find($id);
         $contacts = contacts::select('id', 'fname', 'lname')->get();
         $checklistData = CheckList::where('referral_id', $id)->first();
         $vendors = User::select('id', 'name')->whereHas('roles', function ($query) {

@@ -211,6 +211,7 @@ Route::get('/submit-forms', [CreateChequeController::class, 'submitForms'])->nam
 
 Route::post('/update-physician', [MedicaidController::class, 'updatePhysician'])->name('update-physician');
 Route::post('/update-medicaid', [MedicaidController::class, 'updateMedicaid'])->name('update-medicaid');
+Route::post('/update-bank-info', [MedicaidController::class, 'updateBankInfo'])->name('update-bank-info');
 Route::get('/get-table-columns', [ReportController::class, 'getTableColumns'])->name('get-table-columns');
 Route::match(['get', 'post'], '/get-submited-columns', [ReportController::class, 'submitSelectedColumns'])->name('get.submited.columns');
 

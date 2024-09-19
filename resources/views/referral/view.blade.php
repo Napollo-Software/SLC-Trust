@@ -599,7 +599,8 @@ return $colors[$randomIndex];
             <div class="tab-pane" id="financeCard">
                 <div class="card services-card">
                     <div style="margin:20px">
-                        <form>
+                        <form id="bank-info-form" method="post">
+                        @csrf
                             <!-- <div class="row">
                                 <div style="padding-left: 15px">
                                     <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
@@ -646,25 +647,26 @@ return $colors[$randomIndex];
                             <h2>Bank Info</h2>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="accountType" class="form-label">Account Type</label>
-                                    <input type="text" class="form-control" id="accountType" value="Checking">
+                                    <label for="account_type" class="form-label">Account Type</label>
+                                    <input type="text" class="form-control" value="{{ $referral->bankAccount->account_type }}" name="account_type" id="account_type" placeholder="Account type">
+                                    <input type="hidden" class="form-control" name="id" value="{{ $referral->id }}" placeholder="Account type">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="bankName" class="form-label">Bank Name</label>
-                                    <input type="text" class="form-control" id="bankName" placeholder="Nationale Bank">
+                                    <label for="bank_ame" class="form-label">Bank Name</label>
+                                    <input type="text" class="form-control" value="{{ $referral->bankAccount->bank_name }}" name="bank_name" id="bank_ame" placeholder="Bank name">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="routingABA" class="form-label">Routing ABA</label>
-                                    <input type="text" class="form-control" id="routingABA" placeholder="xxxxxxx">
+                                    <label for="routing_aba" class="form-label">Routing ABA</label>
+                                    <input type="text" class="form-control" value="{{ $referral->bankAccount->routing_aba }}" name="routing_aba" id="routing_aba" placeholder="Routing aba">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="accountNumber" class="form-label">Account Number</label>
-                                    <input type="text" class="form-control" id="accountNumber" placeholder="0321 xxxxxx">
+                                    <label for="account_number" class="form-label">Account Number</label>
+                                    <input type="text" value="{{ $referral->bankAccount->account_number }}" class="form-control" name="account_number" id="account_number" placeholder="Account number">
                                 </div>
                             </div>
-                            <button class="btn btn-primary m-1 disabled" id="submitBtn" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
+                            <button class="btn btn-primary m-1" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
                             <button class="btn btn-primary m-1 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if($referral->convert_to_customer!=null)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
                         </form>
 
@@ -1803,7 +1805,7 @@ return $colors[$randomIndex];
                         </div>
                         <div class="card-body pt-0 text-center">
                             <div class="file-manger-icon">
-                                <a href="{{ url('storage/' . $item->uploaded_url) }}">
+                                <a target="_blank" href="{{ url('storage/' . $item->uploaded_url) }}">
                                     <img src="{{ url('/img/pdf_icon.png') }}" alt="img" class="br-7">
                                 </a>
                             </div>
@@ -2339,10 +2341,32 @@ enctype="multipart/form-data">
             }
         })
     })
-</script>
 
 
-<script>
+    $('#bank-info-form').on('submit', function(e) {
+
+        e.preventDefault();
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback.is-invalid').remove();
+
+        $.ajax({
+            url: "{{ route('update-bank-info') }}",
+            type: 'POST',
+            data: new FormData(this),
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(response) {
+                swal.fire('Success', 'Bank info saved successfully', 'success');
+            },
+            error: function(response) {
+                erroralert(response);
+            }
+        })
+    });
+
+
     $('#MedicaidForm').on('submit', function(e) {
         e.preventDefault();
         $.ajax({
@@ -2365,8 +2389,7 @@ enctype="multipart/form-data">
             }
         })
     });
-</script>
-<script>
+
     $(document).ready(function() {
         // Function to open the modal
         $(document).on('click', '.fancy-plus-button', function() {

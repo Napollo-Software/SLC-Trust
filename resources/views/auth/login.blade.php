@@ -70,10 +70,10 @@
 
               <form id="formAuthentication" class="mb-3" action="{{route('login-user')}}" method="post">
               @if(Session::has('success'))
-              <div class="alert alert-success">{{Session::get('success')}}</div>
+              <div class="mt-4 alert alert-success">{{Session::get('success')}}</div>
               @endif
               @if(Session::has('fail'))
-              <div class="alert alert-danger">{{Session::get('fail')}}</div>
+              <div class="mt-4 alert alert-danger">{{Session::get('fail')}}</div>
               @endif
               @csrf
                 <div class="mb-3">
