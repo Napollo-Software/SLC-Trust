@@ -4119,7 +4119,7 @@ tr.ind-th td{
                                 </div>
                                 <div class="w-50">
                                     <canvas id="signature-canvas-2" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
-                                     <button style="width:50px" type="button" id="clear-2" onclick="clearCanvas(2)">Clear</button>
+                                     <button style="width:50px;margin-top:5px" type="button" id="clear-2" onclick="clearCanvas(2)">Clear</button>
                                      <input type="hidden" id="joinder_signature_2" name="joinder_signature_2">
                                 </div>
                                 <div class="w-80">
@@ -4152,7 +4152,7 @@ tr.ind-th td{
                                     </div>
                                     <div class="w-50">
                                     <canvas id="signature-canvas-3" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
-                                    <button style="width:50px" type="button" id="clear-2" onclick="clearCanvas(3)">Clear</button>
+                                    <button style="width:50px;margin-top:5px" type="button" id="clear-2" onclick="clearCanvas(3)">Clear</button>
                                     <input type="hidden" id="joinder_signature_3" name="joinder_signature_3">
                                 </div>
                                     <div style="width: 100%;">
@@ -4342,7 +4342,7 @@ tr.ind-th td{
                         <div style="width: 25%;margin-top: 15px;">
                                  <canvas id="signature-canvas-5" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                         </div>
-                        <button type="button" style="width:50px" id="clear-4" onclick="clearCanvas(5)">Clear</buttonty>
+                        <button type="button" style="width:50px;margin-top:8px" id="clear-4" onclick="clearCanvas(5)">Clear</buttonty>
                         <input type="hidden" id="joinder_signature_5" name="joinder_signature_5">
                     </div>
 
