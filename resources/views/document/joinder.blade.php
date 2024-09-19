@@ -235,6 +235,7 @@ input:focus{
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    gap: 5px;
 }
 
 /* Old Css Version */
@@ -362,7 +363,8 @@ input:focus{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap:wrap
+    flex-wrap:wrap;
+    gap: 5px;
 }
 .address{
     width: 100%;
@@ -419,6 +421,10 @@ input:focus{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+.applicable-item-para{
+    width: 80%;
+    margin: auto;
 }
 .d1{
     width: 100%;
@@ -706,6 +712,7 @@ input:focus{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 .authorized-address-form{
     margin-top: 25px;
@@ -1852,13 +1859,13 @@ tr.ind-th td{
                                          <label class="label-status">Marital Status</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input  type="checkbox" value="Married" name="sponsor_marital_status1" class="married" id="married">Married
+                                         <input  type="radio" value="Married" name="sponsor_marital_status1" class="married" id="married">Married
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input type="checkbox" value="Widowed" name="sponsor_marital_status2" class="widowed" id="widowed">Widowed
+                                         <input type="radio" value="Widowed" name="sponsor_marital_status1" class="widowed" id="widowed">Widowed
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input type="checkbox" value="Single" name="sponsor_marital_status3" class="single" id="label">Single
+                                         <input type="radio" value="Single" name="sponsor_marital_status1" class="single" id="label">Single
                                      </div>
 
                                  </div>
@@ -1881,8 +1888,8 @@ tr.ind-th td{
                                  <div class="citizenship-form">
                                     <span>Citizenship</span>
                                     <div class="custom-radio">
-                                        <input type="checkbox" name="sponsor_citizen1" value="Yes"> Yes
-                                        <input type="checkbox" name="sponsor_citizen2" value="No"> No
+                                        <input type="radio" name="sponsor_citizen1" value="Yes"> Yes
+                                        <input type="radio" name="sponsor_citizen1" value="No"> No
                                     </div>
 
                                  </div>
@@ -1908,11 +1915,11 @@ tr.ind-th td{
                                      <label class="label-status">Preferred Phone</label>
                                  </div>
                                  <div>
-                                     <input type="checkbox" value="Cell" name="prefered_cell" class="cell" id="cell">
+                                     <input type="radio" value="Cell" name="prefered_cell" class="cell" id="cell">
                                      <label for="">Cell</label>
                                  </div>
                                  <div>
-                                     <input type="checkbox" value="Phone" name="prefered_phone" id="phone" class="phone">
+                                     <input type="radio" value="Phone" name="prefered_cell" id="phone" class="phone">
                                      <label for="">Home</label>
                                  </div>
                              </div>
@@ -2007,18 +2014,18 @@ tr.ind-th td{
                                   <p style="min-width: fit-content;">Who will be your primary contact?</p>
                                   <div class="authorized-des-checkbox">
                                       <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
-                                          <input type="checkbox" name="auth_beneficiary"
+                                          <input type="radio" name="auth_beneficiary"
                                           value="Beneficiary" id="beneficiary" class="beneficiary">
                                           <label for="beneficiary">Beneficiary</label>
                                       </div>
                                       <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
-                                          <input type="checkbox" name="auth_auth_1" id="auth-1"
+                                          <input type="radio" name="auth_beneficiary" id="auth-1"
                                           value="Auth. Rep.1"
                                           class="auth-1">
                                           <label for="auth-1">Auth. Rep. 1</label>
                                       </div>
-                                      <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
-                                          <input type="checkbox" name="auth_auth_2"
+                                      <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 120px;">
+                                          <input type="radio" name="auth_beneficiary"
                                           value="Auth. Rep. 2"
                                           id="auth-2" class="auth-2">
                                           <label for="auth-2">Auth. Rep. 2</label>
@@ -2072,7 +2079,7 @@ tr.ind-th td{
                                                   Phone</label>
                                               <div class="authorized-preferred-form-checkbox">
                                                   <div>
-                                                      <input type="checkbox" name="authorized_preferred_cell_form_inp"
+                                                      <input type="radio" name="authorized_preferred_cell_form_inp"
                                                           id="authorized-preferred-cell-form-inp"
                                                           class="authorized-preferred-cell-form-inp"
                                                            value="Authorized_1_cell"
@@ -2080,7 +2087,7 @@ tr.ind-th td{
                                                       <span>Cell</span>
                                                   </div>
                                                   <div>
-                                                      <input type="checkbox" name="authorized_preferred_cell_home_inp"
+                                                      <input type="radio" name="authorized_preferred_cell_form_inp"
                                                           id="authorized-preferred-home-form-inp"
                                                           class="authorized-preferred-home-form-inp"
                                                           value="Authorized_1_home"
@@ -2183,16 +2190,16 @@ tr.ind-th td{
                                                   Phone</label>
                                               <div class="authorized-preferred-form-checkbox">
                                                   <div>
-                                                      <input type="checkbox" name="authorized_preferred_cell2"
+                                                      <input type="radio" name="authorized_preferred_cell2"
                                                       value="Cell"
                                                           id="authorized-preferred-cell-form-inp"
                                                           class="authorized-preferred-cell-form-inp">
                                                       <span>Cell</span>
                                                   </div>
                                                   <div>
-                                                      <input type="checkbox"
+                                                      <input type="radio"
                                                       value="Home"
-                                                       name="authorized_preferred_phone2"
+                                                       name="authorized_preferred_cell2"
                                                           id="authorized-preferred-home-form-inp"
                                                           class="authorized-preferred-home-form-inp">
                                                       <span>Home</span>
@@ -2305,9 +2312,9 @@ tr.ind-th td{
                               Authorize any applicable documents necessary for
                               reporting to Government Agencies to be<br>sent
                               to the referring source above.
-                              <input type="checkbox" name="referring_auth1" value="Yes" id="referring-source-para-yes">
+                              <input type="radio" name="referring_auth1" value="Yes" id="referring-source-para-yes">
                               <label for="referring-source-para-yes">Yes</label>
-                              <input type="checkbox" name="referring_auth2" value="No" id="referring-source-para-no">
+                              <input type="radio" name="referring_auth1" value="No" id="referring-source-para-no">
                               <label for="referring-source-para-no">No</label>
                           </p>
                       </div>
@@ -2344,13 +2351,13 @@ tr.ind-th td{
                               establishing an account.</p>
                           <div class="purpose-of-enr-checkbox">
                               <div style="min-width: fit-content">
-                                  <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income" id="purpose-of-enr-income">
+                                  <input type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income" id="purpose-of-enr-income">
                                   <label >Shelter
                                       Monthly Excess
                                       Income</label>
                               </div>
                               <div style="min-width: fit-content;">
-                                  <input type="checkbox" name="account_establishing_reason2" value="Shelter Excess Resources" id="purpose-of-enr-shelter">
+                                  <input type="radio" name="account_establishing_reason1" value="Shelter Excess Resources" id="purpose-of-enr-shelter">
                                   <label >Shelter
                                       Excess Resources</label>
                               </div>
@@ -2382,15 +2389,15 @@ tr.ind-th td{
                                   <td>
                                       <div class="applicant">
                                           <div>
-                                              <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes" id="applicant-yes">
+                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Yes" id="applicant-yes">
                                               <label for="applicant-yes"> Yes</label>
                                           </div>
                                           <div>
-                                              <input type="checkbox" name="beneficiary_receive_medicaid_applicant2" value="No" id="applicant-no"> <label
+                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No" id="applicant-no"> <label
                                                   for="applicant-no"> No</label>
                                           </div>
                                           <div>
-                                              <input type="checkbox" name="beneficiary_receive_medicaid_applicant3" value="Pending" id="applicant-pending"><label for="applicant-pending"> Pending</label>
+                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending" id="applicant-pending"><label for="applicant-pending"> Pending</label>
                                           </div>
 
                                       </div>
@@ -2398,15 +2405,15 @@ tr.ind-th td{
                                   <td>
                                       <div class="applicant">
                                           <div>
-                                              <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes" id="spouse-yes">
+                                              <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Yes" id="spouse-yes">
                                               <label for="spouse-yes"> Yes</label>
                                           </div>
                                           <div>
-                                              <input type="checkbox" name="beneficiary_receive_medicaid_spouse2" value="No" id="spouse-no">
+                                              <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="No" id="spouse-no">
                                               <label for="spouse-no"> No</label>
                                           </div>
                                           <div>
-                                              <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending" id="spouse-pending">
+                                              <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Pending" id="spouse-pending">
                                               <label for="spouse-pending"> Pending</label>
                                           </div>
 
@@ -2493,11 +2500,11 @@ tr.ind-th td{
                               <div class="spouse-deceased">
                                   <p>Is Spouse Deceased?</p>
                                   <div>
-                                      <input type="checkbox" name="spouse_decreased1" value="Yes" id="dec-yes" class="dec-yes">
+                                      <input type="radio" name="spouse_decreased1" value="Yes" id="dec-yes" class="dec-yes">
                                       <label for="dec-yes">Yes</label>
                                   </div>
                                   <div>
-                                      <input type="checkbox" name="spouse_decreased2" value="No" id="dec-no" class="dec-no">
+                                      <input type="radio" name="spouse_decreased1" value="No" id="dec-no" class="dec-no">
                                       <label for="dec-no">No</label>
                                   </div>
                               </div>
@@ -2505,11 +2512,11 @@ tr.ind-th td{
                                   <p style="min-width: fit-content;">Is Applicant & Spouse Applying Together?</p>
                                   <div class="spouse-applying-check">
                                       <div>
-                                          <input type="checkbox" name="applying_together1" value="Yes" id="app-yes" class="app-yes">
+                                          <input type="radio" name="applying_together1" value="Yes" id="app-yes" class="app-yes">
                                           <label for="app-yes"> Yes</label>
                                       </div>
                                       <div>
-                                          <input type="checkbox" name="applying_together2" value="No" id="app-no" class="app-no">
+                                          <input type="radio" name="applying_together1" value="No" id="app-no" class="app-no">
                                           <label for="app-no"> No</label>
                                       </div>
                                       <div>
@@ -2539,11 +2546,11 @@ tr.ind-th td{
                                   <p>Spouse applied for Medicaid with beneficiary?</p>
                                   <div class="spouse-applying-check">
                                       <div>
-                                          <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes" id="med-yes" class="med-yes">
+                                          <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes" id="med-yes" class="med-yes">
                                           <label for="med-yes"> Yes</label>
                                       </div>
                                       <div>
-                                          <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary2" value="No" id="med-no" class="med-no">
+                                          <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="No" id="med-no" class="med-no">
                                           <label for="med-no"> No</label>
                                       </div>
                                   </div>
@@ -2867,7 +2874,7 @@ tr.ind-th td{
                                 align-items: center;
                                 gap: 10px;">
                                     <div>
-                                        <input type="checkbox"
+                                        <input type="radio"
                                         value="B"
                                         name="healthcare_b" id="healthcare-b"
                                             class="healthcare-b">
@@ -2876,7 +2883,7 @@ tr.ind-th td{
                                     <div>
                                         <input
                                         value="D"
-                                        type="checkbox" name="healthcare_d" id="healthcare-d"
+                                        type="radio" name="healthcare_b" id="healthcare-d"
                                             class="healthcare-d">
                                         <label for="healthcare-d">D</label>
                                     </div>
@@ -2891,13 +2898,13 @@ tr.ind-th td{
                                     <div>
                                         <input
                                         value="Yes"
-                                        type="checkbox" name="supplemental_yes" id="supplemental_yes">
+                                        type="radio" name="supplemental_yes" id="supplemental_yes">
                                         <label for="supplemental_yes">Yes</label>
                                     </div>
                                     <div>
                                         <input
                                         value="No"
-                                         type="checkbox" name="supplemental_no" id="supplemental_no">
+                                         type="radio" name="supplemental_yes" id="supplemental_no">
                                         <label for="supplemental_no">No</label>
                                     </div>
                                 </div>
@@ -2935,13 +2942,13 @@ tr.ind-th td{
                         align-items: center;
                         gap: 10px;">
                                 <div>
-                                    <input type="checkbox" name="funeral_information_body_yes"
+                                    <input type="radio" name="funeral_information_body_yes"
                                     value="Yes"
                                         id="funeral-information-body-yes" class="funeral-information-body-yes">
                                     <label for="funeral-information-body-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="funeral_information_body_no"
+                                    <input type="radio" name="funeral_information_body_yes"
                                     value="No"
                                         id="funeral-information-body-no">
                                     <label for="funeral-information-body-no">No</label>
@@ -2972,7 +2979,7 @@ tr.ind-th td{
                                 align-items: center;
                                 gap: 10px;">
                                     <div>
-                                        <input type="checkbox"
+                                        <input type="radio"
                                         value="Yes"
                                          name="life_insurance_information_body_yes"
                                             id="life-insurance-information-body-yes"
@@ -2980,9 +2987,9 @@ tr.ind-th td{
                                         <label for="life-insurance-information-body-yes">Yes</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox"
+                                        <input type="radio"
                                         value="No"
-                                         name="life_insurance_information_body_no"
+                                         name="life_insurance_information_body_yes"
                                             id="life-insurance-information-body-no">
                                         <label for="life-insurance-information-body-no">No</label>
                                     </div>
@@ -3045,7 +3052,7 @@ tr.ind-th td{
                                             style="border: none; border-bottom: 1px solid black; flex:1">
                                     </div>
                                 </div>
-                                <div style="display: flex; flex: 1;">
+                                <div style="display: flex; flex: 1;gap:5px">
                                     <p>Cash Surrender Value $ </p>
                                     <input type="text" name="cash_surrender_value" id="healthcare-plan"
                                         style="border: none; border-bottom: 1px solid black; flex: 1;">
@@ -3138,13 +3145,13 @@ tr.ind-th td{
                         align-items: center;
                         gap: 10px;">
                                 <div>
-                                    <input type="checkbox" name="living_arrangements_yes" id="living-arrangements-yes"
+                                    <input type="radio" name="living_arrangements_yes" id="living-arrangements-yes"
                                     value="Yes"
                                         class="living-arrangements-yes">
                                     <label for="living-arrangements-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="living_arrangements_no"
+                                    <input type="radio" name="living_arrangements_yes"
                                     value="No"
                                     id="living-arrangements-no">
                                     <label for="living-arrangements-no">No</label>
@@ -3165,7 +3172,7 @@ tr.ind-th td{
                         align-items: center;
                         gap: 10px;">
                                 <div>
-                                    <input type="checkbox"
+                                    <input type="radio"
                                     value="Person"
                                      name="living_arrangements_person"
                                         id="living-arrangements-person" class="living-arrangements-person">
@@ -3173,16 +3180,16 @@ tr.ind-th td{
                                     <label for="living-arrangements-person">Person</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox"
+                                    <input type="radio"
                                     value="Property"
-                                     name="living_arrangements_property"
+                                     name="living_arrangements_person"
                                         id="living-arrangements-property">
                                     <label for="living-arrangements-property">Property</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox"
+                                    <input type="radio"
                                     value="Both"
-                                    name="living_arrangements_both"
+                                    name="living_arrangements_person"
                                         id="living-arrangements-both">
                                     <label for="living-arrangements-both">Both</label>
                                 </div>
@@ -3320,14 +3327,14 @@ tr.ind-th td{
                                     align-items: center;
                                     gap: 10px;">
                                             <div>
-                                                <input type="checkbox"
+                                                <input type="radio"
                                                 value="Yes"
                                                 name="sole_poa1" value="Yes" id="power-of-attorney-yes"
                                                     class="power-of-attorney-yes">
                                                 <label for="power-of-attorney-yes">Yes</label>
                                             </div>
                                             <div>
-                                                <input type="checkbox" name="sole_poa2" value="No" id="power-of-attorney-no">
+                                                <input type="radio" name="sole_poa1" value="No" id="power-of-attorney-no">
                                                 <label for="power-of-attorney-no">No</label>
                                             </div>
                                         </div>
@@ -3343,13 +3350,13 @@ tr.ind-th td{
                                         align-items: center;
                                         gap: 10px;">
                                                 <div>
-                                                    <input type="checkbox"
+                                                    <input type="radio"
                                                      name="act_seprately1" value="Yes" id="power-of-attorney-authorized-yes"
                                                         class="power-of-attorney-authorized-yes">
                                                     <label for="power-of-attorney-authorized-yes">Yes</label>
                                                 </div>
                                                 <div>
-                                                    <input type="checkbox" name="act_seprately2" value="No" id="power-of-attorney-authorized-no">
+                                                    <input type="radio" name="act_seprately1" value="No" id="power-of-attorney-authorized-no">
                                                     <label for="power-of-attorney-authorized-no">No</label>
                                                 </div>
                                             </div>
@@ -3428,14 +3435,14 @@ tr.ind-th td{
                                             <div>
                                                 <input
                                                 value="Yes"
-                                                type="checkbox" name="power_of_attorney2_yes" id="power-of-attorney2-yes"
+                                                type="radio" name="power_of_attorney2_yes" id="power-of-attorney2-yes"
                                                     class="power-of-attorney2-yes">
                                                 <label for="power-of-attorney2-yes">Yes</label>
                                             </div>
                                             <div>
                                                 <input
                                                 value="No"
-                                                 type="checkbox" name="power_of_attorney2_no" id="power-of-attorney2-no">
+                                                 type="radio" name="power_of_attorney2_yes" id="power-of-attorney2-no">
                                                 <label for="power-of-attorney2-no">No</label>
                                             </div>
                                         </div>
@@ -3453,14 +3460,14 @@ tr.ind-th td{
                                                 <div>
                                                     <input
                                                     value="Yes"
-                                                     type="checkbox" name="power_of_attorney2_authorized_yes" id="power-of-attorney2-authorized-yes"
+                                                     type="radio" name="power_of_attorney2_authorized_yes" id="power-of-attorney2-authorized-yes"
                                                         class="power-of-attorney2-authorized-yes">
                                                     <label for="power-of-attorney2-authorized-yes">Yes</label>
                                                 </div>
                                                 <div>
                                                     <input
                                                     value="No"
-                                                     type="checkbox" name="power_of_attorney2_authorized_no" id="power-of-attorney-authorized2-no">
+                                                     type="radio" name="power_of_attorney2_authorized_yes" id="power-of-attorney-authorized2-no">
                                                     <label for="power-of-attorney-authorized2-no">No</label>
                                                 </div>
                                             </div>
@@ -3495,14 +3502,14 @@ tr.ind-th td{
                                                 <div>
                                                     <input
                                                     value="Yes"
-                                                     type="checkbox" name="guardian_information_yes" id="guardian-information-yes"
+                                                     type="radio" name="guardian_information_yes" id="guardian-information-yes"
                                                         class="guardian-information-yes">
                                                     <label for="guardian-information-yes">Yes</label>
                                                 </div>
                                                 <div>
                                                     <input
                                                     value="No"
-                                                     type="checkbox" name="guardian_information_no" id="guardian-information-no">
+                                                     type="radio" name="guardian_information_yes" id="guardian-information-no">
                                                     <label for="guardian-information-no">No</label>
                                                 </div>
                                             </div>
@@ -3528,7 +3535,7 @@ tr.ind-th td{
                                                 gap: 3px;">
                                                     <input
                                                     value="Person"
-                                                     type="checkbox" name="guardian_appointed_for1" value="Person" id="guardian-information-person"
+                                                     type="radio" name="guardian_appointed_for1" value="Person" id="guardian-information-person"
                                                         class="guardian-information-person">
                                                     <label for="guardian-information-person">Person</label>
                                                 </div>
@@ -3538,7 +3545,7 @@ tr.ind-th td{
                                                 gap: 3px;">
                                                     <input
                                                     value="Property"
-                                                     type="checkbox" name="guardian_appointed_for2" value="Property" id="guardian-information-property">
+                                                     type="radio" name="guardian_appointed_for1" value="Property" id="guardian-information-property">
                                                     <label for="guardian-information-property">Property</label>
                                                 </div>
                                                 <div style="display: flex;
@@ -3547,7 +3554,7 @@ tr.ind-th td{
                                                 gap: 3px;">
                                                     <input
                                                     value="Both"
-                                                     type="checkbox" name="guardian_appointed_for3" value="Both" id="guardian-information-both">
+                                                     type="radio" name="guardian_appointed_for1" value="Both" id="guardian-information-both">
                                                     <label for="guardian-information-both">Both</label>
                                                 </div>
                                             </div>
@@ -3974,23 +3981,23 @@ tr.ind-th td{
                         align-items: center;
                         gap: 10px;">
                                 <div>
-                                    <input type="checkbox"
+                                    <input type="radio"
                                     value="Beneficiary"
                                      name="agreement_signature_beneficiary"
                                         id="agreement-signature-beneficiary" class="agreement-signature-beneficiary">
                                     <label for="agreement-signature-beneficiary">Beneficiary</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox"
+                                    <input type="radio"
                                     value="Power of Attorney"
-                                     name="agreement_signature_attorney"
+                                     name="agreement_signature_beneficiary"
                                         id="agreement-signature-attorney">
                                     <label for="agreement-signature-attorney">Power of Attorney</label>
                                 </div>
                                 <div>
-                                    <input type="checkbox"
+                                    <input type="radio"
                                     value="Guardian"
-                                     name="agreement_signature_guardian"
+                                     name="agreement_signature_beneficiary"
                                         id="agreement-signature-guardian">
                                     <label for="agreement-signature-guardian">Guardian</label>
                                 </div>
@@ -4046,11 +4053,11 @@ tr.ind-th td{
                             <input type="text" name="notary_county_of" id="" style="border: none; border-bottom: 1px solid black;">
                         </div>
                         <div class="sig-para">
-                            <div style="display: flex;">
+                            <div style="display: flex;gap:5px">
                             <p>On</p>
                             <input type="text" name="notary_on_date" id="" style="border: none; border-bottom: 1px solid black;">
                         </div>
-                            <div style="display: flex;">
+                            <div style="display: flex;gap:5px">
                                 <p> , 20</p>
                             <input type="text" name="notary_year" id="" style="border: none; border-bottom: 1px solid black;">
                             <p> before me, the</p>
@@ -4245,33 +4252,33 @@ tr.ind-th td{
                         <h3 class="healthcare-premium-header-heading">DIRECT DEBIT REQUEST FORM</h3>
                      </div>
                      <div class="direct-debit-req-form-body">
-                        <div style="display: flex; justify-content: center; align-items: center;">
+                        <div style="display: flex; justify-content: center; align-items: center;gap:5px">
                             <label for="">Donor/Beneficiary</label>
                             <div style="flex: 1;">
                                 <input type="text" name="direct_debit_donor_beneficiary" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                             </div>
                         </div>
 
-                    <div style="display: flex; justify-content: center; align-items: center;">
+                    <div style="display: flex; justify-content: center; align-items: center;gap:5px">
                         <label for="">Representative</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_representative" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
                     <div class="direct-debit-bank">
-                    <div style="display: flex; justify-content: center; align-items: center;" class="w-50">
+                    <div style="display: flex; justify-content: center; align-items: center; gap:5px" class="w-50">
                         <label for="">Bank Name</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_bank_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: center; align-items: center;" class="w-25">
+                    <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-25">
                         <label for="">City</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_city" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: center; align-items: center;" class="w-25">
+                    <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-25">
                         <label for="">State</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_state" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
@@ -4279,13 +4286,13 @@ tr.ind-th td{
                     </div>
                 </div>
                 <div class="direct-debit-bank">
-                    <div style="display: flex; justify-content: center; align-items: center;" class="w-48">
+                    <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-48">
                         <label for="">Bank Routing Number </label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_bank_routing" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: center; align-items: center;" class="w-48">
+                    <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-48">
                         <label for="">Account Number</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_account_number" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
@@ -4293,7 +4300,7 @@ tr.ind-th td{
                     </div>
                 </div>
                 <div class="acc-name-style">
-                    <div style="display: flex; justify-content: center; align-items: center;" class="w-70">
+                    <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-70">
                         <label for="">Account Name</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_account_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
@@ -4308,12 +4315,12 @@ tr.ind-th td{
                     align-items: center;
                     gap: 10px;">
                             <div>
-                                <input type="checkbox" name="direct_debit_bank_type1" value="Checking"
+                                <input type="radio" name="direct_debit_bank_type1" value="Checking"
                                     id="direct-debit-req-form-checking" class="direct-debit-req-form-checking">
                                 <label for="direct-debit-req-form-checking">Checking</label>
                             </div>
                             <div>
-                                <input type="checkbox"name="direct_debit_bank_type2" value="Savings"
+                                <input type="radio"name="direct_debit_bank_type1" value="Savings"
                                     id="direct-debit-req-form-savings">
                                 <label for="direct-debit-req-form-savings">Savings</label>
                             </div>
@@ -4332,7 +4339,7 @@ tr.ind-th td{
                             reasonable opportunity to act on it. </p>
                     </div>
                     <div>
-                        <div style="display: flex; justify-content: center; align-items: center;">
+                        <div style="display: flex; justify-content: center; align-items: center;gap:5px">
                             <label for="">Beneficiary/ Representative Sign Here</label>
                             <div style="flex: 1;">
                                 <input type="text" id='signature_input_5' oninput="generateSignature(5)" maxlength="18" name="joinder_signature_5" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
@@ -4356,30 +4363,30 @@ tr.ind-th td{
                         <h3 style="text-align: center;">FOR OFFICE USE:</h3>
                     </div>
                     <div class="for-office-use-3-body">
-                                <div style="display: flex; align-items: center;" class="w-50">
+                                <div style="display: flex; align-items: center;gap:5px" class="w-50">
                                     <p>Account #:</p>
                                     <input type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="display: flex; align-items: center;" class="w-50">
+                                <div style="display: flex; align-items: center;gap:5px" class="w-50">
                                     <p>Member #:</p>
                                     <input type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="display: flex; margin-top: 15px; " class="w-50">
+                                <div style="display: flex; margin-top: 15px;gap:5px " class="w-50">
                                     <p>Processed By:</p>
                                     <input type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
-                                <div  class="w-50 mda">
+                                <div  class="w-50 mda" style="gap:5px">
                                     <p>Monthly Debit Amount: $</p>
                                     <input type="text" name="office_use_monthly_debit_amount" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
                                 <div style="margin-top: 10px;">
                                     <p>Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)</p>
                                 </div>
-                                <div style="display: flex; margin-top: 15px;" class="w-50">
+                                <div style="display: flex; margin-top: 15px;gap:5px" class="w-50">
                                     <p>Date of Monthly Debit:</p>
                                     <input type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="display: flex; justify-content: center; margin-top: 15px;" class="w-50">
+                                <div style="display: flex; justify-content: center; margin-top: 15px;gap:5px" class="w-50">
                                     <p>First Debit Month:</p>
                                     <input type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>

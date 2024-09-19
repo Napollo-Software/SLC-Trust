@@ -258,19 +258,19 @@
                 {{-- <br /> --}}
 
                 <p style=" ">Marital Status:
-                    <label style="margin: 0;">
-                        <input type="radio" name="sponsor_marital_status" value="Married"
+                    <label>
+                        <input style="height:20px" type="radio" name="sponsor_marital_status1" value="Married"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
                         <label>Married</label>
                     </label>
-                    <label style="margin: 0;">
-                        <input type="radio" name="sponsor_marital_status" value="Widowed"
-                        {{ isset($sponsor_marital_status2) && $sponsor_marital_status2 === 'Widowed' ? 'checked' : '' }}>
+                    <label>
+                        <input style="height:20px" type="radio" name="sponsor_marital_status1" value="Widowed"
+                        {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Widowed' ? 'checked' : '' }}>
                     <label>Widowed</label>
                     </label>
-                    <label style="margin: 0;">
-                        <input type="radio" name="sponsor_marital_status" value="Single"
-                        {{ isset($sponsor_marital_status3) && $sponsor_marital_status3 === 'Single' ? 'checked' : '' }}>
+                    <label>
+                        <input style="height:20px" type="radio" name="sponsor_marital_status" value="Single"
+                        {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Single' ? 'checked' : '' }}>
                     <label>Single</label>
                     </label>
                 </p>
@@ -312,10 +312,10 @@
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
                         <label>Citizenship:</label>
-                        <input type="radio" name="sponsor_citizen" value="Yes"
+                        <input style="height:20px" type="radio" name="sponsor_citizen1" value="Yes"
                             {{ isset($sponsor_citizen1) && $sponsor_citizen1 === 'Yes' ? 'checked' : '' }}> Yes
-                        <input type="radio" name="sponsor_citizen" value="No"
-                            {{ isset($sponsor_citizen2) && $sponsor_citizen2 === 'No' ? 'checked' : '' }}> No
+                        <input style="height:20px" type="radio" name="sponsor_citizen1" value="No"
+                            {{ isset($sponsor_citizen1) && $sponsor_citizen1 === 'No' ? 'checked' : '' }}> No
                     </div>
                 </div>
 
@@ -346,14 +346,14 @@
                 {{-- <br /> --}}
 
                 <p style=" ">Preferred Phone:
-                    <label style="margin: 0;">
-                        <input type="radio" name="preferedphone" value="Cell"
+                    <label >
+                        <input style="height:20px" type="radio" name="prefered_cell" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
                         <label>Cell</label>
                     </label>
-                    <label style="margin: 0;">
-                        <input type="radio" name="preferedphone" value="Phone"
-                            {{ isset($prefered_phone) && $prefered_phone === 'Phone' ? 'checked' : '' }}>
+                    <label >
+                        <input style="height:20px" type="radio" name="prefered_cell" value="Phone"
+                            {{ isset($prefered_cell) && $prefered_cell === 'Phone' ? 'checked' : '' }}>
                         <label>Home</label>
                     </label>
                 </p>
@@ -626,18 +626,18 @@
             </p>
             <p style=" ">Who will be your primary contact?
                 <label style="margin: 0;">
-                    <input type="radio" name="auth_beneficiary" value="Beneficiary"
+                    <input style="height:20px" type="radio" name="auth_beneficiary" value="Beneficiary"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Beneficiary' ? 'checked' : '' }}>
                     Beneficiary
                 </label>
                 <label style="margin: 0;">
-                    <input type="radio" name="auth_auth_1" value="Auth. Rep.1"
-                        {{ isset($auth_auth_1) && $auth_auth_1 === 'Auth. Rep.1' ? 'checked' : '' }}>
+                    <input style="height:20px" type="radio" name="auth_beneficiary" value="Auth. Rep.1"
+                        {{ isset($auth_beneficiary) && $auth_beneficiary === 'Auth. Rep.1' ? 'checked' : '' }}>
                     Auth. Rep. 1
                 </label>
                 <label style="margin: 0;">
-                    <input type="radio" name="auth_auth_2" value="Auth. Rep. 2"
-                        {{ isset($auth_auth_2) && $auth_auth_2 === 'Auth. Rep. 2' ? 'checked' : '' }}>
+                    <input style="height:20px" type="radio" name="auth_beneficiary" value="Auth. Rep. 2"
+                        {{ isset($auth_beneficiary) && $auth_beneficiary === 'Auth. Rep. 2' ? 'checked' : '' }}>
                     Auth. Rep. 2
                 </label>
             </p>
@@ -691,13 +691,13 @@
                 <br>
                 <p style=" ">Preferred Phone:
                     <label style="margin: 0;">
-                        <input type="radio" name="authorized-preferred-cell" value="Authorized_1_cell"
+                        <input style="height:20px" type="radio" name="authorized_preferred_cell_form_inp" value="Authorized_1_cell"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
                         <label>Cell</label>
                     </label>
                     <label style="margin: 0;">
-                        <input type="radio" name="authorized-preferred-cell" value="Authorized_1_home"
-                            {{ isset($authorized_preferred_cell_home_inp) && $authorized_preferred_cell_home_inp === 'Authorized_1_home' ? 'checked' : '' }}>
+                        <input style="height:20px" type="radio" name="authorized_preferred_cell_form_inp" value="Authorized_1_home"
+                            {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_home' ? 'checked' : '' }}>
                         <label>Home</label>
                     </label>
                 </p>
@@ -871,13 +871,13 @@
                
             <p style=" ">Preferred Phone:
                 <label style="margin: 0;">
-                    <input type="radio" name="authorized_preferred_cell2" value="Cell"
+                    <input style="height:20px" type="radio" name="authorized_preferred_cell2" value="Cell"
                     {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
                     <label>Cell</label>
                 </label>
                 <label style="margin: 0;">
-                    <input type="radio" name="authorized_preferred_phone2" value="Home"
-                        {{ isset($authorized_preferred_phone2) && $authorized_preferred_phone2 === 'Home' ? 'checked' : '' }}>
+                    <input style="height:20px" type="radio" name="authorized_preferred_cell2" value="Home"
+                        {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Home' ? 'checked' : '' }}>
                     <label>Home</label>
                 </label>
             </p>
@@ -1131,10 +1131,10 @@
                 I authorize any applicable documents necessary for reporting to Government Agencies to be sent referring
                 source
                 above.
-                <input type="radio" name="referring_auth1" value="Yes"
+                <input style="height:20px" type="radio" name="referring_auth1" value="Yes"
                     {{ isset($referring_auth1) && $referring_auth1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input type="radio" name="referring_auth2" value="No"
-                    {{ isset($referring_auth2) && $referring_auth2 === 'No' ? 'checked' : '' }}> No
+                <input style="height:20px" type="radio" name="referring_auth2" value="No"
+                    {{ isset($referring_auth1) && $referring_auth1 === 'No' ? 'checked' : '' }}> No
             </p> <br>
 
             <div style="text-align: center;margin: 0;padding: 0;">
@@ -1168,11 +1168,11 @@
             </p>
             <br>
             <div style="font-size: 12px; margin: 0; padding: 0;">
-                <input type="radio" name="account_establishing_reason" value="Shelter Monthly Excess Income"
+                <input style="height:20px" type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
                 <label> Shelter Monthly Excess Income</label> &nbsp;
-                <input type="radio" name="account_establishing_reason" value="Shelter Excess Resources"
-                    {{ isset($account_establishing_reason2) && $account_establishing_reason2 === 'Shelter Excess Resources' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" name="account_establishing_reason1" value="Shelter Excess Resources"
+                    {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Excess Resources' ? 'checked' : '' }}>
                 <label> Shelter Excess Resources</label>
             </div>
             <br>
@@ -1214,13 +1214,13 @@
                                 style="margin-bottom: 4px;vertical-align: bottom;"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
                             Yes &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant2" value="No"
+                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No"
                                 style="margin-bottom: 4px;vertical-align: bottom;"
-                                {{ isset($beneficiary_receive_medicaid_applicant2) && $beneficiary_receive_medicaid_applicant2 === 'No' ? 'checked' : '' }}>
+                                {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'No' ? 'checked' : '' }}>
                             No &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant3" value="Pending"
+                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending"
                                 style="margin-bottom: 4px;vertical-align: bottom;"
-                                {{ isset($beneficiary_receive_medicaid_applicant3) && $beneficiary_receive_medicaid_applicant3 === 'Pending' ? 'checked' : '' }}>
+                                {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Pending' ? 'checked' : '' }}>
                             Pending
                         </div>
                     </td>
@@ -1230,13 +1230,13 @@
                                 style="margin-bottom: 4px;vertical-align: bottom;"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
                             Yes &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse2" value="No"
+                            <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="No"
                                 style="margin-bottom: 4px;vertical-align: bottom;"
-                                {{ isset($beneficiary_receive_medicaid_spouse2) && $beneficiary_receive_medicaid_spouse2 === 'No' ? 'checked' : '' }}>
+                                {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
                             No &nbsp;
                             <input type="radio" name="beneficiary_receive_medicaid_spouse3" value="Pending"
                                 style="margin-bottom: 4px;vertical-align: bottom;"
-                                {{ isset($beneficiary_receive_medicaid_spouse3) && $beneficiary_receive_medicaid_spouse3 === 'Pending' ? 'checked' : '' }}>
+                                {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
                             Pending
                         </div>
                     </td>
@@ -1300,17 +1300,17 @@
 
             <p style="padding:0;margin: 0;">
                 Is Spouse Deceased? &nbsp;
-                <input type="radio" name="spouse_decreased1" value="Yes"
+                <input style="height:20px" type="radio" name="spouse_decreased1" value="Yes"
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input type="radio" name="spouse_decreased2" value="No"
-                    {{ isset($spouse_decreased2) && $spouse_decreased2 === 'No' ? 'checked' : '' }}> No
+                <input style="height:20px" type="radio" name="spouse_decreased1" value="No"
+                    {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}> No
             </p>
             <p style="padding:0;margin: 0;">
                 Is Applicant & Spouse Applying Together? &nbsp; 
-                <input type="radio" name="applying_together1" value="Yes"
+                <input style="height:20px" type="radio" name="applying_together1" value="Yes"
                     {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input type="radio" name="applying_together2" value="No"
-                    {{ isset($applying_together2) && $applying_together2 === 'No' ? 'checked' : '' }}> No &nbsp;
+                <input style="height:20px" type="radio" name="applying_together1" value="No"
+                    {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}> No &nbsp;
                 If Yes, Fill in Spouse’s Income.
             </p>
             <br>
@@ -1348,12 +1348,12 @@
                         Spouse Applied for Medicaid with beneficiary?
                     </label>
                     &nbsp;
-                    <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
+                    <input style="height:20px" type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'Yes' ? 'checked' : '' }}
                         style="vertical-align: bottom">
                     <label for="" style="vertical-align: bottom">Yes</label>
-                    <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary2" value="No"
-                        {{ isset($spouse_applied_for_medicaid_with_beneficiary2) && $spouse_applied_for_medicaid_with_beneficiary2 === 'No' ? 'checked' : '' }}
+                    <input style="height:20px" type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
+                        {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'No' ? 'checked' : '' }}
                         style="vertical-align: bottom">
                     <label for="" style="vertical-align: bottom">No</label>
 
@@ -1555,17 +1555,17 @@
             <div style=" display: table;">
                 <p style="padding:0;margin: 0;">
                     Medicare Part:
-                    <input type="radio" name="healthcare_b" value="B"
+                    <input style="height:20px" type="radio" name="healthcare_b" value="B"
                         {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}> B
-                    <input type="radio" name="healthcare_d" value="D"
-                        {{ isset($healthcare_d) && $healthcare_d === 'D' ? 'checked' : '' }}> D
+                    <input style="height:20px" type="radio" name="healthcare_b" value="D"
+                        {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> D
                     &nbsp;&nbsp;
                 <p style="padding:0;margin: 0;">
                     Does the applicant have a supplemental policy?
-                    <input type="radio" name="supplemental_yes" value="Yes"
+                    <input style="height:20px" type="radio" name="supplemental_yes" value="Yes"
                         {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}> Yes
-                    <input type="radio" name="supplemental_no" value="No"
-                        {{ isset($supplemental_no) && $supplemental_no === 'No' ? 'checked' : '' }}> No
+                    <input style="height:20px" type="radio" name="supplemental_yes" value="No"
+                        {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> No
                 </p><br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -1592,11 +1592,11 @@
                     <div style="display: table-cell; margin-bottom: 2px;">
                         <p style="padding:0;margin: 0;">
                             Does the Beneficiary have any funeral provisions in place?
-                            <input type="radio" name="funeral_information_body_yes" value="Yes"
+                            <input style="height:20px" type="radio" name="funeral_information_body_yes" value="Yes"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'Yes' ? 'checked' : '' }}>
                             Yes
-                            <input type="radio" name="funeral_information_body_no" value="No"
-                                {{ isset($funeral_information_body_no) && $funeral_information_body_no === 'No' ? 'checked' : '' }}>
+                            <input style="height:20px" type="radio" name="funeral_information_body_yes" value="No"
+                                {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'No' ? 'checked' : '' }}>
                             No
                         </p>
                         <p>If you answered yes, please attach funeral provision documents.</p>
@@ -1615,11 +1615,11 @@
                 <br>
                 <p style="padding:0;margin: 0;">
                     Is there a life insurance policy in place for the Beneficiary?
-                    <input type="radio" name="life_insurance_information_body_yes" value="Yes"
+                    <input style="height:20px" type="radio" name="life_insurance_information_body_yes" value="Yes"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'Yes' ? 'checked' : '' }}>
                     Yes
-                    <input type="radio" name="life_insurance_information_body_no" value="No"
-                        {{ isset($life_insurance_information_body_no) && $life_insurance_information_body_no === 'No' ? 'checked' : '' }}>
+                    <input style="height:20px" type="radio" name="life_insurance_information_body_yes" value="No"
+                        {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'No' ? 'checked' : '' }}>
                     No
                 </p>
                 <br>
@@ -1658,13 +1658,13 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        Term of policy <input type="radio" name="type_of_policy1" value="Term"
+                        Term of policy <input style="height:20px" type="radio" name="type_of_policy1" value="Term"
                             {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                         Term
-                        <input type="text" value="{{ $healthcare_plan }}" class="no-border"
+                        <input style="height:20px" type="text" value="{{ $healthcare_plan }}" class="no-border"
                             name="healthcare_plan">
 
-                        <input type="radio" name="type_of_policy2" value="Life"
+                        <input style="height:20px" type="radio" name="type_of_policy2" value="Life"
                             {{ isset($type_of_policy2) && $type_of_policy2 === 'Life' ? 'checked' : '' }}> Life
                         <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
                             name="healthcare_plan2">
@@ -1710,19 +1710,19 @@
             <br>
 
             <p style="padding: 0; margin: 0;">
-                <input type="radio" id="independently" name="living_arrangement1" value="Independently"
+                <input style="height:20px" type="radio" id="independently" name="living_arrangement1" value="Independently"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Independently' ? 'checked' : '' }}>
                 <label for="independently" style="vertical-align: middle;">Independently</label> &nbsp;&nbsp;
 
-                <input type="radio" id="with_spouse" name="living_arrangement2" value="With Spouse"
+                <input style="height:20px" type="radio" id="with_spouse" name="living_arrangement2" value="With Spouse"
                     {{ isset($living_arrangement2) && $living_arrangement2 === 'With Spouse' ? 'checked' : '' }}>
                 <label for="with_spouse" style="vertical-align: middle;">With Spouse</label> &nbsp;&nbsp;
 
-                <input type="radio" id="with_parents" name="living_arrangement3" value="With Parents"
+                <input style="height:20px" type="radio" id="with_parents" name="living_arrangement3" value="With Parents"
                     {{ isset($living_arrangement3) && $living_arrangement3 === 'With Parents' ? 'checked' : '' }}>
                 <label for="with_parents" style="vertical-align: middle;">With parents/other family</label> &nbsp;&nbsp;
 
-                <input type="radio" id="assisted_living" name="living_arrangement4"
+                <input style="height:20px" type="radio" id="assisted_living" name="living_arrangement4"
                     value="Assisted Living facility"
                     {{ isset($living_arrangement4) && $living_arrangement4 === 'Assisted Living facility' ? 'checked' : '' }}>
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
@@ -1732,26 +1732,26 @@
 
 
             <p style="padding: 0; margin: 0;">
-                <input type="radio" id="family_care" name="living_arrangement5" value="Family Care Program"
+                <input style="height:20px" type="radio" id="family_care" name="living_arrangement5" value="Family Care Program"
                     {{ isset($living_arrangement5) && $living_arrangement5 === 'Family Care Program' ? 'checked' : '' }}>
                 <label for="family_care" style="vertical-align: middle;">Family care program</label> &nbsp;&nbsp;
 
-                <input type="radio" id="nursing_home" name="living_arrangement6" value="Nursing Home"
+                <input style="height:20px" type="radio" id="nursing_home" name="living_arrangement6" value="Nursing Home"
                     {{ isset($living_arrangement6) && $living_arrangement6 === 'Nursing Home' ? 'checked' : '' }}>
                 <label for="nursing_home" style="vertical-align: middle;">Nursing home</label> &nbsp;&nbsp;
 
-                <input type="radio" id="supervised" name="living_arrangement7" value="CR/IRA/ICF(supervised)"
+                <input style="height:20px" type="radio" id="supervised" name="living_arrangement7" value="CR/IRA/ICF(supervised)"
                     {{ isset($living_arrangement7) && $living_arrangement7 === 'CR/IRA/ICF(supervised)' ? 'checked' : '' }}>
                 <label for="supervised" style="vertical-align: middle;">CR/IRA/ICF(supervised)</label> &nbsp;&nbsp;
 
-                <input type="radio" id="supportive" name="living_arrangement8" value="CR/IRA(Supportive)"
+                <input style="height:20px" type="radio" id="supportive" name="living_arrangement8" value="CR/IRA(Supportive)"
                     {{ isset($living_arrangement8) && $living_arrangement8 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
                 <label for="supportive" style="vertical-align: middle;">CR/IRA(Supportive)</label>
             </p>
             <br>
 
             <p style="padding: 0; margin: 0;">
-                <input type="radio" id="other_living_arrangement" name="living_arrangement9" value="Other"
+                <input style="height:20px" type="radio" id="other_living_arrangement" name="living_arrangement9" value="Other"
                     {{ isset($living_arrangement9) && $living_arrangement9 === 'Other' ? 'checked' : '' }}>
                 <label for="other_living_arrangement" style="vertical-align: middle;">Other Explain</label> &nbsp;&nbsp;
                 <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
@@ -1764,13 +1764,13 @@
             <p style="padding:0;margin: 0;">
                 Does the Beneficiary have a court appointed Guardian?
                 <label style="margin: 0;">
-                    <input type="radio" name="living_arrangements_yes" value="Yes"
+                    <input style="height:20px" type="radio" name="living_arrangements_yes" value="Yes"
                         {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'Yes' ? 'checked' : '' }}>
                     Yes
                 </label>
                 <label style="margin: 0;">
-                    <input type="radio" name="living_arrangements_no" value="No"
-                        {{ isset($living_arrangements_no) && $living_arrangements_no === 'No' ? 'checked' : '' }}>
+                    <input style="height:20px" type="radio" name="living_arrangements_yes" value="No"
+                        {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'No' ? 'checked' : '' }}>
                     No
                 </label>
             </p>
@@ -1780,18 +1780,18 @@
             <p style="padding:0;margin: 0;">
                 Guardian of the:
                 <label style="margin: 0;">
-                    <input type="radio" name="living_arrangements_person" value="Person"
+                    <input style="height:20px" type="radio" name="living_arrangements_person" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Person' ? 'checked' : '' }}>
                     Person
                 </label>
                 <label style="margin: 0;">
-                    <input type="radio" name="living_arrangements_property" value="Person"
-                        {{ isset($living_arrangements_property) && $living_arrangements_property === 'Property' ? 'checked' : '' }}>
+                    <input style="height:20px" type="radio" name="living_arrangements_person" value="Person"
+                        {{ isset($living_arrangements_person) && $living_arrangements_person === 'Property' ? 'checked' : '' }}>
                     Property
                 </label>
                 <label style="margin: 0;">
-                    <input type="radio" name="living_arrangements_both" value="Both"
-                        {{ isset($living_arrangements_both) && $living_arrangements_both === 'Both' ? 'checked' : '' }}>
+                    <input style="height:20px" type="radio" name="living_arrangements_person" value="Both"
+                        {{ isset($living_arrangements_person) && $living_arrangements_person === 'Both' ? 'checked' : '' }}>
                     Both
                 </label>
             </p>
@@ -1807,13 +1807,14 @@
                         <input type="text" value="{{ $living_arrangement_first }}" name="living_arrangement_first" /> <br>
                         <label>First</label>
                     </div>
-                    &nbsp;&nbsp;
+                    &nbsp;
 
                     <div style="display: table-cell">
                         <input type="text" value="{{ $living_arrangement_last }}" name="living_arrangement_last" /> <br>
                         <label>Last</label>
                     </div>
                 </div>
+                <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
@@ -1972,17 +1973,17 @@
                 </div>
             </div> --}}
 
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? <input type="radio" name="sole_poa1"
+            <p style="margin: 0;padding: 0;">Is this person the sole POA? <input style="height:20px" type="radio" name="sole_poa1"
                     value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
                 Yes
-                <input type="radio" name="sole_poa2" value="No"
-                    {{ isset($sole_poa2) && $sole_poa2 === 'No' ? 'checked' : '' }}> No
+                <input style="height:20px" type="radio" name="sole_poa1" value="No"
+                    {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}> No
             </p>
             <p>If No, are the agents authorized to act separately? <input type="radio" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                 Yes
-                <input type="radio" name="act_seprately2" value="No"
-                    {{ isset($act_seprately2) && $act_seprately2 === 'No' ? 'checked' : '' }}> No
+                <input style="height:20px" type="radio" name="act_seprately1" value="No"
+                    {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> No
             </p>
 
 
@@ -2068,19 +2069,19 @@
 
            
 
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? <input type="radio"
+            <p style="margin: 0;padding: 0;">Is this person the sole POA? <input style="height:20px" type="radio"
                     name="power_of_attorney2_yes" value="Yes"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
                 Yes
-                <input type="radio" name="power_of_attorney2_no" value="No"
-                    {{ isset($power_of_attorney2_no) && $power_of_attorney2_no === 'No' ? 'checked' : '' }}> No
+                <input style="height:20px" type="radio" name="power_of_attorney2_yes" value="No"
+                    {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
             </p>
-            <p>If No, are the agents authorized to act separately? <input type="radio"
+            <p>If No, are the agents authorized to act separately? <input style="height:20px" type="radio"
                     name="power_of_attorney2_authorized_yes" value="Yes"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
                 Yes
-                <input type="radio" name="power_of_attorney2_authorized_no" value="No"
-                    {{ isset($power_of_attorney2_authorized_no) && $power_of_attorney2_authorized_no === 'No' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" name="power_of_attorney2_authorized_yes" value="No"
+                    {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
                 No
             </p>
             <hr>
@@ -2092,23 +2093,23 @@
             </p>
             <p style="padding:0;margin: 0;">
                 Does the Beneficiary have a court appointed Guardian?
-                <input type="radio" name="guardian_information_yes" value="Yes"
+                <input style="height:20px" type="radio" name="guardian_information_yes" value="Yes"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
                 Yes
-                <input type="radio" name="guardian_information_no" value="No"
-                    {{ isset($guardian_information_no) && $guardian_information_no === 'No' ? 'checked' : '' }}> No
+                <input style="height:20px" type="radio" name="guardian_information_yes" value="No"
+                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> No
             </p>
             <p>If you answered yes, continue to fill out below:</p>
             <br>
             <p style="margin: 0;padding: 0;">
-                Guardian appointed for the :<input type="radio" name="guardian_appointed_for" value="Person"
+                Guardian appointed for the :<input style="height:20px" type="radio" name="guardian_appointed_for1" value="Person"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
                 Person
-                <input type="radio" name="guardian_appointed_for2" value="Property"
-                    {{ isset($guardian_appointed_for2) && $guardian_appointed_for2 === 'Property' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" name="guardian_appointed_for1" value="Property"
+                    {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
                 Property
-                <input type="radio" name="guardian_appointed_for3" value="Both"
-                    {{ isset($guardian_appointed_for3) && $guardian_appointed_for3 === 'Both' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" name="guardian_appointed_for3" value="Both"
+                    {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
                 Both
 
             </p>
@@ -2401,13 +2402,13 @@
             <p style="padding:0;margin: 0;">
                 Who is signing this Joinder Agreement?
                 &nbsp;
-                <input type="radio" name="agreement_signature_beneficiary" value="Beneficiary"
+                <input style="height:20px" type="radio" name="agreement_signature_beneficiary" value="Beneficiary"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}>Beneficiary &nbsp;
-                <input type="radio" name="agreement_signature_attorney" value="Power of Attorney"
-                    {{ isset($agreement_signature_attorney) && $agreement_signature_attorney === 'Power of Attorney' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" name="agreement_signature_beneficiary" value="Power of Attorney"
+                    {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Power of Attorney' ? 'checked' : '' }}>
                 Power of Attorney &nbsp;
-                <input type="radio" name="agreement_signature_guardian" value="Guardian"
-                    {{ isset($agreement_signature_guardian) && $agreement_signature_guardian === 'Guardian' ? 'checked' : '' }}>
+                <input style="height:20px" type="radio" name="agreement_signature_guardian" value="Guardian"
+                    {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p> <br>
             <p>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
@@ -2714,13 +2715,13 @@
                             class="no-border">
                     </div>
                     <div style="display: table-cell;">
-                        Account type: <input type="radio" name="direct_debit_bank_type" value="Checking"
+                        Account type: <input style="height:20px" type="radio" name="direct_debit_bank_type1" value="Checking"
                             {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>
                         Checking
                     </div>
                     <div style="display: table-cell;">
-                        <input type="radio" name="direct_debit_bank_type" value="Savings"
-                            {{ isset($direct_debit_bank_type2) && $direct_debit_bank_type2 === 'Savings' ? 'checked' : '' }}>
+                        <input style="height:20px" type="radio" name="direct_debit_bank_type1" value="Savings"
+                            {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }}>
                         Savings
                     </div>
                 </div>
