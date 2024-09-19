@@ -135,8 +135,7 @@
                                 <div class="col-md-6 text-secondary  p-0 ">
                                     <div class="row  p-0 ">
                                         <div class="col-md-12 mr-md-3">
-                                            <label class=" form-label mb-1">State / Province*<span
-                                                    class="text-danger">*</span></label>
+                                            <label class=" form-label mb-1">State / Province*</label>
                                             <select id="SelectState" class="form-control select-2" name="state">
                                                 <option disabled selected hidden>--Select State</option>
                                             </select>
