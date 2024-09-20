@@ -238,7 +238,7 @@
                     <div style="display: table-cell">
                         <label style="font-weight: bold;">Name:</label>
                     </div>
-                </div>
+                </div> <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
@@ -322,9 +322,9 @@
                     </div>
                 </div>
 
-                <br />
+                {{-- <br /> --}}
 
-                <div style="display: table-row;">
+                {{-- <div style="display: table-row;">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Contact Information:</label>
                     </div>
@@ -343,10 +343,33 @@
                             name="sponsor_tel_cell"> <br>
                         <label>Cell Phone:</label>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
-                {{-- <br /> --}}
+                <br />
+
+            <div style="display: table; width:100%">
+                <div style="display: table-row;">
+                    <div style="display: table-cell">
+                        <label style="font-weight: bold">Contact Information:</label>
+                    </div>
+                </div> <br>
+                <div style="display: table-row;">
+
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home" style="width: 95%"> <br>
+                        <label>Home Phone:</label>
+                    </div>
+                    &nbsp;&nbsp;
+
+                    <div style="display: table-cell">
+
+                        <input type="text" value="{{ $sponsor_tel_cell }}" class="no-border" style="width: 95%"
+                            name="sponsor_tel_cell"> <br>
+                        <label>Cell Phone:</label>
+                    </div>
+                </div>
+            </div>
 
                 <p style=" ">Preferred Phone:
                     <label >
@@ -364,77 +387,69 @@
 
             {{-- <br /> --}}
 
-            <div style="display: table">
+            <div style="display: table; width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $beneficiary_email }}"name="beneficiary_email"> <br>
+                        <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%"> <br>
                         <label>Email:</label>
                     </div>
                 </div>
+            </div>
+            <br>
 
-                <br />
+            <div style="display: table;">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Address:</label>
                     </div>
                 </div>
+            </div>
 
                 <br />
 
-                {{-- <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $sponsor_address }}" name="sponsor_address"> <br>
-                        <label>Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_apt }}" name="sponsor_apt"> <br>
-                        <label>Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_city }}" name="sponsor_city" /> <br>
-                        <label>City:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_state }}" name="sponsor_state" /> <br>
-                        <label>State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_zip }}" name="sponsor_zip" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div> --}}
+                
+
+                <div style="display: table; width:100%">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $sponsor_address }}" name="sponsor_address"> <br>
+                        <input type="text" value="{{ $sponsor_address }}" name="sponsor_address" style="width:95%"> <br>
                         <label>Address</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_apt }}" name="sponsor_apt"> <br>
+                        <input type="text" value="{{ $sponsor_apt }}" name="sponsor_apt" style="width:95%"> <br>
                         <label>Apt #:</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_city }}" name="sponsor_city" /> <br>
+                        <input type="text" value="{{ $sponsor_city }}" name="sponsor_city" style="width:95%" /> <br>
                         <label>City:</label>
                     </div>
 
                 </div>
+                </div>
                 <br>
+                <div style="display: table; width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_state }}" name="sponsor_state" /> <br>
+                        <input type="text" value="{{ $sponsor_state }}" name="sponsor_state" style="width:95%" /> <br>
                         <label>State:</label>
                     </div>&nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_zip }}" name="sponsor_zip" /> <br>
+                        <input type="text" value="{{ $sponsor_zip }}" name="sponsor_zip" style="width:95%" /> <br>
                         <label>Zip:</label>
                     </div>
                 </div>
+                </div>
 
                 <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <div style="display: table;">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
@@ -649,6 +664,7 @@
                 individual
                 to: Make Deposits, Request Statements and Disbursements.
             </p>
+            <br>
             {{-- <p style="padding:0;margin: 0;"><b>Name:</b> First <input type="text"
                     value="{{ $auth_rep_one_fname }}" class="no-border" name="auth_rep_one_fname"
                     style="width: 100px">
@@ -656,22 +672,25 @@
                 <input type="text" value="{{ $auth_rep_one_lname }}" class="no-border" name="auth_rep_one_lname"
                     style="width: 100px">
             </p> --}}
-            <div style="display: table">
+            
+            <div style="display: table;width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $auth_rep_one_fname }}" name="auth_rep_one_fname" /> <br>
+                        <input type="text" value="{{ $auth_rep_one_fname }}" name="auth_rep_one_fname" style="width: 95%" /> <br>
                         <label>First</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_lname }}"name="auth_rep_one_lname" /> <br>
+                        <input type="text" value="{{ $auth_rep_one_lname }}"name="auth_rep_one_lname" style="width: 95%" /> <br>
                         <label>Last:</label>
                     </div>
                 </div>
+            </div>
 
 
                 <br>
+
+            <div style="display: table;width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Contact Information</label>
@@ -680,12 +699,11 @@
                 <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_tel }}" name="auth_rep_one_tel"> <br>
+                        <input type="text" value="{{ $auth_rep_one_tel }}" name="auth_rep_one_tel" style="width: 95%"> <br>
                         <label>Home Phone</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_cell }} " name="auth_rep_one_cell"> <br>
+                        <input type="text" value="{{ $auth_rep_one_cell }} " name="auth_rep_one_cell" style="width: 95%"> <br>
                         <label>Cell Phone</label>
                     </div>
                     
@@ -707,115 +725,79 @@
 
 
                 <br>
-            <div style="display: table">
+            <div style="display: table;width:100%">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_one_email }}" name="auth_rep_one_email" /> <br>
+                        <input type="text" value="{{ $auth_rep_one_email }}" name="auth_rep_one_email" style="width: 95%" /> <br>
                         <label>Email</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_relation_beneficiary }}" name="auth_rep_one_relation_beneficiary" /> <br>
+                        <input type="text" value="{{ $auth_rep_one_relation_beneficiary }}" name="auth_rep_one_relation_beneficiary" style="width: 95%" /> <br>
                         <label>Relationship to Beneficiary
                         </label>
                     </div>
                 </div>
+            </div>
 
                 <br>
+                <div style="display: table;width:100%">
 
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <label style="font-weight: bold">Address:</label>
+                    <div style="display: table-row;">
+                        <div style="display: table-cell">
+                            <label style="font-weight: bold">Address:</label>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;">
+                            <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address" style="width: 95%"> <br>
+                            <label>Address</label>
+                        </div>
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" style="width: 95%" /> <br>
+                            <label>City:</label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div style="display: table;width:100%">
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;">
+    
+                            <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" /> <br>
+                            <label>State:</label>
+                        </div>
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%"> <br>
+                            <label>Apt #:</label>
+                        </div> 
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" /> <br>
+                            <label>Zip:</label>
+                        </div>
                     </div>
                 </div>
 
-                <br />
+                {{-- <div style="display: table;width:100%">
 
-                {{-- <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address"> <br>
-                        <label>Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt"> <br>
-                        <label>Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" /> <br>
-                        <label>City:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" /> <br>
-                        <label>State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_zip }}" name="auth_rep_one_zip" /> <br>
-                        <label>Zip:</label>
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;">
+                            <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" /> <br>
+                            <label>State:</label>
+                        </div>
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_one_zip }}" name="auth_rep_one_zip" style="width: 95%" /> <br>
+                            <label>Zip:</label>
+                        </div>
                     </div>
                 </div> --}}
 
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address"> <br>
-                        <label>Address</label>
-                    </div> &nbsp;&nbsp;
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt"> <br>
-                        <label>Apt #:</label>
-                    </div> &nbsp;&nbsp;
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" /> <br>
-                        <label>City:</label>
-                    </div>
-                </div>
-                <br>
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" /> <br>
-                        <label>State:</label>
-                    </div> &nbsp;&nbsp;
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_zip }}" name="auth_rep_one_zip" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div>
-
                 <br />
-            </div>
-            {{-- <p style=""> Address <input type="text" value="{{ $auth_rep_one_address }}" class="no-border"
-                    name="auth_rep_one_address" style="width: 300px"> Apt#:<input type="text"
-                    value="{{ $auth_rep_one_apt }}" class="no-border" name="auth_rep_one_apt">
-            </p>
-            <p style="padding:0;margin: 0;">City <input type="text" value="{{ $auth_rep_one_city }}"
-                    class="no-border" name="auth_rep_one_city" style="width: 100px"> State <input type="text"
-                    value="{{ $auth_rep_one_state }}" style="width: 100px" class="no-border"
-                    name="auth_rep_one_state">
-                Zip
-                <input type="text" value="{{ $auth_rep_one_zip }}" class="no-border" name="auth_rep_one_zip"
-                    style="width: 100px; height: 20px;  ">
-            </p> --}}
-            {{-- <p style="padding:0;margin: 0;">Home Phone<input type="text" value="{{ $auth_rep_one_tel }}"
-                    class="no-border" name="auth_rep_one_tel" style="width: 100px"> Cell Phone
-                <input type="text" value="{{ $auth_rep_one_cell }} " class="no-border" name="auth_rep_one_cell"
-                    style="width: 100px">
-            </p> --}}
-            {{-- <p style="padding:0;margin: 0;"> Email <input type="text" value="{{ $auth_rep_one_email }}"
-                    class="no-border" name="auth_rep_one_email" style="width: 100px">
-                Relationship to Beneficiary
-                <input type="text" value="{{ $auth_rep_one_relation_beneficiary }}" style="width: 100px"
-                    class="no-border" name="auth_rep_one_relation_beneficiary">
-            </p> --}}
-
-            {{-- <p>Preferred Phone? <input type="radio" name="authorized-preferred-cell" value="Authorized_1_cell"
-                    {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
-                Cell
-                <input type="radio" name="authorized-preferred-cell" value="Authorized_1_home"
-                    {{ isset($authorized_preferred_cell_home_inp) && $authorized_preferred_cell_home_inp === 'Authorized_1_home' ? 'checked' : '' }}>
-                Home
-
-            </p> --}}
+           
             <hr>
             <p
             style="font-size: 16px; padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
@@ -828,21 +810,23 @@
                 to: Make Deposits, Request Statements and Disbursements.
             </p>
 
-
-            <div style="display: table">
+            <div style="display: table;width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $auth_rep_two_fname }}" name="auth_rep_two_fname" /> <br>
+                        <input type="text" value="{{ $auth_rep_two_fname }}" name="auth_rep_two_fname" style="width: 95%" /> <br>
                         <label>First</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_lname }}"name="auth_rep_two_lname" /> <br>
+                        <input type="text" value="{{ $auth_rep_two_lname }}"name="auth_rep_two_lname" style="width: 95%" /> <br>
                         <label>Last:</label>
                     </div>
                 </div>
-                <br>
+            </div>
+
+            <br>
+
+            <div style="display: table;width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Contact Information</label>
@@ -851,22 +835,14 @@
                 <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_tel }}" name="auth_rep_two_tel"> <br>
+                        <input type="text" value="{{ $auth_rep_two_tel }}" name="auth_rep_two_tel" style="width: 95%"> <br>
                         <label>Home Phone</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_cell }} " name="auth_rep_two_cell"> <br>
+                        <input type="text" value="{{ $auth_rep_two_cell }} " name="auth_rep_two_cell" style="width: 95%"> <br>
                         <label>Cell Phone</label>
                     </div>
-                    {{-- <div style="display: table-cell">
-                        <label>Preferred Phone</label>
-                        <input type="radio" name="authorized_preferred_cell2" value="Cell"
-                    {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
-                        Cell
-                        <input type="radio" name="authorized_preferred_phone2" value="Home"
-                        {{ isset($authorized_preferred_phone2) && $authorized_preferred_phone2 === 'Home' ? 'checked' : '' }}>
-                        Home
-                    </div> --}}
+                    
                 </div>
             </div>
 
@@ -886,87 +862,71 @@
             </p>
 
                 <br>
-            <div style="display: table">
+            
+                <div style="display: table;width:100%">
 
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $auth_rep_two_email }}" name="auth_rep_two_email" /> <br>
-                        <label>Email</label>
-                    </div>
-                    &nbsp;&nbsp;
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}"
-                        name="auth_rep_two_relation_beneficiary"> <br>
-                        <label>Relationship to Beneficiary
-                        </label>
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;">
+                            <input type="text" value="{{ $auth_rep_two_email }}" name="auth_rep_two_email" style="width: 95%" /> <br>
+                            <label>Email</label>
+                        </div>
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary" style="width: 95%" /> <br>
+                            <label>Relationship to Beneficiary
+                            </label>
+                        </div>
                     </div>
                 </div>
-
                 <br>
+
+            <div style="display: table">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Address:</label>
                     </div>
                 </div>
+            </div>
+            <br>
 
-                <br />
-
-                {{-- <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_two_address }}" name="auth_rep_two_address"> <br>
-                        <label>Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt"> <br>
-                        <label>Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_city }}" name="auth_rep_two_city" /> <br>
-                        <label>City:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" /> <br>
-                        <label>State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_zip }}" name="auth_rep_two_zip" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div> --}}
-
+            <div style="display: table;width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_two_address }}" name="auth_rep_two_address"> <br>
+                        <input type="text" value="{{ $auth_rep_two_address }}" name="auth_rep_two_address" style="width: 95%"> <br>
                         <label>Address</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt"> <br>
-                        <label>Apt #:</label>
-                    </div>
-                    &nbsp;&nbsp;
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_city }}" name="auth_rep_two_city" /> <br>
+                        <input type="text" value="{{ $auth_rep_two_city }}" name="auth_rep_two_city" style="width: 95%" /> <br>
                         <label>City:</label>
                     </div>
                 </div>
+            </div>
+            <br>
+
+            <div style="display: table;width:100%">
+                <div style="display: table-row;">
+                    <div style="display: table-cell;">
+
+                        <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" style="width: 95%" /> <br>
+                        <label>State:</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 95%"> <br>
+                        <label>Apt #:</label>
+                    </div> 
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $auth_rep_two_zip }}"name="auth_rep_two_zip" style="width: 95%" /> <br>
+                        <label>Zip:</label>
+                    </div>
+                </div>
+            </div>
+
+
+
+                
                 <br>
 
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" /> <br>
-                        <label>State:</label>
-                    </div>
-                    &nbsp;&nbsp;
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_zip }}" name="auth_rep_two_zip" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div>
-
-                <br />
+                
             </div>
 
 
@@ -1021,17 +981,16 @@
                 individual
                 to: Make Deposits, Request Statements and Disbursements.</p>
             
-            <div style="display: table;width:100%">
+            <div style="display: table; width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $referring_agency }}" name="referring_agency" /> <br>
+                        <input type="text" value="{{ $referring_agency }}" name="referring_agency" style="width:95%" /> <br>
                         <label>Name of Agency</label>
                     </div>
-                    &nbsp;&nbsp;
 
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_contract }}"name="referring_contract" /> <br>
+                        <input type="text" value="{{ $referring_contract }}"name="referring_contract" style="width:95%" /> <br>
                         <label>Name of Contract</label>
                     </div>
                 </div>
@@ -1039,30 +998,27 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $referring_tel }}" name="referring_tel" /> <br>
+                        <input type="text" value="{{ $referring_tel }}" name="referring_tel" style="width:95%" /> <br>
                         <label>Home</label>
                     </div>
-                    &nbsp;&nbsp;
 
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_email }}"name="referring_email" /> <br>
+                        <input type="text" value="{{ $referring_email }}"name="referring_email" style="width:95%" /> <br>
                         <label>Email</label>
                     </div>
                 </div>
                 <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $referring_address }}" name="referring_address"> <br>
+                        <input type="text" value="{{ $referring_address }}" name="referring_address" style="width:95%"> <br>
                         <label>Address</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_apt }}" name="referring_apt"> <br>
+                        <input type="text" value="{{ $referring_apt }}" name="referring_apt" style="width:95%"> <br>
                         <label>Apt #:</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_city }}" name="referring_city" /> <br>
+                        <input type="text" value="{{ $referring_city }}" name="referring_city" style="width:95%" /> <br>
                         <label>City:</label>
                     </div>
                     
@@ -1070,12 +1026,11 @@
                 <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_state }}" name="referring_state" /> <br>
+                        <input type="text" value="{{ $referring_state }}" name="referring_state" style="width:95%" /> <br>
                         <label>State:</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_zip }}" name="referring_zip" /> <br>
+                        <input type="text" value="{{ $referring_zip }}" name="referring_zip" style="width:95%" /> <br>
                         <label>Zip:</label>
                     </div>
                 </div>
@@ -1801,17 +1756,17 @@
             </p>
             <br><br>
 
-            <div style="display: table">
+            <div style="display: table;width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $living_arrangement_first }}" name="living_arrangement_first" /> <br>
+                        <input type="text" value="{{ $living_arrangement_first }}" name="living_arrangement_first" style="width: 95%" /> <br>
                         <label>First</label>
                     </div>
                     &nbsp;
 
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $living_arrangement_last }}" name="living_arrangement_last" /> <br>
+                        <input type="text" value="{{ $living_arrangement_last }}" name="living_arrangement_last" style="width: 95%" /> <br>
                         <label>Last</label>
                     </div>
                 </div>
@@ -1819,13 +1774,13 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $living_arrangement_primary }}" name="living_arrangement_primary" /> <br>
+                        <input type="text" value="{{ $living_arrangement_primary }}" name="living_arrangement_primary" style="width: 95%" /> <br>
                         <label>Primary Phone</label>
                     </div>
                     &nbsp;&nbsp;
 
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $living_arrangement_email }}" name="living_arrangement_email" /> <br>
+                        <input type="text" value="{{ $living_arrangement_email }}" name="living_arrangement_email" style="width: 95%" /> <br>
                         <label>Email</label>
                     </div>
                 </div>
@@ -1861,13 +1816,11 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $power_fname }}" name="power_fname" /> <br>
+                        <input type="text" value="{{ $power_fname }}" name="power_fname" style="width: 95%" /> <br>
                         <label>First</label>
                     </div>
-                    &nbsp;&nbsp;
-
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_lname }}" name="power_lname" /> <br>
+                        <input type="text" value="{{ $power_lname }}" name="power_lname" style="width: 95%" /> <br>
                         <label>Last</label>
                     </div>
                 </div>
@@ -1883,17 +1836,15 @@
                 </div> --}}
             </div>
             <br>
-            <div style="display: table; width: 100%;padding:0;margin:0;">
+            <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $power_tel_home }}" name="power_tel_home" /> <br>
+                        <input type="text" value="{{ $power_tel_home }}" name="power_tel_home" style="width: 95%" /> <br>
                         <label>Primary Phone</label>
                     </div>
-                    &nbsp;&nbsp;
-
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_email }}" name="power_email" /> <br>
+                        <input type="text" value="{{ $power_email }}" name="power_email" style="width: 95%" /> <br>
                         <label>Email</label>
                     </div>
                 </div>
@@ -1911,35 +1862,33 @@
             <br>
             
 
-            <div style="display: table;margin: 0;padding: 0;width: 100%">
+            <div style="display: table;width: 100%">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address }}" name="power_address"> <br>
+                        <input type="text" value="{{ $power_address }}" name="power_address" style="width: 95%"> <br>
                         <label>Address</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt }}" name="power_apt"> <br>
+                        <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%"> <br>
                         <label>Apt #:</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city }}" name="power_city" /> <br>
+                        <input type="text" value="{{ $power_city }}" name="power_city" style="width: 95%" /> <br>
                         <label>City:</label>
                     </div>
                     
                 </div>
+            </div>
                 <br>
-                
+            <div style="display: table;width: 100%;">
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_state }}" name="power_state" /> <br>
+                        <input type="text" value="{{ $power_state }}" name="power_state" style="width: 95%" /> <br>
                         <label>State:</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip }}" name="power_zip" /> <br>
+                        <input type="text" value="{{ $power_zip }}" name="power_zip" style="width: 95%" /> <br>
                         <label>Zip:</label>
                     </div>
                 </div>
@@ -1974,15 +1923,15 @@
                 </div>
             </div> --}}
 
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? <input style="height:22px" type="radio" name="sole_poa1"
+            <p style="margin: 0;padding: 0;">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio" name="sole_poa1"
                     value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
-                Yes
+                Yes &nbsp;
                 <input style="height:22px" type="radio" name="sole_poa1" value="No"
                     {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}> No
             </p>
-            <p>If No, are the agents authorized to act separately? <input type="radio" name="act_seprately1"
+            <p>If No, are the agents authorized to act separately? &nbsp; <input type="radio" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
-                Yes
+                Yes &nbsp;
                 <input style="height:22px" type="radio" name="act_seprately1" value="No"
                     {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> No
             </p>
@@ -1996,13 +1945,11 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $power_fname2 }}" name="power_fname2" /> <br>
+                        <input type="text" value="{{ $power_fname2 }}" name="power_fname2" style="width: 95%" /> <br>
                         <label>First</label>
                     </div>
-                    &nbsp;&nbsp;
-
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_lname2 }}" name="power_lname2" /> <br>
+                        <input type="text" value="{{ $power_lname2 }}" name="power_lname2" style="width: 95%" /> <br>
                         <label>Last</label>
                     </div>
                 </div>
@@ -2011,18 +1958,17 @@
             <br>
 
 
-            <div style="display: table; width: 100%;padding:0;margin:0;">
+            <div style="display: table; width: 100%;">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $power_tel_home2 }}" name="power_tel_home2" /> <br>
+                        <input type="text" value="{{ $power_tel_home2 }}" name="power_tel_home2" style="width: 95%" /> <br>
                         <label>Primary Phone</label>
                     </div>
-                    &nbsp;&nbsp;
 
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_email2 }}" name="power_email2" /> <br>
+                        <input type="text" value="{{ $power_email2 }}" name="power_email2" style="width: 95%" /> <br>
                         <label>Email</label>
                     </div>
                 </div>
@@ -2032,35 +1978,34 @@
 
             <br>
 
-            <div style="display: table;margin: 0;padding: 0;">
+            <div style="display: table;width:100%">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address2 }}" name="power_address2"> <br>
+                        <input type="text" value="{{ $power_address2 }}" name="power_address2" style="width: 95%"> <br>
                         <label>Address</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt2 }}" name="power_apt2"> <br>
+                        <input type="text" value="{{ $power_apt2 }}" name="power_apt2" style="width: 95%"> <br>
                         <label>Apt #:</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city2 }}" name="power_city2" /> <br>
+                        <input type="text" value="{{ $power_city2 }}" name="power_city2" style="width: 95%" /> <br>
                         <label>City:</label>
                     </div>
                     
                 </div>
+            </div>
                 <br>
+                <div style="display: table;width:100%">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_state2 }}" name="power_state2" /> <br>
+                        <input type="text" value="{{ $power_state2 }}" name="power_state2" style="width: 95%" /> <br>
                         <label>State:</label>
                     </div>
-                    &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip2 }}" name="power_zip2" /> <br>
+                        <input type="text" value="{{ $power_zip2 }}" name="power_zip2" style="width: 95%" /> <br>
                         <label>Zip:</label>
                     </div>
                 </div>
@@ -2070,17 +2015,17 @@
 
            
 
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? <input style="height:22px" type="radio"
+            <p style="margin: 0;padding: 0;">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio"
                     name="power_of_attorney2_yes" value="Yes"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
-                Yes
+                Yes &nbsp;
                 <input style="height:22px" type="radio" name="power_of_attorney2_yes" value="No"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
             </p>
-            <p>If No, are the agents authorized to act separately? <input style="height:22px" type="radio"
+            <p>If No, are the agents authorized to act separately? &nbsp; <input style="height:22px" type="radio"
                     name="power_of_attorney2_authorized_yes" value="Yes"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
-                Yes
+                Yes &nbsp;
                 <input style="height:22px" type="radio" name="power_of_attorney2_authorized_yes" value="No"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
                 No
@@ -2093,22 +2038,22 @@
                 Please attach a copy of Decree or Letter of guardianship
             </p>
             <p style="padding:0;margin: 0;">
-                Does the Beneficiary have a court appointed Guardian?
+                Does the Beneficiary have a court appointed Guardian? &nbsp;
                 <input style="height:22px" type="radio" name="guardian_information_yes" value="Yes"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
-                Yes
+                Yes &nbsp;
                 <input style="height:22px" type="radio" name="guardian_information_yes" value="No"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> No
             </p>
             <p>If you answered yes, continue to fill out below:</p>
             <br>
             <p style="margin: 0;padding: 0;">
-                Guardian appointed for the :<input style="height:22px" type="radio" name="guardian_appointed_for1" value="Person"
+                Guardian appointed for the: &nbsp;<input style="height:22px" type="radio" name="guardian_appointed_for1" value="Person"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
-                Person
+                Person &nbsp;
                 <input style="height:22px" type="radio" name="guardian_appointed_for1" value="Property"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
-                Property
+                Property &nbsp;
                 <input style="height:22px" type="radio" name="guardian_appointed_for3" value="Both"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
                 Both
@@ -2116,34 +2061,34 @@
             </p>
             <br>
             
-            <div style="display: table;">
+            <div style="display: table; width:100%">
             <div style="display: table-row;">
                 <div style="display: table-cell;">
 
-                    <input type="text" value="{{ $guardianship_fname }}" name="guardianship_fname" /> <br>
+                    <input type="text" value="{{ $guardianship_fname }}" name="guardianship_fname" style="width: 95%" /> <br>
                     <label>First</label>
                 </div>
                 &nbsp;&nbsp;
 
                 <div style="display: table-cell">
-                    <input type="text" value="{{ $guardianship_lname }}" name="guardianship_lname" /> <br>
+                    <input type="text" value="{{ $guardianship_lname }}" name="guardianship_lname" style="width: 95%" /> <br>
                     <label>Last</label>
                 </div>
             </div>
         </div>
         <br>
 
-        <div style="display: table;">
+        <div style="display: table; width:100%">
             <div style="display: table-row;">
                 <div style="display: table-cell;">
 
-                    <input type="text" value="{{ $guardianship_telephone }}" name="guardianship_telephone" /> <br>
+                    <input type="text" value="{{ $guardianship_telephone }}" name="guardianship_telephone" style="width: 95%" /> <br>
                     <label>Telephone</label>
                 </div>
                 &nbsp;&nbsp;
 
                 <div style="display: table-cell">
-                    <input type="text" value="{{ $guardianship_email }}" name="guardianship_email" /> <br>
+                    <input type="text" value="{{ $guardianship_email }}" name="guardianship_email" style="width: 95%" /> <br>
                     <label>Email</label>
                 </div>
             </div>
