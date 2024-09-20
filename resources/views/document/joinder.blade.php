@@ -231,7 +231,7 @@ input:focus{
     flex-wrap: wrap;
 }
 .life-insurance-information-body-style{
-    width: 50%;
+    width: 49%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -3026,7 +3026,7 @@ tr.ind-th td{
                                 <div class="life-insurance-information-body-style">
                                     <p style="min-width: fit-content">Name of Insurance Company</p>
                                     <input type="text" name="insurance_company" id="healthcare-plan"
-                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                        style="border: none; border-bottom: 1px solid black; width:100%">
                                 </div>
                                 <div class="life-insurance-information-body-style">
                                     <p style="min-width: fit-content">Policy #</p>
