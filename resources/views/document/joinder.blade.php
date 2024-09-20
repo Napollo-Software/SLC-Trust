@@ -1859,13 +1859,13 @@ tr.ind-th td{
                                          <label class="label-status">Marital Status</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input  type="radio" value="Married" name="sponsor_marital_status1" class="married" id="married">Married
+                                         <input  type="radio" value="Married" name="sponsor_marital_status1" id="married" class="married" id="married"><label for="married"> Married</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input type="radio" value="Widowed" name="sponsor_marital_status1" class="widowed" id="widowed">Widowed
+                                         <input type="radio" value="Widowed" name="sponsor_marital_status1" id="widowed" class="widowed" id="widowed"><label for="widowed"> Widowed</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input type="radio" value="Single" name="sponsor_marital_status1" class="single" id="label">Single
+                                         <input type="radio" value="Single" name="sponsor_marital_status1" id="single" class="single" id="label"><label for="single"> Single</label>
                                      </div>
 
                                  </div>
@@ -1888,8 +1888,8 @@ tr.ind-th td{
                                  <div class="citizenship-form">
                                     <span>Citizenship</span>
                                     <div class="custom-radio">
-                                        <input type="radio" name="sponsor_citizen1" value="Yes"> Yes
-                                        <input type="radio" name="sponsor_citizen1" value="No"> No
+                                        <input type="radio" name="sponsor_citizen1" id="sponsor_citizen1_yes" value="Yes"><label for="sponsor_citizen1_yes"> Yes</label> &nbsp;
+                                        <input type="radio" name="sponsor_citizen1" id="sponsor_citizen1_no" value="No"><label for="sponsor_citizen1_no"> No</label>
                                     </div>
 
                                  </div>
@@ -1916,11 +1916,11 @@ tr.ind-th td{
                                  </div>
                                  <div>
                                      <input type="radio" value="Cell" name="prefered_cell" class="cell" id="cell">
-                                     <label for="">Cell</label>
+                                     <label for="cell">Cell</label>
                                  </div>
                                  <div>
-                                     <input type="radio" value="Phone" name="prefered_cell" id="phone" class="phone">
-                                     <label for="">Home</label>
+                                     <input type="radio" value="Phone" name="prefered_cell" id="home" class="phone">
+                                     <label for="home">Home</label>
                                  </div>
                              </div>
 
@@ -2084,7 +2084,7 @@ tr.ind-th td{
                                                           class="authorized-preferred-cell-form-inp"
                                                            value="Authorized_1_cell"
                                                           >
-                                                      <span>Cell</span>
+                                                      <label for="authorized-preferred-cell-form-inp">Cell</label>
                                                   </div>
                                                   <div>
                                                       <input type="radio" name="authorized_preferred_cell_form_inp"
@@ -2092,7 +2092,7 @@ tr.ind-th td{
                                                           class="authorized-preferred-home-form-inp"
                                                           value="Authorized_1_home"
                                                           >
-                                                      <span>Home</span>
+                                                      <label for="authorized-preferred-home-form-inp">Home</label>
                                                   </div>
                                               </div>
                                           </div>
@@ -2192,17 +2192,17 @@ tr.ind-th td{
                                                   <div>
                                                       <input type="radio" name="authorized_preferred_cell2"
                                                       value="Cell"
-                                                          id="authorized-preferred-cell-form-inp"
+                                                          id="authorized-preferred-cell-form-inp2"
                                                           class="authorized-preferred-cell-form-inp">
-                                                      <span>Cell</span>
+                                                      <label for="authorized-preferred-cell-form-inp2">Cell</label>
                                                   </div>
                                                   <div>
                                                       <input type="radio"
                                                       value="Home"
                                                        name="authorized_preferred_cell2"
-                                                          id="authorized-preferred-home-form-inp"
+                                                          id="authorized-preferred-home-form-inp2"
                                                           class="authorized-preferred-home-form-inp">
-                                                      <span>Home</span>
+                                                      <label for="authorized-preferred-home-form-inp2">Home</label>
                                                   </div>
                                               </div>
                                           </div>
@@ -2352,13 +2352,13 @@ tr.ind-th td{
                           <div class="purpose-of-enr-checkbox">
                               <div style="min-width: fit-content">
                                   <input type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income" id="purpose-of-enr-income">
-                                  <label >Shelter
+                                  <label for="purpose-of-enr-income">Shelter
                                       Monthly Excess
                                       Income</label>
                               </div>
                               <div style="min-width: fit-content;">
                                   <input type="radio" name="account_establishing_reason1" value="Shelter Excess Resources" id="purpose-of-enr-shelter">
-                                  <label >Shelter
+                                  <label for="purpose-of-enr-shelter">Shelter
                                       Excess Resources</label>
                               </div>
                           </div>
