@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>1-Joinder Agreement</title>
     <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/5e782bf38cce30531775d9922caba85c?family=Nominee-Regular" rel="stylesheet">
     <style>
 :root{
     --primary: rgb(52 159 153);
@@ -19,8 +20,13 @@
     box-sizing: border-box;
 
 }
+@font-face {
+    font-family: BrittanySignature;
+    src: url("/fonts/BrittanySignature-MaZx.ttf");
+}
 body{
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: "Nominee-Regular";
 }
 :root{
     --primary: rgb(52 159 153);
@@ -34,7 +40,7 @@ body{
 
 }
 body{
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
 }
 /* html{
     font-size: 62.5%;
@@ -45,6 +51,8 @@ header{
     flex-direction: column;
     align-items: center;
     gap: 70px;
+    width: 80%;
+    margin: auto;
     /* height: 670px; */
     /* height: 75vh; */
 }
@@ -55,6 +63,71 @@ header{
     width: 100%;
     /* height: 180px; */
     object-fit: contain;
+}
+input[type="radio"]:checked:before {
+  content: "\2713"; /* Unicode for tick (✓) */
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #0075ff; 
+}
+label{
+    cursor: pointer;
+    font-size: 14px;
+    font-style: italic
+    
+}
+p{
+    font-size: 16px
+}
+.footer-left-dis{
+    font-size: 12px;
+}
+.footer-right-dis{
+    font-size: 12px;
+}
+.footer-mid-dis{
+    font-size: 12px;
+}
+.header-contact p{
+    font-size: 20px
+}
+input[type="radio"]{
+    appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 13px;
+  height: 13px;
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 0; /* Make it square */
+  position: relative;
+  cursor: pointer;
+}
+input[type="radio"]:checked{
+    background-color: #0075ff;
+}
+span{
+    font-size: 12px;
+    font-style: italic
+}
+input[type="text"]{
+    font-size: 16px;
+    font-family: "Nominee-Regular";
+
+}
+input[type="date"]{
+    font-size: 16px;
+    font-family: "Nominee-Regular";
+
 }
 .header-heading{
     display: flex;
@@ -72,16 +145,17 @@ header{
      align-items: center;
      flex-wrap:wrap
 }
+
 .header-content{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 550px;
-    /* gap: 100px; */
-    /* background-color: rgb(238 248 245); */
+    height: 700px;
+    
     padding: 1.5rem ;
     width: 90%;
+
 }
 .header-contact{
     display: flex;
@@ -89,7 +163,7 @@ header{
     gap: 8px;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 .life-policy-style{
     display: flex;
@@ -99,6 +173,7 @@ header{
 }
 .header-email{
     color: var(--primary);
+    font-size: 20px
 }
 
 
@@ -117,20 +192,21 @@ main{
     padding: 10px;
 }
 .supplemental-header-heading{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 .supplemental-header-title{
     color: var(--primary);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 .supplemental-des{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    /* font-size: 17px; */
     gap: 10px;
-    width: 80%;
+    width: 73%;
     margin: 0 auto;
     padding: 30px 10px;
 }
@@ -147,21 +223,51 @@ main{
     margin: 0 auto;
 }
 .beneficiary-information{
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
+.dob-form input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.dob-form input[type="date"] {
+    position: relative;
+    width: 100%;
+}
+.w-30 input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.w-30 input[type="date"] {
+    position: relative;
+    width: 100%;
+}
+.w-40 input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.w-40 input[type="date"] {
+    position: relative;
+    width: 100%;
+}
+
+
 .beneficiary-indormation-header{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 15px;
-    width: 90%;
-    margin: auto;
+    /* width: 90%; */
+    /* margin: auto; */
 }
 .beneficiary-information-form{
     width: 90%;
     margin: 20px auto;
+}
+.can-style{
+    width: 25%;
+    margin-top: 15px;
 }
 .acc-name-style{
     display: flex;
@@ -176,6 +282,13 @@ main{
     border: none;
     border-bottom: 1px solid black;
     width: 100%;
+}
+.db-month{
+    display: flex; 
+    justify-content: center; 
+    margin-top: 15px;
+    gap:5px;
+    flex-wrap:wrap
 }
 .inp-middle{
     border: none;
@@ -196,7 +309,7 @@ input:focus{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 18px;
+    margin-top: 35px;
     flex-wrap: wrap;
     /* width: 25%; */
 }
@@ -205,7 +318,7 @@ input:focus{
 }
 
 .referring-source-para-style{
-    font-size: 18px;
+    /* font-size: 18px; */
     word-spacing: 3px;
 
 }
@@ -214,6 +327,22 @@ input:focus{
 }
 .footer-right{
     min-width: fit-content;
+}
+.power-of-attorney{
+    width: 88%;
+    margin: auto
+}
+.guardian-information{
+    width: 88%;
+    margin: auto
+}
+.beneficiary-service{
+    width: 88%;
+    margin: auto
+}
+.information-disclosures{
+    width: 88%;
+    margin: auto
 }
 
 
@@ -226,9 +355,10 @@ input:focus{
 .martial-status{
     margin-top: 25px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 160px;
+    /* flex-wrap: wrap; */
 }
 .life-insurance-information-body-style{
     width: 49%;
@@ -269,11 +399,15 @@ input:focus{
     font-weight: bold;
 }
 .gender{
-    width: 30%;
+    width: 36%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    flex: 1;
+}
+.beneficiary-information-name-form{
+    margin-top: 25px
 }
 .inp-gender{
     width: 100%;
@@ -316,7 +450,7 @@ input:focus{
     justify-content: flex-start;
     align-items: center;
     gap: 30px;
-    margin-top: 18px;
+    margin-top: 35px;
     flex-wrap: wrap
 }
 .home-phone{
@@ -339,6 +473,13 @@ input:focus{
     align-items: center;
     gap: 15px;
 }
+.bene-sig{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
 .email-form{
     width: 60%;
     margin-top: 20px;
@@ -356,7 +497,7 @@ input:focus{
     justify-content: flex-start;
     align-items: center;
     gap: 30px;
-    margin-top: 18px;
+    margin-top: 35px;
     flex-wrap: wrap;
 }
 .healthcare-plane{
@@ -411,7 +552,7 @@ input:focus{
     margin-top: 35px;
 }
 .disabilities{
-    margin-top: 25px;
+    margin-top: 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -494,24 +635,24 @@ input:focus{
     flex: 1;
 }
 .medicaid-information-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .household-income-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .life-insurance-information-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .healthcare-premium-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .funeral-information-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .footer-left{
     flex: 1;
@@ -529,12 +670,13 @@ input:focus{
     padding: 5px;
 }
 .authorized-representative{
-    width: 90%;
-    margin: 40px auto;
+    width: 80%;
+    margin: 50px auto;
+    margin-bottom: 0;
 }
 .authorized-representative-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 
 }
 .authorized-heading{
@@ -546,7 +688,7 @@ input:focus{
     background-color: var(--bgColor);
 }
 .authorized-des{
-    width: 85%;
+    width: 80%;
     margin: 20px auto;
     display: flex;
     justify-content: flex-start;
@@ -577,12 +719,12 @@ input:focus{
     gap: 8px;
 }
 .referring-source-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .purpose-of-enr-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 
 .authorized-representative-body-content-1{
@@ -614,7 +756,7 @@ input:focus{
 .authorized-representative-body-content-1-form{
     width: 90%;
     flex-direction: column;
-    margin: auto;
+    margin: 10px auto;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -666,6 +808,7 @@ input:focus{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
     gap: 15px;
 }
 .life-policy{
@@ -692,6 +835,7 @@ input:focus{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
     margin-top: 15px;
 }
 .authorized-contact-form-2-email{
@@ -718,7 +862,7 @@ input:focus{
     margin-top: 25px;
 }
 .referring-source{
-    width: 90%;
+    width: 80%;
     margin: 25px auto;
 }
 .referring-source-body{
@@ -792,8 +936,9 @@ input:focus{
     font-size: 12px;
 }
 .purpose-of-enr-container{
-    width: 90%;
-    margin: auto;
+    width: 80%;
+    margin: 50px auto;
+    margin-bottom: 0;
 }
 .healthcare-premium-body-style{
     display: flex;
@@ -818,7 +963,7 @@ input:focus{
     flex-wrap: wrap
 }
 .medicaid-information{
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 .medicaid-information-body{
@@ -837,7 +982,7 @@ table {
     padding: 14px;
   }
 tbody tr td{
-    padding: 14px;
+    padding: 12px;
     border-right: 2px solid var(--bgColor);
 
 }
@@ -855,9 +1000,11 @@ tbody tr.individual-tr td:nth-child(2),
 tbody tr.individual-tr td:nth-child(3) {
     text-align: left;
 }
-tr.ind-th td{
+tr.ind-th td:nth-child(1){
     color: var(--primary);
+    font-weight: 600;
 }
+
 
 .medicaid-information-footer-inp{
     border: none;
@@ -865,23 +1012,23 @@ tr.ind-th td{
     /* width: 80%; */
 }
 .medicaid-information-footer{
-    width: 90%;
+    width: 88%;
     margin: auto;
-    font-size: 18px;
-    word-spacing: 2px;
+    /* font-size: 18px; */
+    /* word-spacing: 2px; */
 
 }
 .medicaid-information-footer-inp{
-    width: 40%;
+    width: 60%;
 }
 .applicant{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     gap: 10px;
 }
 .household-income{
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
 }
 .sig-para{
@@ -985,8 +1132,8 @@ tr.ind-th td{
     min-width: fit-content;
 }
 .healthcare-premium{
-    width: 90%;
-    margin: auto;
+    width: 80%;
+    margin: 15px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -996,22 +1143,23 @@ tr.ind-th td{
 .healthcare-premium-body{
     width: 90%;
     margin: auto;
-    font-size: 18px;
+    /* font-size: 18px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 18px;
 }
 .funeral-information{
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 .funeral-information-body{
     width: 90%;
     margin: 20px auto;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 .for-office-use-only-2-header{
     text-align: center;
@@ -1063,12 +1211,13 @@ tr.ind-th td{
     flex: 1
 }
 .life-insurance-information{
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 .life-insurance-information-body{
     width: 90%;
     margin: 20px auto;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -1076,7 +1225,7 @@ tr.ind-th td{
 .life-insurance-information-body-info{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 .life-insurance-information-body-form{
     display: flex;
@@ -1096,29 +1245,31 @@ tr.ind-th td{
     flex-wrap: wrap;
 }
 .living-arrangements{
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 .power-of-attorney-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .living-arrangement-header{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 25px;
-    width: 90%;
-    margin: auto;
+    flex-wrap: wrap
+    /* width: 90%;
+    margin: auto; */
 }
 .living-arrangement-body{
     width: 90%;
     margin: 20px auto;
+    margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 .living-arrangements-body{
     width: 90%;
@@ -1128,7 +1279,7 @@ tr.ind-th td{
     flex-wrap: wrap;
     /* justify-content: flex-start; */
     /* align-items: center; */
-    gap: 10px;
+    gap: 20px;
 }
 .footer-living-arrangements{
     display: flex;
@@ -1147,7 +1298,8 @@ tr.ind-th td{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    margin-top: 20px
 
 }
 .information-disclosures-body-left{
@@ -1167,33 +1319,40 @@ tr.ind-th td{
     gap: 20px;
     /* padding: 0 15px; */
 }
+.agr-signature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap
+}
 .page-5{
     width: 90%;
     margin: 50px auto;
 }
 .guardian-information-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .information-disclosures-header{
-    width: 95%;
-    margin: auto;
+    /* width: 95%;
+    margin: auto; */
 }
 .signature-of-two-witnesses-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .signature-of-notary-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .agreement-signature-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .beneficiary-service-header{
-    width: 90%;
-    margin: auto;
+    /* width: 90%;
+    margin: auto; */
 }
 .power-of-attorney-body{
     width: 90%;
@@ -1206,7 +1365,7 @@ tr.ind-th td{
 }
 .power-of-attorney-body-1{
     border: 2px solid var(--bgColor);
-    padding: 15px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -1228,7 +1387,7 @@ tr.ind-th td{
     margin: 20px auto;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
 }
 .beneficiary-service-body{
     width: 90%;
@@ -1242,8 +1401,8 @@ tr.ind-th td{
 
 
 .page-7{
-    width: 90%;
-    margin: auto;
+    width: 80%;
+    margin: 50px auto;
 }
 
 .page-8{
@@ -1251,16 +1410,17 @@ tr.ind-th td{
     margin: 50px auto; */
 }
 .agreement-signature{
-    width: 90%;
+    width: 80%;
     margin: 50px auto;
 }
 .signature-of-notary{
     width: 80%;
     margin: 50px auto;
+    margin-bottom: 0;
 }
 .signature-of-two-witnesses{
-    width: 90%;
-    margin: 50px auto;
+    width: 80%;
+    margin: 25px auto;
 }
 .agreement-signature-body{
     width: 90%;
@@ -1270,12 +1430,14 @@ tr.ind-th td{
     gap: 15px;
 }
 .signature-of-notary{
-    width: 90%;
+    width: 80%;
     margin: 50px auto;
+    margin-bottom: 0;
 }
 .signature-of-notary-body{
     width: 90%;
     margin: 20px auto;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1290,7 +1452,7 @@ tr.ind-th td{
     gap: 6px;
 }
 .list-para{
-        font-size: 18px
+        font-size: 16px
     }
 .list-para2{
         font-size: 14px
@@ -1303,6 +1465,7 @@ tr.ind-th td{
 .for-office-use-only-body{
     width: 70%;
     margin: 30px auto;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -1313,11 +1476,12 @@ tr.ind-th td{
     align-items: center;
     font-size: 12px;
     /* margin-top: 60px; */
-    width: 90%;
-    margin: 50px auto;
+    width: 80%;
+    margin: 60px auto;
+    margin-bottom: 0;
 }
 .page-9{
-    margin-top: 80px;
+    margin-top: 60px;
     /* page-break-before: always; */
 }
 .for-office-use-only-2{
@@ -1325,7 +1489,7 @@ tr.ind-th td{
     margin: auto;
 }
 .direct-debit-req-form{
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
     display: flex;
     flex-direction: column;
@@ -1356,8 +1520,8 @@ tr.ind-th td{
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    width: 90%;
-    margin: auto;
+    width: 80%;
+    margin: 40px auto;
     /* margin-top: 60px; */
 }
 @font-face {
@@ -1442,6 +1606,9 @@ tr.ind-th td{
   .name-form{
     width: 100%;
     font-size: 0.8rem;
+  }
+  .name-form2{
+    margin-top: 12px;
   }
   .status{
     width: 100%;
@@ -1570,6 +1737,7 @@ tr.ind-th td{
   .life-insurance-type{
     font-size: 0.8rem;
   }
+  
 
   /* Healthcare Premiums */
 
@@ -1641,6 +1809,7 @@ tr.ind-th td{
     .for-office-use-only-2-body-style{
         width: 100%;
     }
+    
     .direct-debit-bank{
         gap: 20px
     }
@@ -1715,6 +1884,59 @@ tr.ind-th td{
 
 }
 
+
+@media only screen and (max-width: 600px){
+     .authorized-contact-form-2-relationship-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .purpose-of-enr-checkbox{
+        gap: 10px
+    }
+    .spouse-applying-check{
+        flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    }
+    .agr-signature{
+        justify-content: flex-start
+    }
+    .db-month{
+        justify-content: flex-start
+    }
+    .bene-sig{
+        justify-content: flex-start
+    }
+    .can-style{
+        width: 100%
+    }
+}
+
+/* .life-insurance-information-body-style{
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+} */
+
+@media only screen and (max-width: 540px){
+    .life-insurance-information-body-style{
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+}
+.supplemental-header-title{
+    font-size: 0.9rem;
+}
+.header-contact p{
+    font-size: 16px
+}
+}
+
+
 @media only screen and (min-width: 370px) and (max-width: 700px){
     .header-content{
         height: 260px;
@@ -1725,6 +1947,19 @@ tr.ind-th td{
     }
     .header-contact{
         font-size: 1rem
+    }
+}
+
+
+
+@media only screen and (max-width: 1100px){
+    header{
+        width: 100%;
+    }
+    .martial-status{
+        gap: 15px;
+    align-items: flex-start;
+    flex-direction: column;
     }
 }
 
@@ -1768,8 +2003,7 @@ tr.ind-th td{
         <br> <br>
         <br> <br>
         <br> -->
-        <header style="background-image: url('{{ asset('assets/images/joinder-bg.png') }}');background-size: cover;
-    background-repeat: no-repeat;">
+        <header style="background-image: url('{{ asset('assets/images/joinder-bg.png') }}');background-size: cover; background-repeat: no-repeat;">
         <div class="logo-style">
             <img src="{{asset('assets/images/logo.png')}}" alt="logo" class="logo-img" />
         </div>
@@ -1838,7 +2072,7 @@ tr.ind-th td{
                  <div class="beneficiary-information-form">
                      <div>
                          <div class="beneficiary-information-name-form">
-                             <label class="label-name">Name:</label>
+                             <label style="font-style: normal;font-size:16px" class="label-name">Name:</label>
                              <div class="name-form-container">
                                  <div class="name-form">
                                      <input type="text" name="sponsor_first_name" value="{{$referral->first_name}}" id="first" class="inp-first"  > <br>
@@ -1848,7 +2082,7 @@ tr.ind-th td{
                                      <input type="text" name="sponsor_middle_name" id="middle" class="inp-middle"> <br>
                                      <span>Middle</span>
                                  </div>
-                                 <div class="name-form">
+                                 <div class="name-form name-form2">
                                      <input type="text" name="sponsor_last_name" value="{{$referral->last_name}}" id="last" class="inp-last"> <br>
                                      <span>Last</span>
                                  </div>
@@ -1856,28 +2090,29 @@ tr.ind-th td{
                              <div class="martial-status">
                                  <div class="status">
                                      <div style="min-width: fit-content;">
-                                         <label class="label-status">Marital Status</label>
+                                         <label style="font-style: normal" class="label-status">Marital Status</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input  type="radio" value="Married" name="sponsor_marital_status1" id="married" class="married" id="married"><label for="married"> Married</label>
+                                         <input  type="radio" value="Married" name="sponsor_marital_status1" id="married" class="married" id="married"><label style="font-style: normal" for="married"> Married</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input type="radio" value="Widowed" name="sponsor_marital_status1" id="widowed" class="widowed" id="widowed"><label for="widowed"> Widowed</label>
+                                         <input type="radio" value="Widowed" name="sponsor_marital_status1" id="widowed" class="widowed" id="widowed"><label style="font-style: normal" for="widowed"> Widowed</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input type="radio" value="Single" name="sponsor_marital_status1" id="single" class="single" id="label"><label for="single"> Single</label>
+                                         <input type="radio" value="Single" name="sponsor_marital_status1" id="single" class="single" id="label"><label style="font-style: normal" for="single"> Single</label>
                                      </div>
 
                                  </div>
                                  <div class="gender">
-                                     <label for="gender">Gender</label>
+                                     <label style="font-style: normal" for="gender">Gender</label>
                                      <input type="text"  name="sponsor_gender" value="{{$referral->gender}}" id="gender" class="inp-gender">
                                  </div>
                              </div>
                              <div class="name-form-container">
                                  <div class="security-form">
-                                 <input type="text" class="inp-last" name="sponsor_ssn" value="{{$referral->patient_ssn}}">
-                                          <br>
+                                 <input type="text" id="ssn" class="inp-last" name="sponsor_ssn" value="{{$referral->patient_ssn}}">
+                                 
+                                    <br>
                                      <span>Social Security Number</span>
                                  </div>
                                  <div class="dob-form">
@@ -1885,18 +2120,21 @@ tr.ind-th td{
                                       <br>
                                      <span>Date of Birth</span>
                                  </div>
-                                 <div class="citizenship-form">
-                                    <span>Citizenship</span>
+                                 <div class="security-form">
+                                    <input type="text" class="inp-last" name="sponsor_citizen" value="{{$referral->sponsor_citizen}}">
+                                      <br>
+                                     <span>Citizenship</span>
+                                    {{-- <span>Citizenship</span>
                                     <div class="custom-radio">
                                         <input type="radio" name="sponsor_citizen1" id="sponsor_citizen1_yes" value="Yes"><label for="sponsor_citizen1_yes"> Yes</label> &nbsp;
                                         <input type="radio" name="sponsor_citizen1" id="sponsor_citizen1_no" value="No"><label for="sponsor_citizen1_no"> No</label>
-                                    </div>
+                                    </div> --}}
 
                                  </div>
                              </div>
 
                              <div class="contact">
-                                 <label class="label-name">Contact
+                                 <label style="font-style: normal;font-size:16px" class="label-name">Contact
                                      Information:</label>
                                  <div class="contact-form-container">
                                      <div class="contact-form">
@@ -1912,15 +2150,15 @@ tr.ind-th td{
 
                              <div class="preferred-phone">
                                  <div>
-                                     <label class="label-status">Preferred Phone</label>
+                                     <label style="font-style: normal" class="label-status">Preferred Phone</label>
                                  </div>
                                  <div>
                                      <input type="radio" value="Cell" name="prefered_cell" class="cell" id="cell">
-                                     <label for="cell">Cell</label>
+                                     <label style="font-style: normal" for="cell">Cell</label>
                                  </div>
                                  <div>
                                      <input type="radio" value="Phone" name="prefered_cell" id="home" class="phone">
-                                     <label for="home">Home</label>
+                                     <label style="font-style: normal" for="home">Home</label>
                                  </div>
                              </div>
 
@@ -1930,7 +2168,7 @@ tr.ind-th td{
                              </div>
                          </div>
                          <div class="beneficiary-information-address-form">
-                             <label class="label-name">Address:</label>
+                             <label style="font-style: normal;font-size:16px" class="label-name">Address:</label>
                              <div class="address-form-container">
                                  <div class="address-form">
                                      <input type="text" name="sponsor_address"  value="{{$referral->address}}" id="address" class="address"> <br>
@@ -1955,7 +2193,7 @@ tr.ind-th td{
                              </div>
                          </div>
                          <div class="qualifying-disabilities">
-                             <label class="label-name">Qualifying
+                             <label style="font-style: normal;font-size:16px" class="label-name">Qualifying
                                  Disabilities:</label>
                              <div class="disabilities">
                                  <div class="d1-form">
@@ -2016,19 +2254,19 @@ tr.ind-th td{
                                       <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
                                           <input type="radio" name="auth_beneficiary"
                                           value="Beneficiary" id="beneficiary" class="beneficiary">
-                                          <label for="beneficiary">Beneficiary</label>
+                                          <label style="font-style: normal" for="beneficiary">Beneficiary</label>
                                       </div>
                                       <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 110px;">
                                           <input type="radio" name="auth_beneficiary" id="auth-1"
                                           value="Auth. Rep.1"
                                           class="auth-1">
-                                          <label for="auth-1">Auth. Rep. 1</label>
+                                          <label style="font-style: normal" for="auth-1">Auth. Rep. 1</label>
                                       </div>
                                       <div style="display: flex; justify-content: center; align-items: center; gap: 5px; min-width: 120px;">
                                           <input type="radio" name="auth_beneficiary"
                                           value="Auth. Rep. 2"
                                           id="auth-2" class="auth-2">
-                                          <label for="auth-2">Auth. Rep. 2</label>
+                                          <label style="font-style: normal" for="auth-2">Auth. Rep. 2</label>
                                       </div>
                                   </div>
                               </div>
@@ -2075,7 +2313,7 @@ tr.ind-th td{
                                               <span>Cell Phone</span>
                                           </div>
                                           <div class="authorized-preferred-form">
-                                              <label for>Preferred
+                                              <label style="font-style: normal" for>Preferred
                                                   Phone</label>
                                               <div class="authorized-preferred-form-checkbox">
                                                   <div>
@@ -2084,7 +2322,7 @@ tr.ind-th td{
                                                           class="authorized-preferred-cell-form-inp"
                                                            value="Authorized_1_cell"
                                                           >
-                                                      <label for="authorized-preferred-cell-form-inp">Cell</label>
+                                                      <label style="font-style: normal" for="authorized-preferred-cell-form-inp">Cell</label>
                                                   </div>
                                                   <div>
                                                       <input type="radio" name="authorized_preferred_cell_form_inp"
@@ -2092,7 +2330,7 @@ tr.ind-th td{
                                                           class="authorized-preferred-home-form-inp"
                                                           value="Authorized_1_home"
                                                           >
-                                                      <label for="authorized-preferred-home-form-inp">Home</label>
+                                                      <label style="font-style: normal" for="authorized-preferred-home-form-inp">Home</label>
                                                   </div>
                                               </div>
                                           </div>
@@ -2108,7 +2346,7 @@ tr.ind-th td{
                                               <span>Email</span>
                                           </div>
                                           <div class="authorized-contact-form-2-relationship-container">
-                                              <label style="min-width: fit-content;">Relationship
+                                              <label  style="min-width: fit-content; font-style: normal">Relationship
                                                   to Beneficiary</label>
                                               <input type="text"
                                                  class="inp-last"
@@ -2117,11 +2355,11 @@ tr.ind-th td{
                                           </div>
                                       </div>
                                       <div class="authorized-address-form">
-                                          <label class="label-name">Address:</label>
+                                          <label style="font-style: normal" class="label-name">Address:</label>
                                           <div class="address-form-container">
                                               <div class="address-form">
                                                   <input type="text" name="auth_rep_one_address" id="address" class="address"> <br>
-                                                  <span>Address</span>
+                                                  <span >Address</span>
                                               </div>
                                               <div class="apt-form">
                                                   <input type="text" name="auth_rep_one_apt" id="apt" class="apt"> <br>
@@ -2186,7 +2424,7 @@ tr.ind-th td{
                                               <span>Cell Phone</span>
                                           </div>
                                           <div class="authorized-preferred-form">
-                                              <label for>Preferred
+                                              <label style="font-style: normal" for>Preferred
                                                   Phone</label>
                                               <div class="authorized-preferred-form-checkbox">
                                                   <div>
@@ -2194,7 +2432,7 @@ tr.ind-th td{
                                                       value="Cell"
                                                           id="authorized-preferred-cell-form-inp2"
                                                           class="authorized-preferred-cell-form-inp">
-                                                      <label for="authorized-preferred-cell-form-inp2">Cell</label>
+                                                      <label style="font-style: normal" for="authorized-preferred-cell-form-inp2">Cell</label>
                                                   </div>
                                                   <div>
                                                       <input type="radio"
@@ -2202,7 +2440,7 @@ tr.ind-th td{
                                                        name="authorized_preferred_cell2"
                                                           id="authorized-preferred-home-form-inp2"
                                                           class="authorized-preferred-home-form-inp">
-                                                      <label for="authorized-preferred-home-form-inp2">Home</label>
+                                                      <label style="font-style: normal" for="authorized-preferred-home-form-inp2">Home</label>
                                                   </div>
                                               </div>
                                           </div>
@@ -2218,7 +2456,7 @@ tr.ind-th td{
                                               <span>Email</span>
                                           </div>
                                           <div class="authorized-contact-form-2-relationship-container">
-                                              <label style="min-width: fit-content;text-align: right;">Relationship
+                                              <label style="min-width: fit-content;text-align: right;font-style: normal">Relationship
                                                   to Beneficiary</label>
                                               <input type="text" name="auth_rep_two_relation_beneficiary"
                                                   id="authorized-contact-form-2-relationship"
@@ -2226,7 +2464,7 @@ tr.ind-th td{
                                           </div>
                                       </div>
                                       <div class="authorized-address-form">
-                                          <label class="label-name">Address:</label>
+                                          <label style="font-style: normal" class="label-name">Address:</label>
                                           <div class="address-form-container">
                                               <div class="address-form">
                                                   <input type="text" name="auth_rep_two_address" id="address" class="address"> <br>
@@ -2313,9 +2551,9 @@ tr.ind-th td{
                               reporting to Government Agencies to be<br>sent
                               to the referring source above.
                               <input type="radio" name="referring_auth1" value="Yes" id="referring-source-para-yes">
-                              <label for="referring-source-para-yes">Yes</label>
+                              <label style="font-style: normal;font-size: 16px;" for="referring-source-para-yes">Yes</label>
                               <input type="radio" name="referring_auth1" value="No" id="referring-source-para-no">
-                              <label for="referring-source-para-no">No</label>
+                              <label style="font-style: normal;font-size: 16px;" for="referring-source-para-no">No</label>
                           </p>
                       </div>
                   </div>
@@ -2347,18 +2585,18 @@ tr.ind-th td{
                               ENROLLMENT</h3>
                       </div>
                       <div class="purpose-of-enr-body">
-                          <p style="font-size: 18px;">Indicate reason for
+                          <p>Indicate reason for
                               establishing an account.</p>
                           <div class="purpose-of-enr-checkbox">
                               <div style="min-width: fit-content">
                                   <input type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income" id="purpose-of-enr-income">
-                                  <label for="purpose-of-enr-income">Shelter
+                                  <label style="font-style: normal;font-size:16px" for="purpose-of-enr-income">Shelter
                                       Monthly Excess
                                       Income</label>
                               </div>
                               <div style="min-width: fit-content;">
                                   <input type="radio" name="account_establishing_reason1" value="Shelter Excess Resources" id="purpose-of-enr-shelter">
-                                  <label for="purpose-of-enr-shelter">Shelter
+                                  <label style="font-style: normal;font-size:16px" for="purpose-of-enr-shelter">Shelter
                                       Excess Resources</label>
                               </div>
                           </div>
@@ -2384,20 +2622,20 @@ tr.ind-th td{
                           </thead>
                           <tbody>
                               <tr class="medicaidl-tbody">
-                                  <td>Application Status Does the beneficiary
+                                  <td>Application Status <br> Does the beneficiary
                                       receive Medicaid?</td>
                                   <td>
                                       <div class="applicant">
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Yes" id="applicant-yes">
-                                              <label for="applicant-yes"> Yes</label>
+                                              <label style="font-style: normal" for="applicant-yes"> Yes</label>
                                           </div>
                                           <div>
-                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No" id="applicant-no"> <label
+                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No" id="applicant-no"> <label style="font-style: normal"
                                                   for="applicant-no"> No</label>
                                           </div>
                                           <div>
-                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending" id="applicant-pending"><label for="applicant-pending"> Pending</label>
+                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending" id="applicant-pending"><label style="font-style: normal" for="applicant-pending"> Pending</label>
                                           </div>
 
                                       </div>
@@ -2406,15 +2644,15 @@ tr.ind-th td{
                                       <div class="applicant">
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Yes" id="spouse-yes">
-                                              <label for="spouse-yes"> Yes</label>
+                                              <label style="font-style: normal" for="spouse-yes"> Yes</label>
                                           </div>
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="No" id="spouse-no">
-                                              <label for="spouse-no"> No</label>
+                                              <label style="font-style: normal" for="spouse-no"> No</label>
                                           </div>
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Pending" id="spouse-pending">
-                                              <label for="spouse-pending"> Pending</label>
+                                              <label style="font-style: normal" for="spouse-pending"> Pending</label>
                                           </div>
 
                                       </div>
@@ -2424,22 +2662,22 @@ tr.ind-th td{
                               <tr class="medicaidl-tbody">
                                   <td>CIN Number/medicaid Number</td>
                                   <td>
-                                    <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
-                                        <div>
+                                    <div style="display: flex;align-items: center;gap: 5px;cursor:p">
+                                        {{-- <div>
                                             <span>$</span>
-                                        </div>
+                                        </div> --}}
                                         <div>
-                                            <input name="applicant_medicaid_cin_number" style="border: none; border-bottom: 1px solid black;" type="text" >
+                                            <input name="applicant_medicaid_cin_number" style="border: none;cursor:pointer" type="text" >
                                         </div>
                                     </div>
                                   </td>
                                   <td>
-                                    <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
-                                        <div>
+                                    <div style="display: flex;align-items: center;gap: 5px;">
+                                        {{-- <div>
                                             <span>$</span>
-                                        </div>
+                                        </div> --}}
                                         <div>
-                                            <input name="spouse_medicaid_cin_number" style="border: none; border-bottom: 1px solid black;" type="text"  >
+                                            <input name="spouse_medicaid_cin_number" style="border: none;cursor:pointer" type="text"  >
                                         </div>
                                     </div>
                                   </td>
@@ -2447,22 +2685,22 @@ tr.ind-th td{
                               <tr class="medicaidl-tbody">
                                   <td>Monthly Spend Down $</td>
                                   <td>
-                                    <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
-                                        <div>
+                                    <div style="display: flex;align-items: center;gap: 5px;">
+                                        {{-- <div>
                                             <span>$</span>
-                                        </div>
+                                        </div> --}}
                                         <div>
-                                            <input style="border: none; border-bottom: 1px solid black;" type="text"  name="medicaid_applicant_monthly_spend_down">
+                                            <input style="border: none;cursor:pointer" type="text"  name="medicaid_applicant_monthly_spend_down">
                                         </div>
                                     </div>
                                   </td>
                                   <td>
-                                    <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
-                                        <div>
+                                    <div style="display: flex;align-items: center;gap: 5px;">
+                                        {{-- <div>
                                             <span>$</span>
-                                        </div>
+                                        </div> --}}
                                         <div>
-                                            <input style="border: none; border-bottom: 1px solid black;" type="text"  name="medicaid_spouse_monthly_spend_down">
+                                            <input style="border: none;cursor:pointer" type="text"  name="medicaid_spouse_monthly_spend_down">
                                         </div>
                                     </div>
                                   </td>
@@ -2491,7 +2729,7 @@ tr.ind-th td{
 
                           <div class="spouse-info">
                               <h4>Spouse Information</h4>
-                              <span> (please include proof of income)</span>
+                              <span style="font-size: 16px;margin-left: 5px;"> (please include proof of income)</span>
                           </div>
                           <div style="gap: 5px;
                           display: flex;
@@ -2501,11 +2739,11 @@ tr.ind-th td{
                                   <p>Is Spouse Deceased?</p>
                                   <div>
                                       <input type="radio" name="spouse_decreased1" value="Yes" id="dec-yes" class="dec-yes">
-                                      <label for="dec-yes">Yes</label>
+                                      <label style="font-style: normal" for="dec-yes">Yes</label>
                                   </div>
                                   <div>
                                       <input type="radio" name="spouse_decreased1" value="No" id="dec-no" class="dec-no">
-                                      <label for="dec-no">No</label>
+                                      <label style="font-style: normal" for="dec-no">No</label>
                                   </div>
                               </div>
                               <div class="spouse-applying">
@@ -2513,11 +2751,11 @@ tr.ind-th td{
                                   <div class="spouse-applying-check">
                                       <div>
                                           <input type="radio" name="applying_together1" value="Yes" id="app-yes" class="app-yes">
-                                          <label for="app-yes"> Yes</label>
+                                          <label style="font-style: normal" for="app-yes"> Yes</label>
                                       </div>
-                                      <div>
+                                      <div> 
                                           <input type="radio" name="applying_together1" value="No" id="app-no" class="app-no">
-                                          <label for="app-no"> No</label>
+                                          <label style="font-style: normal" for="app-no"> No</label>
                                       </div>
                                       <div>
                                           <p>If Yes, Fill in Spouse’s Income.</p>
@@ -2532,13 +2770,13 @@ tr.ind-th td{
                       justify-content: center;">
 
                               <div class="house-hold-name">
-                                  <span>Name:</span>
+                                  <span style="font-style: normal;font-size:16px">Name:</span>
                                   <div class="house-hold-first-form">
-                                      <label for="house-hold-first">First</label>
+                                      <label style="font-style: normal;font-size:16px" for="house-hold-first">First</label>
                                       <input type="text" name="spouse_fname" id="house-hold-first"  class="house-hold-first">
                                   </div>
                                   <div class="house-hold-last-form">
-                                      <label for="house-hold-last">Last</label>
+                                      <label style="font-style: normal;font-size:16px" for="house-hold-last">Last</label>
                                       <input type="text" name="spouse_lname" id="house-hold-last" class="house-hold-last">
                                   </div>
                               </div>
@@ -2547,11 +2785,11 @@ tr.ind-th td{
                                   <div class="spouse-applying-check">
                                       <div>
                                           <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes" id="med-yes" class="med-yes">
-                                          <label for="med-yes"> Yes</label>
+                                          <label style="font-style: normal" for="med-yes"> Yes</label>
                                       </div>
                                       <div>
                                           <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="No" id="med-no" class="med-no">
-                                          <label for="med-no"> No</label>
+                                          <label style="font-style: normal" for="med-no"> No</label>
                                       </div>
                                   </div>
                               </div>
@@ -2570,22 +2808,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Supplement Security Income (SSI)</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_ssi">
+                                                    <input style="border: none;" type="text"  name="applicant_ssi">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_ssi">
+                                                    <input style="border: none;" type="text"  name="spouse_ssi">
                                                 </div>
                                             </div>
                                           </td>
@@ -2593,22 +2831,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Social Security Disability Income (SSDI)</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_ssdi">
+                                                    <input style="border: none;" type="text"  name="applicant_ssdi">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_ssdi">
+                                                    <input style="border: none;" type="text"  name="spouse_ssdi">
                                                 </div>
                                             </div>
                                           </td>
@@ -2616,22 +2854,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Social Security Retirement Income (SSA)</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_ssa">
+                                                    <input style="border: none;" type="text"  name="applicant_ssa">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_ssa">
+                                                    <input style="border: none;" type="text"  name="spouse_ssa">
                                                 </div>
                                             </div>
                                           </td>
@@ -2639,22 +2877,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>VA Benefits</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_va_ben">
+                                                    <input style="border: none;" type="text"  name="applicant_va_ben">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_va_ben">
+                                                    <input style="border: none;" type="text"  name="spouse_va_ben">
                                                 </div>
                                             </div>
                                           </td>
@@ -2662,22 +2900,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Employment Benefits</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_employee_ben">
+                                                    <input style="border: none;" type="text"  name="applicant_employee_ben">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_employee_ben">
+                                                    <input style="border: none;" type="text"  name="spouse_employee_ben">
                                                 </div>
                                             </div>
                                           </td>
@@ -2685,22 +2923,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Survivor Benefits</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_survivor_ben">
+                                                    <input style="border: none;" type="text"  name="applicant_survivor_ben">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_survivor_ben">
+                                                    <input style="border: none;" type="text"  name="spouse_survivor_ben">
                                                 </div>
                                             </div>
                                           </td>
@@ -2708,22 +2946,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>IRA Distribution</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_ira_dist">
+                                                    <input style="border: none;" type="text"  name="applicant_ira_dist">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_ira_dist">
+                                                    <input style="border: none;" type="text"  name="spouse_ira_dist">
                                                 </div>
                                             </div>
                                           </td>
@@ -2731,22 +2969,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Pensions / Annuities</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_pension_annuities">
+                                                    <input style="border: none;" type="text"  name="applicant_pension_annuities">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_pension_annuities">
+                                                    <input style="border: none;" type="text"  name="spouse_pension_annuities">
                                                 </div>
                                             </div>
                                           </td>
@@ -2754,22 +2992,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Interest / Dividends</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_interest_dividends">
+                                                    <input style="border: none;" type="text"  name="applicant_interest_dividends">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_interest_dividends">
+                                                    <input style="border: none;" type="text"  name="spouse_interest_dividends">
                                                 </div>
                                             </div>
                                           </td>
@@ -2777,22 +3015,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Reparations</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_reparations">
+                                                    <input style="border: none;" type="text"  name="applicant_reparations">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_reparations">
+                                                    <input style="border: none;" type="text"  name="spouse_reparations">
                                                 </div>
                                             </div>
                                           </td>
@@ -2800,22 +3038,22 @@ tr.ind-th td{
                                       <tr class="individual-tr">
                                           <td>Other</td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="applicant_other">
+                                                    <input style="border: none;" type="text"  name="applicant_other">
                                                 </div>
                                             </div>
                                           </td>
                                           <td>
-                                            <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                                            <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span>$</span>
+                                                    <span style="font-style: normal">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none; border-bottom: 1px solid black;" type="text"  name="spouse_other">
+                                                    <input style="border: none;" type="text"  name="spouse_other">
                                                 </div>
                                             </div>
                                           </td>
@@ -2878,14 +3116,14 @@ tr.ind-th td{
                                         value="B"
                                         name="healthcare_b" id="healthcare-b"
                                             class="healthcare-b">
-                                        <label for="healthcare-b">B</label>
+                                        <label style="font-style: normal;font-size:16px" for="healthcare-b">B</label>
                                     </div>
                                     <div>
                                         <input
                                         value="D"
                                         type="radio" name="healthcare_b" id="healthcare-d"
                                             class="healthcare-d">
-                                        <label for="healthcare-d">D</label>
+                                        <label style="font-style: normal;font-size:16px" for="healthcare-d">D</label>
                                     </div>
                                 </div>
                             </div>
@@ -2899,25 +3137,25 @@ tr.ind-th td{
                                         <input
                                         value="Yes"
                                         type="radio" name="supplemental_yes" id="supplemental_yes">
-                                        <label for="supplemental_yes">Yes</label>
+                                        <label style="font-style: normal;font-size:16px" for="supplemental_yes">Yes</label>
                                     </div>
                                     <div>
                                         <input
                                         value="No"
                                          type="radio" name="supplemental_yes" id="supplemental_no">
-                                        <label for="supplemental_no">No</label>
+                                        <label style="font-style: normal;font-size:16px" for="supplemental_no">No</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="healthcare-plane">
                             <!-- <div> -->
-                                <span style="min-width: fit-content;">If yes, what is the monthly premium? $</span>
+                                <span style="min-width: fit-content;font-style:normal;font-size:16px">If yes, what is the monthly premium? $</span>
                                 <input type="text" name="healthcare_partb_premium" id="healthcare-pre"
                                     style="border: none; border-bottom: 1px solid black; ">
                             <!-- </div> -->
                             <!-- <div style="width: 50%;"> -->
-                                <span style="min-width: fit-content;"> Plan Name?</span>
+                                <span style="min-width: fit-content;font-style:normal;font-size:16px"> Plan Name?</span>
                                 <input type="text" name="healthcare_partb_plan" id="healthcare-plan"
                                     style="border: none; border-bottom: 1px solid black; flex: 1;">
                             <!-- </div> -->
@@ -2945,18 +3183,18 @@ tr.ind-th td{
                                     <input type="radio" name="funeral_information_body_yes"
                                     value="Yes"
                                         id="funeral-information-body-yes" class="funeral-information-body-yes">
-                                    <label for="funeral-information-body-yes">Yes</label>
+                                    <label style="font-style: normal;font-size:16px" for="funeral-information-body-yes">Yes</label>
                                 </div>
                                 <div>
                                     <input type="radio" name="funeral_information_body_yes"
                                     value="No"
                                         id="funeral-information-body-no">
-                                    <label for="funeral-information-body-no">No</label>
+                                    <label style="font-style: normal;font-size:16px" for="funeral-information-body-no">No</label>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <p>If you answered yes, please attach funeral provision documents.</p>
+                            <p style="font-style: italic">If you answered yes, please attach funeral provision documents.</p>
                         </div>
                     </div>
                 </div>
@@ -2984,19 +3222,19 @@ tr.ind-th td{
                                          name="life_insurance_information_body_yes"
                                             id="life-insurance-information-body-yes"
                                             class="life-insurance-information-body-yes">
-                                        <label for="life-insurance-information-body-yes">Yes</label>
+                                        <label style="font-style: normal;font-size:16px" for="life-insurance-information-body-yes">Yes</label>
                                     </div>
                                     <div>
                                         <input type="radio"
                                         value="No"
                                          name="life_insurance_information_body_yes"
                                             id="life-insurance-information-body-no">
-                                        <label for="life-insurance-information-body-no">No</label>
+                                        <label style="font-style: normal;font-size:16px" for="life-insurance-information-body-no">No</label>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <p>If you answered yes, please attach funeral provision documents</p>
+                                <p style="font-style: italic">If you answered yes, please attach funeral provision documents</p>
                             </div>
                         </div>
                         <div class="life-insurance-information-body-form">
@@ -3041,19 +3279,19 @@ tr.ind-th td{
                                 <div class="life-policy">
                                     <div class="life-policy-style">
                                         <input type="radio" name="type_of_policy1" value="Term" id="life-insurance-term">
-                                        <label for="life-insurance-term">Term</label>
+                                        <label style="font-style: normal;font-size:16px" for="life-insurance-term">Term</label>
                                         <input type="text" name="healthcare_plan" id="healthcare-plan"
                                             style="border: none; border-bottom: 1px solid black; flex:1">
                                     </div>
                                     <div class="life-policy-style">
                                         <input type="radio" name="type_of_policy1" value="Life" id="life-insurance-life">
-                                        <label for="life-insurance-life">Life</label>
+                                        <label style="font-style: normal;font-size:16px" for="life-insurance-life">Life</label>
                                         <input type="text" name="healthcare_plan2" id="healthcare-plan"
                                             style="border: none; border-bottom: 1px solid black; flex:1">
                                     </div>
                                 </div>
-                                <div style="display: flex; flex: 1;gap:5px">
-                                    <p>Cash Surrender Value $ </p>
+                                <div style="display: flex; flex: 1;gap:5px;flex-wrap:wrap">
+                                    <p style="min-width: fit-content">Cash Surrender Value $ </p>
                                     <input type="text" name="cash_surrender_value" id="healthcare-plan"
                                         style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
@@ -3077,49 +3315,56 @@ tr.ind-th td{
                 <div class="living-arrangements">
                     <div class="living-arrangement-header">
                         <h3 class="healthcare-premium-header-heading">LIVING ARRANGEMENTS</h3>
-                        <p>(indicate the living arrangement of the Beneficiary)</p>
+                        <p style="font-style: italic">(indicate the living arrangement of the Beneficiary)</p>
                     </div>
                     <div class="living-arrangement-body">
+                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap:wrap;gap:40px">
                         <div>
                             <input type="radio"  name="living_arrangement1" value="Independently" id="independently">
-                            <label for="independently">Independently</label>
+                            <label style="font-style: normal;font-size:16px" for="independently">Independently</label>
                         </div>
                         <div>
                             <input type="radio"   name="living_arrangement1" value="With Spouse" id="with-spouse">
-                            <label for="with-spouse">With Spouse</label>
+                            <label style="font-style: normal;font-size:16px" for="with-spouse">With Spouse</label>
                         </div>
                         <div>
                             <input type="radio" name="living_arrangement1" value="With Parents" id="with-parents">
-                            <label for="with-parents">With Parents/other family </label>
+                            <label style="font-style: normal;font-size:16px" for="with-parents">With Parents/other family </label>
                         </div>
                         <div>
                             <input type="radio" name="living_arrangement1" value="Assisted Living facility" id="assisted">
-                            <label for="assisted">Assisted Living Facility</label>
+                            <label style="font-style: normal;font-size:16px" for="assisted">Assisted Living Facility</label>
                         </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;flex-wrap:wrap;gap:40px">
                         <div>
                             <input type="radio" name="living_arrangement1" value="Family Care Program" id="family-care">
-                            <label for="family-care">Family Care Program</label>
+                            <label style="font-style: normal;font-size:16px" for="family-care">Family Care Program</label>
                         </div>
                         <div>
                             <input type="radio" name="living_arrangement1" value="Nursing Home" id="nursing-home">
-                            <label for="nursing-home">Nursing Home</label>
+                            <label style="font-style: normal;font-size:16px" for="nursing-home">Nursing Home</label>
                         </div>
                         <div>
                             <input type="radio" name="living_arrangement1" value="CR/IRA/ICF(supervised)" id="cr">
-                            <label for="cr"> CR/IRA/ICF (supervised) </label>
+                            <label style="font-style: normal;font-size:16px" for="cr"> CR/IRA/ICF (supervised) </label>
                         </div>
                         <div>
                             <input type="radio" name="living_arrangement1" value="CR/IRA(Supportive)" id="ira">
-                            <label for="ira">CR/IRA (supportive)</label>
+                            <label style="font-style: normal;font-size:16px" for="ira">CR/IRA (supportive)</label>
                         </div>
-                        <div>
-                            <input type="radio" name="living_arrangement1" value="Other" id="other">
-                            <label for="other"> Other -</label>
-                        </div>
+                    </div>
+                      <div style="width:100%;display: flex; justify-content: space-between; align-items: center; gap: 15px;flex-wrap:wrap">
+                            <div>
+                                <input type="radio" name="living_arrangement1" value="Other" id="other">
+                                <label style="font-style: normal;font-size:16px" for="other"> Other -</label>
+                            </div>
+                        
                         <div style="flex: 1;">
                             <input type="text" name="living_arrangement_other" id="healthcare-plan"
                                 style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
+                    </div>
 
                     </div>
                 </div>
@@ -3132,7 +3377,7 @@ tr.ind-th td{
                     </div>
                     <div class="living-arrangements-body">
                         <div>
-                            <p>Please attach a copy of the guardianship order with this Joinder Agreement.</p>
+                            <p style="font-style: italic">Please attach a copy of the guardianship order with this Joinder Agreement.</p>
                         </div>
                         <div style="display: flex;
                     align-items: center;
@@ -3148,22 +3393,22 @@ tr.ind-th td{
                                     <input type="radio" name="living_arrangements_yes" id="living-arrangements-yes"
                                     value="Yes"
                                         class="living-arrangements-yes">
-                                    <label for="living-arrangements-yes">Yes</label>
+                                    <label style="font-style: normal;font-size:16px" for="living-arrangements-yes">Yes</label>
                                 </div>
                                 <div>
                                     <input type="radio" name="living_arrangements_yes"
                                     value="No"
                                     id="living-arrangements-no">
-                                    <label for="living-arrangements-no">No</label>
+                                    <label style="font-style: normal;font-size:16px" for="living-arrangements-no">No</label>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <p>If you answered yes, continue to fill out below:</p>
+                            <p style="font-style: italic">If you answered yes, continue to fill out below:</p>
                         </div>
                         <div style="display: flex;
                     align-items: center;
-                    gap: 8px;">
+                    gap: 8px;flex-wrap:wrap">
                             <div>
                                 <p>Guardian of the: </p>
                             </div>
@@ -3177,21 +3422,21 @@ tr.ind-th td{
                                      name="living_arrangements_person"
                                         id="living-arrangements-person" class="living-arrangements-person">
 
-                                    <label for="living-arrangements-person">Person</label>
+                                    <label style="font-style: normal;font-size:16px" for="living-arrangements-person">Person</label>
                                 </div>
                                 <div>
                                     <input type="radio"
                                     value="Property"
                                      name="living_arrangements_person"
                                         id="living-arrangements-property">
-                                    <label for="living-arrangements-property">Property</label>
+                                    <label style="font-style: normal;font-size:16px" for="living-arrangements-property">Property</label>
                                 </div>
                                 <div>
                                     <input type="radio"
                                     value="Both"
                                     name="living_arrangements_person"
                                         id="living-arrangements-both">
-                                    <label for="living-arrangements-both">Both</label>
+                                    <label style="font-style: normal;font-size:16px" for="living-arrangements-both">Both</label>
                                 </div>
                             </div>
                         </div>
@@ -3213,7 +3458,7 @@ tr.ind-th td{
                                 <div class="w-50">
                                     <input type="text" name="living_arrangement_last" id=""
                                         style="width: 90%; border: none; border-bottom: 1px solid black;"> <br>
-                                    <label for="">Last</label>
+                                    <label  for="">Last</label>
                                 </div>
                                 <div class="w-50">
                                     <input type="text" name="living_arrangement_primary" id=""
@@ -3260,9 +3505,9 @@ tr.ind-th td{
                     <div class="power-of-attorney-body">
                         <div class="power-of-attorney-body-1">
                             <div class="power-of-attorney-body-1-header">
-                                <div style="display: flex;gap: 30px;">
-                                <h4 style="min-width: fit-content">Power of Attornery</h4>
-                                <p>Please attach a copy of Power of Attorney</p>
+                                <div style="display: flex;gap: 30px;flex-wrap:wrap">
+                                <h4 style="min-width: fit-content;">Power of Attornery</h4>
+                                <p style="font-style:italic">Please attach a copy of Power of Attorney</p>
                             </div>
 
                             <div class="power-of-attorney-body-1-form">
@@ -3318,7 +3563,7 @@ tr.ind-th td{
                             gap: 6px;">
                                 <div style="display: flex;
                                 align-items: center;
-                                gap: 8px;">
+                                gap: 8px;flex-wrap:wrap">
                                         <div>
                                             <p>Is this person the sole POA?</p>
                                         </div>
@@ -3331,11 +3576,11 @@ tr.ind-th td{
                                                 value="Yes"
                                                 name="sole_poa1" value="Yes" id="power-of-attorney-yes"
                                                     class="power-of-attorney-yes">
-                                                <label for="power-of-attorney-yes">Yes</label>
+                                                <label style="font-style: normal;font-size:16px" for="power-of-attorney-yes">Yes</label>
                                             </div>
                                             <div>
                                                 <input type="radio" name="sole_poa1" value="No" id="power-of-attorney-no">
-                                                <label for="power-of-attorney-no">No</label>
+                                                <label style="font-style: normal;font-size:16px" for="power-of-attorney-no">No</label>
                                             </div>
                                         </div>
                                     </div>
@@ -3353,11 +3598,11 @@ tr.ind-th td{
                                                     <input type="radio"
                                                      name="act_seprately1" value="Yes" id="power-of-attorney-authorized-yes"
                                                         class="power-of-attorney-authorized-yes">
-                                                    <label for="power-of-attorney-authorized-yes">Yes</label>
+                                                    <label style="font-style: normal;font-size:16px" for="power-of-attorney-authorized-yes">Yes</label>
                                                 </div>
                                                 <div>
                                                     <input type="radio" name="act_seprately1" value="No" id="power-of-attorney-authorized-no">
-                                                    <label for="power-of-attorney-authorized-no">No</label>
+                                                    <label style="font-style: normal;font-size:16px" for="power-of-attorney-authorized-no">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -3366,9 +3611,9 @@ tr.ind-th td{
                         </div>
                         <div class="power-of-attorney-body-1">
                             <div class="power-of-attorney-body-1-header">
-                                <div style="display: flex;gap: 30px;">
+                                <div style="display: flex;gap: 30px;flex-wrap:wrap">
                                 <h4>Power of Attornery - Second Agent</h4>
-                                <p>Please attach a copy of Power of Attorney</p>
+                                <p style="font-style:italic">Please attach a copy of Power of Attorney</p>
                             </div>
 
                             <div class="power-of-attorney-body-1-form">
@@ -3424,7 +3669,7 @@ tr.ind-th td{
                             gap: 6px;">
                                 <div style="display: flex;
                                 align-items: center;
-                                gap: 8px;">
+                                gap: 8px; flex-wrap:wrap">
                                         <div>
                                             <p>Is this person the sole POA?</p>
                                         </div>
@@ -3437,13 +3682,13 @@ tr.ind-th td{
                                                 value="Yes"
                                                 type="radio" name="power_of_attorney2_yes" id="power-of-attorney2-yes"
                                                     class="power-of-attorney2-yes">
-                                                <label for="power-of-attorney2-yes">Yes</label>
+                                                <label style="font-style: normal;font-size:16px" for="power-of-attorney2-yes">Yes</label>
                                             </div>
                                             <div>
                                                 <input
                                                 value="No"
                                                  type="radio" name="power_of_attorney2_yes" id="power-of-attorney2-no">
-                                                <label for="power-of-attorney2-no">No</label>
+                                                <label style="font-style: normal;font-size:16px" for="power-of-attorney2-no">No</label>
                                             </div>
                                         </div>
                                     </div>
@@ -3462,13 +3707,13 @@ tr.ind-th td{
                                                     value="Yes"
                                                      type="radio" name="power_of_attorney2_authorized_yes" id="power-of-attorney2-authorized-yes"
                                                         class="power-of-attorney2-authorized-yes">
-                                                    <label for="power-of-attorney2-authorized-yes">Yes</label>
+                                                    <label style="font-style: normal;font-size:16px" for="power-of-attorney2-authorized-yes">Yes</label>
                                                 </div>
                                                 <div>
                                                     <input
                                                     value="No"
                                                      type="radio" name="power_of_attorney2_authorized_yes" id="power-of-attorney-authorized2-no">
-                                                    <label for="power-of-attorney-authorized2-no">No</label>
+                                                    <label style="font-style: normal;font-size:16px" for="power-of-attorney-authorized2-no">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -3486,7 +3731,7 @@ tr.ind-th td{
                     </div>
                     <div class="guardian-information-body">
                         <div>
-                            <p>Please attach a copy of Decree or Letter of guardianship.</p>
+                            <p style="font-style: italic">Please attach a copy of Decree or Letter of guardianship.</p>
                         </div>
                         <div>
                             <div style="display: flex;
@@ -3504,13 +3749,13 @@ tr.ind-th td{
                                                     value="Yes"
                                                      type="radio" name="guardian_information_yes" id="guardian-information-yes"
                                                         class="guardian-information-yes">
-                                                    <label for="guardian-information-yes">Yes</label>
+                                                    <label style="font-style: normal;font-size:16px" for="guardian-information-yes">Yes</label>
                                                 </div>
                                                 <div>
                                                     <input
                                                     value="No"
                                                      type="radio" name="guardian_information_yes" id="guardian-information-no">
-                                                    <label for="guardian-information-no">No</label>
+                                                    <label style="font-style: normal;font-size:16px" for="guardian-information-no">No</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -3521,7 +3766,7 @@ tr.ind-th td{
                         <div>
                             <div style="display: flex;
                                     align-items: center;
-                                    gap: 8px;">
+                                    gap: 8px; flex-wrap:wrap">
                                             <div>
                                                 <p>Guardian of the:</p>
                                             </div>
@@ -3537,7 +3782,7 @@ tr.ind-th td{
                                                     value="Person"
                                                      type="radio" name="guardian_appointed_for1" value="Person" id="guardian-information-person"
                                                         class="guardian-information-person">
-                                                    <label for="guardian-information-person">Person</label>
+                                                    <label style="font-style: normal;font-size:16px" for="guardian-information-person">Person</label>
                                                 </div>
                                                 <div style="display: flex;
                                                 justify-content: center;
@@ -3546,7 +3791,7 @@ tr.ind-th td{
                                                     <input
                                                     value="Property"
                                                      type="radio" name="guardian_appointed_for1" value="Property" id="guardian-information-property">
-                                                    <label for="guardian-information-property">Property</label>
+                                                    <label style="font-style: normal;font-size:16px" for="guardian-information-property">Property</label>
                                                 </div>
                                                 <div style="display: flex;
                                                 justify-content: center;
@@ -3555,7 +3800,7 @@ tr.ind-th td{
                                                     <input
                                                     value="Both"
                                                      type="radio" name="guardian_appointed_for1" value="Both" id="guardian-information-both">
-                                                    <label for="guardian-information-both">Both</label>
+                                                    <label style="font-style: normal;font-size:16px" for="guardian-information-both">Both</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -3682,7 +3927,7 @@ tr.ind-th td{
                                 <div style="display: flex;
                                 flex-direction: column;
                                 gap: 10px;">
-                                <p>The Beneficiary’s sub-trust account terminates
+                                <p style="line-height: 1.4">The Beneficiary’s sub-trust account terminates
                                     upon his or her death. If, upon the death of the
                                     Beneficiary, funds remain in his or her sub-trust
                                     account, such funds shall be deemed to be property
@@ -3702,7 +3947,7 @@ tr.ind-th td{
                                     any such funds and the State(s) shall have priority
                                     over payment of other debts and administrative
                                     expenses except as listed in POMS SI 01120.203E.</p>
-                                <p>Funeral expenses will only be paid pursuant to a
+                                <p style="line-height:1.4">Funeral expenses will only be paid pursuant to a
                                     Medicaid eligible pre-need funeral arrangement
                                     established and funded prior to the Beneficiary’s
                                     death. Funeral expenses will not be paid after the
@@ -3710,10 +3955,10 @@ tr.ind-th td{
                                 </div>
                             </div>
                             <div>
-                                <h3 style="font-size: 16px;">Death of Beneficiary:</h3>
+                                <h3 style="font-size: 16px;">Contributions/Deposits:</h3>
                                 <div style="display: flex;
                                 flex-direction: column;
-                                gap: 10px;">
+                                gap: 10px;line-height:1.4">
                                 <p>All contributions made to the sub-trust account
                                     will be held and administered pursuant to the
                                     provisions of the SLC Supplemental Needs Trust
@@ -3741,7 +3986,7 @@ tr.ind-th td{
                                 <h3 style="font-size: 16px;">Disbursements:</h3>
                                 <div style="display: flex;
                                 flex-direction: column;
-                                gap: 10px;">
+                                gap: 10px;line-height:1.4">
                                 <p>All disbursement requests shall be reviewed and
                                     approved on an individual basis.
                                     Disbursements for expenses incurred more than 90
@@ -3766,7 +4011,7 @@ tr.ind-th td{
                                 <h3 style="font-size: 16px;">Disability Determination:</h3>
                                 <div  style="display: flex;
                                 flex-direction: column;
-                                gap: 10px;">
+                                gap: 10px;line-height:1.4">
                                 <p>In the event that a determination of disability is
                                     required for Medicaid purposes, please be advised
                                     that administrative fees shall be incurred while the
@@ -3783,7 +4028,7 @@ tr.ind-th td{
                                 <h3 style="font-size: 16px;">Disclosure of Potential Conflict of Interest:</h3>
                                 <div style="display: flex;
                                 flex-direction: column;
-                                gap: 10px;">
+                                gap: 10px;line-height:1.4">
                                 <p>There may be a potential conflict of interest in the
                                     administration of the Trust since the Trust retains
                                     those funds remaining in the sub-trust account at
@@ -3828,7 +4073,7 @@ tr.ind-th td{
                     <div class="information-disclosures-body-left">
                         <div>
                             <h3 style="font-size: 16px;">Situs:</h3>
-                            <p>The sub-trust account created by this Agreement
+                            <p style="line-height:1.4">The sub-trust account created by this Agreement
                                 has been accepted by the Trustee in the State of
                                 New York and will be administered by Senior Lifecare
                                 Corp and a financial institution in the State of New
@@ -3844,7 +4089,7 @@ tr.ind-th td{
                             <h3 style="font-size: 16px;">Invalidity of any Provision:</h3>
                             <div style="display: flex;
                     flex-direction: column;
-                    gap: 10px;">
+                    gap: 10px;line-height:1.4">
                                 <p>Should any provision of this Agreement be or
                                     become invalid or unenforceable, the remaining
                                     provisions of this Agreement shall be and continue
@@ -3892,7 +4137,7 @@ tr.ind-th td{
                     <div class="information-disclosures-body-right">
                         <div style="display: flex;
                 flex-direction: column;
-                gap: 10px;">
+                gap: 10px;line-height:1.4">
                             <p>donor is “disabled” as that term is defined under
                                 federal law, to determine whether they have the
                                 legal authority to transfer property to fund the
@@ -3976,36 +4221,33 @@ tr.ind-th td{
                             <div>
                                 <p>Who is signing this Joinder Agreement? </p>
                             </div>
-                            <div style="display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 10px;">
+                            <div class="agr-signature">
                                 <div>
                                     <input type="radio"
                                     value="Beneficiary"
                                      name="agreement_signature_beneficiary"
                                         id="agreement-signature-beneficiary" class="agreement-signature-beneficiary">
-                                    <label for="agreement-signature-beneficiary">Beneficiary</label>
+                                    <label style="font-style: normal;font-size:16px" for="agreement-signature-beneficiary">Beneficiary</label>
                                 </div>
                                 <div>
                                     <input type="radio"
                                     value="Power of Attorney"
                                      name="agreement_signature_beneficiary"
                                         id="agreement-signature-attorney">
-                                    <label for="agreement-signature-attorney">Power of Attorney</label>
+                                    <label style="font-style: normal;font-size:16px"  for="agreement-signature-attorney">Power of Attorney</label>
                                 </div>
                                 <div>
                                     <input type="radio"
                                     value="Guardian"
                                      name="agreement_signature_beneficiary"
                                         id="agreement-signature-guardian">
-                                    <label for="agreement-signature-guardian">Guardian</label>
+                                    <label style="font-style: normal;font-size:16px"  for="agreement-signature-guardian">Guardian</label>
                                 </div>
                             </div>
                         </div>
                         <div style="display: flex;
                     flex-direction: column;
-                    gap: 20px;">
+                    gap: 25px;">
                             <div>
                                 <p>I certify that the above Information is accurate and completed to the best of my knowledge.</p>
                             </div>
@@ -4027,11 +4269,12 @@ tr.ind-th td{
                                 </div>
                                 <div class="w-25">
                                     <canvas id="signature-canvas-1" style="width: 100%; height: 100px; background-color:#f2f2f2"></canvas>
+                                <button style="width:50px;margin-top:6px" type="button" id="clear-1" onclick="clearCanvas(1)">Clear</button>
                                 </div>
 
 
                             </div>
-                            <button style="width:50px" type="button" id="clear-1" onclick="clearCanvas(1)">Clear</button>
+                            {{-- <button style="width:50px" type="button" id="clear-1" onclick="clearCanvas(1)">Clear</button> --}}
                             <input type="hidden" id="joinder_signature_1" name="joinder_signature_1">
                         </div>
                     </div>
@@ -4180,7 +4423,7 @@ tr.ind-th td{
 
                   <!-- FOR OFFICE USE ONLY -->
 
-                  <div class="for-office-use-only">
+                  <div style="margin-top: 70px">
                     <div class="for-office-use-only-header">
                         <h3 style="text-align: center;">FOR OFFICE USE ONLY</h3>
                     </div>
@@ -4201,10 +4444,11 @@ tr.ind-th td{
                             </div>
                             <div class="w-25">
                                 <canvas id="signature-canvas-4" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
+                                <button type="button" style="width:50px;margin-top:6px" id="clear-4" onclick="clearCanvas(4)">Clear</button>
                             </div>
 
                         </div>
-                        <button type="button" style="width:50px" id="clear-4" onclick="clearCanvas(4)">Clear</button>
+                        
                         <input type="hidden" id="joinder_signature_4" name="joinder_signature_4">
                     </div>
                   </div>
@@ -4235,11 +4479,11 @@ tr.ind-th td{
                         </div>
                         <div class="for-office-use-only-2-body">
                             <div class="for-office-use-only-2-body-style">
-                                <label style="font-size: 0.9rem;  min-width: fit-content; " for="">Member ID#:</label>
+                                <label  style="font-size: 0.9rem;  min-width: fit-content; font-style:normal " for="">Member ID#:</label>
                                 <input type="text" name="office_use_member_id_above" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
                             </div>
                             <div class="for-office-use-only-2-body-style">
-                                <label style="font-size: 0.9rem;  min-width: fit-content; " for="">Effective Date:</label>
+                                <label style="font-size: 0.9rem;  min-width: fit-content; font-style:normal" for="">Effective Date:</label>
                                 <input type="text" name="office_use_effective_date" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
                             </div>
                         </div>
@@ -4253,33 +4497,33 @@ tr.ind-th td{
                      </div>
                      <div class="direct-debit-req-form-body">
                         <div style="display: flex; justify-content: center; align-items: center;gap:5px">
-                            <label for="">Donor/Beneficiary</label>
+                            <label style="font-style: normal" for="">Donor/Beneficiary</label>
                             <div style="flex: 1;">
                                 <input type="text" name="direct_debit_donor_beneficiary" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                             </div>
                         </div>
 
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px">
-                        <label for="">Representative</label>
+                        <label style="font-style: normal" for="">Representative</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_representative" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
                     <div class="direct-debit-bank">
                     <div style="display: flex; justify-content: center; align-items: center; gap:5px" class="w-50">
-                        <label for="">Bank Name</label>
+                        <label style="font-style: normal" for="">Bank Name</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_bank_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-25">
-                        <label for="">City</label>
+                        <label style="font-style: normal" for="">City</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_city" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-25">
-                        <label for="">State</label>
+                        <label style="font-style: normal" for="">State</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_state" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
@@ -4287,13 +4531,13 @@ tr.ind-th td{
                 </div>
                 <div class="direct-debit-bank">
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-48">
-                        <label for="">Bank Routing Number </label>
+                        <label style="font-style: normal" for="">Bank Routing Number </label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_bank_routing" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-48">
-                        <label for="">Account Number</label>
+                        <label style="font-style: normal" for="">Account Number</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_account_number" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
@@ -4301,12 +4545,12 @@ tr.ind-th td{
                 </div>
                 <div class="acc-name-style">
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-70">
-                        <label for="">Account Name</label>
+                        <label style="font-style: normal" for="">Account Name</label>
                         <div style="flex: 1;">
                             <input type="text" name="direct_debit_account_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
                         </div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px;flex-wrap:wrap">
                         <div>
                             <p>Account Type: </p>
                         </div>
@@ -4317,12 +4561,12 @@ tr.ind-th td{
                             <div>
                                 <input type="radio" name="direct_debit_bank_type1" value="Checking"
                                     id="direct-debit-req-form-checking" class="direct-debit-req-form-checking">
-                                <label for="direct-debit-req-form-checking">Checking</label>
+                                <label style="font-style: normal;font-size:16px" for="direct-debit-req-form-checking">Checking</label>
                             </div>
                             <div>
                                 <input type="radio"name="direct_debit_bank_type1" value="Savings"
                                     id="direct-debit-req-form-savings">
-                                <label for="direct-debit-req-form-savings">Savings</label>
+                                <label style="font-style: normal;font-size:16px" for="direct-debit-req-form-savings">Savings</label>
                             </div>
                         </div>
                     </div>
@@ -4339,14 +4583,14 @@ tr.ind-th td{
                             reasonable opportunity to act on it. </p>
                     </div>
                     <div>
-                        <div style="display: flex; justify-content: center; align-items: center;gap:5px">
-                            <label for="">Beneficiary/ Representative Sign Here</label>
-                            <div style="flex: 1;">
-                                <input type="text" id='signature_input_5' oninput="generateSignature(5)" maxlength="18" name="joinder_signature_5" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
-                            </div>
+                        <div class="bene-sig">
+                            <label style="font-style: normal;min-width:fit-content" for="">Beneficiary/ Representative Sign Here</label>
+                            {{-- <div style="flex: 1;"> --}}
+                                <input type="text" id='signature_input_5' oninput="generateSignature(5)" maxlength="18" name="joinder_signature_5" id="" style="border: none; border-bottom: 1px solid black; width: 100%;flex:1">
+                            {{-- </div> --}}
 
                         </div>
-                        <div style="width: 25%;margin-top: 15px;">
+                        <div class="can-style">
                                  <canvas id="signature-canvas-5" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
                         </div>
                         <button type="button" style="width:50px;margin-top:8px" id="clear-4" onclick="clearCanvas(5)">Clear</buttonty>
@@ -4363,15 +4607,15 @@ tr.ind-th td{
                         <h3 style="text-align: center;">FOR OFFICE USE:</h3>
                     </div>
                     <div class="for-office-use-3-body">
-                                <div style="display: flex; align-items: center;gap:5px" class="w-50">
+                                <div style="display: flex; align-items: center;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Account #:</p>
                                     <input type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="display: flex; align-items: center;gap:5px" class="w-50">
+                                <div style="display: flex; align-items: center;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Member #:</p>
                                     <input type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="display: flex; margin-top: 15px;gap:5px " class="w-50">
+                                <div style="display: flex; margin-top: 15px;gap:5px;flex-wrap:wrap " class="w-50">
                                     <p>Processed By:</p>
                                     <input type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
@@ -4382,26 +4626,26 @@ tr.ind-th td{
                                 <div style="margin-top: 10px;">
                                     <p>Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)</p>
                                 </div>
-                                <div style="display: flex; margin-top: 15px;gap:5px" class="w-50">
+                                <div style="display: flex; margin-top: 15px;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Date of Monthly Debit:</p>
                                     <input type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="display: flex; justify-content: center; margin-top: 15px;gap:5px" class="w-50">
+                                <div class="w-50 db-month">
                                     <p>First Debit Month:</p>
                                     <input type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
                     </div>
                     <div style="width: 80%; margin: auto;">
-                        <p>If any direct debits are returned for insu cient funds, a $53 charge will apply <br>
+                        <p style="font-style: italic">If any direct debits are returned for insu cient funds, a $53 charge will apply <br>
                             A $150 annual - renewal fee will be charged on the anniversary of the account
                         </p>
                     </div>
                     <button type="submit" id="submit-button" class="submit-button">
-                        <span >Submit</span>
+                        Submit
                         <span class="loader" style="display: none;"></span>
                     </button>
                     <div style="display: flex; justify-content: center; align-items: center;">
-                        <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 25%; object-fit: cover;">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 40%; object-fit: cover;">
                     </div>
                     <div class="footer-for-office-use-3">
                         <div class="footer-left">
@@ -4431,7 +4675,13 @@ tr.ind-th td{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/inputmask.min.js"></script>
+
 <script type="text/javascript">
+generateSignature(1)
+generateSignature(2)
+generateSignature(3)
+generateSignature(4)
     $(document).ready(function () {
 
         //save this form using ajax
@@ -4483,6 +4733,10 @@ tr.ind-th td{
 
     });
 
+var phoneInput = document.getElementById('ssn');
+  var mask = new Inputmask("999-999-9999"); 
+  mask.mask(phoneInput);
+
 
 
     function generateSignature(id) {
@@ -4491,7 +4745,7 @@ tr.ind-th td{
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#f2f2f2';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = '42px "Rage Italic", cursive';
+    ctx.font = '42px "BrittanySignature", BrittanySignature';
     ctx.fillStyle = 'black';
     ctx.fillText(name, 5, 80);
 }
@@ -4516,6 +4770,42 @@ function saveCanvasAsImage() {
         document.getElementById(`joinder_signature_${i}`).value = signatureDataURL;
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    for (const el of document.querySelectorAll("[placeholder][data-slots]")) {
+        const pattern = el.getAttribute("placeholder"),
+            slots = new Set(el.dataset.slots || "_"),
+            prev = (j => Array.from(pattern, (c,i) => slots.has(c)? j=i+1: j))(0),
+            first = [...pattern].findIndex(c => slots.has(c)),
+            accept = new RegExp(el.dataset.accept || "\\d", "g"),
+            clean = input => {
+                input = input.match(accept) || [];
+                return Array.from(pattern, c =>
+                    input[0] === c || slots.has(c) ? input.shift() || c : c
+                );
+            },
+            format = () => {
+                const [i, j] = [el.selectionStart, el.selectionEnd].map(i => {
+                    i = clean(el.value.slice(0, i)).findIndex(c => slots.has(c));
+                    return i<0? prev.at(-1) : back ? prev[i-1] || first : i;
+                });
+                el.value = clean(el.value).join("");
+                el.setSelectionRange(i, j);
+                back = false;
+            };
+        let back = false;
+        el.addEventListener("keydown", (e) => back = e.key === "Backspace");
+        el.addEventListener("input", format);
+        el.addEventListener("focus", format);
+        el.addEventListener("blur", () => el.value === pattern && (el.value=""));
+    }
+});
+
+
+
+
+
 </script>
 
 </body>
