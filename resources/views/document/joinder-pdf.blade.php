@@ -813,7 +813,7 @@
                 </div>
             </div>
 
-            <div class="border-container" style="margin-top: 15px;">
+            <div class="border-container" style="margin-top: 5px;">
             <p style="padding:0;margin: 0;" class="xs">
                 The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
                 individual
