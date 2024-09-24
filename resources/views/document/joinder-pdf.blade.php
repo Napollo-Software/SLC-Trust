@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://db.onlinewebfonts.com/c/5e782bf38cce30531775d9922caba85c?family=Nominee-Regular" rel="stylesheet">
     <title>Joinder Form</title>
     <style>
         table {
