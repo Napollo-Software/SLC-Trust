@@ -1512,24 +1512,22 @@
                         {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}> B &nbsp;
                         <input style="height:22px" type="radio" name="healthcare_b" value="D"
                         {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> D
-                    </div>
-                    <div style="padding:0;margin: 0;display:table-cell" class='xs'>
-                    Does the applicant have a supplemental policy? &nbsp;
-                    <input style="height:22px" type="radio" name="supplemental_yes" value="Yes"
+                        Does the applicant have a supplemental policy? &nbsp;
+                        <input style="height:22px" type="radio" name="supplemental_yes" value="Yes"
                         {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}> Yes &nbsp;
                         <input style="height:22px" type="radio" name="supplemental_yes" value="No"
                         {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> No
-                </div>
-            </div>
-                    <div style="display: table-row;" class='xs'>
-                        If yes, what is the monthly premium? $
-                        <input type="text" value="{{ $healthcare_partb_premium }}" class="no-border"
-                            name="healthcare_partb_premium">
-                        Plan Name?
-                        <input type="text" value="{{ $healthcare_partb_plan }}" class="no-border"
-                            name="healthcare_partb_plan">
                     </div>
-                </p><br>
+               </div>
+            </p>
+            <div style="display: table-row;" class='xs'>
+                If yes, what is the monthly premium? $
+                <input type="text" value="{{ $healthcare_partb_premium }}" class="no-border"
+                    name="healthcare_partb_premium">
+                Plan Name?
+                <input type="text" value="{{ $healthcare_partb_plan }}" class="no-border"
+                    name="healthcare_partb_plan">
+            </div>
             </div>
             <div style="display: table;">
                 <div style="display: table-row;">
