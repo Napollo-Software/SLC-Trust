@@ -12,8 +12,7 @@
             width: 100%;
             border: 1px solid rgb(184 221 219);
         }
-     
-
+        
         th,
         td {
             border: 1px solid rgb(184 221 219);
@@ -117,6 +116,10 @@
             color: rgb(52 159 153);
         } */
          
+        .italic{
+            font-style: italic;
+            font-size: 13px;
+        }
     </style>
 </head>
 
@@ -238,45 +241,59 @@
                     <div style="display: table-cell">
                         <label style="font-weight: bold;">Name:</label>
                     </div>
-                </div> <br>
+                </div>
+                <br/>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
                         <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" /> <br>
-                        <label>First</label>
+                        <label class="italic">First</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" /> <br>
-                        <label>Middle:</label>
+                        <label class="italic">Middle:</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" /> <br>
-                        <label>Last:</label>
+                        <label class="italic">Last:</label>
                     </div>
                 </div>
             </div> 
+            <br/>
+
+            <div style="display: table; width: 100%;">
+                <div style="display: table-row;">
+                    <p style="display:table-cell;">Marital Status:
+                        <label>
+                            <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Married"
+                                {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
+                            <label>Married</label>
+                        </label>
+                        <label>
+                            <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Widowed"
+                            {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Widowed' ? 'checked' : '' }}>
+                        <label>Widowed</label>
+                        </label>
+                        <label>
+                            <input style="height:22px" type="radio" name="sponsor_marital_status" value="Single"
+                            {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Single' ? 'checked' : '' }}>
+                        <label>Single</label>
+                        </label>
+                    </p>
+                    <label style=" display:table-cell; margin: 0;">
+                            <label>Gender</label>
+                            <input type="text" name="sponsor_gender">
+                        </label>
+                        <!-- value="{{ $sponsor_gender }}" -->
+                    </div>
+               
+           </div> 
 
                 {{-- <br /> --}}
 
-                <p style=" ">Marital Status:
-                    <label>
-                        <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Married"
-                            {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
-                        <label>Married</label>
-                    </label>
-                    <label>
-                        <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Widowed"
-                        {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Widowed' ? 'checked' : '' }}>
-                    <label>Widowed</label>
-                    </label>
-                    <label>
-                        <input style="height:22px" type="radio" name="sponsor_marital_status" value="Single"
-                        {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Single' ? 'checked' : '' }}>
-                    <label>Single</label>
-                    </label>
-                </p>
+           
 
                 {{-- <div style="display: table-row;">
                     <div style="display: table-cell">
@@ -300,25 +317,23 @@
                 </div> --}}
 
                 {{-- <br /> --}}
+                <br/>
             <div style="display: table; width: 100%;">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_ssn }}" name="sponsor_ssn"> <br>
-                        <label>SSN:</label>
+                        <label class="italic">SSN:</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
                         <input type="text" name="sponsor_dob" value="{{ $sponsor_dob }}"> <br>
-                        <label>Date of Birth:</label>
+                        <label class="italic">Date of Birth:</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <label>Citizenship:</label>
-                        <input style="height:22px" type="radio" name="sponsor_citizen1" value="Yes"
-                            {{ isset($sponsor_citizen1) && $sponsor_citizen1 === 'Yes' ? 'checked' : '' }}> Yes &nbsp;
-                        <input style="height:22px" type="radio" name="sponsor_citizen1" value="No"
-                            {{ isset($sponsor_citizen1) && $sponsor_citizen1 === 'No' ? 'checked' : '' }}> No
+                    <input type="text" name="sponsor_citizenship" value="{{ $sponsor_dob }}"> <br>
+                    <label class="italic">Date of Birth:</label>
                     </div>
                 </div>
 
@@ -358,7 +373,7 @@
 
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home" style="width: 95%"> <br>
-                        <label>Home Phone:</label>
+                        <label class="italic">Home Phone:</label>
                     </div>
                     &nbsp;&nbsp;
 
@@ -366,7 +381,7 @@
 
                         <input type="text" value="{{ $sponsor_tel_cell }}" class="no-border" style="width: 95%"
                             name="sponsor_tel_cell"> <br>
-                        <label>Cell Phone:</label>
+                        <label class="italic">Cell Phone:</label>
                     </div>
                 </div>
             </div>
@@ -391,7 +406,7 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%"> <br>
-                        <label>Email:</label>
+                        <labe class="italic"l>Email:</label>
                     </div>
                 </div>
             </div>
@@ -401,7 +416,7 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold">Address:</label>
+                        <label class="italic"  style="font-weight: bold">Address:</label>
                     </div>
                 </div>
             </div>
@@ -415,34 +430,31 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $sponsor_address }}" name="sponsor_address" style="width:95%"> <br>
-                        <label>Address</label>
+                        <label class="italic">Address</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_apt }}" name="sponsor_apt" style="width:95%"> <br>
-                        <label>Apt #:</label>
+                        <label class="italic">Apt #:</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_city }}" name="sponsor_city" style="width:95%" /> <br>
-                        <label>City:</label>
+                        <label class="italic">City:</label>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $sponsor_state }}" name="sponsor_state" style="width:95%" /> <br>
+                        <label class="italic">State:</label>
+                    </div>&nbsp;&nbsp;
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $sponsor_zip }}" name="sponsor_zip" style="width:95%" /> <br>
+                        <label class="italic">Zip:</label>
                     </div>
 
                 </div>
                 </div>
-                <br>
-                <div style="display: table; width:100%">
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_state }}" name="sponsor_state" style="width:95%" /> <br>
-                        <label>State:</label>
-                    </div>&nbsp;&nbsp;
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_zip }}" name="sponsor_zip" style="width:95%" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div>
-                </div>
+            
                 <br />
                 <div style="display: table;">
 
