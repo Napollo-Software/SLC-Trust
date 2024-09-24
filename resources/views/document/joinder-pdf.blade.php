@@ -91,7 +91,7 @@
             padding: 14px;
         }
         tbody tr td{
-            padding: 6px;
+            padding: 14px;
             border-right: 2px solid rgb(184 221 219);
 
         }
@@ -120,14 +120,23 @@
          
         .italic{
             font-style: italic;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .text-center{
             text-align: center;
         }
 
-        .text-sm{
+
+        .xs{
+            font-size: 12px;
+        }
+
+        .sm{
+            font-size: 13px;
+        }
+
+        .md{
             font-size: 14px;      
         }
 
@@ -143,8 +152,19 @@
         }
 
         .section-title{
-            margin-left:-12px
+            margin-left:-5px
         }
+
+        .border-container{
+            border:1px solid #B8DDDB;
+            padding:15px
+        }
+        .pa-container{
+            border: 2px solid rgb(184 221 219);
+            padding: 15px 20px;
+        }
+
+
     </style>
 </head>
 
@@ -250,9 +270,8 @@
                     before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a
                     sub-trust account under the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, dated February 13,
                     2023. The Trust is Irrevocable.</p>
-                <p style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
-            </div>
-            <div class="section-title">
+                <p class="" style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
+            </div class="section-title">
                 <p
                     style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-5px;margin-left:-20px">
                     BENEFICIARY INFORMATION</p>
@@ -385,7 +404,7 @@
 
 
             <div style="display: table; width:100%">
-                <div style="display: table-row;">
+                <div style="display: table-row;margin-top:-25px">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Contact Information:</label>
                     </div>
@@ -437,18 +456,16 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label class="strong">Address:</label>
+                        <label class="strong sm">Address:</label>
                     </div>
                 </div>
             </div>
 
                 <br />
 
-                
-
                 <div style="display: table; width:100%">
 
-                <div style="display: table-row;">
+                <div style="display: table-row;" class="xs">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $sponsor_address }}" name="sponsor_address" style="width:95%">
                         <label class="italic">Address</label>
@@ -539,10 +556,10 @@
         </div>
 
         <div style="width: 100%;display: table;">
-                <p style="margin-top:-3px" class="text-center text-sm">Please mail all trust documents to:</p>
-                <p style="margin-top:-10px" class="text-center text-sm strong"> SLC Supplemental Needs Trust</p>
-                <p style="margin-top:-10px" class="text-center text-sm strong"> 5014-16th Ave, Suite 489</p>
-                <p style="margin-top:-10px" class="text-center text-sm strong"> Brooklyn, NY 11204</p>
+                <p style="margin-top:-3px" class="text-center sm">Please mail all trust documents to:</p>
+                <p style="margin-top:-10px" class="text-center sm strong"> SLC Supplemental Needs Trust</p>
+                <p style="margin-top:-10px" class="text-center sm strong"> 5014-16th Ave, Suite 489</p>
+                <p style="margin-top:-10px" class="text-center sm strong"> Brooklyn, NY 11204</p>
         </div>
 
 
@@ -554,9 +571,8 @@
             </div>
             <div style="padding: 30px 10px;;font-size: 12px">
                 <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created pursuant to 42 United States Code §1396. You are encouraged to seek independent, professional advice before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a sub-trust account under the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, dated February 13, 2023. The Trust is Irrevocable.</p>
-                <p>NOTE: All questions must be answered or your application will be delayed.</p>
+                <p class="">NOTE: All questions must be answered or your application will be delayed.</p>
             </div>
-            <div class="section-title">
                 <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">SPONSOR/BENEFICIARY INFORMATION</p>
             </div>
             <p>The Beneficiary and Donor must always be the same person. Only funds belonging to the Beneficiary may be contributed to the Trust.</p>
@@ -667,12 +683,15 @@
         {{-- <div class="page-break"></div> --}}
 
 
-        <div class="page-2">
-            <p
-                style="font-size: 16px; padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
-                AUTHORIZED PREVENTATIVE: #1
-            </p>
-            <p style=" ">Who will be your primary contact?
+        <div class="page-2" style="margin-top:-20px">
+            <div class="section-title">
+                <p
+                class="md"
+                    style="padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+                    AUTHORIZED PREVENTATIVE
+                </p>
+            </div>
+            <p class="xs" style=" ">Who will be your primary contact?
                 <label style="margin: 0;">
                     <input style="height:22px" type="radio" name="auth_beneficiary" value="Beneficiary"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Beneficiary' ? 'checked' : '' }}>
@@ -689,12 +708,14 @@
                     Auth. Rep. 2
                 </label>
             </p>
-            <p style="padding:0;margin: 0;">
+
+            <div class="border-container">
+            <p style="padding:0;margin: 0;" class="xs">
                 The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
                 individual
                 to: Make Deposits, Request Statements and Disbursements.
             </p>
-            <br>
+            <p class="strong sm" style="margin-top:5px">Authorized Representative # 1</p>
             {{-- <p style="padding:0;margin: 0;"><b>Name:</b> First <input type="text"
                     value="{{ $auth_rep_one_fname }}" class="no-border" name="auth_rep_one_fname"
                     style="width: 100px">
@@ -703,44 +724,36 @@
                     style="width: 100px">
             </p> --}}
             
-            <div style="display: table;width:100%">
+            <div class="xs" style="display: table;width:100%;margin-top:-12px">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
                         <input type="text" value="{{ $auth_rep_one_fname }}" name="auth_rep_one_fname" style="width: 95%" /> <br>
-                        <label>First</label>
+                        <label class="italic">First</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_lname }}"name="auth_rep_one_lname" style="width: 95%" /> <br>
-                        <label>Last:</label>
+                        <label class="italic">Last:</label>
                     </div>
                 </div>
             </div>
 
-
-                <br>
-
-            <div style="display: table;width:100%">
-                <div style="display: table-row;">
+            <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
+                <div style="display: table-row;margin-top:2x">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold">Contact Information</label>
+                        <label style="font-weight: bold" class="sm">Contact Information</label>
                     </div>
                 </div>
-                <br>
-                <div style="display: table-row;">
+                <div style="display: table-row;" class="xs">
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_tel }}" name="auth_rep_one_tel" style="width: 95%"> <br>
-                        <label>Home Phone</label>
+                        <label class="italic">Home Phone</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_cell }} " name="auth_rep_one_cell" style="width: 95%"> <br>
-                        <label>Cell Phone</label>
+                        <label class="italic">Cell Phone</label>
                     </div>
-                    
-                </div>
-            </div>
-                <br>
-                <p style=" ">Preferred Phone:
+                    <p style=" ">Preferred Phone:
                     <label style="margin: 0;">
                         <input style="height:22px" type="radio" name="authorized_preferred_cell_form_inp" value="Authorized_1_cell"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
@@ -753,203 +766,168 @@
                     </label>
                 </p>
 
-
-                <br>
+                </div>
+            </div>
+           
             <div style="display: table;width:100%">
-
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $auth_rep_one_email }}" name="auth_rep_one_email" style="width: 95%" /> <br>
-                        <label>Email</label>
+                        <label class="italic">Email</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_relation_beneficiary }}" name="auth_rep_one_relation_beneficiary" style="width: 95%" /> <br>
-                        <label>Relationship to Beneficiary
+                        <label class="italic">Relationship to Beneficiary
                         </label>
                     </div>
                 </div>
             </div>
-
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
                         <div style="display: table-cell">
-                            <label style="font-weight: bold">Address:</label>
+                            <label style="font-weight: bold" class="sm">Address:</label>
                         </div>
                     </div>
 
-                    <br />
 
-                    <div style="display: table-row;">
+                    <div style="display: table-row;margin-top:7px" class="xs">
                         <div style="display: table-cell;">
-                            <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address" style="width: 95%"> <br>
+                            <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address" style="width: 95%">
                             <label>Address</label>
                         </div>
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" style="width: 95%" /> <br>
+                            <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" style="width: 95%" />
                             <label>City:</label>
                         </div>
-                    </div>
-                </div>
-                <br>
-
-                <div style="display: table;width:100%">
-                    <div style="display: table-row;">
                         <div style="display: table-cell;">
     
-                            <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" /> <br>
+                            <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" />
                             <label>State:</label>
                         </div>
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%"> <br>
+                            <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%">
                             <label>Apt #:</label>
                         </div> 
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" /> <br>
+                            <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" />
                             <label>Zip:</label>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                {{-- <div style="display: table;width:100%">
-
-                    <div style="display: table-row;">
-                        <div style="display: table-cell;">
-                            <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" /> <br>
-                            <label>State:</label>
-                        </div>
-                        <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_zip }}" name="auth_rep_one_zip" style="width: 95%" /> <br>
-                            <label>Zip:</label>
-                        </div>
-                    </div>
-                </div> --}}
-
-                <br />
-           
-            <hr>
-            <p
-            style="font-size: 16px; padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
-            AUTHORIZED PREVENTATIVE: #2
-        </p>
-
-            <p>
+            <div class="border-container" style="margin-top: 5px;">
+            <p style="padding:0;margin: 0;" class="xs">
                 The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
                 individual
                 to: Make Deposits, Request Statements and Disbursements.
             </p>
-
-            <div style="display: table;width:100%">
+            <p class="strong sm" style="margin-top:5px">Authorized Representative # 2</p>
+            {{-- <p style="padding:0;margin: 0;"><b>Name:</b> First <input type="text"
+                    value="{{ $auth_rep_one_fname }}" class="no-border" name="auth_rep_one_fname"
+                    style="width: 100px">
+                Last
+                <input type="text" value="{{ $auth_rep_one_lname }}" class="no-border" name="auth_rep_one_lname"
+                    style="width: 100px">
+            </p> --}}
+            
+            <div style="display: table;width:100%;margin-top:-12px" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
                         <input type="text" value="{{ $auth_rep_two_fname }}" name="auth_rep_two_fname" style="width: 95%" /> <br>
-                        <label>First</label>
+                        <label class="italic">First</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_two_lname }}"name="auth_rep_two_lname" style="width: 95%" /> <br>
-                        <label>Last:</label>
+                        <label class="italic">Last:</label>
                     </div>
                 </div>
             </div>
 
-            <br>
-
-            <div style="display: table;width:100%">
-                <div style="display: table-row;">
+            <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
+                <div style="display: table-row;margin-top:2x">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold">Contact Information</label>
+                        <label style="font-weight: bold" class="sm">Contact Information</label>
                     </div>
                 </div>
-                <br>
-                <div style="display: table-row;">
+                <div style="display: table-row;" class="xs">
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_two_tel }}" name="auth_rep_two_tel" style="width: 95%"> <br>
-                        <label>Home Phone</label>
+                        <label class="italic">Home Phone</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_two_cell }} " name="auth_rep_two_cell" style="width: 95%"> <br>
-                        <label>Cell Phone</label>
+                        <label class="italic">Cell Phone</label>
                     </div>
-                    
+                    <p style=" ">Preferred Phone:
+                    <label style="margin: 0;">
+                        <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Cell"
+                            {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
+                        <label>Cell</label>
+                    </label>
+                    <label style="margin: 0;">
+                        <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Home"
+                            {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Home' ? 'checked' : '' }}>
+                        <label>Home</label>
+                    </label>
+                </p>
+
                 </div>
             </div>
-
-            <br>
-               
-            <p style=" ">Preferred Phone:
-                <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Cell"
-                    {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
-                    <label>Cell</label>
-                </label>
-                <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Home"
-                        {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Home' ? 'checked' : '' }}>
-                    <label>Home</label>
-                </label>
-            </p>
-
-                <br>
-            
+           
+            <div style="display: table;width:100%" class="xs" >
+                <div style="display: table-row;">
+                    <div style="display: table-cell;">
+                        <input type="text" value="{{ $auth_rep_two_email }}" name="auth_rep_two_email" style="width: 95%" /> <br>
+                        <label class="italic">Email</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary" style="width: 95%" /> <br>
+                        <label class="italic">Relationship to Beneficiary
+                        </label>
+                    </div>
+                </div>
+            </div>
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
+                        <div style="display: table-cell">
+                            <label style="font-weight: bold" class="sm">Address:</label>
+                        </div>
+                    </div>
+
+
+                    <div class="xs" style="display: table-row;margin-top:7px">
                         <div style="display: table-cell;">
-                            <input type="text" value="{{ $auth_rep_two_email }}" name="auth_rep_two_email" style="width: 95%" /> <br>
-                            <label>Email</label>
+                            <input type="text" value="{{ $auth_rep_two_address }}" name="auth_rep_two_address" style="width: 95%">
+                            <label>Address</label>
                         </div>
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary" style="width: 95%" /> <br>
-                            <label>Relationship to Beneficiary
-                            </label>
+                            <input type="text" value="{{ $auth_rep_two_city }}" name="auth_rep_two_city" style="width: 95%" />
+                            <label>City:</label>
+                        </div>
+                        <div style="display: table-cell;">
+    
+                            <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" style="width: 95%" />
+                            <label>State:</label>
+                        </div>
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 95%">
+                            <label>Apt #:</label>
+                        </div> 
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_two_zip }}"name="auth_rep_two_zip" style="width: 95%" />
+                            <label>Zip:</label>
                         </div>
                     </div>
                 </div>
-                <br>
-
-            <div style="display: table">
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <label style="font-weight: bold">Address:</label>
-                    </div>
-                </div>
             </div>
-            <br>
+         
+         
 
-            <div style="display: table;width:100%">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_two_address }}" name="auth_rep_two_address" style="width: 95%"> <br>
-                        <label>Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_city }}" name="auth_rep_two_city" style="width: 95%" /> <br>
-                        <label>City:</label>
-                    </div>
-                </div>
-            </div>
-            <br>
-
-            <div style="display: table;width:100%">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" style="width: 95%" /> <br>
-                        <label>State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 95%"> <br>
-                        <label>Apt #:</label>
-                    </div> 
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_zip }}"name="auth_rep_two_zip" style="width: 95%" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div>
-            </div>
-            </div>
+    </div>
 
 
 
@@ -994,7 +972,6 @@
                 Home
 
             </p> --}}
-            <hr>
             <p
                 style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 REFERRING SOURCE
@@ -1160,13 +1137,15 @@
         {{-- <div class="page-break"></div> --}}
 
         <div class="page-3">
-            <p class='section-title'
+            <p
                 style="font-size: 12px; padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 PURPOSE OF ENROLLMENT
             </p>
+            <br>
             <p style="font-size: 12px; margin: 0;">
                 Indicate reason for establishing an account.
             </p>
+            <br>
             <div style="font-size: 12px; margin: 0; padding: 0;">
                 <input style="height:22px" type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
@@ -1178,10 +1157,11 @@
             <br>
             <br>
             <br>
+            <br>
 
 
             <div style="margin-top:-60px">
-                <p class='section-title'
+                <p
                     style="font-size: 12px; padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                     MEDICAID INFORMATION
                 </p>
@@ -1193,7 +1173,7 @@
                     <th style="vertical-align: bottom;padding:5px;">Spouse</th>
                 </tr>
                 <tr style="padding: 0; margin: 0;">
-                    <td style="width:80px;margin:0;">
+                    <td style="width:80px;margin:0;padding:14px;">
                         <p style="font-size: 12px; vertical-align: bottom;margin:0;">
                             Application Status
                             <br>
@@ -1234,7 +1214,7 @@
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;">
-                    <td style="width:80px;font-size: 12px; vertical-align: center;">
+                    <td style="width:80px;font-size: 12px; padding:14px; vertical-align: center;">
                         CIN Number/medicaid Number
                     </td>
                     <td style="width:80px;vertical-align: bottom;font-size:14px">
@@ -1247,7 +1227,7 @@
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;">
-                    <td style="width:80px;font-size: 12px; vertical-align: bottom;">
+                    <td style="width:80px;font-size: 12px; vertical-align: bottom;padding:14px;">
                         Monthly Spend Down $
                     </td>
                     <td style="width:80px;vertical-align: bottom;font-size:14px">
@@ -1261,6 +1241,7 @@
                 </tr>
             </table>
             <br>
+
             <div style="margin: 0;padding: 0;font-size: 12px;">
                 <span>if the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these
                 benefits.
@@ -1288,12 +1269,13 @@
             </p>
             <p style="padding-bottom:10px;margin: 0;">
                 Is Applicant & Spouse Applying Together? &nbsp; 
-                <input style="height:22px" type="radio" name="applying_together1" value="Yes"
+                <input style="height:22px" type="checkbox" name="applying_together1" value="Yes"
                     {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input style="height:22px" type="radio" name="applying_together1" value="No"
+                <input style="height:22px" type="checkbox" name="applying_together1" value="No"
                     {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}> No &nbsp;
                 If Yes, Fill in Spouse’s Income.
             </p>
+            <br>
 
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
@@ -1319,6 +1301,7 @@
                 </div> --}}
 
             </div>
+
 
             <div style="">
                 <div>
@@ -1503,6 +1486,9 @@
                 A spouse is not a beneficiary for the account.
             </p>
             <br>
+            <br>
+            <br>
+            <br>
        
           
 
@@ -1520,7 +1506,7 @@
                     PROOF.</p>
             </div>
 
-            <p class='section-title'
+            <p
                 style="font-size: 14px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 HEALTH CARE PREMIUM
             </p>
@@ -1555,7 +1541,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <p class='section-title' style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">FUNERAL INFORMATION</p>
+                        <p style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">FUNERAL ARRANGEMENT</p>
                     </div>
                 </div>
                 <br>
@@ -1582,7 +1568,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p class='section-title' style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">LIFE INSURANCE</p> 
+                       <p style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">LIFE INSURANCE</p> 
                     </div>
                 </div>
                 <br>
@@ -1602,10 +1588,9 @@
                         <div style="display: table-cell;padding-bottom:14px">
                             <label>Name of Insured:</label> &nbsp;
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
-                            <label>Name of Owner</label> &nbsp;
-                            <input type="text" value="{{ $insured_owner }}" name="insured_owner" />
                         </div>
-                </div>
+                    
+                </div> <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;padding-bottom:14px">
                         <label>Name of insurance company</label> &nbsp;
@@ -1613,7 +1598,7 @@
                         <label>Policy #</label> &nbsp;
                         <input type="text" value="{{ $insurance_policy_number }}" name="insurance_policy_number" />
                     </div>
-                </div>
+                </div> <br>
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;padding-bottom:14px">
@@ -1627,10 +1612,17 @@
                             {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}> Life
                         <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
                             name="healthcare_plan2">
-                            <label>Cash Surrender Value</label> &nbsp;
-                        <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" />
+                    </div>
+                    <br>
+                </div> <br>
+                <div style="display: table-row;">
+                    <div style="display: table-cell;">
+                        <label>Cash Surrender Value</label> &nbsp;
+                    <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" />
+
                     </div>
                 </div>
+                <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         Upon the death of the Beneficiary, amounts remaining in the Beneficiary's sub-account shall be
@@ -1643,9 +1635,10 @@
                 </div>
             </div>
             <br>
+            <br>
             <div style="display: table;justify-content: space-between">
                
-                    <span class='section-title'
+                    <span
             style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
             LIVING ARRANGEMENTS </span>
             &nbsp;&nbsp;
@@ -1672,6 +1665,9 @@
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
             <br>
+
+
+
             <p style="padding: 0; margin: 0;">
                 <input style="height:22px" type="radio" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
@@ -1698,6 +1694,7 @@
                 <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
                     name="living_arrangement_other">
             </p>
+            <br><br>
             {{-- New Living Arrangement --}}
             <p class='section-title' style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">LIVING ARRANGEMENTS</p>
             <p class='italic' style='padding:0'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
@@ -1792,20 +1789,24 @@
 
         <div class="page-break"></div>
 
-        <div class="page-5">
-            <p style="font-size: 16px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+        <div class="page-5 ">
+            <p style="font-size: 16px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700" class="section-title">
                 POWER OF ATTORNEY
             </p>
+            
+            <div class="pa-container">
+                <p>Power of Attornery &nbsp; <span class="italic" style="font-size: 16px"> Please attach a copy of Power of Attorney</span></p>
+            
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $power_fname }}" name="power_fname" style="width: 95%" /> <br>
-                        <label>First</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_fname }}" name="power_fname" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">First</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_lname }}" name="power_lname" style="width: 95%" /> <br>
-                        <label>Last</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_lname }}" name="power_lname" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">Last</label>
                     </div>
                 </div>
                 {{-- <div style="display: table-row;background-color: green;margin: 0;padding:0;">
@@ -1824,12 +1825,12 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $power_tel_home }}" name="power_tel_home" style="width: 95%" /> <br>
-                        <label>Primary Phone</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_tel_home }}" name="power_tel_home" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">Primary Phone</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_email }}" name="power_email" style="width: 95%" /> <br>
-                        <label>Email</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_email }}" name="power_email" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">Email</label>
                     </div>
                 </div>
                 {{-- <div style="display: table-row;width: 100%;padding:0;margin:0;">
@@ -1850,49 +1851,29 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address }}" name="power_address" style="width: 95%"> <br>
-                        <label>Address</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_address }}" name="power_address"> <br>
+                        <label style="font-size: 14px" class="italic">Address</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%"> <br>
-                        <label>Apt #:</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_apt }}" name="power_apt"> <br>
+                        <label style="font-size: 14px" class="italic">Apt #:</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city }}" name="power_city" style="width: 95%" /> <br>
-                        <label>City:</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_city }}" name="power_city" /> <br>
+                        <label style="font-size: 14px" class="italic">City:</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input style="font-size: 16px" type="text" value="{{ $power_state }}" name="power_state" /> <br>
+                        <label style="font-size: 14px" class="italic">State:</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input style="font-size: 16px" type="text" value="{{ $power_zip }}" name="power_zip" /> <br>
+                        <label style="font-size: 14px" class="italic">Zip:</label>
                     </div>
                     
                 </div>
             </div>
-                <br>
-            <div style="display: table;width: 100%;">
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_state }}" name="power_state" style="width: 95%" /> <br>
-                        <label>State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip }}" name="power_zip" style="width: 95%" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div>
-
-
-                {{-- <div style="display: table-row;margin: 0;padding: 0;">
-                    <div style="display: table-cell; width: 20%; white-space: nowrap; ">
-                        <p style="display: inline-block; margin: 0;">City</p>
-                        <input type="text" value="{{ $power_city }}" class="no-border" style="width:150px;">
-                    </div>
-                    <div style="display: table-cell; width: 20%; white-space: nowrap;">
-                        <p style="display: inline-block; margin: 0;">State</p>
-                        <input type="text" value="{{ $power_state }}" class="no-border" style="width:100px;">
-                    </div>
-                    <div style="display: table-cell; width: 20%; white-space: nowrap;">
-                        <p style="display: inline-block; margin: 0;">Zip</p>
-                        <input type="text" value="{{ $power_zip }}" class="no-border" style="width:100px;">
-                    </div>
-                </div> --}}
-            </div>
+      
             <br>
 
             {{-- <div style="display: table; width: 100%;margin: 0;padding: 0;">
@@ -1907,34 +1888,36 @@
                 </div>
             </div> --}}
 
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio" name="sole_poa1"
+            <p style="margin: 0;padding: 0;font-size: 16px">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio" name="sole_poa1"
                     value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
                 <input style="height:22px" type="radio" name="sole_poa1" value="No"
                     {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}> No
             </p>
-            <p>If No, are the agents authorized to act separately? &nbsp; <input type="radio" name="act_seprately1"
+            <p style="font-size: 16px">If No, are the agents authorized to act separately? &nbsp; <input type="radio" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
                 <input style="height:22px" type="radio" name="act_seprately1" value="No"
                     {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> No
             </p>
 
+        </div>
 
-            <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
-                POWER OF ATTORNEY - Second Agent
-            </p>
+
+        <div style="margin-top: 5px" class="pa-container">
+
+            <p>Power of Attornery - Second Agent &nbsp; <span class="italic" style="font-size: 16px"> Please attach a copy of Power of Attorney</span></p>
             <div style="display: table; width: 100%;">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $power_fname2 }}" name="power_fname2" style="width: 95%" /> <br>
-                        <label>First</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_fname2 }}" name="power_fname2" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">First</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_lname2 }}" name="power_lname2" style="width: 95%" /> <br>
-                        <label>Last</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_lname2 }}" name="power_lname2" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">Last</label>
                     </div>
                 </div>
 
@@ -1947,13 +1930,13 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
-                        <input type="text" value="{{ $power_tel_home2 }}" name="power_tel_home2" style="width: 95%" /> <br>
-                        <label>Primary Phone</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_tel_home2 }}" name="power_tel_home2" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">Primary Phone</label>
                     </div>
 
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_email2 }}" name="power_email2" style="width: 95%" /> <br>
-                        <label>Email</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_email2 }}" name="power_email2" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">Email</label>
                     </div>
                 </div>
             </div>
@@ -1966,16 +1949,16 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address2 }}" name="power_address2" style="width: 95%"> <br>
-                        <label>Address</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_address2 }}" name="power_address2" style="width: 95%"> <br>
+                        <label style="font-size: 14px" class="italic">Address</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt2 }}" name="power_apt2" style="width: 95%"> <br>
-                        <label>Apt #:</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_apt2 }}" name="power_apt2" style="width: 95%"> <br>
+                        <label style="font-size: 14px" class="italic">Apt #:</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city2 }}" name="power_city2" style="width: 95%" /> <br>
-                        <label>City:</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_city2 }}" name="power_city2" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">City:</label>
                     </div>
                     
                 </div>
@@ -1985,12 +1968,12 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_state2 }}" name="power_state2" style="width: 95%" /> <br>
-                        <label>State:</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_state2 }}" name="power_state2" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">State:</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip2 }}" name="power_zip2" style="width: 95%" /> <br>
-                        <label>Zip:</label>
+                        <input style="font-size: 16px" type="text" value="{{ $power_zip2 }}" name="power_zip2" style="width: 95%" /> <br>
+                        <label style="font-size: 14px" class="italic">Zip:</label>
                     </div>
                 </div>
 
@@ -1999,14 +1982,14 @@
 
            
 
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio"
+            <p style="margin: 0;padding: 0;font-size: 16px">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio"
                     name="power_of_attorney2_yes" value="Yes"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
                 <input style="height:22px" type="radio" name="power_of_attorney2_yes" value="No"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
             </p>
-            <p>If No, are the agents authorized to act separately? &nbsp; <input style="height:22px" type="radio"
+            <p style="font-size: 16px">If No, are the agents authorized to act separately? &nbsp; <input style="height:22px" type="radio"
                     name="power_of_attorney2_authorized_yes" value="Yes"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
@@ -2014,7 +1997,8 @@
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
                 No
             </p>
-            <hr>
+        </div>
+            {{-- <hr> --}}
             <p style="font-size: 16px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 GUARDIANSHIP
             </p>
