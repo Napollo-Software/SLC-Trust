@@ -43,13 +43,14 @@
             page-break-before: always;
         }
 
-        input {
+        input[type="text"] {
             border: none;
             border-bottom: 1px solid #000;
             width: 100%;
             padding: 5px 0;
             box-sizing: border-box;
         }
+
         input:focus{
             outline:none;
         }
@@ -59,7 +60,7 @@
         }
 
         .table-body {
-            width: 80%;
+            width: 100%;
             margin: 0 auto; 
         }
 
@@ -266,6 +267,134 @@
                                 JOINDER AGREEMENT
                             </span>
                         </div>
+                    </td>
+                </tr>
+                     <!-- page 2 -->
+                <tr>
+                    <td colspan="6" class="strong">
+                    AUTHORIZED REPRESENTATIVES:
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                    <div style="display: inline; white-space: nowrap;">
+                            <span style="margin-right: 5px;"> Who will be your primary contact?</span>
+                            <div style="display: inline; white-space: nowrap;width:100px">
+                                <span style="margin-right: 5px;">Beneficiary</span>
+                                <input type="radio" id="" name="" style="display: inline; vertical-align: middle;margin-top:-3px">
+                            </div>
+                            <div style="display: inline; white-space: nowrap;width:100px">
+                                <span style="margin-right: 5px;">Auth. Rep. 1  </span>
+                                <input type="radio" id="" name="" style="display: inline; vertical-align: middle;margin-top:-3px">
+                            </div>
+                            <div style="display: inline; white-space: nowrap;width:100px">
+                                <span style="margin-right: 5px;">Auth. Rep. 2</span>
+                                <input type="radio" id="" name="" style="display: inline; vertical-align: middle;margin-top:-3px">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <strong>Authorized Representative #1</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input  type="text" id="" name="">
+                        <label for="">First</label>
+                    </td>
+                    <td colspan="3">
+                        <input  type="text" id="" name="">
+                        <label for="">Middle</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <strong>Contact Information:</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input  type="text" id="" name="">
+                        <label for="">Home Phone</label>
+                    </td>
+                    <td colspan="2">
+                        <input  type="text" id="" name="">
+                        <label for="">Cell Phone</label>
+                    </td>
+                    <td colspan='2'>
+                    <div style="display: inline; white-space: nowrap;">
+                            <span style="margin-right: 5px;"> Who will be your primary contact?</span>
+                            <div style="display: inline; white-space: nowrap;width:100px">
+                                <span style="margin-right: 5px;">Beneficiary</span>
+                                <input type="radio" id="" name="" style="display: inline; vertical-align: middle;margin-top:-3px">
+                            </div>
+                            <div style="display: inline; white-space: nowrap;width:100px">
+                                <span style="margin-right: 5px;">Auth. Rep. 1  </span>
+                                <input type="radio" id="" name="" style="display: inline; vertical-align: middle;margin-top:-3px">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input  type="text" id="" name="">
+                        <label for="">Email</label>
+                    </td>
+                    <td colspan="3">
+                        <div style="display: inline; white-space: nowrap;">
+                            <span style="margin-right: 5px;">Relationship to Beneficiary</span>
+                            <input type="text" id="" name="" style="display: inline; vertical-align: middle;margin-top:-20px;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <strong>Address:</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'>
+                        <input  type="text" id="" name="">
+                        <label for="">Address</label>
+                    </td>
+                    <td>
+                        <input  type="text" id="" name="">
+                        <label for="">Apt #</label>
+                    </td>
+                    <td>
+                        <input  type="text" id="" name="">
+                        <label for="">City</label>
+                    </td>
+                    <td>
+                        <input  type="text" id="" name="">
+                        <label for="">State</label>
+                    </td>
+                    <td>
+                        <input  type="text" id="" name="">
+                        <label for="">Zip</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <strong>Qualifying Disabilities:</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class='inline'>
+                            <div>1.</div>
+                            <input  type="text" id="" name="">
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <span>2.</span>
+                        <input  type="text" id="" name="">
+                    </td>
+                    <td colspan="2">
+                        <span>3.</span>
+                        <input  type="text" id="" name="">
                     </td>
                 </tr>
             </tbody>
