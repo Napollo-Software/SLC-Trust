@@ -91,7 +91,7 @@
             padding: 14px;
         }
         tbody tr td{
-            padding: 14px;
+            padding: 6px;
             border-right: 2px solid rgb(184 221 219);
 
         }
@@ -1144,7 +1144,6 @@
             <p style="font-size: 12px; margin: 0;">
                 Indicate reason for establishing an account.
             </p>
-            <br>
             <div style="font-size: 12px; margin: 0; padding: 0;">
                 <input style="height:22px" type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
@@ -1156,7 +1155,6 @@
             <br>
             <br>
             <br>
-            <br>
 
 
             <div style="margin-top:-60px">
@@ -1165,24 +1163,23 @@
                     MEDICAID INFORMATION
                 </p>
             
-                <br>
 
 
             <table style="padding: 0; margin: 0;">
                 <tr style="padding: 0; margin: 0;">
-                    <th style="padding:14px;"></th>
-                    <th style="vertical-align: bottom;padding:14px;">Applicant</th>
-                    <th style="vertical-align: bottom;padding:14px;">Spouse</th>
+                    <th></th>
+                    <th style="vertical-align: bottom;padding:5px;">Applicant</th>
+                    <th style="vertical-align: bottom;padding:5px;">Spouse</th>
                 </tr>
                 <tr style="padding: 0; margin: 0;">
-                    <td style="width:80px;margin:0;padding:14px;">
+                    <td style="width:80px;margin:0;">
                         <p style="font-size: 12px; vertical-align: bottom;margin:0;">
                             Application Status
                             <br>
                             Does the beneficiary receive Medicaid?
                         </p>
                     </td>
-                    <td style="width:80px;vertical-align: center;padding:14px;margin:0;font-size:14px">
+                    <td style="width:80px;vertical-align: center;margin:0;font-size:14px">
                         <div style="display: flex; align-items: flex-end;">
                             <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Yes"
                                 style="margin-bottom: 4px;vertical-align: bottom;"
@@ -1198,7 +1195,7 @@
                             Pending
                         </div>
                     </td>
-                    <td style="width:80px;vertical-align: center; padding:14;margin:0;font-size:14px">
+                    <td style="width:80px;vertical-align: center;margin:0;font-size:14px">
                         <div style="display: flex; align-items: flex-end;">
                             <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Yes"
                                 style="margin-bottom: 4px;vertical-align: bottom;"
@@ -1216,27 +1213,27 @@
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;">
-                    <td style="width:80px;font-size: 12px; padding:14px; vertical-align: center;">
+                    <td style="width:80px;font-size: 12px; vertical-align: center;">
                         CIN Number/medicaid Number
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:14px;font-size:14px">
+                    <td style="width:80px;vertical-align: bottom;font-size:14px">
                         <input type="text" value="{{ $applicant_medicaid_cin_number }}" class="no-border"
                             name="applicant_medicaid_cin_number">
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:14px;font-size:14px">
+                    <td style="width:80px;vertical-align: bottom;font-size:14px">
                         <input type="text" value="{{ $spouse_medicaid_cin_number }}" class="no-border"
                             name="spouse_medicaid_cin_number">
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;">
-                    <td style="width:80px;font-size: 12px; vertical-align: bottom;padding:14px;">
+                    <td style="width:80px;font-size: 12px; vertical-align: bottom;">
                         Monthly Spend Down $
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:14px;font-size:14px">
+                    <td style="width:80px;vertical-align: bottom;font-size:14px">
                         <input type="text" value="{{ $medicaid_applicant_monthly_spend_down }}" class="no-border"
                             name="medicaid_applicant_monthly_spend_down">
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:14px;font-size:14px">
+                    <td style="width:80px;vertical-align: bottom;font-size:14px">
                         <input type="text" value="{{ $medicaid_spouse_monthly_spend_down }}" class="no-border"
                             name="medicaid_spouse_monthly_spend_down">
                     </td>
@@ -1253,19 +1250,13 @@
             </div>
         </div>
             <br>
-            <br>
-            <br>
-      
-            
             <span
             style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px">
-            HOUSEHOLD INCOME INFORMATION </span>
+            HOUSEHOLD INCOME INFORMATION </span> <br> <br>
             &nbsp;&nbsp;
             <span>(please include proof of income)</span>
             <br><br>
-
-            <p style="margin:  0;font-size: 14px"><b>SPOUSE INFORMATION:</b></p> <br>
-
+            <p style="margin:  0;font-size: 14px"><b>SPOUSE INFORMATION:</b></p>
             <p style="padding:0;margin: 0;">
                 Is Spouse Deceased? &nbsp;
                 <input style="height:22px" type="radio" name="spouse_decreased1" value="Yes"
@@ -1286,7 +1277,6 @@
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-
                         <label>First Name: </label>
                         <input type="text" value="{{ $spouse_fname }}" name="spouse_fname" />
                     </div>
@@ -1328,15 +1318,15 @@
             <br>
             <table style=" padding: 0;margin: 0; font-size:16px">
                 <tr style="padding: 0;margin: 0;">
-                    <th style="padding: 0;margin: 0;">
-                        <p> Type of Benefit</p>
+                    <th style="padding: ;margin: 0;">
+                        <p style="padding: 2px;margin: 0;"> Type of Benefit</p>
                     </th>
-                    <th style="padding: 0;margin: 0;">
-                        <p> Application <br>
+                    <th style="padding: ;margin: 0;">
+                        <p style="padding: 2px;margin: 0;"> Application <br>
                             Monthly Amount</p>
                     </th>
-                    <th style="padding: 0;margin: 0;">
-                        <p> Spouse <br>
+                    <th style="padding: ;margin: 0;">
+                        <p style="padding: 2px;margin: 0;"> Spouse <br>
                             Monthly Amount</p>
                     </th>
                 </tr>
@@ -1358,12 +1348,12 @@
                         Supplement Security Disability Income(SSDI)
                     </td>
                     <td style="width:80px; padding: 0;margin: 0 ; font-size:14px">
-                        <p>$ <input type="text" value="{{ $applicant_ssdi }}" class="no-border"
+                        <p style="padding: 2px;margin: 0;">$ <input type="text" value="{{ $applicant_ssdi }}" class="no-border"
                                 name="applicant_ssdi">
                         </p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0 ;font-size:14px">
-                        <p>$ <input type="text" value="{{ $spouse_ssdi }}" class="no-border"
+                        <p style="padding: 2px;margin: 0;">$ <input type="text" value="{{ $spouse_ssdi }}" class="no-border"
                                 name="spouse_ssdi"></p>
                     </td>
                 </tr>
@@ -1372,11 +1362,11 @@
                         Supplement Security Retirement Income(SSA)
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_ssa }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_ssa }}" class="no-border"
                                 name="applicant_ssa"></p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_ssa }}" class="no-border" name="spouse_ssa">
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_ssa }}" class="no-border" name="spouse_ssa">
                         </p>
                     </td>
                 </tr>
@@ -1385,11 +1375,11 @@
                         VA Benefits
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_va_ben }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_va_ben }}" class="no-border"
                                 name="applicant_va_ben"></p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_va_ben }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_va_ben }}" class="no-border"
                                 name="spouse_va_ben"></p>
                     </td>
                 </tr>
@@ -1399,11 +1389,11 @@
 
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_employee_ben }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_employee_ben }}" class="no-border"
                                 name="applicant_employee_ben"></p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_employee_ben }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_employee_ben }}" class="no-border"
                                 name="spouse_employee_ben"></p>
                     </td>
                 </tr>
@@ -1413,11 +1403,11 @@
 
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_survivor_ben }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_survivor_ben }}" class="no-border"
                                 name="applicant_survivor_ben"></p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_survivor_ben }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_survivor_ben }}" class="no-border"
                                 name="spouse_survivor_ben"></p>
                     </td>
                 </tr>
@@ -1426,11 +1416,11 @@
                         IRA Distribution
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_ira_dist }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_ira_dist }}" class="no-border"
                                 name="applicant_ira_dist"></p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_ira_dist }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_ira_dist }}" class="no-border"
                                 name="spouse_ira_dist">
                         </p>
                     </td>
@@ -1440,11 +1430,11 @@
                         Pension / Annuities
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_pension_annuities }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_pension_annuities }}" class="no-border"
                                 name="applicant_pension_annuities"></p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_pension_annuities }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_pension_annuities }}" class="no-border"
                                 name="spouse_pension_annuities"></p>
                     </td>
                 </tr>
@@ -1453,10 +1443,10 @@
                         Interest / Dividends
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_interest_dividends }}" class="no-border" name="applicant_interest_dividends"></p>
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_interest_dividends }}" class="no-border" name="applicant_interest_dividends"></p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_interest_dividends }}" class="no-border" name="spouse_interest_dividends"></p>
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_interest_dividends }}" class="no-border" name="spouse_interest_dividends"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 ">
@@ -1464,11 +1454,11 @@
                         Reparations
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_reparations }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_reparations }}" class="no-border"
                                 name="applicant_reparations"></p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_reparations }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_reparations }}" class="no-border"
                                 name="spouse_reparations"></p>
                     </td>
                 </tr>
@@ -1477,12 +1467,12 @@
                         Other
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $applicant_other }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_other }}" class="no-border"
                                 name="applicant_other">
                         </p>
                     </td>
                     <td style="width:80px; padding: 0;margin: 0;font-size:14px ">
-                        <p>$ <input type="text" value="{{ $spouse_other }}" class="no-border"
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_other }}" class="no-border"
                                 name="spouse_other"></p>
                     </td>
                 </tr>
