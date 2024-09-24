@@ -145,6 +145,13 @@
         .section-title{
             margin-left:-5px
         }
+
+        .border-container{
+            border:1px solid #B8DDDB;
+            padding:15px
+        }
+
+
     </style>
 </head>
 
@@ -667,8 +674,9 @@
         {{-- <div class="page-break"></div> --}}
 
 
-        <div class="page-2">
+        <div class="page-2" style="margin-top:-20px">
             <p
+              class="section-title"
                 style="font-size: 16px; padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 AUTHORIZED PREVENTATIVE: #1
             </p>
@@ -689,12 +697,14 @@
                     Auth. Rep. 2
                 </label>
             </p>
+
+            <div class="border-container">
             <p style="padding:0;margin: 0;">
                 The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
                 individual
                 to: Make Deposits, Request Statements and Disbursements.
             </p>
-            <br>
+            <p class="strong" style="margin-top:5px">Authorized Representative # 1</p>
             {{-- <p style="padding:0;margin: 0;"><b>Name:</b> First <input type="text"
                     value="{{ $auth_rep_one_fname }}" class="no-border" name="auth_rep_one_fname"
                     style="width: 100px">
@@ -703,16 +713,16 @@
                     style="width: 100px">
             </p> --}}
             
-            <div style="display: table;width:100%">
+            <div style="display: table;width:100%;margin-top:-10px">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
                         <input type="text" value="{{ $auth_rep_one_fname }}" name="auth_rep_one_fname" style="width: 95%" /> <br>
-                        <label>First</label>
+                        <label class="italic">First</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_lname }}"name="auth_rep_one_lname" style="width: 95%" /> <br>
-                        <label>Last:</label>
+                        <label class="italic">Last:</label>
                     </div>
                 </div>
             </div>
@@ -720,27 +730,22 @@
 
                 <br>
 
-            <div style="display: table;width:100%">
-                <div style="display: table-row;">
+            <div style="display: table;width:100%;margin-top:-3px;margin-bottom:-10px" >
+                <div style="display: table-row;margin-top:-10px">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Contact Information</label>
                     </div>
                 </div>
-                <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_tel }}" name="auth_rep_one_tel" style="width: 95%"> <br>
-                        <label>Home Phone</label>
+                        <label class="italic">Home Phone</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_cell }} " name="auth_rep_one_cell" style="width: 95%"> <br>
-                        <label>Cell Phone</label>
+                        <label class="italic">Cell Phone</label>
                     </div>
-                    
-                </div>
-            </div>
-                <br>
-                <p style=" ">Preferred Phone:
+                    <p style=" ">Preferred Phone:
                     <label style="margin: 0;">
                         <input style="height:22px" type="radio" name="authorized_preferred_cell_form_inp" value="Authorized_1_cell"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
@@ -753,6 +758,10 @@
                     </label>
                 </p>
 
+                    
+                </div>
+            </div>
+           
 
                 <br>
             <div style="display: table;width:100%">
@@ -760,16 +769,16 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $auth_rep_one_email }}" name="auth_rep_one_email" style="width: 95%" /> <br>
-                        <label>Email</label>
+                        <label class="italic">Email</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_relation_beneficiary }}" name="auth_rep_one_relation_beneficiary" style="width: 95%" /> <br>
-                        <label>Relationship to Beneficiary
+                        <label class="italic">Relationship to Beneficiary
                         </label>
                     </div>
                 </div>
             </div>
-
+<br/>
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
@@ -811,19 +820,7 @@
                     </div>
                 </div>
 
-                {{-- <div style="display: table;width:100%">
-
-                    <div style="display: table-row;">
-                        <div style="display: table-cell;">
-                            <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" /> <br>
-                            <label>State:</label>
-                        </div>
-                        <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_zip }}" name="auth_rep_one_zip" style="width: 95%" /> <br>
-                            <label>Zip:</label>
-                        </div>
-                    </div>
-                </div> --}}
+            </div>
 
                 <br />
            
