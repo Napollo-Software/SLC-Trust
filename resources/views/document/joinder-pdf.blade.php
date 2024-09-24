@@ -120,6 +120,10 @@
             font-style: italic;
             font-size: 13px;
         }
+
+        .strong{
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -293,8 +297,6 @@
 
                 {{-- <br /> --}}
 
-           
-
                 {{-- <div style="display: table-row;">
                     <div style="display: table-cell">
                         <label style=" font-weight: bold;">Marital Status:</label>
@@ -333,7 +335,7 @@
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
                     <input type="text" name="sponsor_citizenship" value="{{ $sponsor_dob }}"> <br>
-                    <label class="italic">Date of Birth:</label>
+                    <label class="italic">Citizenship:</label>
                     </div>
                 </div>
 
@@ -386,16 +388,16 @@
                 </div>
             </div>
 
-                <p style=" ">Preferred Phone:
+                <p class="strong">Preferred Phone:
                     <label >
                         <input style="height:22px" type="radio" name="prefered_cell" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
-                        <label>Cell</label>
+                        <label class="strong">Cell</label>
                     </label>
                     <label >
                         <input style="height:22px" type="radio" name="prefered_cell" value="Phone"
                             {{ isset($prefered_cell) && $prefered_cell === 'Phone' ? 'checked' : '' }}>
-                        <label>Home</label>
+                        <label class="strong">Home</label>
                     </label>
                 </p>
              
@@ -405,8 +407,8 @@
             <div style="display: table; width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%"> <br>
-                        <labe class="italic"l>Email:</label>
+                        <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%">
+                        <label class="italic">Email:</label>
                     </div>
                 </div>
             </div>
@@ -416,7 +418,7 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label class="italic"  style="font-weight: bold">Address:</label>
+                        <label class="strong">Address:</label>
                     </div>
                 </div>
             </div>
@@ -429,26 +431,26 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $sponsor_address }}" name="sponsor_address" style="width:95%"> <br>
+                        <input type="text" value="{{ $sponsor_address }}" name="sponsor_address" style="width:95%">
                         <label class="italic">Address</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_apt }}" name="sponsor_apt" style="width:95%"> <br>
+                        <input type="text" value="{{ $sponsor_apt }}" name="sponsor_apt" style="width:95%">
                         <label class="italic">Apt #:</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_city }}" name="sponsor_city" style="width:95%" /> <br>
+                        <input type="text" value="{{ $sponsor_city }}" name="sponsor_city" style="width:95%" />
                         <label class="italic">City:</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_state }}" name="sponsor_state" style="width:95%" /> <br>
+                        <input type="text" value="{{ $sponsor_state }}" name="sponsor_state" style="width:95%" />
                         <label class="italic">State:</label>
                     </div>&nbsp;&nbsp;
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_zip }}" name="sponsor_zip" style="width:95%" /> <br>
+                        <input type="text" value="{{ $sponsor_zip }}" name="sponsor_zip" style="width:95%" />
                         <label class="italic">Zip:</label>
                     </div>
 
