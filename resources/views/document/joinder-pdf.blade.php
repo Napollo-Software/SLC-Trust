@@ -123,8 +123,27 @@
             font-size: 13px;
         }
 
+        .text-center{
+            text-align: center;
+        }
+
+        .text-sm{
+            font-size: 14px;      
+        }
+
         .strong{
             font-weight: bold;
+        }
+        footer{
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            height: 50px;
+            margin-bottom: -50px;
+        }
+
+        .section-title{
+            margin-left:-12px
         }
     </style>
 </head>
@@ -132,8 +151,9 @@
 <body style="padding: 0;margin: 0;">
     <form id="joinderForm" method="POST" action="{{ route('save.joinder') }}">
         @csrf
-        {{-- style="background-image: url('{{ asset('assets/images/tlc_bg.png') }}');background-size: cover;
-        background-repeat: no-repeat;" --}}
+        <footer>
+        <p>Copyright &copy; <?php echo date("Y");?></p>
+        </footer>
         <div class="page-0">
             <br> <br>
             <div class="container-row" style="text-align:center;">
@@ -220,7 +240,7 @@
 
         <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;">
-                <p style="font-weight: bold;text-align:center;font-size: 1.4rem;">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                <p style="font-weight: bold;text-align:center;font-size: 1.4rem; margin-bottom: 10px;">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 <p style="text-align:center;color:rgb(52 159 153);font-size: 1.2rem;margin-top:-10px">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
             </div>
@@ -234,8 +254,8 @@
             </div>
             <div class="section-title">
                 <p
-                    style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-5px">
-                    SPONSOR/BENEFICIARY INFORMATION</p>
+                    style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-5px;margin-left:-20px">
+                    BENEFICIARY INFORMATION</p>
             </div>
             <p>
                 The Beneficiary and Donor must always be the same person. Only funds belonging to the Beneficiary may
@@ -267,9 +287,8 @@
                     </div>
                 </div>
             </div> 
-            <br/>
 
-            <div style="display: table; width: 100%;">
+            <div style="display: table; width: 100%;margin-top:8px;margin-bottom:8px">
                 <div style="display: table-row;">
                     <p style="display:table-cell;">Marital Status:
                         <label>
@@ -321,13 +340,12 @@
                 </div> --}}
 
                 {{-- <br /> --}}
-                <br/>
-            <div style="display: table; width: 100%;">
+            <div style="display: table; width: 100%;margin-bottom:8px">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_ssn }}" name="sponsor_ssn"> <br>
-                        <label class="italic">SSN:</label>
+                        <label class="italic">Social Security Number:</label>
                     </div>
                     &nbsp;&nbsp;
                     <div style="display: table-cell">
@@ -365,7 +383,6 @@
                 </div> --}}
             </div>
 
-                <br />
 
             <div style="display: table; width:100%">
                 <div style="display: table-row;">
@@ -391,15 +408,15 @@
             </div>
 
                 <p class="strong">Preferred Phone:
-                    <label >
+                    <label>
                         <input style="height:22px" type="radio" name="prefered_cell" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
-                        <label class="strong">Cell</label>
+                        <label style="font-weight: 400;">Cell</label>
                     </label>
                     <label >
                         <input style="height:22px" type="radio" name="prefered_cell" value="Phone"
                             {{ isset($prefered_cell) && $prefered_cell === 'Phone' ? 'checked' : '' }}>
-                        <label class="strong">Home</label>
+                        <label style="font-weight: 400">Home</label>
                     </label>
                 </p>
              
@@ -461,7 +478,6 @@
             
                 <br />
                 <div style="display: table;">
-
                 <div style="display: table-row;margin-top:-30px">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Qualifying Disabilities:</label>
@@ -516,10 +532,17 @@
             {{-- <p style="width: 100%;text-align:center">1</p> --}}
 
 
-            <div style="text-align: center;margin: 0;padding: 0;">
+            <!-- <div style="text-align: center;margin: 0;padding: 0;">
                 {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
                 <p style="margin: 0;padding: 0;">1</p>
-            </div>
+            </div> -->
+        </div>
+
+        <div style="width: 100%;display: table;">
+                <p style="margin-top:-3px" class="text-center text-sm">Please mail all trust documents to:</p>
+                <p style="margin-top:-10px" class="text-center text-sm strong"> SLC Supplemental Needs Trust</p>
+                <p style="margin-top:-10px" class="text-center text-sm strong"> 5014-16th Ave, Suite 489</p>
+                <p style="margin-top:-10px" class="text-center text-sm strong"> Brooklyn, NY 11204</p>
         </div>
 
 
@@ -747,7 +770,6 @@
                 </div>
             </div>
 
-                <br>
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
