@@ -13,11 +13,7 @@
             width: 100%;
             border: 1px solid rgb(184 221 219);
         }
-        
-        body{
-            font-family: "Nominee-Regular";
-        }
-
+     
 
         th,
         td {
