@@ -143,7 +143,7 @@
         }
 
         .section-title{
-            margin-left:-12px
+            margin-left:-5px
         }
     </style>
 </head>
