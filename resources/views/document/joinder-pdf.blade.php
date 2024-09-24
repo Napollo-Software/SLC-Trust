@@ -1160,11 +1160,10 @@
         {{-- <div class="page-break"></div> --}}
 
         <div class="page-3">
-            <p
+            <p class='section-title'
                 style="font-size: 12px; padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 PURPOSE OF ENROLLMENT
             </p>
-            <br>
             <p style="font-size: 12px; margin: 0;">
                 Indicate reason for establishing an account.
             </p>
@@ -1182,7 +1181,7 @@
 
 
             <div style="margin-top:-60px">
-                <p
+                <p class='section-title'
                     style="font-size: 12px; padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                     MEDICAID INFORMATION
                 </p>
@@ -1264,7 +1263,6 @@
                 </tr>
             </table>
             <br>
-
             <div style="margin: 0;padding: 0;font-size: 12px;">
                 <span>if the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these
                 benefits.
@@ -1274,7 +1272,7 @@
             </div>
         </div>
             <br>
-            <span
+            <span class='section-title'
             style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px">
             HOUSEHOLD INCOME INFORMATION </span> <br> <br>
             &nbsp;&nbsp;
@@ -1296,7 +1294,6 @@
                     {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}> No &nbsp;
                 If Yes, Fill in Spouse’s Income.
             </p>
-            <br>
 
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
@@ -1322,7 +1319,6 @@
                 </div> --}}
 
             </div>
-
 
             <div style="">
                 <div>
@@ -1509,9 +1505,6 @@
                 A spouse is not a beneficiary for the account.
             </p>
             <br>
-            <br>
-            <br>
-            <br>
        
           
 
@@ -1529,26 +1522,23 @@
                     PROOF.</p>
             </div>
 
-            <p
+            <p class='section-title'
                 style="font-size: 14px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 HEALTH CARE PREMIUM
             </p>
-            <br>
-            <div style=" display: table;">
-                <p style="padding:0;margin: 0;">
+            <div style=" display: table-row;">
+                <p style="padding:0;margin: 0;display:cell">
                     Medicare Part: &nbsp;
                     <input style="height:22px" type="radio" name="healthcare_b" value="B"
                         {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}> B &nbsp;
                     <input style="height:22px" type="radio" name="healthcare_b" value="D"
                         {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> D
                     &nbsp;&nbsp;
-                <p style="padding:0;margin: 0;">
                     Does the applicant have a supplemental policy? &nbsp;
                     <input style="height:22px" type="radio" name="supplemental_yes" value="Yes"
                         {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}> Yes &nbsp;
                     <input style="height:22px" type="radio" name="supplemental_yes" value="No"
                         {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> No
-                </p><br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         If yes, what is the monthly premium? $
@@ -1566,7 +1556,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <p style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">FUNERAL ARRANGEMENT</p>
+                        <p class='section-title' style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">FUNERAL INFORMATION</p>
                     </div>
                 </div>
                 <br>
@@ -1591,7 +1581,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">LIFE INSURANCE</p> 
+                       <p class='section-title' style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">LIFE INSURANCE</p> 
                     </div>
                 </div>
                 <br>
@@ -1608,38 +1598,24 @@
                 <p>If you answered yes, please attach funeral provision documents</p> <br>
 
                 <div style="display: table-row;">
-                        <div style="display: table-cell;">
-    
+                        <div style="display: table-cell;padding-bottom:5px">
                             <label>Name of Insured:</label> &nbsp;
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
+                            <label>Name of Owner</label> &nbsp;
+                            <input type="text" value="{{ $insured_owner }}" name="insured_owner" />
                         </div>
-                    
-                </div> <br>
+                </div>
                 <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <label>Name of Owner</label> &nbsp;
-                        <input type="text" value="{{ $insured_owner }}" name="insured_owner" />
-                    </div>
-                </div> <br>
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
+                    <div style="display: table-cell;padding-bottom:5px">
                         <label>Name of insurance company</label> &nbsp;
                         <input type="text" value="{{ $insurance_company }}" name="insurance_company" /> 
+                        <label>Policy #</label> &nbsp;
+                        <input type="text" value="{{ $insurance_policy_number }}" name="insurance_policy_number" />
                     </div>
-
-            </div>  <br>
-            <div style="display: table-row;">
-                <div style="display: table-cell">
-                    <label>Policy #</label> &nbsp;
-                    <input type="text" value="{{ $insurance_policy_number }}" name="insurance_policy_number" />
                 </div>
-            </div> <br>
-
 
                 <div style="display: table-row;">
-                    <div style="display: table-cell;">
+                    <div style="display: table-cell;padding-bottom:5px">
                         Term of policy <input style="height:15px" type="radio" name="type_of_policy1" value="Term"
                             {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                         Term
@@ -1650,17 +1626,10 @@
                             {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}> Life
                         <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
                             name="healthcare_plan2">
-                    </div>
-                    <br>
-                </div> <br>
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <label>Cash Surrender Value</label> &nbsp;
-                    <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" />
-
+                            <label>Cash Surrender Value</label> &nbsp;
+                        <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" />
                     </div>
                 </div>
-                <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         Upon the death of the Beneficiary, amounts remaining in the Beneficiary's sub-account shall be
@@ -1673,10 +1642,9 @@
                 </div>
             </div>
             <br>
-            <br>
             <div style="display: table;justify-content: space-between">
                
-                    <span
+                    <span class='section-title'
             style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
             LIVING ARRANGEMENTS </span>
             &nbsp;&nbsp;
@@ -1703,9 +1671,6 @@
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
             <br>
-
-
-
             <p style="padding: 0; margin: 0;">
                 <input style="height:22px" type="radio" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
@@ -1732,10 +1697,9 @@
                 <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
                     name="living_arrangement_other">
             </p>
-            <br><br>
             {{-- New Living Arrangement --}}
-            <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">LIVING ARRANGEMENTS</p>
-            <p> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
+            <p class='section-title' style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">LIVING ARRANGEMENTS</p>
+            <p style='padding:0'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;">
                 Does the Beneficiary have a court appointed Guardian?
                 <label style="margin: 0;">
@@ -1828,7 +1792,7 @@
         <div class="page-break"></div>
 
         <div class="page-5">
-            <p style="font-size: 16px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            <p class='section-title' style="font-size: 16px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 POWER OF ATTORNEY
             </p>
             <div style="display: table; width: 100%;">
@@ -1956,7 +1920,7 @@
             </p>
 
 
-            <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            <p class='section-title' style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 POWER OF ATTORNEY - Second Agent
             </p>
             <div style="display: table; width: 100%;">
