@@ -12,7 +12,9 @@
             width: 100%;
             border: 1px solid rgb(184 221 219);
         }
-        
+        body {
+            font-family: "Nominee-Black", sans-serif;
+        }
         th,
         td {
             border: 1px solid rgb(184 221 219);

@@ -386,7 +386,13 @@ class DocumentController extends Controller
 
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.joinder-pdf', $data)->setPaper('A4', 'portrait');
+        $pdf = PDF::loadView('document.joinder-pdf', $data)
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'Nominee-Black'
+        ])
+        ->setPaper('A4', 'portrait');
 
 
         $savePath = $directory . '/joinder_' . date('Ymd_His') . '.pdf';
