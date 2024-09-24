@@ -120,14 +120,23 @@
          
         .italic{
             font-style: italic;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .text-center{
             text-align: center;
         }
 
-        .text-sm{
+
+        .xs{
+            font-size: 12px;
+        }
+
+        .sm{
+            font-size: 13px;
+        }
+
+        .md{
             font-size: 14px;      
         }
 
@@ -257,9 +266,8 @@
                     before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a
                     sub-trust account under the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, dated February 13,
                     2023. The Trust is Irrevocable.</p>
-                <p style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
-            </div>
-            <div class="section-title">
+                <p class="" style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
+            </div class="section-title">
                 <p
                     style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-5px;margin-left:-20px">
                     BENEFICIARY INFORMATION</p>
@@ -392,7 +400,7 @@
 
 
             <div style="display: table; width:100%">
-                <div style="display: table-row;">
+                <div style="display: table-row;margin-top:-25px">
                     <div style="display: table-cell">
                         <label style="font-weight: bold">Contact Information:</label>
                     </div>
@@ -444,18 +452,16 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label class="strong">Address:</label>
+                        <label class="strong sm">Address:</label>
                     </div>
                 </div>
             </div>
 
                 <br />
 
-                
-
                 <div style="display: table; width:100%">
 
-                <div style="display: table-row;">
+                <div style="display: table-row;" class="xs">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $sponsor_address }}" name="sponsor_address" style="width:95%">
                         <label class="italic">Address</label>
@@ -546,10 +552,10 @@
         </div>
 
         <div style="width: 100%;display: table;">
-                <p style="margin-top:-3px" class="text-center text-sm">Please mail all trust documents to:</p>
-                <p style="margin-top:-10px" class="text-center text-sm strong"> SLC Supplemental Needs Trust</p>
-                <p style="margin-top:-10px" class="text-center text-sm strong"> 5014-16th Ave, Suite 489</p>
-                <p style="margin-top:-10px" class="text-center text-sm strong"> Brooklyn, NY 11204</p>
+                <p style="margin-top:-3px" class="text-center sm">Please mail all trust documents to:</p>
+                <p style="margin-top:-10px" class="text-center sm strong"> SLC Supplemental Needs Trust</p>
+                <p style="margin-top:-10px" class="text-center sm strong"> 5014-16th Ave, Suite 489</p>
+                <p style="margin-top:-10px" class="text-center sm strong"> Brooklyn, NY 11204</p>
         </div>
 
 
@@ -561,9 +567,8 @@
             </div>
             <div style="padding: 30px 10px;;font-size: 12px">
                 <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created pursuant to 42 United States Code §1396. You are encouraged to seek independent, professional advice before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a sub-trust account under the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, dated February 13, 2023. The Trust is Irrevocable.</p>
-                <p>NOTE: All questions must be answered or your application will be delayed.</p>
+                <p class="">NOTE: All questions must be answered or your application will be delayed.</p>
             </div>
-            <div class="section-title">
                 <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">SPONSOR/BENEFICIARY INFORMATION</p>
             </div>
             <p>The Beneficiary and Donor must always be the same person. Only funds belonging to the Beneficiary may be contributed to the Trust.</p>
@@ -675,12 +680,14 @@
 
 
         <div class="page-2" style="margin-top:-20px">
-            <p
-              class="section-title"
-                style="font-size: 16px; padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
-                AUTHORIZED PREVENTATIVE: #1
-            </p>
-            <p style=" ">Who will be your primary contact?
+            <div class="section-title">
+                <p
+                class="md"
+                    style="padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+                    AUTHORIZED PREVENTATIVE
+                </p>
+            </div>
+            <p class="xs" style=" ">Who will be your primary contact?
                 <label style="margin: 0;">
                     <input style="height:22px" type="radio" name="auth_beneficiary" value="Beneficiary"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Beneficiary' ? 'checked' : '' }}>
@@ -699,12 +706,12 @@
             </p>
 
             <div class="border-container">
-            <p style="padding:0;margin: 0;">
+            <p style="padding:0;margin: 0;" class="xs">
                 The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
                 individual
                 to: Make Deposits, Request Statements and Disbursements.
             </p>
-            <p class="strong" style="margin-top:5px">Authorized Representative # 1</p>
+            <p class="strong sm" style="margin-top:5px">Authorized Representative # 1</p>
             {{-- <p style="padding:0;margin: 0;"><b>Name:</b> First <input type="text"
                     value="{{ $auth_rep_one_fname }}" class="no-border" name="auth_rep_one_fname"
                     style="width: 100px">
@@ -713,7 +720,7 @@
                     style="width: 100px">
             </p> --}}
             
-            <div style="display: table;width:100%;margin-top:-10px">
+            <div class="xs" style="display: table;width:100%;margin-top:-12px">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
@@ -727,16 +734,13 @@
                 </div>
             </div>
 
-
-                <br>
-
-            <div style="display: table;width:100%;margin-top:-3px;margin-bottom:-10px" >
-                <div style="display: table-row;margin-top:-10px">
+            <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
+                <div style="display: table-row;margin-top:2x">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold">Contact Information</label>
+                        <label style="font-weight: bold" class="sm">Contact Information</label>
                     </div>
                 </div>
-                <div style="display: table-row;">
+                <div style="display: table-row;" class="xs">
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_tel }}" name="auth_rep_one_tel" style="width: 95%"> <br>
                         <label class="italic">Home Phone</label>
@@ -758,14 +762,10 @@
                     </label>
                 </p>
 
-                    
                 </div>
             </div>
            
-
-                <br>
             <div style="display: table;width:100%">
-
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $auth_rep_one_email }}" name="auth_rep_one_email" style="width: 95%" /> <br>
@@ -778,175 +778,152 @@
                     </div>
                 </div>
             </div>
-<br/>
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
                         <div style="display: table-cell">
-                            <label style="font-weight: bold">Address:</label>
+                            <label style="font-weight: bold" class="sm">Address:</label>
                         </div>
                     </div>
 
-                    <br />
 
-                    <div style="display: table-row;">
+                    <div style="display: table-row;margin-top:7px" class="xs">
                         <div style="display: table-cell;">
-                            <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address" style="width: 95%"> <br>
+                            <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address" style="width: 95%">
                             <label>Address</label>
                         </div>
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" style="width: 95%" /> <br>
+                            <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" style="width: 95%" />
                             <label>City:</label>
                         </div>
-                    </div>
-                </div>
-                <br>
-
-                <div style="display: table;width:100%">
-                    <div style="display: table-row;">
                         <div style="display: table-cell;">
     
-                            <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" /> <br>
+                            <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" />
                             <label>State:</label>
                         </div>
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%"> <br>
+                            <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%">
                             <label>Apt #:</label>
                         </div> 
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" /> <br>
+                            <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" />
                             <label>Zip:</label>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-                <br />
-           
-            <hr>
-            <p
-            style="font-size: 16px; padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
-            AUTHORIZED PREVENTATIVE: #2
-        </p>
-
-            <p>
+            <div class="border-container" style="margin-top: 15px;">
+            <p style="padding:0;margin: 0;" class="xs">
                 The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
                 individual
                 to: Make Deposits, Request Statements and Disbursements.
             </p>
-
-            <div style="display: table;width:100%">
+            <p class="strong sm" style="margin-top:5px">Authorized Representative # 2</p>
+            {{-- <p style="padding:0;margin: 0;"><b>Name:</b> First <input type="text"
+                    value="{{ $auth_rep_one_fname }}" class="no-border" name="auth_rep_one_fname"
+                    style="width: 100px">
+                Last
+                <input type="text" value="{{ $auth_rep_one_lname }}" class="no-border" name="auth_rep_one_lname"
+                    style="width: 100px">
+            </p> --}}
+            
+            <div style="display: table;width:100%;margin-top:-12px" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
 
                         <input type="text" value="{{ $auth_rep_two_fname }}" name="auth_rep_two_fname" style="width: 95%" /> <br>
-                        <label>First</label>
+                        <label class="italic">First</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_two_lname }}"name="auth_rep_two_lname" style="width: 95%" /> <br>
-                        <label>Last:</label>
+                        <label class="italic">Last:</label>
                     </div>
                 </div>
             </div>
 
-            <br>
-
-            <div style="display: table;width:100%">
-                <div style="display: table-row;">
+            <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
+                <div style="display: table-row;margin-top:2x">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold">Contact Information</label>
+                        <label style="font-weight: bold" class="sm">Contact Information</label>
                     </div>
                 </div>
-                <br>
-                <div style="display: table-row;">
+                <div style="display: table-row;" class="xs">
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_two_tel }}" name="auth_rep_two_tel" style="width: 95%"> <br>
-                        <label>Home Phone</label>
+                        <label class="italic">Home Phone</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_two_cell }} " name="auth_rep_two_cell" style="width: 95%"> <br>
-                        <label>Cell Phone</label>
+                        <label class="italic">Cell Phone</label>
                     </div>
-                    
+                    <p style=" ">Preferred Phone:
+                    <label style="margin: 0;">
+                        <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Cell"
+                            {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
+                        <label>Cell</label>
+                    </label>
+                    <label style="margin: 0;">
+                        <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Home"
+                            {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Home' ? 'checked' : '' }}>
+                        <label>Home</label>
+                    </label>
+                </p>
+
                 </div>
             </div>
-
-            <br>
-               
-            <p style=" ">Preferred Phone:
-                <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Cell"
-                    {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
-                    <label>Cell</label>
-                </label>
-                <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Home"
-                        {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Home' ? 'checked' : '' }}>
-                    <label>Home</label>
-                </label>
-            </p>
-
-                <br>
-            
+           
+            <div style="display: table;width:100%" class="xs" >
+                <div style="display: table-row;">
+                    <div style="display: table-cell;">
+                        <input type="text" value="{{ $auth_rep_two_email }}" name="auth_rep_two_email" style="width: 95%" /> <br>
+                        <label class="italic">Email</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary" style="width: 95%" /> <br>
+                        <label class="italic">Relationship to Beneficiary
+                        </label>
+                    </div>
+                </div>
+            </div>
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
+                        <div style="display: table-cell">
+                            <label style="font-weight: bold" class="sm">Address:</label>
+                        </div>
+                    </div>
+
+
+                    <div class="xs" style="display: table-row;margin-top:7px">
                         <div style="display: table-cell;">
-                            <input type="text" value="{{ $auth_rep_two_email }}" name="auth_rep_two_email" style="width: 95%" /> <br>
-                            <label>Email</label>
+                            <input type="text" value="{{ $auth_rep_two_address }}" name="auth_rep_two_address" style="width: 95%">
+                            <label>Address</label>
                         </div>
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary" style="width: 95%" /> <br>
-                            <label>Relationship to Beneficiary
-                            </label>
+                            <input type="text" value="{{ $auth_rep_two_city }}" name="auth_rep_two_city" style="width: 95%" />
+                            <label>City:</label>
+                        </div>
+                        <div style="display: table-cell;">
+    
+                            <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" style="width: 95%" />
+                            <label>State:</label>
+                        </div>
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 95%">
+                            <label>Apt #:</label>
+                        </div> 
+                        <div style="display: table-cell">
+                            <input type="text" value="{{ $auth_rep_two_zip }}"name="auth_rep_two_zip" style="width: 95%" />
+                            <label>Zip:</label>
                         </div>
                     </div>
                 </div>
-                <br>
-
-            <div style="display: table">
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <label style="font-weight: bold">Address:</label>
-                    </div>
-                </div>
             </div>
-            <br>
+         
+         
 
-            <div style="display: table;width:100%">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_two_address }}" name="auth_rep_two_address" style="width: 95%"> <br>
-                        <label>Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_city }}" name="auth_rep_two_city" style="width: 95%" /> <br>
-                        <label>City:</label>
-                    </div>
-                </div>
-            </div>
-            <br>
-
-            <div style="display: table;width:100%">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" style="width: 95%" /> <br>
-                        <label>State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 95%"> <br>
-                        <label>Apt #:</label>
-                    </div> 
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_zip }}"name="auth_rep_two_zip" style="width: 95%" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div>
-            </div>
-            </div>
+    </div>
 
 
 
@@ -991,7 +968,6 @@
                 Home
 
             </p> --}}
-            <hr>
             <p
                 style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 REFERRING SOURCE
