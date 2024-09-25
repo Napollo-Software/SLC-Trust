@@ -1136,7 +1136,7 @@
 
         <div class="page-3">
             <p
-                style="font-size: 12px; padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
                 PURPOSE OF ENROLLMENT
             </p>
             <p style="font-size: 12px; margin: 0;padding-bottom:'3px'" class='xs'>
