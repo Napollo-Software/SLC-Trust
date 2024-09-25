@@ -2692,35 +2692,84 @@ Beneficiary.
             <br>
             <br>
             <br>
-            <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">DIRECT DEBIT REQUEST FORM</p>
-            <p style="">
-                Donor/Beneficiary: <input type="text" value="{{ $office_use_effective_date }}"
-                    class="no-border" style="width: 100%"> <br>
-                Representative: <input type="text" value="{{ $direct_debit_representative }}"
-                    class="no-border" style="width: 100%;"> <br>
-                    Bank Name: <input type="text" value="{{ $direct_debit_bank_name }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_bank_name"> <br>
-                    Bank Routing Number: <input type="text" value="{{ $direct_debit_bank_routing }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_bank_routing"> <br>
-                    Account Number: <input type="text" value="{{ $direct_debit_account_number }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_account_number"> <br>
-                    Account Name: <input type="text" value="{{ $direct_debit_account_name }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_account_name"> <br>
-                    City:  <input type="text" value="{{ $direct_debit_city }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_city"> <br>
-                    State: <input type="text" value="{{ $direct_debit_state }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_state">
-                {{-- Bank Name: <input type="text" value="{{ $direct_debit_bank_name }}" class="no-border"
-                    style="width:30%;">
-                City: <input type="text" value="{{ $direct_debit_city }}" class="no-border"
-                    style="width:25%;">
-                State: <input type="text" value="{{ $direct_debit_state }}" class="no-border"
-                    style="width:15%;;">
-                Bank Routing Number: <input type="text" value="{{ $direct_debit_bank_routing }}"
-                    class="no-border">
-                Account Number: <input type="text" value="{{ $direct_debit_account_number }}"
-                    class="no-border"> --}}
+            <p class="section-heading" style="width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">DIRECT DEBIT REQUEST FORM</p>
+            <div style="display: table; width: 100%;" class="sm">
+                   
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px; vertical-align: bottom; ">
+                            <label>Donor/Beneficiary:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom;">
+                            <input type="text" value="{{ $office_use_effective_date }}" class="no-border" style="width: 100%;">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Representative:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                        <input type="text" value="{{ $direct_debit_representative }}" class="no-border" style="width: 100%;">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Bank Name:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                          <input type="text" value="{{ $direct_debit_bank_name }}" class="no-border" style="width: 100%;" name="direct_debit_bank_name">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Bank Routing Number:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                         <input type="text" value="{{ $direct_debit_bank_routing }}" class="no-border" style="width: 100%;" name="direct_debit_bank_routing">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Account Number:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                        <input type="text" value="{{ $direct_debit_account_number }}" class="no-border" style="width: 100%;" name="direct_debit_account_number"> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Account Name:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                            <input type="text" value="{{ $direct_debit_account_name }}" class="no-border" style="width: 100%;" name="direct_debit_account_name"> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>City:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                        <input type="text" value="{{ $direct_debit_city }}"  class="no-border" style="width: 100%;" name="direct_debit_city">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>State:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                        <input type="text" value="{{ $direct_debit_state }}" class="no-border" style="width: 100%;" name="direct_debit_state">
+                        </div>
+                    </div>
+                    <br/>
 
+                </div>
+              <br>
             </p>
 
             <p style=" ">Account type:
