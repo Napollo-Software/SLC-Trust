@@ -1204,6 +1204,9 @@ tr.ind-th td:nth-child(1){
 .w-30{
     width: 30%
 }
+.w-35{
+    width: 35%
+}
 .f-75{
     flex: 0.75
 }
@@ -1381,6 +1384,7 @@ tr.ind-th td:nth-child(1){
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 15px
 }
 .guardian-information-body{
     width: 90%;
@@ -1763,6 +1767,9 @@ tr.ind-th td:nth-child(1){
     width: 100%;
    }
    .w-25{
+    width: 100%;
+   }
+   .w-35{
     width: 100%;
    }
    .w-48{
@@ -3531,7 +3538,7 @@ tr.ind-th td:nth-child(1){
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Email</label>
                                 </div>
-                                <div class="w-48">
+                                <div class="w-35">
                                     <input type="text" name="power_address" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Address</label>
@@ -3637,7 +3644,7 @@ tr.ind-th td:nth-child(1){
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Email</label>
                                 </div>
-                                <div class="w-40">
+                                <div class="w-35">
                                     <input type="text" name="power_address2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Address</label>
