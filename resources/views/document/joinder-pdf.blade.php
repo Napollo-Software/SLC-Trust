@@ -126,7 +126,7 @@
 
         .italic{
             font-style: italic;
-            font-size: 10px;
+            font-size: 12px;
         }
 
         .text-center{
@@ -789,7 +789,7 @@
             </div>
 
             <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
-                <div style="display: table-row;margin-top:4px;margin-bottom:4px">
+                <div style="display: table-row;margin-top:2x">
                     <div style="display: table-cell">
                         <label style="font-weight: bold" class="sm">Contact Information</label>
                     </div>
@@ -835,7 +835,7 @@
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
-                        <div style="display: table-cell; margin-top:3px;margin-bottom:3px">
+                        <div style="display: table-cell">
                             <label style="font-weight: bold" class="sm">Address:</label>
                         </div>
                     </div>
@@ -844,24 +844,24 @@
                     <div style="display: table-row;margin-top:7px" class="xs">
                         <div style="display: table-cell;">
                             <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address" style="width: 95%">
-                            <label class="italic">Address</label>
+                            <label>Address</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" style="width: 95%" />
-                            <label class="italic">City:</label>
+                            <label>City:</label>
                         </div>
                         <div style="display: table-cell;">
 
                             <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" />
-                            <label class="italic">State:</label>
+                            <label>State:</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%">
-                            <label class="italic">Apt #:</label>
+                            <label>Apt #:</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" />
-                            <label class="italic">Zip:</label>
+                            <label>Zip:</label>
                         </div>
                     </div>
                 </div>
@@ -897,7 +897,7 @@
             </div>
 
             <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
-                <div style="display: table-row;margin-top:4px;margin-bottom:4px;">
+                <div style="display: table-row;margin-top:2x">
                     <div style="display: table-cell">
                         <label style="font-weight: bold" class="sm">Contact Information</label>
                     </div>
@@ -943,7 +943,7 @@
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
-                        <div style="display: table-cell;margin-top:4px;margin-bottom:4px">
+                        <div style="display: table-cell">
                             <label style="font-weight: bold" class="sm">Address:</label>
                         </div>
                     </div>
@@ -2249,208 +2249,191 @@
                 <p style="margin-top: 1px;padding: 0;text-align:center">5</p>
         {{-- <div class="page-break"></div> --}}
 
-    
-      
-        <div class="page-6 sm">
-        <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:36%" class="section-heading md" >
-            INFORMATION AND DISCLOSURES:
-        </p>
-        <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
-            <b>Death of Beneficiary:</b><br>
-            The Beneficiary’s sub-trust account terminates 
-                upon his or her death. If, upon the death of the 
-                Beneficiary, funds remain in his or her sub-trust 
-                account, such funds shall be deemed to be property 
-                of the Trust and all funds that are remaining in the 
-                Beneficiary’s separate sub-trust account shall 
-                be retained by SLC Supplemental Needs Trust to 
-                further the purposes of that Trust. However, to the 
-                extent that amounts remaining in the individual’s 
-                subtrust account upon the death of the individual 
-                are not in fact retained by the Trust, the Trust shall 
-                pay to the State(s) from such remaining amounts in 
-                the sub-trust account an amount equal to the total 
-                amount of medical assistance paid on behalf of the 
-                individual under the State Medicaid plan (s). To the 
-                extent that the trust does not retain the funds in the 
-                account, the State(s) shall be the first payee(s) of 
-                any such funds and the State(s) shall have priority 
-                over payment of other debts and administrative 
-                expenses except as listed in POMS SI 01120.203E.<br/>
-                Funeral expenses will only be paid pursuant to a 
-                Medicaid eligible pre-need funeral arrangement 
-                established and funded prior to the Beneficiary’s 
-                death. Funeral expenses will not be paid after the 
-                Beneficiary’s death. <br/><br/>
-                <b>Contributions/Deposits:</b><br>
-                All contributions made to the sub-trust account 
-will be held and administered pursuant to the 
-provisions of the SLC Supplemental Needs Trust 
-which are incorporated by reference herein.<br/>
-The Trustees shall have the sole and absolute right 
-to accept or refuse additional deposits to the subtrust account.<br/>
-            In the event that a Beneficiary has a zero ($0) 
-sub-trust account balance for sixty (60) or more 
-consecutive days, the Trustee shall retain the right 
-to close the Beneficiary’s sub-trust account. Please 
-be advised that the Trustee may continue to charge 
-administrative fees for the management of the 
-sub-trust account prior to its closure. In the event 
-that a Beneficiary wishes to re-open a sub-trust 
-account, the Beneficiary may be required to pay any 
-outstanding administrative fees stemming from the 
-prior sub-trust account.   Additionally, the Beneficiary 
-shall be required to pay a new enrollment fee when re-opening a sub-trust
-        </div>
+        <div class="page-6">
+            <p style="font-size: 16px; padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">INFORMATION AND DISCLOSURES:
+            </p>
+            <p>
+                <b>Death of Beneficiary:</b>
+            </p>
+            <p>
+                The Beneficiary's sub-trust account terminates upon his or her death. If, upon the death of the
+                Beneficiary,
+                funds remain in his or her sub-trust account, such funds shall be deemed to be property of the Trust and
+                all
+                funds that are remaining in the Beneficiary's separate sub-trust account shall be retained by TRUSTED
+                SURPLUS
+                SOLUTIONS DISABILITY POOLED TRUST to further the purposes of that Trust. However, to the extent that
+                amounts
+                remaining in the individual's sub-trust account upon the death of the individual are not in fact
+                retained by the
+                Trust, the Trust shall pay to the State(s) from such remaining amounts in the sub-trust account an
+                amount equal
+                to the total amount of medical assistance paid on behalf of the individual under the State Medicaid plan
+                (s). To
+                the extent that the trust does not retain the funds in the account, the State(s) shall be the first
+                payee(s) of
+                any such funds and the State(s) shall have priority over payment of other debts and administrative
+                expenses
+                except as listed in POMS SI 01120.203E. <br>
+                Funeral expenses will only be paid pursuant to a Medicaid eligible pre-need funeral arrangement
+                established and
+                funded prior to the Beneficiary's death. Funeral expenses will not be paid after the Beneficiary's
+                death.
+                <br><b>Contributions/Deposits:</b><br>
+                All contributions made to the sub-trust account will be held and administered pursuant to the provisions
+                of the
+                TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST which are incorporated by reference herein.
+                The Trustees shall have the sole and absolute right to accept or refuse additional deposits to the
+                sub-trust
+                account.
+                In the event that a Beneficiary has a zero ($0) sub-trust account balance for sixty (60) or more
+                consecutive
+                days, the Trustee shall retain the right to close the Beneficiary's sub-trust account. Please be advised
+                that
+                the Trustee may continue to charge administrative fees for the management of the sub-trust account prior
+                to its
+                closure. In the event that a Beneficiary wishes to re-open a sub-trust account, the Beneficiary may be
+                required
+                to pay any outstanding administrative fees stemming from the prior sub-trust account. Additionally, the
+                Beneficiary shall be required to pay a new enrollment fee when re-opening a sub-trust account.
+                <br><b>Disbursements: </b><br>
+                All disbursement requests shall be reviewed and approved on an individual basis.
+                Disbursements for expenses incurred more than 90 days prior to submission of a disbursement request form
+                shall
+                not be paid.
+                The Trustees, in their discretion, have determined that disbursements for the following items shall not
+                be paid:
+                purchases of firearms, alcohol, tobacco, items relating to illegal activity, bail, or restitution.
+                All disbursements shall be made at the sole and absolute discretion of the Trustee. No disbursements
+                will be
+                made after the death of the beneficiary, even for expenses incurred or due prior to death.
+                <br>
+                <b>Disability Determination:</b>
+                In the event that a determination of disability is required for Medicaid purposes, please be advised
+                that
+                administrative fees shall be incurred while the determination of disability is being made.<br>
+                The Donor acknowledges that contributions to the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST are
+                not
+                tax-deductible as charitable gifts, or otherwise.<br>
+                Sub-trust account income may be taxable to the Beneficiary.
+                    Disclosure of Potential Conflict of Interest:
+                There may be a potential conflict of interest in the administration of the Trust since the Trust retains
+                those
+                funds remaining in the sub-trust account at the time of death of the Beneficiary. Funds remaining in the
+                Trust
+                may be used to pay for ancillary and/or supplemental services for Beneficiaries and potential
+                Beneficiaries for
+                which services may be rendered by TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST. <br>
+                The Donor executing this Joinder Agreement is aware of the potential conflicts of interest that exist in
+                the
+                Trustee's administration of the Trust. The Trustee shall not be liable to Donor or to any party for any
+                act of
+                self-dealing or conflict of interest resulting from their affiliations with SCF Charitable Organization
+                or with
+                any Beneficiary or constituent agencies and/or Chapters.
+                <br>
 
-        <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
-         account.
-        <br>
-        <b style="margin-top:40px">Disbursements: </b><br>
-        All disbursement requests shall be reviewed and 
-approved on an individual basis.
-Disbursements for expenses incurred more than 90 
-days prior to submission of a disbursement request 
-form shall not be paid. <br/> The Trustees, in their discretion, have determined 
-that disbursements for the following items shall not 
-be paid: purchases of firearms, alcohol, tobacco, 
-items relating to illegal activity, bail, or restitution. <br/> All disbursements shall be made at the sole and 
-absolute discretion of the Trustee. No disbursements 
-will be made after the death of the beneficiary, even 
-for expenses incurred or due prior to death. 
-                <br/><br/>
-                <b >Disability Determination:</b><br>
-                In the event that a determination of disability is 
-required for Medicaid purposes, please be advised 
-that administrative fees shall be incurred while the 
-determination of disability is being made. <br/>The Donor acknowledges that contributions to 
-the SLC Supplemental Needs Trust are not tax 
-deductible as charitable gifts, or otherwise.
-Sub-trust account income may be taxable to the 
-Beneficiary. <br/><br/>
-<b >Disclosure of Potential Conflict of Interest:</b><br>
-There may be a potential conflict of interest in the 
-administration of the Trust since the Trust retains 
-those funds remaining in the sub-trust account at 
-the time of death of the Beneficiary. Funds remaining 
-in the Trust may be used to pay for ancillary and/
-or supplemental services for Beneficiaries and 
-potential Beneficiaries for which services may be 
-rendered by SLC Supplemental Needs Trust.<br/>
-The Donor executing this Joinder Agreement is 
-aware of the potential conflicts of interest that exist 
-in the Trustee’s<br/>administration of the Trust. The Trustee shall not 
-be liable to Donor or to any party for any act of 
-self-dealing or conflict of interest resulting from 
-their a liations with Senior Lifecare Corp or with 
-any Beneficiary or constituent agencies and/or 
-Chapters.
-        </div>
-
-            <div style="clear: both; text-align: center; margin: 0; padding: 0;">
-                <p style="margin: 0; padding: 0;">6</p>
+            <div style="text-align: center;margin: 0;padding: 0;">
+                <p style="margin: 0;padding: 0;">6</p>
             </div>
         </div>
+        <br>
 
-        <div class="page-break"></div>
+        {{-- <div class="page-break"></div> --}}
 
         <div class="page-7">
-            <b>Situs:</b> <br/>
-                <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
-                    The sub-trust account created by this Agreement 
-has been accepted by the Trustee in the State of 
-New York and will be administered by Senior Lifecare 
-Corp and a financial institution in the State of New 
-York. The validity, construction, and all rights under 
-this Agreement shall be governed by the laws 
-of the State of New York. The situs of this Trust for 
-administrative, account and legal purposes shall 
-be in the County of Kings, the County where the 
-majority of meetings concerning establishment of 
-the Trust occurred.
-<br/><br/>
-<b>Invalidity of any Provision:</b> <br/>
-Should any provision of this Agreement be or 
-become invalid or unenforceable, the remaining 
-provisions of this Agreement shall be and continue 
-to be fully e ective. <br/>By signing below, you a rm that you understand 
-and agree to the following: <br/>I have received and read a copy of the applicable 
-Master Trust prior to the signing of this Joinder 
-Agreement and acknowledge that I understand 
-the contents thereof. I also understand that said 
-document may be amended from time to time. 
-I have been provided with the applicable fee 
-schedule and acknowledge that I understand the 
-contents thereof. I also understand there may be 
-changes from time to time.<br/>I am entering into this Joinder Agreement voluntarily 
-and acting on my own free accord.<br/>The Donor acknowledges that the Beneficiary is 
-disabled as defined in Social Security Law Section 
-1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this 
-document are true and accurate to the best of my 
-knowledge.<br/>The SLC Supplemental Needs Trust is authorized to 
-be used by individuals with disabilities pursuant to 
-federal and state law. By agreeing to accept a donor’s 
-property pursuant to this Joinder Agreement, SLC 
-Supplemental Needs Trust agrees only to manage 
-the trust funds in accordance with the terms of the 
-Master Trust Agreement and in compliance with 
-applicable federal and state law and regulation. 
-It is the sole responsibility of the donor and/or the 
-donor’s representative to determine whether the donor is “disabled” as that term
-                </div>
+            <b>
+                Situs:
 
-                <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
-                 is defined under 
-federal law, to determine whether they have the 
-legal authority to transfer property to fund the 
-trust, and the impact that a transfer of property to 
-the SLC Supplemental Needs Trust will have on the 
-donor’s continuing eligibility for government benefit 
-programs.<br/>
-Senior Lifecare Corp is not assuming any 
-responsibility as counsel for the donor or Beneficiary, 
-or providing any legal advice as it relates to the 
-consequences of a transfer of property to the SLC 
-Supplemental Needs Trust. <br/>The Trustees in their discretion may require an 
-intermediary to assist in the administration of the 
-Beneficiary’s sub-trust account. The cost of which 
-may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf 
-or the intermediary must notify SLC Supplemental 
-Needs Trust. immediately upon your death and 
-will be required to provide us with a certified death 
-certificate. An individual requesting and/or receiving 
-disbursements in contravention of the Master Trust 
-Agreement and the Joinder Agreement will be 
-required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the 
-Beneficiary in the SLC Supplemental Needs Trust is an 
-important legal decision that may have significant 
-and lasting consequences for the Beneficiary and as 
-a result you may want to consider obtaining advice 
-from an attorney or another professional adviser 
-before entering into this Agreement. By signing this 
-Agreement you are acknowledging that you have 
-had a full and complete opportunity to confer with 
-an attorney or other adviser and that no employee 
-of Senior Lifecare Corp has provided you (or the 
-Beneficiary, if di erent from the person signing this 
-Agreement) with any legal advice in connection 
-with this Joinder Agreement, the participation by 
-the Beneficiary in the SLC Supplemental Needs 
-Trust or the suitability of such participation by the 
-Beneficiary in the SLC Supplemental Needs Trust 
-based upon the particular circumstances of the 
-Beneficiary.
-                </div>
+            </b>
+            <br>
 
-                <div style="clear: both; text-align: center; margin: 0; padding: 0;">
-                    <p style="margin: 0; padding: 0;">7</p>
-                </div>
+            The sub-trust account created by this Agreement has been accepted by the Trustee in the State of New York
+            and
+            will be administered by SCF Charitable Organization Inc. and a financial institution in the State of New
+            York.
+            The validity, construction, and all rights under this Agreement shall be governed by the laws of the State
+            of
+            New York. The situs of this Trust for administrative, account and legal purposes shall be in the County of
+            Kings, the County where the majority of meetings concerning establishment of the Trust occurred.
+            Invalidity of any Provision: <br>
+            Should any provision of this Agreement be or become invalid or unenforceable, the remaining provisions of
+            this
+            Agreement shall be and continue to be fully effective. <br>br
+            By signing below, you affirm that you understand and agree to the following: <br>
+            I have received and read a copy of the applicable Master Trust prior to the signing of this Joinder
+            Agreement
+            and acknowledge that I understand the contents thereof. I also understand that said document may be amended
+            from
+            time to time. I have been provided with the applicable fee schedule and acknowledge that I understand the
+            contents thereof. I also understand there may be changes from time to time.
+            <br>
+            <p>
+                I am entering into this Joinder Agreement voluntarily and acting on my own free accord. <br>
+                <br>
+                The Donor acknowledges that the Beneficiary is disabled as defined in Social Security Law Section
+                1614(a)(3) [42 USC 1382c(a) (3)].<br>
+                <br>
+                Under penalty of perjury, all statements made in this document are true and accurate to the best of my
+                knowledge. <br>
+                <br>
+                The TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST is authorized to be used by individuals with
+                disabilities
+                pursuant to federal and state law. By agreeing to accept a donor's property pursuant to this Joinder
+                Agreement,
+                TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, Inc. agrees only to manage the trust funds in
+                accordance with
+                the terms of the Master Trust Agreement and in compliance with applicable federal and state law and
+                regulation.
+                It is the sole responsibility of the donor and/or the donor's representative to determine whether the
+                donor is
+                "disabled" as that term is defined under federal law, to determine whether they have the legal authority
+                to
+                transfer property to fund the trust, and the impact that a transfer of property to the TRUSTED SURPLUS
+                SOLUTIONS
+                DISABILITY POOLED TRUST will have on the donor's continuing eligibility for government benefit programs.
+                <br>
+                SCF Charitable Organization is not assuming any responsibility as counsel for the donor or Beneficiary,
+                or
+                providing any legal advice as it relates to the consequences of a transfer of property to the TRUSTED
+                SURPLUS
+                SOLUTIONS DISABILITY POOLED TRUST. <br>
+                The Trustees in their discretion may require an intermediary to assist in the administration of the
+                Beneficiary's sub-trust account. The cost of which may be charged to the sub-trust account. <br>
+                The party authorized to speak with us on your behalf or the intermediary must notify TRUSTED SURPLUS
+                SOLUTIONS
+                DISABILITY POOLED TRUST, Inc. immediately upon your death and will be required to provide us with a
+                certified
+                death certificate. An individual requesting and/or receiving disbursements in contravention of the
+                Master Trust
+                Agreement and the Joinder Agreement will be required to repay the amount disbursed. <br>
+                This Joinder Agreement and the participation of the Beneficiary in the TRUSTED SURPLUS SOLUTIONS
+                DISABILITY
+                POOLED TRUST is an important legal decision that may have significant and lasting consequences for the
+                Beneficiary and as a result you may want to consider obtaining advice from an attorney or another
+                professional
+                adviser before entering into this Agreement. By signing this Agreement you are acknowledging that you
+                have had a
+                full and complete opportunity to confer with an attorney or other adviser and that no employee of SCF
+                Charitable
+                Organization has provided you (or the Beneficiary, if different from the person signing this Agreement)
+                with any
+                legal advice in connection with this Joinder Agreement, the participation by the Beneficiary in the
+                TRUSTED
+                SURPLUS SOLUTIONS DISABILITY POOLED TRUST or the suitability of such participation by the Beneficiary in
+                the
+                TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST based upon the particular circumstances of the
+                Beneficiary.
+                <br>
+            <div style="text-align: center;margin: 0;padding: 0;">
+                <p style="margin: 0;padding: 0;">7</p>
             </div>
+        </div>
 
         <div class="page-break"></div>
         <div class="page-8 seaction-heading">
-            <p style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
-            <p style="padding:0;margin: 0;">
+            <p class='text-xs' style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
+            <p class='text-xs' style="padding:0;margin: 0;padding-bottom:2px">
                 Who is signing this Joinder Agreement?
                 &nbsp;
                 <input type="checkbox" name="agreement_signature_beneficiary" value="Beneficiary"
@@ -2461,32 +2444,32 @@ Beneficiary.
                 <input type="checkbox" name="agreement_signature_guardian" value="Guardian"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
-            </p> <br>
+            </p>
             <p style='margin:0'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
             <div style="display: table; width: 100%; margin: 0; text-align: center;">
             <div style="display: table-row;">
                 <div style="display: table-cell; width: 33%;">
-                    <div>
+                    <div class='text-xs'>
                         @if ($joinder_signature_1)
-                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="150px" style="display: block; border-bottom: 1px solid;margin-left:80px;width:80%">
+                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="70px" style="display: block; border-bottom: 1px solid;margin-left:60px;width:80%">
                         @else
                             <div style="width: 200px; height: 50px; text-align: center;">
                         No Signature Provided
                     </div>
                             @endif
-                            <div style='text-align: left;margin-left:80px'>
+                            <div class='text-xs' style='text-align: left;margin-left:80px'>
                                 <label>Sign Here</label>
                             </div>
                         </div>
                     </div>
-                    <div style="display: table-cell; width: 33%;">
+                    <div style="display: table-cell; width: 33%;" class='text-xs'>
                         <p style="margin: 0;">
                             <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
                             <br>
                             <label>PRINT</label>
                         </p>
                     </div>
-                    <div style="display: table-cell; width: 33%;">
+                    <div style="display: table-cell; width: 33%;" class='text-xs'>
                         <p style="margin: 0;">
                             <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
                             <br> DATE
@@ -2494,10 +2477,9 @@ Beneficiary.
                     </div>
                 </div>
             </div>
-
             <br>
-            <p class='section-heading' style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center;margin:0">SIGNATURE OF NOTARY</p> <br>
-            <div style='display-table;width:100%'>
+            <p class='section-heading' style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
+            <div style='display:table;width:100%'>
             <div style='display:table-row' class='xs'>
             <p style="margin:0;padding-bottom:5px;display:table-cell">STATE OF New York
                 <input type="text" value="{{ $notary_state_of_ny }}" class="no-border"
@@ -2537,105 +2519,107 @@ Beneficiary.
                         </div>
                 </div>
             </div>
-            <p class='text-md xs' style="font-size: 16px; padding:10px;width:20%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>            <p>
+            <p class='xs' style=" padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
+            <p class='text-xs'>
                 (New York Residents Only)
                 Or in lieu of Notarization, the following two witness signatures are provided:
             </p>
-            <div style="display: table; width: 100%; margin-top: 20px;" class='xs'>
+            <div style="display: table; width: 100%; margin-top: 10px;" class='xs'>
                 <!-- Row for Witness Names -->
                 <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;padding-bottom:2px">
+                        <input type="text" style="width: 60%; text-align: center;margin-left:35px" class="no-border"
                             name="notary_witness_one_name" value="{{ $notary_witness_one_name }}"
                             maxlength="70">
-                        <br><label> WITNESS 1 </label>
+                            <br>
+                        <label style='margin-left:35px'> WITNESS 1 </label>
                     </div>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell; margin-left:20px">
+                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
                             name="notary_witness_two_name" value="{{ $notary_witness_two_name }}"
                             maxlength="70">
-                        <br><label> WITNESS 2 </label>
+                            <br>
+                        <label> WITNESS 2 </label>
                     </div>
                 </div>
-                <br>
-
                 <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;">
+                        <input type="text" style="width: 60%; text-align: center;margin-left:35px" class="no-border"
                             name="sig_date1" value="{{ $sig_date1 }}" maxlength="70">
-                        <br><label>Date</label>
+                        <br><label style='margin-left:35px'>Date</label>
                     </div>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px">
+                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
                             name="sig_date2" value="{{ $sig_date2 }}" maxlength="70">
                         <br><label> Date </label>
                     </div>
                 </div>
-                <br>
                 <!-- Row for Signatures -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        @if ($joinder_signature_2)
+                    <div style="display: table-cell;padding-bottom:2px">
+                        <div style='text-align:center'>
+                            @if ($joinder_signature_2)
                             <img src="{{ $joinder_signature_2 }}" alt="Signature 2"
-                                style="max-width:300px; max-height: 150px;">
+                                style="max-width:300px; max-height: 50px;">
                             <br>
-                        @else
+                            @else
                             <div style="width: 200px;height:50px; text-align: center;">
                                 No Signature Provided
                             </div>
-                        @endif
-                        <label> Witness 1 Signature</label>
+                            @endif
+                        </div>
+                        <div style='border-top:1px solid;width:60%;margin-left:35px;'>
+                            <label style=''>Sign Here</label>
+                        </div>
                     </div>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        @if ($joinder_signature_3)
+                    <div style="display: table-cell;margin-left:20px">
+                        <div style='text-align:center'>
+                            @if ($joinder_signature_3)
                             <img src="{{ $joinder_signature_3 }}" alt="Signature 3"
-                                style="max-width: 300px; max-height: 150px;">
+                            style="max-width: 300px; max-height: 50px;">
                             <br>
-                        @else
+                            @else
                             <div style="width: 200px;height:50px; text-align: center;">
                                 No Signature Provided
                             </div>
-                        @endif
-                        <label> Witness 2 Signature</label>
+                            @endif
+                        </div>
+                        <div style='border-top:1px solid;width:60%;'>
+                            <label style=''>Sign Here</label>
+                        </div>
                     </div>
                 </div>
-
-                <br>
-
                 <!-- Row for Full Names -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;padding-bottom:2px">
+                        <input type="text" style="width: 60%; text-align: center;margin-left:35px" class="no-border"
                             name="notary_witness_one_full_name" value="{{ $notary_witness_one_full_name }}"
                             maxlength="70">
-                        <br><label> FULL NAME</label>
+                        <br><label style='margin-left:35px'> FULL NAME</label>
                     </div>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px">
+                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
                             name="notary_witness_two_full_name" value="{{ $notary_witness_two_full_name }}"
                             maxlength="70">
                         <br><label> FULL NAME</label>
                     </div>
                 </div>
 
-                <br>
-
                 <!-- Row for Full Addresses -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;padding-bottom:5px">
+                        <input type="text" style="width: 60%; text-align: center;margin-left:35px" class="no-border"
                             name="notary_witness_one_full_address" value="{{ $notary_witness_one_full_address }}">
-                        <br><label> FULL ADDRESS </label>
+                        <br><label style='margin-left:35px'> FULL ADDRESS </label>
                     </div>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px">
+                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
                             name="notary_witness_two_full_address" value="{{ $notary_witness_two_full_address }}">
                         <br><label> FULL ADDRESS </label>
                     </div>
                 </div>
 
             </div>
-            <br><br>
             <div
                 style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
                 FOR OFFICE USE ONLY
@@ -2651,18 +2635,18 @@ Beneficiary.
                          <div style='text-align:center'>
                              @if ($joinder_signature_4)
                              <img src="{{ $joinder_signature_4 }}" alt="Signature 4"
-                             style="width: 300px; height: 150px;text-align:center">
+                             style="width: 300px; height: 50px;text-align:center">
                              @else
                              <div style="width: 200px;height:50px; text-align: center;">
                                  No Signature Provided
                                 </div>
                                 @endif
                             </div>
-                        <div style='border-top:1px solid;width:90%;margin-left:40px;'>
+                        <div class='xs' style='border-top:1px solid;width:90%;margin-left:40px;'>
                             <label style=''>Sign Here</label>
                         </div>
                     </div>
-                    <div style="display: table-cell; width: 50%;">
+                    <div class='xs' style="display: table-cell; width: 50%;">
                         <input type="text" style="width: 90%; text-align: center;margin-left:40px" class="no-border"
                             value="{{ $office_use_date_approved }}">
                         <br><label style='margin-left:40px'>DATE</label>
