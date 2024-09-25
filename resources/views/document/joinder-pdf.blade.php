@@ -53,7 +53,7 @@
             margin: 5px 0;
         }
 
-        .radio-row label {
+        .checkbox-row label {
             margin-right: 20px;
         }
 
@@ -325,17 +325,17 @@
                 <div style="display: table-row;">
                     <p style="display:table-cell;" class="sm"> Marital Status:
                         <label class="xs">
-                            <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Married"
+                            <input style="height:22px" type="checkbox" name="sponsor_marital_status1" value="Married"
                                 {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
                             <label>Married</label>
                         </label>
                         <label class="xs">
-                            <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Widowed"
+                            <input style="height:22px" type="checkbox" name="sponsor_marital_status1" value="Widowed"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Widowed' ? 'checked' : '' }}>
                         <label>Widowed</label>
                         </label>
                         <label class="xs">
-                            <input style="height:22px" type="radio" name="sponsor_marital_status" value="Single"
+                            <input style="height:22px" type="checkbox" name="sponsor_marital_status" value="Single"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Single' ? 'checked' : '' }}>
                         <label>Single</label>
                         </label>
@@ -356,17 +356,17 @@
                         <label style=" font-weight: bold;">Marital Status:</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="radio" name="sponsor_marital_status" value="Married"
+                        <input type="checkbox" name="sponsor_marital_status" value="Married"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
                         <label>Married</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="radio" name="sponsor_marital_status" value="Widowed"
+                        <input type="checkbox" name="sponsor_marital_status" value="Widowed"
                             {{ isset($sponsor_marital_status2) && $sponsor_marital_status2 === 'Widowed' ? 'checked' : '' }}>
                         <label>Widowed</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="radio" name="sponsor_marital_status" value="Single"
+                        <input type="checkbox" name="sponsor_marital_status" value="Single"
                             {{ isset($sponsor_marital_status3) && $sponsor_marital_status3 === 'Single' ? 'checked' : '' }}>
                         <label>Single</label>
                     </div>
@@ -442,12 +442,12 @@
 
                 <p class="strong sm">Preferred Phone:
                     <label class="sm">
-                        <input style="height:22px" type="radio" name="prefered_cell" value="Cell"
+                        <input style="height:22px" type="checkbox" name="prefered_cell" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
                         <label style="font-weight: 400;">Cell</label>
                     </label>
                     <label >
-                        <input style="height:22px" type="radio" name="prefered_cell" value="Phone"
+                        <input style="height:22px" type="checkbox" name="prefered_cell" value="Phone"
                             {{ isset($prefered_cell) && $prefered_cell === 'Phone' ? 'checked' : '' }}>
                         <label style="font-weight: 400">Home</label>
                     </label>
@@ -612,9 +612,9 @@
             <div style="display: table; width: 100%;">
                 <div style="display: table-cell;">
                     <label style="font-weight: bold;">Marital Status:</label>
-                    <label>Married <input type="radio" name="sponsor_marital_status" value="Married" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Married' ? 'checked' : '' }}></label>
-                    <label>Widowed <input type="radio" name="sponsor_marital_status" value="Widowed" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Widowed' ? 'checked' : '' }}></label>
-                    <label>Single <input type="radio" name="sponsor_marital_status" value="Single" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Single' ? 'checked' : '' }}></label>
+                    <label>Married <input type="checkbox" name="sponsor_marital_status" value="Married" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Married' ? 'checked' : '' }}></label>
+                    <label>Widowed <input type="checkbox" name="sponsor_marital_status" value="Widowed" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Widowed' ? 'checked' : '' }}></label>
+                    <label>Single <input type="checkbox" name="sponsor_marital_status" value="Single" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Single' ? 'checked' : '' }}></label>
                 </div>
                 <div style="display: table-cell;">
                     <label>Gender</label>
@@ -633,8 +633,8 @@
             <br>
             <div style="display: table; width: 100%;">
                 <label>Citizen:</label>
-                <input type="radio" name="sponsor_citizen" value="Yes" {{ isset($sponsor_citizen) && $sponsor_citizen === 'Yes' ? 'checked' : '' }}> Yes
-                <input type="radio" name="sponsor_citizen" value="No" {{ isset($sponsor_citizen) && $sponsor_citizen === 'No' ? 'checked' : '' }}> No
+                <input type="checkbox" name="sponsor_citizen" value="Yes" {{ isset($sponsor_citizen) && $sponsor_citizen === 'Yes' ? 'checked' : '' }}> Yes
+                <input type="checkbox" name="sponsor_citizen" value="No" {{ isset($sponsor_citizen) && $sponsor_citizen === 'No' ? 'checked' : '' }}> No
                 <label>Home Phone</label>
                 <input type="text" value="{{ $sponsor_tel_home }}" class="no-border" name="sponsor_tel_home">
                 <label>Cell Phone</label>
@@ -643,9 +643,9 @@
             <div style="display: table; width: 100%;">
                 <div style="display: table-cell; padding: 0">
                     <label>Preferred Phone:</label>
-                    <input type="radio" name="preferedphone" value="Cell"
+                    <input type="checkbox" name="preferedphone" value="Cell"
                         {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>Cell
-                    <input type="radio" name="preferedphone" value="Phone"
+                    <input type="checkbox" name="preferedphone" value="Phone"
                         {{ isset($prefered_phone) && $prefered_phone === 'Phone' ? 'checked' : '' }}>Home
                 </div>
             </div>
@@ -712,17 +712,17 @@
             </div>
             <p class="xs" style=" ">Who will be your primary contact?
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="auth_beneficiary" value="Beneficiary"
+                    <input style="height:22px" type="checkbox" name="auth_beneficiary" value="Beneficiary"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Beneficiary' ? 'checked' : '' }}>
                     Beneficiary
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="auth_beneficiary" value="Auth. Rep.1"
+                    <input style="height:22px" type="checkbox" name="auth_beneficiary" value="Auth. Rep.1"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Auth. Rep.1' ? 'checked' : '' }}>
                     Auth. Rep. 1
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="auth_beneficiary" value="Auth. Rep. 2"
+                    <input style="height:22px" type="checkbox" name="auth_beneficiary" value="Auth. Rep. 2"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Auth. Rep. 2' ? 'checked' : '' }}>
                     Auth. Rep. 2
                 </label>
@@ -774,12 +774,12 @@
                     </div>
                     <p style=" ">Preferred Phone:
                     <label style="margin: 0;">
-                        <input style="height:22px" type="radio" name="authorized_preferred_cell_form_inp" value="Authorized_1_cell"
+                        <input style="height:22px" type="checkbox" name="authorized_preferred_cell_form_inp" value="Authorized_1_cell"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
                         <label>Cell</label>
                     </label>
                     <label style="margin: 0;">
-                        <input style="height:22px" type="radio" name="authorized_preferred_cell_form_inp" value="Authorized_1_home"
+                        <input style="height:22px" type="checkbox" name="authorized_preferred_cell_form_inp" value="Authorized_1_home"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_home' ? 'checked' : '' }}>
                         <label>Home</label>
                     </label>
@@ -882,12 +882,12 @@
                     </div>
                     <p style=" ">Preferred Phone:
                     <label style="margin: 0;">
-                        <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Cell"
+                        <input style="height:22px" type="checkbox" name="authorized_preferred_cell2" value="Cell"
                             {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
                         <label>Cell</label>
                     </label>
                     <label style="margin: 0;">
-                        <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Home"
+                        <input style="height:22px" type="checkbox" name="authorized_preferred_cell2" value="Home"
                             {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Home' ? 'checked' : '' }}>
                         <label>Home</label>
                     </label>
@@ -983,10 +983,10 @@
                 <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" class="no-border"
                     name="auth_rep_two_relation_beneficiary" style="width: 100px; height: 20px;  ">
             </p>
-            <p>Preferred Phone? <input type="radio" name="authorized_preferred_cell2" value="Cell"
+            <p>Preferred Phone? <input type="checkbox" name="authorized_preferred_cell2" value="Cell"
                     {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
                 Cell
-                <input type="radio" name="authorized_preferred_phone2" value="Home"
+                <input type="checkbox" name="authorized_preferred_phone2" value="Home"
                     {{ isset($authorized_preferred_phone2) && $authorized_preferred_phone2 === 'Home' ? 'checked' : '' }}>
                 Home
 
@@ -1104,9 +1104,9 @@
                 I authorize any applicable documents necessary for reporting to Government Agencies to be sent referring
                 source
                 above.
-                <input style="height:22px" type="radio" name="referring_auth1" value="Yes"
+                <input style="height:22px" type="checkbox" name="referring_auth1" value="Yes"
                     {{ isset($referring_auth1) && $referring_auth1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input style="height:22px" type="radio" name="referring_auth2" value="No"
+                <input style="height:22px" type="checkbox" name="referring_auth2" value="No"
                     {{ isset($referring_auth1) && $referring_auth1 === 'No' ? 'checked' : '' }}> No
             </p>
 
@@ -1143,10 +1143,10 @@
                 Indicate reason for establishing an account.
             </p>
             <div style="margin: 0; padding-bottom:3px;" class='xs'>
-                <input style="height:22px" type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
+                <input style="height:22px" type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
                 <label> Shelter Monthly Excess Income</label> &nbsp;
-                <input style="height:22px" type="radio" name="account_establishing_reason1" value="Shelter Excess Resources"
+                <input style="height:22px" type="checkbox" name="account_establishing_reason1" value="Shelter Excess Resources"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Excess Resources' ? 'checked' : '' }}>
                 <label> Shelter Excess Resources</label>
             </div>
@@ -1174,15 +1174,15 @@
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;padding:0;">
                         <div  style="margin:auto;padding:3px;text-align:left;padding-left:12px">
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Yes"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"
                                 style=";vertical-align: bottom;padding:0;margin:0"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
                             Yes &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="No"
                                 style=";vertical-align: bottom;padding:0;margin:0"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'No' ? 'checked' : '' }}>
                             No &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Pending"
                                 style=";vertical-align: bottom;padding:0;margin:0"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Pending' ? 'checked' : '' }}>
                             Pending
@@ -1190,15 +1190,15 @@
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;margin:0;padding:0px;">
                         <div style="margin:auto;padding:3px;text-align:left;padding-left:12px">
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Yes"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"
                                 style=";vertical-align: bottom;"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
                             Yes &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="No"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="No"
                                 style=";vertical-align: bottom;"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
                             No &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse3" value="Pending"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"
                                 style=";vertical-align: bottom;"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
                             Pending
@@ -1253,9 +1253,9 @@
             <br>
             <p style="margin: 0;padding-top:4px" class='xs'>
                 Is Spouse Deceased? &nbsp;
-                <input style="height:22px" type="radio" name="spouse_decreased1" value="Yes"
+                <input style="height:22px" type="checkbox" name="spouse_decreased1" value="Yes"
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input style="height:22px" type="radio" name="spouse_decreased1" value="No"
+                <input style="height:22px" type="checkbox" name="spouse_decreased1" value="No"
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}> No
             </p>
             <p style="margin: 0;" class='xs'>
@@ -1298,10 +1298,10 @@
                         Spouse Applied for Medicaid with beneficiary?
                     </label>
                     &nbsp;
-                    <input style="height:22px" type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
+                    <input style="height:22px" type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'Yes' ? 'checked' : '' }} >
                     <label for="">Yes</label>
-                    <input style="height:22px" type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
+                    <input style="height:22px" type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'No' ? 'checked' : '' }} >
                     <label for="">No</label>
                 </div>
@@ -1501,14 +1501,14 @@
                 <div style='display:table-cell'>
                     <p style="margin: 0;padding:0" class='xs'>
                         Medicare Part: &nbsp;
-                    <input style="height:22px" type="radio" name="healthcare_b" value="B"
+                    <input style="height:22px" type="checkbox" name="healthcare_b" value="B"
                         {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}> B &nbsp;
-                        <input style="height:22px" type="radio" name="healthcare_b" value="D"
+                        <input style="height:22px" type="checkbox" name="healthcare_b" value="D"
                         {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> D
                         Does the applicant have a supplemental policy? &nbsp;
-                        <input style="height:22px" type="radio" name="supplemental_yes" value="Yes"
+                        <input style="height:22px" type="checkbox" name="supplemental_yes" value="Yes"
                         {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}> Yes &nbsp;
-                        <input style="height:22px" type="radio" name="supplemental_yes" value="No"
+                        <input style="height:22px" type="checkbox" name="supplemental_yes" value="No"
                         {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> No
                     </div>
                </div>
@@ -1532,10 +1532,10 @@
                     <div style="display: table-cell; margin-bottom: 2px;">
                         <p style="padding:0;margin: 0;" class='xs'>
                             Does the Beneficiary have any funeral provisions in place? &nbsp;
-                            <input style="height:22px" type="radio" name="funeral_information_body_yes" value="Yes"
+                            <input style="height:22px" type="checkbox" name="funeral_information_body_yes" value="Yes"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'Yes' ? 'checked' : '' }}>
                             Yes &nbsp;
-                            <input style="height:22px" type="radio" name="funeral_information_body_yes" value="No"
+                            <input style="height:22px" type="checkbox" name="funeral_information_body_yes" value="No"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'No' ? 'checked' : '' }}>
                             No
                         </p>
@@ -1551,10 +1551,10 @@
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
                     Is there a life insurance policy in place for the Beneficiary? &nbsp;
-                    <input style="height:22px" type="radio" name="life_insurance_information_body_yes" value="Yes"
+                    <input style="height:22px" type="checkbox" name="life_insurance_information_body_yes" value="Yes"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'Yes' ? 'checked' : '' }}>
                     Yes &nbsp;
-                    <input style="height:22px" type="radio" name="life_insurance_information_body_yes" value="No"
+                    <input style="height:22px" type="checkbox" name="life_insurance_information_body_yes" value="No"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'No' ? 'checked' : '' }}>
                     No
                 </p>
@@ -1577,13 +1577,13 @@
                 </div>
                 <div style="display: table-row;" class='xs'>
                     <div style="display: table-cell;padding-bottom:14px">
-                        Term of policy <input style="height:15px" type="radio" name="type_of_policy1" value="Term"
+                        Term of policy <input style="height:15px" type="checkbox" name="type_of_policy1" value="Term"
                             {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                         Term
                         <input style="height:22px" type="text" value="{{ $healthcare_plan }}" class="no-border"
                             name="healthcare_plan">
 
-                        <input style="height:15px" type="radio" name="type_of_policy1" value="Life"
+                        <input style="height:15px" type="checkbox" name="type_of_policy1" value="Life"
                             {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}> Life
                         <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
                             name="healthcare_plan2">
@@ -1612,42 +1612,42 @@
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
             </div>
             <p style="padding-bottom: 0;margin-bottom:0;padding-top:4px" class='xs'>
-                <input style="height:22px" type="radio" id="independently" name="living_arrangement1" value="Independently"
+                <input style="height:22px" type="checkbox" id="independently" name="living_arrangement1" value="Independently"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Independently' ? 'checked' : '' }}>
                 <label for="independently" style="vertical-align: middle;">Independently</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="with_spouse" name="living_arrangement1" value="With Spouse"
+                <input style="height:22px" type="checkbox" id="with_spouse" name="living_arrangement1" value="With Spouse"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'With Spouse' ? 'checked' : '' }}>
                 <label for="with_spouse" style="vertical-align: middle;">With Spouse</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="with_parents" name="living_arrangement1" value="With Parents"
+                <input style="height:22px" type="checkbox" id="with_parents" name="living_arrangement1" value="With Parents"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'With Parents' ? 'checked' : '' }}>
                 <label for="with_parents" style="vertical-align: middle;">With parents/other family</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="assisted_living" name="living_arrangement1"
+                <input style="height:22px" type="checkbox" id="assisted_living" name="living_arrangement1"
                     value="Assisted Living facility"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Assisted Living facility' ? 'checked' : '' }}>
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
             <p style="padding: 0;margin:0" class='xs'>
-                <input style="height:22px" type="radio" id="family_care" name="living_arrangement1" value="Family Care Program"
+                <input style="height:22px" type="checkbox" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
                 <label for="family_care" style="vertical-align: middle;">Family care program</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="nursing_home" name="living_arrangement1" value="Nursing Home"
+                <input style="height:22px" type="checkbox" id="nursing_home" name="living_arrangement1" value="Nursing Home"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Nursing Home' ? 'checked' : '' }}>
                 <label for="nursing_home" style="vertical-align: middle;">Nursing home</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="supervised" name="living_arrangement1" value="CR/IRA/ICF(supervised)"
+                <input style="height:22px" type="checkbox" id="supervised" name="living_arrangement1" value="CR/IRA/ICF(supervised)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA/ICF(supervised)' ? 'checked' : '' }}>
                 <label for="supervised" style="vertical-align: middle;">CR/IRA/ICF(supervised)</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="supportive" name="living_arrangement1" value="CR/IRA(Supportive)"
+                <input style="height:22px" type="checkbox" id="supportive" name="living_arrangement1" value="CR/IRA(Supportive)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
                 <label for="supportive" style="vertical-align: middle;">CR/IRA(Supportive)</label>
             </p>
             <p style="padding: 0; margin: 0;" class='xs'>
-                <input style="height:22px" type="radio" id="other_living_arrangement" name="living_arrangement1" value="Other"
+                <input style="height:22px" type="checkbox" id="other_living_arrangement" name="living_arrangement1" value="Other"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Other' ? 'checked' : '' }}>
                 <label for="other_living_arrangement" style="vertical-align: middle;">Other Explain</label> &nbsp;&nbsp;
                 <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
@@ -1659,12 +1659,12 @@
             <p style="padding:0;margin: 0;" class='xs'>
                 Does the Beneficiary have a court appointed Guardian?
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_yes" value="Yes"
+                    <input style="height:22px" type="checkbox" name="living_arrangements_yes" value="Yes"
                         {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'Yes' ? 'checked' : '' }}>
                     Yes
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_yes" value="No"
+                    <input style="height:22px" type="checkbox" name="living_arrangements_yes" value="No"
                         {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'No' ? 'checked' : '' }}>
                     No
                 </label>
@@ -1675,17 +1675,17 @@
             <p style="padding:0;margin: 0;padding-top:3px" class='xs'>
                 Guardian of the:
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_person" value="Person"
+                    <input style="height:22px" type="checkbox" name="living_arrangements_person" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Person' ? 'checked' : '' }}>
                     Person
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_person" value="Person"
+                    <input style="height:22px" type="checkbox" name="living_arrangements_person" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Property' ? 'checked' : '' }}>
                     Property
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_person" value="Both"
+                    <input style="height:22px" type="checkbox" name="living_arrangements_person" value="Both"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Both' ? 'checked' : '' }}>
                     Both
                 </label>
@@ -1837,16 +1837,16 @@
                 </div>
             </div> --}}
 
-            <p style="margin: 0;padding: 0;font-size: 16px">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio" name="sole_poa1"
+            <p style="margin: 0;padding: 0;font-size: 16px">Is this person the sole POA? &nbsp; <input style="height:22px" type="checkbox" name="sole_poa1"
                     value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="sole_poa1" value="No"
+                <input style="height:22px" type="checkbox" name="sole_poa1" value="No"
                     {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}> No
             </p>
-            <p style="font-size: 16px">If No, are the agents authorized to act separately? &nbsp; <input type="radio" name="act_seprately1"
+            <p style="font-size: 16px">If No, are the agents authorized to act separately? &nbsp; <input type="checkbox" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="act_seprately1" value="No"
+                <input style="height:22px" type="checkbox" name="act_seprately1" value="No"
                     {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> No
             </p>
 
@@ -1931,18 +1931,18 @@
 
 
 
-            <p style="margin: 0;padding: 0;font-size: 16px">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio"
+            <p style="margin: 0;padding: 0;font-size: 16px">Is this person the sole POA? &nbsp; <input style="height:22px" type="checkbox"
                     name="power_of_attorney2_yes" value="Yes"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="power_of_attorney2_yes" value="No"
+                <input style="height:22px" type="checkbox" name="power_of_attorney2_yes" value="No"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
             </p>
-            <p style="font-size: 16px">If No, are the agents authorized to act separately? &nbsp; <input style="height:22px" type="radio"
+            <p style="font-size: 16px">If No, are the agents authorized to act separately? &nbsp; <input style="height:22px" type="checkbox"
                     name="power_of_attorney2_authorized_yes" value="Yes"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="power_of_attorney2_authorized_yes" value="No"
+                <input style="height:22px" type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
                 No
             </p>
@@ -1956,22 +1956,22 @@
             </p>
             <p style="padding:0;margin: 0;">
                 Does the Beneficiary have a court appointed Guardian? &nbsp;
-                <input style="height:22px" type="radio" name="guardian_information_yes" value="Yes"
+                <input style="height:22px" type="checkbox" name="guardian_information_yes" value="Yes"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="guardian_information_yes" value="No"
+                <input style="height:22px" type="checkbox" name="guardian_information_yes" value="No"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> No
             </p>
             <p>If you answered yes, continue to fill out below:</p>
             <br>
             <p style="margin: 0;padding: 0;">
-                Guardian appointed for the: &nbsp;<input style="height:22px" type="radio" name="guardian_appointed_for1" value="Person"
+                Guardian appointed for the: &nbsp;<input style="height:22px" type="checkbox" name="guardian_appointed_for1" value="Person"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
                 Person &nbsp;
-                <input style="height:22px" type="radio" name="guardian_appointed_for1" value="Property"
+                <input style="height:22px" type="checkbox" name="guardian_appointed_for1" value="Property"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
                 Property &nbsp;
-                <input style="height:22px" type="radio" name="guardian_appointed_for3" value="Both"
+                <input style="height:22px" type="checkbox" name="guardian_appointed_for3" value="Both"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
                 Both
 
@@ -2287,12 +2287,12 @@
             <p style="padding:0;margin: 0;">
                 Who is signing this Joinder Agreement?
                 &nbsp;
-                <input style="height:22px" type="radio" name="agreement_signature_beneficiary" value="Beneficiary"
+                <input style="height:22px" type="checkbox" name="agreement_signature_beneficiary" value="Beneficiary"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}> Beneficiary &nbsp;
-                <input style="height:22px" type="radio" name="agreement_signature_beneficiary" value="Power of Attorney"
+                <input style="height:22px" type="checkbox" name="agreement_signature_beneficiary" value="Power of Attorney"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Power of Attorney' ? 'checked' : '' }}>
                 Power of Attorney &nbsp;
-                <input style="height:22px" type="radio" name="agreement_signature_guardian" value="Guardian"
+                <input style="height:22px" type="checkbox" name="agreement_signature_guardian" value="Guardian"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p> <br>
@@ -2567,12 +2567,12 @@
 
             <p style=" ">Account type:
                 <label>
-                    <input style="height:22px" type="radio" name="direct_debit_bank_type1" value="Checking"
+                    <input style="height:22px" type="checkbox" name="direct_debit_bank_type1" value="Checking"
                         {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>
                     <label>Checking</label>
                 </label>
                 <label>
-                    <input style="height:22px" type="radio" name="direct_debit_bank_type1" value="Savings"
+                    <input style="height:22px" type="checkbox" name="direct_debit_bank_type1" value="Savings"
                     {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }}>
                 <label>Savings</label>
                 </label>
@@ -2651,12 +2651,12 @@
                             class="no-border">
                     </div>
                     <div style="display: table-cell;">
-                        Account type: <input style="height:22px" type="radio" name="direct_debit_bank_type1" value="Checking"
+                        Account type: <input style="height:22px" type="checkbox" name="direct_debit_bank_type1" value="Checking"
                             {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>
                         Checking
                     </div>
                     <div style="display: table-cell;">
-                        <input style="height:22px" type="radio" name="direct_debit_bank_type1" value="Savings"
+                        <input style="height:22px" type="checkbox" name="direct_debit_bank_type1" value="Savings"
                             {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }}>
                         Savings
                     </div>
