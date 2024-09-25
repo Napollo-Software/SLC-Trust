@@ -1121,6 +1121,11 @@
 
         {{-- <div class="page-break"></div> --}}
 
+        <br>
+        <br>
+        <br>
+        <br>
+
         <div class="page-3">
             <p
                 style="font-size: 12px; padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
@@ -1253,8 +1258,8 @@
             </p>
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:10px" class='xs'>
-                        <label style='padding-bottom:10px'>First Name: </label>
+                    <div style="display: table-cell;padding-bottom:7px;padding-top:3px" class='xs'>
+                        <label style='padding-bottom:10px;'>First Name: </label>
                         <input type="text" value="{{ $spouse_fname }}" name="spouse_fname" />
                     </div>
                     &nbsp;&nbsp;
