@@ -2431,9 +2431,8 @@
         </div>
 
         <div class="page-break"></div>
-
-        <div class="page-8">
-            <p style="font-size: 16px; padding:10px;width:20%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">SIGNATURE</p>
+        <div class="page-8 seaction-heading">
+            <p style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
             <p style="padding:0;margin: 0;">
                 Who is signing this Joinder Agreement?
                 &nbsp;
@@ -2446,59 +2445,59 @@
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p> <br>
-            <p>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
-
-            <div style="display: table; width: 100%;margin:0;">
-                <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%; text-align: center;">
+            <p style='margin:0'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
+            <div style="display: table; width: 100%; margin: 0; text-align: center;">
+            <div style="display: table-row;">
+                <div style="display: table-cell; width: 33%;">
+                    <div>
                         @if ($joinder_signature_1)
-                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px"
-                                height="150px" style="display: block; margin: 0 auto;">
+                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="150px" style="display: block; border-bottom: 1px solid;margin-left:80px;width:80%">
                         @else
-                            <div style="width: 200px;height:50px; text-align: center;">
-                                No Signature Provided
-                            </div>
-                        @endif
+                            <div style="width: 200px; height: 50px; text-align: center;">
+                        No Signature Provided
                     </div>
-
-                    <div style="display: table-cell; text-align: center;">
+                            @endif
+                            <div style='text-align: left;margin-left:80px'>
+                                <label>Sign Here</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: table-cell; width: 33%;">
                         <p style="margin: 0;">
-                            <input type="text" class="no-border" value="{{ $joinder_date }}"
-                                style="width: 80%; margin: 0 auto;">
+                            <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
+                            <br>
+                            <label>PRINT</label>
+                        </p>
+                    </div>
+                    <div style="display: table-cell; width: 33%;">
+                        <p style="margin: 0;">
+                            <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
                             <br> DATE
                         </p>
                     </div>
                 </div>
-
-                <br>
-                <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <p style="margin: 0;">
-                            <input type="text" value="{{ $joinder_print }}" class="no-border"
-                                style="width: 80%; margin: 0 auto;">
-                            <br> PRINT
-                        </p>
-                    </div>
-                </div>
-
             </div>
+
             <br>
-            <p style="font-size: 16px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center">SIGNATURE OF NOTARY</p> <br>
-            <p style="margin:0;">STATE OF New York
+            <p class='section-heading' style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center;margin:0">SIGNATURE OF NOTARY</p> <br>
+            <p style="margin:0;padding-bottom:5px">STATE OF New York
                 <input type="text" value="{{ $notary_state_of_ny }}" class="no-border"
                     name="notary_state_of_ny"> SS:
             </p>
-            <p style="margin:0;">COUNTY OF
+            <p style="margin:0;padding-bottom:5px">COUNTY OF
                 <input type="text" value="{{ $notary_county_of }}" class="no-border"
                     name="notary_county_of">
             </p>
-            <p style="margin:0;">
+            <p style="margin:0;padding-bottom:5px">
                 ON <input type="text" class="no-border" name="notary_on_date"
                     value="{{ $notary_on_date }}"> ,20
                 <input type="text" value="{{ $notary_year }}" class="no-border" name="notary_year">
             </p>
-
-            <p style="margin:0;">
+                
+            <div style='display-table;width:100%'>
+                <div style=''></div>
+            </div>
+            <p style="margin:0;padding-bottom:5px">
                 Before me the undersigned, a Notary Public in and for said State, personally appeared
                 <input type="text" value="{{ $notary_appeared }}" class="no-border" name="notary_appeared">
                 personally known to me or proved to me on the basis of satisfactory evidence to be the individual whose
@@ -2508,15 +2507,17 @@
                 and that by his/her signature on the instrument, the individual or the person upon behalf of which the
                 individual acted
                 executed this instrument.
+                <input type="text" value="{{ $notary_public }}" class="no-border" name="notary_public">
+                NOTARY PUBLIC
             </p>
             <br>
-            <input type="text" value="{{ $notary_public }}" class="no-border" name="notary_public">
+            <p style="font-size: 16px; padding:10px;width:20%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
             <br>
-            NOTARY PUBLIC
-
-            <br>
+            <p>
+                (New York Residents Only)
+                Or in lieu of Notarization, the following two witness signatures are provided:
+            </p>
             <div style="display: table; width: 100%; margin-top: 20px;">
-
                 <!-- Row for Witness Names -->
                 <div style="display: table-row;">
                     <div style="display: table-cell; width: 50%; text-align: center;">
@@ -2547,12 +2548,9 @@
                     </div>
                 </div>
                 <br>
-
                 <!-- Row for Signatures -->
                 <div style="display: table-row;">
                     <div style="display: table-cell; width: 50%; text-align: center;">
-                        <!-- Display signature image if present, else show placeholder text -->
-                        <!-- This part will need to be generated server-side to check for signature presence -->
                         @if ($joinder_signature_2)
                             <img src="{{ $joinder_signature_2 }}" alt="Signature 2"
                                 style="max-width:300px; max-height: 150px;">
@@ -2618,13 +2616,10 @@
                 style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
                 FOR OFFICE USE ONLY
             </div>
-
-            <p>
+            <p style='text-align:center'>
                 Accepted by Trustee or Designated Representative of the Trustees, Trusted Supplemental Needs Trust.
             </p>
-
             <div style="display: table; width: 100%;margin:0;">
-
                 <!-- Row for Signature and Date Approved -->
                 <div style="display: table-row;">
                     <div style="display: table-cell; width: 50%; text-align: center;">
@@ -2637,16 +2632,27 @@
                                 No Signature Provided
                             </div>
                         @endif
-                        <br><label>SIGNATURE</label>
+                        <br>
+                        <div style='border-top:1px solid;width:90%;margin-left:40px'>
+                            <label>Sign Here</label>
+                        </div>
                     </div>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell; width: 50%;">
+                        <input type="text" style="width: 90%; text-align: center;margin-left:40px" class="no-border"
                             value="{{ $office_use_date_approved }}">
-                        <br><label>DATE APPROVED</label>
+                        <br><label style='margin-left:40px'>DATE</label>
                     </div>
                 </div>
             </div>
             <br>
+            <div style="text-align: center;margin: 0;padding: 0;">
+                <p style="margin: 0;padding: 0;">8</p>
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <div class="page-9">
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
                     <table>
@@ -2669,14 +2675,6 @@
             <br>
             <br>
             <br>
-            <div style="text-align: center;margin: 0;padding: 0;">
-                <p style="margin: 0;padding: 0;">8</p>
-            </div>
-        </div>
-
-        <div class="page-break"></div>
-
-        <div class="page-9">
             <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">DIRECT DEBIT REQUEST FORM</p>
             <p style="">
                 Donor/Beneficiary: <input type="text" value="{{ $office_use_effective_date }}"
@@ -2695,17 +2693,10 @@
                     class="no-border" style="width: 100%;" name="direct_debit_city"> <br>
                     State: <input type="text" value="{{ $direct_debit_state }}"
                     class="no-border" style="width: 100%;" name="direct_debit_state">
-
-
-
-
                 {{-- Bank Name: <input type="text" value="{{ $direct_debit_bank_name }}" class="no-border"
                     style="width:30%;">
-
                 City: <input type="text" value="{{ $direct_debit_city }}" class="no-border"
                     style="width:25%;">
-
-
                 State: <input type="text" value="{{ $direct_debit_state }}" class="no-border"
                     style="width:15%;;">
                 Bank Routing Number: <input type="text" value="{{ $direct_debit_bank_routing }}"
