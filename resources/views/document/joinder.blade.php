@@ -55,7 +55,7 @@ header{
     background-image: url('{{ asset('assets/images/jbg2.png') }}');
     background-size: contain; 
     background-repeat: no-repeat; 
-    height: 1590px; 
+    height: 1500px; 
     background-position: bottom;
     /* height: 670px; */
     /* height: 75vh; */
@@ -63,7 +63,7 @@ header{
 .logo-style{
      width: 45%;
      position: absolute;
-     top: 10rem;
+     top: 6rem;
 }
 .logo-img{
     width: 100%;
@@ -117,12 +117,14 @@ input[type="radio"]{
   border-radius: 0; /* Make it square */
   position: relative;
   cursor: pointer;
+  box-shadow: 0.5px -0.5px 0px black;
 }
 input[type="radio"]:checked{
     background-color: #0075ff;
+    box-shadow: 1px 1px 2px lightgray;
 }
 span{
-    font-size: 12px;
+    font-size: 13px;
     font-style: italic
 }
 input[type="text"]{
@@ -159,7 +161,7 @@ input[type="date"]{
 .header-contact{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 15px;
     justify-content: center;
     align-items: center;
     font-size: 1.6rem;
@@ -211,10 +213,16 @@ main{
     margin: 0 auto;
     padding: 30px 10px;
 }
+.cs-value{
+    display: flex; 
+    flex: 1;
+    gap:5px;
+    /* flex-wrap:wrap */
+}
 .beneficiary-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 10px;
+    padding: 8px 20px;
     /* margin-left: 30px; */
     font-size: 18px;
     background-color: var(--bgColor);
@@ -540,7 +548,7 @@ input:focus{
     width: 10%;
 }
 .city-form{
-    width: 20%;
+    width: 30%;
 }
 .state-form{
     width: 10%;
@@ -683,7 +691,7 @@ input:focus{
 .authorized-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 10px;
+    padding: 8px 20px;
     font-size: 18px;
     /* margin-left: 30px; */
     background-color: var(--bgColor);
@@ -751,11 +759,11 @@ input:focus{
     gap: 10px;
 }
 .authorized-representative-body-content-1-des{
-    width: 90%;
+    width: 96%;
     margin: auto;
 }
 .authorized-representative-body-content-1-form{
-    width: 90%;
+    width: 96%;
     flex-direction: column;
     margin: 10px auto;
     display: flex;
@@ -1126,7 +1134,7 @@ tr.ind-th td:nth-child(1){
 .healthcare-premium-header-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 10px;
+    padding: 8px 20px;
     font-size: 18px;
     /* margin-left: 30px; */
     background-color: var(--bgColor);
@@ -1167,12 +1175,12 @@ tr.ind-th td:nth-child(1){
     background-color: rgb(184 221 219);
     color: rgb(52 159 153);
     padding: 10px;
-    width: 25%;
+    width: 28%;
 }
 .for-office-use-only-2-body{
     background-color: hsl(185.45deg 40.74% 94.71%);
-    width: 25%;
-    padding: 10px;
+    width: 28%;
+    padding: 12px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1595,6 +1603,20 @@ tr.ind-th td:nth-child(1){
 }
 
 
+div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=tip] {
+    top: 3.4em !important;
+    left: 1.7em !important;
+    width: 1.5625em !important;
+    transform: rotate(45deg) !important;
+}
+
+div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
+    top: 2.3rem !important;
+    right: 0.6em !important;
+    width: 2.9375em !important;
+    transform: rotate(-45deg) !important;
+}
+
 /* html{
     font-size: 62.5%;
 } */
@@ -1615,6 +1637,9 @@ tr.ind-th td:nth-child(1){
   }
   .name-form2{
     margin-top: 12px;
+  }
+  .cs-value{
+    flex-wrap: wrap
   }
   .status{
     width: 100%;
@@ -1905,6 +1930,9 @@ tr.ind-th td:nth-child(1){
     .purpose-of-enr-checkbox{
         gap: 10px
     }
+    .cs-value{
+    flex-wrap: wrap
+  }
     .spouse-applying-check{
         flex-wrap: wrap;
     justify-content: flex-start;
@@ -1938,6 +1966,9 @@ tr.ind-th td:nth-child(1){
     align-items: center;
     gap: 0px;
 }
+.cs-value{
+    flex-wrap: wrap
+  }
 .supplemental-header-title{
     font-size: 0.9rem;
 }
@@ -1951,6 +1982,9 @@ tr.ind-th td:nth-child(1){
     .pro-bt{
         width: 100%
     }
+    .cs-value{
+    flex-wrap: wrap
+  }
     .mda{
         width: 100%;
         justify-content: flex-start
@@ -1993,6 +2027,9 @@ tr.ind-th td:nth-child(1){
     .header-content{
         height: 260px;
     }
+    .cs-value{
+    flex-wrap: wrap
+  }
     .header-contact{
         margin-top: 4rem;
     }
@@ -2010,6 +2047,9 @@ tr.ind-th td:nth-child(1){
     header{
         width: 100%;
     }
+    .cs-value{
+    flex-wrap: wrap
+  }
     .martial-status{
         gap: 15px;
     align-items: flex-start;
@@ -2022,6 +2062,9 @@ tr.ind-th td:nth-child(1){
         height: 200px;
         gap: 2rem;
     }
+    .cs-value{
+    flex-wrap: wrap
+  }
     .j-heading{
         font-size: 1.5rem
     }
@@ -2035,6 +2078,9 @@ tr.ind-th td:nth-child(1){
     header{
         height: 1255px;
     }
+    .cs-value{
+    flex-wrap: wrap
+  }
 }
 
     
@@ -2064,9 +2110,10 @@ tr.ind-th td:nth-child(1){
         <br> <br>
         <br> <br>
         <br> -->
+        <div style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 50px;">
         <header>
         <div class="logo-style">
-            <img src="{{asset('assets/images/logo.png')}}" alt="logo" class="logo-img" />
+            <img src="{{asset('assets/images/new_logo.png')}}" alt="logo" class="logo-img" />
         </div>
         <div class="header-content" >
             <div class="header-heading">
@@ -2088,9 +2135,10 @@ tr.ind-th td:nth-child(1){
             </div>
         </div>
     </header>
+</div>
     <main>
         <!-- Page 1 -->
-         <section>
+         <section style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 50px;">
              <div class="supplemental-header">
                  <p class="supplemental-header-heading">
                      SLC SUPPLEMENTAL NEEDS TRUST
@@ -2125,7 +2173,7 @@ tr.ind-th td:nth-child(1){
              <div class="beneficiary-information">
                  <div class="beneficiary-indormation-header">
                      <h3 class="beneficiary-heading">BENEFICIARY
-                         INFORMATION</h1>
+                         INFORMATION</h3>
                          <p class="beneficiary-des">The Beneficiary and Donor
                              must always be the same person. Only funds
                              belonging to the Beneficiary may be contributed to
@@ -2214,13 +2262,13 @@ tr.ind-th td:nth-child(1){
                                  <div>
                                      <label style="font-style: normal" class="label-status">Preferred Phone</label>
                                  </div>
-                                 <div>
+                                 <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
                                      <input type="radio" value="Cell" name="prefered_cell" class="cell" id="cell">
-                                     <label style="font-style: normal" for="cell">Cell</label>
+                                     <label style="font-style: normal;font-weight: 600;" for="cell">Cell</label>
                                  </div>
-                                 <div>
+                                 <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
                                      <input type="radio" value="Phone" name="prefered_cell" id="home" class="phone">
-                                     <label style="font-style: normal" for="home">Home</label>
+                                     <label style="font-style: normal;font-weight: 600;" for="home">Home</label>
                                  </div>
                              </div>
 
@@ -2259,15 +2307,15 @@ tr.ind-th td:nth-child(1){
                                  Disabilities:</label>
                              <div class="disabilities">
                                  <div class="d1-form">
-                                     <span>1.</span>
+                                     <span style="font-size: 16px;font-style: normal;font-weight: 600;">1.</span>
                                      <input type="text" name="d1" id="d1" class="d1">
                                  </div>
                                  <div class="d2-form">
-                                     <span>2.</span>
+                                     <span style="font-size: 16px;font-style: normal;font-weight: 600;">2.</span>
                                      <input type="text" name="d2" id="d2" class="d2">
                                  </div>
                                  <div class="d3-form">
-                                     <span>3.</span>
+                                     <span style="font-size: 16px;font-style: normal;font-weight: 600;">3.</span>
                                      <input type="text" name="d3" id="d3" class="d3">
                                  </div>
                              </div>
@@ -2303,7 +2351,7 @@ tr.ind-th td:nth-child(1){
 
          <!-- Page 2 -->
 
-          <section>
+          <section style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 20px;">
               <!-- AUTHORIZED REPRESENTATIVES: -->
               <div class="authorized-representative">
                   <div>
@@ -2417,7 +2465,7 @@ tr.ind-th td:nth-child(1){
                                           </div>
                                       </div>
                                       <div class="authorized-address-form">
-                                          <label style="font-style: normal" class="label-name">Address:</label>
+                                          <label style="font-style: normal" class="label-name">Address</label>
                                           <div class="address-form-container">
                                               <div class="address-form">
                                                   <input type="text" name="auth_rep_one_address" id="address" class="address"> <br>
@@ -2526,7 +2574,7 @@ tr.ind-th td:nth-child(1){
                                           </div>
                                       </div>
                                       <div class="authorized-address-form">
-                                          <label style="font-style: normal" class="label-name">Address:</label>
+                                          <label style="font-style: normal" class="label-name">Address</label>
                                           <div class="address-form-container">
                                               <div class="address-form">
                                                   <input type="text" name="auth_rep_two_address" id="address" class="address"> <br>
@@ -2637,7 +2685,7 @@ tr.ind-th td:nth-child(1){
 
           <!-- Page 3 -->
 
-          <section>
+          <section style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 20px;">
 
               <!-- PURPOSE OF ENROLLMENT -->
               <div class="purpose-of-enr-container">
@@ -2872,7 +2920,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_ssi">
@@ -2882,7 +2930,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_ssi">
@@ -2895,7 +2943,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_ssdi">
@@ -2905,7 +2953,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_ssdi">
@@ -2918,7 +2966,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_ssa">
@@ -2928,7 +2976,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_ssa">
@@ -2941,7 +2989,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_va_ben">
@@ -2951,7 +2999,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_va_ben">
@@ -2964,7 +3012,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_employee_ben">
@@ -2974,7 +3022,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_employee_ben">
@@ -2987,7 +3035,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_survivor_ben">
@@ -2997,7 +3045,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_survivor_ben">
@@ -3010,7 +3058,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_ira_dist">
@@ -3020,7 +3068,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_ira_dist">
@@ -3033,7 +3081,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_pension_annuities">
@@ -3043,7 +3091,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_pension_annuities">
@@ -3056,7 +3104,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_interest_dividends">
@@ -3066,7 +3114,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_interest_dividends">
@@ -3079,7 +3127,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_reparations">
@@ -3089,7 +3137,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_reparations">
@@ -3102,7 +3150,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="applicant_other">
@@ -3112,7 +3160,7 @@ tr.ind-th td:nth-child(1){
                                           <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
-                                                    <span style="font-style: normal">$</span>
+                                                    <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
                                                     <input style="border: none;" type="text"  name="spouse_other">
@@ -3152,7 +3200,7 @@ tr.ind-th td:nth-child(1){
 
             <!-- Page 4 -->
 
-            <section class="applicable-item">
+            <section style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 50px;" class="applicable-item">
                 <div class="applicable-item-para">
                     <p style="text-align: center;">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECCESARY PROOF.
                     </p>
@@ -3352,7 +3400,7 @@ tr.ind-th td:nth-child(1){
                                             style="border: none; border-bottom: 1px solid black; flex:1">
                                     </div>
                                 </div>
-                                <div style="display: flex; flex: 1;gap:5px;flex-wrap:wrap">
+                                <div class="cs-value">
                                     <p style="min-width: fit-content">Cash Surrender Value $ </p>
                                     <input type="text" name="cash_surrender_value" id="healthcare-plan"
                                         style="border: none; border-bottom: 1px solid black; flex: 1;">
@@ -3556,8 +3604,8 @@ tr.ind-th td:nth-child(1){
 
 
             <!-- Page 5 -->
-
-            <section class="page-5">
+            <div style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 10px;">
+            <section  class="page-5">
 
                 <!-- POWER OF ATTORNEY -->
                  <div class="power-of-attorney">
@@ -3970,13 +4018,14 @@ tr.ind-th td:nth-child(1){
                  </div>
 
             </section>
+        </div>
 
 
 
 
             <!-- Page 6 -->
-
-            <section class="page-6">
+            <div style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 25px;">
+            <section  class="page-6">
                 <!-- INFORMATION AND DISCLOSURES: -->
                 <div class="information-disclosures">
                     <div class="information-disclosures-header">
@@ -3989,7 +4038,7 @@ tr.ind-th td:nth-child(1){
                                 <div style="display: flex;
                                 flex-direction: column;
                                 gap: 10px;">
-                                <p style="line-height: 1.4">The Beneficiary’s sub-trust account terminates
+                                <p style="line-height: 1.4;text-align:justify">The Beneficiary’s sub-trust account terminates
                                     upon his or her death. If, upon the death of the
                                     Beneficiary, funds remain in his or her sub-trust
                                     account, such funds shall be deemed to be property
@@ -4009,7 +4058,7 @@ tr.ind-th td:nth-child(1){
                                     any such funds and the State(s) shall have priority
                                     over payment of other debts and administrative
                                     expenses except as listed in POMS SI 01120.203E.</p>
-                                <p style="line-height:1.4">Funeral expenses will only be paid pursuant to a
+                                <p style="line-height:1.4;text-align:justify">Funeral expenses will only be paid pursuant to a
                                     Medicaid eligible pre-need funeral arrangement
                                     established and funded prior to the Beneficiary’s
                                     death. Funeral expenses will not be paid after the
@@ -4021,13 +4070,13 @@ tr.ind-th td:nth-child(1){
                                 <div style="display: flex;
                                 flex-direction: column;
                                 gap: 10px;line-height:1.4">
-                                <p>All contributions made to the sub-trust account
+                                <p style="text-align:justify">All contributions made to the sub-trust account
                                     will be held and administered pursuant to the
                                     provisions of the SLC Supplemental Needs Trust
                                     which are incorporated by reference herein.
                                     The Trustees shall have the sole and absolute right
                                     to accept or refuse additional deposits to the subtrust account.</p>
-                                <p>In the event that a Beneficiary has a zero ($0)
+                                <p style="text-align:justify">In the event that a Beneficiary has a zero ($0)
                                     sub-trust account balance for sixty (60) or more
                                     consecutive days, the Trustee shall retain the right
                                     to close the Beneficiary’s sub-trust account. Please
@@ -4049,18 +4098,18 @@ tr.ind-th td:nth-child(1){
                                 <div style="display: flex;
                                 flex-direction: column;
                                 gap: 10px;line-height:1.4">
-                                <p>All disbursement requests shall be reviewed and
+                                <p style="text-align:justify">All disbursement requests shall be reviewed and
                                     approved on an individual basis.
                                     Disbursements for expenses incurred more than 90
                                     days prior to submission of a disbursement request
                                     form shall not be paid.
                                 </p>
-                                <p>The Trustees, in their discretion, have determined
+                                <p style="text-align:justify">The Trustees, in their discretion, have determined
                                     that disbursements for the following items shall not
                                     be paid: purchases of firearms, alcohol, tobacco,
                                     items relating to illegal activity, bail, or restitution.
                                 </p>
-                                <p>
+                                <p style="text-align:justify">
                                     All disbursements shall be made at the sole and
                                     absolute discretion of the Trustee. No disbursements
                                     will be made after the death of the beneficiary, even
@@ -4074,14 +4123,14 @@ tr.ind-th td:nth-child(1){
                                 <div  style="display: flex;
                                 flex-direction: column;
                                 gap: 10px;line-height:1.4">
-                                <p>In the event that a determination of disability is
+                                <p style="text-align:justify">In the event that a determination of disability is
                                     required for Medicaid purposes, please be advised
                                     that administrative fees shall be incurred while the
                                     determination of disability is being made.</p>
-                                <p>The Donor acknowledges that contributions to
+                                <p style="text-align:justify">The Donor acknowledges that contributions to
                                     the SLC Supplemental Needs Trust are not tax
                                     deductible as charitable gifts, or otherwise.</p>
-                                <p>Sub-trust account income may be taxable to the
+                                <p style="text-align:justify">Sub-trust account income may be taxable to the
                                     Beneficiary.
                                 </p>
                             </div>
@@ -4091,7 +4140,7 @@ tr.ind-th td:nth-child(1){
                                 <div style="display: flex;
                                 flex-direction: column;
                                 gap: 10px;line-height:1.4">
-                                <p>There may be a potential conflict of interest in the
+                                <p style="text-align:justify">There may be a potential conflict of interest in the
                                     administration of the Trust since the Trust retains
                                     those funds remaining in the sub-trust account at
                                     the time of death of the Beneficiary. Funds remaining
@@ -4099,10 +4148,10 @@ tr.ind-th td:nth-child(1){
                                     or supplemental services for Beneficiaries and
                                     potential Beneficiaries for which services may be
                                     rendered by SLC Supplemental Needs Trust.</p>
-                                <p>The Donor executing this Joinder Agreement is
+                                <p style="text-align:justify">The Donor executing this Joinder Agreement is
                                     aware of the potential conflicts of interest that exist
                                     in the Trustee’s</p>
-                                <p>administration of the Trust. The Trustee shall not
+                                <p style="text-align:justify">administration of the Trust. The Trustee shall not
                                     be liable to Donor or to any party for any act of
                                     self-dealing or conflict of interest resulting from
                                     their a liations with Senior Lifecare Corp or with
@@ -4127,15 +4176,16 @@ tr.ind-th td:nth-child(1){
                     </div>
                 </div>
             </section>
+        </div>
 
             <!-- Page 7 -->
-
+            <div style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 10px;">
             <section class="page-7">
                 <div class="information-disclosures-body">
                     <div class="information-disclosures-body-left">
                         <div>
                             <h3 style="font-size: 16px;">Situs:</h3>
-                            <p style="line-height:1.4">The sub-trust account created by this Agreement
+                            <p style="line-height:1.4;text-align:justify">The sub-trust account created by this Agreement
                                 has been accepted by the Trustee in the State of
                                 New York and will be administered by Senior Lifecare
                                 Corp and a financial institution in the State of New
@@ -4152,12 +4202,12 @@ tr.ind-th td:nth-child(1){
                             <div style="display: flex;
                     flex-direction: column;
                     gap: 10px;line-height:1.4">
-                                <p>Should any provision of this Agreement be or
+                                <p style="text-align:justify">Should any provision of this Agreement be or
                                     become invalid or unenforceable, the remaining
                                     provisions of this Agreement shall be and continue
                                     to be fully e ective.
                                 </p>
-                                <p>By signing below, you a rm that you understand
+                                <p style="text-align:justify">By signing below, you a rm that you understand
                                     and agree to the following:
                                     I have received and read a copy of the applicable
                                     Master Trust prior to the signing of this Joinder
@@ -4168,21 +4218,21 @@ tr.ind-th td:nth-child(1){
                                     schedule and acknowledge that I understand the
                                     contents thereof. I also understand there may be
                                     changes from time to time.</p>
-                                <p>
+                                <p style="text-align:justify">
                                     I am entering into this Joinder Agreement voluntarily
                                     and acting on my own free accord.
                                 </p>
-                                <p>
+                                <p style="text-align:justify">
                                     The Donor acknowledges that the Beneficiary is
                                     disabled as defined in Social Security Law Section
                                     1614(a)(3) [42 USC 1382c(a) (3)].
                                 </p>
-                                <p>
+                                <p style="text-align:justify">
                                     Under penalty of perjury, all statements made in this
                                     document are true and accurate to the best of my
                                     knowledge.
                                 </p>
-                                <p>The SLC Supplemental Needs Trust is authorized to
+                                <p style="text-align:justify">The SLC Supplemental Needs Trust is authorized to
                                     be used by individuals with disabilities pursuant to
                                     federal and state law. By agreeing to accept a donor’s
                                     property pursuant to this Joinder Agreement, SLC
@@ -4200,7 +4250,7 @@ tr.ind-th td:nth-child(1){
                         <div style="display: flex;
                 flex-direction: column;
                 gap: 10px;line-height:1.4">
-                            <p>donor is “disabled” as that term is defined under
+                            <p style="text-align:justify">donor is “disabled” as that term is defined under
                                 federal law, to determine whether they have the
                                 legal authority to transfer property to fund the
                                 trust, and the impact that a transfer of property to
@@ -4208,18 +4258,18 @@ tr.ind-th td:nth-child(1){
                                 donor’s continuing eligibility for government benefit
                                 programs
                             </p>
-                            <p>Senior Lifecare Corp is not assuming any
+                            <p style="text-align:justify">Senior Lifecare Corp is not assuming any
                                 responsibility as counsel for the donor or Beneficiary,
                                 or providing any legal advice as it relates to the
                                 consequences of a transfer of property to the SLC
                                 Supplemental Needs Trust.
                             </p>
-                            <p>The Trustees in their discretion may require an
+                            <p style="text-align:justify">The Trustees in their discretion may require an
                                 intermediary to assist in the administration of the
                                 Beneficiary’s sub-trust account. The cost of which
                                 may be charged to the sub-trust account.
                             </p>
-                            <p>The party authorized to speak with us on your behalf
+                            <p style="text-align:justify">The party authorized to speak with us on your behalf
                                 or the intermediary must notify SLC Supplemental
                                 Needs Trust. immediately upon your death and
                                 will be required to provide us with a certified death
@@ -4228,7 +4278,7 @@ tr.ind-th td:nth-child(1){
                                 Agreement and the Joinder Agreement will be
                                 required to repay the amount disbursed.
                             </p>
-                            <p>This Joinder Agreement and the participation of the
+                            <p style="text-align:justify">This Joinder Agreement and the participation of the
                                 Beneficiary in the SLC Supplemental Needs Trust is an
                                 important legal decision that may have significant
                                 and lasting consequences for the Beneficiary and as
@@ -4265,11 +4315,12 @@ tr.ind-th td:nth-child(1){
                     </div>
                 </div>
             </section>
+            </div>
 
 
             <!-- Page 8 -->
 
-            <section class="page-8">
+            <section style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 50px;" class="page-8">
 
                 <!-- AGREEMENT SIGNATURE -->
                  <div class="agreement-signature">
@@ -4677,22 +4728,22 @@ tr.ind-th td:nth-child(1){
                                     <p>Member #:</p>
                                     <input class="mad1" type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="display: flex;align-items: center; margin-top: 15px;gap:5px;flex-wrap:wrap " class="w-50 pro-bt">
+                                <div style="display: flex;align-items: center; margin-top: 20px;gap:5px;flex-wrap:wrap " class="w-50 pro-bt">
                                     <p>Processed By:</p>
                                     <input class="mad1"  type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
-                                <div  class="w-50 mda" style="gap:5px">
+                                <div  class="w-50 mda" style="gap:5px;margin-top: 20px">
                                     <p>Monthly Debit Amount: $</p>
                                     <input type="text" name="office_use_monthly_debit_amount" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="margin-top: 10px;">
+                                <div style="margin-top: 20px;">
                                     <p>Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)</p>
                                 </div>
-                                <div style="display: flex; margin-top: 15px;gap:5px;flex-wrap:wrap" class="w-50">
+                                <div style="display: flex; margin-top: 20px;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Date of Monthly Debit:</p>
                                     <input class="mad1" type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div class="w-50 db-month">
+                                <div class="w-50 db-month" style="margin-top: 20px">
                                     <p>First Debit Month:</p>
                                     <input class="mad1" type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
@@ -4707,7 +4758,7 @@ tr.ind-th td:nth-child(1){
                         <span class="loader" style="display: none;"></span>
                     </button>
                     <div style="display: flex; justify-content: center; align-items: center;">
-                        <img src="{{asset('assets/images/logo.png')}}" alt="logo" style="width: 40%; object-fit: cover;">
+                        <img src="{{asset('assets/images/new_logo.png')}}" alt="logo" style="width: 40%; object-fit: cover;">
                     </div>
                     <div class="footer-for-office-use-3">
                         <div class="footer-left">
@@ -4778,7 +4829,6 @@ generateSignature(4)
                             // window.location.href = "{{ route('login') }}"; // Replace 'login' with your actual login route
                         }
                     });
-                    ;
                     $('#submit-button').removeClass('btn-size');
                     $('.loader').hide();
                     $('#submit-button').prop('disabled', false);
