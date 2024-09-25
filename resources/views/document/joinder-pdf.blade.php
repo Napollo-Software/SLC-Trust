@@ -1296,13 +1296,13 @@
             <table style=" padding: 0;margin: 0;" class='sm'>
                 <tr style="padding: 0;margin: 0;">
                     <td style="padding:3px ;margin: 0;">
-                        <p style="padding: 5px;margin: 0;">  TYPE OF BENEFIT MONTHLY AMOUNT</p>
+                        <p style="padding: 5px;margin: 0;" class='sm'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
                     </td>
                     <td style="padding: 5px;margin: 0;">
-                        <p style="padding: 3px;margin: 0;"> Applicant <br></p>
+                        <p style="padding: 3px;margin: 0;" class='sm'> Applicant <br></p>
                     </td>
                     <td style="padding:5px ;margin: 0;">
-                        <p style="padding: 3px;margin: 0;"> Spouse <br></p>
+                        <p style="padding: 3px;margin: 0;" class='sm'> Spouse <br></p>
                     </td>
                 </tr>
                 <tr style="padding: 0;margin: 0;" class='xs'>
