@@ -2667,7 +2667,7 @@ donor’s representative to determine whether the donor is “disabled” as tha
                 <!-- Row for Signatures -->
                 <div style="display: table-row;">
                     <div style="display: table-cell;padding-bottom:2px">
-                        <div style='text-align:center'>
+                        <div style='text-align:center;width:60%'>
                             @if ($joinder_signature_2)
                             <img src="{{ $joinder_signature_2 }}" alt="Signature 2"
                                 style="max-width:300px; max-height: 50px;">
@@ -2683,7 +2683,7 @@ donor’s representative to determine whether the donor is “disabled” as tha
                         </div>
                     </div>
                     <div style="display: table-cell;margin-left:20px">
-                        <div style='text-align:center'>
+                        <div style='text-align:center;width:60%'>
                             @if ($joinder_signature_3)
                             <img src="{{ $joinder_signature_3 }}" alt="Signature 3"
                             style="max-width: 300px; max-height: 50px;">
