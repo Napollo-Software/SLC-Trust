@@ -51,13 +51,13 @@
             margin: 5px 0;
         }
 
-        .radio-row label {
+        .checkbox-row label {
             margin-right: 20px;
         }
 
 
         .container-page-end {
-            padding: 40px;
+            padding: 5px;
 
         }
 
@@ -96,7 +96,7 @@
 
         }
         .page-0{
-            background-image: url('{{ public_path("images/new-joinder-bg.png") }}'); 
+            background-image: url('{{ public_path("images/bannerCover2.png") }}'); 
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -117,7 +117,7 @@
         tr.ind-th td{
             color: rgb(52 159 153);
         } */
-         
+
         .italic{
             font-style: italic;
             font-size: 12px;
@@ -137,11 +137,14 @@
         }
 
         .md{
-            font-size: 14px;      
+            font-size: 14px;
         }
 
         .lg{
-            font-size: 16px;      
+            font-size: 16px;
+        }
+        .xl{
+            font-size: 19px;      
         }
 
         .strong{
@@ -156,7 +159,7 @@
         }
 
         .section-title{
-            font-size: 14px; 
+            font-size: 14px;
             max-width: fit-content;
         }
 
@@ -166,8 +169,19 @@
         }
         .pa-container{
             border: 2px solid rgb(184 221 219);
-            padding: 10px 20px;
+            padding: 15px 20px;
         }
+
+        input[type="checkbox"] {
+            margin-right: 4px;
+            width: 17px;
+            height: 17px !important;
+        }
+
+        input[type="checkbox"] + label{
+            margin-bottom: -10px;
+        }
+
 
 
     </style>
@@ -177,7 +191,7 @@
     <form id="joinderForm" method="POST" action="{{ route('save.joinder') }}">
         @csrf
         <footer>
-        <p>Copyright &copy; <?php echo date("Y");?></p>
+        <!-- <p>Copyright &copy; <?php echo date("Y");?></p> -->
         </footer>
         <div class="page-0">
             <br> <br>
@@ -206,10 +220,16 @@
                  <br>
                  <br>
                  <br>
-                <div style="text-align: center;">
+                <div style="text-align: center;margin-top:75px">
                     <div style="width: fit-content; display: inline-block;">
-                        <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.5rem">
-                            JOINDER AGREEMENT</h1>
+                        <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                            JOINDER</h1>
+                    </div>
+                </div>
+                <div style="text-align: center;margin-top:-57px" >
+                    <div style="width: fit-content; display: inline-block;">
+                        <h1 style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                            AGREEMENT</h1>
                     </div>
                 </div>
                 <br>
@@ -222,39 +242,45 @@
                  <br>
                  <br>
                  <br>
-                 <br>
-                 <br>
                 {{-- <div class="container-page-end"></div> --}}
-                
+
                 <div
                     style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
                     <div style="display: table-row;">
-                        <div style="color:rgb(52 159 153); display: table-cell; width:45%;text-align: right;">
-                            <b style="font-size: 1.4rem;">Tel:</b>
+                        <div style="display: table-cell; width:45%;text-align: right;">
+                            <div style="" class="xl">Tel:</div>
                         </div>
                         <div
-                            style="display: table-cell; text-align: left;color:rgb(52 159 153);padding-left: 5px;font-size: 1.4rem;">
+                            style="display: table-cell; text-align: left;padding-left: 5px;" class="xl">
                             718.500.3235</div>
                     </div>
                 </div>
-
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
                     <div style="display: table-row;">
-                        <div style="color: rgb(52 159 153); display: table-cell;width:45%;text-align: right;">
-                            <b style="font-size: 1.4rem;">Email:</b>
+                        <div style="display: table-cell;width:45%;text-align: right;">
+                            <div style="" class="xl">Fax:</div>
                         </div>
                         <div
-                            style="display: table-cell; text-align: left;color:rgb(52 159 153);padding-left: 5px;font-size: 1.4rem;">
-                            info@slctrusts.org</div>
+                            class="xl"
+                            style="display: table-cell; text-align: left;padding-left: 5px;">
+                            718.500.3225</div>
                     </div>
                 </div>
-
+             
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;">
+                            <div style="" class="xl">info@slctrusts.org </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:10px">
                     <div style="display: table-row;">
                         <div style="color: rgb(52 159 153); font-weight: bold; display: table-cell;">
-                            <b style="font-size: 1.4rem;">www.seniorlifecaretrusts.org</b>
+                            <b style="" class="xl">seniorlifecaretrusts.org</b>
                         </div>
                     </div>
                 </div>
@@ -311,23 +337,23 @@
                         <label class="italic">Last:</label>
                     </div>
                 </div>
-            </div> 
+            </div>
                 <br/>
             <div style="display: table; width: 100%;margin-top:8px;margin-bottom:8px">
                 <div style="display: table-row;">
                     <p style="display:table-cell;" class="sm"> Marital Status:
                         <label class="xs">
-                            <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Married"
+                            <input type="checkbox" name="sponsor_marital_status1" value="Married"
                                 {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
                             <label>Married</label>
                         </label>
                         <label class="xs">
-                            <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Widowed"
+                            <input type="checkbox" name="sponsor_marital_status1" value="Widowed"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Widowed' ? 'checked' : '' }}>
                         <label>Widowed</label>
                         </label>
                         <label class="xs">
-                            <input style="height:22px" type="radio" name="sponsor_marital_status" value="Single"
+                            <input type="checkbox" name="sponsor_marital_status" value="Single"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Single' ? 'checked' : '' }}>
                         <label>Single</label>
                         </label>
@@ -338,8 +364,8 @@
                         </label>
                         <!-- value="{{ $sponsor_gender }}" -->
                     </div>
-               
-           </div> 
+
+           </div>
 
                 {{-- <br /> --}}
 
@@ -348,23 +374,23 @@
                         <label style=" font-weight: bold;">Marital Status:</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="radio" name="sponsor_marital_status" value="Married"
+                        <input type="checkbox" name="sponsor_marital_status" value="Married"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
                         <label>Married</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="radio" name="sponsor_marital_status" value="Widowed"
+                        <input type="checkbox" name="sponsor_marital_status" value="Widowed"
                             {{ isset($sponsor_marital_status2) && $sponsor_marital_status2 === 'Widowed' ? 'checked' : '' }}>
                         <label>Widowed</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="radio" name="sponsor_marital_status" value="Single"
+                        <input type="checkbox" name="sponsor_marital_status" value="Single"
                             {{ isset($sponsor_marital_status3) && $sponsor_marital_status3 === 'Single' ? 'checked' : '' }}>
                         <label>Single</label>
                     </div>
                 </div> --}}
 
-                 <br /> 
+                 <br />
             <div style="display: table; width: 100%;margin-bottom:8px">
 
                 <div style="display: table-row;">
@@ -384,7 +410,7 @@
                     </div>
                 </div>
 
-                <br /> 
+                <br />
 
                 {{-- <div style="display: table-row;">
                     <div style="display: table-cell">
@@ -434,21 +460,21 @@
 
                 <p class="strong sm">Preferred Phone:
                     <label class="sm">
-                        <input style="height:22px" type="radio" name="prefered_cell" value="Cell"
+                        <input type="checkbox" name="prefered_cell" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
                         <label style="font-weight: 400;">Cell</label>
                     </label>
                     <label >
-                        <input style="height:22px" type="radio" name="prefered_cell" value="Phone"
+                        <input type="checkbox" name="prefered_cell" value="Phone"
                             {{ isset($prefered_cell) && $prefered_cell === 'Phone' ? 'checked' : '' }}>
                         <label style="font-weight: 400">Home</label>
                     </label>
                 </p>
-             
+
 
             {{-- <br /> --}}
 
-            <div style="display: table; width:100%" class="xs">
+            <div style="display: table; width:400px" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%">
@@ -503,7 +529,7 @@
 
                 </div>
                 </div>
-            
+
                 <br />
                 <div style="display: table;">
                 <div style="display: table-row;margin-top:-30px">
@@ -512,21 +538,29 @@
                     </div>
                 </div>
             </div>
-            <p style=" " class="xs">
-                <label style="margin: 0;">
-                    <label>1.</label>
-                    <input type="text" value="{{ $d1 }}" name="d1">
-                </label>
-                <label style="margin: 0;">
-                    <label>2.</label>
-                    <input type="text" value="{{ $d2 }}" name="d2">
-                </label>
-                <label style="margin: 0;">
-                    <label>3.</label>
-                    <input type="text" value="{{ $d3 }}" name="d3">
-                </label>
-            </p>
-
+            <br />
+            <div class="xs" style="display:table;width:100%">
+               <div style="display: table-row;width:100%">
+                <div style="display: table-cell">
+                    <label style="margin: 0;">
+                        <label>1.</label>
+                        <input type="text" value="{{ $d1 }}" name="d1">
+                    </label>
+                </div>
+                <div style="display: table-cell">
+                    <label style="margin: 0;">
+                        <label>2.</label>
+                        <input type="text" value="{{ $d2 }}" name="d2">
+                    </label>
+                </div>
+                <div style="display: table-cell">
+                    <label style="margin: 0;">
+                        <label>3.</label>
+                        <input type="text" value="{{ $d3 }}" name="d3">
+                    </label>
+                </div>
+               </div>
+            </div>
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;vertical-align:middle">
                         <label>1.</label>
@@ -604,9 +638,9 @@
             <div style="display: table; width: 100%;">
                 <div style="display: table-cell;">
                     <label style="font-weight: bold;">Marital Status:</label>
-                    <label>Married <input type="radio" name="sponsor_marital_status" value="Married" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Married' ? 'checked' : '' }}></label>
-                    <label>Widowed <input type="radio" name="sponsor_marital_status" value="Widowed" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Widowed' ? 'checked' : '' }}></label>
-                    <label>Single <input type="radio" name="sponsor_marital_status" value="Single" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Single' ? 'checked' : '' }}></label>
+                    <label>Married <input type="checkbox" name="sponsor_marital_status" value="Married" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Married' ? 'checked' : '' }}></label>
+                    <label>Widowed <input type="checkbox" name="sponsor_marital_status" value="Widowed" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Widowed' ? 'checked' : '' }}></label>
+                    <label>Single <input type="checkbox" name="sponsor_marital_status" value="Single" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Single' ? 'checked' : '' }}></label>
                 </div>
                 <div style="display: table-cell;">
                     <label>Gender</label>
@@ -625,8 +659,8 @@
             <br>
             <div style="display: table; width: 100%;">
                 <label>Citizen:</label>
-                <input type="radio" name="sponsor_citizen" value="Yes" {{ isset($sponsor_citizen) && $sponsor_citizen === 'Yes' ? 'checked' : '' }}> Yes
-                <input type="radio" name="sponsor_citizen" value="No" {{ isset($sponsor_citizen) && $sponsor_citizen === 'No' ? 'checked' : '' }}> No
+                <input type="checkbox" name="sponsor_citizen" value="Yes" {{ isset($sponsor_citizen) && $sponsor_citizen === 'Yes' ? 'checked' : '' }}> Yes
+                <input type="checkbox" name="sponsor_citizen" value="No" {{ isset($sponsor_citizen) && $sponsor_citizen === 'No' ? 'checked' : '' }}> No
                 <label>Home Phone</label>
                 <input type="text" value="{{ $sponsor_tel_home }}" class="no-border" name="sponsor_tel_home">
                 <label>Cell Phone</label>
@@ -635,9 +669,9 @@
             <div style="display: table; width: 100%;">
                 <div style="display: table-cell; padding: 0">
                     <label>Preferred Phone:</label>
-                    <input type="radio" name="preferedphone" value="Cell"
+                    <input type="checkbox" name="preferedphone" value="Cell"
                         {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>Cell
-                    <input type="radio" name="preferedphone" value="Phone"
+                    <input type="checkbox" name="preferedphone" value="Phone"
                         {{ isset($prefered_phone) && $prefered_phone === 'Phone' ? 'checked' : '' }}>Home
                 </div>
             </div>
@@ -704,19 +738,20 @@
             </div>
             <p class="xs" style=" ">Who will be your primary contact?
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="auth_beneficiary" value="Beneficiary"
+                    <input type="checkbox" name="auth_beneficiary" value="Beneficiary"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Beneficiary' ? 'checked' : '' }}>
-                    Beneficiary
+                        <label>Beneficiary</label>
+                    
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="auth_beneficiary" value="Auth. Rep.1"
+                    <input type="checkbox" name="auth_beneficiary" value="Auth. Rep.1"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Auth. Rep.1' ? 'checked' : '' }}>
-                    Auth. Rep. 1
+                        <label>Auth. Rep. 1</label>
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="auth_beneficiary" value="Auth. Rep. 2"
+                    <input type="checkbox" name="auth_beneficiary" value="Auth. Rep. 2"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Auth. Rep. 2' ? 'checked' : '' }}>
-                    Auth. Rep. 2
+                        <label>Auth. Rep. 2</label>
                 </label>
             </p>
 
@@ -734,7 +769,7 @@
                 <input type="text" value="{{ $auth_rep_one_lname }}" class="no-border" name="auth_rep_one_lname"
                     style="width: 100px">
             </p> --}}
-            
+
             <div class="xs" style="display: table;width:100%;margin-top:-12px">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -764,14 +799,14 @@
                         <input type="text" value="{{ $auth_rep_one_cell }} " name="auth_rep_one_cell" style="width: 95%"> <br>
                         <label class="italic">Cell Phone</label>
                     </div>
-                    <p style=" ">Preferred Phone:
+                    <p style="margin-left:3px">Preferred Phone:
                     <label style="margin: 0;">
-                        <input style="height:22px" type="radio" name="authorized_preferred_cell_form_inp" value="Authorized_1_cell"
+                        <input type="checkbox" name="authorized_preferred_cell_form_inp" value="Authorized_1_cell"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
                         <label>Cell</label>
                     </label>
                     <label style="margin: 0;">
-                        <input style="height:22px" type="radio" name="authorized_preferred_cell_form_inp" value="Authorized_1_home"
+                        <input type="checkbox" name="authorized_preferred_cell_form_inp" value="Authorized_1_home"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_home' ? 'checked' : '' }}>
                         <label>Home</label>
                     </label>
@@ -779,7 +814,7 @@
 
                 </div>
             </div>
-           
+
             <div style="display: table;width:100%" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -812,14 +847,14 @@
                             <label>City:</label>
                         </div>
                         <div style="display: table-cell;">
-    
+
                             <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" />
                             <label>State:</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%">
                             <label>Apt #:</label>
-                        </div> 
+                        </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" />
                             <label>Zip:</label>
@@ -842,7 +877,7 @@
                 <input type="text" value="{{ $auth_rep_one_lname }}" class="no-border" name="auth_rep_one_lname"
                     style="width: 100px">
             </p> --}}
-            
+
             <div style="display: table;width:100%;margin-top:-12px" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -874,12 +909,12 @@
                     </div>
                     <p style=" ">Preferred Phone:
                     <label style="margin: 0;">
-                        <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Cell"
+                        <input type="checkbox" name="authorized_preferred_cell2" value="Cell"
                             {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
                         <label>Cell</label>
                     </label>
                     <label style="margin: 0;">
-                        <input style="height:22px" type="radio" name="authorized_preferred_cell2" value="Home"
+                        <input type="checkbox" name="authorized_preferred_cell2" value="Home"
                             {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Home' ? 'checked' : '' }}>
                         <label>Home</label>
                     </label>
@@ -887,7 +922,7 @@
 
                 </div>
             </div>
-           
+
             <div style="display: table;width:100%" class="xs" >
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -920,14 +955,14 @@
                             <label>City:</label>
                         </div>
                         <div style="display: table-cell;">
-    
+
                             <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" style="width: 95%" />
                             <label>State:</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 95%">
                             <label>Apt #:</label>
-                        </div> 
+                        </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_two_zip }}"name="auth_rep_two_zip" style="width: 95%" />
                             <label>Zip:</label>
@@ -935,8 +970,8 @@
                     </div>
                 </div>
             </div>
-         
-         
+
+
 
     </div>
 
@@ -975,23 +1010,23 @@
                 <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" class="no-border"
                     name="auth_rep_two_relation_beneficiary" style="width: 100px; height: 20px;  ">
             </p>
-            <p>Preferred Phone? <input type="radio" name="authorized_preferred_cell2" value="Cell"
+            <p>Preferred Phone? <input type="checkbox" name="authorized_preferred_cell2" value="Cell"
                     {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
                 Cell
-                <input type="radio" name="authorized_preferred_phone2" value="Home"
+                <input type="checkbox" name="authorized_preferred_phone2" value="Home"
                     {{ isset($authorized_preferred_phone2) && $authorized_preferred_phone2 === 'Home' ? 'checked' : '' }}>
                 Home
 
             </p> --}}
             <p
             class="sm"
-                style=" padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:23%">
+                style=" padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:21%">
                 REFERRING SOURCE
             </p>
             <p class="xs"> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
                 individual
                 to: Make Deposits, Request Statements and Disbursements.</p>
-            
+
             <div style="display: table; width:100%" class="xs">
                 <div style="display: table-row;width:100%">
                     <div style="display: table-cell; width: 50%;">
@@ -1017,7 +1052,7 @@
                     </div>
                 </div>
                 <br>
-            
+
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
                         <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
@@ -1033,7 +1068,7 @@
             <div style="display:table;width:100%" class="xs">
             <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <input type="text" value="{{ $referring_address }}" name="referring_address" style="width:95%"> 
+                        <input type="text" value="{{ $referring_address }}" name="referring_address" style="width:95%">
                         <label>Address</label>
                     </div>
                     <div style="display: table-cell">
@@ -1052,7 +1087,7 @@
                         <input type="text" value="{{ $referring_zip }}" name="referring_zip" style="width:95%" />
                         <label>Zip:</label>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -1091,17 +1126,17 @@
                 Email <input type="text" value="{{ $referring_email }}" class="no-border" name="referring_email"
                     style="width: 150px; height: 20px;  ">
             </p> --}}
-          
+
             <p style="padding:0;margin: 0;width:100%" class="sm" style="margin-top:5px">
                 I authorize any applicable documents necessary for reporting to Government Agencies to be sent referring
                 source
                 above.
-                <input style="height:22px" type="radio" name="referring_auth1" value="Yes"
+                <input type="checkbox" name="referring_auth1" value="Yes"
                     {{ isset($referring_auth1) && $referring_auth1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input style="height:22px" type="radio" name="referring_auth2" value="No"
+                <input type="checkbox" name="referring_auth2" value="No"
                     {{ isset($referring_auth1) && $referring_auth1 === 'No' ? 'checked' : '' }}> No
-            </p> 
-        
+            </p>
+
             <div style="text-align: center;margin: 0;padding: 0;">
                 {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
                 <p style="margin: 0;padding: 0;">2</p>
@@ -1118,108 +1153,102 @@
                     </div>
                 </div> --}}
         </div>
-     
-        {{-- <div class="page-break"></div> --}}
 
+        {{-- <div class="page-break"></div> --}}
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="page-3">
             <p
-                style="font-size: 12px; padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            style=" padding:10px;width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
                 PURPOSE OF ENROLLMENT
             </p>
-            <br>
-            <p style="font-size: 12px; margin: 0;" class='xs'>
+            <p style="font-size: 12px; margin: 0;padding-bottom:'3px'" class='xs'>
                 Indicate reason for establishing an account.
             </p>
-            <br>
-            <div style="margin: 0; padding: 0;" class='class='xs''>
-                <input style="height:22px" type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
+            <div style="margin: 0; padding-bottom:3px;" class='xs'>
+                <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
                 <label> Shelter Monthly Excess Income</label> &nbsp;
-                <input style="height:22px" type="radio" name="account_establishing_reason1" value="Shelter Excess Resources"
+                <input type="checkbox" name="account_establishing_reason1" value="Shelter Excess Resources"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Excess Resources' ? 'checked' : '' }}>
                 <label> Shelter Excess Resources</label>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-
-
-            <div style="margin-top:-60px">
-                <p class='heading-title'
-                    style=" padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            <div style='padding-top:4px;'>
+                <p
+                    style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0">
                     MEDICAID INFORMATION
                 </p>
 
-            <table style="padding: 0; margin: 0;">
+            <table style="padding-top: 0px; margin-top:10px;">
                 <tr style="padding: 0; margin: 0;">
-                    <th class='sm' style='width:180px;padding:5px'>Please Attach MAP / LDSS Notice of Decision</th>
-                    <th class='sm' style="vertical-align: bottom;padding:5px;">Applicant</th>
-                    <th class='sm' style="vertical-align: bottom;padding:5px;">Spouse</th>
+                    <td class='xs' style='width:180px;padding:6px'>Please Attach MAP / LDSS Notice of Decision</td>
+                    <td class='xs' style="vertical-align: bottom;padding:6px;">Applicant</td>
+                    <td class='xs' style="vertical-align: bottom;padding:6px;">Spouse</td>
                 </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px;margin:0;padding:14px;">
-                        <p style="vertical-align: bottom;margin:0;">
+                    <td style="width:180px;margin:0;padding:0px;">
+                        <p style="vertical-align: bottom;margin:0;padding:3px">
                             Application Status
                             <br>
                             Does the beneficiary receive Medicaid?
                         </p>
                     </td>
-                    <td style="width:80px;vertical-align: center;margin:auto;font-size:14px">
-                        <div style="margin:auto">
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Yes"
-                                style="margin-bottom: 4px;vertical-align: bottom;"
+                    <td class='xs' style="width:80px;vertical-align: center;padding:0;">
+                        <div  style="margin:auto;padding:3px">
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
-                            Yes &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No"
-                                style="margin-bottom: 4px;vertical-align: bottom;"
+                                <label>Yes</label>
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="No"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'No' ? 'checked' : '' }}>
-                            No &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending"
-                                style="margin-bottom: 4px;vertical-align: bottom;"
+                                <label>No</label>
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Pending"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Pending' ? 'checked' : '' }}>
-                            Pending
+                                <label>Pending</label>
                         </div>
                     </td>
-                    <td style="width:80px;vertical-align: center;margin:0;font-size:14px">
-                        <div style="margin:auto">
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Yes"
-                                style="margin-bottom: 4px;vertical-align: bottom;"
+                    <td class='xs' style="width:80px;vertical-align: center;margin:0;padding:0px;">
+                        <div style="margin:auto;padding:3px">
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"
+                                
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
-                            Yes &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="No"
-                                style="margin-bottom: 4px;vertical-align: bottom;"
+                                <label>Yes</label>
+                             &nbsp;
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="No"
+                                
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
-                            No &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse3" value="Pending"
-                                style="margin-bottom: 4px;vertical-align: bottom;"
+                                <label>No</label>
+                             &nbsp;
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"
+                                
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
-                            Pending
+                                <label>Pending</label>
                         </div>
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px;font-size: 12px; padding:14px; vertical-align: center;">
+                    <td style="width:80px; vertical-align: center;padding:3px">
                         CIN Number/medicaid Number
                     </td>
-                    <td style="width:80px;vertical-align: bottom;font-size:14px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px">
                         <input type="text" value="{{ $applicant_medicaid_cin_number }}" style='border:none' class="no-border"
                             name="applicant_medicaid_cin_number">
                     </td>
-                    <td style="width:80px;vertical-align: bottom;font-size:14px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px">
                         <input type="text" value="{{ $spouse_medicaid_cin_number }}" style='border:none' class="no-border"
                             name="spouse_medicaid_cin_number">
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px;font-size: 12px; vertical-align: bottom;padding:14px;">
+                    <td style="width:80px; vertical-align: bottom; padding:3px">
                         Monthly Spend Down $
                     </td>
-                    <td style="width:80px;vertical-align: bottom;font-size:14px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px">
                         <input type="text" value="{{ $medicaid_applicant_monthly_spend_down }}" style='border:none' class="no-border"
                             name="medicaid_applicant_monthly_spend_down">
                     </td>
-                    <td style="width:80px;vertical-align: bottom;font-size:14px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px">
                         <input type="text" value="{{ $medicaid_spouse_monthly_spend_down }}" style='border:none' class="no-border"
                             name="medicaid_spouse_monthly_spend_down">
                     </td>
@@ -1241,31 +1270,34 @@
             HOUSEHOLD INCOME INFORMATION </span>
             &nbsp;&nbsp;
             <br><br>
-            <span style="margin:  0;padding-bottom:10px" class='sm'><b>SPOUSE INFORMATION:</b></span>
+            <span style="margin:0;" class='sm'><b>SPOUSE INFORMATION:</b></span>
             <span class='italic xs'>(please include proof of income)</span>
             <br>
-            <br>
-            <p style="padding-bottom:8px;margin: 0;" class='xs'>
+            <p style="margin: 0;padding-top:4px" class='xs'>
                 Is Spouse Deceased? &nbsp;
-                <input style="height:22px" type="radio" name="spouse_decreased1" value="Yes"
-                    {{ isset($spouse_decreased1) && $spouse_decreased1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input style="height:22px" type="radio" name="spouse_decreased1" value="No"
-                    {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}> No
+                <input type="checkbox" name="spouse_decreased1" value="Yes"
+                    {{ isset($spouse_decreased1) && $spouse_decreased1 === 'Yes' ? 'checked' : '' }}>
+                    <label>Yes</label>
+                <input type="checkbox" name="spouse_decreased1" value="No"
+                    {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}>
+                    <label>No</label>
             </p>
-            <p style="padding-bottom:10px;margin: 0;" class='xs'>
-                Is Applicant & Spouse Applying Together? &nbsp; 
-                <input style="height:22px" type="checkbox" name="applying_together1" value="Yes"
-                    {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input style="height:22px" type="checkbox" name="applying_together1" value="No"
-                    {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}> No &nbsp;
+            <p style="margin: 0;" class='xs'>
+                Is Applicant & Spouse Applying Together? &nbsp;
+                <input type="checkbox" name="applying_together1" value="Yes"
+                    {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}> 
+                    <label>Yes</label>
+                    
+                <input type="checkbox" name="applying_together1" value="No"
+                    {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}> 
+                    <label>No</label>
+                     &nbsp;
                 If Yes, Fill in Spouse’s Income.
             </p>
-            <br>
-
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:10px" class='xs'>
-                        <label style='padding-bottom:10px'>First Name: </label>
+                    <div style="display: table-cell;padding-bottom:7px;padding-top:3px" class='xs'>
+                        <label style='padding-bottom:10px;'>First Name: </label>
                         <input type="text" value="{{ $spouse_fname }}" name="spouse_fname" />
                     </div>
                     &nbsp;&nbsp;
@@ -1294,170 +1326,174 @@
                         Spouse Applied for Medicaid with beneficiary?
                     </label>
                     &nbsp;
-                    <input style="height:22px" type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
+                    <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'Yes' ? 'checked' : '' }} >
-                    <label for="">Yes</label>
-                    <input style="height:22px" type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
+                    <label>Yes</label>
+                    <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'No' ? 'checked' : '' }} >
-                    <label for="">No</label>
+                    <label>No</label>
 
                 </div>
             </div>
             <br>
             <table style=" padding: 0;margin: 0;" class='sm'>
                 <tr style="padding: 0;margin: 0;">
-                    <th style="padding: ;margin: 0;">
-                        <p style="padding: 7px;margin: 0;">  TYPE OF BENEFIT MONTHLY AMOUNT</p>
-                    </th> 
-                    <th style="padding: ;margin: 0;">
-                        <p style="padding: 7px;margin: 0;"> Applicant <br></p>
-                    </th>
-                    <th style="padding: ;margin: 0;">
-                        <p style="padding: 7px;margin: 0;"> Spouse <br></p>
-                    </th>
+                    <td style="padding:3px ;margin: 0;">
+                        <p style="padding: 5px;margin: 0;" class='xs'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
+                    </td>
+                    <td style="padding: 5px;margin: 0;">
+                        <p style="padding: 3px;margin: 0;" class='xs'> Applicant <br></p>
+                    </td>
+                    <td style="padding:5px ;margin: 0;">
+                        <p style="padding: 3px;margin: 0;" class='xs'> Spouse <br></p>
+                    </td>
                 </tr>
                 <tr style="padding: 0;margin: 0;" class='xs'>
                     <td style="width:180px;padding: 0px;margin: 0;max-height: 5px;">
-                        Supplement Security Income(SSI)
+                        <p style='margin:3px'>
+                            Supplement Security Income(SSI)
+                        </p>
                     </td>
-                    <td style="width:80px;padding: 0px;margin: 0;" class='xs'>
-                        <p>$ <input type="text" value="{{ $applicant_ssi }}" style='border:none'
+                    <td style="width:80px;padding: 0px;margin: 3px;" class='xs'>
+                        <p style='margin:3px'>$ <input type="text" value="{{ $applicant_ssi }}" style='border:none'
                                 name="applicant_ssi"></p>
                     </td>
-                    <td style="width:80px;padding: 0px;margin: 0;" class='xs'>
-                        <p>$ <input type="text" value="{{ $spouse_ssi }}" class="no-border" style='border:none' name="spouse_ssi">
+                    <td style="width:80px;padding: 0px;margin: 3px;" class='xs'>
+                        <p style='margin:3px'>$ <input type="text" value="{{ $spouse_ssi }}" class="no-border" style='border:none' name="spouse_ssi">
                         </p>
                     </td>
                 </tr>
-                <tr style=" padding: 0;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                <tr style=" padding: 0;margin: 0 " >
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;">
                         Supplement Security Disability Income(SSDI)
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0 ; " class='xs'>
-                        <p style="padding: 3px;margin: 0;">$ <input type="text" value="{{ $applicant_ssdi }}" style='border:none' class="no-border"
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                        <p style="margin: 3px;">$ <input type="text" value="{{ $applicant_ssdi }}" style='border:none' class="no-border"
                                 name="applicant_ssdi">
                         </p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0 ; " class='xs'>
-                        <p style="padding: 3px;margin: 0;">$ <input type="text" value="{{ $spouse_ssdi }}" style='border:none' class="no-border"
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                        <p style="margin: 3px;">$ <input type="text" value="{{ $spouse_ssdi }}" style='border:none' class="no-border"
                                 name="spouse_ssdi"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
-                        Supplement Security Retirement Income(SSA)
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;">
+                        <p style='margin:3px'>
+                            Supplement Security Retirement Income(SSA)
+                        </p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
-                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_ssa }}" style='border:none' class="no-border"
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;" class='xs'>
+                        <p style="margin: 3px;">$ <input type="text" value="{{ $applicant_ssa }}" style='border:none' class="no-border"
                                 name="applicant_ssa"></p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
-                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_ssa }}" style='border:none' class="no-border" name="spouse_ssa">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                        <p style="margin: 3px;">$ <input type="text" value="{{ $spouse_ssa }}" style='border:none' class="no-border" name="spouse_ssa">
                         </p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         VA Benefits
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_va_ben }}" style='border:none' class="no-border"
                                 name="applicant_va_ben"></p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_va_ben }}" style='border:none' class="no-border"
                                 name="spouse_va_ben"></p>
                     </td>
                 </tr>
-                <tr style=" padding: 4px;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                <tr style=" padding: 4px;margin: 0 " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Employment Benefits
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_employee_ben }}" style='border:none' class="no-border"
                                 name="applicant_employee_ben"></p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_employee_ben }}" style='border:none' class="no-border"
                                 name="spouse_employee_ben"></p>
                     </td>
                 </tr>
-                <tr style=" padding: 4px;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                <tr style=" padding: 4px;margin: 0 " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Survivor Benefits
 
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_survivor_ben }}" style='border:none' class="no-border"
                                 name="applicant_survivor_ben"></p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_survivor_ben }}" style='border:none' class="no-border"
                                 name="spouse_survivor_ben"></p>
                     </td>
                 </tr>
-                <tr style=" padding: 4px;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                <tr style=" padding: 4px;margin: 0 " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         IRA Distribution
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_ira_dist }}" style='border:none' class="no-border"
                                 name="applicant_ira_dist"></p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_ira_dist }}" style='border:none' class="no-border"
                                 name="spouse_ira_dist">
                         </p>
                     </td>
                 </tr>
-                <tr style=" padding: 4px;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                <tr style=" padding: 4px;margin: 0 " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Pension / Annuities
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_pension_annuities }}" style='border:none' class="no-border"
                                 name="applicant_pension_annuities"></p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_pension_annuities }}" style='border:none' class="no-border"
                                 name="spouse_pension_annuities"></p>
                     </td>
                 </tr>
-                <tr style=" padding: 4px;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                <tr style=" padding: 4px;margin: 0 " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Interest / Dividends
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_interest_dividends }}" style='border:none' class="no-border" name="applicant_interest_dividends"></p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_interest_dividends }}" style='border:none' class="no-border" name="spouse_interest_dividends"></p>
                     </td>
                 </tr>
-                <tr style=" padding: 4px;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                <tr style=" padding: 4px;margin: 0 " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Reparations
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_reparations }}" style='border:none' class="no-border"
                                 name="applicant_reparations"></p>
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_reparations }}" style='border:none' class="no-border"
                                 name="spouse_reparations"></p>
                     </td>
                 </tr>
-                <tr style=" padding: 4px;margin: 0 ">
-                    <td style="width:80px; padding: 4px;margin: 0 ;">
+                <tr style=" padding: 4px;margin: 0 " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Other
                     </td>
-                    <td style="width:80px; padding: 4px;margin: 0; " class='xs'>
-                        <p style="padding: 4pxpx;margin: 0;">$ <input type="text" value="{{ $applicant_other }}" style='border:none' class="no-border"
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_other }}" style='border:none' class="no-border"
                                 name="applicant_other">
                         </p>
                     </td>
-                    <td style="width:80px; padding: 0;margin: 0; " class='xs'>
-                        <p style="padding: 4pxpx;margin: 0;">$ <input type="text" value="{{ $spouse_other }}" style='border:none' class="no-border"
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0;margin: 0; " class='xs'>
+                        <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_other }}" style='border:none' class="no-border"
                                 name="spouse_other"></p>
                     </td>
                 </tr>
@@ -1468,8 +1504,6 @@
                 <br>
                 A spouse is not a beneficiary for the account.
             </p>
-            <br>
-            <br>
             <div style="text-align: center;margin: 0;padding: 0;">
                 {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
                 <p style="margin: 0;padding: 0;">3</p>
@@ -1483,25 +1517,31 @@
                 <p class='italic' style="padding: 2%;text-align: center">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECESSARY
                     PROOF.</p>
             </div>
-
             <p class='section-title'
-                style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
-                HEALTH CARE PREMIUM
+                style=" padding:10px;width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+                HEALTH CARE PREMIUMS
             </p>
             <div style='display:table'>
             <div style=" display: table-row;">
                 <div style='display:table-cell'>
-                    <p style="padding-bottom:10px;margin: 0;" class='xs'>
+                    <p style="margin: 0;padding:0" class='xs'>
                         Medicare Part: &nbsp;
-                    <input style="height:22px" type="radio" name="healthcare_b" value="B"
-                        {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}> B &nbsp;
-                        <input style="height:22px" type="radio" name="healthcare_b" value="D"
-                        {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> D
+                    <input type="checkbox" name="healthcare_b" value="B"
+                        {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}>
+                        <label>B</label>
+                         &nbsp;
+                        <input type="checkbox" name="healthcare_b" value="D"
+                        {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> 
+                        <label>D</label>
                         Does the applicant have a supplemental policy? &nbsp;
-                        <input style="height:22px" type="radio" name="supplemental_yes" value="Yes"
-                        {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}> Yes &nbsp;
-                        <input style="height:22px" type="radio" name="supplemental_yes" value="No"
-                        {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> No
+                        <input type="checkbox" name="supplemental_yes" value="Yes"
+                        {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
+                        <label>Yes</label>
+                         &nbsp;
+                        <input type="checkbox" name="supplemental_yes" value="No"
+                        {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> 
+                        <label>No</label>
+                        
                     </div>
                </div>
             </p>
@@ -1517,86 +1557,80 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <p style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">FUNERAL ARRANGEMENT</p>
+                        <p style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">FUNERAL INFORMATION</p>
                     </div>
                 </div>
-                <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell; margin-bottom: 2px;">
                         <p style="padding:0;margin: 0;" class='xs'>
                             Does the Beneficiary have any funeral provisions in place? &nbsp;
-                            <input style="height:22px" type="radio" name="funeral_information_body_yes" value="Yes"
+                            <input type="checkbox" name="funeral_information_body_yes" value="Yes"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'Yes' ? 'checked' : '' }}>
-                            Yes &nbsp;
-                            <input style="height:22px" type="radio" name="funeral_information_body_yes" value="No"
+                                <label>Yes</label>
+                             &nbsp;
+                            <input type="checkbox" name="funeral_information_body_yes" value="No"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'No' ? 'checked' : '' }}>
-                            No
+                                <label>No</label>
+                            
                         </p>
                         <p class='italic'>If you answered yes, please attach funeral provision documents.</p>
                     </div>
                 </div>
-                <br>
             </div>
-            <hr>
-            <hr>
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">LIFE INSURANCE</p> 
+                       <p style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">LIFE INSURANCE INFORMATION</p>
                     </div>
                 </div>
-                <br>
                 <p style="padding:0;margin: 0;" class='xs'>
                     Is there a life insurance policy in place for the Beneficiary? &nbsp;
-                    <input style="height:22px" type="radio" name="life_insurance_information_body_yes" value="Yes"
+                    <input type="checkbox" name="life_insurance_information_body_yes" value="Yes"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'Yes' ? 'checked' : '' }}>
-                    Yes &nbsp;
-                    <input style="height:22px" type="radio" name="life_insurance_information_body_yes" value="No"
+                        <label>Yes</label>
+                     &nbsp;
+                    <input type="checkbox" name="life_insurance_information_body_yes" value="No"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'No' ? 'checked' : '' }}>
-                    No
+                        <label>No</label>
+                    
                 </p>
-                <br>
-                <p class='italic'>If you answered yes, please attach funeral provision documents</p> <br>
-
+                    <p class='italic'>If you answered yes, please attach funeral provision documents</p>
                 <div style="display: table-row;">
                         <div style="display: table-cell;padding-bottom:14px" class='xs'>
                             <label>Name of Insured:</label> &nbsp;
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
+                            <label>Name of Owner:</label> &nbsp;
+                            <input type="text" value="{{ $insured_name }}" name="insured_name" />
                         </div>
-                    
-                </div> <br>
+                </div> 
                 <div style="display: table-row;">
                     <div style="display: table-cell;padding-bottom:14px" class='xs'>
                         <label>Name of insurance company</label> &nbsp;
-                        <input type="text" value="{{ $insurance_company }}" name="insurance_company" /> 
+                        <input type="text" value="{{ $insurance_company }}" name="insurance_company" />
                         <label>Policy #</label> &nbsp;
                         <input type="text" value="{{ $insurance_policy_number }}" name="insurance_policy_number" />
                     </div>
-                </div> <br>
-
+                </div>
                 <div style="display: table-row;" class='xs'>
                     <div style="display: table-cell;padding-bottom:14px">
-                        Term of policy <input style="height:15px" type="radio" name="type_of_policy1" value="Term"
+                        Term of policy <input style="height:15px" type="checkbox" name="type_of_policy1" value="Term"
                             {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
-                        Term
-                        <input style="height:22px" type="text" value="{{ $healthcare_plan }}" class="no-border"
+                            <label>Term</label>
+                        
+                        <input type="text" value="{{ $healthcare_plan }}" class="no-border"
                             name="healthcare_plan">
 
-                        <input style="height:15px" type="radio" name="type_of_policy1" value="Life"
-                            {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}> Life
+                        <input style="height:15px" type="checkbox" name="type_of_policy1" value="Life"
+                            {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}> 
+                            <label>Life</label>
+                            
                         <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
                             name="healthcare_plan2">
+                            <label>Cash Surrender Value</label> &nbsp;
+                        <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" />
                     </div>
                     <br>
-                </div> <br>
-                <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell;">
-                        <label>Cash Surrender Value</label> &nbsp;
-                    <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" />
-
-                    </div>
                 </div>
-                <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;" class='xs'>
                         Upon the death of the Beneficiary, amounts remaining in the Beneficiary's sub-account shall be
@@ -1609,7 +1643,6 @@
                 </div>
             </div>
             <br>
-            <br>
             <div style="display: table;justify-content: space-between">
                     <span
             style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
@@ -1617,113 +1650,106 @@
             &nbsp;&nbsp;
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
             </div>
-            <br>
-
-            <p style="padding: 0; margin: 0;" class='xs'>
-                <input style="height:22px" type="radio" id="independently" name="living_arrangement1" value="Independently"
+            <p style="padding-bottom: 0;margin-bottom:0;padding-top:4px" class='xs'>
+                <input type="checkbox" id="independently" name="living_arrangement1" value="Independently"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Independently' ? 'checked' : '' }}>
                 <label for="independently" style="vertical-align: middle;">Independently</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="with_spouse" name="living_arrangement1" value="With Spouse"
+                <input type="checkbox" id="with_spouse" name="living_arrangement1" value="With Spouse"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'With Spouse' ? 'checked' : '' }}>
                 <label for="with_spouse" style="vertical-align: middle;">With Spouse</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="with_parents" name="living_arrangement1" value="With Parents"
+                <input type="checkbox" id="with_parents" name="living_arrangement1" value="With Parents"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'With Parents' ? 'checked' : '' }}>
                 <label for="with_parents" style="vertical-align: middle;">With parents/other family</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="assisted_living" name="living_arrangement1"
+                <input type="checkbox" id="assisted_living" name="living_arrangement1"
                     value="Assisted Living facility"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Assisted Living facility' ? 'checked' : '' }}>
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
-            <br>
-
-
-
-            <p style="padding: 0; margin: 0;" class='xs'>
-                <input style="height:22px" type="radio" id="family_care" name="living_arrangement1" value="Family Care Program"
+            <p style="padding: 0;margin:0" class='xs'>
+                <input type="checkbox" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
                 <label for="family_care" style="vertical-align: middle;">Family care program</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="nursing_home" name="living_arrangement1" value="Nursing Home"
+                <input type="checkbox" id="nursing_home" name="living_arrangement1" value="Nursing Home"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Nursing Home' ? 'checked' : '' }}>
                 <label for="nursing_home" style="vertical-align: middle;">Nursing home</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="supervised" name="living_arrangement1" value="CR/IRA/ICF(supervised)"
+                <input type="checkbox" id="supervised" name="living_arrangement1" value="CR/IRA/ICF(supervised)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA/ICF(supervised)' ? 'checked' : '' }}>
                 <label for="supervised" style="vertical-align: middle;">CR/IRA/ICF(supervised)</label> &nbsp;&nbsp;
 
-                <input style="height:22px" type="radio" id="supportive" name="living_arrangement1" value="CR/IRA(Supportive)"
+                <input type="checkbox" id="supportive" name="living_arrangement1" value="CR/IRA(Supportive)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
                 <label for="supportive" style="vertical-align: middle;">CR/IRA(Supportive)</label>
             </p>
-            <br>
-
             <p style="padding: 0; margin: 0;" class='xs'>
-                <input style="height:22px" type="radio" id="other_living_arrangement" name="living_arrangement1" value="Other"
+                <input type="checkbox" id="other_living_arrangement" name="living_arrangement1" value="Other"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Other' ? 'checked' : '' }}>
                 <label for="other_living_arrangement" style="vertical-align: middle;">Other Explain</label> &nbsp;&nbsp;
                 <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
                     name="living_arrangement_other">
             </p>
-            <br><br>
-            {{-- New Living Arrangement --}}
-            <p class='section-title' style="font-size: 0px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">LIVING ARRANGEMENTS</p>
+            <br>
+            <span
+            style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-bottom:5px">
+            LIVING ARRANGEMENTS </span>
             <p class='italic' style='padding:0' class='xs'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
                 Does the Beneficiary have a court appointed Guardian?
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_yes" value="Yes"
+                    <input type="checkbox" name="living_arrangements_yes" value="Yes"
                         {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'Yes' ? 'checked' : '' }}>
-                    Yes
+                        <label>Yes</label>
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_yes" value="No"
+                    <input type="checkbox" name="living_arrangements_yes" value="No"
                         {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'No' ? 'checked' : '' }}>
-                    No
+                        <label>No</label>
+                    
                 </label>
             </p>
             <p style="padding:0;margin: 0;" class='xs'>
                 If you answered yes, continue to fill out below:
             </p>
-            <p style="padding:0;margin: 0;" class='xs'>
+            <p style="padding:0;margin: 0;padding-top:3px" class='xs'>
                 Guardian of the:
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_person" value="Person"
+                    <input type="checkbox" name="living_arrangements_person" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Person' ? 'checked' : '' }}>
-                    Person
+                        <label>Person</label>
+                    
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_person" value="Person"
+                    <input type="checkbox" name="living_arrangements_person" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Property' ? 'checked' : '' }}>
-                    Property
+                        <label>Property</label>
+                    
                 </label>
                 <label style="margin: 0;">
-                    <input style="height:22px" type="radio" name="living_arrangements_person" value="Both"
+                    <input type="checkbox" name="living_arrangements_person" value="Both"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Both' ? 'checked' : '' }}>
-                    Both
+                        <label>Both</label>
+                    
                 </label>
             </p>
-            <p style="padding:0;margin: 0;" class='xs'>
+            <p style="padding:0;margin: 0;padding-top:3px" class='xs'>
                 Court Appointed Guardian Information
             </p>
-            <br><br>
-
-            <div style="display: table;width:100%">
+            <div style="display: table;width:100%;margin-top:4px">
                 <div style="display: table-row;">
                     <div style="display: table-cell;" class='xs'>
                         <input type="text" value="{{ $living_arrangement_first }}" name="living_arrangement_first" style="width: 95%" /> <br>
                         <label>First</label>
                     </div>
                     &nbsp;
-
                     <div style="display: table-cell" class='xs'>
                         <input type="text" value="{{ $living_arrangement_last }}" name="living_arrangement_last" style="width: 95%" /> <br>
                         <label>Last</label>
                     </div>
                 </div>
-                <br>
                 <div style="display: table-row;">
                     <div style="display: table-cell;" class='xs'>
                         <input type="text" value="{{ $living_arrangement_primary }}" name="living_arrangement_primary" style="width: 95%" /> <br>
@@ -1736,8 +1762,6 @@
                     </div>
                 </div>
             </div>
-
-
             {{-- <p style="padding:0;margin: 0; ">
                 First <input type="text" value="{{ $living_arrangement_first }}" class="no-border"
                     name="living_arrangement_first" style="width: 300px; height: 20px;  "> Last
@@ -1939,22 +1963,27 @@
                 </div>
             </div> --}}
 
-            <p>Is this person the sole POA? &nbsp; <input style="height:22px" type="radio" name="sole_poa1"
+            <p>Is this person the sole POA? &nbsp; <input type="checkbox" name="sole_poa1"
                     value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
-                Yes &nbsp;
-                <input style="height:22px" type="radio" name="sole_poa1" value="No"
-                    {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}> No
+                    <label>Yes</label>
+                 &nbsp;
+                <input type="checkbox" name="sole_poa1" value="No"
+                    {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}> 
+                    <label>No</label>
+                    
                     <br>
-                    If No, are the agents authorized to act separately? &nbsp; <input type="radio" name="act_seprately1"
+                    If No, are the agents authorized to act separately? &nbsp; <input type="checkbox" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
-                Yes &nbsp;
-                <input style="height:22px" type="radio" name="act_seprately1" value="No"
-                    {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> No
+                    <label>Yes</label>
+                 &nbsp;
+                <input type="checkbox" name="act_seprately1" value="No"
+                    {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> 
+                    <label>No</label>
             </p>
-            {{-- <p>If No, are the agents authorized to act separately? &nbsp; <input type="radio" name="act_seprately1"
+            {{-- <p>If No, are the agents authorized to act separately? &nbsp; <input type="checkbox" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="act_seprately1" value="No"
+                <input type="checkbox" name="act_seprately1" value="No"
                     {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> No
             </p> --}}
 
@@ -1979,6 +2008,8 @@
                 </div>
 
             </div>
+
+            
 
 
             <div style="display: table; width: 100%;">
@@ -2071,32 +2102,32 @@
             </div> --}}
             {{-- <br> --}}
 
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? &nbsp; <input style="height:22px" type="radio"
+            <p style="margin: 0;padding: 0;">Is this person the sole POA? &nbsp; <input type="checkbox"
                     name="power_of_attorney2_yes" value="Yes"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="power_of_attorney2_yes" value="No"
+                <input type="checkbox" name="power_of_attorney2_yes" value="No"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
                     <br>
-                    If No, are the agents authorized to act separately? &nbsp; <input style="height:22px" type="radio"
+                    If No, are the agents authorized to act separately? &nbsp; <input type="checkbox"
                     name="power_of_attorney2_authorized_yes" value="Yes"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="power_of_attorney2_authorized_yes" value="No"
+                <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
                 No
             </p>
-            {{-- <p >If No, are the agents authorized to act separately? &nbsp; <input style="height:22px" type="radio"
+            {{-- <p >If No, are the agents authorized to act separately? &nbsp; <input type="checkbox"
                     name="power_of_attorney2_authorized_yes" value="Yes"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="power_of_attorney2_authorized_yes" value="No"
+                <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
                 No
             </p> --}}
         </div>
-            {{-- <hr> --}}
-            <p class="md" style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+
+        <p class="md" style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 GUARDIAN INFORMATION
             </p>
             <p class="sm" style="margin: 0;padding: 0;">
@@ -2104,32 +2135,38 @@
             </p>
             {{-- <p style="padding:0;margin: 0;">
                 Does the Beneficiary have a court appointed Guardian? &nbsp;
-                <input style="height:22px" type="radio" name="guardian_information_yes" value="Yes"
+                <input type="checkbox" name="guardian_information_yes" value="Yes"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
                 Yes &nbsp;
-                <input style="height:22px" type="radio" name="guardian_information_yes" value="No"
+                <input type="checkbox" name="guardian_information_yes" value="No"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> No
             </p> --}}
             <p class="sm">
                 Does the Beneficiary have a court appointed Guardian? &nbsp;
-                <input style="height:22px" type="radio" name="guardian_information_yes" value="Yes"
+                <input type="checkbox" name="guardian_information_yes" value="Yes"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
-                Yes &nbsp;
-                <input style="height:22px" type="radio" name="guardian_information_yes" value="No"
-                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> No
+                    <label>Yes</label>
+                 &nbsp;
+                <input type="checkbox" name="guardian_information_yes" value="No"
+                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> 
+                    <label>No</label>
+                    
                 <br>
                 If you answered yes, continue to fill out below:
             </p>
             <p class="sm" style="margin: 0;padding: 0;">
-                Guardian of the: &nbsp;<input style="height:22px" type="radio" name="guardian_appointed_for1" value="Person"
+                Guardian of the: &nbsp;<input type="checkbox" name="guardian_appointed_for1" value="Person"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
-                Person &nbsp;
-                <input style="height:22px" type="radio" name="guardian_appointed_for1" value="Property"
+                <label>Person </label>
+                    &nbsp;
+                <input type="checkbox" name="guardian_appointed_for1" value="Property"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
-                Property &nbsp;
-                <input style="height:22px" type="radio" name="guardian_appointed_for3" value="Both"
+                    <label>Property</label>
+                 &nbsp;
+                <input type="checkbox" name="guardian_appointed_for3" value="Both"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
-                Both
+                    <label>Both</label>
+                
 
             </p>
             <p class="sm">Court Appointed Guardian Information</p>
@@ -2166,24 +2203,7 @@
                 </div>
             </div>
         </div>
-        {{-- <br> --}}
-
-         
-            {{-- <p style="margin: 0;padding: 0;"><b>Name:</b> First <input type="text"
-                    value="{{ $guardianship_fname }}" class="no-border" name="guardianship_fname"
-                    style="width:100px">
-                Last <input type="text" value="{{ $guardianship_lname }}" class="no-border"
-                    name="guardianship_lname" style="width:100px"></p><br>
-            <p style="margin: 0;padding: 0;">
-                Telephone <input type="text" value="{{ $guardianship_telephone }}" style="width:100px"
-                    class="no-border" name="guardianship_telephone">
-                Email
-                <input type="text" value="{{ $guardianship_email }}" style="width:100px" class="no-border"
-                    name="guardianship_email">
-            </p> --}}
-
-            {{-- <br> --}}
-            <p class="md" style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+        <p class="md" style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 BENEFICIARY SERVICES
             </p>
             <p class="sm" style="padding:0;margin-top:5px;">
@@ -2218,10 +2238,6 @@
             {{-- <div style="text-align: center;padding: 0;"> --}}
                 {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
                 <p style="margin-top: 1px;padding: 0;text-align:center">5</p>
-            {{-- </div> --}}
-
-        </div>
-
         {{-- <div class="page-break"></div> --}}
 
         <div class="page-6">
@@ -2412,12 +2428,12 @@
             <p style="padding:0;margin: 0;">
                 Who is signing this Joinder Agreement?
                 &nbsp;
-                <input style="height:22px" type="radio" name="agreement_signature_beneficiary" value="Beneficiary"
+                <input type="checkbox" name="agreement_signature_beneficiary" value="Beneficiary"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}> Beneficiary &nbsp;
-                <input style="height:22px" type="radio" name="agreement_signature_beneficiary" value="Power of Attorney"
+                <input type="checkbox" name="agreement_signature_beneficiary" value="Power of Attorney"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Power of Attorney' ? 'checked' : '' }}>
                 Power of Attorney &nbsp;
-                <input style="height:22px" type="radio" name="agreement_signature_guardian" value="Guardian"
+                <input type="checkbox" name="agreement_signature_guardian" value="Guardian"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p> <br>
@@ -2670,8 +2686,8 @@
                     class="no-border" style="width: 100%;" name="direct_debit_city"> <br>
                     State: <input type="text" value="{{ $direct_debit_state }}"
                     class="no-border" style="width: 100%;" name="direct_debit_state">
-                
-                
+
+
 
 
                 {{-- Bank Name: <input type="text" value="{{ $direct_debit_bank_name }}" class="no-border"
@@ -2690,18 +2706,18 @@
 
             </p>
 
-            <p style=" ">Account type: 
+            <p style=" ">Account type:
                 <label>
-                    <input style="height:22px" type="radio" name="direct_debit_bank_type1" value="Checking"
+                    <input type="checkbox" name="direct_debit_bank_type1" value="Checking"
                         {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>
                     <label>Checking</label>
                 </label>
                 <label>
-                    <input style="height:22px" type="radio" name="direct_debit_bank_type1" value="Savings"
+                    <input type="checkbox" name="direct_debit_bank_type1" value="Savings"
                     {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }}>
                 <label>Savings</label>
                 </label>
-                
+
             </p>
 
             <br>
@@ -2737,7 +2753,7 @@
                     &nbsp;
                     <div style="display: table-cell">
                         <label>State</label>
-                        <input type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" /> 
+                        <input type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" />
                     </div>
                 </div>
             </div>
@@ -2760,10 +2776,10 @@
             <br> --}}
 
 
-            
 
 
-            
+
+
 
 
 
@@ -2776,12 +2792,12 @@
                             class="no-border">
                     </div>
                     <div style="display: table-cell;">
-                        Account type: <input style="height:22px" type="radio" name="direct_debit_bank_type1" value="Checking"
+                        Account type: <input type="checkbox" name="direct_debit_bank_type1" value="Checking"
                             {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>
                         Checking
                     </div>
                     <div style="display: table-cell;">
-                        <input style="height:22px" type="radio" name="direct_debit_bank_type1" value="Savings"
+                        <input type="checkbox" name="direct_debit_bank_type1" value="Savings"
                             {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }}>
                         Savings
                     </div>
@@ -2901,7 +2917,7 @@
                 </div>
             </div>
 
-            
+
             <br>
             <p style="padding:0;margin:0;font-size: 14px">
                 If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
@@ -2909,7 +2925,7 @@
             </p>
             <br>
             <br>
-           
+
             <div style="text-align: center;margin: 30px 0;padding: 0;">
                 <img src="{{ public_path('images/slc_logo.png') }}" alt="logo" width="200"
                     height="100">
