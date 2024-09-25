@@ -1150,9 +1150,9 @@
 
             <table style="padding-top: 0px; margin-top:10px;">
                 <tr style="padding: 0; margin: 0;">
-                    <td class='sm' style='width:180px;padding:6px'>Please Attach MAP / LDSS Notice of Decision</td>
-                    <td class='sm' style="vertical-align: bottom;padding:6px;">Applicant</td>
-                    <td class='sm' style="vertical-align: bottom;padding:6px;">Spouse</td>
+                    <td class='xs' style='width:180px;padding:6px'>Please Attach MAP / LDSS Notice of Decision</td>
+                    <td class='xs' style="vertical-align: bottom;padding:6px;">Applicant</td>
+                    <td class='xs' style="vertical-align: bottom;padding:6px;">Spouse</td>
                 </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
                     <td style="width:180px;margin:0;padding:0px;">
@@ -1301,13 +1301,13 @@
             <table style=" padding: 0;margin: 0;" class='sm'>
                 <tr style="padding: 0;margin: 0;">
                     <td style="padding:3px ;margin: 0;">
-                        <p style="padding: 5px;margin: 0;" class='sm'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
+                        <p style="padding: 5px;margin: 0;" class='xs'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
                     </td>
                     <td style="padding: 5px;margin: 0;">
-                        <p style="padding: 3px;margin: 0;" class='sm'> Applicant <br></p>
+                        <p style="padding: 3px;margin: 0;" class='xs'> Applicant <br></p>
                     </td>
                     <td style="padding:5px ;margin: 0;">
-                        <p style="padding: 3px;margin: 0;" class='sm'> Spouse <br></p>
+                        <p style="padding: 3px;margin: 0;" class='xs'> Spouse <br></p>
                     </td>
                 </tr>
                 <tr style="padding: 0;margin: 0;" class='xs'>
@@ -1659,7 +1659,7 @@
             <p style="padding:0;margin: 0;" class='xs'>
                 If you answered yes, continue to fill out below:
             </p>
-            <p style="padding:0;margin: 0;" class='xs'>
+            <p style="padding:0;margin: 0;padding-top:3px" class='xs'>
                 Guardian of the:
                 <label style="margin: 0;">
                     <input style="height:22px" type="radio" name="living_arrangements_person" value="Person"
@@ -1677,7 +1677,7 @@
                     Both
                 </label>
             </p>
-            <p style="padding:0;margin: 0;" class='xs'>
+            <p style="padding:0;margin: 0;padding-top:3px" class='xs'>
                 Court Appointed Guardian Information
             </p>
             <div style="display: table;width:100%;margin-top:4px">
