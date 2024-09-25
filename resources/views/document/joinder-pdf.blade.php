@@ -2480,46 +2480,53 @@
 
             <br>
             <p class='section-heading' style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center;margin:0">SIGNATURE OF NOTARY</p> <br>
-            <p style="margin:0;padding-bottom:5px">STATE OF New York
-                <input type="text" value="{{ $notary_state_of_ny }}" class="no-border"
-                    name="notary_state_of_ny"> SS:
-            </p>
-            <p style="margin:0;padding-bottom:5px">COUNTY OF
-                <input type="text" value="{{ $notary_county_of }}" class="no-border"
-                    name="notary_county_of">
-            </p>
-            <p style="margin:0;padding-bottom:5px">
-                ON <input type="text" class="no-border" name="notary_on_date"
-                    value="{{ $notary_on_date }}"> ,20
-                <input type="text" value="{{ $notary_year }}" class="no-border" name="notary_year">
-            </p>
-                
             <div style='display-table;width:100%'>
-                <div style=''></div>
-            </div>
-            <p style="margin:0;padding-bottom:5px">
-                Before me the undersigned, a Notary Public in and for said State, personally appeared
-                <input type="text" value="{{ $notary_appeared }}" class="no-border" name="notary_appeared">
-                personally known to me or proved to me on the basis of satisfactory evidence to be the individual whose
-                name
-                is subscribed to the within instrument and acknowledged to me that he/she/they executed the same in
-                his/her capacity,
-                and that by his/her signature on the instrument, the individual or the person upon behalf of which the
-                individual acted
-                executed this instrument.
-                <input type="text" value="{{ $notary_public }}" class="no-border" name="notary_public">
-                NOTARY PUBLIC
+            <div style='display:table-row' class='xs'>
+            <p style="margin:0;padding-bottom:5px;display:table-cell">STATE OF New York
+                <input type="text" value="{{ $notary_state_of_ny }}" class="no-border"
+                name="notary_state_of_ny"> SS:
             </p>
-            <br>
-            <p style="font-size: 16px; padding:10px;width:20%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
-            <br>
-            <p>
+          </div>
+          <div style='display:table-row' class='xs'>
+              <p style="margin:0;padding-bottom:5px;display:table-cell">COUNTY OF
+                  <input type="text" value="{{ $notary_county_of }}" class="no-border"
+                  name="notary_county_of">
+                </p>
+            </div>
+            <div style='display:table-row' class='xs'>
+                <p style="margin:0;padding-bottom:5px;display:table-cell">
+                    ON <input type="text" class="no-border" name="notary_on_date"
+                    value="{{ $notary_on_date }}"> ,20
+                    <input type="text" value="{{ $notary_year }}" class="no-border" name="notary_year">
+                </p>
+            </div>
+            <div style='display:table-row' class='xs'>
+                <div style='display:table-cell;width:50%'>
+                        <p style="margin:0;padding-bottom:5px:">
+                            Before me the undersigned, a Notary Public in and for said State, personally appeared
+                            <input type="text" value="{{ $notary_appeared }}" class="no-border" name="notary_appeared">
+                            personally known to me or proved to me on the basis of satisfactory evidence to be the individual whose
+                            name
+                            is subscribed to the within instrument and acknowledged to me that he/she/they executed the same in
+                            his/her capacity,
+                            and that by his/her signature on the instrument, the individual or the person upon behalf of which the
+                            individual acted
+                            executed this instrument.
+                        </p>
+                    </div>
+                        <div style='display:table-cell;text-align:right;vertical-align:bottom'>
+                            <input type="text" value="{{ $notary_public }}" class="no-border" name="notary_public"><br>
+                            <label style='text-align:left'>NOTARY PUBLIC</label>
+                        </div>
+                </div>
+            </div>
+            <p class='text-md xs' style="font-size: 16px; padding:10px;width:20%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>            <p>
                 (New York Residents Only)
                 Or in lieu of Notarization, the following two witness signatures are provided:
             </p>
-            <div style="display: table; width: 100%; margin-top: 20px;">
+            <div style="display: table; width: 100%; margin-top: 20px;" class='xs'>
                 <!-- Row for Witness Names -->
-                <div style="display: table-row;">
+                <div style="display: table-row;" class='xs'>
                     <div style="display: table-cell; width: 50%; text-align: center;">
                         <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_one_name" value="{{ $notary_witness_one_name }}"
@@ -2535,7 +2542,7 @@
                 </div>
                 <br>
 
-                <div style="display: table-row;">
+                <div style="display: table-row;" class='xs'>
                     <div style="display: table-cell; width: 50%; text-align: center;">
                         <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="sig_date1" value="{{ $sig_date1 }}" maxlength="70">
@@ -2616,25 +2623,26 @@
                 style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
                 FOR OFFICE USE ONLY
             </div>
-            <p style='text-align:center'>
+            <p style='text-align:center' class='xs'>
                 Accepted by Trustee or Designated Representative of the Trustees, Trusted Supplemental Needs Trust.
             </p>
             <div style="display: table; width: 100%;margin:0;">
                 <!-- Row for Signature and Date Approved -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%; text-align: center;">
+                    <div style="display: table-cell; width: 50%;">
                         <!-- Signature Image or Placeholder -->
-                        @if ($joinder_signature_4)
-                            <img src="{{ $joinder_signature_4 }}" alt="Signature 4"
-                                style="width: 300px; height: 150px;">
-                        @else
-                            <div style="width: 200px;height:50px; text-align: center;">
-                                No Signature Provided
+                         <div style='text-align:center'>
+                             @if ($joinder_signature_4)
+                             <img src="{{ $joinder_signature_4 }}" alt="Signature 4"
+                             style="width: 300px; height: 150px;text-align:center">
+                             @else
+                             <div style="width: 200px;height:50px; text-align: center;">
+                                 No Signature Provided
+                                </div>
+                                @endif
                             </div>
-                        @endif
-                        <br>
-                        <div style='border-top:1px solid;width:90%;margin-left:40px'>
-                            <label>Sign Here</label>
+                        <div style='border-top:1px solid;width:90%;margin-left:40px;'>
+                            <label style=''>Sign Here</label>
                         </div>
                     </div>
                     <div style="display: table-cell; width: 50%;">
