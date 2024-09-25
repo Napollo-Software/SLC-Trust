@@ -1169,7 +1169,7 @@
                 Indicate reason for establishing an account.
             </p>
             <div style="margin: 0; padding-bottom:3px;" class='xs'>
-                <input style="height:22px" type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
+                <input style="height:22px" type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
                 <label> Shelter Monthly Excess Income</label> &nbsp;
                 <input style="height:22px" type="checkbox" name="account_establishing_reason1" value="Shelter Excess Resources"
@@ -1198,15 +1198,15 @@
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;padding:0;">
                         <div  style="margin:auto;padding:3px">
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Yes"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"
                                 style=";vertical-align: bottom;padding:0;margin:0"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
                             Yes &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="No"
                                 style=";vertical-align: bottom;padding:0;margin:0"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'No' ? 'checked' : '' }}>
                             No &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Pending"
                                 style=";vertical-align: bottom;padding:0;margin:0"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Pending' ? 'checked' : '' }}>
                             Pending
@@ -1214,15 +1214,15 @@
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;margin:0;padding:0px;">
                         <div style="margin:auto;padding:3px">
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Yes"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"
                                 style=";vertical-align: bottom;"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
                             Yes &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="No"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="No"
                                 style=";vertical-align: bottom;"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
                             No &nbsp;
-                            <input type="radio" name="beneficiary_receive_medicaid_spouse3" value="Pending"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"
                                 style=";vertical-align: bottom;"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
                             Pending
@@ -1633,7 +1633,7 @@
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
             </div>
             <p style="padding-bottom: 0;margin-bottom:0;padding-top:4px" class='xs'>
-                <input style="height:22px" type="radio" id="independently" name="living_arrangement1" value="Independently"
+                <input style="height:22px" type="checkbox" id="independently" name="living_arrangement1" value="Independently"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Independently' ? 'checked' : '' }}>
                 <label for="independently" style="vertical-align: middle;">Independently</label> &nbsp;&nbsp;
 
@@ -1651,7 +1651,7 @@
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
             <p style="padding: 0;margin:0" class='xs'>
-                <input style="height:22px" type="radio" id="family_care" name="living_arrangement1" value="Family Care Program"
+                <input style="height:22px" type="checkbox" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
                 <label for="family_care" style="vertical-align: middle;">Family care program</label> &nbsp;&nbsp;
 
@@ -1803,7 +1803,7 @@
                         <label style="font-size: 14px" class="italic">Email</label>
                     </div>
                 </div>
-                {{-- <div style="display: table-row;width: 100%;padding:0;margin:0;">
+                {{-- <div style="display: table-row;width: 100%;padding:0;margin0;">
                     <div style="display: table-cell; width: 70%;padding:0;margin:0;">
                         Address <input type="text" value="{{ $power_address }}" class="no-border"
                             style="vertical-align: bottom" name="power_address">
