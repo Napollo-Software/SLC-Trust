@@ -1236,7 +1236,7 @@
 
             <div style="margin: 0;padding: 0;" class='xs'>
                 <span>if the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these
-                benefits.
+                benefits
                 and monthly amounts.</span>
              <input type="text" class="no-border" name="beneficiary_benefits"
                     value="{{ $beneficiary_benefits }}" style="width: 50%">
