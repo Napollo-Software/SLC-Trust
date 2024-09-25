@@ -47,17 +47,23 @@ body{
 } */
 header{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
     width: 80%;
     margin: auto;
+    position: relative;
+    background-image: url('{{ asset('assets/images/jbg2.png') }}');
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    height: 1590px; 
+    background-position: bottom;
     /* height: 670px; */
     /* height: 75vh; */
 }
 .logo-style{
-     width: 25%;
+     width: 45%;
+     position: absolute;
+     top: 10rem;
 }
 .logo-img{
     width: 100%;
@@ -130,10 +136,7 @@ input[type="date"]{
 
 }
 .header-heading{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     font-size: 1.8rem;
     color: var(--primary);
 
@@ -147,15 +150,11 @@ input[type="date"]{
 }
 
 .header-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 700px;
-    
-    padding: 1.5rem ;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    padding: 1.5rem;
     width: 90%;
-
 }
 .header-contact{
     display: flex;
@@ -164,6 +163,7 @@ input[type="date"]{
     justify-content: center;
     align-items: center;
     font-size: 1.6rem;
+    margin-top: 25rem;
 }
 .life-policy-style{
     display: flex;
@@ -173,7 +173,8 @@ input[type="date"]{
 }
 .header-email{
     color: var(--primary);
-    font-size: 20px
+    font-size: 20px;
+    font-weight: 600;
 }
 
 
@@ -1593,6 +1594,7 @@ tr.ind-th td:nth-child(1){
     cursor: not-allowed;
 }
 
+
 /* html{
     font-size: 62.5%;
 } */
@@ -1892,6 +1894,7 @@ tr.ind-th td:nth-child(1){
 }
 
 
+
 @media only screen and (max-width: 600px){
      .authorized-contact-form-2-relationship-container{
         display: flex;
@@ -1939,15 +1942,59 @@ tr.ind-th td:nth-child(1){
     font-size: 0.9rem;
 }
 .header-contact p{
-    font-size: 16px
+    font-size: 12px
 }
+}
+
+
+@media only screen and (max-width: 1360px){
+    .pro-bt{
+        width: 100%
+    }
+    .mda{
+        width: 100%;
+        justify-content: flex-start
+    }
+    .mda input{
+        flex: 1;
+    }
+    .for-office-use-3-body div:nth-child(1){
+        width: 100%
+    }
+    .for-office-use-3-body div:nth-child(2){
+        width: 100%
+    }
+    .for-office-use-3-body div:nth-child(6){
+        width: 100%
+    }
+    .for-office-use-3-body div:nth-child(7){
+        width: 100%;
+        justify-content: flex-start
+    }
+    .for-office-use-3-body{
+        gap: 10px
+    }
+    .mad1{
+        flex: 1;
+    }
+    .acc-name-style{
+        gap: 20px
+    }
+    tbody tr td{
+        font-size: 0.9rem;
+    }
 }
 
 
 @media only screen and (min-width: 370px) and (max-width: 700px){
+    header{
+        height: 650px;
+    }
     .header-content{
         height: 260px;
-        gap: 3rem;
+    }
+    .header-contact{
+        margin-top: 4rem;
     }
     .j-heading{
         font-size: 1.5rem
@@ -1983,6 +2030,13 @@ tr.ind-th td:nth-child(1){
     }
 }
 
+/* @media only screen and (min-width: 1114px) and (max-width:1290) */
+@media only screen and (min-width: 1114px) and (max-width: 1290px){
+    header{
+        height: 1255px;
+    }
+}
+
     
     </style>
 </head>
@@ -2010,11 +2064,11 @@ tr.ind-th td:nth-child(1){
         <br> <br>
         <br> <br>
         <br> -->
-        <header style="background-image: url('{{ asset('assets/images/joinder-bg.png') }}');background-size: cover; background-repeat: no-repeat;">
+        <header>
         <div class="logo-style">
             <img src="{{asset('assets/images/logo.png')}}" alt="logo" class="logo-img" />
         </div>
-        <div class="header-content">
+        <div class="header-content" >
             <div class="header-heading">
                 <h1 class="j-heading">JOINDER</h1>
                 <h1 class="j-heading">AGREEMENT</h1>
@@ -2022,13 +2076,14 @@ tr.ind-th td:nth-child(1){
             <div class="header-contact">
                 <div style="display: flex; flex-direction: column; justify-content:center;align-items: center; gap: 5px;">
                     <p>Tel: 718.500.3235</p>
+                    <p>Fax: 718.500.3235</p>
                     {{-- <p>Address: 5014-16th Ave, Suite 489 Brooklyn, NY 11204</p> --}}
                 </div>
                 <div>
-                    <p>Email: info@slctrusts.org</p>
+                    <p>info@slctrusts.org</p>
                 </div>
                 <div>
-                    <p class="header-email">www.seniorlifecaretrusts.org</p>
+                    <p class="header-email">seniorlifecaretrusts.org</p>
                 </div>
             </div>
         </div>
@@ -2631,7 +2686,7 @@ tr.ind-th td:nth-child(1){
                               <tr class="medicaidl-tbody">
                                   <td>Application Status <br> Does the beneficiary
                                       receive Medicaid?</td>
-                                  <td>
+                                  <td style="width: 0%">
                                       <div class="applicant">
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Yes" id="applicant-yes">
@@ -2647,7 +2702,7 @@ tr.ind-th td:nth-child(1){
 
                                       </div>
                                   </td>
-                                  <td>
+                                  <td style="width: 0%">
                                       <div class="applicant">
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Yes" id="spouse-yes">
@@ -2668,7 +2723,7 @@ tr.ind-th td:nth-child(1){
                               </tr>
                               <tr class="medicaidl-tbody">
                                   <td>CIN Number/medicaid Number</td>
-                                  <td>
+                                  <td style="width: 0%">
                                     <div style="display: flex;align-items: center;gap: 5px;cursor:p">
                                         {{-- <div>
                                             <span>$</span>
@@ -2678,7 +2733,7 @@ tr.ind-th td:nth-child(1){
                                         </div>
                                     </div>
                                   </td>
-                                  <td>
+                                  <td style="width: 0%">
                                     <div style="display: flex;align-items: center;gap: 5px;">
                                         {{-- <div>
                                             <span>$</span>
@@ -2691,7 +2746,7 @@ tr.ind-th td:nth-child(1){
                               </tr>
                               <tr class="medicaidl-tbody">
                                   <td>Monthly Spend Down $</td>
-                                  <td>
+                                  <td style="width: 0%">
                                     <div style="display: flex;align-items: center;gap: 5px;">
                                         {{-- <div>
                                             <span>$</span>
@@ -2701,7 +2756,7 @@ tr.ind-th td:nth-child(1){
                                         </div>
                                     </div>
                                   </td>
-                                  <td>
+                                  <td style="width: 0%">
                                     <div style="display: flex;align-items: center;gap: 5px;">
                                         {{-- <div>
                                             <span>$</span>
@@ -2814,7 +2869,7 @@ tr.ind-th td:nth-child(1){
                                   <tbody>
                                       <tr class="individual-tr">
                                           <td>Supplement Security Income (SSI)</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2824,7 +2879,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2837,7 +2892,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>Social Security Disability Income (SSDI)</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2847,7 +2902,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2860,7 +2915,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>Social Security Retirement Income (SSA)</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2870,7 +2925,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2883,7 +2938,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>VA Benefits</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2893,7 +2948,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2906,7 +2961,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>Employment Benefits</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2916,7 +2971,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2929,7 +2984,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>Survivor Benefits</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2939,7 +2994,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2952,7 +3007,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>IRA Distribution</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2962,7 +3017,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2975,7 +3030,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>Pensions / Annuities</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2985,7 +3040,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -2998,7 +3053,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>Interest / Dividends</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -3008,7 +3063,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -3021,7 +3076,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>Reparations</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -3031,7 +3086,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -3044,7 +3099,7 @@ tr.ind-th td:nth-child(1){
                                       </tr>
                                       <tr class="individual-tr">
                                           <td>Other</td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -3054,7 +3109,7 @@ tr.ind-th td:nth-child(1){
                                                 </div>
                                             </div>
                                           </td>
-                                          <td>
+                                          <td style="width: 0%">
                                             <div style="display: flex;align-items: center;gap: 5px;">
                                                 <div>
                                                     <span style="font-style: normal">$</span>
@@ -4616,15 +4671,15 @@ tr.ind-th td:nth-child(1){
                     <div class="for-office-use-3-body">
                                 <div style="display: flex; align-items: center;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Account #:</p>
-                                    <input type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input class="mad1" type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
                                 <div style="display: flex; align-items: center;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Member #:</p>
-                                    <input type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input class="mad1" type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
-                                <div style="display: flex; margin-top: 15px;gap:5px;flex-wrap:wrap " class="w-50">
+                                <div style="display: flex;align-items: center; margin-top: 15px;gap:5px;flex-wrap:wrap " class="w-50 pro-bt">
                                     <p>Processed By:</p>
-                                    <input type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                    <input class="mad1"  type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;">
                                 </div>
                                 <div  class="w-50 mda" style="gap:5px">
                                     <p>Monthly Debit Amount: $</p>
@@ -4635,11 +4690,11 @@ tr.ind-th td:nth-child(1){
                                 </div>
                                 <div style="display: flex; margin-top: 15px;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Date of Monthly Debit:</p>
-                                    <input type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input class="mad1" type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
                                 <div class="w-50 db-month">
                                     <p>First Debit Month:</p>
-                                    <input type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input class="mad1" type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
                     </div>
                     <div style="width: 80%; margin: auto;">
