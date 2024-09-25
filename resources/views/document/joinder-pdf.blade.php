@@ -138,6 +138,10 @@
             font-size: 12px;
         }
 
+        .xxs{
+            font-size: 9px;
+        }
+
         .sm{
             font-size: 13px;
         }
@@ -162,6 +166,20 @@
             right: 0px;
             height: 50px;
             margin-bottom: -50px;
+        }
+
+        .footer-center{
+            border: 1px solid #37A09B;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 6px;
+            padding-right: 6px;
+            color: #37A09B
+        }
+
+        .footer{
+            position: absolute;
+            bottom: 10;
         }
 
         .section-title{
@@ -195,6 +213,8 @@
             padding-bottom:4px;
 
         }
+
+       
 
 
 
@@ -344,7 +364,7 @@
                 <br/>
             <div style="display: table; width: 100%;margin-top:8px;margin-bottom:8px">
                 <div style="display: table-row;">
-                    <p style="display:table-cell;" class="sm"> Marital Status:
+                    <p style="display:table-cell;" class="sm strong"> Marital Status:
                         <label class="xs">
                             <input type="checkbox" name="sponsor_marital_status1" value="Married"
                                 {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
@@ -601,14 +621,36 @@
                 {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
                 <p style="margin: 0;padding: 0;">1</p>
             </div> -->
-        </div>
 
-        <div style="width: 100%;display: table;">
+            <div style="width: 100%;display: table;">
                 <p style="margin-top:20px" class="text-center xs">Please mail all trust documents to:</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> SLC Supplemental Needs Trust</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> 5014-16th Ave, Suite 489</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> Brooklyn, NY 11204</p>
         </div>
+
+        <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">1</p>
+                        <div style="
+                                    transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
+            </div> 
+
+        </div>
+
+       
         <br/>
 
 
@@ -952,24 +994,24 @@
                     <div class="xs" style="display: table-row;margin-top:7px">
                         <div style="display: table-cell;">
                             <input type="text" value="{{ $auth_rep_two_address }}" name="auth_rep_two_address" style="width: 95%">
-                            <label>Address</label>
+                            <label class="italic">Address</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_two_city }}" name="auth_rep_two_city" style="width: 95%" />
-                            <label>City:</label>
+                            <label class="italic">City:</label>
                         </div>
                         <div style="display: table-cell;">
 
                             <input type="text" value="{{ $auth_rep_two_state }}" name="auth_rep_two_state" style="width: 95%" />
-                            <label>State:</label>
+                            <label class="italic">State:</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 95%">
-                            <label>Apt #:</label>
+                            <label class="italic">Apt #:</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_two_zip }}"name="auth_rep_two_zip" style="width: 95%" />
-                            <label>Zip:</label>
+                            <label class="italic">Zip:</label>
                         </div>
                     </div>
                 </div>
@@ -1039,7 +1081,7 @@
                     </div>
                     <div style="display: table-cell; width: 50%;">
                         <input type="text" value="{{ $referring_contract }}" name="referring_contract" style="width:95%" /> <br>
-                        <label>Name of Contract</label>
+                        <label class="italic">Name of Contract</label>
                     </div>
                 </div>
                 <br>
@@ -1047,12 +1089,12 @@
                     <div style="display: table-cell;">
 
                         <input type="text" value="{{ $referring_tel }}" name="referring_tel" style="width:95%" /> <br>
-                        <label>Home</label>
+                        <label class="italic">Home</label>
                     </div>
 
                     <div style="display: table-cell">
                         <input type="text" value="{{ $referring_email }}"name="referring_email" style="width:95%" /> <br>
-                        <label>Email</label>
+                        <label class="italic">Email</label>
                     </div>
                 </div>
                 <br>
@@ -1073,23 +1115,23 @@
             <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $referring_address }}" name="referring_address" style="width:95%">
-                        <label>Address</label>
+                        <label class="italic">Address</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $referring_apt }}" name="referring_apt" style="width:95%">
-                        <label>Apt #:</label>
+                        <label class="italic">Apt #:</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $referring_city }}" name="referring_city" style="width:95%" />
-                        <label>City:</label>
+                        <label class="italic">City:</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $referring_state }}" name="referring_state" style="width:95%" />
-                        <label>State:</label>
-                    </div>
+                        <label class="italic">State:</label>
+                    </div> 
                     <div style="display: table-cell">
                         <input type="text" value="{{ $referring_zip }}" name="referring_zip" style="width:95%" />
-                        <label>Zip:</label>
+                        <label class="italic">Zip:</label>
                     </div>
 
                 </div>
@@ -1141,10 +1183,25 @@
                     {{ isset($referring_auth1) && $referring_auth1 === 'No' ? 'checked' : '' }}> No
             </p>
 
-            <div style="text-align: center;margin: 0;padding: 0;">
-                {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
-                <p style="margin: 0;padding: 0;">2</p>
-            </div>
+            <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">2</p>
+                        <div style="
+                                    transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
+            </div> 
+
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
                         <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
@@ -1158,11 +1215,8 @@
                 </div> --}}
         </div>
 
-        {{-- <div class="page-break"></div> --}}
-        <br>
-        <br>
-        <br>
-        <br>
+<div class="page-break"></div>
+       
         <div class="page-3">
             <p class='md'
             style=" padding:10px;width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
@@ -1512,10 +1566,25 @@
                 <br>
                 A spouse is not a beneficiary for the account.
             </p>
-            <div style="text-align: center;margin: 0;padding: 0;">
-                {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
-                <p style="margin: 0;padding: 0;">3</p>
-            </div>
+            <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">3</p>
+                        <div style="
+                                    transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
+            </div> 
+
         </div>
 
         <div class="page-break"></div>
@@ -1783,16 +1852,31 @@
                 <input type="text" value="{{ $living_arrangement_email }}" class="no-border"
                     name="living_arrangement_email" style="width: 100px; height: 20px;  ">
             </p> --}}
-            <br>
-            <div style="text-align: center;margin: 0;padding: 0;">
-                <p style="margin: 0;padding: 0;">4</p>
-            </div>
+            <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">4</p>
+                        <div style="
+                                    transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
+            </div> 
+
 
         </div>
 
         <div class="page-break"></div>
 
-   
+      <div class="page-5">
 
         <div class="section-title">
             <p class="md"  style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
@@ -2244,12 +2328,26 @@
                 </div>
             </div>
            
-            {{-- <div style="text-align: center;padding: 0;"> --}}
-                {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
-                <p style="margin-top: 1px;padding: 0;text-align:center">5</p>
-        {{-- <div class="page-break"></div> --}}
+            <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">5</p>
+                        <div style="
+                                    transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
+            </div> 
 
-    
+      <div/>
       
         <div class="page-6 sm">
         <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:36%" class="section-heading md" >
@@ -2347,14 +2445,29 @@ any Beneficiary or constituent agencies and/or
 Chapters.
         </div>
 
-            <div style="clear: both; text-align: center; margin: 0; padding: 0;">
-                <p style="margin: 0; padding: 0;">6</p>
-            </div>
+        <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">6</p>
+                        <div style=" transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
+            </div> 
+
         </div>
 
         <div class="page-break"></div>
 
-        <div class="page-7">
+        <div class="page-7 sm">
             <b>Situs:</b> <br/>
                 <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
                     The sub-trust account created by this Agreement 
@@ -2442,10 +2555,28 @@ based upon the particular circumstances of the
 Beneficiary.
                 </div>
 
-                <div style="clear: both; text-align: center; margin: 0; padding: 0;">
-                    <p style="margin: 0; padding: 0;">7</p>
-                </div>
+                
+
             </div>
+
+            <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">7</p>
+                        <div style="
+                                    transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
+                </div>
 
         <div class="page-break"></div>
         <div class="page-8 seaction-heading">
