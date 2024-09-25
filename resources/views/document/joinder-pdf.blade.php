@@ -144,7 +144,7 @@
             font-size: 16px;
         }
         .xl{
-            font-size: 19px;      
+            font-size: 17px;      
         }
 
         .strong{
@@ -182,6 +182,14 @@
             margin-bottom: -10px;
         }
 
+        .section-heading{
+            padding-left:15px;
+            padding-right:10px;
+            padding-top:4px;
+            padding-bottom:4px;
+
+        }
+
 
 
     </style>
@@ -196,13 +204,11 @@
         <div class="page-0">
             <br> <br>
             <div class="container-row" style="text-align:center;">
-                <img style="width:30%" src="{{ public_path('images/slc_logo.png') }}" alt="Example Image">
+                <img style="width:40%" src="{{ public_path('images/slc_logo.png') }}" alt="Example Image">
             </div>
             {{-- {{ public_path('images/slc_logo.png') }} --}}
 
-            <div style="height:900px">
-
-
+            <div style="height:855px">
                  <br>
                  <br>
                  <br>
@@ -211,16 +217,7 @@
                  <br>
                  <br>
                  <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                <div style="text-align: center;margin-top:75px">
+                <div style="text-align: center;margin-top:210px">
                     <div style="width: fit-content; display: inline-block;">
                         <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
                             JOINDER</h1>
@@ -304,8 +301,8 @@
                 <p class="" style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
             </div class="md">
                 <p
-                class="md"
-                    style="padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:30%">
+                class="md section-heading"
+                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:30%">
                     BENEFICIARY INFORMATION</p>
             </div>
             <p class="xs">
@@ -606,6 +603,7 @@
                 <p style="margin-top:-10px" class="text-center xs strong"> 5014-16th Ave, Suite 489</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> Brooklyn, NY 11204</p>
         </div>
+        <br/>
 
 
 
@@ -731,8 +729,8 @@
         <div class="page-2" style="margin-top:-5px">
             <div class="">
                 <p
-                class="md"
-                    style="padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:35%">
+                class="md section-heading"
+                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:35%">
                     AUTHORIZED REPRESENTATIVES
                 </p>
             </div>
@@ -1019,8 +1017,8 @@
 
             </p> --}}
             <p
-            class="sm"
-                style=" padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:21%">
+            class="sm section-heading"
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:21%">
                 REFERRING SOURCE
             </p>
             <p class="xs"> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
