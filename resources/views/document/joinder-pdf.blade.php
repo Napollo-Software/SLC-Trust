@@ -10,16 +10,14 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            border-top: 1px solid rgb(184 221 219);
-            border-bottom: 1px solid rgb(184 221 219);
+            border: 1px solid rgb(184 221 219);
         }
         body {
             font-family: "Nominee-Black", sans-serif;
         }
         th,
         td {
-            border-right: 1px solid rgb(184 221 219);
-            border-bottom: 1px solid rgb(184 221 219);
+            border: 1px solid rgb(184 221 219);
             padding: 0;
             font-size: 10px;
             text-align: center;
@@ -59,7 +57,7 @@
 
 
         .container-page-end {
-            padding: 40px;
+            padding: 5px;
 
         }
 
@@ -92,19 +90,13 @@
             text-align: left;
             padding: 14px;
         }
-        tbody td:nth-child(1){
-            border-left:none;
-        }
-        tbody td:nth-child(3){
-            border-right:none;
-        }
         tbody tr td{
             padding: 14px;
             border-right: 2px solid rgb(184 221 219);
 
         }
         .page-0{
-            background-image: url('{{ public_path("images/new-joinder-bg.png") }}');
+            background-image: url('{{ public_path("images/bannerCover2.png") }}'); 
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -151,6 +143,9 @@
         .lg{
             font-size: 16px;
         }
+        .xl{
+            font-size: 19px;      
+        }
 
         .strong{
             font-weight: bold;
@@ -177,6 +172,17 @@
             padding: 15px 20px;
         }
 
+        input[type="checkbox"] {
+            margin-right: 4px;
+            width: 17px;
+            height: 17px !important;
+        }
+
+        input[type="checkbox"] + label{
+            margin-bottom: -10px;
+        }
+
+
 
     </style>
 </head>
@@ -185,7 +191,7 @@
     <form id="joinderForm" method="POST" action="{{ route('save.joinder') }}">
         @csrf
         <footer>
-        <p>Copyright &copy; <?php echo date("Y");?></p>
+        <!-- <p>Copyright &copy; <?php echo date("Y");?></p> -->
         </footer>
         <div class="page-0">
             <br> <br>
@@ -214,15 +220,19 @@
                  <br>
                  <br>
                  <br>
-                <div style="text-align: center;">
+                <div style="text-align: center;margin-top:75px">
                     <div style="width: fit-content; display: inline-block;">
-                        <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.5rem">
-                            JOINDER AGREEMENT</h1>
+                        <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                            JOINDER</h1>
+                    </div>
+                </div>
+                <div style="text-align: center;margin-top:-57px" >
+                    <div style="width: fit-content; display: inline-block;">
+                        <h1 style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                            AGREEMENT</h1>
                     </div>
                 </div>
                 <br>
-                 <br>
-                 <br>
                  <br>
                  <br>
                  <br>
@@ -237,32 +247,40 @@
                 <div
                     style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
                     <div style="display: table-row;">
-                        <div style="color:rgb(52 159 153); display: table-cell; width:45%;text-align: right;">
-                            <b style="font-size: 1.4rem;">Tel:</b>
+                        <div style="display: table-cell; width:45%;text-align: right;">
+                            <div style="" class="xl">Tel:</div>
                         </div>
                         <div
-                            style="display: table-cell; text-align: left;color:rgb(52 159 153);padding-left: 5px;font-size: 1.4rem;">
+                            style="display: table-cell; text-align: left;padding-left: 5px;" class="xl">
                             718.500.3235</div>
                     </div>
                 </div>
-
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
                     <div style="display: table-row;">
-                        <div style="color: rgb(52 159 153); display: table-cell;width:45%;text-align: right;">
-                            <b style="font-size: 1.4rem;">Email:</b>
+                        <div style="display: table-cell;width:45%;text-align: right;">
+                            <div style="" class="xl">Fax:</div>
                         </div>
                         <div
-                            style="display: table-cell; text-align: left;color:rgb(52 159 153);padding-left: 5px;font-size: 1.4rem;">
-                            info@slctrusts.org</div>
+                            class="xl"
+                            style="display: table-cell; text-align: left;padding-left: 5px;">
+                            718.500.3225</div>
                     </div>
                 </div>
-
+             
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;">
+                            <div style="" class="xl">info@slctrusts.org </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:10px">
                     <div style="display: table-row;">
                         <div style="color: rgb(52 159 153); font-weight: bold; display: table-cell;">
-                            <b style="font-size: 1.4rem;">www.seniorlifecaretrusts.org</b>
+                            <b style="" class="xl">seniorlifecaretrusts.org</b>
                         </div>
                     </div>
                 </div>
@@ -456,7 +474,7 @@
 
             {{-- <br /> --}}
 
-            <div style="display: table; width:100%" class="xs">
+            <div style="display: table; width:400px" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%">
@@ -520,21 +538,29 @@
                     </div>
                 </div>
             </div>
-            <p style=" " class="xs">
-                <label style="margin: 0;">
-                    <label>1.</label>
-                    <input type="text" value="{{ $d1 }}" name="d1">
-                </label>
-                <label style="margin: 0;">
-                    <label>2.</label>
-                    <input type="text" value="{{ $d2 }}" name="d2">
-                </label>
-                <label style="margin: 0;">
-                    <label>3.</label>
-                    <input type="text" value="{{ $d3 }}" name="d3">
-                </label>
-            </p>
-
+            <br />
+            <div class="xs" style="display:table;width:100%">
+               <div style="display: table-row;width:100%">
+                <div style="display: table-cell">
+                    <label style="margin: 0;">
+                        <label>1.</label>
+                        <input type="text" value="{{ $d1 }}" name="d1">
+                    </label>
+                </div>
+                <div style="display: table-cell">
+                    <label style="margin: 0;">
+                        <label>2.</label>
+                        <input type="text" value="{{ $d2 }}" name="d2">
+                    </label>
+                </div>
+                <div style="display: table-cell">
+                    <label style="margin: 0;">
+                        <label>3.</label>
+                        <input type="text" value="{{ $d3 }}" name="d3">
+                    </label>
+                </div>
+               </div>
+            </div>
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;vertical-align:middle">
                         <label>1.</label>
@@ -994,7 +1020,7 @@
             </p> --}}
             <p
             class="sm"
-                style=" padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:23%">
+                style=" padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:21%">
                 REFERRING SOURCE
             </p>
             <p class="xs"> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
@@ -1137,7 +1163,7 @@
 
         <div class="page-3">
             <p
-            style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
+                style="font-size: 12px; padding:10px;width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 PURPOSE OF ENROLLMENT
             </p>
             <p style="font-size: 12px; margin: 0;padding-bottom:'3px'" class='xs'>
@@ -1158,23 +1184,21 @@
                 </p>
 
             <table style="padding-top: 0px; margin-top:10px;">
-                <thead>
-                    <tr style="padding: 0; margin: 0;">
-                        <td class='xs' style='width:180px;padding:6px;text-align:left;padding-left:12px'>Please Attach MAP / LDSS Notice of Decision</td>
-                        <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px">Applicant</td>
-                        <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px">Spouse</td>
-                    </tr>
-                </thead>
+                <tr style="padding: 0; margin: 0;">
+                    <td class='xs' style='width:180px;padding:6px'>Please Attach MAP / LDSS Notice of Decision</td>
+                    <td class='xs' style="vertical-align: bottom;padding:6px;">Applicant</td>
+                    <td class='xs' style="vertical-align: bottom;padding:6px;">Spouse</td>
+                </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
                     <td style="width:180px;margin:0;padding:0px;">
-                        <p style="vertical-align: bottom;margin:0;padding:3px;text-align:left;padding-left:12px">
+                        <p style="vertical-align: bottom;margin:0;padding:3px">
                             Application Status
                             <br>
                             Does the beneficiary receive Medicaid?
                         </p>
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;padding:0;">
-                        <div  style="margin:auto;padding:3px;text-align:left;padding-left:12px">
+                        <div  style="margin:auto;padding:3px">
                             <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
@@ -1187,43 +1211,46 @@
                         </div>
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;margin:0;padding:0px;">
-                        <div style="margin:auto;padding:3px;text-align:left;padding-left:12px">
+                        <div style="margin:auto;padding:3px">
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"
+                                
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
                              &nbsp;
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="No"
+                                
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
                              &nbsp;
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"
+                                
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
                                 <label>Pending</label>
                         </div>
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px; vertical-align: center;padding:3px;text-align:left;padding-left:12px">
+                    <td style="width:80px; vertical-align: center;padding:3px">
                         CIN Number/medicaid Number
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:3px;text-align:left;padding-left:12px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px">
                         <input type="text" value="{{ $applicant_medicaid_cin_number }}" style='border:none' class="no-border"
                             name="applicant_medicaid_cin_number">
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:3px;text-align:left;padding-left:12px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px">
                         <input type="text" value="{{ $spouse_medicaid_cin_number }}" style='border:none' class="no-border"
                             name="spouse_medicaid_cin_number">
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px; vertical-align: bottom; padding:3px;text-align:left;padding-left:12px">
+                    <td style="width:80px; vertical-align: bottom; padding:3px">
                         Monthly Spend Down $
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:3px;text-align:left;padding-left:12px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px">
                         <input type="text" value="{{ $medicaid_applicant_monthly_spend_down }}" style='border:none' class="no-border"
                             name="medicaid_applicant_monthly_spend_down">
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:3px;text-align:left;padding-left:12px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px">
                         <input type="text" value="{{ $medicaid_spouse_monthly_spend_down }}" style='border:none' class="no-border"
                             name="medicaid_spouse_monthly_spend_down">
                     </td>
@@ -1233,7 +1260,7 @@
 
             <div style="margin: 0;padding: 0;" class='xs'>
                 <span>if the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these
-                benefits
+                benefits.
                 and monthly amounts.</span>
              <input type="text" class="no-border" name="beneficiary_benefits"
                     value="{{ $beneficiary_benefits }}" style="width: 50%">
@@ -1242,7 +1269,7 @@
             <br>
             <span class='section-title'
             style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
-            HOUSEHOLD INCOME  </span>
+            HOUSEHOLD INCOME INFORMATION </span>
             &nbsp;&nbsp;
             <br><br>
             <span style="margin:0;" class='sm'><b>SPOUSE INFORMATION:</b></span>
@@ -1312,171 +1339,167 @@
             </div>
             <br>
             <table style=" padding: 0;margin: 0;" class='sm'>
-                <thead>
-                    <tr style="padding: 0;margin: 0;border:1px solid">
-                        <td style="padding:3px ;margin: 0;text-align:left;padding-left:12px">
-                        <p style="padding: 5px;margin: 0;color:#349f99;" class='xs'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
+                <tr style="padding: 0;margin: 0;">
+                    <td style="padding:3px ;margin: 0;">
+                        <p style="padding: 5px;margin: 0;" class='xs'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
                     </td>
-                    <td style="padding: 5px;margin: 0;text-align:left;padding-left:12px">
+                    <td style="padding: 5px;margin: 0;">
                         <p style="padding: 3px;margin: 0;" class='xs'> Applicant <br></p>
                     </td>
-                    <td style="padding:5px ;margin: 0;text-align:left;padding-left:12px">
+                    <td style="padding:5px ;margin: 0;">
                         <p style="padding: 3px;margin: 0;" class='xs'> Spouse <br></p>
                     </td>
                 </tr>
-            </thead>
-            <tbody>
                 <tr style="padding: 0;margin: 0;" class='xs'>
-                    <td style="width:180px;padding: 0px;margin: 0;max-height: 5px;text-align:left;padding-left:10px">
+                    <td style="width:180px;padding: 0px;margin: 0;max-height: 5px;">
                         <p style='margin:3px'>
                             Supplement Security Income(SSI)
                         </p>
                     </td>
-                    <td style="width:80px;padding: 0px;margin: 3px;text-align:left;padding-left:10px" class='xs'>
+                    <td style="width:80px;padding: 0px;margin: 3px;" class='xs'>
                         <p style='margin:3px'>$ <input type="text" value="{{ $applicant_ssi }}" style='border:none'
                                 name="applicant_ssi"></p>
                     </td>
-                    <td style="width:80px;padding: 0px;margin: 3px;text-align:left;padding-left:10px" class='xs'>
+                    <td style="width:80px;padding: 0px;margin: 3px;" class='xs'>
                         <p style='margin:3px'>$ <input type="text" value="{{ $spouse_ssi }}" class="no-border" style='border:none' name="spouse_ssi">
                         </p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 " >
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;">
                         Supplement Security Disability Income(SSDI)
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="margin: 3px;">$ <input type="text" value="{{ $applicant_ssdi }}" style='border:none' class="no-border"
                                 name="applicant_ssdi">
                         </p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="margin: 3px;">$ <input type="text" value="{{ $spouse_ssdi }}" style='border:none' class="no-border"
                                 name="spouse_ssdi"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 ">
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;">
                         <p style='margin:3px'>
                             Supplement Security Retirement Income(SSA)
                         </p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px" class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;" class='xs'>
                         <p style="margin: 3px;">$ <input type="text" value="{{ $applicant_ssa }}" style='border:none' class="no-border"
                                 name="applicant_ssa"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="margin: 3px;">$ <input type="text" value="{{ $spouse_ssa }}" style='border:none' class="no-border" name="spouse_ssa">
                         </p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 ">
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:10px">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         VA Benefits
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_va_ben }}" style='border:none' class="no-border"
                                 name="applicant_va_ben"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_va_ben }}" style='border:none' class="no-border"
                                 name="spouse_va_ben"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:10px">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Employment Benefits
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_employee_ben }}" style='border:none' class="no-border"
                                 name="applicant_employee_ben"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_employee_ben }}" style='border:none' class="no-border"
                                 name="spouse_employee_ben"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Survivor Benefits
 
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_survivor_ben }}" style='border:none' class="no-border"
                                 name="applicant_survivor_ben"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_survivor_ben }}" style='border:none' class="no-border"
                                 name="spouse_survivor_ben"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px ">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         IRA Distribution
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_ira_dist }}" style='border:none' class="no-border"
                                 name="applicant_ira_dist"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_ira_dist }}" style='border:none' class="no-border"
                                 name="spouse_ira_dist">
                         </p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Pension / Annuities
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_pension_annuities }}" style='border:none' class="no-border"
                                 name="applicant_pension_annuities"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_pension_annuities }}" style='border:none' class="no-border"
                                 name="spouse_pension_annuities"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Interest / Dividends
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_interest_dividends }}" style='border:none' class="no-border" name="applicant_interest_dividends"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_interest_dividends }}" style='border:none' class="no-border" name="spouse_interest_dividends"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Reparations
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_reparations }}" style='border:none' class="no-border"
                                 name="applicant_reparations"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_reparations }}" style='border:none' class="no-border"
                                 name="spouse_reparations"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px ">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
                         Other
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_other }}" style='border:none' class="no-border"
                                 name="applicant_other">
                         </p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;text-align:left;padding-left:10px  " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0;margin: 0; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_other }}" style='border:none' class="no-border"
                                 name="spouse_other"></p>
                     </td>
                 </tr>
             </table>
-            </tbody>
             <br>
             <p class='italic' style="padding: 0;margin: 0;" class='xs'>
                 Please note: All disbursements must be for sole benefit of the country beneficiary.
