@@ -140,6 +140,10 @@
             font-size: 14px;      
         }
 
+        .lg{
+            font-size: 16px;      
+        }
+
         .strong{
             font-weight: bold;
         }
@@ -152,7 +156,8 @@
         }
 
         .section-title{
-            margin-left:-5px
+            font-size: 14px; 
+            max-width: fit-content;
         }
 
         .border-container{
@@ -260,74 +265,75 @@
 
         <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;">
-                <p style="font-weight: bold;text-align:center;font-size: 1.4rem; margin-bottom: 10px;">SLC SUPPLEMENTAL NEEDS TRUST</p>
-                <p style="text-align:center;color:rgb(52 159 153);font-size: 1.2rem;margin-top:-10px">Joinder Agreement / Beneficiary
+                <p style="font-weight: bold;text-align:center; margin-bottom: 10px;" class="lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                <p style="text-align:center;color:rgb(52 159 153);" class="lg">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
             </div>
-            <div style="font-size: 12px">
+            <div style="" class="xs">
                 <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created
                     pursuant to 42 United States Code §1396. You are encouraged to seek independent, professional advice
                     before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a
                     sub-trust account under the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, dated February 13,
                     2023. The Trust is Irrevocable.</p>
                 <p class="" style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
-            </div class="section-title">
+            </div class="md">
                 <p
-                    style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-5px;margin-left:-20px">
+                class="md"
+                    style="padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:30%">
                     BENEFICIARY INFORMATION</p>
             </div>
-            <p>
+            <p class="xs">
                 The Beneficiary and Donor must always be the same person. Only funds belonging to the Beneficiary may
                 be contributed to the Trust.
             </p>
 
-            <div style="display: table; width: 100%;">
+            <div style="display: table; width: 100%;" >
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold;">Name:</label>
+                        <label style="font-weight: bold;" class="sm">Name:</label>
                     </div>
                 </div>
                 <br/>
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
+                <div style="display: table-row;table-layout: fixed;" class="xs">
+                    <div style="display: table-cell;width: 33.33%; ">
 
                         <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" /> <br>
                         <label class="italic">First</label>
                     </div>
-                    &nbsp;&nbsp;
-                    <div style="display: table-cell">
+                    &nbsp;
+                    <div style="display: table-cell;width: 33.33%;">
                         <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" /> <br>
                         <label class="italic">Middle:</label>
                     </div>
-                    &nbsp;&nbsp;
-                    <div style="display: table-cell">
+                    &nbsp;
+                    <div style="display: table-cell;width: 33.33%;">
                         <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" /> <br>
                         <label class="italic">Last:</label>
                     </div>
                 </div>
             </div> 
-
+                <br/>
             <div style="display: table; width: 100%;margin-top:8px;margin-bottom:8px">
                 <div style="display: table-row;">
-                    <p style="display:table-cell;">Marital Status:
-                        <label>
+                    <p style="display:table-cell;" class="sm"> Marital Status:
+                        <label class="xs">
                             <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Married"
                                 {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
                             <label>Married</label>
                         </label>
-                        <label>
+                        <label class="xs">
                             <input style="height:22px" type="radio" name="sponsor_marital_status1" value="Widowed"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Widowed' ? 'checked' : '' }}>
                         <label>Widowed</label>
                         </label>
-                        <label>
+                        <label class="xs">
                             <input style="height:22px" type="radio" name="sponsor_marital_status" value="Single"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Single' ? 'checked' : '' }}>
                         <label>Single</label>
                         </label>
                     </p>
-                    <label style=" display:table-cell; margin: 0;">
-                            <label>Gender</label>
+                    <label style="display:table-cell; margin: 0;">
+                            <label class="sm" >Gender</label>
                             <input type="text" name="sponsor_gender">
                         </label>
                         <!-- value="{{ $sponsor_gender }}" -->
@@ -358,27 +364,27 @@
                     </div>
                 </div> --}}
 
-                {{-- <br /> --}}
+                 <br /> 
             <div style="display: table; width: 100%;margin-bottom:8px">
 
                 <div style="display: table-row;">
-                    <div style="display: table-cell">
+                    <div style="display: table-cell" class="xs">
                         <input type="text" value="{{ $sponsor_ssn }}" name="sponsor_ssn"> <br>
                         <label class="italic">Social Security Number:</label>
                     </div>
                     &nbsp;&nbsp;
-                    <div style="display: table-cell">
+                    <div class="xs" style="display: table-cell">
                         <input type="text" name="sponsor_dob" value="{{ $sponsor_dob }}"> <br>
                         <label class="italic">Date of Birth:</label>
                     </div>
                     &nbsp;&nbsp;
-                    <div style="display: table-cell">
+                    <div class="xs" style="display: table-cell">
                     <input type="text" name="sponsor_citizenship" value="{{ $sponsor_dob }}"> <br>
                     <label class="italic">Citizenship:</label>
                     </div>
                 </div>
 
-                {{-- <br /> --}}
+                <br /> 
 
                 {{-- <div style="display: table-row;">
                     <div style="display: table-cell">
@@ -406,10 +412,10 @@
             <div style="display: table; width:100%">
                 <div style="display: table-row;margin-top:-25px">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold">Contact Information:</label>
+                        <label style="font-weight: bold" class="sm">Contact Information:</label>
                     </div>
                 </div> <br>
-                <div style="display: table-row;">
+                <div style="display: table-row;" class="xs">
 
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home" style="width: 95%"> <br>
@@ -426,8 +432,8 @@
                 </div>
             </div>
 
-                <p class="strong">Preferred Phone:
-                    <label>
+                <p class="strong sm">Preferred Phone:
+                    <label class="sm">
                         <input style="height:22px" type="radio" name="prefered_cell" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
                         <label style="font-weight: 400;">Cell</label>
@@ -442,11 +448,16 @@
 
             {{-- <br /> --}}
 
-            <div style="display: table; width:100%">
+            <div style="display: table; width:100%" class="xs">
                 <div style="display: table-row;">
-                    <div style="display: table-cell">
+                    <div style="display: table-cell;">
                         <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%">
                         <label class="italic">Email:</label>
+                    </div>
+                </div>
+                &nbsp;&nbsp;
+                <div style="display: table-row;">
+                    <div style="display: table-cell;">
                     </div>
                 </div>
             </div>
@@ -463,7 +474,7 @@
 
                 <br />
 
-                <div style="display: table; width:100%">
+                <div style="display: table; width:100%" class="xs">
 
                 <div style="display: table-row;" class="xs">
                     <div style="display: table-cell;">
@@ -497,11 +508,11 @@
                 <div style="display: table;">
                 <div style="display: table-row;margin-top:-30px">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold">Qualifying Disabilities:</label>
+                        <label style="font-weight: bold" class="sm">Qualifying Disabilities:</label>
                     </div>
                 </div>
             </div>
-            <p style=" ">
+            <p style=" " class="xs">
                 <label style="margin: 0;">
                     <label>1.</label>
                     <input type="text" value="{{ $d1 }}" name="d1">
@@ -556,10 +567,10 @@
         </div>
 
         <div style="width: 100%;display: table;">
-                <p style="margin-top:-3px" class="text-center sm">Please mail all trust documents to:</p>
-                <p style="margin-top:-10px" class="text-center sm strong"> SLC Supplemental Needs Trust</p>
-                <p style="margin-top:-10px" class="text-center sm strong"> 5014-16th Ave, Suite 489</p>
-                <p style="margin-top:-10px" class="text-center sm strong"> Brooklyn, NY 11204</p>
+                <p style="margin-top:20px" class="text-center xs">Please mail all trust documents to:</p>
+                <p style="margin-top:-10px" class="text-center xs strong"> SLC Supplemental Needs Trust</p>
+                <p style="margin-top:-10px" class="text-center xs strong"> 5014-16th Ave, Suite 489</p>
+                <p style="margin-top:-10px" class="text-center xs strong"> Brooklyn, NY 11204</p>
         </div>
 
 
@@ -683,12 +694,12 @@
         {{-- <div class="page-break"></div> --}}
 
 
-        <div class="page-2" style="margin-top:-20px">
-            <div class="section-title">
+        <div class="page-2" style="margin-top:-5px">
+            <div class="">
                 <p
                 class="md"
-                    style="padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
-                    AUTHORIZED PREVENTATIVE
+                    style="padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:35%">
+                    AUTHORIZED REPRESENTATIVES
                 </p>
             </div>
             <p class="xs" style=" ">Who will be your primary contact?
@@ -769,7 +780,7 @@
                 </div>
             </div>
            
-            <div style="display: table;width:100%">
+            <div style="display: table;width:100%" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $auth_rep_one_email }}" name="auth_rep_one_email" style="width: 95%" /> <br>
@@ -973,23 +984,22 @@
 
             </p> --}}
             <p
-                style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            class="sm"
+                style=" padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:23%">
                 REFERRING SOURCE
             </p>
-            <p> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
+            <p class="xs"> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
                 individual
                 to: Make Deposits, Request Statements and Disbursements.</p>
             
-            <div style="display: table; width:100%">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
+            <div style="display: table; width:100%" class="xs">
+                <div style="display: table-row;width:100%">
+                    <div style="display: table-cell; width: 50%;">
                         <input type="text" value="{{ $referring_agency }}" name="referring_agency" style="width:95%" /> <br>
-                        <label>Name of Agency</label>
+                        <label class="italic">Name of Agency</label>
                     </div>
-
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_contract }}"name="referring_contract" style="width:95%" /> <br>
+                    <div style="display: table-cell; width: 50%;">
+                        <input type="text" value="{{ $referring_contract }}" name="referring_contract" style="width:95%" /> <br>
                         <label>Name of Contract</label>
                     </div>
                 </div>
@@ -1007,34 +1017,7 @@
                     </div>
                 </div>
                 <br>
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $referring_address }}" name="referring_address" style="width:95%"> <br>
-                        <label>Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_apt }}" name="referring_apt" style="width:95%"> <br>
-                        <label>Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_city }}" name="referring_city" style="width:95%" /> <br>
-                        <label>City:</label>
-                    </div>
-                    
-                </div>
-                <br>
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_state }}" name="referring_state" style="width:95%" /> <br>
-                        <label>State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $referring_zip }}" name="referring_zip" style="width:95%" /> <br>
-                        <label>Zip:</label>
-                    </div>
-                </div>
-                <br>
-
+            
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
                         <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
@@ -1046,6 +1029,31 @@
                         <span style="font-size:12px">JOINDER AGREEMENT</span>
                     </div>
                 </div> --}}
+            </div>
+            <div style="display:table;width:100%" class="xs">
+            <div style="display: table-row;">
+                    <div style="display: table-cell;">
+                        <input type="text" value="{{ $referring_address }}" name="referring_address" style="width:95%"> 
+                        <label>Address</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $referring_apt }}" name="referring_apt" style="width:95%">
+                        <label>Apt #:</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $referring_city }}" name="referring_city" style="width:95%" />
+                        <label>City:</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $referring_state }}" name="referring_state" style="width:95%" />
+                        <label>State:</label>
+                    </div>
+                    <div style="display: table-cell">
+                        <input type="text" value="{{ $referring_zip }}" name="referring_zip" style="width:95%" />
+                        <label>Zip:</label>
+                    </div>
+                    
+                </div>
             </div>
 
 
@@ -1084,7 +1092,7 @@
                     style="width: 150px; height: 20px;  ">
             </p> --}}
           
-            <p style="padding:0;margin: 0;">
+            <p style="padding:0;margin: 0;width:100%" class="sm" style="margin-top:5px">
                 I authorize any applicable documents necessary for reporting to Government Agencies to be sent referring
                 source
                 above.
@@ -1093,18 +1101,7 @@
                 <input style="height:22px" type="radio" name="referring_auth2" value="No"
                     {{ isset($referring_auth1) && $referring_auth1 === 'No' ? 'checked' : '' }}> No
             </p> 
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+        
             <div style="text-align: center;margin: 0;padding: 0;">
                 {{-- <img src="{{public_path('images/logo bottom.png')}}" alt="logo" width="200" height="100"> --}}
                 <p style="margin: 0;padding: 0;">2</p>
@@ -1121,19 +1118,7 @@
                     </div>
                 </div> --}}
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
+     
         {{-- <div class="page-break"></div> --}}
 
         <div class="page-3">
