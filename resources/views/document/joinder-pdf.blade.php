@@ -173,12 +173,14 @@
         }
 
         input[type="checkbox"] {
-            width: 10px;
-            height: 10px;
-            margin-right: 8px;
+            margin-right: 4px;
+            width: 17px;
+            height: 17px !important;
         }
 
-        
+        input[type="checkbox"] + label{
+            margin-bottom: -10px;
+        }
 
 
 
