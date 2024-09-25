@@ -1598,7 +1598,7 @@
             &nbsp;&nbsp;
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
             </div>
-            <p style="padding-bottom: 0;margin-bottom:0" class='xs'>
+            <p style="padding-bottom: 0;margin-bottom:0;padding-top:4px" class='xs'>
                 <input style="height:22px" type="radio" id="independently" name="living_arrangement1" value="Independently"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Independently' ? 'checked' : '' }}>
                 <label for="independently" style="vertical-align: middle;">Independently</label> &nbsp;&nbsp;
@@ -1641,7 +1641,6 @@
                     name="living_arrangement_other">
             </p>
             <br>
-            {{-- New Living Arrangement --}}
             <p class='section-title' style="font-size: 0px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">LIVING ARRANGEMENTS</p>
             <p class='italic' style='padding:0' class='xs'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
