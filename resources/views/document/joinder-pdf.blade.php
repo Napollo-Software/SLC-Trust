@@ -10,7 +10,7 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            border: 1px solid rgb(184 221 219);
+            /* border: 1px solid rgb(184 221 219); */
         }
         body {
             font-family: "Nominee-Black", sans-serif;
@@ -100,6 +100,12 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+        tbody td:nth-child(1){
+            border-left:none;
+        }
+        tbody td:nth-child(3){
+            border-right:none;
+        }
         /* tbody tr{
             border-bottom: 2px solid rgb(184 221 219);
         }
@@ -120,7 +126,7 @@
 
         .italic{
             font-style: italic;
-            font-size: 12px;
+            font-size: 10px;
         }
 
         .text-center{
@@ -144,7 +150,7 @@
             font-size: 16px;
         }
         .xl{
-            font-size: 19px;      
+            font-size: 17px;      
         }
 
         .strong{
@@ -182,6 +188,14 @@
             margin-bottom: -10px;
         }
 
+        .section-heading{
+            padding-left:15px;
+            padding-right:10px;
+            padding-top:4px;
+            padding-bottom:4px;
+
+        }
+
 
 
     </style>
@@ -196,13 +210,11 @@
         <div class="page-0">
             <br> <br>
             <div class="container-row" style="text-align:center;">
-                <img style="width:30%" src="{{ public_path('images/slc_logo.png') }}" alt="Example Image">
+                <img style="width:40%" src="{{ public_path('images/slc_logo.png') }}" alt="Example Image">
             </div>
             {{-- {{ public_path('images/slc_logo.png') }} --}}
 
-            <div style="height:900px">
-
-
+            <div style="height:855px">
                  <br>
                  <br>
                  <br>
@@ -211,16 +223,7 @@
                  <br>
                  <br>
                  <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                <div style="text-align: center;margin-top:75px">
+                <div style="text-align: center;margin-top:210px">
                     <div style="width: fit-content; display: inline-block;">
                         <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
                             JOINDER</h1>
@@ -304,8 +307,8 @@
                 <p class="" style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
             </div class="md">
                 <p
-                class="md"
-                    style="padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:30%">
+                class="md section-heading"
+                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:30%">
                     BENEFICIARY INFORMATION</p>
             </div>
             <p class="xs">
@@ -606,6 +609,7 @@
                 <p style="margin-top:-10px" class="text-center xs strong"> 5014-16th Ave, Suite 489</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> Brooklyn, NY 11204</p>
         </div>
+        <br/>
 
 
 
@@ -731,8 +735,8 @@
         <div class="page-2" style="margin-top:-5px">
             <div class="">
                 <p
-                class="md"
-                    style="padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:35%">
+                class="md section-heading"
+                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:35%">
                     AUTHORIZED REPRESENTATIVES
                 </p>
             </div>
@@ -785,7 +789,7 @@
             </div>
 
             <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
-                <div style="display: table-row;margin-top:2x">
+                <div style="display: table-row;margin-top:4px;margin-bottom:4px">
                     <div style="display: table-cell">
                         <label style="font-weight: bold" class="sm">Contact Information</label>
                     </div>
@@ -831,7 +835,7 @@
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
-                        <div style="display: table-cell">
+                        <div style="display: table-cell; margin-top:3px;margin-bottom:3px">
                             <label style="font-weight: bold" class="sm">Address:</label>
                         </div>
                     </div>
@@ -840,24 +844,24 @@
                     <div style="display: table-row;margin-top:7px" class="xs">
                         <div style="display: table-cell;">
                             <input type="text" value="{{ $auth_rep_one_address }}" name="auth_rep_one_address" style="width: 95%">
-                            <label>Address</label>
+                            <label class="italic">Address</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_city }}" name="auth_rep_one_city" style="width: 95%" />
-                            <label>City:</label>
+                            <label class="italic">City:</label>
                         </div>
                         <div style="display: table-cell;">
 
                             <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" />
-                            <label>State:</label>
+                            <label class="italic">State:</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%">
-                            <label>Apt #:</label>
+                            <label class="italic">Apt #:</label>
                         </div>
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" />
-                            <label>Zip:</label>
+                            <label class="italic">Zip:</label>
                         </div>
                     </div>
                 </div>
@@ -893,7 +897,7 @@
             </div>
 
             <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
-                <div style="display: table-row;margin-top:2x">
+                <div style="display: table-row;margin-top:4px;margin-bottom:4px;">
                     <div style="display: table-cell">
                         <label style="font-weight: bold" class="sm">Contact Information</label>
                     </div>
@@ -939,7 +943,7 @@
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;">
-                        <div style="display: table-cell">
+                        <div style="display: table-cell;margin-top:4px;margin-bottom:4px">
                             <label style="font-weight: bold" class="sm">Address:</label>
                         </div>
                     </div>
@@ -1019,8 +1023,8 @@
 
             </p> --}}
             <p
-            class="sm"
-                style=" padding:10px;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:21%">
+            class="sm section-heading"
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:21%">
                 REFERRING SOURCE
             </p>
             <p class="xs"> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
@@ -1160,7 +1164,7 @@
         <br>
         <br>
         <div class="page-3">
-            <p
+            <p class='md'
             style=" padding:10px;width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
                 PURPOSE OF ENROLLMENT
             </p>
@@ -1176,27 +1180,29 @@
                 <label> Shelter Excess Resources</label>
             </div>
             <div style='padding-top:4px;'>
-                <p
+                <p class='md'
                     style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0">
                     MEDICAID INFORMATION
                 </p>
 
             <table style="padding-top: 0px; margin-top:10px;">
-                <tr style="padding: 0; margin: 0;">
-                    <td class='xs' style='width:180px;padding:6px'>Please Attach MAP / LDSS Notice of Decision</td>
-                    <td class='xs' style="vertical-align: bottom;padding:6px;">Applicant</td>
-                    <td class='xs' style="vertical-align: bottom;padding:6px;">Spouse</td>
-                </tr>
+            <thead>
+                    <tr style="padding: 0; margin: 0;">
+                        <td class='xs' style='width:170px;padding:6px;text-align:left;padding-left:12px'>Please Attach MAP / LDSS Notice of Decision</td>
+                        <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px">Applicant</td>
+                        <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px">Spouse</td>
+                    </tr>
+                </thead>
                 <tr style="padding: 0; margin: 0;" class='xs'>
                     <td style="width:180px;margin:0;padding:0px;">
-                        <p style="vertical-align: bottom;margin:0;padding:3px">
+                        <p style="vertical-align: bottom;margin:0;padding:3px;text-align:left;padding-left:12px">
                             Application Status
                             <br>
                             Does the beneficiary receive Medicaid?
                         </p>
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;padding:0;">
-                        <div  style="margin:auto;padding:3px">
+                        <div  style="margin:auto;padding:3px;text-align:left;padding-left:12px">
                             <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
@@ -1209,7 +1215,7 @@
                         </div>
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;margin:0;padding:0px;">
-                        <div style="margin:auto;padding:3px">
+                        <div style="margin:auto;padding:3px;text-align:left;padding-left:12px">
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"
                                 
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
@@ -1228,27 +1234,27 @@
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px; vertical-align: center;padding:3px">
+                    <td style="width:80px; vertical-align: center;padding:3px;text-align:left;padding-left:12px">
                         CIN Number/medicaid Number
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:3px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px;text-align:left;padding-left:12px">
                         <input type="text" value="{{ $applicant_medicaid_cin_number }}" style='border:none' class="no-border"
                             name="applicant_medicaid_cin_number">
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:3px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px;text-align:left;padding-left:12px">
                         <input type="text" value="{{ $spouse_medicaid_cin_number }}" style='border:none' class="no-border"
                             name="spouse_medicaid_cin_number">
                     </td>
                 </tr>
                 <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px; vertical-align: bottom; padding:3px">
+                    <td style="width:80px; vertical-align: bottom; padding:3px;text-align:left;padding-left:12px">
                         Monthly Spend Down $
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:3px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px;text-align:left;padding-left:12px">
                         <input type="text" value="{{ $medicaid_applicant_monthly_spend_down }}" style='border:none' class="no-border"
                             name="medicaid_applicant_monthly_spend_down">
                     </td>
-                    <td style="width:80px;vertical-align: bottom;padding:3px">
+                    <td style="width:80px;vertical-align: bottom;padding:3px;text-align:left;padding-left:12px">
                         <input type="text" value="{{ $medicaid_spouse_monthly_spend_down }}" style='border:none' class="no-border"
                             name="medicaid_spouse_monthly_spend_down">
                     </td>
@@ -1265,12 +1271,12 @@
             </div>
         </div>
             <br>
-            <span class='section-title'
-            style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
+            <span class='md'
+            style=" padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
             HOUSEHOLD INCOME INFORMATION </span>
             &nbsp;&nbsp;
             <br><br>
-            <span style="margin:0;" class='sm'><b>SPOUSE INFORMATION:</b></span>
+            <span style="margin:0;" class='sm'><b>Spouse Information:</b></span>
             <span class='italic xs'>(please include proof of income)</span>
             <br>
             <p style="margin: 0;padding-top:4px" class='xs'>
@@ -1282,7 +1288,7 @@
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
             </p>
-            <p style="margin: 0;" class='xs'>
+            <p style="margin: 0;padding-top:3px" class='xs'>
                 Is Applicant & Spouse Applying Together? &nbsp;
                 <input type="checkbox" name="applying_together1" value="Yes"
                     {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}> 
@@ -1337,162 +1343,164 @@
             </div>
             <br>
             <table style=" padding: 0;margin: 0;" class='sm'>
-                <tr style="padding: 0;margin: 0;">
-                    <td style="padding:3px ;margin: 0;">
-                        <p style="padding: 5px;margin: 0;" class='xs'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
+                <thead>
+                    <tr style="padding: 0;margin: 0;">
+                        <td style="padding:3px ;margin: 0;">
+                        <p style="padding: 5px;margin: 0;color:#349f99;text-align:left;padding-left:12px;width:230px" class='xs'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
                     </td>
                     <td style="padding: 5px;margin: 0;">
-                        <p style="padding: 3px;margin: 0;" class='xs'> Applicant <br></p>
+                        <p style="padding: 3px;margin: 0;text-align:left;padding-left:12px" class='xs'> Applicant <br></p>
                     </td>
                     <td style="padding:5px ;margin: 0;">
-                        <p style="padding: 3px;margin: 0;" class='xs'> Spouse <br></p>
+                        <p style="padding: 3px;margin: 0;text-align:left;padding-left:12px" class='xs'> Spouse <br></p>
                     </td>
                 </tr>
+            </thead>
                 <tr style="padding: 0;margin: 0;" class='xs'>
                     <td style="width:180px;padding: 0px;margin: 0;max-height: 5px;">
-                        <p style='margin:3px'>
+                        <p style='margin:3px;text-align:left;padding-left:12px'>
                             Supplement Security Income(SSI)
                         </p>
                     </td>
                     <td style="width:80px;padding: 0px;margin: 3px;" class='xs'>
-                        <p style='margin:3px'>$ <input type="text" value="{{ $applicant_ssi }}" style='border:none'
+                        <p style='margin:3px;text-align:left;padding-left:12px'>$ <input type="text" value="{{ $applicant_ssi }}" style='border:none'
                                 name="applicant_ssi"></p>
                     </td>
                     <td style="width:80px;padding: 0px;margin: 3px;" class='xs'>
-                        <p style='margin:3px'>$ <input type="text" value="{{ $spouse_ssi }}" class="no-border" style='border:none' name="spouse_ssi">
+                        <p style='margin:3px;text-align:left;padding-left:12px'>$ <input type="text" value="{{ $spouse_ssi }}" class="no-border" style='border:none' name="spouse_ssi">
                         </p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 " >
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         Supplement Security Disability Income(SSDI)
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="margin: 3px;">$ <input type="text" value="{{ $applicant_ssdi }}" style='border:none' class="no-border"
                                 name="applicant_ssdi">
                         </p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="margin: 3px;">$ <input type="text" value="{{ $spouse_ssdi }}" style='border:none' class="no-border"
                                 name="spouse_ssdi"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 ">
                     <td class='xs' style="width:80px; padding: 0px;margin: 3px ;">
-                        <p style='margin:3px'>
+                        <p style='margin:3px;text-align:left;padding-left:9px'>
                             Supplement Security Retirement Income(SSA)
                         </p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ;" class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px" class='xs'>
                         <p style="margin: 3px;">$ <input type="text" value="{{ $applicant_ssa }}" style='border:none' class="no-border"
                                 name="applicant_ssa"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="margin: 3px;">$ <input type="text" value="{{ $spouse_ssa }}" style='border:none' class="no-border" name="spouse_ssa">
                         </p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 ">
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         VA Benefits
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_va_ben }}" style='border:none' class="no-border"
                                 name="applicant_va_ben"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_va_ben }}" style='border:none' class="no-border"
                                 name="spouse_va_ben"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         Employment Benefits
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_employee_ben }}" style='border:none' class="no-border"
                                 name="applicant_employee_ben"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_employee_ben }}" style='border:none' class="no-border"
                                 name="spouse_employee_ben"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         Survivor Benefits
 
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_survivor_ben }}" style='border:none' class="no-border"
                                 name="applicant_survivor_ben"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_survivor_ben }}" style='border:none' class="no-border"
                                 name="spouse_survivor_ben"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         IRA Distribution
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_ira_dist }}" style='border:none' class="no-border"
                                 name="applicant_ira_dist"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_ira_dist }}" style='border:none' class="no-border"
                                 name="spouse_ira_dist">
                         </p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         Pension / Annuities
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_pension_annuities }}" style='border:none' class="no-border"
                                 name="applicant_pension_annuities"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_pension_annuities }}" style='border:none' class="no-border"
                                 name="spouse_pension_annuities"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         Interest / Dividends
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_interest_dividends }}" style='border:none' class="no-border" name="applicant_interest_dividends"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_interest_dividends }}" style='border:none' class="no-border" name="spouse_interest_dividends"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         Reparations
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_reparations }}" style='border:none' class="no-border"
                                 name="applicant_reparations"></p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_reparations }}" style='border:none' class="no-border"
                                 name="spouse_reparations"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 4px;margin: 0 " class='xs'>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0px;margin: 3px ;">
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0px;margin: 3px ; text-align:left;padding-left:12px">
                         Other
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $applicant_other }}" style='border:none' class="no-border"
                                 name="applicant_other">
                         </p>
                     </td>
-                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; padding: 0;margin: 0; " class='xs'>
+                    <td class='xs' style="width:80px; padding: 0px;margin: 3px ; text-align:left;padding-left:12px padding: 0;margin: 0; " class='xs'>
                         <p style="padding: 4px;margin: 0;">$ <input type="text" value="{{ $spouse_other }}" style='border:none' class="no-border"
                                 name="spouse_other"></p>
                     </td>
@@ -1517,7 +1525,7 @@
                 <p class='italic' style="padding: 2%;text-align: center">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECESSARY
                     PROOF.</p>
             </div>
-            <p class='section-title'
+            <p class='md'
                 style=" padding:10px;width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 HEALTH CARE PREMIUMS
             </p>
@@ -1533,15 +1541,16 @@
                         <input type="checkbox" name="healthcare_b" value="D"
                         {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> 
                         <label>D</label>
-                        Does the applicant have a supplemental policy? &nbsp;
-                        <input type="checkbox" name="supplemental_yes" value="Yes"
-                        {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
-                        <label>Yes</label>
-                         &nbsp;
-                        <input type="checkbox" name="supplemental_yes" value="No"
-                        {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> 
-                        <label>No</label>
-                        
+                        <p style='margin-left:10px'>
+                            Does the applicant have a supplemental policy? &nbsp;
+                            <input type="checkbox" name="supplemental_yes" value="Yes"
+                            {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
+                            <label>Yes</label>
+                            &nbsp;
+                            <input type="checkbox" name="supplemental_yes" value="No"
+                            {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> 
+                            <label>No</label>
+                        </p>
                     </div>
                </div>
             </p>
@@ -1644,8 +1653,8 @@
             </div>
             <br>
             <div style="display: table;justify-content: space-between">
-                    <span
-            style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+                    <span class='md'
+            style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
             LIVING ARRANGEMENTS </span>
             &nbsp;&nbsp;
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
@@ -1693,8 +1702,8 @@
                     name="living_arrangement_other">
             </p>
             <br>
-            <span
-            style="font-size: 16px; padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-bottom:5px">
+            <span class='md'
+            style=" padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-bottom:5px">
             LIVING ARRANGEMENTS </span>
             <p class='italic' style='padding:0' class='xs'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
@@ -2240,191 +2249,207 @@
                 <p style="margin-top: 1px;padding: 0;text-align:center">5</p>
         {{-- <div class="page-break"></div> --}}
 
-        <div class="page-6">
-            <p style="font-size: 16px; padding:10px;width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">INFORMATION AND DISCLOSURES:
-            </p>
-            <p>
-                <b>Death of Beneficiary:</b>
-            </p>
-            <p>
-                The Beneficiary's sub-trust account terminates upon his or her death. If, upon the death of the
-                Beneficiary,
-                funds remain in his or her sub-trust account, such funds shall be deemed to be property of the Trust and
-                all
-                funds that are remaining in the Beneficiary's separate sub-trust account shall be retained by TRUSTED
-                SURPLUS
-                SOLUTIONS DISABILITY POOLED TRUST to further the purposes of that Trust. However, to the extent that
-                amounts
-                remaining in the individual's sub-trust account upon the death of the individual are not in fact
-                retained by the
-                Trust, the Trust shall pay to the State(s) from such remaining amounts in the sub-trust account an
-                amount equal
-                to the total amount of medical assistance paid on behalf of the individual under the State Medicaid plan
-                (s). To
-                the extent that the trust does not retain the funds in the account, the State(s) shall be the first
-                payee(s) of
-                any such funds and the State(s) shall have priority over payment of other debts and administrative
-                expenses
-                except as listed in POMS SI 01120.203E. <br>
-                Funeral expenses will only be paid pursuant to a Medicaid eligible pre-need funeral arrangement
-                established and
-                funded prior to the Beneficiary's death. Funeral expenses will not be paid after the Beneficiary's
-                death.
-                <br><b>Contributions/Deposits:</b><br>
-                All contributions made to the sub-trust account will be held and administered pursuant to the provisions
-                of the
-                TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST which are incorporated by reference herein.
-                The Trustees shall have the sole and absolute right to accept or refuse additional deposits to the
-                sub-trust
-                account.
-                In the event that a Beneficiary has a zero ($0) sub-trust account balance for sixty (60) or more
-                consecutive
-                days, the Trustee shall retain the right to close the Beneficiary's sub-trust account. Please be advised
-                that
-                the Trustee may continue to charge administrative fees for the management of the sub-trust account prior
-                to its
-                closure. In the event that a Beneficiary wishes to re-open a sub-trust account, the Beneficiary may be
-                required
-                to pay any outstanding administrative fees stemming from the prior sub-trust account. Additionally, the
-                Beneficiary shall be required to pay a new enrollment fee when re-opening a sub-trust account.
-                <br><b>Disbursements: </b><br>
-                All disbursement requests shall be reviewed and approved on an individual basis.
-                Disbursements for expenses incurred more than 90 days prior to submission of a disbursement request form
-                shall
-                not be paid.
-                The Trustees, in their discretion, have determined that disbursements for the following items shall not
-                be paid:
-                purchases of firearms, alcohol, tobacco, items relating to illegal activity, bail, or restitution.
-                All disbursements shall be made at the sole and absolute discretion of the Trustee. No disbursements
-                will be
-                made after the death of the beneficiary, even for expenses incurred or due prior to death.
-                <br>
-                <b>Disability Determination:</b>
-                In the event that a determination of disability is required for Medicaid purposes, please be advised
-                that
-                administrative fees shall be incurred while the determination of disability is being made.<br>
-                The Donor acknowledges that contributions to the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST are
-                not
-                tax-deductible as charitable gifts, or otherwise.<br>
-                Sub-trust account income may be taxable to the Beneficiary.
-                    Disclosure of Potential Conflict of Interest:
-                There may be a potential conflict of interest in the administration of the Trust since the Trust retains
-                those
-                funds remaining in the sub-trust account at the time of death of the Beneficiary. Funds remaining in the
-                Trust
-                may be used to pay for ancillary and/or supplemental services for Beneficiaries and potential
-                Beneficiaries for
-                which services may be rendered by TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST. <br>
-                The Donor executing this Joinder Agreement is aware of the potential conflicts of interest that exist in
-                the
-                Trustee's administration of the Trust. The Trustee shall not be liable to Donor or to any party for any
-                act of
-                self-dealing or conflict of interest resulting from their affiliations with SCF Charitable Organization
-                or with
-                any Beneficiary or constituent agencies and/or Chapters.
-                <br>
-
-            <div style="text-align: center;margin: 0;padding: 0;">
-                <p style="margin: 0;padding: 0;">6</p>
-            </div>
+    
+      
+        <div class="page-6 sm">
+        <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:36%" class="section-heading md" >
+            INFORMATION AND DISCLOSURES:
+        </p>
+        <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
+            <b>Death of Beneficiary:</b><br>
+            The Beneficiary’s sub-trust account terminates 
+                upon his or her death. If, upon the death of the 
+                Beneficiary, funds remain in his or her sub-trust 
+                account, such funds shall be deemed to be property 
+                of the Trust and all funds that are remaining in the 
+                Beneficiary’s separate sub-trust account shall 
+                be retained by SLC Supplemental Needs Trust to 
+                further the purposes of that Trust. However, to the 
+                extent that amounts remaining in the individual’s 
+                subtrust account upon the death of the individual 
+                are not in fact retained by the Trust, the Trust shall 
+                pay to the State(s) from such remaining amounts in 
+                the sub-trust account an amount equal to the total 
+                amount of medical assistance paid on behalf of the 
+                individual under the State Medicaid plan (s). To the 
+                extent that the trust does not retain the funds in the 
+                account, the State(s) shall be the first payee(s) of 
+                any such funds and the State(s) shall have priority 
+                over payment of other debts and administrative 
+                expenses except as listed in POMS SI 01120.203E.<br/>
+                Funeral expenses will only be paid pursuant to a 
+                Medicaid eligible pre-need funeral arrangement 
+                established and funded prior to the Beneficiary’s 
+                death. Funeral expenses will not be paid after the 
+                Beneficiary’s death. <br/><br/>
+                <b>Contributions/Deposits:</b><br>
+                All contributions made to the sub-trust account 
+will be held and administered pursuant to the 
+provisions of the SLC Supplemental Needs Trust 
+which are incorporated by reference herein.<br/>
+The Trustees shall have the sole and absolute right 
+to accept or refuse additional deposits to the subtrust account.<br/>
+            In the event that a Beneficiary has a zero ($0) 
+sub-trust account balance for sixty (60) or more 
+consecutive days, the Trustee shall retain the right 
+to close the Beneficiary’s sub-trust account. Please 
+be advised that the Trustee may continue to charge 
+administrative fees for the management of the 
+sub-trust account prior to its closure. In the event 
+that a Beneficiary wishes to re-open a sub-trust 
+account, the Beneficiary may be required to pay any 
+outstanding administrative fees stemming from the 
+prior sub-trust account.   Additionally, the Beneficiary 
+shall be required to pay a new enrollment fee when re-opening a sub-trust
         </div>
+
+        <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
+         account.
         <br>
+        <b style="margin-top:40px">Disbursements: </b><br>
+        All disbursement requests shall be reviewed and 
+approved on an individual basis.
+Disbursements for expenses incurred more than 90 
+days prior to submission of a disbursement request 
+form shall not be paid. <br/> The Trustees, in their discretion, have determined 
+that disbursements for the following items shall not 
+be paid: purchases of firearms, alcohol, tobacco, 
+items relating to illegal activity, bail, or restitution. <br/> All disbursements shall be made at the sole and 
+absolute discretion of the Trustee. No disbursements 
+will be made after the death of the beneficiary, even 
+for expenses incurred or due prior to death. 
+                <br/><br/>
+                <b >Disability Determination:</b><br>
+                In the event that a determination of disability is 
+required for Medicaid purposes, please be advised 
+that administrative fees shall be incurred while the 
+determination of disability is being made. <br/>The Donor acknowledges that contributions to 
+the SLC Supplemental Needs Trust are not tax 
+deductible as charitable gifts, or otherwise.
+Sub-trust account income may be taxable to the 
+Beneficiary. <br/><br/>
+<b >Disclosure of Potential Conflict of Interest:</b><br>
+There may be a potential conflict of interest in the 
+administration of the Trust since the Trust retains 
+those funds remaining in the sub-trust account at 
+the time of death of the Beneficiary. Funds remaining 
+in the Trust may be used to pay for ancillary and/
+or supplemental services for Beneficiaries and 
+potential Beneficiaries for which services may be 
+rendered by SLC Supplemental Needs Trust.<br/>
+The Donor executing this Joinder Agreement is 
+aware of the potential conflicts of interest that exist 
+in the Trustee’s<br/>administration of the Trust. The Trustee shall not 
+be liable to Donor or to any party for any act of 
+self-dealing or conflict of interest resulting from 
+their a liations with Senior Lifecare Corp or with 
+any Beneficiary or constituent agencies and/or 
+Chapters.
+        </div>
 
-        {{-- <div class="page-break"></div> --}}
-
-        <div class="page-7">
-            <b>
-                Situs:
-
-            </b>
-            <br>
-
-            The sub-trust account created by this Agreement has been accepted by the Trustee in the State of New York
-            and
-            will be administered by SCF Charitable Organization Inc. and a financial institution in the State of New
-            York.
-            The validity, construction, and all rights under this Agreement shall be governed by the laws of the State
-            of
-            New York. The situs of this Trust for administrative, account and legal purposes shall be in the County of
-            Kings, the County where the majority of meetings concerning establishment of the Trust occurred.
-            Invalidity of any Provision: <br>
-            Should any provision of this Agreement be or become invalid or unenforceable, the remaining provisions of
-            this
-            Agreement shall be and continue to be fully effective. <br>br
-            By signing below, you affirm that you understand and agree to the following: <br>
-            I have received and read a copy of the applicable Master Trust prior to the signing of this Joinder
-            Agreement
-            and acknowledge that I understand the contents thereof. I also understand that said document may be amended
-            from
-            time to time. I have been provided with the applicable fee schedule and acknowledge that I understand the
-            contents thereof. I also understand there may be changes from time to time.
-            <br>
-            <p>
-                I am entering into this Joinder Agreement voluntarily and acting on my own free accord. <br>
-                <br>
-                The Donor acknowledges that the Beneficiary is disabled as defined in Social Security Law Section
-                1614(a)(3) [42 USC 1382c(a) (3)].<br>
-                <br>
-                Under penalty of perjury, all statements made in this document are true and accurate to the best of my
-                knowledge. <br>
-                <br>
-                The TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST is authorized to be used by individuals with
-                disabilities
-                pursuant to federal and state law. By agreeing to accept a donor's property pursuant to this Joinder
-                Agreement,
-                TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, Inc. agrees only to manage the trust funds in
-                accordance with
-                the terms of the Master Trust Agreement and in compliance with applicable federal and state law and
-                regulation.
-                It is the sole responsibility of the donor and/or the donor's representative to determine whether the
-                donor is
-                "disabled" as that term is defined under federal law, to determine whether they have the legal authority
-                to
-                transfer property to fund the trust, and the impact that a transfer of property to the TRUSTED SURPLUS
-                SOLUTIONS
-                DISABILITY POOLED TRUST will have on the donor's continuing eligibility for government benefit programs.
-                <br>
-                SCF Charitable Organization is not assuming any responsibility as counsel for the donor or Beneficiary,
-                or
-                providing any legal advice as it relates to the consequences of a transfer of property to the TRUSTED
-                SURPLUS
-                SOLUTIONS DISABILITY POOLED TRUST. <br>
-                The Trustees in their discretion may require an intermediary to assist in the administration of the
-                Beneficiary's sub-trust account. The cost of which may be charged to the sub-trust account. <br>
-                The party authorized to speak with us on your behalf or the intermediary must notify TRUSTED SURPLUS
-                SOLUTIONS
-                DISABILITY POOLED TRUST, Inc. immediately upon your death and will be required to provide us with a
-                certified
-                death certificate. An individual requesting and/or receiving disbursements in contravention of the
-                Master Trust
-                Agreement and the Joinder Agreement will be required to repay the amount disbursed. <br>
-                This Joinder Agreement and the participation of the Beneficiary in the TRUSTED SURPLUS SOLUTIONS
-                DISABILITY
-                POOLED TRUST is an important legal decision that may have significant and lasting consequences for the
-                Beneficiary and as a result you may want to consider obtaining advice from an attorney or another
-                professional
-                adviser before entering into this Agreement. By signing this Agreement you are acknowledging that you
-                have had a
-                full and complete opportunity to confer with an attorney or other adviser and that no employee of SCF
-                Charitable
-                Organization has provided you (or the Beneficiary, if different from the person signing this Agreement)
-                with any
-                legal advice in connection with this Joinder Agreement, the participation by the Beneficiary in the
-                TRUSTED
-                SURPLUS SOLUTIONS DISABILITY POOLED TRUST or the suitability of such participation by the Beneficiary in
-                the
-                TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST based upon the particular circumstances of the
-                Beneficiary.
-                <br>
-            <div style="text-align: center;margin: 0;padding: 0;">
-                <p style="margin: 0;padding: 0;">7</p>
+            <div style="clear: both; text-align: center; margin: 0; padding: 0;">
+                <p style="margin: 0; padding: 0;">6</p>
             </div>
         </div>
 
         <div class="page-break"></div>
 
-        <div class="page-8">
-            <p style="font-size: 16px; padding:10px;width:20%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">SIGNATURE</p>
+        <div class="page-7">
+            <b>Situs:</b> <br/>
+                <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
+                    The sub-trust account created by this Agreement 
+has been accepted by the Trustee in the State of 
+New York and will be administered by Senior Lifecare 
+Corp and a financial institution in the State of New 
+York. The validity, construction, and all rights under 
+this Agreement shall be governed by the laws 
+of the State of New York. The situs of this Trust for 
+administrative, account and legal purposes shall 
+be in the County of Kings, the County where the 
+majority of meetings concerning establishment of 
+the Trust occurred.
+<br/><br/>
+<b>Invalidity of any Provision:</b> <br/>
+Should any provision of this Agreement be or 
+become invalid or unenforceable, the remaining 
+provisions of this Agreement shall be and continue 
+to be fully e ective. <br/>By signing below, you a rm that you understand 
+and agree to the following: <br/>I have received and read a copy of the applicable 
+Master Trust prior to the signing of this Joinder 
+Agreement and acknowledge that I understand 
+the contents thereof. I also understand that said 
+document may be amended from time to time. 
+I have been provided with the applicable fee 
+schedule and acknowledge that I understand the 
+contents thereof. I also understand there may be 
+changes from time to time.<br/>I am entering into this Joinder Agreement voluntarily 
+and acting on my own free accord.<br/>The Donor acknowledges that the Beneficiary is 
+disabled as defined in Social Security Law Section 
+1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this 
+document are true and accurate to the best of my 
+knowledge.<br/>The SLC Supplemental Needs Trust is authorized to 
+be used by individuals with disabilities pursuant to 
+federal and state law. By agreeing to accept a donor’s 
+property pursuant to this Joinder Agreement, SLC 
+Supplemental Needs Trust agrees only to manage 
+the trust funds in accordance with the terms of the 
+Master Trust Agreement and in compliance with 
+applicable federal and state law and regulation. 
+It is the sole responsibility of the donor and/or the 
+donor’s representative to determine whether the donor is “disabled” as that term
+                </div>
+
+                <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
+                 is defined under 
+federal law, to determine whether they have the 
+legal authority to transfer property to fund the 
+trust, and the impact that a transfer of property to 
+the SLC Supplemental Needs Trust will have on the 
+donor’s continuing eligibility for government benefit 
+programs.<br/>
+Senior Lifecare Corp is not assuming any 
+responsibility as counsel for the donor or Beneficiary, 
+or providing any legal advice as it relates to the 
+consequences of a transfer of property to the SLC 
+Supplemental Needs Trust. <br/>The Trustees in their discretion may require an 
+intermediary to assist in the administration of the 
+Beneficiary’s sub-trust account. The cost of which 
+may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf 
+or the intermediary must notify SLC Supplemental 
+Needs Trust. immediately upon your death and 
+will be required to provide us with a certified death 
+certificate. An individual requesting and/or receiving 
+disbursements in contravention of the Master Trust 
+Agreement and the Joinder Agreement will be 
+required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the 
+Beneficiary in the SLC Supplemental Needs Trust is an 
+important legal decision that may have significant 
+and lasting consequences for the Beneficiary and as 
+a result you may want to consider obtaining advice 
+from an attorney or another professional adviser 
+before entering into this Agreement. By signing this 
+Agreement you are acknowledging that you have 
+had a full and complete opportunity to confer with 
+an attorney or other adviser and that no employee 
+of Senior Lifecare Corp has provided you (or the 
+Beneficiary, if di erent from the person signing this 
+Agreement) with any legal advice in connection 
+with this Joinder Agreement, the participation by 
+the Beneficiary in the SLC Supplemental Needs 
+Trust or the suitability of such participation by the 
+Beneficiary in the SLC Supplemental Needs Trust 
+based upon the particular circumstances of the 
+Beneficiary.
+                </div>
+
+                <div style="clear: both; text-align: center; margin: 0; padding: 0;">
+                    <p style="margin: 0; padding: 0;">7</p>
+                </div>
+            </div>
+
+        <div class="page-break"></div>
+        <div class="page-8 seaction-heading">
+            <p style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
             <p style="padding:0;margin: 0;">
                 Who is signing this Joinder Agreement?
                 &nbsp;
@@ -2437,59 +2462,59 @@
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p> <br>
-            <p>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
-
-            <div style="display: table; width: 100%;margin:0;">
-                <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%; text-align: center;">
+            <p style='margin:0'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
+            <div style="display: table; width: 100%; margin: 0; text-align: center;">
+            <div style="display: table-row;">
+                <div style="display: table-cell; width: 33%;">
+                    <div>
                         @if ($joinder_signature_1)
-                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px"
-                                height="150px" style="display: block; margin: 0 auto;">
+                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="150px" style="display: block; border-bottom: 1px solid;margin-left:80px;width:80%">
                         @else
-                            <div style="width: 200px;height:50px; text-align: center;">
-                                No Signature Provided
-                            </div>
-                        @endif
+                            <div style="width: 200px; height: 50px; text-align: center;">
+                        No Signature Provided
                     </div>
-
-                    <div style="display: table-cell; text-align: center;">
+                            @endif
+                            <div style='text-align: left;margin-left:80px'>
+                                <label>Sign Here</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: table-cell; width: 33%;">
                         <p style="margin: 0;">
-                            <input type="text" class="no-border" value="{{ $joinder_date }}"
-                                style="width: 80%; margin: 0 auto;">
+                            <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
+                            <br>
+                            <label>PRINT</label>
+                        </p>
+                    </div>
+                    <div style="display: table-cell; width: 33%;">
+                        <p style="margin: 0;">
+                            <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
                             <br> DATE
                         </p>
                     </div>
                 </div>
-
-                <br>
-                <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <p style="margin: 0;">
-                            <input type="text" value="{{ $joinder_print }}" class="no-border"
-                                style="width: 80%; margin: 0 auto;">
-                            <br> PRINT
-                        </p>
-                    </div>
-                </div>
-
             </div>
+
             <br>
-            <p style="font-size: 16px; padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center">SIGNATURE OF NOTARY</p> <br>
-            <p style="margin:0;">STATE OF New York
+            <p class='section-heading' style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center;margin:0">SIGNATURE OF NOTARY</p> <br>
+            <p style="margin:0;padding-bottom:5px">STATE OF New York
                 <input type="text" value="{{ $notary_state_of_ny }}" class="no-border"
                     name="notary_state_of_ny"> SS:
             </p>
-            <p style="margin:0;">COUNTY OF
+            <p style="margin:0;padding-bottom:5px">COUNTY OF
                 <input type="text" value="{{ $notary_county_of }}" class="no-border"
                     name="notary_county_of">
             </p>
-            <p style="margin:0;">
+            <p style="margin:0;padding-bottom:5px">
                 ON <input type="text" class="no-border" name="notary_on_date"
                     value="{{ $notary_on_date }}"> ,20
                 <input type="text" value="{{ $notary_year }}" class="no-border" name="notary_year">
             </p>
-
-            <p style="margin:0;">
+                
+            <div style='display-table;width:100%'>
+                <div style=''></div>
+            </div>
+            <p style="margin:0;padding-bottom:5px">
                 Before me the undersigned, a Notary Public in and for said State, personally appeared
                 <input type="text" value="{{ $notary_appeared }}" class="no-border" name="notary_appeared">
                 personally known to me or proved to me on the basis of satisfactory evidence to be the individual whose
@@ -2499,15 +2524,17 @@
                 and that by his/her signature on the instrument, the individual or the person upon behalf of which the
                 individual acted
                 executed this instrument.
+                <input type="text" value="{{ $notary_public }}" class="no-border" name="notary_public">
+                NOTARY PUBLIC
             </p>
             <br>
-            <input type="text" value="{{ $notary_public }}" class="no-border" name="notary_public">
+            <p style="font-size: 16px; padding:10px;width:20%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
             <br>
-            NOTARY PUBLIC
-
-            <br>
+            <p>
+                (New York Residents Only)
+                Or in lieu of Notarization, the following two witness signatures are provided:
+            </p>
             <div style="display: table; width: 100%; margin-top: 20px;">
-
                 <!-- Row for Witness Names -->
                 <div style="display: table-row;">
                     <div style="display: table-cell; width: 50%; text-align: center;">
@@ -2538,12 +2565,9 @@
                     </div>
                 </div>
                 <br>
-
                 <!-- Row for Signatures -->
                 <div style="display: table-row;">
                     <div style="display: table-cell; width: 50%; text-align: center;">
-                        <!-- Display signature image if present, else show placeholder text -->
-                        <!-- This part will need to be generated server-side to check for signature presence -->
                         @if ($joinder_signature_2)
                             <img src="{{ $joinder_signature_2 }}" alt="Signature 2"
                                 style="max-width:300px; max-height: 150px;">
@@ -2609,13 +2633,10 @@
                 style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
                 FOR OFFICE USE ONLY
             </div>
-
-            <p>
+            <p style='text-align:center'>
                 Accepted by Trustee or Designated Representative of the Trustees, Trusted Supplemental Needs Trust.
             </p>
-
             <div style="display: table; width: 100%;margin:0;">
-
                 <!-- Row for Signature and Date Approved -->
                 <div style="display: table-row;">
                     <div style="display: table-cell; width: 50%; text-align: center;">
@@ -2628,16 +2649,27 @@
                                 No Signature Provided
                             </div>
                         @endif
-                        <br><label>SIGNATURE</label>
+                        <br>
+                        <div style='border-top:1px solid;width:90%;margin-left:40px'>
+                            <label>Sign Here</label>
+                        </div>
                     </div>
-                    <div style="display: table-cell; width: 50%; text-align: center;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                    <div style="display: table-cell; width: 50%;">
+                        <input type="text" style="width: 90%; text-align: center;margin-left:40px" class="no-border"
                             value="{{ $office_use_date_approved }}">
-                        <br><label>DATE APPROVED</label>
+                        <br><label style='margin-left:40px'>DATE</label>
                     </div>
                 </div>
             </div>
             <br>
+            <div style="text-align: center;margin: 0;padding: 0;">
+                <p style="margin: 0;padding: 0;">8</p>
+            </div>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <div class="page-9">
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
                     <table>
@@ -2660,50 +2692,84 @@
             <br>
             <br>
             <br>
-            <div style="text-align: center;margin: 0;padding: 0;">
-                <p style="margin: 0;padding: 0;">8</p>
-            </div>
-        </div>
+            <p class="section-heading" style="width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">DIRECT DEBIT REQUEST FORM</p>
+            <div style="display: table; width: 100%;" class="sm">
+                   
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px; vertical-align: bottom; ">
+                            <label>Donor/Beneficiary:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom;">
+                            <input type="text" value="{{ $office_use_effective_date }}" class="no-border" style="width: 100%;">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Representative:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                        <input type="text" value="{{ $direct_debit_representative }}" class="no-border" style="width: 100%;">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Bank Name:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                          <input type="text" value="{{ $direct_debit_bank_name }}" class="no-border" style="width: 100%;" name="direct_debit_bank_name">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Bank Routing Number:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                         <input type="text" value="{{ $direct_debit_bank_routing }}" class="no-border" style="width: 100%;" name="direct_debit_bank_routing">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Account Number:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                        <input type="text" value="{{ $direct_debit_account_number }}" class="no-border" style="width: 100%;" name="direct_debit_account_number"> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>Account Name:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                            <input type="text" value="{{ $direct_debit_account_name }}" class="no-border" style="width: 100%;" name="direct_debit_account_name"> 
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>City:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                        <input type="text" value="{{ $direct_debit_city }}"  class="no-border" style="width: 100%;" name="direct_debit_city">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="display: table-row; width: 100%;">
+                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
+                            <label>State:</label>
+                        </div>
+                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
+                        <input type="text" value="{{ $direct_debit_state }}" class="no-border" style="width: 100%;" name="direct_debit_state">
+                        </div>
+                    </div>
+                    <br/>
 
-        <div class="page-break"></div>
-
-        <div class="page-9">
-            <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">DIRECT DEBIT REQUEST FORM</p>
-            <p style="">
-                Donor/Beneficiary: <input type="text" value="{{ $office_use_effective_date }}"
-                    class="no-border" style="width: 100%"> <br>
-                Representative: <input type="text" value="{{ $direct_debit_representative }}"
-                    class="no-border" style="width: 100%;"> <br>
-                    Bank Name: <input type="text" value="{{ $direct_debit_bank_name }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_bank_name"> <br>
-                    Bank Routing Number: <input type="text" value="{{ $direct_debit_bank_routing }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_bank_routing"> <br>
-                    Account Number: <input type="text" value="{{ $direct_debit_account_number }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_account_number"> <br>
-                    Account Name: <input type="text" value="{{ $direct_debit_account_name }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_account_name"> <br>
-                    City:  <input type="text" value="{{ $direct_debit_city }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_city"> <br>
-                    State: <input type="text" value="{{ $direct_debit_state }}"
-                    class="no-border" style="width: 100%;" name="direct_debit_state">
-
-
-
-
-                {{-- Bank Name: <input type="text" value="{{ $direct_debit_bank_name }}" class="no-border"
-                    style="width:30%;">
-
-                City: <input type="text" value="{{ $direct_debit_city }}" class="no-border"
-                    style="width:25%;">
-
-
-                State: <input type="text" value="{{ $direct_debit_state }}" class="no-border"
-                    style="width:15%;;">
-                Bank Routing Number: <input type="text" value="{{ $direct_debit_bank_routing }}"
-                    class="no-border">
-                Account Number: <input type="text" value="{{ $direct_debit_account_number }}"
-                    class="no-border"> --}}
-
+                </div>
+              <br>
             </p>
 
             <p style=" ">Account type:
