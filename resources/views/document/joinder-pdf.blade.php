@@ -96,7 +96,7 @@
 
         }
         .page-0{
-            background-image: url('{{ public_path("images/bannerCover2.png") }}'); 
+            background-image: url('{{ public_path("images/bannerCover2.png") }}');
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -154,7 +154,7 @@
             font-size: 16px;
         }
         .xl{
-            font-size: 17px;      
+            font-size: 17px;
         }
 
         .strong{
@@ -213,9 +213,9 @@
             padding-bottom:4px;
 
         }
-        
 
-       
+
+
 
 
 
@@ -291,7 +291,7 @@
                             718.500.3225</div>
                     </div>
                 </div>
-             
+
                 <div
                     style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:8px">
                     <div style="display: table-row;">
@@ -647,11 +647,11 @@
                     <p class="xxs">JOINDER AGREEMENT</p>
                 </div>
                 </div>
-            </div> 
+            </div>
 
         </div>
 
-       
+
         <br/>
 
 
@@ -788,7 +788,7 @@
                     <input type="checkbox" name="auth_beneficiary" value="Beneficiary"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Beneficiary' ? 'checked' : '' }}>
                         <label>Beneficiary</label>
-                    
+
                 </label>
                 <label style="margin: 0;">
                     <input type="checkbox" name="auth_beneficiary" value="Auth. Rep.1"
@@ -1129,7 +1129,7 @@
                     <div style="display: table-cell">
                         <input type="text" value="{{ $referring_state }}" name="referring_state" style="width:95%" />
                         <label class="italic">State:</label>
-                    </div> 
+                    </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $referring_zip }}" name="referring_zip" style="width:95%" />
                         <label class="italic">Zip:</label>
@@ -1201,7 +1201,7 @@
                     <p class="xxs">JOINDER AGREEMENT</p>
                 </div>
                 </div>
-            </div> 
+            </div>
 
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
@@ -1217,16 +1217,16 @@
         </div>
 
 <div class="page-break"></div>
-       
+
         <div class="page-3">
-            <p class='md'
-            style=" padding:10px;width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
+            <p class='md section-heading'
+            style="width:28%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
                 PURPOSE OF ENROLLMENT
             </p>
-            <p style="font-size: 12px; margin: 0;padding-bottom:'3px'" class='xs'>
+            <p style="font-size: 12px; margin: 0;padding-top:5px" class='xs'>
                 Indicate reason for establishing an account.
             </p>
-            <div style="margin: 0; padding-bottom:3px;" class='xs'>
+            <div style="margin: 0; padding-bottom:6px;padding-top:6px" class='xs'>
                 <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
                 <label> Shelter Monthly Excess Income</label> &nbsp;
@@ -1235,8 +1235,8 @@
                 <label> Shelter Excess Resources</label>
             </div>
             <div style='padding-top:4px;'>
-                <p class='md'
-                    style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0">
+                <p class='md section-heading'
+                    style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
                     MEDICAID INFORMATION
                 </p>
 
@@ -1250,7 +1250,7 @@
                 </thead>
                 <tr style="padding: 0; margin: 0;" class='xs'>
                     <td style="width:180px;margin:0;padding:0px;">
-                        <p class='xs' style="vertical-align: bottom;margin:0;padding:3px;text-align:left;padding-left:12px">
+                        <p style="vertical-align: bottom;margin:0;padding:3px;text-align:left;padding-left:12px">
                             Application Status
                             <br>
                             Does the beneficiary receive Medicaid?
@@ -1272,17 +1272,17 @@
                     <td class='xs' style="width:80px;vertical-align: center;margin:0;padding:0px;">
                         <div style="margin:auto;padding:3px;text-align:left;padding-left:12px">
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"
-                                
+
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
                              &nbsp;
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="No"
-                                
+
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
                              &nbsp;
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"
-                                
+
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
                                 <label>Pending</label>
                         </div>
@@ -1326,8 +1326,8 @@
             </div>
         </div>
             <br>
-            <span class='md'
-            style=" padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
+            <span class='md section-heading'
+            style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
             HOUSEHOLD INCOME INFORMATION </span>
             &nbsp;&nbsp;
             <br><br>
@@ -1343,27 +1343,27 @@
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
             </p>
-            <p style="margin: 0;padding-top:3px" class='xs'>
+            <p style="margin: 0;padding-top:6px" class='xs'>
                 Is Applicant & Spouse Applying Together? &nbsp;
                 <input type="checkbox" name="applying_together1" value="Yes"
-                    {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}> 
+                    {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
-                    
+
                 <input type="checkbox" name="applying_together1" value="No"
-                    {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}> 
+                    {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
                      &nbsp;
                 If Yes, Fill in Spouse’s Income.
             </p>
             <div style="display: table; width: 100%;">
-                <div style="display: table-row;">
+                <div style="display: table-row;margin-top:6px">
                     <div style="display: table-cell;padding-bottom:7px;padding-top:3px" class='xs'>
                         <label style='padding-bottom:10px;'>First Name: </label>
                         <input type="text" value="{{ $spouse_fname }}" name="spouse_fname" />
                     </div>
                     &nbsp;&nbsp;
 
-                    <div style="display: table-cell" class='xs'>
+                    <div style="display: table-cell;" class='xs'>
                         <label >Last Name: </label>
                         <input type="text" value="{{ $spouse_lname }}" name="spouse_lname" />
                     </div>
@@ -1381,7 +1381,7 @@
             </div>
 
 
-            <div class='xs'>
+            <div class='xs padding-top:3px'>
                 <div>
                     <label>
                         Spouse Applied for Medicaid with beneficiary?
@@ -1584,7 +1584,7 @@
                     <p class="xxs">JOINDER AGREEMENT</p>
                 </div>
                 </div>
-            </div> 
+            </div>
 
         </div>
 
@@ -1595,8 +1595,8 @@
                 <p class='italic' style="padding: 2%;text-align: center">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECESSARY
                     PROOF.</p>
             </div>
-            <p class='md'
-                style=" padding:10px;width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            <p class='md section-heading'
+                style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 HEALTH CARE PREMIUMS
             </p>
             <div style='display:table'>
@@ -1609,16 +1609,16 @@
                         <label>B</label>
                          &nbsp;
                         <input type="checkbox" name="healthcare_b" value="D"
-                        {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> 
+                        {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}>
                         <label>D</label>
-                        <p style='margin-left:10px'>
+                        <p style='margin-left:10px' class='text-xs'>
                             Does the applicant have a supplemental policy? &nbsp;
                             <input type="checkbox" name="supplemental_yes" value="Yes"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
                             <label>Yes</label>
                             &nbsp;
                             <input type="checkbox" name="supplemental_yes" value="No"
-                            {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> 
+                            {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}>
                             <label>No</label>
                         </p>
                     </div>
@@ -1636,7 +1636,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <p style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">FUNERAL INFORMATION</p>
+                        <p class='md section-heading' style="width:43%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px;">FUNERAL INFORMATION</p>
                     </div>
                 </div>
                 <div style="display: table-row;">
@@ -1650,7 +1650,7 @@
                             <input type="checkbox" name="funeral_information_body_yes" value="No"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
-                            
+
                         </p>
                         <p class='italic'>If you answered yes, please attach funeral provision documents.</p>
                     </div>
@@ -1659,7 +1659,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">LIFE INSURANCE INFORMATION</p>
+                       <p class='md section-heading' style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
                     </div>
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
@@ -1671,7 +1671,7 @@
                     <input type="checkbox" name="life_insurance_information_body_yes" value="No"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'No' ? 'checked' : '' }}>
                         <label>No</label>
-                    
+
                 </p>
                     <p class='italic'>If you answered yes, please attach funeral provision documents</p>
                 <div style="display: table-row;">
@@ -1681,7 +1681,7 @@
                             <label>Name of Owner:</label> &nbsp;
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
                         </div>
-                </div> 
+                </div>
                 <div style="display: table-row;">
                     <div style="display: table-cell;padding-bottom:14px" class='xs'>
                         <label>Name of insurance company</label> &nbsp;
@@ -1695,14 +1695,14 @@
                         Term of policy <input style="height:15px" type="checkbox" name="type_of_policy1" value="Term"
                             {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                             <label>Term</label>
-                        
+
                         <input type="text" value="{{ $healthcare_plan }}" class="no-border"
                             name="healthcare_plan">
 
                         <input style="height:15px" type="checkbox" name="type_of_policy1" value="Life"
-                            {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}> 
+                            {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}>
                             <label>Life</label>
-                            
+
                         <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
                             name="healthcare_plan2">
                             <label>Cash Surrender Value</label> &nbsp;
@@ -1723,8 +1723,8 @@
             </div>
             <br>
             <div style="display: table;justify-content: space-between">
-                    <span class='md'
-            style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+                    <span class='md section-heading'
+            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
             LIVING ARRANGEMENTS </span>
             &nbsp;&nbsp;
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
@@ -1772,8 +1772,8 @@
                     name="living_arrangement_other">
             </p>
             <br>
-            <span class='md'
-            style=" padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-bottom:5px">
+            <span class='md md section-heading'
+            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-bottom:5px">
             LIVING ARRANGEMENTS </span>
             <p class='italic' style='padding:0' class='xs'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
@@ -1787,7 +1787,7 @@
                     <input type="checkbox" name="living_arrangements_yes" value="No"
                         {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'No' ? 'checked' : '' }}>
                         <label>No</label>
-                    
+
                 </label>
             </p>
             <p style="padding:0;margin: 0;" class='xs'>
@@ -1799,19 +1799,19 @@
                     <input type="checkbox" name="living_arrangements_person" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Person' ? 'checked' : '' }}>
                         <label>Person</label>
-                    
+
                 </label>
                 <label style="margin: 0;">
                     <input type="checkbox" name="living_arrangements_person" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Property' ? 'checked' : '' }}>
                         <label>Property</label>
-                    
+
                 </label>
                 <label style="margin: 0;">
                     <input type="checkbox" name="living_arrangements_person" value="Both"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Both' ? 'checked' : '' }}>
                         <label>Both</label>
-                    
+
                 </label>
             </p>
             <p style="padding:0;margin: 0;padding-top:3px" class='xs'>
@@ -1870,7 +1870,7 @@
                     <p class="xxs">JOINDER AGREEMENT</p>
                 </div>
                 </div>
-            </div> 
+            </div>
 
 
         </div>
@@ -1883,10 +1883,10 @@
             <p class="md"  style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 POWER OF ATTORNEY
             </p>
-            
+
             <div class="pa-container xs">
                 <p class="strong sm" >Power of Attornery &nbsp; <span class="italic"> Please attach a copy of Power of Attorney</span></p>
-            
+
             <div style="display: table; width: 100%;" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -1935,7 +1935,7 @@
                 </div> --}}
 
 
-               
+
 
 
 
@@ -1951,13 +1951,13 @@
                     <div style="display: table-cell">
                         <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%">
                         <label class="italic">Apt #:</label>
-                    </div> 
+                    </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $power_city }}" name="power_city" style="width: 95%" />
                         <label class="italic">City:</label>
                     </div>
                     <div style="display: table-cell;">
-    
+
                         <input type="text" value="{{ $power_state }}" name="power_state" style="width: 95%" />
                         <label class="italic">State:</label>
                     </div>
@@ -1967,7 +1967,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
             {{-- <div style="display: table;width: 100%">
 
@@ -1992,7 +1992,7 @@
                         <input type="text" value="{{ $power_zip }}" name="power_zip" /> <br>
                         <label class="italic">Zip:</label>
                     </div>
-                    
+
                 </div>
             </div> --}}
 
@@ -2006,14 +2006,14 @@
                         <label>City:</label>
                     </div>
                     <div style="display: table-cell;">
-    
+
                         <input type="text" value="{{ $power_state }}" name="power_state" style="width: 95%" />
                         <label>State:</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%">
                         <label>Apt #:</label>
-                    </div> 
+                    </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $power_zip }}"name="power_zip" style="width: 95%" />
                         <label>Zip:</label>
@@ -2036,13 +2036,13 @@
                 <div style="display: table-cell">
                     <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%">
                     <label>Apt #:</label>
-                </div> 
+                </div>
                 <div style="display: table-cell">
                     <input type="text" value="{{ $power_zip }}"name="power_zip" style="width: 95%" />
                     <label>Zip:</label>
                 </div>
             </div> --}}
-      
+
             {{-- <br> --}}
 
             {{-- <div style="display: table; width: 100%;margin: 0;padding: 0;">
@@ -2062,16 +2062,16 @@
                     <label>Yes</label>
                  &nbsp;
                 <input type="checkbox" name="sole_poa1" value="No"
-                    {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}> 
+                    {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
-                    
+
                     <br>
                     If No, are the agents authorized to act separately? &nbsp; <input type="checkbox" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
                  &nbsp;
                 <input type="checkbox" name="act_seprately1" value="No"
-                    {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> 
+                    {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
             </p>
             {{-- <p>If No, are the agents authorized to act separately? &nbsp; <input type="checkbox" name="act_seprately1"
@@ -2103,7 +2103,7 @@
 
             </div>
 
-            
+
 
 
             <div style="display: table; width: 100%;">
@@ -2131,13 +2131,13 @@
                     <div style="display: table-cell">
                         <input type="text" value="{{ $power_apt2 }}" name="power_apt2" style="width: 95%">
                         <label class="italic">Apt #:</label>
-                    </div> 
+                    </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $power_city2 }}" name="power_city2" style="width: 95%" />
                         <label class="italic">City:</label>
                     </div>
                     <div style="display: table-cell;">
-    
+
                         <input type="text" value="{{ $power_state2 }}" name="power_state2" style="width: 95%" />
                         <label class="italic">State:</label>
                     </div>
@@ -2175,7 +2175,7 @@
                         <input type="text" value="{{ $power_zip2 }}" name="power_zip2" style="width: 95%" /> <br>
                         <label class="italic">Zip:</label>
                     </div>
-                    
+
                 </div>
             </div> --}}
 
@@ -2242,9 +2242,9 @@
                     <label>Yes</label>
                  &nbsp;
                 <input type="checkbox" name="guardian_information_yes" value="No"
-                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> 
+                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}>
                     <label>No</label>
-                    
+
                 <br>
                 If you answered yes, continue to fill out below:
             </p>
@@ -2260,11 +2260,11 @@
                 <input type="checkbox" name="guardian_appointed_for3" value="Both"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
                     <label>Both</label>
-                
+
 
             </p>
             <p class="sm">Court Appointed Guardian Information</p>
-            
+
             <div style="display: table; width:100%" class="xs">
             <div style="display: table-row;">
                 <div style="display: table-cell;">
@@ -2309,7 +2309,7 @@
             <div style="display: table; padding: 0; margin: 0;width: 100%">
                 <div style="display: table-row;">
                     <p class="sm" style="display: table-cell; vertical-align: top; padding-right: 20px;float:left;">
-                        Service 
+                        Service
                         <input type="text" value="{{ $beneficiary_service_one }}" class="no-border xs"
                             name="beneficiary_service_one"><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" value="{{ $beneficiary_service_two }}" class="no-border xs"
@@ -2318,7 +2318,7 @@
                             name="beneficiary_service_three" style="margin-top: 8px" class="xs">
                     </p>
                     <p class="md" style="display: table-cell; vertical-align: top; text-align: left;float:right;">
-                        Name of Provider 
+                        Name of Provider
                         <input type="text" value="{{ $beneficiary_provider_one }}" class="no-border xs"
                             name="beneficiary_provider_one"><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <input type="text" value="{{ $beneficiary_provider_two }}" class="no-border xs"
@@ -2328,7 +2328,7 @@
                     </p>
                 </div>
             </div>
-           
+
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
@@ -2346,59 +2346,59 @@
                     <p class="xxs">JOINDER AGREEMENT</p>
                 </div>
                 </div>
-            </div> 
+            </div>
 
         </div>
-      
+
         <div class="page-6 sm">
         <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:36%" class="section-heading md" >
             INFORMATION AND DISCLOSURES:
         </p>
         <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
             <b>Death of Beneficiary:</b><br>
-            The Beneficiary’s sub-trust account terminates 
-                upon his or her death. If, upon the death of the 
-                Beneficiary, funds remain in his or her sub-trust 
-                account, such funds shall be deemed to be property 
-                of the Trust and all funds that are remaining in the 
-                Beneficiary’s separate sub-trust account shall 
-                be retained by SLC Supplemental Needs Trust to 
-                further the purposes of that Trust. However, to the 
-                extent that amounts remaining in the individual’s 
-                subtrust account upon the death of the individual 
-                are not in fact retained by the Trust, the Trust shall 
-                pay to the State(s) from such remaining amounts in 
-                the sub-trust account an amount equal to the total 
-                amount of medical assistance paid on behalf of the 
-                individual under the State Medicaid plan (s). To the 
-                extent that the trust does not retain the funds in the 
-                account, the State(s) shall be the first payee(s) of 
-                any such funds and the State(s) shall have priority 
-                over payment of other debts and administrative 
+            The Beneficiary’s sub-trust account terminates
+                upon his or her death. If, upon the death of the
+                Beneficiary, funds remain in his or her sub-trust
+                account, such funds shall be deemed to be property
+                of the Trust and all funds that are remaining in the
+                Beneficiary’s separate sub-trust account shall
+                be retained by SLC Supplemental Needs Trust to
+                further the purposes of that Trust. However, to the
+                extent that amounts remaining in the individual’s
+                subtrust account upon the death of the individual
+                are not in fact retained by the Trust, the Trust shall
+                pay to the State(s) from such remaining amounts in
+                the sub-trust account an amount equal to the total
+                amount of medical assistance paid on behalf of the
+                individual under the State Medicaid plan (s). To the
+                extent that the trust does not retain the funds in the
+                account, the State(s) shall be the first payee(s) of
+                any such funds and the State(s) shall have priority
+                over payment of other debts and administrative
                 expenses except as listed in POMS SI 01120.203E.<br/>
-                Funeral expenses will only be paid pursuant to a 
-                Medicaid eligible pre-need funeral arrangement 
-                established and funded prior to the Beneficiary’s 
-                death. Funeral expenses will not be paid after the 
+                Funeral expenses will only be paid pursuant to a
+                Medicaid eligible pre-need funeral arrangement
+                established and funded prior to the Beneficiary’s
+                death. Funeral expenses will not be paid after the
                 Beneficiary’s death. <br/><br/>
                 <b>Contributions/Deposits:</b><br>
-                All contributions made to the sub-trust account 
-will be held and administered pursuant to the 
-provisions of the SLC Supplemental Needs Trust 
+                All contributions made to the sub-trust account
+will be held and administered pursuant to the
+provisions of the SLC Supplemental Needs Trust
 which are incorporated by reference herein.<br/>
-The Trustees shall have the sole and absolute right 
+The Trustees shall have the sole and absolute right
 to accept or refuse additional deposits to the subtrust account.<br/>
-            In the event that a Beneficiary has a zero ($0) 
-sub-trust account balance for sixty (60) or more 
-consecutive days, the Trustee shall retain the right 
-to close the Beneficiary’s sub-trust account. Please 
-be advised that the Trustee may continue to charge 
-administrative fees for the management of the 
-sub-trust account prior to its closure. In the event 
-that a Beneficiary wishes to re-open a sub-trust 
-account, the Beneficiary may be required to pay any 
-outstanding administrative fees stemming from the 
-prior sub-trust account.   Additionally, the Beneficiary 
+            In the event that a Beneficiary has a zero ($0)
+sub-trust account balance for sixty (60) or more
+consecutive days, the Trustee shall retain the right
+to close the Beneficiary’s sub-trust account. Please
+be advised that the Trustee may continue to charge
+administrative fees for the management of the
+sub-trust account prior to its closure. In the event
+that a Beneficiary wishes to re-open a sub-trust
+account, the Beneficiary may be required to pay any
+outstanding administrative fees stemming from the
+prior sub-trust account.   Additionally, the Beneficiary
 shall be required to pay a new enrollment fee when re-opening a sub-trust
         </div>
 
@@ -2406,43 +2406,43 @@ shall be required to pay a new enrollment fee when re-opening a sub-trust
          account.
         <br>
         <b style="margin-top:40px">Disbursements: </b><br>
-        All disbursement requests shall be reviewed and 
+        All disbursement requests shall be reviewed and
 approved on an individual basis.
-Disbursements for expenses incurred more than 90 
-days prior to submission of a disbursement request 
-form shall not be paid. <br/> The Trustees, in their discretion, have determined 
-that disbursements for the following items shall not 
-be paid: purchases of firearms, alcohol, tobacco, 
-items relating to illegal activity, bail, or restitution. <br/> All disbursements shall be made at the sole and 
-absolute discretion of the Trustee. No disbursements 
-will be made after the death of the beneficiary, even 
-for expenses incurred or due prior to death. 
+Disbursements for expenses incurred more than 90
+days prior to submission of a disbursement request
+form shall not be paid. <br/> The Trustees, in their discretion, have determined
+that disbursements for the following items shall not
+be paid: purchases of firearms, alcohol, tobacco,
+items relating to illegal activity, bail, or restitution. <br/> All disbursements shall be made at the sole and
+absolute discretion of the Trustee. No disbursements
+will be made after the death of the beneficiary, even
+for expenses incurred or due prior to death.
                 <br/><br/>
                 <b >Disability Determination:</b><br>
-                In the event that a determination of disability is 
-required for Medicaid purposes, please be advised 
-that administrative fees shall be incurred while the 
-determination of disability is being made. <br/>The Donor acknowledges that contributions to 
-the SLC Supplemental Needs Trust are not tax 
+                In the event that a determination of disability is
+required for Medicaid purposes, please be advised
+that administrative fees shall be incurred while the
+determination of disability is being made. <br/>The Donor acknowledges that contributions to
+the SLC Supplemental Needs Trust are not tax
 deductible as charitable gifts, or otherwise.
-Sub-trust account income may be taxable to the 
+Sub-trust account income may be taxable to the
 Beneficiary. <br/><br/>
 <b >Disclosure of Potential Conflict of Interest:</b><br>
-There may be a potential conflict of interest in the 
-administration of the Trust since the Trust retains 
-those funds remaining in the sub-trust account at 
-the time of death of the Beneficiary. Funds remaining 
+There may be a potential conflict of interest in the
+administration of the Trust since the Trust retains
+those funds remaining in the sub-trust account at
+the time of death of the Beneficiary. Funds remaining
 in the Trust may be used to pay for ancillary and/
-or supplemental services for Beneficiaries and 
-potential Beneficiaries for which services may be 
+or supplemental services for Beneficiaries and
+potential Beneficiaries for which services may be
 rendered by SLC Supplemental Needs Trust.<br/>
-The Donor executing this Joinder Agreement is 
-aware of the potential conflicts of interest that exist 
-in the Trustee’s<br/>administration of the Trust. The Trustee shall not 
-be liable to Donor or to any party for any act of 
-self-dealing or conflict of interest resulting from 
-their a liations with Senior Lifecare Corp or with 
-any Beneficiary or constituent agencies and/or 
+The Donor executing this Joinder Agreement is
+aware of the potential conflicts of interest that exist
+in the Trustee’s<br/>administration of the Trust. The Trustee shall not
+be liable to Donor or to any party for any act of
+self-dealing or conflict of interest resulting from
+their a liations with Senior Lifecare Corp or with
+any Beneficiary or constituent agencies and/or
 Chapters.
         </div>
 
@@ -2462,7 +2462,7 @@ Chapters.
                     <p class="xxs">JOINDER AGREEMENT</p>
                 </div>
                 </div>
-            </div> 
+            </div>
 
         </div>
 
@@ -2471,92 +2471,92 @@ Chapters.
         <div class="page-7 sm">
             <b>Situs:</b> <br/>
                 <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
-                    The sub-trust account created by this Agreement 
-has been accepted by the Trustee in the State of 
-New York and will be administered by Senior Lifecare 
-Corp and a financial institution in the State of New 
-York. The validity, construction, and all rights under 
-this Agreement shall be governed by the laws 
-of the State of New York. The situs of this Trust for 
-administrative, account and legal purposes shall 
-be in the County of Kings, the County where the 
-majority of meetings concerning establishment of 
+                    The sub-trust account created by this Agreement
+has been accepted by the Trustee in the State of
+New York and will be administered by Senior Lifecare
+Corp and a financial institution in the State of New
+York. The validity, construction, and all rights under
+this Agreement shall be governed by the laws
+of the State of New York. The situs of this Trust for
+administrative, account and legal purposes shall
+be in the County of Kings, the County where the
+majority of meetings concerning establishment of
 the Trust occurred.
 <br/><br/>
 <b>Invalidity of any Provision:</b> <br/>
-Should any provision of this Agreement be or 
-become invalid or unenforceable, the remaining 
-provisions of this Agreement shall be and continue 
-to be fully e ective. <br/>By signing below, you a rm that you understand 
-and agree to the following: <br/>I have received and read a copy of the applicable 
-Master Trust prior to the signing of this Joinder 
-Agreement and acknowledge that I understand 
-the contents thereof. I also understand that said 
-document may be amended from time to time. 
-I have been provided with the applicable fee 
-schedule and acknowledge that I understand the 
-contents thereof. I also understand there may be 
-changes from time to time.<br/>I am entering into this Joinder Agreement voluntarily 
-and acting on my own free accord.<br/>The Donor acknowledges that the Beneficiary is 
-disabled as defined in Social Security Law Section 
-1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this 
-document are true and accurate to the best of my 
-knowledge.<br/>The SLC Supplemental Needs Trust is authorized to 
-be used by individuals with disabilities pursuant to 
-federal and state law. By agreeing to accept a donor’s 
-property pursuant to this Joinder Agreement, SLC 
-Supplemental Needs Trust agrees only to manage 
-the trust funds in accordance with the terms of the 
-Master Trust Agreement and in compliance with 
-applicable federal and state law and regulation. 
-It is the sole responsibility of the donor and/or the 
+Should any provision of this Agreement be or
+become invalid or unenforceable, the remaining
+provisions of this Agreement shall be and continue
+to be fully e ective. <br/>By signing below, you a rm that you understand
+and agree to the following: <br/>I have received and read a copy of the applicable
+Master Trust prior to the signing of this Joinder
+Agreement and acknowledge that I understand
+the contents thereof. I also understand that said
+document may be amended from time to time.
+I have been provided with the applicable fee
+schedule and acknowledge that I understand the
+contents thereof. I also understand there may be
+changes from time to time.<br/>I am entering into this Joinder Agreement voluntarily
+and acting on my own free accord.<br/>The Donor acknowledges that the Beneficiary is
+disabled as defined in Social Security Law Section
+1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this
+document are true and accurate to the best of my
+knowledge.<br/>The SLC Supplemental Needs Trust is authorized to
+be used by individuals with disabilities pursuant to
+federal and state law. By agreeing to accept a donor’s
+property pursuant to this Joinder Agreement, SLC
+Supplemental Needs Trust agrees only to manage
+the trust funds in accordance with the terms of the
+Master Trust Agreement and in compliance with
+applicable federal and state law and regulation.
+It is the sole responsibility of the donor and/or the
 donor’s representative to determine whether the donor is “disabled” as that term
                 </div>
 
                 <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
-                 is defined under 
-federal law, to determine whether they have the 
-legal authority to transfer property to fund the 
-trust, and the impact that a transfer of property to 
-the SLC Supplemental Needs Trust will have on the 
-donor’s continuing eligibility for government benefit 
+                 is defined under
+federal law, to determine whether they have the
+legal authority to transfer property to fund the
+trust, and the impact that a transfer of property to
+the SLC Supplemental Needs Trust will have on the
+donor’s continuing eligibility for government benefit
 programs.<br/>
-Senior Lifecare Corp is not assuming any 
-responsibility as counsel for the donor or Beneficiary, 
-or providing any legal advice as it relates to the 
-consequences of a transfer of property to the SLC 
-Supplemental Needs Trust. <br/>The Trustees in their discretion may require an 
-intermediary to assist in the administration of the 
-Beneficiary’s sub-trust account. The cost of which 
-may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf 
-or the intermediary must notify SLC Supplemental 
-Needs Trust. immediately upon your death and 
-will be required to provide us with a certified death 
-certificate. An individual requesting and/or receiving 
-disbursements in contravention of the Master Trust 
-Agreement and the Joinder Agreement will be 
-required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the 
-Beneficiary in the SLC Supplemental Needs Trust is an 
-important legal decision that may have significant 
-and lasting consequences for the Beneficiary and as 
-a result you may want to consider obtaining advice 
-from an attorney or another professional adviser 
-before entering into this Agreement. By signing this 
-Agreement you are acknowledging that you have 
-had a full and complete opportunity to confer with 
-an attorney or other adviser and that no employee 
-of Senior Lifecare Corp has provided you (or the 
-Beneficiary, if di erent from the person signing this 
-Agreement) with any legal advice in connection 
-with this Joinder Agreement, the participation by 
-the Beneficiary in the SLC Supplemental Needs 
-Trust or the suitability of such participation by the 
-Beneficiary in the SLC Supplemental Needs Trust 
-based upon the particular circumstances of the 
+Senior Lifecare Corp is not assuming any
+responsibility as counsel for the donor or Beneficiary,
+or providing any legal advice as it relates to the
+consequences of a transfer of property to the SLC
+Supplemental Needs Trust. <br/>The Trustees in their discretion may require an
+intermediary to assist in the administration of the
+Beneficiary’s sub-trust account. The cost of which
+may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf
+or the intermediary must notify SLC Supplemental
+Needs Trust. immediately upon your death and
+will be required to provide us with a certified death
+certificate. An individual requesting and/or receiving
+disbursements in contravention of the Master Trust
+Agreement and the Joinder Agreement will be
+required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the
+Beneficiary in the SLC Supplemental Needs Trust is an
+important legal decision that may have significant
+and lasting consequences for the Beneficiary and as
+a result you may want to consider obtaining advice
+from an attorney or another professional adviser
+before entering into this Agreement. By signing this
+Agreement you are acknowledging that you have
+had a full and complete opportunity to confer with
+an attorney or other adviser and that no employee
+of Senior Lifecare Corp has provided you (or the
+Beneficiary, if di erent from the person signing this
+Agreement) with any legal advice in connection
+with this Joinder Agreement, the participation by
+the Beneficiary in the SLC Supplemental Needs
+Trust or the suitability of such participation by the
+Beneficiary in the SLC Supplemental Needs Trust
+based upon the particular circumstances of the
 Beneficiary.
                 </div>
 
-                
+
 
             </div>
 
@@ -2580,9 +2580,9 @@ Beneficiary.
                 </div>
 
         <div class="page-break"></div>
-        <div class="page-8 seaction-heading">
-            <p class='text-xs' style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
-            <p class='text-xs' style="padding:0;margin: 0;padding-bottom:2px">
+        <div class="page-8">
+            <p class='section-heading md' style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
+            <p class='xs' style="padding:0;margin: 0;padding-bottom:2px">
                 Who is signing this Joinder Agreement?
                 &nbsp;
                 <input type="checkbox" name="agreement_signature_beneficiary" value="Beneficiary"
@@ -2594,45 +2594,47 @@ Beneficiary.
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p>
-            <p style='margin:0'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
+            <p class='xs' style='margin:0;padding-bottom:5px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
             <div style="display: table; width: 100%; margin: 0; text-align: center;">
             <div style="display: table-row;">
-                <div style="display: table-cell; width: 33%;">
-                    <div class='text-xs'>
+                <div style="display: table-cell; width: 30%;">
+                    <div class='xs'>
                         @if ($joinder_signature_1)
-                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="70px" style="display: block; border-bottom: 1px solid;margin-left:60px;width:80%">
+                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="70px" style="display: block; border-bottom: 1px solid;width:80%">
                         @else
                             <div style="width: 200px; height: 50px; text-align: center;">
                         No Signature Provided
                     </div>
                             @endif
-                            <div class='text-xs' style='text-align: left;margin-left:80px'>
-                                <label>Sign Here</label>
+                            <div class='xs' style='text-align: left;'>
+                                <label class='italic' style='margin-left:25px'>Sign Here</label>
                             </div>
                         </div>
                     </div>
-                    <div style="display: table-cell; width: 33%;" class='text-xs'>
-                        <p style="margin: 0;">
+                    <div style="display: table-cell; width: 30%;">
+                        <p style="margin: 0;" class='xs'>
                             <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
                             <br>
-                            <label>PRINT</label>
+                            <div style='text-align: left;margin-left:80px'>
+                                <label class='italic'>Print</label>
+                            </div>
                         </p>
                     </div>
-                    <div style="display: table-cell; width: 33%;" class='text-xs'>
+                    <div style="display: table-cell; width: 30%;" class='xs'>
                         <p style="margin: 0;">
                             <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
-                            <br> DATE
+                            <br> Date
                         </p>
                     </div>
                 </div>
             </div>
             <br>
-            <p class='section-heading' style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
+            <p class='section-heading md' style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
             <div style='display:table;width:100%'>
             <div style='display:table-row' class='xs'>
-            <p style="margin:0;padding-bottom:5px;display:table-cell">STATE OF New York
+            <p class='xs' style="margin:0;padding-bottom:5px;display:table-cell">STATE OF
                 <input type="text" value="{{ $notary_state_of_ny }}" class="no-border"
-                name="notary_state_of_ny"> SS:
+                name="notary_state_of_ny">
             </p>
           </div>
           <div style='display:table-row' class='xs'>
@@ -2662,51 +2664,55 @@ Beneficiary.
                             executed this instrument.
                         </p>
                     </div>
-                        <div style='display:table-cell;text-align:right;vertical-align:bottom'>
-                            <input type="text" value="{{ $notary_public }}" class="no-border" name="notary_public"><br>
-                            <label style='text-align:left'>NOTARY PUBLIC</label>
+                        <div style='display:table-cell;vertical-align:bottom;width:50%'>
+                            <input type="text" value="{{ $notary_public }}" style='width:90%;margin-left:30px' class="no-border" name="notary_public"><br>
+                            <div style='width:90%;text-align-left'>
+                                <label style='text-align:left;margin-left:30px'>NOTARY PUBLIC</label>
+                            </div>
                         </div>
                 </div>
             </div>
-            <p class='xs' style=" padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
-            <p class='text-xs'>
-                (New York Residents Only)
-                Or in lieu of Notarization, the following two witness signatures are provided:
+            <p class='md section-heading' style=" width:37%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
+            <p class='xs'>
+                (New York Residents Only) <br>
+                <span style='padding-top:5px'>
+                    Or in lieu of Notarization, the following two witness signatures are provided:
+                </span>
             </p>
             <div style="display: table; width: 100%; margin-top: 10px;" class='xs'>
                 <!-- Row for Witness Names -->
                 <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell;padding-bottom:2px">
-                        <input type="text" style="width: 60%; text-align: center;margin-left:35px" class="no-border"
+                    <div style="display: table-cell;padding-bottom:2px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_one_name" value="{{ $notary_witness_one_name }}"
                             maxlength="70">
                             <br>
-                        <label style='margin-left:35px'> WITNESS 1 </label>
+                        <label class='italic'> Witness 1 </label>
                     </div>
-                    <div style="display: table-cell; margin-left:20px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell; margin-left:20px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_two_name" value="{{ $notary_witness_two_name }}"
                             maxlength="70">
                             <br>
-                        <label> WITNESS 2 </label>
+                        <label class='italic'> Witness 2 </label>
                     </div>
                 </div>
                 <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell;">
-                        <input type="text" style="width: 60%; text-align: center;margin-left:35px" class="no-border"
+                    <div style="display: table-cell;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="sig_date1" value="{{ $sig_date1 }}" maxlength="70">
-                        <br><label style='margin-left:35px'>Date</label>
+                        <br><label class='italic'>Date</label>
                     </div>
-                    <div style="display: table-cell;margin-left:20px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="sig_date2" value="{{ $sig_date2 }}" maxlength="70">
-                        <br><label> Date </label>
+                        <br><label class='italic'> Date </label>
                     </div>
                 </div>
                 <!-- Row for Signatures -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:2px">
-                        <div style='text-align:center'>
+                    <div style="display: table-cell;padding-bottom:2px;width:50%">
+                        <div style='text-align:center;width:90%'>
                             @if ($joinder_signature_2)
                             <img src="{{ $joinder_signature_2 }}" alt="Signature 2"
                                 style="max-width:300px; max-height: 50px;">
@@ -2717,12 +2723,12 @@ Beneficiary.
                             </div>
                             @endif
                         </div>
-                        <div style='border-top:1px solid;width:60%;margin-left:35px;'>
-                            <label style=''>Sign Here</label>
+                        <div style='border-top:1px solid;width:90%;;'>
+                            <label class='italic'>Sign Here</label>
                         </div>
                     </div>
-                    <div style="display: table-cell;margin-left:20px">
-                        <div style='text-align:center'>
+                    <div style="display: table-cell;margin-left:20px;width:50%">
+                        <div style='text-align:center;width:90%'>
                             @if ($joinder_signature_3)
                             <img src="{{ $joinder_signature_3 }}" alt="Signature 3"
                             style="max-width: 300px; max-height: 50px;">
@@ -2733,44 +2739,44 @@ Beneficiary.
                             </div>
                             @endif
                         </div>
-                        <div style='border-top:1px solid;width:60%;'>
-                            <label style=''>Sign Here</label>
+                        <div style='border-top:1px solid;width:90%;'>
+                            <label class='italic'>Sign Here</label>
                         </div>
                     </div>
                 </div>
                 <!-- Row for Full Names -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:2px">
-                        <input type="text" style="width: 60%; text-align: center;margin-left:35px" class="no-border"
+                    <div style="display: table-cell;padding-bottom:2px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_one_full_name" value="{{ $notary_witness_one_full_name }}"
                             maxlength="70">
-                        <br><label style='margin-left:35px'> FULL NAME</label>
+                        <br><label class='italic'>Print Full Name</label>
                     </div>
-                    <div style="display: table-cell;margin-left:20px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_two_full_name" value="{{ $notary_witness_two_full_name }}"
                             maxlength="70">
-                        <br><label> FULL NAME</label>
+                        <br><label class='italic'> Print Full Name</label>
                     </div>
                 </div>
 
                 <!-- Row for Full Addresses -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:5px">
-                        <input type="text" style="width: 60%; text-align: center;margin-left:35px" class="no-border"
+                    <div style="display: table-cell;padding-bottom:5px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_one_full_address" value="{{ $notary_witness_one_full_address }}">
-                        <br><label style='margin-left:35px'> FULL ADDRESS </label>
+                        <br><label class='italic'> Full Address </label>
                     </div>
-                    <div style="display: table-cell;margin-left:20px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_two_full_address" value="{{ $notary_witness_two_full_address }}">
-                        <br><label> FULL ADDRESS </label>
+                        <br><label class='italic'> Full Address </label>
                     </div>
                 </div>
 
             </div>
-            <div
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
+            <div class='section-heading md'
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:7px;padding:7px;font-weight:700">
                 FOR OFFICE USE ONLY
             </div>
             <p style='text-align:center' class='xs'>
@@ -2784,21 +2790,21 @@ Beneficiary.
                          <div style='text-align:center'>
                              @if ($joinder_signature_4)
                              <img src="{{ $joinder_signature_4 }}" alt="Signature 4"
-                             style="width: 300px; height: 50px;text-align:center">
+                             style="width: 300px; height: 50px;text-align:center;width:50%;margin-right:40px">
                              @else
                              <div style="width: 200px;height:50px; text-align: center;">
                                  No Signature Provided
                                 </div>
                                 @endif
                             </div>
-                        <div class='xs' style='border-top:1px solid;width:90%;margin-left:40px;'>
-                            <label style=''>Sign Here</label>
+                        <div class='xs' style='border-top:1px solid;width:90%;'>
+                            <label class='italic'>Sign Here</label>
                         </div>
                     </div>
                     <div class='xs' style="display: table-cell; width: 50%;">
-                        <input type="text" style="width: 90%; text-align: center;margin-left:40px" class="no-border"
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             value="{{ $office_use_date_approved }}">
-                        <br><label style='margin-left:40px'>DATE</label>
+                        <br><label class='italic'>DATE</label>
                     </div>
                 </div>
             </div>
@@ -2820,48 +2826,48 @@ Beneficiary.
                         {{-- <br> --}}
                         <div style="display: table-row;margin-top:10px" class="md">
                             <div style="display: table-cell;">
-        
+
                                 <label class="md">Member ID#:</label>
-                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_member_id_above }}" name="office_use_member_id_above" /> 
+                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_member_id_above }}" name="office_use_member_id_above" />
                             </div>
                         </div>
                         <br>
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
-        
+
                                 <label  class="md">Effective Date:</label>
-                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_effective_date }}" name="office_use_effective_date"  /> 
+                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_effective_date }}" name="office_use_effective_date"  />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-           
+
 
 
         
             <p class="section-heading md" style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:32%;padding:8px 20px">DIRECT DEBIT REQUEST FORM</p>
-            
+
                     <div style="display: table; width: 100%;" class="xs">
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
-        
+
                                 <label class="md">Donor/Beneficiary</label> &nbsp;
                                 <input class="xs" type="text" value="{{ $direct_debit_donor_beneficiary }}" name="direct_debit_donor_beneficiary" style="width: 80%" /> 
                             </div>
-                            
-                            
+
+
                         </div>
                         {{-- <br> --}}
                         <div style="display: table-row; margin-top:4px" class="md">
                             <div style="display: table-cell;">
-        
+
                                 <label class="md">Representative</label> &nbsp;
                                 <input class="xs" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
                             </div>
                         </div>
 
-                    
+
                     </div>
                     {{-- <br> --}}
                     <div style="display: table; width: 100%; margin-top:4px" class="xs">
@@ -3045,9 +3051,9 @@ Beneficiary.
 
         </div>
 
-           
-                
-    
+
+
+
 
 
     </form>
