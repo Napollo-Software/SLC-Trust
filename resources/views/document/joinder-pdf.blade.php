@@ -19,6 +19,18 @@
             font-family: 'VENPGM-Poppins-Medium';
             src: url('fonts/VENPGM-Poppins-Medium.ttf') format('truetype');
         }
+        @font-face {
+            font-family: 'VENPGM-Poppins-SemiBold';
+            src: url('fonts/VENPGM-Poppins-SemiBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'VENPGM-Poppins-Bold';
+            src: url('fonts/VENPGM-Poppins-Bold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'VENPGM-MinionPro-Regular';
+            src: url('fonts/VENPGM-MinionPro-Regular.ttf') format('truetype');
+        }
 
         table {
             border-collapse: collapse;
