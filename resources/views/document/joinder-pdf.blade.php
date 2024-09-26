@@ -173,6 +173,9 @@
         .text-center{
             text-align: center;
         }
+        .text-normal{
+            font-weight: 500;
+        }
 
 
         .xs{
@@ -241,7 +244,7 @@
         }
 
         input[type="checkbox"] {
-            margin-right: 4px;
+            /* margin-right: 4px; */
             width: 17px;
             height: 17px !important;
         }
@@ -1928,8 +1931,8 @@
                 POWER OF ATTORNEY
             </p>
 
-            <div class="pa-container xs">
-                <p class="strong sm" >Power of Attornery &nbsp; <span class="italic"> Please attach a copy of Power of Attorney</span></p>
+            <div class="pa-container ms">
+                <p class="strong ms">Power of Attornery &nbsp; <span style="font-size: 14px" class="italic text-normal" > Please attach a copy of Power of Attorney</span></p>
 
             <div style="display: table; width: 100%;" class="xs">
                 <div style="display: table-row;">
@@ -2101,20 +2104,18 @@
                 </div>
             </div> --}}
 
-            <p>Is this person the sole POA? &nbsp; <input type="checkbox" name="sole_poa1"
+            <p class="md">Is this person the sole POA? <input type="checkbox" name="sole_poa1"
                     value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
-                 &nbsp;
                 <input type="checkbox" name="sole_poa1" value="No"
                     {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
 
                     <br>
-                    If No, are the agents authorized to act separately? &nbsp; <input type="checkbox" name="act_seprately1"
+                    If No, are the agents authorized to act separately? <input type="checkbox" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
-                 &nbsp;
-                <input type="checkbox" name="act_seprately1" value="No"
+                <input  type="checkbox" name="act_seprately1" value="No"
                     {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
             </p>
