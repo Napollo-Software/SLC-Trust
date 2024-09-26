@@ -1,20 +1,8 @@
 {
-    "nominee-black": {
-        "normal": "nominee_black_normal_3c5668b95eb70b2843aa587705003545"
-    },
-    "nominee-medium": {
-        "normal": "nominee_medium_normal_19ab8b52613c9e6ac624e6be6b811aea"
-    },
-    "nominee-regular": {
-        "normal": "nominee_regular_normal_bc91483b63bd70a799e123d6511adb0a"
-    },
-    "brittanysignature-mazx": {
-        "normal": "brittanysignature_mazx_normal_434982661e51489fdc137aafbf8f408f"
-    },
-    "nominee-regular2": {
-        "normal": "nominee_regular2_normal_1fcda0e4082d488104caac8b5684a6f6"
-    },
     "venpgm-poppins-regular": {
-        "normal": "venpgm_poppins_regular_normal_00723fc1de065b005b5120172369a016"
+        "normal": "venpgm_poppins_regular_normal_2bfd6cd7c1ad61496c862136e8075df7"
+    },
+    "venpgm-poppins-medium": {
+        "normal": "venpgm_poppins_medium_normal_ce7e90cf316e1ab09ae9a9addc2203d3"
     }
 }
