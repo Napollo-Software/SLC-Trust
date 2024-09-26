@@ -29,8 +29,8 @@
         }
 
         @font-face {
-            font-family: 'VENPGM-MinionPro-Italic';
-            src: url('fonts/VENPGM-MinionPro-Italic.ttf') format('truetype');
+            font-family: 'VENPGM-Poppins-Italic';
+            src: url('fonts/VENPGM-Poppins-Italic.ttf') format('truetype');
         }
 
         table {
@@ -43,11 +43,11 @@
         }
 
         .semiBold{
-            font-family: "VENPGM-Poppins-SemiBold";
+            font-family: "VENPGM-Poppins-SemiBold" !important;
         }
 
         .bold{
-            font-family: "VENPGM-Poppins-Bold";
+            font-family: "VENPGM-Poppins-Bold" !important;
         }
 
 
@@ -161,7 +161,7 @@
         } */
 
         .italic{
-            font-style: italic;
+            font-family: "VENPGM-Poppins-Italic";
             font-size: 10px;
         }
 
@@ -194,7 +194,10 @@
         }
 
         .strong{
-            font-weight: bold;
+            font-family: "VENPGM-Poppins-SemiBold";
+        }
+        .black{
+            font-family: "VENPGM-Poppins-Bold";
         }
         footer{
             position: fixed;
@@ -265,13 +268,13 @@
         <!-- <p>Copyright &copy; <?php echo date("Y");?></p> -->
         </footer>
         <div class="page-0">
-            <br> <br>
+            
             <div class="container-row" style="text-align:center;">
                 <img style="width:50%" src="{{ public_path('images/new_logo.png') }}" alt="Example Image">
             </div>
             {{-- {{ public_path('images/slc_logo.png') }} --}}
 
-            <div style="height:740px">
+            <div style="height:820px">
                  <br>
                  <br>
                  <br>
@@ -280,15 +283,15 @@
                  <br>
                  <br>
                  <br>
-                <div style="text-align: center;margin-top:100px">
+                <div style="text-align: center;margin-top:90px">
                     <div style="width: fit-content; display: inline-block;">
-                        <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                        <h1 class="black" style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
                             JOINDER</h1>
                     </div>
                 </div>
                 <div style="text-align: center;margin-top:-57px" >
                     <div style="width: fit-content; display: inline-block;">
-                        <h1 style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                        <h1 class="black" style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;font-weight:bold">
                             AGREEMENT</h1>
                     </div>
                 </div>
