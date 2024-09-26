@@ -1223,10 +1223,10 @@
             style="width:28%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
                 PURPOSE OF ENROLLMENT
             </p>
-            <p style="font-size: 12px; margin: 0;padding-bottom:'3px'" class='xs'>
+            <p style="font-size: 12px; margin: 0;padding-top:5px" class='xs'>
                 Indicate reason for establishing an account.
             </p>
-            <div style="margin: 0; padding-bottom:3px;" class='xs'>
+            <div style="margin: 0; padding-bottom:6px;padding-top:6px" class='xs'>
                 <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
                 <label> Shelter Monthly Excess Income</label> &nbsp;
@@ -1236,7 +1236,7 @@
             </div>
             <div style='padding-top:4px;'>
                 <p class='md section-heading'
-                    style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0">
+                    style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
                     MEDICAID INFORMATION
                 </p>
 
@@ -1250,7 +1250,7 @@
                 </thead>
                 <tr style="padding: 0; margin: 0;" class='xs'>
                     <td style="width:180px;margin:0;padding:0px;">
-                        <p class='xs' style="vertical-align: bottom;margin:0;padding:3px;text-align:left;padding-left:12px">
+                        <p style="vertical-align: bottom;margin:0;padding:3px;text-align:left;padding-left:12px">
                             Application Status
                             <br>
                             Does the beneficiary receive Medicaid?
@@ -1343,7 +1343,7 @@
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
             </p>
-            <p style="margin: 0;padding-top:3px" class='xs'>
+            <p style="margin: 0;padding-top:6px" class='xs'>
                 Is Applicant & Spouse Applying Together? &nbsp;
                 <input type="checkbox" name="applying_together1" value="Yes"
                     {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}>
@@ -1356,14 +1356,14 @@
                 If Yes, Fill in Spouse’s Income.
             </p>
             <div style="display: table; width: 100%;">
-                <div style="display: table-row;">
+                <div style="display: table-row;margin-top:6px">
                     <div style="display: table-cell;padding-bottom:7px;padding-top:3px" class='xs'>
                         <label style='padding-bottom:10px;'>First Name: </label>
                         <input type="text" value="{{ $spouse_fname }}" name="spouse_fname" />
                     </div>
                     &nbsp;&nbsp;
 
-                    <div style="display: table-cell" class='xs'>
+                    <div style="display: table-cell;" class='xs'>
                         <label >Last Name: </label>
                         <input type="text" value="{{ $spouse_lname }}" name="spouse_lname" />
                     </div>
@@ -1381,7 +1381,7 @@
             </div>
 
 
-            <div class='xs'>
+            <div class='xs padding-top:3px'>
                 <div>
                     <label>
                         Spouse Applied for Medicaid with beneficiary?
