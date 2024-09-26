@@ -2581,7 +2581,7 @@ Beneficiary.
 
         <div class="page-break"></div>
         <div class="page-8">
-            <p class='xs section-heading' style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
+            <p class='section-heading md' style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
             <p class='xs' style="padding:0;margin: 0;padding-bottom:2px">
                 Who is signing this Joinder Agreement?
                 &nbsp;
@@ -2629,7 +2629,7 @@ Beneficiary.
                 </div>
             </div>
             <br>
-            <p class='section-heading' style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;text-align:center;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
+            <p class='section-heading md' style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
             <div style='display:table;width:100%'>
             <div style='display:table-row' class='xs'>
             <p class='xs' style="margin:0;padding-bottom:5px;display:table-cell">STATE OF
@@ -2672,7 +2672,7 @@ Beneficiary.
                         </div>
                 </div>
             </div>
-            <p class='xs' style=" padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
+            <p class='md section-heading' style=" width:37%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
             <p class='xs'>
                 (New York Residents Only) <br>
                 <span style='padding-top:5px'>
@@ -2775,8 +2775,8 @@ Beneficiary.
                 </div>
 
             </div>
-            <div
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;margin-top:5px">
+            <div class='section-heading md'
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:7px;padding:7px;font-weight:700">
                 FOR OFFICE USE ONLY
             </div>
             <p style='text-align:center' class='xs'>
