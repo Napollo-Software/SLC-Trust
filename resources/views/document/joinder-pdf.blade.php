@@ -2463,103 +2463,96 @@ Chapters.
                 </div>
                 </div>
             </div>
-
         </div>
-
         <div class="page-break"></div>
-
         <div class="page-7 sm">
             <b>Situs:</b> <br/>
                 <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
                     The sub-trust account created by this Agreement
-has been accepted by the Trustee in the State of
-New York and will be administered by Senior Lifecare
-Corp and a financial institution in the State of New
-York. The validity, construction, and all rights under
-this Agreement shall be governed by the laws
-of the State of New York. The situs of this Trust for
-administrative, account and legal purposes shall
-be in the County of Kings, the County where the
-majority of meetings concerning establishment of
-the Trust occurred.
-<br/><br/>
-<b>Invalidity of any Provision:</b> <br/>
-Should any provision of this Agreement be or
-become invalid or unenforceable, the remaining
-provisions of this Agreement shall be and continue
-to be fully e ective. <br/>By signing below, you a rm that you understand
-and agree to the following: <br/>I have received and read a copy of the applicable
-Master Trust prior to the signing of this Joinder
-Agreement and acknowledge that I understand
-the contents thereof. I also understand that said
-document may be amended from time to time.
-I have been provided with the applicable fee
-schedule and acknowledge that I understand the
-contents thereof. I also understand there may be
-changes from time to time.<br/>I am entering into this Joinder Agreement voluntarily
-and acting on my own free accord.<br/>The Donor acknowledges that the Beneficiary is
-disabled as defined in Social Security Law Section
-1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this
-document are true and accurate to the best of my
-knowledge.<br/>The SLC Supplemental Needs Trust is authorized to
-be used by individuals with disabilities pursuant to
-federal and state law. By agreeing to accept a donor’s
-property pursuant to this Joinder Agreement, SLC
-Supplemental Needs Trust agrees only to manage
-the trust funds in accordance with the terms of the
-Master Trust Agreement and in compliance with
-applicable federal and state law and regulation.
-It is the sole responsibility of the donor and/or the
-donor’s representative to determine whether the donor is “disabled” as that term
+                has been accepted by the Trustee in the State of
+                New York and will be administered by Senior Lifecare
+                Corp and a financial institution in the State of New
+                York. The validity, construction, and all rights under
+                this Agreement shall be governed by the laws
+                of the State of New York. The situs of this Trust for
+                administrative, account and legal purposes shall
+                be in the County of Kings, the County where the
+                majority of meetings concerning establishment of
+                the Trust occurred.
+                <br/><br/>
+                <b>Invalidity of any Provision:</b> <br/>
+                Should any provision of this Agreement be or
+                become invalid or unenforceable, the remaining
+                provisions of this Agreement shall be and continue
+                to be fully e ective. <br/>By signing below, you a rm that you understand
+                and agree to the following: <br/>I have received and read a copy of the applicable
+                Master Trust prior to the signing of this Joinder
+                Agreement and acknowledge that I understand
+                the contents thereof. I also understand that said
+                document may be amended from time to time.
+                I have been provided with the applicable fee
+                schedule and acknowledge that I understand the
+                contents thereof. I also understand there may be
+                changes from time to time.<br/>I am entering into this Joinder Agreement voluntarily
+                and acting on my own free accord.<br/>The Donor acknowledges that the Beneficiary is
+                disabled as defined in Social Security Law Section
+                1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this
+                document are true and accurate to the best of my
+                knowledge.<br/>The SLC Supplemental Needs Trust is authorized to
+                be used by individuals with disabilities pursuant to
+                federal and state law. By agreeing to accept a donor’s
+                property pursuant to this Joinder Agreement, SLC
+                Supplemental Needs Trust agrees only to manage
+                the trust funds in accordance with the terms of the
+                Master Trust Agreement and in compliance with
+                applicable federal and state law and regulation.
+                It is the sole responsibility of the donor and/or the
+                donor’s representative to determine whether the donor is “disabled” as that term
                 </div>
 
                 <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
                  is defined under
-federal law, to determine whether they have the
-legal authority to transfer property to fund the
-trust, and the impact that a transfer of property to
-the SLC Supplemental Needs Trust will have on the
-donor’s continuing eligibility for government benefit
-programs.<br/>
-Senior Lifecare Corp is not assuming any
-responsibility as counsel for the donor or Beneficiary,
-or providing any legal advice as it relates to the
-consequences of a transfer of property to the SLC
-Supplemental Needs Trust. <br/>The Trustees in their discretion may require an
-intermediary to assist in the administration of the
-Beneficiary’s sub-trust account. The cost of which
-may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf
-or the intermediary must notify SLC Supplemental
-Needs Trust. immediately upon your death and
-will be required to provide us with a certified death
-certificate. An individual requesting and/or receiving
-disbursements in contravention of the Master Trust
-Agreement and the Joinder Agreement will be
-required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the
-Beneficiary in the SLC Supplemental Needs Trust is an
-important legal decision that may have significant
-and lasting consequences for the Beneficiary and as
-a result you may want to consider obtaining advice
-from an attorney or another professional adviser
-before entering into this Agreement. By signing this
-Agreement you are acknowledging that you have
-had a full and complete opportunity to confer with
-an attorney or other adviser and that no employee
-of Senior Lifecare Corp has provided you (or the
-Beneficiary, if di erent from the person signing this
-Agreement) with any legal advice in connection
-with this Joinder Agreement, the participation by
-the Beneficiary in the SLC Supplemental Needs
-Trust or the suitability of such participation by the
-Beneficiary in the SLC Supplemental Needs Trust
-based upon the particular circumstances of the
-Beneficiary.
+                federal law, to determine whether they have the
+                legal authority to transfer property to fund the
+                trust, and the impact that a transfer of property to
+                the SLC Supplemental Needs Trust will have on the
+                donor’s continuing eligibility for government benefit
+                programs.<br/>
+                Senior Lifecare Corp is not assuming any
+                responsibility as counsel for the donor or Beneficiary,
+                or providing any legal advice as it relates to the
+                consequences of a transfer of property to the SLC
+                Supplemental Needs Trust. <br/>The Trustees in their discretion may require an
+                intermediary to assist in the administration of the
+                Beneficiary’s sub-trust account. The cost of which
+                may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf
+                or the intermediary must notify SLC Supplemental
+                Needs Trust. immediately upon your death and
+                will be required to provide us with a certified death
+                certificate. An individual requesting and/or receiving
+                disbursements in contravention of the Master Trust
+                Agreement and the Joinder Agreement will be
+                required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the
+                Beneficiary in the SLC Supplemental Needs Trust is an
+                important legal decision that may have significant
+                and lasting consequences for the Beneficiary and as
+                a result you may want to consider obtaining advice
+                from an attorney or another professional adviser
+                before entering into this Agreement. By signing this
+                Agreement you are acknowledging that you have
+                had a full and complete opportunity to confer with
+                an attorney or other adviser and that no employee
+                of Senior Lifecare Corp has provided you (or the
+                Beneficiary, if di erent from the person signing this
+                Agreement) with any legal advice in connection
+                with this Joinder Agreement, the participation by
+                the Beneficiary in the SLC Supplemental Needs
+                Trust or the suitability of such participation by the
+                Beneficiary in the SLC Supplemental Needs Trust
+                based upon the particular circumstances of the
+                Beneficiary.
                 </div>
-
-
-
             </div>
-
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
@@ -2578,291 +2571,285 @@ Beneficiary.
                 </div>
                 </div>
                 </div>
-
-        <div class="page-break"></div>
-        <div class="page-8">
-            <p class='section-heading md' style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
-            <p class='xs' style="padding:0;margin: 0;padding-bottom:2px">
-                Who is signing this Joinder Agreement?
-                &nbsp;
-                <input type="checkbox" name="agreement_signature_beneficiary" value="Beneficiary"
-                    {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}> Beneficiary &nbsp;
-                <input type="checkbox" name="agreement_signature_beneficiary" value="Power of Attorney"
-                    {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Power of Attorney' ? 'checked' : '' }}>
-                Power of Attorney &nbsp;
-                <input type="checkbox" name="agreement_signature_guardian" value="Guardian"
-                    {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
-                Guardian
-            </p>
-            <p class='xs' style='margin:0;padding-bottom:5px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
-            <div style="display: table; width: 100%; margin: 0; text-align: center;">
-            <div style="display: table-row;">
-                <div style="display: table-cell; width: 30%;">
-                    <div class='xs'>
-                        @if ($joinder_signature_1)
-                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="70px" style="display: block; border-bottom: 1px solid;width:80%">
-                        @else
-                            <div style="width: 200px; height: 50px; text-align: center;">
-                        No Signature Provided
-                    </div>
-                            @endif
-                            <div class='xs' style='text-align: left;'>
-                                <label class='italic' style='margin-left:25px'>Sign Here</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display: table-cell; width: 30%;">
-                        <p style="margin: 0;" class='xs'>
-                            <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
-                            <br>
-                            <div style='text-align: left;margin-left:80px'>
-                                <label class='italic'>Print</label>
-                            </div>
+                 <div class="page-break"></div>
+                     <div class="page-8">
+                        <p class='section-heading md' style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
+                        <p class='xs' style="padding:0;margin: 0;padding-bottom:2px">
+                            Who is signing this Joinder Agreement?
+                            &nbsp;
+                            <input type="checkbox" name="agreement_signature_beneficiary" value="Beneficiary"
+                                {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}> Beneficiary &nbsp;
+                            <input type="checkbox" name="agreement_signature_beneficiary" value="Power of Attorney"
+                                {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Power of Attorney' ? 'checked' : '' }}>
+                            Power of Attorney &nbsp;
+                            <input type="checkbox" name="agreement_signature_guardian" value="Guardian"
+                                {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
+                            Guardian
                         </p>
-                    </div>
-                    <div style="display: table-cell; width: 30%;" class='xs'>
-                        <p style="margin: 0;">
-                            <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
-                            <br> Date
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <p class='section-heading md' style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
-            <div style='display:table;width:100%'>
-            <div style='display:table-row' class='xs'>
-            <p class='xs' style="margin:0;padding-bottom:5px;display:table-cell">STATE OF
-                <input type="text" value="{{ $notary_state_of_ny }}" class="no-border"
-                name="notary_state_of_ny">
-            </p>
-          </div>
-          <div style='display:table-row' class='xs'>
-              <p style="margin:0;padding-bottom:5px;display:table-cell">COUNTY OF
-                  <input type="text" value="{{ $notary_county_of }}" class="no-border"
-                  name="notary_county_of">
-                </p>
-            </div>
-            <div style='display:table-row' class='xs'>
-                <p style="margin:0;padding-bottom:5px;display:table-cell">
-                    ON <input type="text" class="no-border" name="notary_on_date"
-                    value="{{ $notary_on_date }}"> ,20
-                    <input type="text" value="{{ $notary_year }}" class="no-border" name="notary_year">
-                </p>
-            </div>
-            <div style='display:table-row' class='xs'>
-                <div style='display:table-cell;width:50%'>
-                        <p style="margin:0;padding-bottom:5px:">
-                            Before me the undersigned, a Notary Public in and for said State, personally appeared
-                            <input type="text" value="{{ $notary_appeared }}" class="no-border" name="notary_appeared">
-                            personally known to me or proved to me on the basis of satisfactory evidence to be the individual whose
-                            name
-                            is subscribed to the within instrument and acknowledged to me that he/she/they executed the same in
-                            his/her capacity,
-                            and that by his/her signature on the instrument, the individual or the person upon behalf of which the
-                            individual acted
-                            executed this instrument.
-                        </p>
-                    </div>
-                        <div style='display:table-cell;vertical-align:bottom;width:50%'>
-                            <input type="text" value="{{ $notary_public }}" style='width:90%;margin-left:30px' class="no-border" name="notary_public"><br>
-                            <div style='width:90%;text-align-left'>
-                                <label style='text-align:left;margin-left:30px'>NOTARY PUBLIC</label>
-                            </div>
-                        </div>
-                </div>
-            </div>
-            <p class='md section-heading' style=" width:37%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
-            <p class='xs'>
-                (New York Residents Only) <br>
-                <span style='padding-top:5px'>
-                    Or in lieu of Notarization, the following two witness signatures are provided:
-                </span>
-            </p>
-            <div style="display: table; width: 100%; margin-top: 10px;" class='xs'>
-                <!-- Row for Witness Names -->
-                <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell;padding-bottom:2px;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            name="notary_witness_one_name" value="{{ $notary_witness_one_name }}"
-                            maxlength="70">
-                            <br>
-                        <label class='italic'> Witness 1 </label>
-                    </div>
-                    <div style="display: table-cell; margin-left:20px;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            name="notary_witness_two_name" value="{{ $notary_witness_two_name }}"
-                            maxlength="70">
-                            <br>
-                        <label class='italic'> Witness 2 </label>
-                    </div>
-                </div>
-                <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            name="sig_date1" value="{{ $sig_date1 }}" maxlength="70">
-                        <br><label class='italic'>Date</label>
-                    </div>
-                    <div style="display: table-cell;margin-left:20px;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            name="sig_date2" value="{{ $sig_date2 }}" maxlength="70">
-                        <br><label class='italic'> Date </label>
-                    </div>
-                </div>
-                <!-- Row for Signatures -->
-                <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:2px;width:50%">
-                        <div style='text-align:center;width:90%'>
-                            @if ($joinder_signature_2)
-                            <img src="{{ $joinder_signature_2 }}" alt="Signature 2"
-                                style="max-width:300px; max-height: 50px;">
-                            <br>
-                            @else
-                            <div style="width: 200px;height:50px; text-align: center;">
+                        <p class='xs' style='margin:0;padding-bottom:5px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
+                        <div style="display: table; width: 100%; margin: 0; text-align: center;">
+                        <div style="display: table-row;">
+                        <div style="display: table-cell; width: 30%;">
+                            <div class='xs'>
+                                @if ($joinder_signature_1)
+                                    <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="70px" style="display: block; border-bottom: 1px solid;width:80%">
+                                @else
+                                    <div style="width: 200px; height: 50px; text-align: center;">
                                 No Signature Provided
                             </div>
-                            @endif
-                        </div>
-                        <div style='border-top:1px solid;width:90%;;'>
-                            <label class='italic'>Sign Here</label>
-                        </div>
-                    </div>
-                    <div style="display: table-cell;margin-left:20px;width:50%">
-                        <div style='text-align:center;width:90%'>
-                            @if ($joinder_signature_3)
-                            <img src="{{ $joinder_signature_3 }}" alt="Signature 3"
-                            style="max-width: 300px; max-height: 50px;">
-                            <br>
-                            @else
-                            <div style="width: 200px;height:50px; text-align: center;">
-                                No Signature Provided
+                                    @endif
+                                    <div class='xs' style='text-align: left;'>
+                                        <label class='italic' style='margin-left:25px'>Sign Here</label>
+                                    </div>
+                                </div>
                             </div>
-                            @endif
+                            <div style="display: table-cell; width: 30%;">
+                                <p style="margin: 0;" class='xs'>
+                                    <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
+                                    <br>
+                                    <div style='text-align: left;margin-left:80px'>
+                                        <label class='italic'>Print</label>
+                                    </div>
+                                </p>
+                            </div>
+                            <div style="display: table-cell; width: 30%;" class='xs'>
+                                <p style="margin: 0;">
+                                    <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
+                                    <br> Date
+                                </p>
+                            </div>
                         </div>
-                        <div style='border-top:1px solid;width:90%;'>
-                            <label class='italic'>Sign Here</label>
+                    </div>
+                    <br>
+                    <p class='section-heading md' style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
+                    <div style='display:table;width:100%'>
+                    <div style='display:table-row' class='xs'>
+                    <p class='xs' style="margin:0;padding-bottom:5px;display:table-cell">STATE OF
+                        <input type="text" value="{{ $notary_state_of_ny }}" class="no-border"
+                        name="notary_state_of_ny">
+                    </p>
+                </div>
+                <div style='display:table-row' class='xs'>
+                    <p style="margin:0;padding-bottom:5px;display:table-cell">COUNTY OF
+                        <input type="text" value="{{ $notary_county_of }}" class="no-border"
+                        name="notary_county_of">
+                        </p>
+                    </div>
+                    <div style='display:table-row' class='xs'>
+                        <p style="margin:0;padding-bottom:5px;display:table-cell">
+                            ON <input type="text" class="no-border" name="notary_on_date"
+                            value="{{ $notary_on_date }}"> ,20
+                            <input type="text" value="{{ $notary_year }}" class="no-border" name="notary_year">
+                        </p>
+                    </div>
+                    <div style='display:table-row' class='xs'>
+                        <div style='display:table-cell;width:50%'>
+                                <p style="margin:0;padding-bottom:5px:">
+                                    Before me the undersigned, a Notary Public in and for said State, personally appeared
+                                    <input type="text" value="{{ $notary_appeared }}" class="no-border" name="notary_appeared">
+                                    personally known to me or proved to me on the basis of satisfactory evidence to be the individual whose
+                                    name
+                                    is subscribed to the within instrument and acknowledged to me that he/she/they executed the same in
+                                    his/her capacity,
+                                    and that by his/her signature on the instrument, the individual or the person upon behalf of which the
+                                    individual acted
+                                    executed this instrument.
+                                </p>
+                            </div>
+                                <div style='display:table-cell;vertical-align:bottom;width:50%'>
+                                    <input type="text" value="{{ $notary_public }}" style='width:90%;margin-left:30px' class="no-border" name="notary_public"><br>
+                                    <div style='width:90%;text-align-left'>
+                                        <label style='text-align:left;margin-left:30px'>NOTARY PUBLIC</label>
+                                    </div>
+                                </div>
                         </div>
                     </div>
-                </div>
-                <!-- Row for Full Names -->
-                <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:2px;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            name="notary_witness_one_full_name" value="{{ $notary_witness_one_full_name }}"
-                            maxlength="70">
-                        <br><label class='italic'>Print Full Name</label>
-                    </div>
-                    <div style="display: table-cell;margin-left:20px;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            name="notary_witness_two_full_name" value="{{ $notary_witness_two_full_name }}"
-                            maxlength="70">
-                        <br><label class='italic'> Print Full Name</label>
-                    </div>
-                </div>
+                    <p class='md section-heading' style=" width:37%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
+                    <p class='xs'>
+                        (New York Residents Only) <br>
+                        <span style='padding-top:5px'>
+                            Or in lieu of Notarization, the following two witness signatures are provided:
+                        </span>
+                    </p>
+                    <div style="display: table; width: 100%; margin-top: 10px;" class='xs'>
+                        <!-- Row for Witness Names -->
+                        <div style="display: table-row;" class='xs'>
+                            <div style="display: table-cell;padding-bottom:2px;width:50%">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    name="notary_witness_one_name" value="{{ $notary_witness_one_name }}"
+                                    maxlength="70">
+                                    <br>
+                                <label class='italic'> Witness 1 </label>
+                            </div>
+                            <div style="display: table-cell; margin-left:20px;width:50%">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    name="notary_witness_two_name" value="{{ $notary_witness_two_name }}"
+                                    maxlength="70">
+                                    <br>
+                                <label class='italic'> Witness 2 </label>
+                            </div>
+                        </div>
+                        <div style="display: table-row;" class='xs'>
+                            <div style="display: table-cell;width:50%">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    name="sig_date1" value="{{ $sig_date1 }}" maxlength="70">
+                                <br><label class='italic'>Date</label>
+                            </div>
+                            <div style="display: table-cell;margin-left:20px;width:50%">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    name="sig_date2" value="{{ $sig_date2 }}" maxlength="70">
+                                <br><label class='italic'> Date </label>
+                            </div>
+                        </div>
+                        <!-- Row for Signatures -->
+                        <div style="display: table-row;">
+                            <div style="display: table-cell;padding-bottom:2px;width:50%">
+                                <div style='text-align:center;width:90%'>
+                                    @if ($joinder_signature_2)
+                                    <img src="{{ $joinder_signature_2 }}" alt="Signature 2"
+                                        style="max-width:300px; max-height: 50px;">
+                                    <br>
+                                    @else
+                                    <div style="width: 200px;height:50px; text-align: center;">
+                                        No Signature Provided
+                                    </div>
+                                    @endif
+                                </div>
+                                <div style='border-top:1px solid;width:90%;;'>
+                                    <label class='italic'>Sign Here</label>
+                                </div>
+                            </div>
+                            <div style="display: table-cell;margin-left:20px;width:50%">
+                                <div style='text-align:center;width:90%'>
+                                    @if ($joinder_signature_3)
+                                    <img src="{{ $joinder_signature_3 }}" alt="Signature 3"
+                                    style="max-width: 300px; max-height: 50px;">
+                                    <br>
+                                    @else
+                                    <div style="width: 200px;height:50px; text-align: center;">
+                                        No Signature Provided
+                                    </div>
+                                    @endif
+                                </div>
+                                <div style='border-top:1px solid;width:90%;'>
+                                    <label class='italic'>Sign Here</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Row for Full Names -->
+                        <div style="display: table-row;">
+                            <div style="display: table-cell;padding-bottom:2px;width:50%">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    name="notary_witness_one_full_name" value="{{ $notary_witness_one_full_name }}"
+                                    maxlength="70">
+                                <br><label class='italic'>Print Full Name</label>
+                            </div>
+                            <div style="display: table-cell;margin-left:20px;width:50%">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    name="notary_witness_two_full_name" value="{{ $notary_witness_two_full_name }}"
+                                    maxlength="70">
+                                <br><label class='italic'> Print Full Name</label>
+                            </div>
+                        </div>
 
                 <!-- Row for Full Addresses -->
-                <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:5px;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            name="notary_witness_one_full_address" value="{{ $notary_witness_one_full_address }}">
-                        <br><label class='italic'> Full Address </label>
-                    </div>
-                    <div style="display: table-cell;margin-left:20px;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            name="notary_witness_two_full_address" value="{{ $notary_witness_two_full_address }}">
-                        <br><label class='italic'> Full Address </label>
-                    </div>
-                </div>
+                        <div style="display: table-row;">
+                            <div style="display: table-cell;padding-bottom:5px;width:50%">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    name="notary_witness_one_full_address" value="{{ $notary_witness_one_full_address }}">
+                                <br><label class='italic'> Full Address </label>
+                            </div>
+                            <div style="display: table-cell;margin-left:20px;width:50%">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    name="notary_witness_two_full_address" value="{{ $notary_witness_two_full_address }}">
+                                <br><label class='italic'> Full Address </label>
+                            </div>
+                        </div>
 
-            </div>
-            <div class='section-heading md'
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:7px;padding:7px;font-weight:700">
-                FOR OFFICE USE ONLY
-            </div>
-            <p style='text-align:center' class='xs'>
-                Accepted by Trustee or Designated Representative of the Trustees, Trusted Supplemental Needs Trust.
-            </p>
-            <div style="display: table; width: 100%;margin:0;">
-                <!-- Row for Signature and Date Approved -->
-                <div style="display: table-row;">
-                    <div style="display: table-cell; width: 50%;">
-                        <!-- Signature Image or Placeholder -->
-                         <div style='text-align:center'>
-                             @if ($joinder_signature_4)
-                             <img src="{{ $joinder_signature_4 }}" alt="Signature 4"
-                             style="width: 300px; height: 50px;text-align:center;width:50%;margin-right:40px">
-                             @else
-                             <div style="width: 200px;height:50px; text-align: center;">
-                                 No Signature Provided
+                    </div>
+                    <div class='section-heading md'
+                        style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:7px;padding:7px;font-weight:700">
+                        FOR OFFICE USE ONLY
+                    </div>
+                    <p style='text-align:center' class='xs'>
+                        Accepted by Trustee or Designated Representative of the Trustees, Trusted Supplemental Needs Trust.
+                    </p>
+                    <div style="display: table; width: 100%;margin:0;">
+                        <!-- Row for Signature and Date Approved -->
+                        <div style="display: table-row;">
+                            <div style="display: table-cell; width: 50%;">
+                                <!-- Signature Image or Placeholder -->
+                                <div style='text-align:center'>
+                                    @if ($joinder_signature_4)
+                                    <img src="{{ $joinder_signature_4 }}" alt="Signature 4"
+                                    style="width: 300px; height: 50px;text-align:center;width:50%;margin-right:40px">
+                                    @else
+                                    <div style="width: 200px;height:50px; text-align: center;">
+                                        No Signature Provided
+                                        </div>
+                                        @endif
+                                    </div>
+                                <div class='xs' style='border-top:1px solid;width:90%;'>
+                                    <label class='italic'>Sign Here</label>
                                 </div>
-                                @endif
                             </div>
-                        <div class='xs' style='border-top:1px solid;width:90%;'>
-                            <label class='italic'>Sign Here</label>
-                        </div>
-                    </div>
-                    <div class='xs' style="display: table-cell; width: 50%;">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
-                            value="{{ $office_use_date_approved }}">
-                        <br><label class='italic'>DATE</label>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div style="display: table; width: 100%;" class="footer">
-                <div style="display:table-row;width:100%">
-                <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
-                </div>
-                <div style="display: table-cell; text-align: center; width: 33%;">
-                    <div style=" padding: 7px; display: inline-block; position: relative;">
-                        <p class="footer-center xs" style="margin: 0;">8</p>
-                        <div style="
-                                    transform: translateX(-50%);">
-                        </div>
-                    </div>
-                </div>
-                <div style="display: table-cell; text-align: right; width: 33%;">
-                    <p class="xxs">JOINDER AGREEMENT</p>
-                </div>
-                </div>
-            </div>
-        </div>
-        <div class="page-break"></div>
-        <div class="page-9">
-            <div style="display: table; width: 40%;margin-left: auto; border: none;">
-                <div style="display: table-row;border: none;">
-                    <table class="mem-table" style="border: none;">
-                        <tr  style="border:none;padding: 5px;background-color:rgb(184 221 219)">
-                            <td class="md strong" colspan="2" style="color: rgb(52 159 153);border: none;">FOR OFFICE USE ONLY</td>
-                        </tr>
-                    </table>
-                    <div style="display: table; width:100%;background-color: #ecf6f7;text-align:center;padding:15px 0px">
-                        {{-- <br> --}}
-                        <div style="display: table-row;margin-top:10px" class="md">
-                            <div style="display: table-cell;">
-
-                                <label class="md">Member ID#:</label>
-                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_member_id_above }}" name="office_use_member_id_above" />
-                            </div>
-                        </div>
-                        <br>
-                        <div style="display: table-row;" class="md">
-                            <div style="display: table-cell;">
-
-                                <label  class="md">Effective Date:</label>
-                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_effective_date }}" name="office_use_effective_date"  />
+                            <div class='xs' style="display: table-cell; width: 50%;">
+                                <input type="text" style="width: 90%; text-align: center;" class="no-border"
+                                    value="{{ $office_use_date_approved }}">
+                                <br><label class='italic'>DATE</label>
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <div style="display: table; width: 100%;" class="footer">
+                        <div style="display:table-row;width:100%">
+                        <div style="display: table-cell; text-align: left; width: 33%;">
+                            <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                        </div>
+                        <div style="display: table-cell; text-align: center; width: 33%;">
+                            <div style=" padding: 7px; display: inline-block; position: relative;">
+                                <p class="footer-center xs" style="margin: 0;">8</p>
+                                <div style="
+                                            transform: translateX(-50%);">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: table-cell; text-align: right; width: 33%;">
+                            <p class="xxs">JOINDER AGREEMENT</p>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="page-break"></div>
+                <div class="page-9">
+                    <div style="display: table; width: 40%;margin-left: auto; border: none;">
+                        <div style="display: table-row;border: none;">
+                            <table class="mem-table" style="border: none;">
+                                <tr  style="border:none;padding: 5px;background-color:rgb(184 221 219)">
+                                    <td class="md strong" colspan="2" style="color: rgb(52 159 153);border: none;">FOR OFFICE USE ONLY</td>
+                                </tr>
+                            </table>
+                            <div style="display: table; width:100%;background-color: #ecf6f7;text-align:center;padding:15px 0px">
+                                {{-- <br> --}}
+                                <div style="display: table-row;margin-top:10px" class="md">
+                                    <div style="display: table-cell;">
 
+                                        <label class="md">Member ID#:</label>
+                                        <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_member_id_above }}" name="office_use_member_id_above" />
+                                    </div>
+                                </div>
+                                <br>
+                                <div style="display: table-row;" class="md">
+                                    <div style="display: table-cell;">
 
-
-        
+                                        <label  class="md">Effective Date:</label>
+                                        <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_effective_date }}" name="office_use_effective_date"  />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             <p class="section-heading md" style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:32%;padding:8px 20px">DIRECT DEBIT REQUEST FORM</p>
-
                     <div style="display: table; width: 100%;" class="xs">
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
