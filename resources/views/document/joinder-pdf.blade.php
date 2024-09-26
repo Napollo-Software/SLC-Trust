@@ -280,7 +280,7 @@
                     </div>
                 </div>
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px;margin-bottom:10px">
                     <div style="display: table-row;">
                         <div style="display: table-cell;width:45%;text-align: right;">
                             <div style="" class="xl">Fax:</div>
@@ -293,7 +293,7 @@
                 </div>
 
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:8px">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
                     <div style="display: table-row;">
                         <div style="display: table-cell;">
                             <div style="" class="xl">info@slctrusts.org </div>
