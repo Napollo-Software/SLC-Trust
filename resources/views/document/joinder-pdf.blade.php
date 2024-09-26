@@ -2600,13 +2600,13 @@ Beneficiary.
                 <div style="display: table-cell; width: 33%;">
                     <div class='xs'>
                         @if ($joinder_signature_1)
-                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="70px" style="display: block; border-bottom: 1px solid;margin-left:60px;width:80%">
+                            <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="70px" style="display: block; border-bottom: 1px solid;width:80%">
                         @else
                             <div style="width: 200px; height: 50px; text-align: center;">
                         No Signature Provided
                     </div>
                             @endif
-                            <div class='xs' style='text-align: left;margin-left:40px'>
+                            <div class='xs' style='text-align: left;'>
                                 <label class='italic'>Sign Here</label>
                             </div>
                         </div>
@@ -2770,7 +2770,7 @@ Beneficiary.
                     <div style="display: table-cell;margin-left:20px">
                         <input type="text" style="width: 60%; text-align: center;" class="no-border"
                             name="notary_witness_two_full_address" value="{{ $notary_witness_two_full_address }}">
-                        <br><labelclass='italic'> Full Address </label>
+                        <br><label class='italic'> Full Address </label>
                     </div>
                 </div>
 
