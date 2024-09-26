@@ -16,10 +16,6 @@
             src: url('fonts/VENPGM-Poppins-Medium.ttf') format('truetype');
         }
         @font-face {
-            font-family: 'VENPGM-Poppins-Medium';
-            src: url('fonts/VENPGM-Poppins-Medium.ttf') format('truetype');
-        }
-        @font-face {
             font-family: 'VENPGM-Poppins-SemiBold';
             src: url('fonts/VENPGM-Poppins-SemiBold.ttf') format('truetype');
         }
@@ -32,6 +28,11 @@
             src: url('fonts/VENPGM-MinionPro-Regular.ttf') format('truetype');
         }
 
+        @font-face {
+            font-family: 'VENPGM-MinionPro-Italic';
+            src: url('fonts/VENPGM-MinionPro-Italic.ttf') format('truetype');
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -40,9 +41,16 @@
         body {
             font-family: "VENPGM-Poppins-Regular";
         }
-        .black {
-            font-family: "Nominee-Black", sans-serif;
+
+        .semiBold{
+            font-family: "VENPGM-Poppins-SemiBold";
         }
+
+        .bold{
+            font-family: "VENPGM-Poppins-Bold";
+        }
+
+
         th,
         td {
             border: 1px solid rgb(184 221 219);
