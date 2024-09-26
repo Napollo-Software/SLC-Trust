@@ -168,13 +168,14 @@
         .italic{
             font-family: "Poppins-Italic";
             font-size: 10px;
+            display: block;
+            margin-top:-6px
         }
 
         .text-center{
             text-align: center;
         }
         .text-normal{
-            font-weight: 500;
         }
 
 
@@ -395,17 +396,17 @@
                 <div style="display: table-row;table-layout: fixed;" class="xs">
                     <div style="display: table-cell;width: 33.33%; ">
 
-                        <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" /> <br>
+                        <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" /> 
                         <label class="italic">First</label>
                     </div>
                    
                     <div style="display: table-cell;width: 33.33%;">
-                        <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" /> <br>
+                        <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" /> 
                         <label class="italic">Middle:</label>
                     </div>
                    
                     <div style="display: table-cell;width: 33.33%;">
-                        <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" /> <br>
+                        <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" /> 
                         <label class="italic">Last:</label>
                     </div>
                 </div>
@@ -534,12 +535,12 @@
                     <label class="sm">
                         <input type="checkbox" name="prefered_cell" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
-                        <label style="font-weight: 400;">Cell</label>
+                        <label style="">Cell</label>
                     </label>
                     <label >
                         <input type="checkbox" name="prefered_cell" value="Phone"
                             {{ isset($prefered_cell) && $prefered_cell === 'Phone' ? 'checked' : '' }}>
-                        <label style="font-weight: 400">Home</label>
+                        <label style="">Home</label>
                     </label>
                 </p>
 
@@ -3034,7 +3035,7 @@ Beneficiary.
 
             <div>
                 <div
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;font-weight:bold">
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
                 FOR OFFICE USE
                 </div>
                 <br>
