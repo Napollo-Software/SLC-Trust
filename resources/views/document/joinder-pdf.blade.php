@@ -1928,7 +1928,7 @@
       <div class="page-5">
 
         <div class="section-title">
-            <p class="md"  style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+            <p class="strong md section-heading"  style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
                 POWER OF ATTORNEY
             </p>
 
