@@ -2597,7 +2597,7 @@ Beneficiary.
             <p class='xs' style='margin:0;padding-bottom:5px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
             <div style="display: table; width: 100%; margin: 0; text-align: center;">
             <div style="display: table-row;">
-                <div style="display: table-cell; width: 33%;">
+                <div style="display: table-cell; width: 30%;">
                     <div class='xs'>
                         @if ($joinder_signature_1)
                             <img src="{{ $joinder_signature_1 }}" alt="Signature 1" width="300px" height="70px" style="display: block; border-bottom: 1px solid;width:80%">
@@ -2607,11 +2607,11 @@ Beneficiary.
                     </div>
                             @endif
                             <div class='xs' style='text-align: left;'>
-                                <label class='italic'>Sign Here</label>
+                                <label class='italic' style='margin-left:25px'>Sign Here</label>
                             </div>
                         </div>
                     </div>
-                    <div style="display: table-cell; width: 33%;">
+                    <div style="display: table-cell; width: 30%;">
                         <p style="margin: 0;" class='xs'>
                             <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
                             <br>
@@ -2620,7 +2620,7 @@ Beneficiary.
                             </div>
                         </p>
                     </div>
-                    <div style="display: table-cell; width: 33%;" class='xs'>
+                    <div style="display: table-cell; width: 30%;" class='xs'>
                         <p style="margin: 0;">
                             <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
                             <br> Date
@@ -2665,8 +2665,8 @@ Beneficiary.
                         </p>
                     </div>
                         <div style='display:table-cell;vertical-align:bottom;width:50%'>
-                            <input type="text" value="{{ $notary_public }}" style='width:60%;margin-left:30px' class="no-border" name="notary_public"><br>
-                            <div style='width:52%;text-align-left'>
+                            <input type="text" value="{{ $notary_public }}" style='width:90%;margin-left:30px' class="no-border" name="notary_public"><br>
+                            <div style='width:90%;text-align-left'>
                                 <label style='text-align:left;margin-left:30px'>NOTARY PUBLIC</label>
                             </div>
                         </div>
@@ -2682,15 +2682,15 @@ Beneficiary.
             <div style="display: table; width: 100%; margin-top: 10px;" class='xs'>
                 <!-- Row for Witness Names -->
                 <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell;padding-bottom:2px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;padding-bottom:2px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_one_name" value="{{ $notary_witness_one_name }}"
                             maxlength="70">
                             <br>
                         <label class='italic'> Witness 1 </label>
                     </div>
-                    <div style="display: table-cell; margin-left:20px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell; margin-left:20px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_two_name" value="{{ $notary_witness_two_name }}"
                             maxlength="70">
                             <br>
@@ -2698,21 +2698,21 @@ Beneficiary.
                     </div>
                 </div>
                 <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell;">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="sig_date1" value="{{ $sig_date1 }}" maxlength="70">
                         <br><label class='italic'>Date</label>
                     </div>
-                    <div style="display: table-cell;margin-left:20px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="sig_date2" value="{{ $sig_date2 }}" maxlength="70">
                         <br><label class='italic'> Date </label>
                     </div>
                 </div>
                 <!-- Row for Signatures -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:2px;">
-                        <div style='text-align:center;width:60%'>
+                    <div style="display: table-cell;padding-bottom:2px;width:50%">
+                        <div style='text-align:center;width:90%'>
                             @if ($joinder_signature_2)
                             <img src="{{ $joinder_signature_2 }}" alt="Signature 2"
                                 style="max-width:300px; max-height: 50px;">
@@ -2723,12 +2723,12 @@ Beneficiary.
                             </div>
                             @endif
                         </div>
-                        <div style='border-top:1px solid;width:60%;;'>
+                        <div style='border-top:1px solid;width:90%;;'>
                             <label class='italic'>Sign Here</label>
                         </div>
                     </div>
-                    <div style="display: table-cell;margin-left:20px">
-                        <div style='text-align:center;width:60%'>
+                    <div style="display: table-cell;margin-left:20px;width:50%">
+                        <div style='text-align:center;width:90%'>
                             @if ($joinder_signature_3)
                             <img src="{{ $joinder_signature_3 }}" alt="Signature 3"
                             style="max-width: 300px; max-height: 50px;">
@@ -2739,21 +2739,21 @@ Beneficiary.
                             </div>
                             @endif
                         </div>
-                        <div style='border-top:1px solid;width:60%;'>
+                        <div style='border-top:1px solid;width:90%;'>
                             <label class='italic'>Sign Here</label>
                         </div>
                     </div>
                 </div>
                 <!-- Row for Full Names -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:2px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;padding-bottom:2px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_one_full_name" value="{{ $notary_witness_one_full_name }}"
                             maxlength="70">
                         <br><label class='italic'>Print Full Name</label>
                     </div>
-                    <div style="display: table-cell;margin-left:20px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_two_full_name" value="{{ $notary_witness_two_full_name }}"
                             maxlength="70">
                         <br><label class='italic'> Print Full Name</label>
@@ -2762,13 +2762,13 @@ Beneficiary.
 
                 <!-- Row for Full Addresses -->
                 <div style="display: table-row;">
-                    <div style="display: table-cell;padding-bottom:5px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;padding-bottom:5px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_one_full_address" value="{{ $notary_witness_one_full_address }}">
                         <br><label class='italic'> Full Address </label>
                     </div>
-                    <div style="display: table-cell;margin-left:20px">
-                        <input type="text" style="width: 60%; text-align: center;" class="no-border"
+                    <div style="display: table-cell;margin-left:20px;width:50%">
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="notary_witness_two_full_address" value="{{ $notary_witness_two_full_address }}">
                         <br><label class='italic'> Full Address </label>
                     </div>
@@ -2790,21 +2790,21 @@ Beneficiary.
                          <div style='text-align:center'>
                              @if ($joinder_signature_4)
                              <img src="{{ $joinder_signature_4 }}" alt="Signature 4"
-                             style="width: 300px; height: 50px;text-align:center">
+                             style="width: 300px; height: 50px;text-align:center;width:50%;margin-right:40px">
                              @else
                              <div style="width: 200px;height:50px; text-align: center;">
                                  No Signature Provided
                                 </div>
                                 @endif
                             </div>
-                        <div class='xs' style='border-top:1px solid;width:90%;margin-left:40px;'>
+                        <div class='xs' style='border-top:1px solid;width:90%;'>
                             <label class='italic'>Sign Here</label>
                         </div>
                     </div>
                     <div class='xs' style="display: table-cell; width: 50%;">
-                        <input type="text" style="width: 90%; text-align: center;margin-left:40px" class="no-border"
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             value="{{ $office_use_date_approved }}">
-                        <br><label style='margin-left:40px' class='italic'>DATE</label>
+                        <br><label class='italic'>DATE</label>
                     </div>
                 </div>
             </div>
