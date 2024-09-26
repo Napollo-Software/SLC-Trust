@@ -160,12 +160,11 @@
         .strong{
             font-weight: bold;
         }
-        footer{
-            position: fixed;
+        .footer{
+            position: absolute;
             left: 0px;
             right: 0px;
-            height: 50px;
-            margin-bottom: -50px;
+            bottom: 10px;
         }
 
         .footer-center{
@@ -175,11 +174,6 @@
             padding-left: 6px;
             padding-right: 6px;
             color: #37A09B
-        }
-
-        .footer{
-            position: absolute;
-            bottom: 10;
         }
 
         .section-title{
@@ -225,9 +219,6 @@
 <body style="padding: 0;margin: 0;">
     <form id="joinderForm" method="POST" action="{{ route('save.joinder') }}">
         @csrf
-        <footer>
-        <!-- <p>Copyright &copy; <?php echo date("Y");?></p> -->
-        </footer>
         <div class="page-0">
             <br> <br>
             <div class="container-row" style="text-align:center;">
@@ -2297,7 +2288,7 @@
                 </div>
             </div>
         </div>
-        <p class="md" style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            <p class="md" style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 BENEFICIARY SERVICES
             </p>
             <p class="sm" style="padding:0;margin-top:5px;">
@@ -2349,235 +2340,225 @@
             </div>
 
         </div>
-
-        <div class="page-6 sm">
-        <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:36%" class="section-heading md" >
-            INFORMATION AND DISCLOSURES:
-        </p>
-        <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
-            <b>Death of Beneficiary:</b><br>
-            The Beneficiary’s sub-trust account terminates
-                upon his or her death. If, upon the death of the
-                Beneficiary, funds remain in his or her sub-trust
-                account, such funds shall be deemed to be property
-                of the Trust and all funds that are remaining in the
-                Beneficiary’s separate sub-trust account shall
-                be retained by SLC Supplemental Needs Trust to
-                further the purposes of that Trust. However, to the
-                extent that amounts remaining in the individual’s
-                subtrust account upon the death of the individual
-                are not in fact retained by the Trust, the Trust shall
-                pay to the State(s) from such remaining amounts in
-                the sub-trust account an amount equal to the total
-                amount of medical assistance paid on behalf of the
-                individual under the State Medicaid plan (s). To the
-                extent that the trust does not retain the funds in the
-                account, the State(s) shall be the first payee(s) of
-                any such funds and the State(s) shall have priority
-                over payment of other debts and administrative
-                expenses except as listed in POMS SI 01120.203E.<br/>
-                Funeral expenses will only be paid pursuant to a
-                Medicaid eligible pre-need funeral arrangement
-                established and funded prior to the Beneficiary’s
-                death. Funeral expenses will not be paid after the
-                Beneficiary’s death. <br/><br/>
-                <b>Contributions/Deposits:</b><br>
-                All contributions made to the sub-trust account
-will be held and administered pursuant to the
-provisions of the SLC Supplemental Needs Trust
-which are incorporated by reference herein.<br/>
-The Trustees shall have the sole and absolute right
-to accept or refuse additional deposits to the subtrust account.<br/>
-            In the event that a Beneficiary has a zero ($0)
-sub-trust account balance for sixty (60) or more
-consecutive days, the Trustee shall retain the right
-to close the Beneficiary’s sub-trust account. Please
-be advised that the Trustee may continue to charge
-administrative fees for the management of the
-sub-trust account prior to its closure. In the event
-that a Beneficiary wishes to re-open a sub-trust
-account, the Beneficiary may be required to pay any
-outstanding administrative fees stemming from the
-prior sub-trust account.   Additionally, the Beneficiary
-shall be required to pay a new enrollment fee when re-opening a sub-trust
-        </div>
-
-        <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
-         account.
-        <br>
-        <b style="margin-top:40px">Disbursements: </b><br>
-        All disbursement requests shall be reviewed and
-approved on an individual basis.
-Disbursements for expenses incurred more than 90
-days prior to submission of a disbursement request
-form shall not be paid. <br/> The Trustees, in their discretion, have determined
-that disbursements for the following items shall not
-be paid: purchases of firearms, alcohol, tobacco,
-items relating to illegal activity, bail, or restitution. <br/> All disbursements shall be made at the sole and
-absolute discretion of the Trustee. No disbursements
-will be made after the death of the beneficiary, even
-for expenses incurred or due prior to death.
-                <br/><br/>
-                <b >Disability Determination:</b><br>
-                In the event that a determination of disability is
-required for Medicaid purposes, please be advised
-that administrative fees shall be incurred while the
-determination of disability is being made. <br/>The Donor acknowledges that contributions to
-the SLC Supplemental Needs Trust are not tax
-deductible as charitable gifts, or otherwise.
-Sub-trust account income may be taxable to the
-Beneficiary. <br/><br/>
-<b >Disclosure of Potential Conflict of Interest:</b><br>
-There may be a potential conflict of interest in the
-administration of the Trust since the Trust retains
-those funds remaining in the sub-trust account at
-the time of death of the Beneficiary. Funds remaining
-in the Trust may be used to pay for ancillary and/
-or supplemental services for Beneficiaries and
-potential Beneficiaries for which services may be
-rendered by SLC Supplemental Needs Trust.<br/>
-The Donor executing this Joinder Agreement is
-aware of the potential conflicts of interest that exist
-in the Trustee’s<br/>administration of the Trust. The Trustee shall not
-be liable to Donor or to any party for any act of
-self-dealing or conflict of interest resulting from
-their a liations with Senior Lifecare Corp or with
-any Beneficiary or constituent agencies and/or
-Chapters.
-        </div>
-
-        <div style="display: table; width: 100%;" class="footer">
-                <div style="display:table-row;width:100%">
-                <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
-                </div>
-                <div style="display: table-cell; text-align: center; width: 33%;">
-                    <div style=" padding: 7px; display: inline-block; position: relative;">
-                        <p class="footer-center xs" style="margin: 0;">6</p>
-                        <div style=" transform: translateX(-50%);">
-                        </div>
-                    </div>
-                </div>
-                <div style="display: table-cell; text-align: right; width: 33%;">
-                    <p class="xxs">JOINDER AGREEMENT</p>
-                </div>
-                </div>
-            </div>
-
         </div>
 
         <div class="page-break"></div>
+        <div class="page-6 sm" style="position: relative;">
+            <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:36%" class="section-heading md" >
+                INFORMATION AND DISCLOSURES:
+            </p>
+            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
+                <b>Death of Beneficiary:</b><br>
+                <p>The Beneficiary’s sub-trust account terminates
+                    upon his or her death. If, upon the death of the
+                    Beneficiary, funds remain in his or her sub-trust
+                    account, such funds shall be deemed to be property
+                    of the Trust and all funds that are remaining in the
+                    Beneficiary’s separate sub-trust account shall
+                    be retained by SLC Supplemental Needs Trust to
+                    further the purposes of that Trust. However, to the
+                    extent that amounts remaining in the individual’s
+                    subtrust account upon the death of the individual
+                    are not in fact retained by the Trust, the Trust shall
+                    pay to the State(s) from such remaining amounts in
+                    the sub-trust account an amount equal to the total
+                    amount of medical assistance paid on behalf of the
+                    individual under the State Medicaid plan (s). To the
+                    extent that the trust does not retain the funds in the
+                    account, the State(s) shall be the first payee(s) of
+                    any such funds and the State(s) shall have priority
+                    over payment of other debts and administrative
+                    expenses except as listed in POMS SI 01120.203E.<br/>
+                    Funeral expenses will only be paid pursuant to a
+                    Medicaid eligible pre-need funeral arrangement
+                    established and funded prior to the Beneficiary’s
+                    death. Funeral expenses will not be paid after the
+                    Beneficiary’s death. <br/><br/>
+                    <b>Contributions/Deposits:</b><br>
+                    All contributions made to the sub-trust account will be held and administered pursuant to the provisions of the SLC Supplemental Needs Trust which are incorporated by reference herein.<br/> The Trustees shall have the sole and absolute right to accept or refuse additional deposits to the subtrust account.<br/>
+                    In the event that a Beneficiary has a zero ($0)
+                    sub-trust account balance for sixty (60) or more
+                    consecutive days, the Trustee shall retain the right
+                    to close the Beneficiary’s sub-trust account. Please
+                    be advised that the Trustee may continue to charge
+                    administrative fees for the management of the
+                    sub-trust account prior to its closure. In the event
+                    that a Beneficiary wishes to re-open a sub-trust
+                    account, the Beneficiary may be required to pay any
+                    outstanding administrative fees stemming from the
+                    prior sub-trust account.   Additionally, the Beneficiary
+                    shall be required to pay a new enrollment fee when re-opening a sub-trust</p>
+            </div>
 
-        <div class="page-7 sm">
-            <b>Situs:</b> <br/>
-                <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
-                    The sub-trust account created by this Agreement
-has been accepted by the Trustee in the State of
-New York and will be administered by Senior Lifecare
-Corp and a financial institution in the State of New
-York. The validity, construction, and all rights under
-this Agreement shall be governed by the laws
-of the State of New York. The situs of this Trust for
-administrative, account and legal purposes shall
-be in the County of Kings, the County where the
-majority of meetings concerning establishment of
-the Trust occurred.
-<br/><br/>
-<b>Invalidity of any Provision:</b> <br/>
-Should any provision of this Agreement be or
-become invalid or unenforceable, the remaining
-provisions of this Agreement shall be and continue
-to be fully e ective. <br/>By signing below, you a rm that you understand
-and agree to the following: <br/>I have received and read a copy of the applicable
-Master Trust prior to the signing of this Joinder
-Agreement and acknowledge that I understand
-the contents thereof. I also understand that said
-document may be amended from time to time.
-I have been provided with the applicable fee
-schedule and acknowledge that I understand the
-contents thereof. I also understand there may be
-changes from time to time.<br/>I am entering into this Joinder Agreement voluntarily
-and acting on my own free accord.<br/>The Donor acknowledges that the Beneficiary is
-disabled as defined in Social Security Law Section
-1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this
-document are true and accurate to the best of my
-knowledge.<br/>The SLC Supplemental Needs Trust is authorized to
-be used by individuals with disabilities pursuant to
-federal and state law. By agreeing to accept a donor’s
-property pursuant to this Joinder Agreement, SLC
-Supplemental Needs Trust agrees only to manage
-the trust funds in accordance with the terms of the
-Master Trust Agreement and in compliance with
-applicable federal and state law and regulation.
-It is the sole responsibility of the donor and/or the
-donor’s representative to determine whether the donor is “disabled” as that term
-                </div>
-
-                <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
-                 is defined under
-federal law, to determine whether they have the
-legal authority to transfer property to fund the
-trust, and the impact that a transfer of property to
-the SLC Supplemental Needs Trust will have on the
-donor’s continuing eligibility for government benefit
-programs.<br/>
-Senior Lifecare Corp is not assuming any
-responsibility as counsel for the donor or Beneficiary,
-or providing any legal advice as it relates to the
-consequences of a transfer of property to the SLC
-Supplemental Needs Trust. <br/>The Trustees in their discretion may require an
-intermediary to assist in the administration of the
-Beneficiary’s sub-trust account. The cost of which
-may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf
-or the intermediary must notify SLC Supplemental
-Needs Trust. immediately upon your death and
-will be required to provide us with a certified death
-certificate. An individual requesting and/or receiving
-disbursements in contravention of the Master Trust
-Agreement and the Joinder Agreement will be
-required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the
-Beneficiary in the SLC Supplemental Needs Trust is an
-important legal decision that may have significant
-and lasting consequences for the Beneficiary and as
-a result you may want to consider obtaining advice
-from an attorney or another professional adviser
-before entering into this Agreement. By signing this
-Agreement you are acknowledging that you have
-had a full and complete opportunity to confer with
-an attorney or other adviser and that no employee
-of Senior Lifecare Corp has provided you (or the
-Beneficiary, if di erent from the person signing this
-Agreement) with any legal advice in connection
-with this Joinder Agreement, the participation by
-the Beneficiary in the SLC Supplemental Needs
-Trust or the suitability of such participation by the
-Beneficiary in the SLC Supplemental Needs Trust
-based upon the particular circumstances of the
-Beneficiary.
-                </div>
-
-
-
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
+            account.
+                <br>
+                <b style="margin-top:40px">Disbursements: </b><br>
+                <p>All disbursement requests shall be reviewed and
+                    approved on an individual basis.
+                    Disbursements for expenses incurred more than 90
+                    days prior to submission of a disbursement request
+                    form shall not be paid. <br/> The Trustees, in their discretion, have determined
+                    that disbursements for the following items shall not
+                    be paid: purchases of firearms, alcohol, tobacco,
+                    items relating to illegal activity, bail, or restitution. <br/> All disbursements shall be made at the sole and
+                    absolute discretion of the Trustee. No disbursements
+                    will be made after the death of the beneficiary, even
+                    for expenses incurred or due prior to death.
+                    <br/><br/>
+                    <b >Disability Determination:</b><br>
+                    In the event that a determination of disability is
+                    required for Medicaid purposes, please be advised
+                    that administrative fees shall be incurred while the
+                    determination of disability is being made. <br/>The Donor acknowledges that contributions to
+                    the SLC Supplemental Needs Trust are not tax
+                    deductible as charitable gifts, or otherwise.
+                    Sub-trust account income may be taxable to the
+                    Beneficiary. <br/><br/>
+                    <b >Disclosure of Potential Conflict of Interest:</b><br>
+                    There may be a potential conflict of interest in the
+                    administration of the Trust since the Trust retains
+                    those funds remaining in the sub-trust account at
+                    the time of death of the Beneficiary. Funds remaining
+                    in the Trust may be used to pay for ancillary and/
+                    or supplemental services for Beneficiaries and
+                    potential Beneficiaries for which services may be
+                    rendered by SLC Supplemental Needs Trust.<br/>
+                    The Donor executing this Joinder Agreement is
+                    aware of the potential conflicts of interest that exist
+                    in the Trustee’s<br/>administration of the Trust. The Trustee shall not
+                    be liable to Donor or to any party for any act of
+                    self-dealing or conflict of interest resulting from
+                    their a liations with Senior Lifecare Corp or with
+                    any Beneficiary or constituent agencies and/or
+                    Chapters.
+                </p>
             </div>
 
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
-                <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
-                </div>
-                <div style="display: table-cell; text-align: center; width: 33%;">
-                    <div style=" padding: 7px; display: inline-block; position: relative;">
-                        <p class="footer-center xs" style="margin: 0;">7</p>
-                        <div style="
-                                    transform: translateX(-50%);">
+                    <div style="display: table-cell; text-align: left; width: 33%;">
+                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                    </div>
+                    <div style="display: table-cell; text-align: center; width: 33%;">
+                        <div style=" padding: 7px; display: inline-block; position: relative;">
+                            <p class="footer-center xs" style="margin: 0;">6</p>
                         </div>
                     </div>
+                    <div style="display: table-cell; text-align: right; width: 33%;">
+                        <p class="xxs">JOINDER AGREEMENT</p>
+                    </div>
                 </div>
-                <div style="display: table-cell; text-align: right; width: 33%;">
-                    <p class="xxs">JOINDER AGREEMENT</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="page-7 sm" style="position: relative;">
+            <b>Situs:</b> <br/>
+            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
+                <p>The sub-trust account created by this Agreement
+                    has been accepted by the Trustee in the State of
+                    New York and will be administered by Senior Lifecare
+                    Corp and a financial institution in the State of New
+                    York. The validity, construction, and all rights under
+                    this Agreement shall be governed by the laws
+                    of the State of New York. The situs of this Trust for
+                    administrative, account and legal purposes shall
+                    be in the County of Kings, the County where the
+                    majority of meetings concerning establishment of
+                    the Trust occurred.
+                    <br/><br/>
+                    <b>Invalidity of any Provision:</b> <br/>
+                    Should any provision of this Agreement be or
+                    become invalid or unenforceable, the remaining
+                    provisions of this Agreement shall be and continue
+                    to be fully e ective. <br/>By signing below, you a rm that you understand
+                    and agree to the following: <br/>I have received and read a copy of the applicable
+                    Master Trust prior to the signing of this Joinder
+                    Agreement and acknowledge that I understand
+                    the contents thereof. I also understand that said
+                    document may be amended from time to time.
+                    I have been provided with the applicable fee
+                    schedule and acknowledge that I understand the
+                    contents thereof. I also understand there may be
+                    changes from time to time.<br/>I am entering into this Joinder Agreement voluntarily
+                    and acting on my own free accord.<br/>The Donor acknowledges that the Beneficiary is
+                    disabled as defined in Social Security Law Section
+                    1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this
+                    document are true and accurate to the best of my
+                    knowledge.<br/>The SLC Supplemental Needs Trust is authorized to
+                    be used by individuals with disabilities pursuant to
+                    federal and state law. By agreeing to accept a donor’s
+                    property pursuant to this Joinder Agreement, SLC
+                    Supplemental Needs Trust agrees only to manage
+                    the trust funds in accordance with the terms of the
+                    Master Trust Agreement and in compliance with
+                    applicable federal and state law and regulation.
+                    It is the sole responsibility of the donor and/or the
+                    donor’s representative to determine whether the donor is “disabled” as that term
+                </p>
+            </div>
+
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:21px;margin-top:0px">
+                <p>is defined under
+                    federal law, to determine whether they have the
+                    legal authority to transfer property to fund the
+                    trust, and the impact that a transfer of property to
+                    the SLC Supplemental Needs Trust will have on the
+                    donor’s continuing eligibility for government benefit
+                    programs.<br/>
+                    Senior Lifecare Corp is not assuming any
+                    responsibility as counsel for the donor or Beneficiary,
+                    or providing any legal advice as it relates to the
+                    consequences of a transfer of property to the SLC
+                    Supplemental Needs Trust. <br/>The Trustees in their discretion may require an
+                    intermediary to assist in the administration of the
+                    Beneficiary’s sub-trust account. The cost of which
+                    may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf
+                    or the intermediary must notify SLC Supplemental
+                    Needs Trust. immediately upon your death and
+                    will be required to provide us with a certified death
+                    certificate. An individual requesting and/or receiving
+                    disbursements in contravention of the Master Trust
+                    Agreement and the Joinder Agreement will be
+                    required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the
+                    Beneficiary in the SLC Supplemental Needs Trust is an
+                    important legal decision that may have significant
+                    and lasting consequences for the Beneficiary and as
+                    a result you may want to consider obtaining advice
+                    from an attorney or another professional adviser
+                    before entering into this Agreement. By signing this
+                    Agreement you are acknowledging that you have
+                    had a full and complete opportunity to confer with
+                    an attorney or other adviser and that no employee
+                    of Senior Lifecare Corp has provided you (or the
+                    Beneficiary, if di erent from the person signing this
+                    Agreement) with any legal advice in connection
+                    with this Joinder Agreement, the participation by
+                    the Beneficiary in the SLC Supplemental Needs
+                    Trust or the suitability of such participation by the
+                    Beneficiary in the SLC Supplemental Needs Trust
+                    based upon the particular circumstances of the
+                </p>
+            </div>
+
+            <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                    <div style="display: table-cell; text-align: left; width: 33%;">
+                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                    </div>
+                    <div style="display: table-cell; text-align: center; width: 33%;">
+                        <div style=" padding: 7px; display: inline-block; position: relative;">
+                            <p class="footer-center xs" style="margin: 0;">7</p>
+                        </div>
+                    </div>
+                    <div style="display: table-cell; text-align: right; width: 33%;">
+                        <p class="xxs">JOINDER AGREEMENT</p>
+                    </div>
                 </div>
-                </div>
-                </div>
+            </div>
+        </div>
 
         <div class="page-break"></div>
         <div class="page-8">
@@ -2857,21 +2838,14 @@ Beneficiary.
                     </div>
                 </div>
             </div>
-
-
-
-        
             <p class="section-heading md" style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:32%;padding:8px 20px">DIRECT DEBIT REQUEST FORM</p>
 
                     <div style="display: table; width: 100%;" class="xs">
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
-
                                 <label class="md">Donor/Beneficiary</label> &nbsp;
                                 <input class="xs" type="text" value="{{ $direct_debit_donor_beneficiary }}" name="direct_debit_donor_beneficiary" style="width: 80%" /> 
                             </div>
-
-
                         </div>
                         {{-- <br> --}}
                         <div style="display: table-row; margin-top:4px" class="md">
@@ -3058,7 +3032,7 @@ Beneficiary.
                     A $100 annual-renewal fee will be charged on the anniversary of the account
                 </p>
                 <div style="text-align: center;">
-                    <img src="{{ public_path('images/new_logo.png') }}" alt="logo" width="250">
+                    <img src="{{ public_path('images/new_logo.png') }}" alt="logo" width="270">
                        <br>
                 </div>
             </div>
