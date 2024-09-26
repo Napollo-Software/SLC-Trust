@@ -1219,8 +1219,8 @@
 <div class="page-break"></div>
 
         <div class="page-3">
-            <p class='md'
-            style=" padding:10px;width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
+            <p class='md section-heading'
+            style="width:28%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
                 PURPOSE OF ENROLLMENT
             </p>
             <p style="font-size: 12px; margin: 0;padding-bottom:'3px'" class='xs'>
@@ -1235,8 +1235,8 @@
                 <label> Shelter Excess Resources</label>
             </div>
             <div style='padding-top:4px;'>
-                <p class='md'
-                    style=" padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0">
+                <p class='md section-heading'
+                    style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0">
                     MEDICAID INFORMATION
                 </p>
 
@@ -1326,8 +1326,8 @@
             </div>
         </div>
             <br>
-            <span class='md'
-            style=" padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
+            <span class='md section-heading'
+            style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
             HOUSEHOLD INCOME INFORMATION </span>
             &nbsp;&nbsp;
             <br><br>
@@ -1595,8 +1595,8 @@
                 <p class='italic' style="padding: 2%;text-align: center">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECESSARY
                     PROOF.</p>
             </div>
-            <p class='md'
-                style=" padding:10px;width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            <p class='md section-heading'
+                style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
                 HEALTH CARE PREMIUMS
             </p>
             <div style='display:table'>
@@ -1611,7 +1611,7 @@
                         <input type="checkbox" name="healthcare_b" value="D"
                         {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}>
                         <label>D</label>
-                        <p style='margin-left:10px'>
+                        <p style='margin-left:10px' class='text-xs'>
                             Does the applicant have a supplemental policy? &nbsp;
                             <input type="checkbox" name="supplemental_yes" value="Yes"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
@@ -1636,7 +1636,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <p style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">FUNERAL INFORMATION</p>
+                        <p class='md section-heading' style="width:43%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px;">FUNERAL INFORMATION</p>
                     </div>
                 </div>
                 <div style="display: table-row;">
@@ -1659,7 +1659,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px; padding:10px;">LIFE INSURANCE INFORMATION</p>
+                       <p class='md section-heading' style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
                     </div>
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
@@ -1723,8 +1723,8 @@
             </div>
             <br>
             <div style="display: table;justify-content: space-between">
-                    <span class='md'
-            style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+                    <span class='md section-heading'
+            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
             LIVING ARRANGEMENTS </span>
             &nbsp;&nbsp;
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
@@ -1772,8 +1772,8 @@
                     name="living_arrangement_other">
             </p>
             <br>
-            <span class='md'
-            style=" padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-bottom:5px">
+            <span class='md md section-heading'
+            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-bottom:5px">
             LIVING ARRANGEMENTS </span>
             <p class='italic' style='padding:0' class='xs'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
