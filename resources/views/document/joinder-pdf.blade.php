@@ -2809,8 +2809,23 @@ Beneficiary.
                 </div>
             </div>
             <br>
-            <div style="text-align: center;margin: 0;padding: 0;">
-                <p style="margin: 0;padding: 0;">8</p>
+            <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">8</p>
+                        <div style="
+                                    transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
             </div>
         </div>
         <div class="page-break"></div>
@@ -3045,10 +3060,26 @@ Beneficiary.
                 <div style="text-align: center;">
                     <img src="{{ public_path('images/new_logo.png') }}" alt="logo" width="250">
                        <br>
-                    <p style="margin: 0;padding: 0;">9</p>
                 </div>
             </div>
-
+            <div style="display: table; width: 100%;" class="footer">
+                <div style="display:table-row;width:100%">
+                <div style="display: table-cell; text-align: left; width: 33%;">
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                </div>
+                <div style="display: table-cell; text-align: center; width: 33%;">
+                    <div style=" padding: 7px; display: inline-block; position: relative;">
+                        <p class="footer-center xs" style="margin: 0;">9</p>
+                        <div style="
+                                    transform: translateX(-50%);">
+                        </div>
+                    </div>
+                </div>
+                <div style="display: table-cell; text-align: right; width: 33%;">
+                    <p class="xxs">JOINDER AGREEMENT</p>
+                </div>
+                </div>
+            </div>
         </div>
 
 
