@@ -41,6 +41,7 @@
         }
         body {
             font-family: "Poppins-Regular";
+            line-height:0.7
         }
 
         .semiBold{
@@ -55,7 +56,6 @@
             font-family: "Poppins-Bold" !important;
         }
 
-
         th,
         td {
             border: 1px solid rgb(184 221 219);
@@ -67,7 +67,6 @@
         tr:first-child th {
             font-size: 12px;
         }
-
 
         .no-border {
             border-bottom: 1px solid black;
@@ -138,8 +137,11 @@
         }
         .page-0{
             background-image: url('{{ public_path("images/bannerCover2.png") }}');
-            background-size: cover;
+            background-size: contain;
             background-repeat: no-repeat;
+            background-position: bottom;
+            height: 100%;
+            width: 100%;
         }
         tbody td:nth-child(1){
             border-left:none;
@@ -207,7 +209,7 @@
             font-family: "Poppins-SemiBold" !important;
         }
         .black{
-            font-family: "Poppins-ExtraBold" !important;
+            font-family: "Poppins-Bold" !important;
         }
         footer{
             position: fixed;
@@ -278,85 +280,65 @@
         <!-- <p>Copyright &copy; <?php echo date("Y");?></p> -->
         </footer>
         <div class="page-0">
-            
-            <div class="container-row" style="text-align:center;">
+            <div class="container-row" style="text-align:center; position: absolute; top: 20px;">
                 <img style="width:50%" src="{{ public_path('images/new_logo.png') }}" alt="Example Image">
             </div>
-            {{-- {{ public_path('images/slc_logo.png') }} --}}
 
-            <div style="height:820px">
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                <div style="text-align: center;margin-top:90px">
-                    <div style="width: fit-content; display: inline-block;">
-                        <h1 class="black" style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;">
-                            JOINDER</h1>
-                    </div>
-                </div>
-                <div style="text-align: center;margin-top:-57px" >
-                    <div style="width: fit-content; display: inline-block;">
-                        <h1 class="black" style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;">
-                            AGREEMENT</h1>
-                    </div>
-                </div>
-                <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                {{-- <div class="container-page-end"></div> --}}
-
-                <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
-                    <div style="display: table-row;">
-                        <div style="display: table-cell; width:45%;text-align: right;">
-                            <div style="" class="xl">Tel:</div>
+            <div style="height:800px">
+                <div style="position: absolute; bottom: 300px; text-align: center; left: 0; right: 0;">
+                    <div style="text-align: center;margin-top:50px">
+                        <div style="width: fit-content;">
+                            <div class="black" style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.8rem;margin-left:17px;">
+                                JOINDER</div>
                         </div>
-                        <div
-                            style="display: table-cell; text-align: left;padding-left: 5px;" class="xl">
-                            718.500.3235</div>
                     </div>
-                </div>
-                <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px;margin-bottom:10px">
-                    <div style="display: table-row;">
-                        <div style="display: table-cell;width:45%;text-align: right;">
-                            <div style="" class="xl">Fax:</div>
+                    <div style="text-align: center;margin-top:-34px" >
+                        <div style="width: fit-content;">
+                            <div class="black" style="color: rgb(52 159 153); font-size: 2.8rem;margin-left:17px;">
+                                AGREEMENT</div>
                         </div>
-                        <div
-                            class="xl"
-                            style="display: table-cell; text-align: left;padding-left: 5px;">
-                            718.500.3225</div>
                     </div>
                 </div>
 
-                <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
-                    <div style="display: table-row;">
-                        <div style="display: table-cell;">
-                            <div style="" class="xl">info@slctrusts.org </div>
+                <div style="position: absolute; bottom: 40px; text-align: center; left: 0; right: 0;">
+                    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+                        <div style="display: table-row;">
+                            <div style="display: table-cell; width:45%;text-align: right;">
+                                <div style="padding-right: 5px" class="xl">Tel:</div>
+                            </div>
+                            <div
+                                style="display: table-cell; text-align: left;" class="xl">
+                                718.500.3235</div>
+                        </div>
+                    </div>
+                    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-bottom:4px">
+                        <div style="display: table-row;">
+                            <div style="display: table-cell;width:45%;text-align: right;">
+                                <div style="padding-right: 5px" class="xl">Fax:</div>
+                            </div>
+                            <div
+                                class="xl"
+                                style="display: table-cell; text-align: left;">
+                                718.500.3225</div>
+                        </div>
+                    </div>
+
+                    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+                        <div style="display: table-row;">
+                            <div style="display: table-cell;">
+                                <div style="" class="xl">info@slctrusts.org </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:4px">
+                        <div style="display: table-row;">
+                            <div style="color: rgb(52 159 153); display: table-cell;" class="strong">
+                                seniorlifecaretrusts.org
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:10px">
-                    <div style="display: table-row;">
-                        <div style="color: rgb(52 159 153); strong; display: table-cell;">
-                            <b style="" class="xl">seniorlifecaretrusts.org</b>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
@@ -364,11 +346,11 @@
 
         <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;">
-                <p style="strong;text-align:center; margin-bottom: 10px;" class="lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                <p style="text-align:center;;" class="strong lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 <p style="text-align:center;color:rgb(52 159 153);" class="lg">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
             </div>
-            <div style="" class="xs">
+            <div  class="xs">
                 <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created
                     pursuant to 42 United States Code §1396. You are encouraged to seek independent, professional advice
                     before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a
