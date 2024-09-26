@@ -213,6 +213,7 @@
             padding-bottom:4px;
 
         }
+        
 
        
 
@@ -2347,7 +2348,7 @@
                 </div>
             </div> 
 
-      <div/>
+        </div>
       
         <div class="page-6 sm">
         <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:36%" class="section-heading md" >
@@ -2801,224 +2802,160 @@ Beneficiary.
         <div class="page-break"></div>
         
         <div class="page-9">
-            <div style="display: table; width: 100%;">
-                <div style="display: table-row;">
-                    <table>
-                        <tr>
-                            <td colspan="2" style="color: rgb(52 159 153);font-size: 15px">FOR OFFICE USE ONLY</td>
+            <div style="display: table; width: 40%;margin-left: auto; border: none;">
+                <div style="display: table-row;border: none;">
+                    <table class="mem-table" style="border: none;">
+                        <tr  style="border:none;padding: 5px;background-color:rgb(184 221 219)">
+                            <td class="md strong" colspan="2" style="color: rgb(52 159 153);border: none;">FOR OFFICE USE ONLY</td>
                         </tr>
-                        <tr>
-                            <td style="font-size: 14px">Member ID#:</td>
-                            <td style="font-size: 14px"><input type="text" value="{{ $office_use_member_id_above }}"
+                        {{-- <tr style="border: none;background-color: #ecf6f7;">
+                            <td style="border: none;background-color: #ecf6f7; font-size:11px">Member ID#:</td>
+                            <td style="border: none;background-color: #ecf6f7;" class="xs"><input style="background-color: #ecf6f7" type="text" value="{{ $office_use_member_id_above }}"
                                     class="no-border"></td>
                         </tr>
-                        <tr>
-                            <td style="font-size: 14px">Effective Date:</td>
-                            <td style="font-size: 14px"><input type="text" value="{{ $office_use_effective_date }}"
+                        <tr style="border: none;background-color: #ecf6f7;">
+                            <td style="border: none;background-color: #ecf6f7; font-size:11px" >Effective Date:</td>
+                            <td style="border: none;background-color: #ecf6f7;" class="xs" ><input style="background-color: #ecf6f7" type="text" value="{{ $office_use_effective_date }}"
                                     class="no-border"></td>
-                        </tr>
+                        </tr> --}}
                     </table>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <p class="section-heading" style="width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">DIRECT DEBIT REQUEST FORM</p>
-            <div style="display: table; width: 100%;" class="sm">
-                   
-                    <div style="display: table-row; width: 100%;">
-                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px; vertical-align: bottom; ">
-                            <label>Donor/Beneficiary:</label>
+                    <div style="display: table; width:100%;background-color: #ecf6f7;text-align:center;padding:15px 0px">
+                        {{-- <br> --}}
+                        <div style="display: table-row;margin-top:10px" class="md">
+                            <div style="display: table-cell;">
+        
+                                <label class="md">Member ID#:</label>
+                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_member_id_above }}" name="office_use_member_id_above" /> 
+                            </div>
                         </div>
-                        <div style="display: table-cell; width: 100%;vertical-align: bottom;">
-                            <input type="text" value="{{ $office_use_effective_date }}" class="no-border" style="width: 100%;">
+                        <br>
+                        <div style="display: table-row;" class="md">
+                            <div style="display: table-cell;">
+        
+                                <label  class="md">Effective Date:</label>
+                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_effective_date }}" name="office_use_effective_date"  /> 
+                            </div>
                         </div>
-                    </div>
-                    <br/>
-                    <div style="display: table-row; width: 100%;">
-                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
-                            <label>Representative:</label>
-                        </div>
-                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
-                        <input type="text" value="{{ $direct_debit_representative }}" class="no-border" style="width: 100%;">
-                        </div>
-                    </div>
-                    <br/>
-                    <div style="display: table-row; width: 100%;">
-                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
-                            <label>Bank Name:</label>
-                        </div>
-                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
-                          <input type="text" value="{{ $direct_debit_bank_name }}" class="no-border" style="width: 100%;" name="direct_debit_bank_name">
-                        </div>
-                    </div>
-                    <br/>
-                    <div style="display: table-row; width: 100%;">
-                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
-                            <label>Bank Routing Number:</label>
-                        </div>
-                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
-                         <input type="text" value="{{ $direct_debit_bank_routing }}" class="no-border" style="width: 100%;" name="direct_debit_bank_routing">
-                        </div>
-                    </div>
-                    <br/>
-                    <div style="display: table-row; width: 100%;">
-                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
-                            <label>Account Number:</label>
-                        </div>
-                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
-                        <input type="text" value="{{ $direct_debit_account_number }}" class="no-border" style="width: 100%;" name="direct_debit_account_number"> 
-                        </div>
-                    </div>
-                    <br/>
-                    <div style="display: table-row; width: 100%;">
-                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
-                            <label>Account Name:</label>
-                        </div>
-                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
-                            <input type="text" value="{{ $direct_debit_account_name }}" class="no-border" style="width: 100%;" name="direct_debit_account_name"> 
-                        </div>
-                    </div>
-                    <br/>
-                    <div style="display: table-row; width: 100%;">
-                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
-                            <label>City:</label>
-                        </div>
-                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
-                        <input type="text" value="{{ $direct_debit_city }}"  class="no-border" style="width: 100%;" name="direct_debit_city">
-                        </div>
-                    </div>
-                    <br/>
-                    <div style="display: table-row; width: 100%;">
-                        <div style="display: table-cell; width: 1%; white-space: nowrap; padding-right: 10px;vertical-align: bottom">
-                            <label>State:</label>
-                        </div>
-                        <div style="display: table-cell; width: 100%;vertical-align: bottom">
-                        <input type="text" value="{{ $direct_debit_state }}" class="no-border" style="width: 100%;" name="direct_debit_state">
-                        </div>
-                    </div>
-                    <br/>
-
-                </div>
-              <br>
-            </p>
-
-            <p style=" ">Account type:
-                <label>
-                    <input type="checkbox" name="direct_debit_bank_type1" value="Checking"
-                        {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>
-                    <label>Checking</label>
-                </label>
-                <label>
-                    <input type="checkbox" name="direct_debit_bank_type1" value="Savings"
-                    {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }}>
-                <label>Savings</label>
-                </label>
-
-            </p>
-
-            <br>
-
-            {{-- <div style="display: table; width: 100%;">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        City: <input type="text" value="{{ $direct_debit_city }}"
-                            class="no-border" name="direct_debit_city">
-                    </div>
-                    <div style="display: table-cell;">
-                        State: <input type="text" value="{{ $direct_debit_state }}"
-                            class="no-border" name="direct_debit_state">
-                    </div>
-                </div>
-            </div> --}}
-            <br>
-
-            {{-- <div style="display: table">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" /> <br>
-                        <label>Bank Name</label>
-                    </div>
-                    &nbsp;&nbsp;
-
-                    <div style="display: table-cell">
-                        <label>City</label>
-                        <input type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" />
-                    </div>
-                    &nbsp;
-                    &nbsp;
-                    <div style="display: table-cell">
-                        <label>State</label>
-                        <input type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" />
                     </div>
                 </div>
             </div>
-            <br> --}}
-            {{-- <div style="display: table">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
+           
 
-                        <label>Bank Routing Number</label>
-                        <input type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" />
+
+        <div class="page-9">
+            <p class="section-heading md" style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:32%;padding:8px 20px">DIRECT DEBIT REQUEST FORM</p>
+            
+                    <div style="display: table; width: 100%;" class="xs">
+                        <div style="display: table-row;" class="md">
+                            <div style="display: table-cell;">
+        
+                                <label class="md">Donor/Beneficiary</label> &nbsp;
+                                <input class="md" type="text" value="{{ $direct_debit_donor_beneficiary }}" name="direct_debit_donor_beneficiary" style="width: 80%" /> 
+                            </div>
+                            
+                            
+                        </div>
+                        <br>
+                        <div style="display: table-row;" class="md">
+                            <div style="display: table-cell;">
+        
+                                <label class="md">Representative</label> &nbsp;
+                                <input class="md" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
+                            </div>
+                        </div>
+
+                    
+                    </div>
+                    <br>
+                    <div style="display: table; width: 100%;" class="xs">
+                        <div style="display: table-row;" class="md">
+                            <div style="display: table-cell;">
+        
+                                <label class="md">Bank Name</label> &nbsp;
+                                <input class="md" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 60%" /> 
+                            </div>
+                            <div style="display: table-cell;">
+        
+                                <label class="md">City</label> &nbsp;
+                                <input class="md" type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" style="width: 70%" /> 
+                            </div>
+                            <div style="display: table-cell;">
+        
+                                <label class="md">State</label> &nbsp;
+                                <input class="md" type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" style="width: 70%" /> 
+                            </div>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div style="display: table; width: 100%;" class="xs">
+                        <div style="display: table-row;" class="md">
+                            <div style="display: table-cell;">
+        
+                                <label class="md">Bank Routing Number</label> &nbsp;
+                                <input class="md" type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" style="width: 52%" /> 
+                            </div>
+                            <div style="display: table-cell;">
+        
+                                <label class="md">Account Number</label> &nbsp;
+                                <input class="md" type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" style="width: 58%" /> 
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <div style="display: table; width: 100%;" class="xs">
+                        <div style="display: table-row;" class="md">
+                            <div style="display: table-cell;width:60%">
+        
+                                <label class="md">Account Name</label> &nbsp;
+                                <input class="md" type="text" value="{{ $direct_debit_account_name }}" name="direct_debit_account_name" style="width:70%" /> 
+                            </div>
+                            {{-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
+                            <div style="display: table-cell;vertical-align:middle;text-align:right">
+                                <label class="md">Account Type: </label> &nbsp;
+                                <input type="checkbox" name="direct_debit_bank_type1" value="Checking" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>Checking
+                                <input type="checkbox" name="direct_debit_bank_type1" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div style="display: table-cell">
-                        <label>Account Number</label>
-                        <input type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" />
+
+                
+                <br>
+
+                <p>
+                    <b class='md'>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</b>
+                </p>
+                <p>
+                    I authorize and request Trusted Pooled Trust to initiate debit entries to my account at the depository
+                    financial
+                    institution indicated above. This authorization is to remain in full force and affect until Trusted has
+                    written
+                    notification from me of its termination in such time and manner as to afford Trusted and depository
+                    financial
+                    institution a reasonable opportunity to act on it.
+                </p>
+                <div style="display: table; width: 100%; margin-top: 20px;">
+                    <!-- Label for signature -->
+                    {{-- <label style="sm">Beneficiary/ Representative Sign Here</label> --}}
+
+                    <!-- Signature Input and Canvas Preview Container -->
+
+                    <div style="display: table-row;" class="md">
+                        <div style="display: table-cell;">
+
+                            <label class="sm">Beneficiary/ Representative Sign Here</label> &nbsp;
+                            <input class="md" type="text" value="{{$joinder_signature_5}}" name="joinder_signature_5" style="width: 65%" /> 
+                        </div>
+
                     </div>
+                    
                 </div>
-            </div>
-
-            <br> --}}
-
-
-
-
-
-
-
-
-
-
-
-            {{-- <div style="display: table; width: 100%;">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        Account Name: <input type="text" value="{{ $direct_debit_account_name }}"
-                            class="no-border">
-                    </div>
-                    <div style="display: table-cell;">
-                        Account type: <input type="checkbox" name="direct_debit_bank_type1" value="Checking"
-                            {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>
-                        Checking
-                    </div>
-                    <div style="display: table-cell;">
-                        <input type="checkbox" name="direct_debit_bank_type1" value="Savings"
-                            {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }}>
-                        Savings
-                    </div>
-                </div>
-            </div>
-            <br> --}}
-
-            <p>
-                <b class='italic'>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</b>
-            </p>
-            <p>
-                I authorize and request Trusted Pooled Trust to initiate debit entries to my account at the depository
-                financial
-                institution indicated above. This authorization is to remain in full force and affect until Trusted has
-                written
-                notification from me of its termination in such time and manner as to afford Trusted and depository
-                financial
-                institution a reasonable opportunity to act on it.
-            </p>
-            <div style="display: flex; flex-direction: column; align-items: start; margin-top: 20px;">
-                <!-- Label for signature -->
-                <label style="font-weight: bold;">Beneficiary/Representative Signature:</label>
-
-                <!-- Signature Input and Canvas Preview Container -->
                 <div style="display: flex; flex-direction: column; align-items: start; margin-top: 10px;">
                     <div style="padding: 10px;">
                         @if ($joinder_signature_5)
@@ -3032,109 +2969,113 @@ Beneficiary.
                     </div>
 
                 </div>
-            </div>
 
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+                {{-- <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br> --}}
+                <br>
+                <br>
 
 
-        <div>
-            <div
-            style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
-            FOR OFFICE USE
-            </div>
-            <br>
+            <div>
+                <div
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;font-weight:bold">
+                FOR OFFICE USE
+                </div>
+                <br>
+           <div style="margin-left:40px">
+                <div style="display: table;">
+                    <div style="display: table-row;" >
+                        <div style="display: table-cell;">
 
-            <div style="display: table">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <label>Account #:</label>
-                        <input type="text" value="{{ $office_use_account_number }}" name="office_use_account_number" />
+                            <label class="sm">Account #:</label>
+                            <input class="xs" type="text" value="{{ $office_use_account_number }}" name="office_use_account_number" />
+                        </div>
+                        &nbsp;&nbsp;
+                        <div style="display: table-cell;">
+                            <label class="sm">MemberID #:</label>
+                            <input class="xs" type="text" value="{{ $office_use_member_id_below }}" name="office_use_member_id_below" />
+                        </div>
                     </div>
-                    &nbsp;&nbsp;
+                </div>
+                {{-- <br> --}}
+                <div style="display: table;margin-top:10px">
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;">
 
-                    <div style="display: table-cell">
-                        <label>MemberID #:</label>
-                        <input type="text" value="{{ $office_use_member_id_below }}" name="office_use_member_id_below" />
+                            <label class="sm">Processed By:</label>
+                            <input class="xs" type="text" value="{{ $office_use_processed_by }}" name="office_use_processed_by" />
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div style="display: table-cell">
+                            <label class="sm">Monthly Debit Amount: $ </label>
+                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_amount }}" name="office_use_monthly_debit_amount" />
+                        </div>
+                    </div>
+                </div>
+                {{-- <br> --}}
+                <div style="display: table;margin-top:10px">
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;text-align: start; !important">
+                            <p class="sm">
+                                Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {{-- <br> --}}
+                <div style="display: table;margin-top:10px">
+                    <div style="display: table-row;">
+                        <div style="display: table-cell;">
+
+                            <label class="sm">Date of Monthly Debit:</label>
+                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_date }}" name="office_use_monthly_debit_date" />
+                        </div>
+                        &nbsp;&nbsp;
+
+                        <div style="display: table-cell">
+                            <label class="sm">First Debit Month:</label>
+                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_first_month }}" name="office_use_monthly_debit_first_month" />
+                        </div>
                     </div>
                 </div>
             </div>
-            <br>
-            <div style="display: table">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
 
-                        <label>Processed By:</label>
-                        <input type="text" value="{{ $office_use_processed_by }}" name="office_use_processed_by" />
-                    </div>
-                    &nbsp;&nbsp;
 
-                    <div style="display: table-cell">
-                        <label>Monthly Debit Amount: $ </label>
-                        <input type="text" value="{{ $office_use_monthly_debit_amount }}" name="office_use_monthly_debit_amount" />
-                    </div>
+                <br>
+                <p class="sm italic">
+                    If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
+                    A $100 annual-renewal fee will be charged on the anniversary of the account
+                </p>
+                <br>
+                <br>
+
+                <div style="text-align: center;margin: 30px 0;padding: 0;">
+                    <img src="{{ public_path('images/new_logo.png') }}" alt="logo" width="350">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    <p style="margin: 0;padding: 0;">9</p>
                 </div>
-            </div>
-            <br>
-            <div style="display: table">
-                <div style="display: table-row;">
-                    <div style="display: table-cell font-size: 13px !important;text-align: start; !important">
-                        <p>
-                            Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div style="display: table">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <label>Date of Monthly Debit:</label>
-                        <input type="text" value="{{ $office_use_monthly_debit_date }}" name="office_use_monthly_debit_date" />
-                    </div>
-                    &nbsp;&nbsp;
-
-                    <div style="display: table-cell">
-                        <label>First Debit Month:</label>
-                        <input type="text" value="{{ $office_use_monthly_debit_first_month }}" name="office_use_monthly_debit_first_month" />
-                    </div>
-                </div>
-            </div>
-
-
-            <br>
-            <p style="padding:0;margin:0;font-size: 14px">
-                If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
-                A $100 annual-renewal fee will be charged on the anniversary of the account
-            </p>
-            <br>
-            <br>
-
-            <div style="text-align: center;margin: 30px 0;padding: 0;">
-                <img src="{{ public_path('images/slc_logo.png') }}" alt="logo" width="200"
-                    height="100">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                <p style="margin: 0;padding: 0;">9</p>
             </div>
         </div>
+
+           
+                
+    
 
 
     </form>
