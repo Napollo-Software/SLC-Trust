@@ -8,30 +8,31 @@
     <title>Joinder Form</title>
     <style>
         @font-face {
-            font-family: 'VENPGM-Poppins-Regular';
-            src: url('fonts/VENPGM-Poppins-Regular.ttf') format('truetype');
+            font-family: 'Poppins-Regular';
+            src: url('fonts/Poppins-Regular.ttf') format('truetype');
         }
         @font-face {
-            font-family: 'VENPGM-Poppins-Medium';
-            src: url('fonts/VENPGM-Poppins-Medium.ttf') format('truetype');
+            font-family: 'Poppins-Medium';
+            src: url('fonts/Poppins-Medium.ttf') format('truetype');
         }
         @font-face {
-            font-family: 'VENPGM-Poppins-SemiBold';
-            src: url('fonts/VENPGM-Poppins-SemiBold.ttf') format('truetype');
+            font-family: 'Poppins-SemiBold';
+            src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
         }
         @font-face {
-            font-family: 'VENPGM-Poppins-Bold';
-            src: url('fonts/VENPGM-Poppins-Bold.ttf') format('truetype');
+            font-family: 'Poppins-Bold';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+        }
+     
+        @font-face {
+            font-family: 'Poppins-Italic';
+            src: url('fonts/Poppins-Italic.ttf') format('truetype');
         }
         @font-face {
-            font-family: 'VENPGM-MinionPro-Regular';
-            src: url('fonts/VENPGM-MinionPro-Regular.ttf') format('truetype');
+            font-family: 'Poppins-ExtraBold';
+            src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');
         }
-
-        @font-face {
-            font-family: 'VENPGM-Poppins-Italic';
-            src: url('fonts/VENPGM-Poppins-Italic.ttf') format('truetype');
-        }
+   
 
         table {
             border-collapse: collapse;
@@ -39,15 +40,19 @@
             /* border: 1px solid rgb(184 221 219); */
         }
         body {
-            font-family: "VENPGM-Poppins-Regular";
+            font-family: "Poppins-Regular";
         }
 
         .semiBold{
-            font-family: "VENPGM-Poppins-SemiBold" !important;
+            font-family: "Poppins-SemiBold" !important;
         }
 
         .bold{
-            font-family: "VENPGM-Poppins-Bold" !important;
+            font-family: "Poppins-Bold" !important;
+        }
+
+        .bold{
+            font-family: "Poppins-Bold" !important;
         }
 
 
@@ -161,7 +166,7 @@
         } */
 
         .italic{
-            font-family: "VENPGM-Poppins-Italic";
+            font-family: "Poppins-Italic";
             font-size: 10px;
         }
 
@@ -194,10 +199,10 @@
         }
 
         .strong{
-            font-family: "VENPGM-Poppins-SemiBold";
+            font-family: "Poppins-SemiBold" !important;
         }
         .black{
-            font-family: "VENPGM-Poppins-Bold";
+            font-family: "Poppins-ExtraBold" !important;
         }
         footer{
             position: fixed;
@@ -250,7 +255,7 @@
             padding-right:10px;
             padding-top:4px;
             padding-bottom:4px;
-
+            font-family: 'Poppins-SemiBold' !important;
         }
 
 
@@ -285,13 +290,13 @@
                  <br>
                 <div style="text-align: center;margin-top:90px">
                     <div style="width: fit-content; display: inline-block;">
-                        <h1 class="black" style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                        <h1 class="black" style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;">
                             JOINDER</h1>
                     </div>
                 </div>
                 <div style="text-align: center;margin-top:-57px" >
                     <div style="width: fit-content; display: inline-block;">
-                        <h1 class="black" style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                        <h1 class="black" style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;">
                             AGREEMENT</h1>
                     </div>
                 </div>
@@ -342,7 +347,7 @@
                 <div
                     style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:10px">
                     <div style="display: table-row;">
-                        <div style="color: rgb(52 159 153); font-weight: bold; display: table-cell;">
+                        <div style="color: rgb(52 159 153); strong; display: table-cell;">
                             <b style="" class="xl">seniorlifecaretrusts.org</b>
                         </div>
                     </div>
@@ -354,7 +359,7 @@
 
         <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;">
-                <p style="font-weight: bold;text-align:center; margin-bottom: 10px;" class="lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                <p style="strong;text-align:center; margin-bottom: 10px;" class="lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 <p style="text-align:center;color:rgb(52 159 153);" class="lg">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
             </div>
@@ -368,7 +373,7 @@
             </div class="md">
                 <p
                 class="md section-heading"
-                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:30%">
+                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);;width:30%">
                     BENEFICIARY INFORMATION</p>
             </div>
             <p class="xs">
@@ -379,7 +384,7 @@
             <div style="display: table; width: 100%;" >
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold;" class="sm">Name:</label>
+                        <label style="strong;" class="sm">Name:</label>
                     </div>
                 </div>
                 <br/>
@@ -434,7 +439,7 @@
 
                 {{-- <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label style=" font-weight: bold;">Marital Status:</label>
+                        <label style=" strong;">Marital Status:</label>
                     </div>
                     <div style="display: table-cell">
                         <input type="checkbox" name="sponsor_marital_status" value="Married"
@@ -477,7 +482,7 @@
 
                 {{-- <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold">Contact Information:</label>
+                        <label style="strong">Contact Information:</label>
                     </div>
                 </div>
                 <div style="display: table-row;">
@@ -501,7 +506,7 @@
             <div style="display: table; width:100%">
                 <div style="display: table-row;margin-top:-25px">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold" class="sm">Contact Information:</label>
+                        <label style="strong" class="sm">Contact Information:</label>
                     </div>
                 </div> <br>
                 <div style="display: table-row;" class="xs">
@@ -597,7 +602,7 @@
                 <div style="display: table;">
                 <div style="display: table-row;margin-top:-30px">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold" class="sm">Qualifying Disabilities:</label>
+                        <label style="strong" class="sm">Qualifying Disabilities:</label>
                     </div>
                 </div>
             </div>
@@ -697,20 +702,20 @@
 
         {{-- <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding: 10px;">
-                <p style="font-weight: bold;text-align:center;font-size: 1.4rem;">TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST</p>
+                <p style="strong;text-align:center;font-size: 1.4rem;">TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST</p>
                 <p style="text-align:center;color:rgb(52 159 153);font-size: 1.2rem;">Joinder Agreement / Beneficiary Profile Sheet</p>
             </div>
             <div style="padding: 30px 10px;;font-size: 12px">
                 <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created pursuant to 42 United States Code §1396. You are encouraged to seek independent, professional advice before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a sub-trust account under the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, dated February 13, 2023. The Trust is Irrevocable.</p>
                 <p class="">NOTE: All questions must be answered or your application will be delayed.</p>
             </div>
-                <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">SPONSOR/BENEFICIARY INFORMATION</p>
+                <p style="font-size: 16px; padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);">SPONSOR/BENEFICIARY INFORMATION</p>
             </div>
             <p>The Beneficiary and Donor must always be the same person. Only funds belonging to the Beneficiary may be contributed to the Trust.</p>
 
             <div style="display: table; width: 100%;" class="container-table">
                 <div style="display: table-row; width: 100%;">
-                    <label style="font-weight: bold; display: table-cell; width: 15%;">Legal Name:</label>
+                    <label style="strong; display: table-cell; width: 15%;">Legal Name:</label>
                     <label style="display: table-cell; width: 5%; padding-right: 10px;">First:</label>
                     <input type="text" value="{{ $sponsor_first_name }}" class="no-border" style="width: 20%;" name="sponsor_first_name">
                     <label style="display: table-cell; width: 5%; padding-right: 10px;">Middle:</label>
@@ -723,7 +728,7 @@
             <br>
             <div style="display: table; width: 100%;">
                 <div style="display: table-cell;">
-                    <label style="font-weight: bold;">Marital Status:</label>
+                    <label style="strong;">Marital Status:</label>
                     <label>Married <input type="checkbox" name="sponsor_marital_status" value="Married" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Married' ? 'checked' : '' }}></label>
                     <label>Widowed <input type="checkbox" name="sponsor_marital_status" value="Widowed" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Widowed' ? 'checked' : '' }}></label>
                     <label>Single <input type="checkbox" name="sponsor_marital_status" value="Single" {{ isset($sponsor_marital_status) && $sponsor_marital_status === 'Single' ? 'checked' : '' }}></label>
@@ -818,7 +823,7 @@
             <div class="">
                 <p
                 class="md section-heading"
-                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;width:35%">
+                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);;width:35%">
                     AUTHORIZED REPRESENTATIVES
                 </p>
             </div>
@@ -873,7 +878,7 @@
             <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
                 <div style="display: table-row;margin-top:4px;margin-bottom:4px">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold" class="sm">Contact Information</label>
+                        <label style="strong" class="sm">Contact Information</label>
                     </div>
                 </div>
                 <div style="display: table-row;" class="xs">
@@ -918,7 +923,7 @@
 
                     <div style="display: table-row;">
                         <div style="display: table-cell; margin-top:3px;margin-bottom:3px">
-                            <label style="font-weight: bold" class="sm">Address:</label>
+                            <label style="strong" class="sm">Address:</label>
                         </div>
                     </div>
 
@@ -981,7 +986,7 @@
             <div style="display: table;width:100%;margin-top:3px;margin-bottom:3px" >
                 <div style="display: table-row;margin-top:4px;margin-bottom:4px;">
                     <div style="display: table-cell">
-                        <label style="font-weight: bold" class="sm">Contact Information</label>
+                        <label style="strong" class="sm">Contact Information</label>
                     </div>
                 </div>
                 <div style="display: table-row;" class="xs">
@@ -1026,7 +1031,7 @@
 
                     <div style="display: table-row;">
                         <div style="display: table-cell;margin-top:4px;margin-bottom:4px">
-                            <label style="font-weight: bold" class="sm">Address:</label>
+                            <label style="strong" class="sm">Address:</label>
                         </div>
                     </div>
 
@@ -1106,7 +1111,7 @@
             </p> --}}
             <p
             class="sm section-heading"
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700; width:21%">
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153);; width:21%">
                 REFERRING SOURCE
             </p>
             <p class="xs"> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
@@ -1259,7 +1264,7 @@
 
         <div class="page-3">
             <p class='md section-heading'
-            style="width:28%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
+            style="width:28%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px">
                 PURPOSE OF ENROLLMENT
             </p>
             <p style="font-size: 12px; margin: 0;padding-top:5px" class='xs'>
@@ -1275,7 +1280,7 @@
             </div>
             <div style='padding-top:4px;'>
                 <p class='md section-heading'
-                    style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0;margin-bottom:7px">
+                    style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px">
                     MEDICAID INFORMATION
                 </p>
 
@@ -1366,7 +1371,7 @@
         </div>
             <br>
             <span class='md section-heading'
-            style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
+            style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-top:-60px;">
             HOUSEHOLD INCOME INFORMATION </span>
             &nbsp;&nbsp;
             <br><br>
@@ -1635,7 +1640,7 @@
                     PROOF.</p>
             </div>
             <p class='md section-heading'
-                style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+                style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
                 HEALTH CARE PREMIUMS
             </p>
             <div style='display:table'>
@@ -1675,7 +1680,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <p class='md section-heading' style="width:43%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px;">FUNERAL INFORMATION</p>
+                        <p class='md section-heading' style="width:43%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">FUNERAL INFORMATION</p>
                     </div>
                 </div>
                 <div style="display: table-row;">
@@ -1698,7 +1703,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p class='md section-heading' style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
+                       <p class='md section-heading' style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
                     </div>
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
@@ -1763,7 +1768,7 @@
             <br>
             <div style="display: table;justify-content: space-between">
                     <span class='md section-heading'
-            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
             LIVING ARRANGEMENTS </span>
             &nbsp;&nbsp;
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
@@ -1812,7 +1817,7 @@
             </p>
             <br>
             <span class='md md section-heading'
-            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-bottom:5px">
+            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-bottom:5px">
             LIVING ARRANGEMENTS </span>
             <p class='italic' style='padding:0' class='xs'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
@@ -1919,7 +1924,7 @@
       <div class="page-5">
 
         <div class="section-title">
-            <p class="md"  style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+            <p class="md"  style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
                 POWER OF ATTORNEY
             </p>
 
@@ -2260,7 +2265,7 @@
             </p> --}}
         </div>
 
-        <p class="md" style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+        <p class="md" style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
                 GUARDIAN INFORMATION
             </p>
             <p class="sm" style="margin: 0;padding: 0;">
@@ -2336,7 +2341,7 @@
                 </div>
             </div>
         </div>
-        <p class="md" style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
+        <p class="md" style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
                 BENEFICIARY SERVICES
             </p>
             <p class="sm" style="padding:0;margin-top:5px;">
@@ -2390,7 +2395,7 @@
         </div>
 
         <div class="page-6 sm">
-        <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:36%" class="section-heading md" >
+        <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); ;width:36%" class="section-heading md" >
             INFORMATION AND DISCLOSURES:
         </p>
         <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:21px">
@@ -2620,7 +2625,7 @@ Beneficiary.
 
         <div class="page-break"></div>
         <div class="page-8">
-            <p class='section-heading md' style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
+            <p class='section-heading md' style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);">AGREEMENT SIGNATURE</p>
             <p class='xs' style="padding:0;margin: 0;padding-bottom:2px">
                 Who is signing this Joinder Agreement?
                 &nbsp;
@@ -2668,7 +2673,7 @@ Beneficiary.
                 </div>
             </div>
             <br>
-            <p class='section-heading md' style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
+            <p class='section-heading md' style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
             <div style='display:table;width:100%'>
             <div style='display:table-row' class='xs'>
             <p class='xs' style="margin:0;padding-bottom:5px;display:table-cell">STATE OF
@@ -2711,7 +2716,7 @@ Beneficiary.
                         </div>
                 </div>
             </div>
-            <p class='md section-heading' style=" width:37%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">OR SIGNATURE OF TWO WITNESSES</p>
+            <p class='md section-heading' style=" width:37%;background-color:rgb(184 221 219);color:rgb(52 159 153);">OR SIGNATURE OF TWO WITNESSES</p>
             <p class='xs'>
                 (New York Residents Only) <br>
                 <span style='padding-top:5px'>
@@ -2815,7 +2820,7 @@ Beneficiary.
 
             </div>
             <div class='section-heading md'
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:7px;padding:7px;font-weight:700">
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:7px;padding:7px;">
                 FOR OFFICE USE ONLY
             </div>
             <p style='text-align:center' class='xs'>
@@ -2900,7 +2905,7 @@ Beneficiary.
 
 
         
-            <p class="section-heading md" style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:32%;padding:8px 20px">DIRECT DEBIT REQUEST FORM</p>
+            <p class="section-heading md" style="background-color:rgb(184 221 219); color:rgb(52 159 153); ;width:32%;padding:8px 20px">DIRECT DEBIT REQUEST FORM</p>
 
                     <div style="display: table; width: 100%;" class="xs">
                         <div style="display: table-row;" class="md">

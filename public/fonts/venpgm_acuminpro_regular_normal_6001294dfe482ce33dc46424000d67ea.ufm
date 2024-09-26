@@ -1,0 +1,25 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/dompdf/php-font-lib
+EncodingScheme FontSpecific
+Copyright Acumin is either a registered trademark or a trademark of Adobe Systems Incorporated in the United States and/or other countries.
+FontName VENPGM+AcuminPro-Regular
+FontSubfamily Normal
+UniqueID FontForge 2.0 : VENPGM+AcuminPro-Regular : 26-9-2024
+FullName VENPGM+AcuminPro-Regular
+Version Version 1.0
+PostScriptName VENPGM+AcuminPro-Regular
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 783
+Descender -60
+FontBBox 0 -60 916 783
+StartCharMetrics 5
+U 32 ; WX 253 ; N space ; G 3
+U 9744 ; WX 1020 ; N uni2610 ; G 4
+EndCharMetrics
+EndFontMetrics
