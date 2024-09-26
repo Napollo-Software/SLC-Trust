@@ -168,6 +168,8 @@
         .italic{
             font-family: "Poppins-Italic";
             font-size: 10px;
+            display: block;
+            margin-top:-6px
         }
 
         .text-center{
@@ -394,17 +396,17 @@
                 <div style="display: table-row;table-layout: fixed;" class="xs">
                     <div style="display: table-cell;width: 33.33%; ">
 
-                        <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" /> <br>
+                        <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" /> 
                         <label class="italic">First</label>
                     </div>
                    
                     <div style="display: table-cell;width: 33.33%;">
-                        <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" /> <br>
+                        <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" /> 
                         <label class="italic">Middle:</label>
                     </div>
                    
                     <div style="display: table-cell;width: 33.33%;">
-                        <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" /> <br>
+                        <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" /> 
                         <label class="italic">Last:</label>
                     </div>
                 </div>
