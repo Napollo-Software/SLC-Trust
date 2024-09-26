@@ -1,0 +1,92 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/dompdf/php-font-lib
+EncodingScheme FontSpecific
+FontName VENPGM+Poppins-Italic
+FontSubfamily Regular
+UniqueID FontForge 2.0 : VENPGM+Poppins-Italic : 26-9-2024
+FullName VENPGM+Poppins-Italic
+Version Version 1.0
+PostScriptName VENPGM+Poppins-Italic
+Weight Medium
+ItalicAngle -10
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 934
+Descender -270
+FontBBox -78 -270 1025 934
+StartCharMetrics 56
+U 32 ; WX 298 ; N space ; G 3
+U 33 ; WX 500 ; N .notdef ; G 0
+U 34 ; WX 500 ; N .notdef ; G 0
+U 35 ; WX 840 ; N numbersign ; G 4
+U 36 ; WX 622 ; N dollar ; G 5
+U 37 ; WX 500 ; N .notdef ; G 0
+U 38 ; WX 500 ; N .notdef ; G 0
+U 39 ; WX 500 ; N .notdef ; G 0
+U 40 ; WX 455 ; N parenleft ; G 6
+U 41 ; WX 454 ; N parenright ; G 7
+U 42 ; WX 500 ; N .notdef ; G 0
+U 43 ; WX 500 ; N .notdef ; G 0
+U 44 ; WX 198 ; N comma ; G 8
+U 45 ; WX 551 ; N hyphen ; G 9
+U 46 ; WX 210 ; N period ; G 10
+U 47 ; WX 500 ; N .notdef ; G 0
+U 48 ; WX 628 ; N zero ; G 11
+U 49 ; WX 320 ; N one ; G 12
+U 50 ; WX 575 ; N two ; G 13
+U 51 ; WX 589 ; N three ; G 14
+U 52 ; WX 500 ; N .notdef ; G 0
+U 53 ; WX 628 ; N five ; G 15
+U 58 ; WX 213 ; N colon ; G 16
+U 65 ; WX 674 ; N A ; G 17
+U 66 ; WX 613 ; N B ; G 18
+U 67 ; WX 772 ; N C ; G 19
+U 68 ; WX 707 ; N D ; G 20
+U 69 ; WX 513 ; N E ; G 21
+U 70 ; WX 504 ; N F ; G 22
+U 72 ; WX 691 ; N H ; G 23
+U 73 ; WX 246 ; N I ; G 24
+U 74 ; WX 530 ; N J ; G 25
+U 75 ; WX 500 ; N .notdef ; G 0
+U 76 ; WX 432 ; N L ; G 26
+U 77 ; WX 861 ; N M ; G 27
+U 78 ; WX 703 ; N N ; G 28
+U 79 ; WX 500 ; N .notdef ; G 0
+U 80 ; WX 579 ; N P ; G 29
+U 81 ; WX 500 ; N .notdef ; G 0
+U 82 ; WX 500 ; N .notdef ; G 0
+U 83 ; WX 582 ; N S ; G 30
+U 84 ; WX 541 ; N T ; G 31
+U 85 ; WX 500 ; N .notdef ; G 0
+U 86 ; WX 500 ; N .notdef ; G 0
+U 87 ; WX 976 ; N W ; G 32
+U 88 ; WX 500 ; N .notdef ; G 0
+U 89 ; WX 500 ; N .notdef ; G 0
+U 90 ; WX 541 ; N Z ; G 33
+U 97 ; WX 676 ; N a ; G 34
+U 98 ; WX 676 ; N b ; G 35
+U 99 ; WX 607 ; N c ; G 36
+U 100 ; WX 676 ; N d ; G 37
+U 101 ; WX 620 ; N e ; G 38
+U 102 ; WX 329 ; N f ; G 39
+U 103 ; WX 676 ; N g ; G 40
+U 104 ; WX 640 ; N h ; G 41
+U 105 ; WX 246 ; N i ; G 42
+U 108 ; WX 246 ; N l ; G 43
+U 109 ; WX 1030 ; N m ; G 44
+U 110 ; WX 640 ; N n ; G 45
+U 111 ; WX 640 ; N o ; G 46
+U 112 ; WX 676 ; N p ; G 47
+U 114 ; WX 373 ; N r ; G 48
+U 115 ; WX 522 ; N s ; G 49
+U 116 ; WX 364 ; N t ; G 50
+U 117 ; WX 640 ; N u ; G 51
+U 118 ; WX 561 ; N v ; G 52
+U 119 ; WX 820 ; N w ; G 53
+U 121 ; WX 563 ; N y ; G 54
+U 122 ; WX 455 ; N z ; G 55
+EndCharMetrics
+EndFontMetrics

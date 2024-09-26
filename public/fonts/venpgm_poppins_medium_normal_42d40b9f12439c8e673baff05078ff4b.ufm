@@ -1,0 +1,87 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/dompdf/php-font-lib
+EncodingScheme FontSpecific
+FontName VENPGM+Poppins-Medium
+FontSubfamily Regular
+UniqueID FontForge 2.0 : VENPGM+Poppins-Medium : 26-9-2024
+FullName VENPGM+Poppins-Medium
+Version Version 1.0
+PostScriptName VENPGM+Poppins-Medium
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 772
+Descender -272
+FontBBox 0 -272 980 772
+StartCharMetrics 63
+U 32 ; WX 260 ; N space ; G 3
+U 33 ; WX 500 ; N .notdef ; G 0
+U 34 ; WX 500 ; N .notdef ; G 0
+U 35 ; WX 872 ; N numbersign ; G 4
+U 44 ; WX 225 ; N comma ; G 5
+U 45 ; WX 585 ; N hyphen ; G 6
+U 46 ; WX 241 ; N period ; G 7
+U 47 ; WX 500 ; N .notdef ; G 0
+U 48 ; WX 641 ; N zero ; G 8
+U 49 ; WX 350 ; N one ; G 9
+U 50 ; WX 577 ; N two ; G 10
+U 51 ; WX 500 ; N .notdef ; G 0
+U 52 ; WX 647 ; N four ; G 11
+U 53 ; WX 639 ; N five ; G 12
+U 54 ; WX 642 ; N six ; G 13
+U 55 ; WX 500 ; N .notdef ; G 0
+U 56 ; WX 638 ; N eight ; G 14
+U 57 ; WX 635 ; N nine ; G 15
+U 58 ; WX 245 ; N colon ; G 16
+U 65 ; WX 697 ; N A ; G 17
+U 66 ; WX 630 ; N B ; G 18
+U 67 ; WX 773 ; N C ; G 19
+U 68 ; WX 709 ; N D ; G 20
+U 69 ; WX 524 ; N E ; G 21
+U 70 ; WX 515 ; N F ; G 22
+U 71 ; WX 773 ; N G ; G 23
+U 72 ; WX 705 ; N H ; G 24
+U 73 ; WX 264 ; N I ; G 25
+U 76 ; WX 444 ; N L ; G 26
+U 77 ; WX 882 ; N M ; G 27
+U 78 ; WX 721 ; N N ; G 28
+U 79 ; WX 784 ; N O ; G 29
+U 80 ; WX 595 ; N P ; G 30
+U 81 ; WX 787 ; N Q ; G 31
+U 82 ; WX 632 ; N R ; G 32
+U 83 ; WX 604 ; N S ; G 33
+U 84 ; WX 564 ; N T ; G 34
+U 85 ; WX 690 ; N U ; G 35
+U 86 ; WX 694 ; N V ; G 36
+U 87 ; WX 999 ; N W ; G 37
+U 89 ; WX 605 ; N Y ; G 38
+U 90 ; WX 558 ; N Z ; G 39
+U 97 ; WX 678 ; N a ; G 40
+U 98 ; WX 678 ; N b ; G 41
+U 99 ; WX 600 ; N c ; G 42
+U 100 ; WX 678 ; N d ; G 43
+U 101 ; WX 617 ; N e ; G 44
+U 102 ; WX 332 ; N f ; G 45
+U 103 ; WX 678 ; N g ; G 46
+U 104 ; WX 649 ; N h ; G 47
+U 105 ; WX 264 ; N i ; G 48
+U 107 ; WX 554 ; N k ; G 49
+U 108 ; WX 264 ; N l ; G 50
+U 109 ; WX 1039 ; N m ; G 51
+U 110 ; WX 649 ; N n ; G 52
+U 111 ; WX 638 ; N o ; G 53
+U 112 ; WX 678 ; N p ; G 54
+U 114 ; WX 384 ; N r ; G 55
+U 115 ; WX 534 ; N s ; G 56
+U 116 ; WX 372 ; N t ; G 57
+U 117 ; WX 649 ; N u ; G 58
+U 118 ; WX 576 ; N v ; G 59
+U 119 ; WX 825 ; N w ; G 60
+U 121 ; WX 582 ; N y ; G 61
+U 122 ; WX 471 ; N z ; G 62
+EndCharMetrics
+EndFontMetrics

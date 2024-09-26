@@ -1,17 +1,20 @@
 {
     "venpgm-poppins-regular": {
-        "normal": "venpgm_poppins_regular_normal_2bfd6cd7c1ad61496c862136e8075df7"
+        "normal": "venpgm_poppins_regular_normal_00723fc1de065b005b5120172369a016"
     },
     "venpgm-poppins-medium": {
-        "normal": "venpgm_poppins_medium_normal_ce7e90cf316e1ab09ae9a9addc2203d3"
+        "normal": "venpgm_poppins_medium_normal_42d40b9f12439c8e673baff05078ff4b"
     },
     "venpgm-poppins-semibold": {
-        "normal": "venpgm_poppins_semibold_normal_21aac87261796a64970e50321be27a79"
+        "normal": "venpgm_poppins_semibold_normal_95ec3e9b2b7d338f2ccb75201b969e9c"
     },
     "venpgm-poppins-bold": {
-        "normal": "venpgm_poppins_bold_normal_5a19f26421010f545ed01db9b3f9129f"
+        "normal": "venpgm_poppins_bold_normal_66326a38f11db7c2219c30164571b722"
     },
     "venpgm-minionpro-regular": {
-        "normal": "venpgm_minionpro_regular_normal_e10989a52e7775145defde61fc54d94a"
+        "normal": "venpgm_minionpro_regular_normal_2cfc352fbdddbf04fb4f120b1d8d033e"
+    },
+    "venpgm-poppins-italic": {
+        "normal": "venpgm_poppins_italic_normal_f70c15585169250f5842c2f6a8c77615"
     }
 }
