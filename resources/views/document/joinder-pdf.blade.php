@@ -3000,8 +3000,8 @@ Beneficiary.
                 </div>
                 <br>
            <div style="margin-left:40px">
-                <div style="display: table;">
-                    <div style="display: table-row;" >
+                <div style="display: table;width:100%">
+                    <div style="display: table-row;width:100%" >
                         <div style="display: table-cell;">
 
                             <label class="sm">Account #:</label>
@@ -3015,7 +3015,7 @@ Beneficiary.
                     </div>
                 </div>
                 {{-- <br> --}}
-                <div style="display: table;margin-top:10px">
+                <div style="display: table;margin-top:10px;width:100%">
                     <div style="display: table-row;">
                         <div style="display: table-cell;">
 
@@ -3024,7 +3024,7 @@ Beneficiary.
                         </div>
                         &nbsp;&nbsp;
 
-                        <div style="display: table-cell">
+                        <div style="display: table-cell;">
                             <label class="sm">Monthly Debit Amount: $ </label>
                             <input class="xs" type="text" value="{{ $office_use_monthly_debit_amount }}" name="office_use_monthly_debit_amount" />
                         </div>
