@@ -1,0 +1,31 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/dompdf/php-font-lib
+EncodingScheme FontSpecific
+Copyright Copyright 1990, 1991, 1992, 1994, 1997, 1998, 2000, 2002, 2004 Adobe Systems Incorporated. All rights reserved. Minion is either a registered trademark or a trademark of Adobe Systems Incorporated in the United States and/or other countries.
+FontName VENPGM+MinionPro-Regular
+FontSubfamily Regular
+UniqueID FontForge 2.0 : VENPGM+MinionPro-Regular : 26-9-2024
+FullName VENPGM+MinionPro-Regular
+Version Version 1.0
+PostScriptName VENPGM+MinionPro-Regular
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 700
+Descender -125
+FontBBox 0 -125 751 700
+StartCharMetrics 9
+U 32 ; WX 227 ; N space ; G 3
+U 44 ; WX 228 ; N comma ; G 4
+U 45 ; WX 500 ; N .notdef ; G 0
+U 46 ; WX 500 ; N .notdef ; G 0
+U 47 ; WX 331 ; N slash ; G 5
+U 95 ; WX 500 ; N underscore ; G 6
+U 8211 ; WX 520 ; N endash ; G 7
+U 9744 ; WX 846 ; N uni2610 ; G 8
+EndCharMetrics
+EndFontMetrics

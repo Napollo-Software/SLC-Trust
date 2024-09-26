@@ -1,0 +1,43 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/dompdf/php-font-lib
+EncodingScheme FontSpecific
+FontName VENPGM+Poppins-Bold
+FontSubfamily Regular
+UniqueID FontForge 2.0 : VENPGM+Poppins-Bold : 26-9-2024
+FullName VENPGM+Poppins-Bold
+Version Version 1.0
+PostScriptName VENPGM+Poppins-Bold
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 712
+Descender -7
+FontBBox 0 -7 857 712
+StartCharMetrics 15
+U 32 ; WX 212 ; N space ; G 3
+U 65 ; WX 737 ; N A ; G 4
+U 66 ; WX 500 ; N .notdef ; G 0
+U 67 ; WX 500 ; N .notdef ; G 0
+U 68 ; WX 727 ; N D ; G 5
+U 69 ; WX 541 ; N E ; G 6
+U 70 ; WX 500 ; N .notdef ; G 0
+U 71 ; WX 762 ; N G ; G 7
+U 72 ; WX 500 ; N .notdef ; G 0
+U 73 ; WX 295 ; N I ; G 8
+U 74 ; WX 578 ; N J ; G 9
+U 75 ; WX 500 ; N .notdef ; G 0
+U 76 ; WX 500 ; N .notdef ; G 0
+U 77 ; WX 918 ; N M ; G 10
+U 78 ; WX 752 ; N N ; G 11
+U 79 ; WX 786 ; N O ; G 12
+U 80 ; WX 500 ; N .notdef ; G 0
+U 81 ; WX 500 ; N .notdef ; G 0
+U 82 ; WX 652 ; N R ; G 13
+U 83 ; WX 500 ; N .notdef ; G 0
+U 84 ; WX 591 ; N T ; G 14
+EndCharMetrics
+EndFontMetrics

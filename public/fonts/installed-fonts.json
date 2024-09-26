@@ -4,5 +4,14 @@
     },
     "venpgm-poppins-medium": {
         "normal": "venpgm_poppins_medium_normal_ce7e90cf316e1ab09ae9a9addc2203d3"
+    },
+    "venpgm-poppins-semibold": {
+        "normal": "venpgm_poppins_semibold_normal_21aac87261796a64970e50321be27a79"
+    },
+    "venpgm-poppins-bold": {
+        "normal": "venpgm_poppins_bold_normal_5a19f26421010f545ed01db9b3f9129f"
+    },
+    "venpgm-minionpro-regular": {
+        "normal": "venpgm_minionpro_regular_normal_e10989a52e7775145defde61fc54d94a"
     }
 }

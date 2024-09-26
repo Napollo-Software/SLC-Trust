@@ -1,0 +1,67 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/dompdf/php-font-lib
+EncodingScheme FontSpecific
+FontName VENPGM+Poppins-SemiBold
+FontSubfamily Regular
+UniqueID FontForge 2.0 : VENPGM+Poppins-SemiBold : 26-9-2024
+FullName VENPGM+Poppins-SemiBold
+Version Version 1.0
+PostScriptName VENPGM+Poppins-SemiBold
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 947
+Descender -264
+FontBBox 0 -264 1002 947
+StartCharMetrics 48
+U 32 ; WX 238 ; N space ; G 3
+U 46 ; WX 260 ; N period ; G 4
+U 47 ; WX 486 ; N slash ; G 5
+U 58 ; WX 263 ; N colon ; G 6
+U 65 ; WX 716 ; N A ; G 7
+U 66 ; WX 643 ; N B ; G 8
+U 67 ; WX 768 ; N C ; G 9
+U 68 ; WX 717 ; N D ; G 10
+U 69 ; WX 532 ; N E ; G 11
+U 70 ; WX 530 ; N F ; G 12
+U 71 ; WX 768 ; N G ; G 13
+U 72 ; WX 717 ; N H ; G 14
+U 73 ; WX 278 ; N I ; G 15
+U 75 ; WX 663 ; N K ; G 16
+U 76 ; WX 459 ; N L ; G 17
+U 77 ; WX 899 ; N M ; G 18
+U 78 ; WX 735 ; N N ; G 19
+U 79 ; WX 785 ; N O ; G 20
+U 80 ; WX 608 ; N P ; G 21
+U 82 ; WX 641 ; N R ; G 22
+U 83 ; WX 609 ; N S ; G 23
+U 84 ; WX 577 ; N T ; G 24
+U 85 ; WX 697 ; N U ; G 25
+U 86 ; WX 711 ; N V ; G 26
+U 87 ; WX 1024 ; N W ; G 27
+U 89 ; WX 636 ; N Y ; G 28
+U 97 ; WX 678 ; N a ; G 29
+U 98 ; WX 678 ; N b ; G 30
+U 99 ; WX 602 ; N c ; G 31
+U 100 ; WX 678 ; N d ; G 32
+U 101 ; WX 617 ; N e ; G 33
+U 102 ; WX 345 ; N f ; G 34
+U 104 ; WX 661 ; N h ; G 35
+U 105 ; WX 278 ; N i ; G 36
+U 108 ; WX 278 ; N l ; G 37
+U 109 ; WX 1048 ; N m ; G 38
+U 110 ; WX 661 ; N n ; G 39
+U 111 ; WX 638 ; N o ; G 40
+U 112 ; WX 678 ; N p ; G 41
+U 114 ; WX 404 ; N r ; G 42
+U 115 ; WX 545 ; N s ; G 43
+U 116 ; WX 388 ; N t ; G 44
+U 117 ; WX 661 ; N u ; G 45
+U 118 ; WX 599 ; N v ; G 46
+U 121 ; WX 605 ; N y ; G 47
+EndCharMetrics
+EndFontMetrics
