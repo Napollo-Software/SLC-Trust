@@ -4,12 +4,7 @@ return array(
     'font_cache' => public_path('/fonts'),
     'default_font' => 'Poppins', // Default fallback font
     'font' => [
-        'Nominee-Black' => [
-            'R'  => 'Nominee-Black.ttf',    // Regular font
-        ],
-        'Nominee-Medium' => [
-            'R'  => 'Nominee-Medium.ttf',   // Regular font
-        ],
+
         'BrittanySignature-MaZx' => [
             'R'  => 'BrittanySignature-MaZx.ttf',   // Regular font
         ],
@@ -19,20 +14,24 @@ return array(
         'Nominee-Regular2' => [
             'R'  => 'Nominee-Regular2.ttf',   // Regular font
         ],
-        'VENPGM-Poppins-Regular' => [
-            'R'  => 'VENPGM-Poppins-Regular.ttf',   // Regular font
+        'Poppins-Regular' => [
+            'R'  => 'Poppins-Regular.ttf',   // Regular font
         ],
-        'VENPGM-Poppins-Medium' => [
-            'R'  => 'VENPGM-Poppins-Medium.ttf',   // Regular font
+        'Poppins-Medium' => [
+            'R'  => 'Poppins-Medium.ttf',   // Regular font
         ],
-        'VENPGM-Poppins-SemiBold' => [
-            'R'  => 'VENPGM-Poppins-SemiBold.ttf',  
+        'Poppins-SemiBold' => [
+            'R'  => 'Poppins-SemiBold.ttf',  
         ],
-        'VENPGM-Poppins-Bold' => [
-            'R'  => 'VENPGM-Poppins-Bold.ttf',
+        'Poppins-Bold' => [
+            'R'  => 'Poppins-Bold.ttf',
         ],
-        'VENPGM-Poppins-Italic' => [
-            'R'  => 'VENPGM-Poppins-Italic.ttf',   
+        'Poppins-Italic' => [
+            'R'  => 'Poppins-Italic.ttf',   
+        ],
+     
+        'Poppins-ExtraBold' => [
+            'R'  => 'Poppins-ExtraBold.ttf',   
         ],
     ],
 

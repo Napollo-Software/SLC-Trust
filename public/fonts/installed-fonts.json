@@ -1,20 +1,20 @@
 {
-    "venpgm-poppins-regular": {
-        "normal": "venpgm_poppins_regular_normal_2bfd6cd7c1ad61496c862136e8075df7"
+    "poppins-regular": {
+        "normal": "poppins_regular_normal_12258f59bf66fab18dc244a1c2dd58a5"
     },
-    "venpgm-poppins-medium": {
-        "normal": "venpgm_poppins_medium_normal_ce7e90cf316e1ab09ae9a9addc2203d3"
+    "poppins-medium": {
+        "normal": "poppins_medium_normal_c90f5cb5cdcc39b78c0aead6e701f417"
     },
-    "venpgm-poppins-semibold": {
-        "normal": "venpgm_poppins_semibold_normal_21aac87261796a64970e50321be27a79"
+    "poppins-semibold": {
+        "normal": "poppins_semibold_normal_2cc2f1e8b17eeb93cf51c59765622397"
     },
-    "venpgm-poppins-bold": {
-        "normal": "venpgm_poppins_bold_normal_5a19f26421010f545ed01db9b3f9129f"
+    "poppins-bold": {
+        "normal": "poppins_bold_normal_3f49f43d2f6ea309f18c043b3d04009d"
     },
-    "venpgm-minionpro-regular": {
-        "normal": "venpgm_minionpro_regular_normal_e10989a52e7775145defde61fc54d94a"
+    "poppins-italic": {
+        "normal": "poppins_italic_normal_26104c1b630f16790d8def6c76363c26"
     },
-    "venpgm-poppins-italic": {
-        "normal": "venpgm_poppins_italic_normal_5082b06d08fe91072f4af7f1bb845cdc"
+    "poppins-extrabold": {
+        "normal": "poppins_extrabold_normal_1d02d6ae2a14f54209a1692fb4c6ae70"
     }
 }
