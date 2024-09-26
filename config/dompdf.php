@@ -31,8 +31,8 @@ return array(
         'VENPGM-Poppins-Bold' => [
             'R'  => 'VENPGM-Poppins-Bold.ttf',
         ],
-        'VENPGM-MinionPro-Regular' => [
-            'R'  => 'VENPGM-MinionPro-Regular.ttf',   
+        'VENPGM-Poppins-Italic' => [
+            'R'  => 'VENPGM-Poppins-Italic.ttf',   
         ],
     ],
 
