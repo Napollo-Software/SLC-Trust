@@ -7,12 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Joinder Form</title>
     <style>
+        @font-face {
+            font-family: 'VENPGM-Poppins-Regular';
+            src: url('fonts/VENPGM-Poppins-Regular.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'VENPGM-Poppins-Medium';
+            src: url('fonts/VENPGM-Poppins-Medium.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'VENPGM-Poppins-Medium';
+            src: url('fonts/VENPGM-Poppins-Medium.ttf') format('truetype');
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
             /* border: 1px solid rgb(184 221 219); */
         }
         body {
+            font-family: "VENPGM-Poppins-Regular";
+        }
+        .black {
             font-family: "Nominee-Black", sans-serif;
         }
         th,
@@ -154,7 +170,7 @@
             font-size: 16px;
         }
         .xl{
-            font-size: 17px;      
+            font-size: 18px;      
         }
 
         .strong{
@@ -214,11 +230,9 @@
 
         }
         
-
-       
-
-
-
+        .cover_image{
+            
+        }
     </style>
 </head>
 
@@ -229,47 +243,26 @@
         <!-- <p>Copyright &copy; <?php echo date("Y");?></p> -->
         </footer>
         <div class="page-0">
-            <br> <br>
             <div class="container-row" style="text-align:center;">
-                <img style="width:40%" src="{{ public_path('images/slc_logo.png') }}" alt="Example Image">
+                <img style="width:50%" src="{{ public_path('images/new_logo.png') }}" alt="Example Image">
             </div>
             {{-- {{ public_path('images/slc_logo.png') }} --}}
 
-            <div style="height:855px">
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                <div style="text-align: center;margin-top:210px">
+            <div class="740px">
+                <div style="text-align: center; margin-top: 100px;">
                     <div style="width: fit-content; display: inline-block;">
-                        <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                        <h1 class="black" style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
                             JOINDER</h1>
                     </div>
                 </div>
                 <div style="text-align: center;margin-top:-57px" >
                     <div style="width: fit-content; display: inline-block;">
-                        <h1 style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;font-weight:bold">
+                        <h1 class="black" style="color: rgb(52 159 153); font-size: 2.4rem;margin-left:18px;font-weight:bold">
                             AGREEMENT</h1>
                     </div>
                 </div>
-                <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                {{-- <div class="container-page-end"></div> --}}
-
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse; margin-top: 100px">
                     <div style="display: table-row;">
                         <div style="display: table-cell; width:45%;text-align: right;">
                             <div style="" class="xl">Tel:</div>
@@ -293,7 +286,7 @@
                 </div>
              
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:8px">
                     <div style="display: table-row;">
                         <div style="display: table-cell;">
                             <div style="" class="xl">info@slctrusts.org </div>
@@ -315,12 +308,12 @@
 
         <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;">
-                <p style="font-weight: bold;text-align:center; margin-bottom: 10px;" class="lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
-                <p style="text-align:center;color:rgb(52 159 153);" class="lg">Joinder Agreement / Beneficiary
+                <p style="font-weight: bold;text-align:center; margin-bottom: 10px;  padding-bottom: 0px; line-height: 1;" class="lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                <p style="text-align:center;color:rgb(52 159 153); line-height: 1; margin-top: 0px; padding-top: 0;" class="lg">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
             </div>
             <div style="" class="xs">
-                <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created
+                <p style="letter-spacing: 0px;">This is a legal document. It is an agreement pertaining to a supplemental needs trust created
                     pursuant to 42 United States Code §1396. You are encouraged to seek independent, professional advice
                     before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a
                     sub-trust account under the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, dated February 13,
@@ -350,12 +343,12 @@
                         <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" /> <br>
                         <label class="italic">First</label>
                     </div>
-                    &nbsp;
+                    
                     <div style="display: table-cell;width: 33.33%;">
                         <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" /> <br>
                         <label class="italic">Middle:</label>
                     </div>
-                    &nbsp;
+                    
                     <div style="display: table-cell;width: 33.33%;">
                         <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" /> <br>
                         <label class="italic">Last:</label>
@@ -422,12 +415,12 @@
                         <input type="text" value="{{ $sponsor_ssn }}" name="sponsor_ssn"> <br>
                         <label class="italic">Social Security Number:</label>
                     </div>
-                    &nbsp;&nbsp;
+                    
                     <div class="xs" style="display: table-cell">
                         <input type="text" name="sponsor_dob" value="{{ $sponsor_dob }}"> <br>
                         <label class="italic">Date of Birth:</label>
                     </div>
-                    &nbsp;&nbsp;
+                    
                     <div class="xs" style="display: table-cell">
                     <input type="text" name="sponsor_citizenship" value="{{ $sponsor_dob }}"> <br>
                     <label class="italic">Citizenship:</label>
@@ -447,7 +440,7 @@
                         <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home"> <br>
                         <label>Home Phone:</label>
                     </div>
-                    &nbsp;&nbsp;
+                    
 
                     <div style="display: table-cell">
 
@@ -471,7 +464,7 @@
                         <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home" style="width: 95%"> <br>
                         <label class="italic">Home Phone:</label>
                     </div>
-                    &nbsp;&nbsp;
+                    
 
                     <div style="display: table-cell">
 
@@ -505,7 +498,7 @@
                         <label class="italic">Email:</label>
                     </div>
                 </div>
-                &nbsp;&nbsp;
+                
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                     </div>
@@ -531,21 +524,21 @@
                         <input type="text" value="{{ $sponsor_address }}" name="sponsor_address" style="width:95%">
                         <label class="italic">Address</label>
                     </div>
-                    &nbsp;&nbsp;
+                    
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_apt }}" name="sponsor_apt" style="width:95%">
                         <label class="italic">Apt #:</label>
                     </div>
-                    &nbsp;&nbsp;
+                    
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_city }}" name="sponsor_city" style="width:95%" />
                         <label class="italic">City:</label>
                     </div>
-                    &nbsp;&nbsp;
+                    
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_state }}" name="sponsor_state" style="width:95%" />
                         <label class="italic">State:</label>
-                    </div>&nbsp;&nbsp;
+                    </div>
                     <div style="display: table-cell">
                         <input type="text" value="{{ $sponsor_zip }}" name="sponsor_zip" style="width:95%" />
                         <label class="italic">Zip:</label>
@@ -1229,7 +1222,7 @@
             <div style="margin: 0; padding-bottom:3px;" class='xs'>
                 <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
-                <label> Shelter Monthly Excess Income</label> &nbsp;
+                <label> Shelter Monthly Excess Income</label> 
                 <input type="checkbox" name="account_establishing_reason1" value="Shelter Excess Resources"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Excess Resources' ? 'checked' : '' }}>
                 <label> Shelter Excess Resources</label>
@@ -1275,12 +1268,12 @@
                                 
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
-                             &nbsp;
+                             
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="No"
                                 
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
-                             &nbsp;
+                             
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"
                                 
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
@@ -1329,13 +1322,13 @@
             <span class='md'
             style=" padding:10px;width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700;margin-top:-60px;">
             HOUSEHOLD INCOME INFORMATION </span>
-            &nbsp;&nbsp;
+            
             <br><br>
             <span style="margin:0;" class='sm'><b>Spouse Information:</b></span>
             <span class='italic xs'>(please include proof of income)</span>
             <br>
             <p style="margin: 0;padding-top:4px" class='xs'>
-                Is Spouse Deceased? &nbsp;
+                Is Spouse Deceased? 
                 <input type="checkbox" name="spouse_decreased1" value="Yes"
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
@@ -1344,7 +1337,7 @@
                     <label>No</label>
             </p>
             <p style="margin: 0;padding-top:3px" class='xs'>
-                Is Applicant & Spouse Applying Together? &nbsp;
+                Is Applicant & Spouse Applying Together? 
                 <input type="checkbox" name="applying_together1" value="Yes"
                     {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}> 
                     <label>Yes</label>
@@ -1352,7 +1345,7 @@
                 <input type="checkbox" name="applying_together1" value="No"
                     {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}> 
                     <label>No</label>
-                     &nbsp;
+                     
                 If Yes, Fill in Spouse’s Income.
             </p>
             <div style="display: table; width: 100%;">
@@ -1361,7 +1354,7 @@
                         <label style='padding-bottom:10px;'>First Name: </label>
                         <input type="text" value="{{ $spouse_fname }}" name="spouse_fname" />
                     </div>
-                    &nbsp;&nbsp;
+                    
 
                     <div style="display: table-cell" class='xs'>
                         <label >Last Name: </label>
@@ -1386,7 +1379,7 @@
                     <label>
                         Spouse Applied for Medicaid with beneficiary?
                     </label>
-                    &nbsp;
+                    
                     <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'Yes' ? 'checked' : '' }} >
                     <label>Yes</label>
@@ -1603,20 +1596,20 @@
             <div style=" display: table-row;">
                 <div style='display:table-cell'>
                     <p style="margin: 0;padding:0" class='xs'>
-                        Medicare Part: &nbsp;
+                        Medicare Part: 
                     <input type="checkbox" name="healthcare_b" value="B"
                         {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}>
                         <label>B</label>
-                         &nbsp;
+                         
                         <input type="checkbox" name="healthcare_b" value="D"
                         {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}> 
                         <label>D</label>
                         <p style='margin-left:10px'>
-                            Does the applicant have a supplemental policy? &nbsp;
+                            Does the applicant have a supplemental policy? 
                             <input type="checkbox" name="supplemental_yes" value="Yes"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
                             <label>Yes</label>
-                            &nbsp;
+                            
                             <input type="checkbox" name="supplemental_yes" value="No"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}> 
                             <label>No</label>
@@ -1642,11 +1635,11 @@
                 <div style="display: table-row;">
                     <div style="display: table-cell; margin-bottom: 2px;">
                         <p style="padding:0;margin: 0;" class='xs'>
-                            Does the Beneficiary have any funeral provisions in place? &nbsp;
+                            Does the Beneficiary have any funeral provisions in place? 
                             <input type="checkbox" name="funeral_information_body_yes" value="Yes"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
-                             &nbsp;
+                             
                             <input type="checkbox" name="funeral_information_body_yes" value="No"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
@@ -1663,11 +1656,11 @@
                     </div>
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
-                    Is there a life insurance policy in place for the Beneficiary? &nbsp;
+                    Is there a life insurance policy in place for the Beneficiary? 
                     <input type="checkbox" name="life_insurance_information_body_yes" value="Yes"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'Yes' ? 'checked' : '' }}>
                         <label>Yes</label>
-                     &nbsp;
+                     
                     <input type="checkbox" name="life_insurance_information_body_yes" value="No"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'No' ? 'checked' : '' }}>
                         <label>No</label>
@@ -1676,17 +1669,17 @@
                     <p class='italic'>If you answered yes, please attach funeral provision documents</p>
                 <div style="display: table-row;">
                         <div style="display: table-cell;padding-bottom:14px" class='xs'>
-                            <label>Name of Insured:</label> &nbsp;
+                            <label>Name of Insured:</label> 
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
-                            <label>Name of Owner:</label> &nbsp;
+                            <label>Name of Owner:</label> 
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
                         </div>
                 </div> 
                 <div style="display: table-row;">
                     <div style="display: table-cell;padding-bottom:14px" class='xs'>
-                        <label>Name of insurance company</label> &nbsp;
+                        <label>Name of insurance company</label> 
                         <input type="text" value="{{ $insurance_company }}" name="insurance_company" />
-                        <label>Policy #</label> &nbsp;
+                        <label>Policy #</label> 
                         <input type="text" value="{{ $insurance_policy_number }}" name="insurance_policy_number" />
                     </div>
                 </div>
@@ -1705,7 +1698,7 @@
                             
                         <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
                             name="healthcare_plan2">
-                            <label>Cash Surrender Value</label> &nbsp;
+                            <label>Cash Surrender Value</label> 
                         <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" />
                     </div>
                     <br>
@@ -1726,21 +1719,20 @@
                     <span class='md'
             style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">
             LIVING ARRANGEMENTS </span>
-            &nbsp;&nbsp;
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
             </div>
             <p style="padding-bottom: 0;margin-bottom:0;padding-top:4px" class='xs'>
                 <input type="checkbox" id="independently" name="living_arrangement1" value="Independently"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Independently' ? 'checked' : '' }}>
-                <label for="independently" style="vertical-align: middle;">Independently</label> &nbsp;&nbsp;
+                <label for="independently" style="vertical-align: middle;">Independently</label> 
 
                 <input type="checkbox" id="with_spouse" name="living_arrangement1" value="With Spouse"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'With Spouse' ? 'checked' : '' }}>
-                <label for="with_spouse" style="vertical-align: middle;">With Spouse</label> &nbsp;&nbsp;
+                <label for="with_spouse" style="vertical-align: middle;">With Spouse</label> 
 
                 <input type="checkbox" id="with_parents" name="living_arrangement1" value="With Parents"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'With Parents' ? 'checked' : '' }}>
-                <label for="with_parents" style="vertical-align: middle;">With parents/other family</label> &nbsp;&nbsp;
+                <label for="with_parents" style="vertical-align: middle;">With parents/other family</label> 
 
                 <input type="checkbox" id="assisted_living" name="living_arrangement1"
                     value="Assisted Living facility"
@@ -1750,15 +1742,15 @@
             <p style="padding: 0;margin:0" class='xs'>
                 <input type="checkbox" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
-                <label for="family_care" style="vertical-align: middle;">Family care program</label> &nbsp;&nbsp;
+                <label for="family_care" style="vertical-align: middle;">Family care program</label> 
 
                 <input type="checkbox" id="nursing_home" name="living_arrangement1" value="Nursing Home"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Nursing Home' ? 'checked' : '' }}>
-                <label for="nursing_home" style="vertical-align: middle;">Nursing home</label> &nbsp;&nbsp;
+                <label for="nursing_home" style="vertical-align: middle;">Nursing home</label> 
 
                 <input type="checkbox" id="supervised" name="living_arrangement1" value="CR/IRA/ICF(supervised)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA/ICF(supervised)' ? 'checked' : '' }}>
-                <label for="supervised" style="vertical-align: middle;">CR/IRA/ICF(supervised)</label> &nbsp;&nbsp;
+                <label for="supervised" style="vertical-align: middle;">CR/IRA/ICF(supervised)</label> 
 
                 <input type="checkbox" id="supportive" name="living_arrangement1" value="CR/IRA(Supportive)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
@@ -1767,7 +1759,7 @@
             <p style="padding: 0; margin: 0;" class='xs'>
                 <input type="checkbox" id="other_living_arrangement" name="living_arrangement1" value="Other"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Other' ? 'checked' : '' }}>
-                <label for="other_living_arrangement" style="vertical-align: middle;">Other Explain</label> &nbsp;&nbsp;
+                <label for="other_living_arrangement" style="vertical-align: middle;">Other Explain</label> 
                 <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
                     name="living_arrangement_other">
             </p>
@@ -1823,7 +1815,7 @@
                         <input type="text" value="{{ $living_arrangement_first }}" name="living_arrangement_first" style="width: 95%" /> <br>
                         <label>First</label>
                     </div>
-                    &nbsp;
+                    
                     <div style="display: table-cell" class='xs'>
                         <input type="text" value="{{ $living_arrangement_last }}" name="living_arrangement_last" style="width: 95%" /> <br>
                         <label>Last</label>
@@ -1834,7 +1826,7 @@
                         <input type="text" value="{{ $living_arrangement_primary }}" name="living_arrangement_primary" style="width: 95%" /> <br>
                         <label>Primary Phone</label>
                     </div>
-                    &nbsp;&nbsp;
+                    
                     <div style="display: table-cell" class='xs'>
                         <input type="text" value="{{ $living_arrangement_email }}" name="living_arrangement_email" style="width: 95%" /> <br>
                         <label>Email</label>
@@ -1885,7 +1877,7 @@
             </p>
             
             <div class="pa-container xs">
-                <p class="strong sm" >Power of Attornery &nbsp; <span class="italic"> Please attach a copy of Power of Attorney</span></p>
+                <p class="strong sm" >Power of Attornery  <span class="italic"> Please attach a copy of Power of Attorney</span></p>
             
             <div style="display: table; width: 100%;" class="xs">
                 <div style="display: table-row;">
@@ -2057,26 +2049,26 @@
                 </div>
             </div> --}}
 
-            <p>Is this person the sole POA? &nbsp; <input type="checkbox" name="sole_poa1"
+            <p>Is this person the sole POA?  <input type="checkbox" name="sole_poa1"
                     value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
-                 &nbsp;
+                 
                 <input type="checkbox" name="sole_poa1" value="No"
                     {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}> 
                     <label>No</label>
                     
                     <br>
-                    If No, are the agents authorized to act separately? &nbsp; <input type="checkbox" name="act_seprately1"
+                    If No, are the agents authorized to act separately?  <input type="checkbox" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
-                 &nbsp;
+                 
                 <input type="checkbox" name="act_seprately1" value="No"
                     {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> 
                     <label>No</label>
             </p>
-            {{-- <p>If No, are the agents authorized to act separately? &nbsp; <input type="checkbox" name="act_seprately1"
+            {{-- <p>If No, are the agents authorized to act separately?  <input type="checkbox" name="act_seprately1"
                     value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
-                Yes &nbsp;
+                Yes 
                 <input type="checkbox" name="act_seprately1" value="No"
                     {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> No
             </p> --}}
@@ -2086,7 +2078,7 @@
 
         <div style="margin-top: 5px" class="pa-container xs">
 
-            <p class="strong sm">Power of Attornery - Second Agent &nbsp; <span class="italic"> Please attach a copy of Power of Attorney</span></p>
+            <p class="strong sm">Power of Attornery - Second Agent  <span class="italic"> Please attach a copy of Power of Attorney</span></p>
             <div style="display: table; width: 100%;">
 
                 <div style="display: table-row;">
@@ -2196,25 +2188,25 @@
             </div> --}}
             {{-- <br> --}}
 
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? &nbsp; <input type="checkbox"
+            <p style="margin: 0;padding: 0;">Is this person the sole POA?  <input type="checkbox"
                     name="power_of_attorney2_yes" value="Yes"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
-                Yes &nbsp;
+                Yes 
                 <input type="checkbox" name="power_of_attorney2_yes" value="No"
                     {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
                     <br>
-                    If No, are the agents authorized to act separately? &nbsp; <input type="checkbox"
+                    If No, are the agents authorized to act separately?  <input type="checkbox"
                     name="power_of_attorney2_authorized_yes" value="Yes"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
-                Yes &nbsp;
+                Yes 
                 <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
                 No
             </p>
-            {{-- <p >If No, are the agents authorized to act separately? &nbsp; <input type="checkbox"
+            {{-- <p >If No, are the agents authorized to act separately?  <input type="checkbox"
                     name="power_of_attorney2_authorized_yes" value="Yes"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
-                Yes &nbsp;
+                Yes 
                 <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
                     {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
                 No
@@ -2228,19 +2220,19 @@
                 Please attach a copy of Decree or Letter of guardianship
             </p>
             {{-- <p style="padding:0;margin: 0;">
-                Does the Beneficiary have a court appointed Guardian? &nbsp;
+                Does the Beneficiary have a court appointed Guardian? 
                 <input type="checkbox" name="guardian_information_yes" value="Yes"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
-                Yes &nbsp;
+                Yes 
                 <input type="checkbox" name="guardian_information_yes" value="No"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> No
             </p> --}}
             <p class="sm">
-                Does the Beneficiary have a court appointed Guardian? &nbsp;
+                Does the Beneficiary have a court appointed Guardian? 
                 <input type="checkbox" name="guardian_information_yes" value="Yes"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
-                 &nbsp;
+                 
                 <input type="checkbox" name="guardian_information_yes" value="No"
                     {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> 
                     <label>No</label>
@@ -2249,14 +2241,14 @@
                 If you answered yes, continue to fill out below:
             </p>
             <p class="sm" style="margin: 0;padding: 0;">
-                Guardian of the: &nbsp;<input type="checkbox" name="guardian_appointed_for1" value="Person"
+                Guardian of the: <input type="checkbox" name="guardian_appointed_for1" value="Person"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
                 <label>Person </label>
-                    &nbsp;
+                    
                 <input type="checkbox" name="guardian_appointed_for1" value="Property"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
                     <label>Property</label>
-                 &nbsp;
+                 
                 <input type="checkbox" name="guardian_appointed_for3" value="Both"
                     {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
                     <label>Both</label>
@@ -2272,7 +2264,7 @@
                     <input type="text" value="{{ $guardianship_fname }}" name="guardianship_fname" style="width: 95%" /> <br>
                     <label class="italic">First</label>
                 </div>
-                &nbsp;&nbsp;
+                
 
                 <div style="display: table-cell">
                     <input type="text" value="{{ $guardianship_lname }}" name="guardianship_lname" style="width: 95%" /> <br>
@@ -2289,7 +2281,7 @@
                     <input type="text" value="{{ $guardianship_telephone }}" name="guardianship_telephone" style="width: 95%" /> <br>
                     <label class="italic">Telephone</label>
                 </div>
-                &nbsp;&nbsp;
+                
 
                 <div style="display: table-cell">
                     <input type="text" value="{{ $guardianship_email }}" name="guardianship_email" style="width: 95%" /> <br>
@@ -2312,18 +2304,18 @@
                         Service 
                         <input type="text" value="{{ $beneficiary_service_one }}" class="no-border xs"
                             name="beneficiary_service_one"><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" value="{{ $beneficiary_service_two }}" class="no-border xs"
+                             <input type="text" value="{{ $beneficiary_service_two }}" class="no-border xs"
                             name="beneficiary_service_two" style="margin-top: 8px"><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" value="{{ $beneficiary_service_three }}" class="no-border"
+                             <input type="text" value="{{ $beneficiary_service_three }}" class="no-border"
                             name="beneficiary_service_three" style="margin-top: 8px" class="xs">
                     </p>
                     <p class="md" style="display: table-cell; vertical-align: top; text-align: left;float:right;">
                         Name of Provider 
                         <input type="text" value="{{ $beneficiary_provider_one }}" class="no-border xs"
                             name="beneficiary_provider_one"><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <input type="text" value="{{ $beneficiary_provider_two }}" class="no-border xs"
+                               <input type="text" value="{{ $beneficiary_provider_two }}" class="no-border xs"
                             name="beneficiary_provider_two" style="margin-top: 8px"><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" value="{{ $beneficiary_provider_three }}" class="no-border"
+                             <input type="text" value="{{ $beneficiary_provider_three }}" class="no-border"
                             name="beneficiary_provider_three" style="margin-top: 8px" class="xs">
                     </p>
                 </div>
@@ -2584,12 +2576,12 @@ Beneficiary.
             <p class='text-xs' style="padding:10px;width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-weight:700">AGREEMENT SIGNATURE</p>
             <p class='text-xs' style="padding:0;margin: 0;padding-bottom:2px">
                 Who is signing this Joinder Agreement?
-                &nbsp;
+                
                 <input type="checkbox" name="agreement_signature_beneficiary" value="Beneficiary"
-                    {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}> Beneficiary &nbsp;
+                    {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}> Beneficiary 
                 <input type="checkbox" name="agreement_signature_beneficiary" value="Power of Attorney"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Power of Attorney' ? 'checked' : '' }}>
-                Power of Attorney &nbsp;
+                Power of Attorney 
                 <input type="checkbox" name="agreement_signature_guardian" value="Guardian"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
@@ -2856,7 +2848,7 @@ Beneficiary.
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
         
-                                <label class="md">Donor/Beneficiary</label> &nbsp;
+                                <label class="md">Donor/Beneficiary</label> 
                                 <input class="md" type="text" value="{{ $direct_debit_donor_beneficiary }}" name="direct_debit_donor_beneficiary" style="width: 80%" /> 
                             </div>
                             
@@ -2866,7 +2858,7 @@ Beneficiary.
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
         
-                                <label class="md">Representative</label> &nbsp;
+                                <label class="md">Representative</label> 
                                 <input class="md" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
                             </div>
                         </div>
@@ -2878,17 +2870,17 @@ Beneficiary.
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
         
-                                <label class="md">Bank Name</label> &nbsp;
+                                <label class="md">Bank Name</label> 
                                 <input class="md" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 60%" /> 
                             </div>
                             <div style="display: table-cell;">
         
-                                <label class="md">City</label> &nbsp;
+                                <label class="md">City</label> 
                                 <input class="md" type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" style="width: 70%" /> 
                             </div>
                             <div style="display: table-cell;">
         
-                                <label class="md">State</label> &nbsp;
+                                <label class="md">State</label> 
                                 <input class="md" type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" style="width: 70%" /> 
                             </div>
 
@@ -2899,12 +2891,12 @@ Beneficiary.
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
         
-                                <label class="md">Bank Routing Number</label> &nbsp;
+                                <label class="md">Bank Routing Number</label> 
                                 <input class="md" type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" style="width: 52%" /> 
                             </div>
                             <div style="display: table-cell;">
         
-                                <label class="md">Account Number</label> &nbsp;
+                                <label class="md">Account Number</label> 
                                 <input class="md" type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" style="width: 58%" /> 
                             </div>
 
@@ -2917,12 +2909,12 @@ Beneficiary.
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;width:60%">
         
-                                <label class="md">Account Name</label> &nbsp;
+                                <label class="md">Account Name</label> 
                                 <input class="md" type="text" value="{{ $direct_debit_account_name }}" name="direct_debit_account_name" style="width:70%" /> 
                             </div>
-                            {{-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
+                            {{--  --}}
                             <div style="display: table-cell;vertical-align:middle;text-align:right">
-                                <label class="md">Account Type: </label> &nbsp;
+                                <label class="md">Account Type: </label> 
                                 <input type="checkbox" name="direct_debit_bank_type1" value="Checking" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>Checking
                                 <input type="checkbox" name="direct_debit_bank_type1" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
                             </div>
@@ -2956,7 +2948,7 @@ Beneficiary.
                     <div style="display: table-row;" class="md">
                         <div style="display: table-cell;">
 
-                            <label class="sm">Beneficiary/ Representative Sign Here</label> &nbsp;
+                            <label class="sm">Beneficiary/ Representative Sign Here</label> 
                             <input class="md" type="text" value="{{$joinder_signature_5}}" name="joinder_signature_5" style="width: 65%" /> 
                         </div>
 
@@ -3007,7 +2999,7 @@ Beneficiary.
                             <label class="sm">Account #:</label>
                             <input class="xs" type="text" value="{{ $office_use_account_number }}" name="office_use_account_number" />
                         </div>
-                        &nbsp;&nbsp;
+                        
                         <div style="display: table-cell;">
                             <label class="sm">MemberID #:</label>
                             <input class="xs" type="text" value="{{ $office_use_member_id_below }}" name="office_use_member_id_below" />
@@ -3022,7 +3014,7 @@ Beneficiary.
                             <label class="sm">Processed By:</label>
                             <input class="xs" type="text" value="{{ $office_use_processed_by }}" name="office_use_processed_by" />
                         </div>
-                        &nbsp;&nbsp;
+                        
 
                         <div style="display: table-cell">
                             <label class="sm">Monthly Debit Amount: $ </label>
@@ -3048,7 +3040,7 @@ Beneficiary.
                             <label class="sm">Date of Monthly Debit:</label>
                             <input class="xs" type="text" value="{{ $office_use_monthly_debit_date }}" name="office_use_monthly_debit_date" />
                         </div>
-                        &nbsp;&nbsp;
+                        
 
                         <div style="display: table-cell">
                             <label class="sm">First Debit Month:</label>

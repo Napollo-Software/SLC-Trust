@@ -2,10 +2,37 @@
 
 return array(
     'font_cache' => public_path('/fonts'),
-    'default_font' => 'Poppins',
+    'default_font' => 'Poppins', // Default fallback font
     'font' => [
-        'Nominee-Regular' => [
+        'Nominee-Black' => [
             'R'  => 'Nominee-Black.ttf',    // Regular font
+        ],
+        'Nominee-Medium' => [
+            'R'  => 'Nominee-Medium.ttf',   // Regular font
+        ],
+        'BrittanySignature-MaZx' => [
+            'R'  => 'BrittanySignature-MaZx.ttf',   // Regular font
+        ],
+        'Nominee-Regular' => [
+            'R'  => 'Nominee-Regular.ttf',   // Regular font
+        ],
+        'Nominee-Regular2' => [
+            'R'  => 'Nominee-Regular2.ttf',   // Regular font
+        ],
+        'VENPGM-Poppins-Regular' => [
+            'R'  => 'VENPGM-Poppins-Regular.ttf',   // Regular font
+        ],
+        'VENPGM-Poppins-Medium' => [
+            'R'  => 'VENPGM-Poppins-Medium.ttf',   // Regular font
+        ],
+        'VENPGM-Poppins-SemiBold' => [
+            'R'  => 'VENPGM-Poppins-SemiBold.ttf',  
+        ],
+        'VENPGM-Poppins-Bold' => [
+            'R'  => 'VENPGM-Poppins-Bold.ttf',
+        ],
+        'VENPGM-MinionPro-Regular' => [
+            'R'  => 'VENPGM-MinionPro-Regular.ttf',   
         ],
     ],
 
