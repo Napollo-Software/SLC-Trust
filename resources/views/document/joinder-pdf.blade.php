@@ -231,11 +231,11 @@
         <div class="page-0">
             <br> <br>
             <div class="container-row" style="text-align:center;">
-                <img style="width:40%" src="{{ public_path('images/slc_logo.png') }}" alt="Example Image">
+                <img style="width:50%" src="{{ public_path('images/new_logo.png') }}" alt="Example Image">
             </div>
             {{-- {{ public_path('images/slc_logo.png') }} --}}
 
-            <div style="height:855px">
+            <div style="height:740px">
                  <br>
                  <br>
                  <br>
@@ -244,7 +244,7 @@
                  <br>
                  <br>
                  <br>
-                <div style="text-align: center;margin-top:210px">
+                <div style="text-align: center;margin-top:100px">
                     <div style="width: fit-content; display: inline-block;">
                         <h1 style="color: rgb(52 159 153); padding: 5px 10px; font-size: 2.4rem;margin-left:18px;font-weight:bold">
                             JOINDER</h1>
@@ -293,7 +293,7 @@
                 </div>
              
                 <div
-                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:5px">
+                    style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:8px">
                     <div style="display: table-row;">
                         <div style="display: table-cell;">
                             <div style="" class="xl">info@slctrusts.org </div>
@@ -2815,16 +2815,6 @@ Beneficiary.
                         <tr  style="border:none;padding: 5px;background-color:rgb(184 221 219)">
                             <td class="md strong" colspan="2" style="color: rgb(52 159 153);border: none;">FOR OFFICE USE ONLY</td>
                         </tr>
-                        {{-- <tr style="border: none;background-color: #ecf6f7;">
-                            <td style="border: none;background-color: #ecf6f7; font-size:11px">Member ID#:</td>
-                            <td style="border: none;background-color: #ecf6f7;" class="xs"><input style="background-color: #ecf6f7" type="text" value="{{ $office_use_member_id_above }}"
-                                    class="no-border"></td>
-                        </tr>
-                        <tr style="border: none;background-color: #ecf6f7;">
-                            <td style="border: none;background-color: #ecf6f7; font-size:11px" >Effective Date:</td>
-                            <td style="border: none;background-color: #ecf6f7;" class="xs" ><input style="background-color: #ecf6f7" type="text" value="{{ $office_use_effective_date }}"
-                                    class="no-border"></td>
-                        </tr> --}}
                     </table>
                     <div style="display: table; width:100%;background-color: #ecf6f7;text-align:center;padding:15px 0px">
                         {{-- <br> --}}
@@ -2849,7 +2839,7 @@ Beneficiary.
            
 
 
-        <div class="page-9">
+        
             <p class="section-heading md" style="background-color:rgb(184 221 219); color:rgb(52 159 153); font-weight:700;width:32%;padding:8px 20px">DIRECT DEBIT REQUEST FORM</p>
             
                     <div style="display: table; width: 100%;" class="xs">
@@ -2857,71 +2847,71 @@ Beneficiary.
                             <div style="display: table-cell;">
         
                                 <label class="md">Donor/Beneficiary</label> &nbsp;
-                                <input class="md" type="text" value="{{ $direct_debit_donor_beneficiary }}" name="direct_debit_donor_beneficiary" style="width: 80%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_donor_beneficiary }}" name="direct_debit_donor_beneficiary" style="width: 80%" /> 
                             </div>
                             
                             
                         </div>
-                        <br>
-                        <div style="display: table-row;" class="md">
+                        {{-- <br> --}}
+                        <div style="display: table-row; margin-top:4px" class="md">
                             <div style="display: table-cell;">
         
                                 <label class="md">Representative</label> &nbsp;
-                                <input class="md" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
                             </div>
                         </div>
 
                     
                     </div>
-                    <br>
-                    <div style="display: table; width: 100%;" class="xs">
+                    {{-- <br> --}}
+                    <div style="display: table; width: 100%; margin-top:4px" class="xs">
                         <div style="display: table-row;" class="md">
-                            <div style="display: table-cell;">
+                            <div style="display: table-cell;margin-top:4px">
         
                                 <label class="md">Bank Name</label> &nbsp;
-                                <input class="md" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 60%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 60%" /> 
                             </div>
-                            <div style="display: table-cell;">
+                            <div style="display: table-cell;margin-top:4px">
         
                                 <label class="md">City</label> &nbsp;
-                                <input class="md" type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" style="width: 70%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" style="width: 70%" /> 
                             </div>
-                            <div style="display: table-cell;">
+                            <div style="display: table-cell;margin-top:4px">
         
                                 <label class="md">State</label> &nbsp;
-                                <input class="md" type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" style="width: 70%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" style="width: 70%" /> 
                             </div>
 
                         </div>
                     </div>
-                    <br>
-                    <div style="display: table; width: 100%;" class="xs">
+                    {{-- <br> --}}
+                    <div style="display: table; width: 100%; margin-top:4px" class="xs">
                         <div style="display: table-row;" class="md">
-                            <div style="display: table-cell;">
+                            <div style="display: table-cell;margin-top:4px">
         
                                 <label class="md">Bank Routing Number</label> &nbsp;
-                                <input class="md" type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" style="width: 52%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" style="width: 52%" /> 
                             </div>
-                            <div style="display: table-cell;">
+                            <div style="display: table-cell;margin-top:4px">
         
                                 <label class="md">Account Number</label> &nbsp;
-                                <input class="md" type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" style="width: 58%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" style="width: 58%" /> 
                             </div>
 
                         </div>
 
                     </div>
-                    <br>
+                    {{-- <br> --}}
 
-                    <div style="display: table; width: 100%;" class="xs">
+                    <div style="display: table; width: 100%; margin-top:4px" class="xs">
                         <div style="display: table-row;" class="md">
-                            <div style="display: table-cell;width:60%">
+                            <div style="display: table-cell;width:60%;margin-top:6px">
         
                                 <label class="md">Account Name</label> &nbsp;
-                                <input class="md" type="text" value="{{ $direct_debit_account_name }}" name="direct_debit_account_name" style="width:70%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_account_name }}" name="direct_debit_account_name" style="width:70%" /> 
                             </div>
                             {{-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
-                            <div style="display: table-cell;vertical-align:middle;text-align:right">
+                            <div style="display: table-cell;vertical-align:middle;text-align:right;margin-top:4px">
                                 <label class="md">Account Type: </label> &nbsp;
                                 <input type="checkbox" name="direct_debit_bank_type1" value="Checking" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>Checking
                                 <input type="checkbox" name="direct_debit_bank_type1" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
@@ -2933,7 +2923,7 @@ Beneficiary.
 
 
                 
-                <br>
+                {{-- <br> --}}
 
                 <p>
                     <b class='md'>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</b>
@@ -2956,42 +2946,24 @@ Beneficiary.
                     <div style="display: table-row;" class="md">
                         <div style="display: table-cell;">
 
-                            <label class="sm">Beneficiary/ Representative Sign Here</label> &nbsp;
-                            <input class="md" type="text" value="{{$joinder_signature_5}}" name="joinder_signature_5" style="width: 65%" /> 
+                            <label>Beneficiary/ Representative Sign Here </label>
                         </div>
-
-                    </div>
-                    
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: start; margin-top: 10px;">
-                    <div style="padding: 10px;">
-                        @if ($joinder_signature_5)
+                        <div style="display: table-cell;">
+                            @if ($joinder_signature_5)
                             <img src="{{ $joinder_signature_5 }}" alt="Signature 5"
-                                style="max-width: 300px; height: auto;">
+                                style="max-width: 300px; height: 90px;">
                         @else
                             <div style="width: 200px; height: 50px; text-align: center;">
                                 No Signature Provided
                             </div>
                         @endif
+                        </div>
+
                     </div>
-
+                    
                 </div>
-
-                {{-- <br>
                 <br>
                 <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br> --}}
-                <br>
-                <br>
-
 
             <div>
                 <div
@@ -3015,23 +2987,23 @@ Beneficiary.
                     </div>
                 </div>
                 {{-- <br> --}}
-                <div style="display: table;margin-top:10px;width:100%">
+                <div style="display: table;margin-top:2px;width:100%">
                     <div style="display: table-row;">
-                        <div style="display: table-cell;">
+                        <div style="display: table-cell;width:50%">
 
                             <label class="sm">Processed By:</label>
-                            <input class="xs" type="text" value="{{ $office_use_processed_by }}" name="office_use_processed_by" />
+                            <input class="xs" type="text" value="{{ $office_use_processed_by }}" name="office_use_processed_by" style="width:55%" />
                         </div>
-                        &nbsp;&nbsp;
+                        {{-- &nbsp;&nbsp; --}}
 
-                        <div style="display: table-cell;">
+                        <div style="display: table-cell;width:30%">
                             <label class="sm">Monthly Debit Amount: $ </label>
-                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_amount }}" name="office_use_monthly_debit_amount" />
+                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_amount }}" name="office_use_monthly_debit_amount" style="width:36%" />
                         </div>
                     </div>
                 </div>
                 {{-- <br> --}}
-                <div style="display: table;margin-top:10px">
+                <div style="display: table;margin-top:2px">
                     <div style="display: table-row;">
                         <div style="display: table-cell;text-align: start; !important">
                             <p class="sm">
@@ -3041,8 +3013,8 @@ Beneficiary.
                     </div>
                 </div>
                 {{-- <br> --}}
-                <div style="display: table;margin-top:10px">
-                    <div style="display: table-row;">
+                <div style="display: table;width:100%;margin-top:2px">
+                    <div style="display: table-row;width:100%">
                         <div style="display: table-cell;">
 
                             <label class="sm">Date of Monthly Debit:</label>
@@ -3059,25 +3031,18 @@ Beneficiary.
             </div>
 
 
-                <br>
+                {{-- <br> --}}
                 <p class="sm italic">
                     If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
                     A $100 annual-renewal fee will be charged on the anniversary of the account
                 </p>
-                <br>
-                <br>
-
-                <div style="text-align: center;margin: 30px 0;padding: 0;">
-                    <img src="{{ public_path('images/new_logo.png') }}" alt="logo" width="350">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+                <div style="text-align: center;">
+                    <img src="{{ public_path('images/new_logo.png') }}" alt="logo" width="250">
+                       <br>
                     <p style="margin: 0;padding: 0;">9</p>
                 </div>
             </div>
+
         </div>
 
            
