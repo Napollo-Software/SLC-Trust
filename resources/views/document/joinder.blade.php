@@ -3647,7 +3647,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">Address</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="text" name="power_apt" id=""
+                                    <input type="number" name="power_apt" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Apt #</label>
                                 </div>
@@ -3662,7 +3662,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">State</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="text" name="power_zip" id=""
+                                    <input type="number" name="power_zip" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Zip</label>
                                 </div>
@@ -3753,7 +3753,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">Address</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="text" name="power_apt2" id=""
+                                    <input type="number" name="power_apt2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Apt #</label>
                                 </div>
@@ -3768,7 +3768,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">State</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="text" name="power_zip2" id=""
+                                    <input type="number" name="power_zip2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Zip</label>
                                 </div>
