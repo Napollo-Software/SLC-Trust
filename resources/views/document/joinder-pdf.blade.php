@@ -2593,7 +2593,7 @@
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p>
-            <p class='xs' style='margin:0;padding-bottom:5px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
+            <p class='xs' style='margin:0;padding-bottom:12px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
             <div style="display: table; width: 100%; margin: 0; text-align: center;">
             <div style="display: table-row;">
                 <div style="display: table-cell; width: 30%;">
@@ -2652,9 +2652,9 @@
             <div style='display:table-row' class='xs'>
                 <div style='display:table-cell;width:50%'>
                         <p style="margin:0;padding-bottom:5px:">
-                            Before me the undersigned, a Notary Public in and for said State, personally appeared
+                            before me the undersigned, a Notary Public in and for said State, personally appeared,<br>
                             <input type="text" value="{{ $notary_appeared }}" class="no-border" name="notary_appeared">
-                            personally known to me or proved to me on the basis of satisfactory evidence to be the individual whose
+                           <br> personally  known to me or proved to me on the basis of satisfactory evidence to be the individual whose
                             name
                             is subscribed to the within instrument and acknowledged to me that he/she/they executed the same in
                             his/her capacity,
@@ -2674,7 +2674,7 @@
             <p class='md section-heading' style=" width:37%;background-color:rgb(184 221 219);color:rgb(52 159 153);">OR SIGNATURE OF TWO WITNESSES</p>
             <p class='xs'>
                 (New York Residents Only) <br>
-                <span style='padding-top:5px'>
+                <span style='padding-top:7px'>
                     Or in lieu of Notarization, the following two witness signatures are provided:
                 </span>
             </p>
