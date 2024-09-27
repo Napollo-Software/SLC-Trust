@@ -2206,7 +2206,7 @@
             <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); width:33%" class="strong md section-heading" >
                 INFORMATION AND DISCLOSURES:
             </p>
-            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1.1">
+            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1.1 !important;">
                 <div class="strong" style="margin-bottom: 0;">Death of Beneficiary:</div>
                 <p style="margin-top: 0px; padding-top: 0;">The Beneficiary’s sub-trust account terminates
                     upon his or her death. If, upon the death of the
@@ -2249,7 +2249,7 @@
                     shall be required to pay a new enrollment fee when re-opening a sub-trust</p>
             </div>
 
-            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.3;margin-top:0px">
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.1 !important;margin-top:0px">
             account.
             <br/>
             <br/>
@@ -2316,7 +2316,7 @@
 
         <div class="page-7 sm" style="position: relative;">
             <div class="strong">Situs:</div> 
-            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1.1">
+            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1.1 !important;">
                 <p>The sub-trust account created by this Agreement
                     has been accepted by the Trustee in the State of
                     New York and will be administered by Senior Lifecare
@@ -2360,7 +2360,7 @@
                 </p>
             </div>
 
-            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.3;margin-top:0px">
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.1 !important;margin-top:0px">
                 <p>is defined under
                     federal law, to determine whether they have the
                     legal authority to transfer property to fund the
