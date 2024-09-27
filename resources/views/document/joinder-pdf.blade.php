@@ -275,8 +275,8 @@
         <!-- <p>Copyright &copy; <?php echo date("Y");?></p> -->
         </footer>
         <div class="page-0">
-            <div class="container-row" style="text-align:center; position: absolute; top: 20px;">
-                <img style="width:50%" src="{{ public_path('images/new_logo.png') }}" alt="Example Image">
+            <div class="container-row" style="text-align:center; position: absolute; top: 70px;">
+                <img style="width:54%" src="{{ public_path('images/new_logo.png') }}" alt="Example Image">
             </div>
 
             <div style="height:800px">
@@ -390,9 +390,9 @@
 
 
                 <br/>
-            <div style="display: table; width: 100%;">
+            <div style="display: table; width: 118%;">
                 <div style="display: table-row;">
-                    <p style="display:table-cell;margin-top:10px;padding-top:10px" class="sm strong"> Marital Status:
+                    <p style="display:table-cell;margin-top:10px;padding-top:10px" class="sm strong"> Marital Status
                         <label style="font-family:Poppins-Regular"  class="xs">
                             <input type="checkbox" name="sponsor_marital_status1" value="Married"
                                 {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
@@ -441,7 +441,7 @@
                 </div> --}}
 
                  <br />
-                 <div style="display: table; width: 100%; margin-bottom: 8px;">
+                 <div style="display: table; width: 100%; margin-bottom: 8px;margin-top:10px">
                     <div style="display: table-row;">
 
                         <!-- Social Security Number -->
