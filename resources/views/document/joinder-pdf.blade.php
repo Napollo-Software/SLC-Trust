@@ -2208,8 +2208,8 @@
                 INFORMATION AND DISCLOSURES:
             </p>
             <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1.1">
-                <div class="strong">Death of Beneficiary:</div>
-                <p>The Beneficiary’s sub-trust account terminates
+                <div class="strong" style="margin-bottom: 0;">Death of Beneficiary:</div>
+                <p style="margin-top: 0px; padding-top: 0;">The Beneficiary’s sub-trust account terminates
                     upon his or her death. If, upon the death of the
                     Beneficiary, funds remain in his or her sub-trust
                     account, such funds shall be deemed to be property
@@ -2250,12 +2250,12 @@
                     shall be required to pay a new enrollment fee when re-opening a sub-trust</p>
             </div>
 
-            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.1;margin-top:0px">
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.2;margin-top:0px">
             account.
             <br/>
             <br/>
                 <div class="strong margin-bottom: 0;" >Disbursements: </div>
-                <p>All disbursement requests shall be reviewed and
+                <p style="margin-top: 0px; padding-top: 0;">All disbursement requests shall be reviewed and
                     approved on an individual basis.
                     Disbursements for expenses incurred more than 90
                     days prior to submission of a disbursement request
