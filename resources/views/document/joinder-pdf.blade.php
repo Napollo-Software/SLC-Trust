@@ -1077,20 +1077,18 @@
                         <label class="italic">Name of Contract</label>
                     </div>
                 </div>
-                <br>
                 <div style="display: table-row;">
-                    <div style="display: table-cell;">
+                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
 
                         <input type="text" value="{{ $referring_tel }}" name="referring_tel" style="width:95%" /> <br>
                         <label class="italic">Home</label>
                     </div>
 
-                    <div style="display: table-cell">
+                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
                         <input type="text" value="{{ $referring_email }}"name="referring_email" style="width:95%" /> <br>
                         <label class="italic">Email</label>
                     </div>
                 </div>
-                <br>
 
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
@@ -1106,23 +1104,23 @@
             </div>
             <div style="display:table;width:100%" class="xs">
             <div style="display: table-row;">
-                    <div style="display: table-cell;">
+                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
                         <input type="text" value="{{ $referring_address }}" name="referring_address" style="width:95%">
                         <label class="italic">Address</label>
                     </div>
-                    <div style="display: table-cell">
+                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
                         <input type="text" value="{{ $referring_apt }}" name="referring_apt" style="width:95%">
                         <label class="italic">Apt #</label>
                     </div>
-                    <div style="display: table-cell">
+                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
                         <input type="text" value="{{ $referring_city }}" name="referring_city" style="width:95%" />
                         <label class="italic">City</label>
                     </div>
-                    <div style="display: table-cell">
+                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
                         <input type="text" value="{{ $referring_state }}" name="referring_state" style="width:95%" />
                         <label class="italic">State</label>
                     </div>
-                    <div style="display: table-cell">
+                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
                         <input type="text" value="{{ $referring_zip }}" name="referring_zip" style="width:95%" />
                         <label class="italic">Zip</label>
                     </div>
@@ -1423,13 +1421,14 @@
                             Supplement Security Income(SSI)
                         </p>
                     </td>
-                    <td style="width:80px;padding: 0px;" class='xs'>
-                        <p style='margin:3px;text-align:left;padding-left:12px'> <span style='padding-top:4px'>$</span> <input style='border:none;' type="text" value="{{ $applicant_ssi }}" style='border:none'
-                                name="applicant_ssi"></p>
-                    </td>
-                    <td style="width:80px;padding: 0px;" class='xs'>
-                        <p style='margin:3px;text-align:left;padding-left:12px'><span style='padding-top:4px'>$</span> <input style='border:none;' type="text" value="{{ $spouse_ssi }}" class="no-border" style='border:none' name="spouse_ssi">
+                    <td class='xs' style="width:80px; padding: 0px;text-align:left;padding-left:12px " class='xs'>
+                        <p style="margin: 3px;"><span>$</span> <input style='border:none;vertical-align:sub' type="text" value="{{ $applicant_ssi }}"  class="no-border"
+                                name="applicant_ssi">
                         </p>
+                    </td>
+                    <td class='xs' style="width:80px; padding: 0px;text-align:left;padding-left:12px " class='xs'>
+                        <p style="margin: 3px;"><span>$</span> <input style='border:none;vertical-align:sub' type="text" value="{{ $spouse_ssi }}"  class="no-border"
+                                name="spouse_ssi"></p>
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 " >
@@ -1462,8 +1461,8 @@
                     </td>
                 </tr>
                 <tr style=" padding: 0;margin: 0 ">
-                    <td class='xs' style="width:80px; padding: 0px;text-align:left;padding-left:12px padding: 0px;">
-                        VA Benefits
+                    <td class='xs' style="width:80px; padding: 0px;text-align:left;padding-left:12px padding: 0px;text-align:left;padding-left:12px">
+                    VA Benefits
                     </td>
                     <td class='xs' style="width:80px; padding: 0px;text-align:left;padding-left:12px " class='xs'>
                         <p style="padding: 4px;margin: 0;"><span>$</span><input style='border:none;vertical-align:sub' type="text" value="{{ $applicant_va_ben }}"  class="no-border"
