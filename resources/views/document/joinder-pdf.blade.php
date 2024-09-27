@@ -1220,10 +1220,10 @@
                 Indicate reason for establishing an account.
             </p>
             <div style="margin: 0; padding-bottom:6px;padding-top:6px" class='xs'>
-                <input type="checkbox" name="account_establishing_reason1" value="Shelter Monthly Excess Income"
+                <input type="checkbox" name="account_establishing_reason1" class="checkboxissue" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
                 <label> Shelter Monthly Excess Income</label>
-                <input type="checkbox" name="account_establishing_reason1" value="Shelter Excess Resources"
+                <input type="checkbox" name="account_establishing_reason1" class="checkboxissue" value="Shelter Excess Resources"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Excess Resources' ? 'checked' : '' }}>
                 <label> Shelter Excess Resources</label>
             </div>
@@ -1255,29 +1255,29 @@
                     </td>
                     <td class='xs' style="width:80px;padding:0;">
                         <div  style="margin:0;padding:3px;text-align:left;padding-left:12px:padding-top:12px">
-                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" class="checkboxissue" value="Yes"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
-                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="No"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" class="checkboxissue" value="No"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
-                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Pending"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" class="checkboxissue" value="Pending"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Pending' ? 'checked' : '' }}>
                                 <label>Pending</label>
                         </div>
                     </td>
                     <td class='xs' style="width:80px;margin:0;">
                         <div style="margin:0;padding:4px;text-align:left;padding-left:12px;padding-top:8px">
-                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" class="checkboxissue" value="Yes"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
                             
-                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="No"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" class="checkboxissue" value="No"
 
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
                             
-                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" value="Pending"
+                            <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" class="checkboxissue" value="Pending"
 
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
                                 <label>Pending</label>
@@ -1341,20 +1341,20 @@
 
             <p style="margin: 0;padding-top:8px;" class='xs'>
                 Is Spouse Deceased?
-                <input type="checkbox" name="spouse_decreased1" value="Yes"
+                <input type="checkbox" class="checkboxissue"  name="spouse_decreased1" value="Yes"
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
-                <input type="checkbox" name="spouse_decreased1" value="No"
+                <input type="checkbox" class="checkboxissue"  name="spouse_decreased1" value="No"
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
             </p>
             <p style="margin: 0;padding-top:6px;padding-bottom:6px" class='xs'>
                 Is Applicant & Spouse Applying Together?
-                <input type="checkbox" name="applying_together1" value="Yes"
+                <input type="checkbox" class="checkboxissue" name="applying_together1" value="Yes"
                     {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}>
                     <label>Yes</label>
 
-                <input type="checkbox" name="applying_together1" value="No"
+                <input type="checkbox" class="checkboxissue" name="applying_together1" value="No"
                     {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
                     
@@ -1394,10 +1394,10 @@
                         Spouse Applied for Medicaid with beneficiary?
                     </label>
                    
-                    <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
+                    <input type="checkbox" class="checkboxissue" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'Yes' ? 'checked' : '' }} >
                     <label>Yes</label>
-                    <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
+                    <input type="checkbox" class="checkboxissue" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'No' ? 'checked' : '' }} >
                     <label>No</label>
 
@@ -1613,20 +1613,20 @@
                     <span style="margin: 0;padding:0" class='xs'>
                         Medicare Part:
                         <span>
-                            <input type="checkbox" name="healthcare_b" value="B"
+                            <input type="checkbox" class="checkboxissue" name="healthcare_b" value="B"
                             {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}>
                             <label>B</label>
-                            <input type="checkbox" name="healthcare_b" value="D"
+                            <input type="checkbox"  class="checkboxissue" name="healthcare_b" value="D"
                             {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}>
                             <label>D</label>
                         </span>
                         <span style='margin-left:10spanx;margin-left:12px' class='xs'>
                             Does the applicant have a supplemental policy?
-                            <input type="checkbox" name="supplemental_yes" value="Yes"
+                            <input type="checkbox" class="checkboxissue" name="supplemental_yes" value="Yes"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
                             <label>Yes</label>
                            
-                            <input type="checkbox" name="supplemental_yes" value="No"
+                            <input type="checkbox" class="checkboxissue" name="supplemental_yes" value="No"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}>
                             <label>No</label>
                         </p>
@@ -1654,11 +1654,11 @@
                     <div style="display: table-cell; margin-bottom: 2px;">
                         <p style="padding:0;margin: 0;" class='xs'>
                             Does the Beneficiary have any funeral provisions in place?
-                            <input type="checkbox" name="funeral_information_body_yes" value="Yes"
+                            <input type="checkbox" class="checkboxissue" name="funeral_information_body_yes" value="Yes"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
                             
-                            <input type="checkbox" name="funeral_information_body_yes" value="No"
+                            <input type="checkbox" class="checkboxissue"  name="funeral_information_body_yes" value="No"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
 
@@ -1675,11 +1675,11 @@
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
                     Is there a life insurance policy in place for the Beneficiary?
-                    <input type="checkbox" name="life_insurance_information_body_yes" value="Yes"
+                    <input type="checkbox" class="checkboxissue" name="life_insurance_information_body_yes" value="Yes"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'Yes' ? 'checked' : '' }}>
                         <label>Yes</label>
                     
-                    <input type="checkbox" name="life_insurance_information_body_yes" value="No"
+                    <input type="checkbox" class="checkboxissue" name="life_insurance_information_body_yes" value="No"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'No' ? 'checked' : '' }}>
                         <label>No</label>
 
@@ -1705,7 +1705,7 @@
                     <div style="display: table-cell; padding-bottom: 14px;">
                         <span>Term of policy: &nbsp;</span>
                         <label>
-                            <input style="height: 15px; vertical-align: middle;" type="checkbox" name="type_of_policy1" value="Term"
+                            <input style="height: 15px; vertical-align: middle;" class="checkboxissue" type="checkbox" name="type_of_policy1" value="Term"
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                             Term
                         </label>
@@ -1811,19 +1811,19 @@
             <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px" class='xs'>
                 Guardian of the:
                 <label style="margin: 0;">
-                    <input type="checkbox" name="living_arrangements_person" value="Person"
+                    <input type="checkbox" name="living_arrangements_person" class="checkboxissue" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Person' ? 'checked' : '' }}>
                         <label>Person</label>
 
                 </label>
                 <label style="margin: 0;">
-                    <input type="checkbox" name="living_arrangements_person" value="Person"
+                    <input type="checkbox" name="living_arrangements_person"  class="checkboxissue" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Property' ? 'checked' : '' }}>
                         <label>Property</label>
 
                 </label>
                 <label style="margin: 0;">
-                    <input type="checkbox" name="living_arrangements_person" value="Both"
+                    <input type="checkbox" name="living_arrangements_person" class="checkboxissue" value="Both"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Both' ? 'checked' : '' }}>
                         <label>Both</label>
 
@@ -1905,380 +1905,7 @@
             <div style="display: table-row;margin-bottom:0">
                 <div style="display: table-cell;margin-bottom:0">
 
-                        <input type="text" value="{{ $power_fname }}" name="power_fname" style="width: 95%;margin-bottom:0" />
-                        <label class="italic">First</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_lname }}" name="power_lname" style="width: 95%" />
-                        <label class="italic">Last</label>
-                    </div>
-                </div>
-                {{-- <div style="display: table-row;background-color: green;margin: 0;padding:0;">
-                    <div style="display: table-cell;margin: 0;padding:0;">
-                        <div>Name:</div> First <input type="text" value="{{ $power_fname }}" class="no-border"
-                            style="width: 100px;vertical-align: bottom" name="power_fname">
-                    </div>
-                    <div style="display: table-cell;margin: 0;padding:0;">
-                        Last <input type="text" value="{{ $power_lname }}" class="no-border"
-                            style="width: 100px;vertical-align: bottom" name="power_lname">
-                    </div>
-                </div> --}}
-            </div>
-            {{-- <br> --}}
-            <div style="display: table; width: 100%;" class="xs">
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $power_tel_home }}" name="power_tel_home" style="width: 95%" /> <br>
-                        <label class="italic">Primary Phone</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_email }}" name="power_email" style="width: 95%" /> <br>
-                        <label class="italic">Email</label>
-                    </div>
-                </div>
-                {{-- <div style="display: table-row;width: 100%;padding:0;margin:0;">
-                    <div style="display: table-cell; width: 70%;padding:0;margin:0;">
-                        Address <input type="text" value="{{ $power_address }}" class="no-border"
-                            style="vertical-align: bottom" name="power_address">
-                    </div>
-                    <div style="display: table-cell; width: 30%;padding:0;margin:0;">
-                        Apt#: <input type="text" value="{{ $power_apt }}" class="no-border"
-                            style="width: 60%;vertical-align: bottom" name="power_apt">
-                    </div>
-                </div> --}}
-
-
-
-
-
-
-            </div>
-            {{-- <br> --}}
-
-            <div style="display: table;width:100%">
-                <div style="display: table-row;" class="xs">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address }}" name="power_address" style="width: 95%">
-                        <label class="italic">Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%">
-                        <label class="italic">Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city }}" name="power_city" style="width: 95%" />
-                        <label class="italic">City:</label>
-                    </div>
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $power_state }}" name="power_state" style="width: 95%" />
-                        <label class="italic">State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip }}"name="power_zip" style="width: 95%" />
-                        <label class="italic">Zip:</label>
-                    </div>
-                </div>
-            </div>
-
-
-            {{-- <div style="display: table;width: 100%">
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address }}" name="power_address"> <br>
-                        <label class="italic">Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt }}" name="power_apt"> <br>
-                        <label class="italic">Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city }}" name="power_city" /> <br>
-                        <label class="italic">City:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_state }}" name="power_state" /> <br>
-                        <label class="italic">State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip }}" name="power_zip" /> <br>
-                        <label class="italic">Zip:</label>
-                    </div>
-
-                </div>
-            </div> --}}
-
-                {{-- <div style="display: table-row;margin-top:7px" class="xs">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address }}" name="power_address" style="width: 95%">
-                        <label>Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city }}" name="power_city" style="width: 95%" />
-                        <label>City:</label>
-                    </div>
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $power_state }}" name="power_state" style="width: 95%" />
-                        <label>State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%">
-                        <label>Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip }}"name="power_zip" style="width: 95%" />
-                        <label>Zip:</label>
-                    </div>
-                </div> --}}
-            {{-- <div style="display: table-row;margin-top:7px" class="xs">
-                <div style="display: table-cell;">
-                    <input type="text" value="{{ $power_address }}" name="power_address" style="width: 95%">
-                    <label>Address</label>
-                </div>
-                <div style="display: table-cell">
-                    <input type="text" value="{{ $power_city }}" name="power_city" style="width: 95%" />
-                    <label>City:</label>
-                </div>
-                <div style="display: table-cell;">
-
-                    <input type="text" value="{{ $power_state }}" name="power_state" style="width: 95%" />
-                    <label>State:</label>
-                </div>
-                <div style="display: table-cell">
-                    <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%">
-                    <label>Apt #:</label>
-                </div>
-                <div style="display: table-cell">
-                    <input type="text" value="{{ $power_zip }}"name="power_zip" style="width: 95%" />
-                    <label>Zip:</label>
-                </div>
-            </div> --}}
-
-            {{-- <br> --}}
-
-            {{-- <div style="display: table; width: 100%;margin: 0;padding: 0;">
-                <div style="display: table-row;margin:0;">
-                    <div style="display: table-cell;margin:0;">
-                        <p>Tel. Home: <input type="text" class="no-border" style=";width: 100px"
-                                name="power_tel_home" value="{{ $power_tel_home }}"> Email <input type="text"
-                                value="{{ $power_email }}" class="no-border" style="width: 100px"
-                                name="power_email">
-                        </p>
-                    </div>
-                </div>
-            </div> --}}
-
-            <p class="md">Is this person the sole POA? <input type="checkbox" name="sole_poa1"
-                    value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
-                    <label>Yes</label>
-                <input type="checkbox" name="sole_poa1" value="No"
-                    {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}>
-                    <label>No</label>
-
-                    <br>
-                    If No, are the agents authorized to act separately? <input type="checkbox" name="act_seprately1"
-                    value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
-                    <label>Yes</label>
-                <input  type="checkbox" name="act_seprately1" value="No"
-                    {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}>
-                    <label>No</label>
-            </p>
-            {{-- <p>If No, are the agents authorized to act separately? <input type="checkbox" name="act_seprately1"
-                    value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
-                Yes
-                <input type="checkbox" name="act_seprately1" value="No"
-                    {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}> No
-            </p> --}}
-
-        </div>
-
-
-        <div style="margin-top: 5px" class="pa-container xs">
-
-            <p class="strong sm">Power of Attornery - Second Agent <span class="italic"> Please attach a copy of Power of Attorney</span></p>
-            <div style="display: table; width: 100%;">
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $power_fname2 }}" name="power_fname2" style="width: 95%" /> <br>
-                        <label class="italic">First</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_lname2 }}" name="power_lname2" style="width: 95%" /> <br>
-                        <label class="italic">Last</label>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-
-            <div style="display: table; width: 100%;">
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $power_tel_home2 }}" name="power_tel_home2" style="width: 95%" /> <br>
-                        <label class="italic">Primary Phone</label>
-                    </div>
-
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_email2 }}" name="power_email2" style="width: 95%" /> <br>
-                        <label class="italic">Email</label>
-                    </div>
-                </div>
-            </div>
-
-            <div style="display: table;width:100%">
-                <div style="display: table-row;" class="xs">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address2 }}" name="power_address2" style="width: 95%">
-                        <label class="italic">Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt2 }}" name="power_apt2" style="width: 95%">
-                        <label class="italic">Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city2 }}" name="power_city2" style="width: 95%" />
-                        <label class="italic">City</label>
-                    </div>
-                    <div style="display: table-cell;">
-
-                        <input type="text" value="{{ $power_state2 }}" name="power_state2" style="width: 95%" />
-                        <label class="italic">State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip2 }}"name="power_zip2" style="width: 95%" />
-                        <label class="italic">Zip:</label>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-            {{-- <div style="display: table;width:100%">
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $power_address2 }}" name="power_address2" style="width: 95%"> <br>
-                        <label class="italic">Address</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_apt2 }}" name="power_apt2" style="width: 95%"> <br>
-                        <label class="italic">Apt #:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_city2 }}" name="power_city2" style="width: 95%" /> <br>
-                        <label class="italic">City:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_state2 }}" name="power_state2" style="width: 95%" /> <br>
-                        <label class="italic">State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip2 }}" name="power_zip2" style="width: 95%" /> <br>
-                        <label class="italic">Zip:</label>
-                    </div>
-
-                </div>
-            </div> --}}
-
-                {{-- <br> --}}
-                {{-- <div style="display: table;width:100%">
-
-                <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_state2 }}" name="power_state2" style="width: 95%" /> <br>
-                        <label class="italic">State:</label>
-                    </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $power_zip2 }}" name="power_zip2" style="width: 95%" /> <br>
-                        <label class="italic">Zip:</label>
-                    </div>
-                </div>
-
-            </div> --}}
-            {{-- <br> --}}
-
-            <p style="margin: 0;padding: 0;">Is this person the sole POA? <input type="checkbox"
-                    name="power_of_attorney2_yes" value="Yes"
-                    {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
-                Yes
-                <input type="checkbox" name="power_of_attorney2_yes" value="No"
-                    {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
-                    <br>
-                    If No, are the agents authorized to act separately? <input type="checkbox"
-                    name="power_of_attorney2_authorized_yes" value="Yes"
-                    {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
-                Yes
-                <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
-                    {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
-                No
-            </p>
-            {{-- <p >If No, are the agents authorized to act separately? <input type="checkbox"
-                    name="power_of_attorney2_authorized_yes" value="Yes"
-                    {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
-                Yes
-                <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
-                    {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
-                No
-            </p> --}}
-        </div>
-
-        <p class="md strong" style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
-                GUARDIAN INFORMATION
-            </p>
-            <p class="sm" style="margin: 0;padding: 0;">
-                Please attach a copy of Decree or Letter of guardianship
-            </p>
-            {{-- <p style="padding:0;margin: 0;">
-                Does the Beneficiary have a court appointed Guardian?
-                <input type="checkbox" name="guardian_information_yes" value="Yes"
-                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
-                Yes
-                <input type="checkbox" name="guardian_information_yes" value="No"
-                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}> No
-            </p> --}}
-            <p class="sm">
-                Does the Beneficiary have a court appointed Guardian?
-                <input type="checkbox" name="guardian_information_yes" value="Yes"
-                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
-                    <label>Yes</label>
-                
-                <input type="checkbox" name="guardian_information_yes" value="No"
-                    {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}>
-                    <label>No</label>
-
-                <br>
-                If you answered yes, continue to fill out below:
-            </p>
-            <p class="sm" style="margin: 0;padding: 0;">
-                Guardian of the:<input type="checkbox" name="guardian_appointed_for1" value="Person"
-                    {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
-                <label>Person </label>
-                   
-                <input type="checkbox" name="guardian_appointed_for1" value="Property"
-                    {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
-                    <label>Property</label>
-                
-                <input type="checkbox" name="guardian_appointed_for3" value="Both"
-                    {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
-                    <label>Both</label>
-
-            </p>
-            <p class="sm">Court Appointed Guardian Information</p>
-            <div style="display: table; width:100%" class="xs">
-            <div style="display: table-row;">
-                <div style="display: table-cell;">
-                    <input type="text" value="{{ $guardianship_fname }}" name="guardianship_fname" style="width: 95%;margin-top:5px" /> <br>
+                    <input type="text" value="{{ $power_fname }}" name="power_fname" style="width: 95%;margin-bottom:0" />
                     <label class="italic">First</label>
                 </div>
                 <div style="display: table-cell">
@@ -2331,19 +1958,19 @@
             </div>
         </div>
 
-        <p style="margin: 0;margin-top:15px">Is this person the sole POA? <input type="checkbox" name="sole_poa1"
+        <p style="margin: 0;margin-top:15px">Is this person the sole POA? <input type="checkbox" class="checkboxissue"  name="sole_poa1"
                 value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
                 <label>Yes</label>
-            <input type="checkbox" name="sole_poa1" value="No"
+            <input type="checkbox" name="sole_poa1" class="checkboxissue" value="No"
                 {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}>
                 <label>No</label>
         </p>
 
         <p style="margin: 0;margin-top:6px">
-                If No, are the agents authorized to act separately? <input type="checkbox" name="act_seprately1"
+                If No, are the agents authorized to act separately? <input type="checkbox" class="checkboxissue" name="act_seprately1"
                 value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                 <label>Yes</label>
-            <input  type="checkbox" name="act_seprately1" value="No"
+            <input  type="checkbox" name="act_seprately1" class="checkboxissue" value="No"
                 {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}>
                 <label>No</label>
         </p>
@@ -2420,19 +2047,19 @@
 
 
 
-    <p style="margin: 0;margin-top:15px">Is this person the sole POA? <input type="checkbox"
+    <p style="margin: 0;margin-top:15px">Is this person the sole POA? <input type="checkbox" class="checkboxissue"
             name="power_of_attorney2_yes" value="Yes"
             {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
         Yes
-        <input type="checkbox" name="power_of_attorney2_yes" value="No"
+        <input type="checkbox" name="power_of_attorney2_yes" value="No" class="checkboxissue"
             {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
     </p>
     <p style="margin: 0;margin-top:6px">
-            If No, are the agents authorized to act separately? <input type="checkbox"
+            If No, are the agents authorized to act separately? <input type="checkbox" class="checkboxissue"
             name="power_of_attorney2_authorized_yes" value="Yes"
             {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
         Yes
-        <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
+        <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No" class="checkboxissue"
             {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
         No
     </p>
@@ -2448,7 +2075,7 @@
 
 
 
-<p class="md strong" style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+<p class="md strong section-heading" style=";width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
         GUARDIAN INFORMATION
     </p>
     <p class="sm" style="margin: 0;padding: 0;">
@@ -2464,11 +2091,11 @@
     </p> --}}
     <p class="sm">
         Does the Beneficiary have a court appointed Guardian?
-        <input type="checkbox" name="guardian_information_yes" value="Yes"
+        <input type="checkbox" name="guardian_information_yes" value="Yes" class="checkboxissue"
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
             <label>Yes</label>
         
-        <input type="checkbox" name="guardian_information_yes" value="No"
+        <input type="checkbox" name="guardian_information_yes" value="No" class="checkboxissue"
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}>
             <label>No</label>
 
@@ -2476,15 +2103,15 @@
         If you answered yes, continue to fill out below:
     </p>
     <p class="sm" style="margin: 0;padding: 0;">
-        Guardian of the:<input type="checkbox" name="guardian_appointed_for1" value="Person"
+        Guardian of the:<input type="checkbox" name="guardian_appointed_for1" value="Person" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
         <label>Person </label>
            
-        <input type="checkbox" name="guardian_appointed_for1" value="Property"
+        <input type="checkbox" name="guardian_appointed_for1" value="Property" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
             <label>Property</label>
         
-        <input type="checkbox" name="guardian_appointed_for3" value="Both"
+        <input type="checkbox" name="guardian_appointed_for3" value="Both" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
             <label>Both</label>
 
@@ -2519,7 +2146,7 @@
     </div>
 </div>
 
-<p class="md strong" style="padding:10px;width:30%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+<p class="md strong section-heading" style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
         BENEFICIARY SERVICE
     </p>
     <p class="sm" style="padding:0;margin-top:5px;">
@@ -2576,12 +2203,12 @@
         <div class="page-break"></div>
 
         <div class="page-6 sm" style="position: relative;">
-            <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); width:36%" class="strong md" >
+            <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); width:33%" class="strong md section-heading" >
                 INFORMATION AND DISCLOSURES:
             </p>
-            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1">
-                <div class="strong">Death of Beneficiary:</div>
-                <p>The Beneficiary’s sub-trust account terminates
+            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1.1">
+                <div class="strong" style="margin-bottom: 0;">Death of Beneficiary:</div>
+                <p style="margin-top: 0px; padding-top: 0;">The Beneficiary’s sub-trust account terminates
                     upon his or her death. If, upon the death of the
                     Beneficiary, funds remain in his or her sub-trust
                     account, such funds shall be deemed to be property
@@ -2622,12 +2249,12 @@
                     shall be required to pay a new enrollment fee when re-opening a sub-trust</p>
             </div>
 
-            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1;margin-top:0px">
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.2;margin-top:0px">
             account.
             <br/>
             <br/>
                 <div class="strong margin-bottom: 0;" >Disbursements: </div>
-                <p>All disbursement requests shall be reviewed and
+                <p style="margin-top: 0px; padding-top: 0;">All disbursement requests shall be reviewed and
                     approved on an individual basis.
                     Disbursements for expenses incurred more than 90
                     days prior to submission of a disbursement request
@@ -2689,7 +2316,7 @@
 
         <div class="page-7 sm" style="position: relative;">
             <div class="strong">Situs:</div> 
-            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1">
+            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1.1">
                 <p>The sub-trust account created by this Agreement
                     has been accepted by the Trustee in the State of
                     New York and will be administered by Senior Lifecare
@@ -2733,7 +2360,7 @@
                 </p>
             </div>
 
-            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1;margin-top:0px">
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.1;margin-top:0px">
                 <p>is defined under
                     federal law, to determine whether they have the
                     legal authority to transfer property to fund the
@@ -3088,49 +2715,60 @@
 
                         </div>
                         {{-- <br> --}}
-                        <div style="display: table-row; margin-top:4px" class="md">
-                            <div style="display: table-cell;">
+                        {{-- <div style="display: table-row;margin-top:8px" class="md">
+                            <div style="display: table-cell;margin-top:8px">
 
                                 <label class="md">Representative</label> &nbsp;
                                 <input class="xs" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
                             </div>
-                        </div>
+                        </div> --}}
 
 
                     </div>
-                    {{-- <br> --}}
-                    <div style="display: table; width: 100%; margin-top:4px" class="xs">
+
+                    <div style="display: table; width: 100%;margin-top:10px" class="xs">
                         <div style="display: table-row;" class="md">
-                            <div style="display: table-cell;margin-top:4px">
+                            <div style="display: table-cell;margin-top:10px">
+
+                                <label class="sm">Representative</label> &nbsp;
+                                <input class="xs" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
+                            </div>
+                        </div>
+
+                    </div>
+                    {{-- <br> --}}
+                    <div style="display: table; width: 100%; margin-top:10px" class="xs">
+                        <div style="display: table-row;" class="md">
+                            <div style="display: table-cell;margin-top:10px">
         
-                                <label class="md">Bank Name</label> &nbsp;
+                                <label class="sm">Bank Name</label> &nbsp;
                                 <input class="xs" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 60%" /> 
                             </div>
-                            <div style="display: table-cell;margin-top:4px">
+                            <div style="display: table-cell;margin-top:10px">
         
-                                <label class="md">City</label> &nbsp;
+                                <label class="sm">City</label> &nbsp;
                                 <input class="xs" type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" style="width: 70%" /> 
                             </div>
-                            <div style="display: table-cell;margin-top:4px">
+                            <div style="display: table-cell;margin-top:10px">
         
-                                <label class="md">State</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" style="width: 70%" /> 
+                                <label class="sm">State</label> &nbsp;
+                                <input class="xs" type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" style="width: 72%" /> 
                             </div>
 
                         </div>
                     </div>
                     {{-- <br> --}}
-                    <div style="display: table; width: 100%; margin-top:4px" class="xs">
+                    <div style="display: table; width: 100%; margin-top:10px" class="xs">
                         <div style="display: table-row;" class="md">
-                            <div style="display: table-cell;margin-top:4px">
+                            <div style="display: table-cell;margin-top:10px">
         
-                                <label class="md">Bank Routing Number</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" style="width: 52%" /> 
+                                <label class="sm">Bank Routing Number</label> &nbsp;
+                                <input class="xs" type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" style="width: 50%" /> 
                             </div>
-                            <div style="display: table-cell;margin-top:4px">
+                            <div style="display: table-cell;margin-top:10px">
         
-                                <label class="md">Account Number</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" style="width: 58%" /> 
+                                <label class="sm">Account Number</label> &nbsp;
+                                <input class="xs" type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" style="width: 56%" /> 
                             </div>
 
                         </div>
@@ -3138,18 +2776,18 @@
                     </div>
                     {{-- <br> --}}
 
-                    <div style="display: table; width: 100%; margin-top:4px" class="xs">
+                    <div style="display: table; width: 100%; margin-top:10px" class="xs">
                         <div style="display: table-row;" class="md">
-                            <div style="display: table-cell;width:60%;margin-top:6px">
+                            <div style="display: table-cell;width:60%;margin-top:10px">
         
-                                <label class="md">Account Name</label> &nbsp;
+                                <label class="sm">Account Name</label> &nbsp;
                                 <input class="xs" type="text" value="{{ $direct_debit_account_name }}" name="direct_debit_account_name" style="width:70%" /> 
                             </div>
                             {{-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
-                            <div style="display: table-cell;vertical-align:middle;text-align:right;margin-top:4px">
-                                <label class="md">Account Type: </label> &nbsp;
-                                <input type="checkbox" name="direct_debit_bank_type1" value="Checking" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>Checking
-                                <input type="checkbox" name="direct_debit_bank_type1" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
+                            <div class="sm" style="display: table-cell;vertical-align:middle;text-align:right;margin-top:10px">
+                                <label class="sm">Account Type: </label>
+                                <input type="checkbox" name="direct_debit_bank_type1" style="margin-right:5px" class="checkboxissue"  value="Checking" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>Checking
+                                <input type="checkbox" name="direct_debit_bank_type1" class="checkboxissue" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
                             </div>
 
                         </div>
@@ -3223,7 +2861,7 @@
                     </div>
                 </div>
                 {{-- <br> --}}
-                <div style="display: table;margin-top:2px;width:100%">
+                <div style="display: table;margin-top:10px;width:100%">
                     <div style="display: table-row;">
                         <div style="display: table-cell;width:50%">
 
@@ -3232,14 +2870,14 @@
                         </div>
                         {{-- &nbsp;&nbsp; --}}
 
-                        <div style="display: table-cell;width:30%">
+                        <div style="display: table-cell;width:40%">
                             <label class="sm">Monthly Debit Amount: $ </label>
-                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_amount }}" name="office_use_monthly_debit_amount" style="width:36%" />
+                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_amount }}" name="office_use_monthly_debit_amount" style="width:35%" />
                         </div>
                     </div>
                 </div>
                 {{-- <br> --}}
-                <div style="display: table;margin-top:2px">
+                <div style="display: table;">
                     <div style="display: table-row;">
                         <div style="display: table-cell;text-align: start; !important">
                             <p class="sm">
@@ -3249,7 +2887,7 @@
                     </div>
                 </div>
                 {{-- <br> --}}
-                <div style="display: table;width:100%;margin-top:2px">
+                <div style="display: table;width:100%;">
                     <div style="display: table-row;width:100%">
                         <div style="display: table-cell;">
 
@@ -3268,9 +2906,9 @@
 
 
                 {{-- <br> --}}
-                <p class="sm italic">
+                <p style="margin-top:25px" class="sm italic">
                     If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
-                    A $100 annual-renewal fee will be charged on the anniversary of the account
+                    A $150 annual-renewal fee will be charged on the anniversary of the account
                 </p>
                 <div style="text-align: center;">
                     <img src="{{ public_path('images/new_logo.png') }}" alt="logo" width="250">
@@ -3279,20 +2917,20 @@
             </div>
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
-                <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
-                </div>
-                <div style="display: table-cell; text-align: center; width: 33%;">
-                    <div style=" padding: 7px; display: inline-block; position: relative;">
-                        <p class="footer-center xs" style="margin: 0;">9</p>
-                        <div style="
-                                    transform: translateX(-50%);">
+                    <div style="display: table-cell; text-align: left; width: 33%;">
+                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                    </div>
+                    <div style="display: table-cell; text-align: center; width: 33%;">
+                        <div style=" padding: 7px; display: inline-block; position: relative;">
+                            <p class="footer-center xs" style="margin: 0;">9</p>
+                            <div style="
+                                        transform: translateX(-50%);">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div style="display: table-cell; text-align: right; width: 33%;">
-                    <p class="xxs">JOINDER AGREEMENT</p>
-                </div>
+                    <div style="display: table-cell; text-align: right; width: 33%;">
+                        <p class="xxs">JOINDER AGREEMENT</p>
+                    </div>
                 </div>
             </div>
         </div>
