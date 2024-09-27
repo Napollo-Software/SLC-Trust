@@ -1394,10 +1394,10 @@
                         Spouse Applied for Medicaid with beneficiary?
                     </label>
                    
-                    <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
+                    <input type="checkbox" class="checkboxissue" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'Yes' ? 'checked' : '' }} >
                     <label>Yes</label>
-                    <input type="checkbox" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
+                    <input type="checkbox" class="checkboxissue" name="spouse_applied_for_medicaid_with_beneficiary1" value="No"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'No' ? 'checked' : '' }} >
                     <label>No</label>
 
@@ -1613,20 +1613,20 @@
                     <span style="margin: 0;padding:0" class='xs'>
                         Medicare Part:
                         <span>
-                            <input type="checkbox" name="healthcare_b" value="B"
+                            <input type="checkbox" class="checkboxissue" name="healthcare_b" value="B"
                             {{ isset($healthcare_b) && $healthcare_b === 'B' ? 'checked' : '' }}>
                             <label>B</label>
-                            <input type="checkbox" name="healthcare_b" value="D"
+                            <input type="checkbox"  class="checkboxissue" name="healthcare_b" value="D"
                             {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}>
                             <label>D</label>
                         </span>
                         <span style='margin-left:10spanx;margin-left:12px' class='xs'>
                             Does the applicant have a supplemental policy?
-                            <input type="checkbox" name="supplemental_yes" value="Yes"
+                            <input type="checkbox" class="checkboxissue" name="supplemental_yes" value="Yes"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
                             <label>Yes</label>
                            
-                            <input type="checkbox" name="supplemental_yes" value="No"
+                            <input type="checkbox" class="checkboxissue" name="supplemental_yes" value="No"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}>
                             <label>No</label>
                         </p>
@@ -1654,11 +1654,11 @@
                     <div style="display: table-cell; margin-bottom: 2px;">
                         <p style="padding:0;margin: 0;" class='xs'>
                             Does the Beneficiary have any funeral provisions in place?
-                            <input type="checkbox" name="funeral_information_body_yes" value="Yes"
+                            <input type="checkbox" class="checkboxissue" name="funeral_information_body_yes" value="Yes"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
                             
-                            <input type="checkbox" name="funeral_information_body_yes" value="No"
+                            <input type="checkbox" class="checkboxissue"  name="funeral_information_body_yes" value="No"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
 
@@ -1675,11 +1675,11 @@
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
                     Is there a life insurance policy in place for the Beneficiary?
-                    <input type="checkbox" name="life_insurance_information_body_yes" value="Yes"
+                    <input type="checkbox" class="checkboxissue" name="life_insurance_information_body_yes" value="Yes"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'Yes' ? 'checked' : '' }}>
                         <label>Yes</label>
                     
-                    <input type="checkbox" name="life_insurance_information_body_yes" value="No"
+                    <input type="checkbox" class="checkboxissue" name="life_insurance_information_body_yes" value="No"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'No' ? 'checked' : '' }}>
                         <label>No</label>
 
@@ -1705,7 +1705,7 @@
                     <div style="display: table-cell; padding-bottom: 14px;">
                         <span>Term of policy: &nbsp;</span>
                         <label>
-                            <input style="height: 15px; vertical-align: middle;" type="checkbox" name="type_of_policy1" value="Term"
+                            <input style="height: 15px; vertical-align: middle;" class="checkboxissue" type="checkbox" name="type_of_policy1" value="Term"
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                             Term
                         </label>
@@ -1811,19 +1811,19 @@
             <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px" class='xs'>
                 Guardian of the:
                 <label style="margin: 0;">
-                    <input type="checkbox" name="living_arrangements_person" value="Person"
+                    <input type="checkbox" name="living_arrangements_person" class="checkboxissue" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Person' ? 'checked' : '' }}>
                         <label>Person</label>
 
                 </label>
                 <label style="margin: 0;">
-                    <input type="checkbox" name="living_arrangements_person" value="Person"
+                    <input type="checkbox" name="living_arrangements_person"  class="checkboxissue" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Property' ? 'checked' : '' }}>
                         <label>Property</label>
 
                 </label>
                 <label style="margin: 0;">
-                    <input type="checkbox" name="living_arrangements_person" value="Both"
+                    <input type="checkbox" name="living_arrangements_person" class="checkboxissue" value="Both"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Both' ? 'checked' : '' }}>
                         <label>Both</label>
 
@@ -1959,19 +1959,19 @@
             </div>
         </div>
 
-        <p style="margin: 0;margin-top:15px">Is this person the sole POA? <input type="checkbox" name="sole_poa1"
+        <p style="margin: 0;margin-top:15px">Is this person the sole POA? <input type="checkbox" class="checkboxissue"  name="sole_poa1"
                 value="Yes" {{ isset($sole_poa1) && $sole_poa1 === 'Yes' ? 'checked' : '' }}>
                 <label>Yes</label>
-            <input type="checkbox" name="sole_poa1" value="No"
+            <input type="checkbox" name="sole_poa1" class="checkboxissue" value="No"
                 {{ isset($sole_poa1) && $sole_poa1 === 'No' ? 'checked' : '' }}>
                 <label>No</label>
         </p>
 
         <p style="margin: 0;margin-top:6px">
-                If No, are the agents authorized to act separately? <input type="checkbox" name="act_seprately1"
+                If No, are the agents authorized to act separately? <input type="checkbox" class="checkboxissue" name="act_seprately1"
                 value="Yes" {{ isset($act_seprately1) && $act_seprately1 === 'Yes' ? 'checked' : '' }}>
                 <label>Yes</label>
-            <input  type="checkbox" name="act_seprately1" value="No"
+            <input  type="checkbox" name="act_seprately1" class="checkboxissue" value="No"
                 {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}>
                 <label>No</label>
         </p>
@@ -2048,19 +2048,19 @@
 
 
 
-    <p style="margin: 0;margin-top:15px">Is this person the sole POA? <input type="checkbox"
+    <p style="margin: 0;margin-top:15px">Is this person the sole POA? <input type="checkbox" class="checkboxissue"
             name="power_of_attorney2_yes" value="Yes"
             {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'Yes' ? 'checked' : '' }}>
         Yes
-        <input type="checkbox" name="power_of_attorney2_yes" value="No"
+        <input type="checkbox" name="power_of_attorney2_yes" value="No" class="checkboxissue"
             {{ isset($power_of_attorney2_yes) && $power_of_attorney2_yes === 'No' ? 'checked' : '' }}> No
     </p>
     <p style="margin: 0;margin-top:6px">
-            If No, are the agents authorized to act separately? <input type="checkbox"
+            If No, are the agents authorized to act separately? <input type="checkbox" class="checkboxissue"
             name="power_of_attorney2_authorized_yes" value="Yes"
             {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'Yes' ? 'checked' : '' }}>
         Yes
-        <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No"
+        <input type="checkbox" name="power_of_attorney2_authorized_yes" value="No" class="checkboxissue"
             {{ isset($power_of_attorney2_authorized_yes) && $power_of_attorney2_authorized_yes === 'No' ? 'checked' : '' }}>
         No
     </p>
@@ -2092,11 +2092,11 @@
     </p> --}}
     <p class="sm">
         Does the Beneficiary have a court appointed Guardian?
-        <input type="checkbox" name="guardian_information_yes" value="Yes"
+        <input type="checkbox" name="guardian_information_yes" value="Yes" class="checkboxissue"
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
             <label>Yes</label>
         
-        <input type="checkbox" name="guardian_information_yes" value="No"
+        <input type="checkbox" name="guardian_information_yes" value="No" class="checkboxissue"
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}>
             <label>No</label>
 
@@ -2104,15 +2104,15 @@
         If you answered yes, continue to fill out below:
     </p>
     <p class="sm" style="margin: 0;padding: 0;">
-        Guardian of the:<input type="checkbox" name="guardian_appointed_for1" value="Person"
+        Guardian of the:<input type="checkbox" name="guardian_appointed_for1" value="Person" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
         <label>Person </label>
            
-        <input type="checkbox" name="guardian_appointed_for1" value="Property"
+        <input type="checkbox" name="guardian_appointed_for1" value="Property" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
             <label>Property</label>
         
-        <input type="checkbox" name="guardian_appointed_for3" value="Both"
+        <input type="checkbox" name="guardian_appointed_for3" value="Both" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
             <label>Both</label>
 
@@ -2787,8 +2787,8 @@
                             {{-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
                             <div class="sm" style="display: table-cell;vertical-align:middle;text-align:right;margin-top:10px">
                                 <label class="sm">Account Type: </label>
-                                <input type="checkbox" name="direct_debit_bank_type1" value="Checking" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>Checking
-                                <input type="checkbox" name="direct_debit_bank_type1" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
+                                <input type="checkbox" name="direct_debit_bank_type1" style="margin-right:5px" class="checkboxissue"  value="Checking" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>Checking
+                                <input type="checkbox" name="direct_debit_bank_type1" class="checkboxissue" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
                             </div>
 
                         </div>
