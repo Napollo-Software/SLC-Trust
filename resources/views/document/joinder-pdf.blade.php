@@ -1330,7 +1330,7 @@
                 HOUSEHOLD INCOME INFORMATION 
             </span>
             <br><br>
-            <div class='xs'>
+            <div class='xs' style='padding-top:2px'>
                 <span>
                      Spouse Information
                 </span>
@@ -1339,7 +1339,7 @@
                 </span>
             </div>
 
-            <p style="margin: 0;padding-top:4px" class='xs'>
+            <p style="margin: 0;padding-top:8px;" class='xs'>
                 Is Spouse Deceased?
                 <input type="checkbox" class="checkboxissue"  name="spouse_decreased1" value="Yes"
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'Yes' ? 'checked' : '' }}>
@@ -1348,7 +1348,7 @@
                     {{ isset($spouse_decreased1) && $spouse_decreased1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
             </p>
-            <p style="margin: 0;padding-top:6px" class='xs'>
+            <p style="margin: 0;padding-top:6px;padding-bottom:6px" class='xs'>
                 Is Applicant & Spouse Applying Together?
                 <input type="checkbox" class="checkboxissue" name="applying_together1" value="Yes"
                     {{ isset($applying_together1) && $applying_together1 === 'Yes' ? 'checked' : '' }}>
@@ -1762,7 +1762,7 @@
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Assisted Living facility' ? 'checked' : '' }}>
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
-            <p style="padding: 0;margin:0;margin-top:5px" class='xs'>
+            <p style="padding: 0;margin:0;margin-top:8px" class='xs'>
                 <input type="checkbox" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
                 <label for="family_care" style="vertical-align: middle;">Family care program</label>&nbsp;
@@ -1779,7 +1779,7 @@
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
                 <label for="supportive" style="vertical-align: middle;">CR/IRA(Supportive)</label>
             </p>
-            <p style="padding: 0; margin: 0;margin-top:5px" class='xs'>
+            <p style="padding: 0; margin: 0;margin-top:8px" class='xs'>
                 <input type="checkbox" id="other_living_arrangement" name="living_arrangement1" value="Other"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Other' ? 'checked' : '' }}>
                 <label for="other_living_arrangement" style="vertical-align: middle;">Other</label>&nbsp;
@@ -1788,7 +1788,7 @@
             </p>
             <br>
             <span class='md md section-heading'
-            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-bottom:5px">
+            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-bottom:8px">
             LIVING ARRANGEMENTS </span>
             <p class='italic' style='padding:0' class='xs'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
@@ -1829,28 +1829,27 @@
 
                 </label>
             </p>
-            <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px" class='xs'>
+            <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px;padding-bottom:5px" class='xs'>
                 Court Appointed Guardian Information
             </p>
             <div style="display: table;width:100%;margin-top:4px">
                 <div style="display: table-row;">
-                    <div style="display: table-cell;" class='xs'>
+                    <div style="display: table-cell;width:50%" class='xs'>
                         <input type="text" value="{{ $living_arrangement_first }}" name="living_arrangement_first" style="width: 95%" /> <br>
                         <label>First</label>
                     </div>
-                   
-                    <div style="display: table-cell" class='xs'>
+                
+                    <div style="display: table-cell;width:50%" class='xs'>
                         <input type="text" value="{{ $living_arrangement_last }}" name="living_arrangement_last" style="width: 95%" /> <br>
                         <label>Last</label>
                     </div>
                 </div>
                 <div style="display: table-row;">
-                    <div style="display: table-cell;" class='xs'>
+                    <div style="display: table-cell;width:50%;" class='xs'>
                         <input type="text" value="{{ $living_arrangement_primary }}" name="living_arrangement_primary" style="width: 95%" /> <br>
                         <label>Primary Phone</label>
                     </div>
-                   &nbsp;
-                    <div style="display: table-cell" class='xs'>
+                    <div style="display: table-cell;width:50%" class='xs'>
                         <input type="text" value="{{ $living_arrangement_email }}" name="living_arrangement_email" style="width: 95%" /> <br>
                         <label>Email</label>
                     </div>
@@ -2471,7 +2470,7 @@
                 </div>
             </div>
             <br>
-            <p class='section-heading md' style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0:padding-bottom:2px">SIGNATURE OF NOTARY</p>
+            <p class='section-heading md' style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);margin:0:padding-bottom:5px;">SIGNATURE OF NOTARY</p>
             <div style='display:table;width:100%'>
             <div style='display:table-row' class='xs'>
             <p class='xs' style="margin:0;padding-bottom:5px;display:table-cell">STATE OF
