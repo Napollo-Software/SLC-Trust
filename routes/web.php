@@ -428,7 +428,7 @@ Route::get('join',function(){
         "sponsor_gender" => "Qui nulla beatae nec",
         "sponsor_ssn" => "mailto:kureju@mailinator.com",
         "sponsor_dob" => "2020-11-23",
-        "sponsor_citizen1" => "Yes",
+        "sponsor_citizen" => "Test Tes",
         "sponsor_tel_home" => "+1 (379) 997-7616",
         "sponsor_tel_cell" => "+1 (822) 625-7372",
         "prefered_cell" => "Phone",
