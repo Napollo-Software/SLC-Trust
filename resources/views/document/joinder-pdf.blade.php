@@ -207,7 +207,7 @@
         }
 
         .strong{
-            font-family: "Poppins-SemiBold" !important;
+            font-family: "Poppins-Medium" !important;
         }
         .black{
             font-family: "Poppins-Bold" !important;
@@ -394,7 +394,7 @@
                 <br/>
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
-                    <p style="display:table-cell;" class="sm strong"> Marital Status:
+                    <p style="display:table-cell;margin-top:10px;padding-top:10px" class="sm strong"> Marital Status:
                         <label style="font-family:Poppins-Regular"  class="xs">
                             <input type="checkbox" name="sponsor_marital_status1" value="Married"
                                 {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
@@ -411,7 +411,7 @@
                         <label>Single</label>
                         </label>
                     </p>
-                    <label style="display:table-cell; margin: 0;">
+                    <label style="display:table-cell; margin-top:10px;padding-top:10px">
                             <label class="sm" >Gender</label>
                             <input class="xs" value="{{ $sponsor_gender }}" type="text" name="sponsor_gender" >
                         </label>
@@ -491,7 +491,7 @@
             </div>
             <br/>
 
-                <p class="strong sm">Preferred Phone:
+                <p class="strong sm" style="margin-top:10px">Preferred Phone:
                     <label style="font-family:Poppins-Regular" class="sm">
                         <input type="checkbox" name="prefered_cell" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
@@ -1078,13 +1078,13 @@
                     </div>
                 </div>
                 <div style="display: table-row;">
-                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
+                    <div style="display: table-cell;margin-top:6px;padding-top:7px">
 
                         <input type="text" value="{{ $referring_tel }}" name="referring_tel" style="width:95%" /> <br>
                         <label class="italic">Home</label>
                     </div>
 
-                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
+                    <div style="display: table-cell;margin-top:6px;padding-top:7px">
                         <input type="text" value="{{ $referring_email }}"name="referring_email" style="width:95%" /> <br>
                         <label class="italic">Email</label>
                     </div>
@@ -1104,23 +1104,23 @@
             </div>
             <div style="display:table;width:100%" class="xs">
             <div style="display: table-row;">
-                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
+                    <div style="display: table-cell;margin-top:6px;padding-top:7px">
                         <input type="text" value="{{ $referring_address }}" name="referring_address" style="width:95%">
                         <label class="italic">Address</label>
                     </div>
-                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
+                    <div style="display: table-cell;margin-top:6px;padding-top:7px">
                         <input type="text" value="{{ $referring_apt }}" name="referring_apt" style="width:95%">
                         <label class="italic">Apt #</label>
                     </div>
-                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
+                    <div style="display: table-cell;margin-top:6px;padding-top:7px">
                         <input type="text" value="{{ $referring_city }}" name="referring_city" style="width:95%" />
                         <label class="italic">City</label>
                     </div>
-                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
+                    <div style="display: table-cell;margin-top:6px;padding-top:7px">
                         <input type="text" value="{{ $referring_state }}" name="referring_state" style="width:95%" />
                         <label class="italic">State</label>
                     </div>
-                    <div style="display: table-cell;margin-top:6px;padding-top:6px">
+                    <div style="display: table-cell;margin-top:6px;padding-top:7px">
                         <input type="text" value="{{ $referring_zip }}" name="referring_zip" style="width:95%" />
                         <label class="italic">Zip</label>
                     </div>
