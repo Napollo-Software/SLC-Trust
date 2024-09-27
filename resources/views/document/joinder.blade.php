@@ -2742,13 +2742,13 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                           <div class="purpose-of-enr-checkbox">
                               <div style="min-width: fit-content">
                                   <input type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income" id="purpose-of-enr-income">
-                                  <label style="font-style: normal;font-size:16px" for="purpose-of-enr-income">Shelter
+                                  <label class="box-label" style="font-style: normal;" for="purpose-of-enr-income">Shelter
                                       Monthly Excess
                                       Income</label>
                               </div>
                               <div style="min-width: fit-content;">
                                   <input type="radio" name="account_establishing_reason1" value="Shelter Excess Resources" id="purpose-of-enr-shelter">
-                                  <label style="font-style: normal;font-size:16px" for="purpose-of-enr-shelter">Shelter
+                                  <label class="box-label" style="font-style: normal;" for="purpose-of-enr-shelter">Shelter
                                       Excess Resources</label>
                               </div>
                           </div>
@@ -2891,11 +2891,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                   <p>Is Spouse Deceased?</p>
                                   <div>
                                       <input type="radio" name="spouse_decreased1" value="Yes" id="dec-yes" class="dec-yes">
-                                      <label style="font-style: normal" for="dec-yes">Yes</label>
+                                      <label class="box-label" style="font-style: normal" for="dec-yes">Yes</label>
                                   </div>
                                   <div>
                                       <input type="radio" name="spouse_decreased1" value="No" id="dec-no" class="dec-no">
-                                      <label style="font-style: normal" for="dec-no">No</label>
+                                      <label class="box-label" style="font-style: normal" for="dec-no">No</label>
                                   </div>
                               </div>
                               <div class="spouse-applying">
@@ -2903,11 +2903,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                   <div class="spouse-applying-check">
                                       <div>
                                           <input type="radio" name="applying_together1" value="Yes" id="app-yes" class="app-yes">
-                                          <label style="font-style: normal" for="app-yes"> Yes</label>
+                                          <label class="box-label" style="font-style: normal" for="app-yes"> Yes</label>
                                       </div>
                                       <div> 
                                           <input type="radio" name="applying_together1" value="No" id="app-no" class="app-no">
-                                          <label style="font-style: normal" for="app-no"> No</label>
+                                          <label class="box-label" style="font-style: normal" for="app-no"> No</label>
                                       </div>
                                       <div>
                                           <p>If Yes, Fill in Spouse’s Income.</p>
@@ -2937,11 +2937,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                   <div class="spouse-applying-check">
                                       <div>
                                           <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes" id="med-yes" class="med-yes">
-                                          <label style="font-style: normal" for="med-yes"> Yes</label>
+                                          <label class="box-label" style="font-style: normal" for="med-yes"> Yes</label>
                                       </div>
                                       <div>
                                           <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="No" id="med-no" class="med-no">
-                                          <label style="font-style: normal" for="med-no"> No</label>
+                                          <label class="box-label" style="font-style: normal" for="med-no"> No</label>
                                       </div>
                                   </div>
                               </div>
