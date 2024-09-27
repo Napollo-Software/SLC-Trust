@@ -209,6 +209,10 @@
         .strong{
             font-family: "Poppins-Medium" !important;
         }
+
+        .semi-bold{
+            font-family: "Poppins-SemiBold" !important;
+        }
         .black{
             font-family: "Poppins-Bold" !important;
         }
@@ -253,11 +257,12 @@
         }
 
         .section-heading{
-            padding-left:15px;
-            padding-right:10px;
+            padding-left:5px;
+            padding-right:5px;
             padding-top:4px;
             padding-bottom:4px;
             font-family: 'Poppins-SemiBold' !important;
+            text-align: center;
         }
 
         .checkboxissue{
@@ -529,7 +534,7 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label class="strong sm">Address</label>
+                        <label class="strong sm">Address:</label>
                     </div>
                 </div>
             </div>
@@ -580,19 +585,19 @@
                 <div style="display: table-cell">
                     <label style="margin: 0;">
                         <label>1.</label>
-                        <input type="text" value="{{ $d1 }}" name="d1">
+                        <input type="text" value="{{ $d1 }}"  name="d1">
                     </label>
                 </div>
                 <div style="display: table-cell">
                     <label style="margin: 0;">
                         <label>2.</label>
-                        <input type="text" value="{{ $d2 }}" name="d2">
+                        <input type="text" value="{{ $d2 }}"  name="d2">
                     </label>
                 </div>
                 <div style="display: table-cell">
                     <label style="margin: 0;">
                         <label>3.</label>
-                        <input type="text" value="{{ $d3 }}" name="d3">
+                        <input type="text" value="{{ $d3 }}"   name="d3">
                     </label>
                 </div>
                </div>
@@ -792,8 +797,8 @@
             <div class="">
                 <p
                 class="md section-heading"
-                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);;width:32%">
-                    AUTHORIZED REPRESENTATIVES
+                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);width:32%">
+                    AUTHORIZED REPRESENTATIVES:
                 </p>
             </div>
             <p class="xs" style=" ">Who will be your primary contact?
@@ -873,7 +878,7 @@
                         <label class="italic">Email</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_relation_beneficiary }}" name="auth_rep_one_relation_beneficiary" style="width: 95%" /> <br>
+                        <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary" style="width: 95%" /> <br>
                         <label class="italic">Relationship to Beneficiary
                         </label>
                     </div>
@@ -883,7 +888,7 @@
 
                     <div style="display: table-row;">
                         <div style="display: table-cell;margin-bottom:10px;padding-bottom:10px">
-                            <label style="" class="sm strong">Address</label>
+                            <label style="" class="sm strong">Address:</label>
                         </div>
                     </div>
                     <div style="display: table-row;" class="xs">
@@ -1219,11 +1224,11 @@
             <p style="font-size: 12px; margin: 0;padding-top:5px" class='xs'>
                 Indicate reason for establishing an account.
             </p>
-            <div style="margin: 0; padding-bottom:6px;padding-top:6px" class='xs'>
+            <div style="margin: 0; padding-bottom:6px;padding-top:6px;" class='xs'>
                 <input type="checkbox" name="account_establishing_reason1" class="checkboxissue" value="Shelter Monthly Excess Income"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Monthly Excess Income' ? 'checked' : '' }}>
-                <label> Shelter Monthly Excess Income</label>
-                <input type="checkbox" name="account_establishing_reason1" class="checkboxissue" value="Shelter Excess Resources"
+                <label > Shelter Monthly Excess Income</label>
+                <input style="margin-left:40px" type="checkbox" name="account_establishing_reason1" class="checkboxissue" value="Shelter Excess Resources"
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Excess Resources' ? 'checked' : '' }}>
                 <label> Shelter Excess Resources</label>
             </div>
@@ -1739,7 +1744,7 @@
             <br>
             <div style="display: table;justify-content: space-between">
                     <span class='md section-heading'
-            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+            style="width:36%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
             LIVING ARRANGEMENTS </span>
            &nbsp;
             <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
@@ -1805,12 +1810,12 @@
 
                 </label>
             </p>
-            <p style="padding:0;margin: 0;margin-top:5px" class='xs'>
+            <p style="padding:0;margin: 0;margin-top:0px;margin-bottom:3px" class='xs italic'>
                 If you answered yes, continue to fill out below:
             </p>
             <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px" class='xs'>
                 Guardian of the:
-                <label style="margin: 0;">
+                <label style="margin: 0;margin-left:5px">
                     <input type="checkbox" name="living_arrangements_person" class="checkboxissue" value="Person"
                         {{ isset($living_arrangements_person) && $living_arrangements_person === 'Person' ? 'checked' : '' }}>
                         <label>Person</label>
@@ -1899,7 +1904,7 @@
     </p>
 
     <div class="pa-container xs">
-        <p class="strong sm" style="margin:0;margin-bottom:15px">Power of Attornery <span class="italic"> Please attach a copy of Power of Attorney</span></p>
+        <p class="strong sm" style="margin:0;margin-bottom:15px">Power of Attornery <span class="italic" style="font-size:12px"> Please attach a copy of Power of Attorney</span></p>
 
         <div style="display: table; width: 100%;" class="xs">
             <div style="display: table-row;margin-bottom:0">
@@ -1980,7 +1985,7 @@
 
 <div style="margin-top: 5px" class="pa-container xs">
 
-    <p style="margin:0;margin-bottom:15px" class="strong sm">Power of Attornery - Second Agent <span class="italic"> Please attach a copy of Power of Attorney</span></p>
+    <p style="margin:0;margin-bottom:15px" class="strong sm">Power of Attornery - Second Agent <span class="italic" style="font-size:12px" > Please attach a copy of Power of Attorney</span></p>
     <div style="display: table; width: 100%;">
 
         <div style="display: table-row;">
@@ -2091,7 +2096,7 @@
     </p> --}}
     <p class="sm">
         Does the Beneficiary have a court appointed Guardian?
-        <input type="checkbox" name="guardian_information_yes" value="Yes" class="checkboxissue"
+        <input type="checkbox" style="margin-left:6px" name="guardian_information_yes" value="Yes" class="checkboxissue"
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
             <label>Yes</label>
         
@@ -2099,11 +2104,12 @@
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}>
             <label>No</label>
 
-        <br>
-        If you answered yes, continue to fill out below:
+        <div style="font-family: Poppins-Italic;" class="sm"> If you answered yes, continue to fill out below:</div>
+        <br/>
+       
     </p>
     <p class="sm" style="margin: 0;padding: 0;">
-        Guardian of the:<input type="checkbox" name="guardian_appointed_for1" value="Person" class="checkboxissue"
+        Guardian of the:<input style="margin-left:5px" type="checkbox" name="guardian_appointed_for1" value="Person" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
         <label>Person </label>
            
@@ -2206,9 +2212,9 @@
             <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); width:33%" class="strong md section-heading" >
                 INFORMATION AND DISCLOSURES:
             </p>
-            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1 !important;">
-                <div class="strong" style="margin-bottom: 0;">Death of Beneficiary:</div>
-                <p style="margin-top: 0px; padding-top: 0;">The Beneficiary’s sub-trust account terminates
+            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:0.9 !important;">
+                <div class="semi-bold" style="margin-bottom: 0;">Death of Beneficiary:</div>
+                <p style="margin-top: 0px; padding-top: 0;text-align:justify;line-height:0.9 !important;">The Beneficiary’s sub-trust account terminates
                     upon his or her death. If, upon the death of the
                     Beneficiary, funds remain in his or her sub-trust
                     account, such funds shall be deemed to be property
@@ -2233,7 +2239,7 @@
                     established and funded prior to the Beneficiary’s
                     death. Funeral expenses will not be paid after the
                     Beneficiary’s death. <br/>
-                    <div class="strong">Contributions/Deposits:</div>
+                    <div class="semi-bold">Contributions/Deposits:</div>
                     All contributions made to the sub-trust account will be held and administered pursuant to the provisions of the SLC Supplemental Needs Trust which are incorporated by reference herein.<br/> The Trustees shall have the sole and absolute right to accept or refuse additional deposits to the subtrust account.<br/>
                     In the event that a Beneficiary has a zero ($0)
                     sub-trust account balance for sixty (60) or more
@@ -2253,8 +2259,8 @@
             account.
             <br/>
             <br/>
-                <div class="strong margin-bottom: 0;" >Disbursements: </div>
-                <p style="margin-top: 0px; padding-top: 0;">All disbursement requests shall be reviewed and
+                <div class="semi-bold"  style="margin-top:-3px">Disbursements: </div>
+                <p style="margin-top: 0px; padding-top: 0;text-align:justify;line-height:0.9 !important;">All disbursement requests shall be reviewed and
                     approved on an individual basis.
                     Disbursements for expenses incurred more than 90
                     days prior to submission of a disbursement request
@@ -2266,7 +2272,7 @@
                     will be made after the death of the beneficiary, even
                     for expenses incurred or due prior to death.
                     <br/>
-                    <div class="strong" >Disability Determination:</div>
+                    <div class="semi-bold" >Disability Determination:</div>
                     In the event that a determination of disability is
                     required for Medicaid purposes, please be advised
                     that administrative fees shall be incurred while the
@@ -2275,7 +2281,7 @@
                     deductible as charitable gifts, or otherwise.
                     Sub-trust account income may be taxable to the
                     Beneficiary. <br/><br/>
-                    <div class="strong" >Disclosure of Potential Conflict of Interest:</div>
+                    <div class="semi-bold" >Disclosure of Potential Conflict of Interest:</div>
                     There may be a potential conflict of interest in the
                     administration of the Trust since the Trust retains
                     those funds remaining in the sub-trust account at
@@ -2315,9 +2321,9 @@
         <div class="page-break"></div>
 
         <div class="page-7 sm" style="position: relative;">
-            <div class="strong">Situs:</div> 
-            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:1 !important;">
-                <p>The sub-trust account created by this Agreement
+            <div class="semi-bold">Situs:</div> 
+            <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;">
+                <p style="margin-top: 0px; padding-top: 0;text-align:justify;line-height:0.9 !important;">The sub-trust account created by this Agreement
                     has been accepted by the Trustee in the State of
                     New York and will be administered by Senior Lifecare
                     Corp and a financial institution in the State of New
@@ -2329,7 +2335,7 @@
                     majority of meetings concerning establishment of
                     the Trust occurred.
                     <br/>
-                    <div class="strong">Invalidity of any Provision:</div> 
+                    <div class="semi-bold">Invalidity of any Provision:</div> 
                     Should any provision of this Agreement be or
                     become invalid or unenforceable, the remaining
                     provisions of this Agreement shall be and continue
@@ -2361,7 +2367,7 @@
             </div>
 
             <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;margin-top:0px;line-height:1 !important;">
-                <p style="line-height:1 !important;">is defined under
+                <p style="margin-top: 0px; padding-top: 0;text-align:justify;line-height:0.9 !important;">is defined under
                     federal law, to determine whether they have the
                     legal authority to transfer property to fund the
                     trust, and the impact that a transfer of property to
@@ -2435,7 +2441,8 @@
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p>
-            <p class='xs' style='margin:0;padding-bottom:12px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
+            
+            <p class='xs' style='margin:0;padding-bottom:12px;padding-top:10px;margin-top:10px;padding-bottom:10px;margin-bottom:10px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
             <div style="display: table; width: 100%; margin: 0; text-align: center;">
             <div style="display: table-row;">
                 <div style="display: table-cell; width: 30%;">
@@ -2464,7 +2471,7 @@
                     <div style="display: table-cell; width: 30%;" class='xs'>
                         <p style="margin: 0;">
                             <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
-                            <br> Date
+                            <br> <label class='italic'>Date</label>
                         </p>
                     </div>
                 </div>
@@ -2484,18 +2491,18 @@
                   name="notary_county_of">
                 </p>
             </div>
-            <div style='display:table-row' class='xs'>
-                <p style="margin:0;padding-bottom:5px;display:table-cell">
-                    ON <input type="text" class="no-border" name="notary_on_date"
+            <div  style='display:table-row;width:100%' class='xs'>
+                <p style="margin:0;padding-bottom:5px;display:table-cell; margin-left:25px; padding-left:25px">
+                    On <input type="text"  style="width:30%" class="no-border" name="notary_on_date"
                     value="{{ $notary_on_date }}"> ,20
-                    <input type="text" value="{{ $notary_year }}" class="no-border" name="notary_year">
+                    <input style="width:15%" type="text" value="{{ $notary_year }}" class="no-border" name="notary_year"> before me, the
                 </p>
             </div>
             <div style='display:table-row' class='xs'>
                 <div style='display:table-cell;width:50%'>
                         <p style="margin:0;padding-bottom:5px:">
-                            before me the undersigned, a Notary Public in and for said State, personally appeared,<br>
-                            <input type="text" value="{{ $notary_appeared }}" class="no-border" name="notary_appeared">
+                            undersigned, a Notary Public in and for said State, personally appeared,<br>
+                            <input type="text" value="{{ $notary_appeared }}" style="width:70%" class="no-border" name="notary_appeared">,
                            <br> personally  known to me or proved to me on the basis of satisfactory evidence to be the individual whose
                             name
                             is subscribed to the within instrument and acknowledged to me that he/she/they executed the same in
@@ -2505,8 +2512,8 @@
                             executed this instrument.
                         </p>
                     </div>
-                        <div style='display:table-cell;vertical-align:bottom;width:50%'>
-                            <input type="text" value="{{ $notary_public }}" style='width:90%;margin-left:30px' class="no-border" name="notary_public"><br>
+                        <div style='display:table-cell;vertical-align:bottom;width:50%;'>
+                            <input  type="text" value="{{ $notary_public }}" style='width:90%;margin-left:30px; margin-top:45px;padding-top:45px;' class="no-border" name="notary_public"><br>
                             <div style='width:90%;text-align-left'>
                                 <label style='text-align:left;margin-left:30px'>NOTARY PUBLIC</label>
                             </div>
@@ -2515,8 +2522,8 @@
             </div>
             <p class='md section-heading' style=" width:37%;background-color:rgb(184 221 219);color:rgb(52 159 153);">OR SIGNATURE OF TWO WITNESSES</p>
             <p class='xs'>
-                (New York Residents Only) <br>
-                <span style='padding-top:7px'>
+                (New York Residents Only) <br><br>
+                <span style=''>
                     Or in lieu of Notarization, the following two witness signatures are provided:
                 </span>
             </p>
@@ -2642,7 +2649,8 @@
                             <label class='italic'>Sign Here</label>
                         </div>
                     </div>
-                    <div class='xs' style="display: table-cell; width: 50%;">
+                    <div class='xs'  style="display: table-cell; width: 50%;">
+                        <br/><br/>
                         <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             value="{{ $office_use_date_approved }}">
                         <br><label class='italic'>DATE</label>
@@ -2840,7 +2848,7 @@
 
             <div>
                 <div
-                class="strong"
+                class="strong md"
                 style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
                 FOR OFFICE USE
                 </div>
@@ -2848,15 +2856,15 @@
            <div style="margin-left:40px">
                 <div style="display: table;width:100%">
                     <div style="display: table-row;width:100%" >
-                        <div style="display: table-cell;">
+                        <div style="display: table-cell;width:50%">
 
-                            <label class="sm">Account #:</label>
-                            <input class="xs" type="text" value="{{ $office_use_account_number }}" name="office_use_account_number" />
+                            <label class="xs">Account #:</label>
+                            <input class="xs"  type="text" value="{{ $office_use_account_number }}" name="office_use_account_number" style="width:65%" />
                         </div>
-                        &nbsp;&nbsp;
+                       
                         <div style="display: table-cell;">
-                            <label class="sm">MemberID #:</label>
-                            <input class="xs" type="text" value="{{ $office_use_member_id_below }}" name="office_use_member_id_below" />
+                            <label class="xs">MemberID #:</label>
+                            <input class="xs" type="text" value="{{ $office_use_member_id_below }}" name="office_use_member_id_below" style="width:30%" />
                         </div>
                     </div>
                 </div>
@@ -2865,13 +2873,13 @@
                     <div style="display: table-row;">
                         <div style="display: table-cell;width:50%">
 
-                            <label class="sm">Processed By:</label>
-                            <input class="xs" type="text" value="{{ $office_use_processed_by }}" name="office_use_processed_by" style="width:55%" />
+                            <label class="xs">Processed By:</label>
+                            <input class="xs" type="text" value="{{ $office_use_processed_by }}" name="office_use_processed_by" style="width:70%" />
                         </div>
                         {{-- &nbsp;&nbsp; --}}
 
                         <div style="display: table-cell;width:40%">
-                            <label class="sm">Monthly Debit Amount: $ </label>
+                            <label class="xs">Monthly Debit Amount: $ </label>
                             <input class="xs" type="text" value="{{ $office_use_monthly_debit_amount }}" name="office_use_monthly_debit_amount" style="width:35%" />
                         </div>
                     </div>
@@ -2880,7 +2888,7 @@
                 <div style="display: table;">
                     <div style="display: table-row;">
                         <div style="display: table-cell;text-align: start; !important">
-                            <p class="sm">
+                            <p class="xs">
                                 Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)
                             </p>
                         </div>
@@ -2889,16 +2897,16 @@
                 {{-- <br> --}}
                 <div style="display: table;width:100%;">
                     <div style="display: table-row;width:100%">
-                        <div style="display: table-cell;">
+                        <div style="display: table-cell;width:50%">
 
-                            <label class="sm">Date of Monthly Debit:</label>
-                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_date }}" name="office_use_monthly_debit_date" />
+                            <label class="xs">Date of Monthly Debit:</label>
+                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_date }}" name="office_use_monthly_debit_date" style="width:45%" />
                         </div>
                         &nbsp;&nbsp;
 
-                        <div style="display: table-cell">
-                            <label class="sm">First Debit Month:</label>
-                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_first_month }}" name="office_use_monthly_debit_first_month" />
+                        <div style="display: table-cell;width:40%">
+                            <label class="xs">First Debit Month:</label>
+                            <input class="xs" type="text" value="{{ $office_use_monthly_debit_first_month }}" name="office_use_monthly_debit_first_month" style="width:45%" />
                         </div>
                     </div>
                 </div>
@@ -2906,7 +2914,7 @@
 
 
                 {{-- <br> --}}
-                <p style="margin-top:25px" class="sm italic">
+                <p style="margin-top:25px" class="xs italic">
                     If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
                     A $150 annual-renewal fee will be charged on the anniversary of the account
                 </p>
