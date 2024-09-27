@@ -306,7 +306,7 @@
                                 718.500.3235</div>
                         </div>
                     </div>
-                    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-bottom:4px">
+                    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-bottom:7px">
                         <div style="display: table-row;">
                             <div style="display: table-cell;width:45%;text-align: right;">
                                 <div style="padding-right: 5px" class="xl">Fax:</div>
@@ -325,7 +325,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:4px">
+                    <div style="width: 100%; text-align: center; white-space: nowrap; display: table; border-collapse: collapse;margin-top:7px">
                         <div style="display: table-row;">
                             <div style="color: rgb(52 159 153); display: table-cell;" class="strong">
                                 seniorlifecaretrusts.org
@@ -341,8 +341,8 @@
 
         <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;">
-                <p style="text-align:center;margin-bottom: 0px" class="strong lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
-                <p style="text-align:center;color:rgb(52 159 153);" class="lg">Joinder Agreement / Beneficiary
+                <p style="text-align:center;" class="strong lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                <p style="text-align:center;color:rgb(52 159 153);margin-top:-11px" class="lg">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
             </div>
             <div  class="xs">
@@ -363,33 +363,34 @@
                 be contributed to the Trust.
             </p>
 
-            <div style="display: table; width: 100%;" >
+            <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <label style="" class="sm strong;">Name:</label>
+                    <div style="display: table-cell;">
+                        <label class="sm strong">Name:</label>
                     </div>
                 </div>
                 <br/>
-                <div style="display: table-row;table-layout: fixed;" class="xs">
-                    <div style="display: table-cell;width: 33.33%; ">
-
-                        <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" /> 
+                <div style="display: table-row; width: 100%;" class="xs">
+                    <div style="display: table-cell; width: 33.33%; padding-right: 20px;">
+                        <input type="text" value="{{ $sponsor_first_name }}" name="sponsor_first_name" style="width: 100%;" />
                         <label class="italic">First</label>
                     </div>
-                   
-                    <div style="display: table-cell;width: 33.33%;">
-                        <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" /> 
-                        <label class="italic">Middle:</label>
+
+                    <div style="display: table-cell; width: 33.33%; padding-right: 20px;">
+                        <input type="text" value="{{ $sponsor_middle_name }}" name="sponsor_middle_name" style="width: 100%;" />
+                        <label class="italic">Middle</label>
                     </div>
-                   
-                    <div style="display: table-cell;width: 33.33%;">
-                        <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" /> 
-                        <label class="italic">Last:</label>
+
+                    <div style="display: table-cell; width: 33.33%;">
+                        <input type="text" value="{{ $sponsor_last_name }}" name="sponsor_last_name" style="width: 100%;" />
+                        <label class="italic">Last</label>
                     </div>
                 </div>
             </div>
+
+
                 <br/>
-            <div style="display: table; width: 100%;margin-top:8px;margin-bottom:8px">
+            <div style="display: table; width: 100%;">
                 <div style="display: table-row;">
                     <p style="display:table-cell;" class="sm strong"> Marital Status:
                         <label style="font-family:Poppins-Regular"  class="xs">
@@ -410,9 +411,8 @@
                     </p>
                     <label style="display:table-cell; margin: 0;">
                             <label class="sm" >Gender</label>
-                            <input type="text" name="sponsor_gender">
+                            <input class="xs" value="{{ $sponsor_gender }}" type="text" name="sponsor_gender" >
                         </label>
-                        <!-- value="{{ $sponsor_gender }}" -->
                     </div>
 
            </div>
@@ -441,72 +441,53 @@
                 </div> --}}
 
                  <br />
-            <div style="display: table; width: 100%;margin-bottom:8px">
+                 <div style="display: table; width: 100%; margin-bottom: 8px;">
+                    <div style="display: table-row;">
 
-                <div style="display: table-row;">
-                    <div style="display: table-cell" class="xs">
-                        <input type="text" value="{{ $sponsor_ssn }}" name="sponsor_ssn"> <br>
-                        <label class="italic">Social Security Number:</label>
-                    </div>
-                   &nbsp;
-                    <div class="xs" style="display: table-cell">
-                        <input type="text" name="sponsor_dob" value="{{ $sponsor_dob }}"> <br>
-                        <label class="italic">Date of Birth:</label>
-                    </div>
-                   &nbsp;
-                    <div class="xs" style="display: table-cell">
-                    <input type="text" name="sponsor_citizenship" value="{{ $sponsor_dob }}"> <br>
-                    <label class="italic">Citizenship:</label>
-                    </div>
-                </div>
+                        <!-- Social Security Number -->
+                        <div style="display: table-cell; width: 33.33%; padding-right: 20px;" class="xs">
+                            <input type="text" value="{{ $sponsor_ssn }}" name="sponsor_ssn" style="width: 100%;">
+                            <label class="italic">Social Security Number:</label>
+                        </div>
 
-                <br />
+                        <!-- Date of Birth -->
+                        <div style="display: table-cell; width: 33.33%; padding-right: 20px;" class="xs">
+                            <input type="text" name="sponsor_dob" value="{{ $sponsor_dob }}" style="width: 100%;">
+                            <label class="italic">Date of Birth:</label>
+                        </div>
 
-                {{-- <div style="display: table-row;">
-                    <div style="display: table-cell">
-                        <label style="strong">Contact Information:</label>
+                        <!-- Citizenship -->
+                        <div style="display: table-cell;width: 33.33%;" class="xs">
+                            <input type="text" name="sponsor_citizenship" value="{{ $sponsor_citizen }}" style="width: 100%;">
+                            <label class="italic">Citizenship:</label>
+                        </div>
                     </div>
                 </div>
-                <div style="display: table-row;">
 
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home"> <br>
-                        <label>Home Phone:</label>
-                    </div>
-                   &nbsp;
-
-                    <div style="display: table-cell">
-
-                        <input type="text" value="{{ $sponsor_tel_cell }}" class="no-border"
-                            name="sponsor_tel_cell"> <br>
-                        <label>Cell Phone:</label>
-                    </div>
-                </div> --}}
-            </div>
-
-
+<br/>
             <div style="display: table; width:100%">
-                <div style="display: table-row;margin-top:-25px">
+                <div style="display: table-row;">
                     <div style="display: table-cell">
                         <label style="" class="sm strong">Contact Information:</label>
                     </div>
                 </div> <br>
                 <div style="display: table-row;" class="xs">
 
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home" style="width: 95%"> <br>
+                    <div style="display: table-cell;width:50%;padding-right:20px">
+                        <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home" style="width: 100%"> 
                         <label class="italic">Home Phone:</label>
                     </div>
                    &nbsp;
 
-                    <div style="display: table-cell">
+                    <div style="display: table-cell;width:50%">
 
-                        <input type="text" value="{{ $sponsor_tel_cell }}" class="no-border" style="width: 95%"
-                            name="sponsor_tel_cell"> <br>
+                        <input type="text" value="{{ $sponsor_tel_cell }}" class="no-border" style="width: 100%"
+                            name="sponsor_tel_cell"> 
                         <label class="italic">Cell Phone:</label>
                     </div>
                 </div>
             </div>
+            <br/>
 
                 <p class="strong sm">Preferred Phone:
                     <label style="font-family:Poppins-Regular" class="sm">
@@ -524,7 +505,7 @@
 
             {{-- <br /> --}}
 
-            <div style="display: table; width:400px" class="xs">
+            <div style="display: table; width:45%" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%">
@@ -611,6 +592,7 @@
                 </div>
                </div>
             </div>
+
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;vertical-align:middle">
                         <label>1.</label>
@@ -798,7 +780,7 @@
             </div>
         </div> --}}
 
-        {{-- <div class="page-break"></div> --}}
+        <div class="page-break"></div>
 
 
         <div class="page-2" style="margin-top:-5px">
