@@ -1,20 +1,20 @@
 {
     "poppins-regular": {
-        "normal": "poppins_regular_normal_12258f59bf66fab18dc244a1c2dd58a5"
+        "normal": "poppins_regular_normal_284017231cea84083dbac0738612cf24"
     },
     "poppins-medium": {
-        "normal": "poppins_medium_normal_c90f5cb5cdcc39b78c0aead6e701f417"
+        "normal": "poppins_medium_normal_9c84c8952765c346d6918f728fa89828"
     },
     "poppins-semibold": {
-        "normal": "poppins_semibold_normal_2cc2f1e8b17eeb93cf51c59765622397"
+        "normal": "poppins_semibold_normal_a3d6ed127017a75e2541db96672a57e1"
     },
     "poppins-bold": {
-        "normal": "poppins_bold_normal_3f49f43d2f6ea309f18c043b3d04009d"
+        "normal": "poppins_bold_normal_4f1e96d21719112b8990919fae1db9c7"
     },
     "poppins-italic": {
-        "normal": "poppins_italic_normal_26104c1b630f16790d8def6c76363c26"
+        "normal": "poppins_italic_normal_c50419fab48a321d25eed912076c8d24"
     },
     "poppins-extrabold": {
-        "normal": "poppins_extrabold_normal_1d02d6ae2a14f54209a1692fb4c6ae70"
+        "normal": "poppins_extrabold_normal_f4c9fb6f991e0ab396efe31e2f6235bb"
     }
 }
