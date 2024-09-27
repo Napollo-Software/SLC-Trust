@@ -1757,7 +1757,7 @@
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Assisted Living facility' ? 'checked' : '' }}>
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
-            <p style="padding: 0;margin:0" class='xs'>
+            <p style="padding: 0;margin:0;margin-top:5px" class='xs'>
                 <input type="checkbox" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
                 <label for="family_care" style="vertical-align: middle;">Family care program</label>&nbsp;
@@ -1800,10 +1800,10 @@
 
                 </label>
             </p>
-            <p style="padding:0;margin: 0;" class='xs'>
+            <p style="padding:0;margin: 0;margin-top:5px" class='xs'>
                 If you answered yes, continue to fill out below:
             </p>
-            <p style="padding:0;margin: 0;padding-top:3px" class='xs'>
+            <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px" class='xs'>
                 Guardian of the:
                 <label style="margin: 0;">
                     <input type="checkbox" name="living_arrangements_person" value="Person"
@@ -1824,7 +1824,7 @@
 
                 </label>
             </p>
-            <p style="padding:0;margin: 0;padding-top:3px" class='xs'>
+            <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px" class='xs'>
                 Court Appointed Guardian Information
             </p>
             <div style="display: table;width:100%;margin-top:4px">
@@ -2272,12 +2272,10 @@
 
             </p>
             <p class="sm">Court Appointed Guardian Information</p>
-
             <div style="display: table; width:100%" class="xs">
             <div style="display: table-row;">
                 <div style="display: table-cell;">
-
-                    <input type="text" value="{{ $guardianship_fname }}" name="guardianship_fname" style="width: 95%" /> <br>
+                    <input type="text" value="{{ $guardianship_fname }}" name="guardianship_fname" style="width: 95%;margin-top:5px" /> <br>
                     <label class="italic">First</label>
                 </div>
                &nbsp;
