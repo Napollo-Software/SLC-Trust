@@ -2,10 +2,36 @@
 
 return array(
     'font_cache' => public_path('/fonts'),
-    'default_font' => 'Poppins',
+    'default_font' => 'Poppins', // Default fallback font
     'font' => [
+
+        'BrittanySignature-MaZx' => [
+            'R'  => 'BrittanySignature-MaZx.ttf',   // Regular font
+        ],
         'Nominee-Regular' => [
-            'R'  => 'Nominee-Black.ttf',    // Regular font
+            'R'  => 'Nominee-Regular.ttf',   // Regular font
+        ],
+        'Nominee-Regular2' => [
+            'R'  => 'Nominee-Regular2.ttf',   // Regular font
+        ],
+        'Poppins-Regular' => [
+            'R'  => 'Poppins-Regular.ttf',   // Regular font
+        ],
+        'Poppins-Medium' => [
+            'R'  => 'Poppins-Medium.ttf',   // Regular font
+        ],
+        'Poppins-SemiBold' => [
+            'R'  => 'Poppins-SemiBold.ttf',  
+        ],
+        'Poppins-Bold' => [
+            'R'  => 'Poppins-Bold.ttf',
+        ],
+        'Poppins-Italic' => [
+            'R'  => 'Poppins-Italic.ttf',   
+        ],
+     
+        'Poppins-ExtraBold' => [
+            'R'  => 'Poppins-ExtraBold.ttf',   
         ],
     ],
 
@@ -33,7 +59,7 @@ return array(
          *
          * The location of the directory where DOMPDF will store fonts and font metrics
          * Note: This directory must exist and be writable by the webserver process.
-         * *Please note the trailing slash.*
+          Please note the trailing slash.*
          *
          * Notes regarding fonts:
          * Additional .afm font metrics can be added by executing load_font.php from command line.
@@ -218,7 +244,7 @@ return array(
          * Windows Firefox and Internet Explorer:
          *   SystemControl->Display properties->FontResolution: Default:96, largefonts:120, custom:?
          * Linux Firefox:
-         *   about:config *resolution: Default:96
+            about:config resolution: Default:96
          *   (xorg screen dimension in mm and Desktop font dpi settings are ignored)
          *
          * Take care about extra font/image zoom factor of browser.
