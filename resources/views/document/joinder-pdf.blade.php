@@ -2250,7 +2250,7 @@
                     shall be required to pay a new enrollment fee when re-opening a sub-trust</p>
             </div>
 
-            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.2;margin-top:0px">
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.3;margin-top:0px">
             account.
             <br/>
             <br/>
@@ -2361,7 +2361,7 @@
                 </p>
             </div>
 
-            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.1;margin-top:0px">
+            <div class="column-right" style="float: left; width: 49%; padding-left: 1%; box-sizing: border-box;text-align:justify;line-height:1.3;margin-top:0px">
                 <p>is defined under
                     federal law, to determine whether they have the
                     legal authority to transfer property to fund the
