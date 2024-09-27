@@ -138,8 +138,8 @@ input[type="radio"]{
     appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
   background-color: white;
   border: 1px solid #000;
   border-radius: 0; /* Make it square */
@@ -167,7 +167,7 @@ input[type="date"]{
 }
 .header-heading{
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.82rem;
     color: var(--primary);
 
 
@@ -250,7 +250,7 @@ main{
 .beneficiary-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 5px 20px;
+    padding: 2px 20px;
     /* margin-left: 30px; */
     font-size: 18px;
     background-color: var(--bgColor);
@@ -536,7 +536,7 @@ input:focus{
     justify-content: flex-start;
     align-items: center;
     gap: 30px;
-    margin-top: 35px;
+    margin-top: 25px;
     flex-wrap: wrap;
 }
 .healthcare-plane{
@@ -721,7 +721,7 @@ input:focus{
 .authorized-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 5px 20px;
+    padding: 2px 20px;
     font-size: 18px;
     /* margin-left: 30px; */
     background-color: var(--bgColor);
@@ -746,6 +746,7 @@ input:focus{
     flex-wrap: wrap
 }
 .for-office-use-only-2-body-style{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -829,14 +830,20 @@ input:focus{
     flex-wrap: wrap;
 }
 .authorized-home-form-inp{
-    width: 80%;
+    width: 95%;
     border: none;
     border-bottom: 1px solid black;
 }
 .authorized-cell-form-inp{
-    width: 80%;
+    width: 95%;
     border: none;
     border-bottom: 1px solid black;
+}
+.box-label{
+    font-size: 16.2px
+}
+.normal-text{
+    font-size: 16px
 }
 .authorized-home-form{
     width: 35%;
@@ -890,7 +897,7 @@ input:focus{
     border-bottom: 1px solid black;
 }
 .authorized-contact-form-2{
-    width: 40%;
+    width: 47%;
 }
 .authorized-contact-form-2-relationship-container{
     min-width: 50%;
@@ -956,7 +963,7 @@ input:focus{
     border-bottom: 1px solid black;
 }
 .referring-source-form{
-    width: 45%;
+    width: 47%;
 }
 .referring-source-para{
     width: 90%;
@@ -1166,7 +1173,7 @@ tr.ind-th td:nth-child(1){
 .healthcare-premium-header-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 5px 20px;
+    padding: 2px 20px;
     font-size: 18px;
     /* margin-left: 30px; */
     background-color: var(--bgColor);
@@ -2235,21 +2242,21 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                              <div class="martial-status">
                                  <div class="status">
                                      <div style="min-width: fit-content;">
-                                         <label style="font-style: normal" class="label-status">Marital Status</label>
+                                         <label style="font-style: normal;font-size:16px" class="label-status">Marital Status</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input  type="radio" value="Married" name="sponsor_marital_status1" id="married" class="married" id="married"><label style="font-style: normal" for="married"> Married</label>
+                                         <input  type="radio" value="Married" name="sponsor_marital_status1" id="married" class="married" id="married"><label style="font-style: normal;font-size: 16.2px;" for="married"> Married</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input type="radio" value="Widowed" name="sponsor_marital_status1" id="widowed" class="widowed" id="widowed"><label style="font-style: normal" for="widowed"> Widowed</label>
+                                         <input type="radio" value="Widowed" name="sponsor_marital_status1" id="widowed" class="widowed" id="widowed"><label style="font-style: normal;font-size: 16.2px;" for="widowed"> Widowed</label>
                                      </div>
                                      <div style="display: flex; justify-content: center; align-items: baseline; gap: 5px;">
-                                         <input type="radio" value="Single" name="sponsor_marital_status1" id="single" class="single" id="label"><label style="font-style: normal" for="single"> Single</label>
+                                         <input type="radio" value="Single" name="sponsor_marital_status1" id="single" class="single" id="label"><label style="font-style: normal;font-size: 16.2px;" for="single"> Single</label>
                                      </div>
 
                                  </div>
                                  <div class="gender">
-                                     <label style="font-style: normal" for="gender">Gender</label>
+                                     <label style="font-style: normal;font-size:16px" for="gender">Gender</label>
                                      <input type="text"  name="sponsor_gender" value="{{$referral->gender}}" id="gender" class="inp-gender">
                                  </div>
                              </div>
@@ -2295,7 +2302,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
 
                              <div class="preferred-phone">
                                  <div>
-                                     <label style="font-style: normal" class="label-status">Preferred Phone</label>
+                                     <label style="font-style: normal;font-size:16px" class="label-status">Preferred Phone</label>
                                  </div>
                                  <div style="display: flex;justify-content: center;align-items: center;gap: 5px;">
                                      <input type="radio" value="Cell" name="prefered_cell" class="cell" id="cell">
@@ -2458,7 +2465,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                               <span>Cell Phone</span>
                                           </div>
                                           <div class="authorized-preferred-form">
-                                              <label style="font-style: normal" for>Preferred
+                                              <label style="font-style: normal" class="normal-text" for>Preferred
                                                   Phone</label>
                                               <div class="authorized-preferred-form-checkbox">
                                                   <div>
@@ -2467,7 +2474,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                           class="authorized-preferred-cell-form-inp"
                                                            value="Authorized_1_cell"
                                                           >
-                                                      <label style="font-style: normal" for="authorized-preferred-cell-form-inp">Cell</label>
+                                                      <label style="font-style: normal" class="box-label" for="authorized-preferred-cell-form-inp">Cell</label>
                                                   </div>
                                                   <div>
                                                       <input type="radio" name="authorized_preferred_cell_form_inp"
@@ -2475,7 +2482,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                           class="authorized-preferred-home-form-inp"
                                                           value="Authorized_1_home"
                                                           >
-                                                      <label style="font-style: normal" for="authorized-preferred-home-form-inp">Home</label>
+                                                      <label style="font-style: normal" class="box-label" for="authorized-preferred-home-form-inp">Home</label>
                                                   </div>
                                               </div>
                                           </div>
@@ -2491,7 +2498,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                               <span>Email</span>
                                           </div>
                                           <div class="authorized-contact-form-2-relationship-container">
-                                              <label  style="min-width: fit-content; font-style: normal">Relationship
+                                              <label class="normal-text"  style="min-width: fit-content; font-style: normal">Relationship
                                                   to Beneficiary</label>
                                               <input type="text"
                                                  class="inp-last"
@@ -2569,7 +2576,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                               <span>Cell Phone</span>
                                           </div>
                                           <div class="authorized-preferred-form">
-                                              <label style="font-style: normal" for>Preferred
+                                              <label style="font-style: normal" class="normal-text" for>Preferred
                                                   Phone</label>
                                               <div class="authorized-preferred-form-checkbox">
                                                   <div>
@@ -2577,7 +2584,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                       value="Cell"
                                                           id="authorized-preferred-cell-form-inp2"
                                                           class="authorized-preferred-cell-form-inp">
-                                                      <label style="font-style: normal" for="authorized-preferred-cell-form-inp2">Cell</label>
+                                                      <label style="font-style: normal" class="box-label" for="authorized-preferred-cell-form-inp2">Cell</label>
                                                   </div>
                                                   <div>
                                                       <input type="radio"
@@ -2585,7 +2592,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                        name="authorized_preferred_cell2"
                                                           id="authorized-preferred-home-form-inp2"
                                                           class="authorized-preferred-home-form-inp">
-                                                      <label style="font-style: normal" for="authorized-preferred-home-form-inp2">Home</label>
+                                                      <label style="font-style: normal" class="box-label" for="authorized-preferred-home-form-inp2">Home</label>
                                                   </div>
                                               </div>
                                           </div>
@@ -2601,7 +2608,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                               <span>Email</span>
                                           </div>
                                           <div class="authorized-contact-form-2-relationship-container">
-                                              <label style="min-width: fit-content;text-align: right;font-style: normal">Relationship
+                                              <label class="normal-text" style="min-width: fit-content;text-align: right;font-style: normal">Relationship
                                                   to Beneficiary</label>
                                               <input type="text" name="auth_rep_two_relation_beneficiary"
                                                   id="authorized-contact-form-2-relationship"
@@ -2696,9 +2703,9 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                               reporting to Government Agencies to be<br>sent
                               to the referring source above.
                               <input type="radio" name="referring_auth1" value="Yes" id="referring-source-para-yes">
-                              <label style="font-style: normal;font-size: 16px;" for="referring-source-para-yes">Yes</label>
+                              <label class="box-label" style="font-style: normal;" for="referring-source-para-yes">Yes</label>
                               <input type="radio" name="referring_auth1" value="No" id="referring-source-para-no">
-                              <label style="font-style: normal;font-size: 16px;" for="referring-source-para-no">No</label>
+                              <label class="box-label" style="font-style: normal;" for="referring-source-para-no">No</label>
                           </p>
                       </div>
                   </div>
@@ -2735,13 +2742,13 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                           <div class="purpose-of-enr-checkbox">
                               <div style="min-width: fit-content">
                                   <input type="radio" name="account_establishing_reason1" value="Shelter Monthly Excess Income" id="purpose-of-enr-income">
-                                  <label style="font-style: normal;font-size:16px" for="purpose-of-enr-income">Shelter
+                                  <label class="box-label" style="font-style: normal;" for="purpose-of-enr-income">Shelter
                                       Monthly Excess
                                       Income</label>
                               </div>
                               <div style="min-width: fit-content;">
                                   <input type="radio" name="account_establishing_reason1" value="Shelter Excess Resources" id="purpose-of-enr-shelter">
-                                  <label style="font-style: normal;font-size:16px" for="purpose-of-enr-shelter">Shelter
+                                  <label class="box-label" style="font-style: normal;" for="purpose-of-enr-shelter">Shelter
                                       Excess Resources</label>
                               </div>
                           </div>
@@ -2773,14 +2780,14 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                       <div class="applicant">
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Yes" id="applicant-yes">
-                                              <label style="font-style: normal" for="applicant-yes"> Yes</label>
+                                              <label class="box-label" style="font-style: normal;" for="applicant-yes"> Yes</label>
                                           </div>
                                           <div>
-                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No" id="applicant-no"> <label style="font-style: normal"
+                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="No" id="applicant-no"> <label class="box-label" style="font-style: normal;"
                                                   for="applicant-no"> No</label>
                                           </div>
                                           <div>
-                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending" id="applicant-pending"><label style="font-style: normal" for="applicant-pending"> Pending</label>
+                                              <input type="radio" name="beneficiary_receive_medicaid_applicant1" value="Pending" id="applicant-pending"><label class="box-label" style="font-style: normal;" for="applicant-pending"> Pending</label>
                                           </div>
 
                                       </div>
@@ -2789,15 +2796,15 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                       <div class="applicant">
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Yes" id="spouse-yes">
-                                              <label style="font-style: normal" for="spouse-yes"> Yes</label>
+                                              <label class="box-label" style="font-style: normal;" for="spouse-yes"> Yes</label>
                                           </div>
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="No" id="spouse-no">
-                                              <label style="font-style: normal" for="spouse-no"> No</label>
+                                              <label class="box-label" style="font-style: normal;" for="spouse-no"> No</label>
                                           </div>
                                           <div>
                                               <input type="radio" name="beneficiary_receive_medicaid_spouse1" value="Pending" id="spouse-pending">
-                                              <label style="font-style: normal" for="spouse-pending"> Pending</label>
+                                              <label class="box-label" style="font-style: normal;" for="spouse-pending"> Pending</label>
                                           </div>
 
                                       </div>
@@ -2884,11 +2891,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                   <p>Is Spouse Deceased?</p>
                                   <div>
                                       <input type="radio" name="spouse_decreased1" value="Yes" id="dec-yes" class="dec-yes">
-                                      <label style="font-style: normal" for="dec-yes">Yes</label>
+                                      <label class="box-label" style="font-style: normal" for="dec-yes">Yes</label>
                                   </div>
                                   <div>
                                       <input type="radio" name="spouse_decreased1" value="No" id="dec-no" class="dec-no">
-                                      <label style="font-style: normal" for="dec-no">No</label>
+                                      <label class="box-label" style="font-style: normal" for="dec-no">No</label>
                                   </div>
                               </div>
                               <div class="spouse-applying">
@@ -2896,11 +2903,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                   <div class="spouse-applying-check">
                                       <div>
                                           <input type="radio" name="applying_together1" value="Yes" id="app-yes" class="app-yes">
-                                          <label style="font-style: normal" for="app-yes"> Yes</label>
+                                          <label class="box-label" style="font-style: normal" for="app-yes"> Yes</label>
                                       </div>
                                       <div> 
                                           <input type="radio" name="applying_together1" value="No" id="app-no" class="app-no">
-                                          <label style="font-style: normal" for="app-no"> No</label>
+                                          <label class="box-label" style="font-style: normal" for="app-no"> No</label>
                                       </div>
                                       <div>
                                           <p>If Yes, Fill in Spouse’s Income.</p>
@@ -2930,11 +2937,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                   <div class="spouse-applying-check">
                                       <div>
                                           <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes" id="med-yes" class="med-yes">
-                                          <label style="font-style: normal" for="med-yes"> Yes</label>
+                                          <label class="box-label" style="font-style: normal" for="med-yes"> Yes</label>
                                       </div>
                                       <div>
                                           <input type="radio" name="spouse_applied_for_medicaid_with_beneficiary1" value="No" id="med-no" class="med-no">
-                                          <label style="font-style: normal" for="med-no"> No</label>
+                                          <label class="box-label" style="font-style: normal" for="med-no"> No</label>
                                       </div>
                                   </div>
                               </div>
@@ -4450,7 +4457,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                         </div>
                             <div style="display: flex;gap:5px">
                                 <p> , 20</p>
-                            <input type="text" name="notary_year" id="" style="border: none; border-bottom: 1px solid black;">
+                            <input type="number" name="notary_year" id="" style="border: none; border-bottom: 1px solid black;">
                             <p> before me, the</p>
                             </div>
                         </div>
