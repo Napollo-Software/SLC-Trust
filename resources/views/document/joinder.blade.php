@@ -24,6 +24,34 @@
     font-family: BrittanySignature;
     src: url("/fonts/BrittanySignature-MaZx.ttf");
 }
+
+@font-face {
+            font-family: 'Poppins-Regular';
+            src: url('fonts/Poppins-Regular.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-Medium';
+            src: url('fonts/Poppins-Medium.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-SemiBold';
+            src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-Bold';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+        }
+     
+        @font-face {
+            font-family: 'Poppins-Italic';
+            src: url('fonts/Poppins-Italic.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-ExtraBold';
+            src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');
+        }
+
+
 body{
     /* font-family: Arial, sans-serif; */
     font-family: "Nominee-Regular";
@@ -222,10 +250,12 @@ main{
 .beneficiary-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 8px 20px;
+    padding: 5px 20px;
     /* margin-left: 30px; */
     font-size: 18px;
     background-color: var(--bgColor);
+    font-family: 'Poppins-Regular';
+    letter-spacing: 0.8px;
 }
 .beneficiary-des{
     width: 90%;
@@ -235,7 +265,7 @@ main{
     width: 80%;
     margin: auto;
 }
-.dob-form input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
@@ -691,10 +721,12 @@ input:focus{
 .authorized-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 8px 20px;
+    padding: 5px 20px;
     font-size: 18px;
     /* margin-left: 30px; */
     background-color: var(--bgColor);
+    font-family: 'Poppins-Regular';
+    letter-spacing: 0.8px;
 }
 .authorized-des{
     width: 80%;
@@ -1134,11 +1166,13 @@ tr.ind-th td:nth-child(1){
 .healthcare-premium-header-heading{
     color: var(--primary);
     width:fit-content;
-    padding: 8px 20px;
+    padding: 5px 20px;
     font-size: 18px;
     /* margin-left: 30px; */
     background-color: var(--bgColor);
     min-width: fit-content;
+    font-family: 'Poppins-Regular';
+    letter-spacing: 0.8px;
 }
 .healthcare-premium{
     width: 80%;
@@ -1885,7 +1919,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
         justify-content: flex-start;
     }
     .j-heading{
-        font-size: 2.5rem
+        font-size: 2.5rem;
     }
     .supplemental-header-heading{
         font-size: 1rem
@@ -2034,7 +2068,8 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
         margin-top: 4rem;
     }
     .j-heading{
-        font-size: 1.5rem
+        font-size: 1.5rem;
+        font-family: 'Poppins-Bold' !important;
     }
     .header-contact{
         font-size: 1rem
@@ -2117,8 +2152,8 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
         </div>
         <div class="header-content" >
             <div class="header-heading">
-                <h1 class="j-heading">JOINDER</h1>
-                <h1 class="j-heading">AGREEMENT</h1>
+                <h1 style="font-family: 'Poppins-Bold'" class="j-heading">JOINDER</h1>
+                <h1 style="font-family: 'Poppins-Bold';margin-top:-5px" class="j-heading">AGREEMENT</h1>
             </div>
             <div class="header-contact">
                 <div style="display: flex; flex-direction: column; justify-content:center;align-items: center; gap: 5px;">
@@ -2226,7 +2261,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                      <span>Social Security Number</span>
                                  </div>
                                  <div class="dob-form">
-                                 <input type="date" class="inp-last" name="sponsor_dob" value="{{$referral->date_of_birth}}">
+                                 <input type="date" class="inp-last" name="sponsor_dob" value="{{$referral->date_of_birth}}" max="9999-12-31">
                                       <br>
                                      <span>Date of Birth</span>
                                  </div>
@@ -3647,7 +3682,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">Address</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="text" name="power_apt" id=""
+                                    <input type="number" name="power_apt" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Apt #</label>
                                 </div>
@@ -3662,7 +3697,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">State</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="text" name="power_zip" id=""
+                                    <input type="number" name="power_zip" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Zip</label>
                                 </div>
@@ -3753,7 +3788,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">Address</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="text" name="power_apt2" id=""
+                                    <input type="number" name="power_apt2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Apt #</label>
                                 </div>
@@ -3768,7 +3803,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">State</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="text" name="power_zip2" id=""
+                                    <input type="number" name="power_zip2" id=""
                                         style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
                                     <label for="">Zip</label>
                                 </div>
@@ -4376,7 +4411,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">Print</label>
                                 </div>
                                 <div class="w-30">
-                                        <input type="date" class="inp-last" style="" name="joinder_date">
+                                        <input type="date" class="inp-last" style="" name="joinder_date" max="9999-12-31">
                                         <br>
                                     <label for="">Date</label>
                                 </div>
@@ -4411,7 +4446,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                         <div class="sig-para">
                             <div style="display: flex;gap:5px">
                             <p>On</p>
-                            <input type="text" name="notary_on_date" id="" style="border: none; border-bottom: 1px solid black;">
+                            <input type="date" max="9999-12-31" name="notary_on_date" id="" style="border: none; border-bottom: 1px solid black;">
                         </div>
                             <div style="display: flex;gap:5px">
                                 <p> , 20</p>
@@ -4471,7 +4506,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     <label for="">Witness 1</label>
                                 </div>
                                 <div class="w-80">
-                                    <input type="text" name="sig_date1" id=""
+                                    <input type="date"  max="9999-12-31" name="sig_date1" id=""
                                         style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                     <label for="">Date</label>
                                 </div>
@@ -4504,7 +4539,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                         <label for="">Witness 2</label>
                                     </div>
                                     <div style="width: 100%;">
-                                        <input type="text" name="sig_date2" id=""
+                                        <input type="date" max="9999-12-31" name="sig_date2" id=""
                                             style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
                                         <label for="">Date</label>
                                     </div>
@@ -4551,7 +4586,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 <label for="">Sign Here</label>
                             </div>
                             <div class="w-40">
-                                <input type="date" class="inp-last"  name="office_use_date_approved">
+                                <input type="date" max="9999-12-31" class="inp-last"  name="office_use_date_approved" max="9999-12-31">
                                     <br>
                                 <label for="">Date</label>
                             </div>
@@ -4597,7 +4632,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                             </div>
                             <div class="for-office-use-only-2-body-style">
                                 <label style="font-size: 0.9rem;  min-width: fit-content; font-style:normal" for="">Effective Date:</label>
-                                <input type="text" name="office_use_effective_date" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
+                                <input type="date" max="9999-12-31" name="office_use_effective_date" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
                             </div>
                         </div>
                 </div>
@@ -4741,7 +4776,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 </div>
                                 <div style="display: flex; margin-top: 20px;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Date of Monthly Debit:</p>
-                                    <input class="mad1" type="text" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input class="mad1" type="date" max="9999-12-31" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
                                 </div>
                                 <div class="w-50 db-month" style="margin-top: 20px">
                                     <p>First Debit Month:</p>
@@ -4749,7 +4784,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 </div>
                     </div>
                     <div style="width: 80%; margin: auto;">
-                        <p style="font-style: italic">If any direct debits are returned for insu cient funds, a $53 charge will apply <br>
+                        <p style="font-style: italic">If any direct debits are returned for insufficient funds, a $53 charge will apply <br>
                             A $150 annual - renewal fee will be charged on the anniversary of the account
                         </p>
                     </div>
@@ -4913,6 +4948,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener("blur", () => el.value === pattern && (el.value=""));
     }
 });
+
 
 
 

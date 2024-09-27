@@ -25,6 +25,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class DocumentController extends Controller
 {
@@ -353,8 +354,38 @@ class DocumentController extends Controller
 
     public function saveJoinder(Request $request)
     {
-
-//        dd($request->all());
+       
+        $formattedDates = [];
+        if ($request->has('office_use_monthly_debit_date') && $request->office_use_monthly_debit_date) {
+            $formattedDates['office_use_monthly_debit_date'] = Carbon::parse($request->office_use_monthly_debit_date)->format('m/d/Y');
+        }
+        
+        if ($request->has('office_use_date_approved') && $request->office_use_date_approved) {
+            $formattedDates['office_use_date_approved'] = Carbon::parse($request->office_use_date_approved)->format('m/d/Y');
+        }
+        
+        if ($request->has('office_use_effective_date') && $request->office_use_effective_date) {
+            $formattedDates['office_use_effective_date'] = Carbon::parse($request->office_use_effective_date)->format('m/d/Y');
+        }
+        
+        if ($request->has('joinder_date') && $request->joinder_date) {
+            $formattedDates['joinder_date'] = Carbon::parse($request->joinder_date)->format('m/d/Y');
+        }
+        
+        if ($request->has('notary_on_date') && $request->notary_on_date) {
+            $formattedDates['notary_on_date'] = Carbon::parse($request->notary_on_date)->format('m/d/Y');
+        }
+        
+        if ($request->has('sig_date1') && $request->sig_date1) {
+            $formattedDates['sig_date1'] = Carbon::parse($request->sig_date1)->format('m/d/Y');
+        }
+        
+        if ($request->has('sig_date2') && $request->sig_date2) {
+            $formattedDates['sig_date2'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
+        }
+        
+        // Merge the formatted dates back into the request, keeping all other data unchanged
+        $request->merge($formattedDates);
         set_time_limit(200);
         $referralId = $request->referral_id;
         $referral = Referral::find($referralId);
