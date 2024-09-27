@@ -3470,7 +3470,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                         <p style="font-style: italic">(indicate the living arrangement of the Beneficiary)</p>
                     </div>
                     <div class="living-arrangement-body">
-                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap:wrap;gap:40px">
+                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap:wrap;gap:15px">
                         <div>
                             <input type="radio"  name="living_arrangement1" value="Independently" id="independently">
                             <label style="font-style: normal;font-size:16px" for="independently">Independently</label>
@@ -3488,7 +3488,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                             <label style="font-style: normal;font-size:16px" for="assisted">Assisted Living Facility</label>
                         </div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;flex-wrap:wrap;gap:40px">
+                    <div style="display: flex; justify-content: space-between; align-items: center;flex-wrap:wrap;gap:15px">
                         <div>
                             <input type="radio" name="living_arrangement1" value="Family Care Program" id="family-care">
                             <label style="font-style: normal;font-size:16px" for="family-care">Family Care Program</label>
