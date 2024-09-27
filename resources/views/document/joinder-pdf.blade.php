@@ -173,7 +173,7 @@
         .italic{
             font-family: "Poppins-Italic";
             font-size: 10px;
-            display: block;
+            /* display: block; */
         }
 
         .text-center{
@@ -1246,7 +1246,7 @@
 
         <div class="page-3">
             <p class='md section-heading'
-            style="width:28%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px">
+            style="width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px">
                 PURPOSE OF ENROLLMENT
             </p>
             <p style="font-size: 12px; margin: 0;padding-top:5px" class='xs'>
@@ -1269,21 +1269,21 @@
             <table style="padding-top: 0px; margin-top:10px;">
             <thead>
                     <tr style="padding: 0; margin: 0;">
-                        <td class='xs' style='width:170px;padding:6px;text-align:left;padding-left:12px'>Please Attach MAP / LDSS Notice of Decision</td>
+                        <td class='xs' style='width:190px;padding:6px;text-align:left;padding-left:12px'>Please Attach MAP / LDSS Notice of Decision</td>
                         <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px">Applicant</td>
                         <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px">Spouse</td>
                     </tr>
                 </thead>
                 <tr style="padding: 0; margin: 0;" class='xs'>
                     <td style="width:180px;margin:0;padding:0px;">
-                        <p style="vertical-align: bottom;margin:0;padding:3px;text-align:left;padding-left:12px">
+                        <p style="vertical-align: bottom;margin:0;padding:3px;text-align:left;padding-left:12px;padding-top:4px">
                             Application Status
                             <br>
                             Does the beneficiary receive Medicaid?
                         </p>
                     </td>
                     <td class='xs' style="width:80px;vertical-align: center;padding:0;">
-                        <div  style="margin:auto;padding:3px;text-align:left;padding-left:12px">
+                        <div  style="margin:auto;padding:3px;text-align:left;padding-left:12pxpadding-top:4px"">
                             <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" value="Yes"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
@@ -1295,7 +1295,7 @@
                                 <label>Pending</label>
                         </div>
                     </td>
-                    <td class='xs' style="width:80px;vertical-align: center;margin:0;padding:0px;">
+                    <td class='xs' style="width:80px;vertical-align: center;margin:0;padding:0px;padding-top:4px"">
                         <div style="margin:auto;padding:3px;text-align:left;padding-left:12px">
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" value="Yes"
 
@@ -1342,23 +1342,33 @@
                 </tr>
             </table>
             <br>
-
             <div style="margin: 0;padding: 0;" class='xs'>
                 <span>if the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these
                 benefits.
-                and monthly amounts.</span>
-             <input type="text" class="no-border" name="beneficiary_benefits"
-                    value="{{ $beneficiary_benefits }}" style="width: 50%">
+                and monthly amounts.
+                </span>
+                <input
+                 type="text" class="no-border"
+                 name="beneficiary_benefits"
+                 value="{{ $beneficiary_benefits }}" style="width: 50%"
+                 >
             </div>
         </div>
             <br>
             <span class='md section-heading'
-            style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-top:-60px;">
-            HOUSEHOLD INCOME INFORMATION </span>
-           &nbsp;
+                style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-top:-60px;">
+                HOUSEHOLD INCOME INFORMATION 
+            </span>
             <br><br>
-            <span style="margin:0;" class='sm'><div>Spouse Information:</div></span>
-            <span class='italic xs'>(please include proof of income)</span>
+            <div class='xs'>
+                <span>
+                     Spouse Information
+                </span>
+                 <span class='italic'>
+                    (please include proof of income)
+                </span>
+            </div>
+
             <p style="margin: 0;padding-top:4px" class='xs'>
                 Is Spouse Deceased?
                 <input type="checkbox" name="spouse_decreased1" value="Yes"
@@ -1383,14 +1393,16 @@
             <div style="display: table; width: 100%;">
                 <div style="display: table-row;margin-top:6px">
                     <div style="display: table-cell;padding-bottom:7px;padding-top:3px" class='xs'>
-                        <label style='padding-bottom:10px;'>First Name: </label>
-                        <input type="text" value="{{ $spouse_fname }}" name="spouse_fname" />
+                        <label style='padding-bottom:10px;'>Name:</label>
+                        <span>First</span>
+                        <input style='width:70%' type="text" value="{{ $spouse_fname }}" name="spouse_fname" />
                     </div>
                    &nbsp;
 
                     <div style="display: table-cell;padding-bottom:7px;padding-top:3px" class='xs'>
-                        <label  style='padding-bottom:10px;'>Last Name: </label>
-                        <input type="text" value="{{ $spouse_lname }}" name="spouse_lname" />
+                        <label  style='padding-bottom:10px;'>Name: </label>
+                        <span>Last</span>
+                        <input style='width:72%' type="text" value="{{ $spouse_lname }}" name="spouse_lname" />
                     </div>
                 </div>
                 {{-- <div style="display: table-row;">
@@ -1437,8 +1449,8 @@
                 </tr>
             </thead>
                 <tr style="padding: 0;margin: 0;" class='xs'>
-                    <td style="width:180px;padding: 0px;margin: 0;max-height: 5px;">
-                        <p style='margin:3px;text-align:left;padding-left:12px'>
+                    <td style="width:180px;padding: 0px;margin: 0;">
+                        <p style='margin:3px;text-align:left;padding-left:12px' class='xs'>
                             Supplement Security Income(SSI)
                         </p>
                     </td>
