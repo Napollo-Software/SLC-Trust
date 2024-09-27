@@ -243,10 +243,8 @@
         }
 
         input[type="checkbox"] {
-            /* margin-right: 4px; */
-            width: 17px;
-            height: 17px !important;
-            box-shadow: 0.5px -0.5px 0px black;
+            width: 15px;
+            height: 15px !important;
 
         }
 
@@ -1606,7 +1604,7 @@
             </p>
             <div style='display:table'>
             <div style=" display: table-row;">
-                <div style='display:table-cell'>
+                <div style='display:table-cell;padding-bottom:5px'>
                     <span style="margin: 0;padding:0" class='xs'>
                         Medicare Part:
                         <span>
@@ -1630,8 +1628,10 @@
                     </div>
                </div>
                 </span>
-            <div style="display: table-row;" class='xs'>
-                If yes, what is the monthly premium? $
+            <div style="display: table-row;" class='xs' >
+                <span style='margin-top:4px'>
+                    If yes, what is the monthly premium? $
+                </span>
                 <input type="text" value="{{ $healthcare_partb_premium }}" class="no-border"
                     name="healthcare_partb_premium">
                 Plan Name?
@@ -1658,7 +1658,7 @@
                                 <label>No</label>
 
                         </p>
-                        <p class='italic'>If you answered yes, please attach funeral provision documents.</p>
+                        <p class='italic' style='font-size:13px'>If you answered yes, please attach funeral provision documents.</p>
                     </div>
                 </div>
             </div>
@@ -1682,9 +1682,9 @@
                     <p class='italic'>If you answered yes, please attach funeral provision documents</p>
                 <div style="display: table-row;">
                         <div style="display: table-cell;padding-bottom:14px" class='xs'>
-                            <label>Name of Insured:</label>
+                            <label>Name of Insured</label>
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
-                            <label>Name of Owner:</label>
+                            <label>Name of Owner</label>
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
                         </div>
                 </div>
@@ -1697,25 +1697,29 @@
                     </div>
                 </div>
                 <div style="display: table-row;" class='xs'>
-                    <div style="display: table-cell;padding-bottom:14px">
-                        Term of policy <input style="height:15px" type="checkbox" name="type_of_policy1" value="Term"
-                            {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
-                            <label>Term</label>
+                    <div style="display: table-cell; padding-bottom: 14px;">
+                        <span>Term of policy: &nbsp;</span>
+                        <label>
+                            <input style="height: 15px; vertical-align: middle;" type="checkbox" name="type_of_policy1" value="Term"
+                                {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
+                            Term
+                        </label>
+                        <input type="text" value="{{ $healthcare_plan }}" class="no-border" name="healthcare_plan" style="margin-left: 5px;">
 
-                        <input type="text" value="{{ $healthcare_plan }}" class="no-border"
-                            name="healthcare_plan">
-
-                        <input style="height:15px" type="checkbox" name="type_of_policy1" value="Life"
-                            {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}>
-                            <label>Life</label>
-
-                        <input type="text" value="{{ $healthcare_plan2 }}" class="no-border"
-                            name="healthcare_plan2">
+                        <label>
+                            <input style="height: 15px; vertical-align: middle;" type="checkbox" name="type_of_policy1" value="Life"
+                                {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}>
+                            Life
+                        </label>
+                        <input type="text" value="{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;">
+                        <br>
+                        <span style='padding-top:5px;margin-top:5px'>
                             <label>Cash Surrender Value</label>
-                        <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" />
+                            <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" style="margin-left: 5px;">
+                        </span>
                     </div>
-                    <br>
                 </div>
+
                 <div style="display: table-row;">
                     <div style="display: table-cell;" class='xs'>
                         Upon the death of the Beneficiary, amounts remaining in the Beneficiary's sub-account shall be
@@ -1770,10 +1774,10 @@
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
                 <label for="supportive" style="vertical-align: middle;">CR/IRA(Supportive)</label>
             </p>
-            <p style="padding: 0; margin: 0;" class='xs'>
+            <p style="padding: 0; margin: 0;margin-top:5px" class='xs'>
                 <input type="checkbox" id="other_living_arrangement" name="living_arrangement1" value="Other"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Other' ? 'checked' : '' }}>
-                <label for="other_living_arrangement" style="vertical-align: middle;">Other Explain</label>&nbsp;
+                <label for="other_living_arrangement" style="vertical-align: middle;">Other</label>&nbsp;
                 <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
                     name="living_arrangement_other">
             </p>
