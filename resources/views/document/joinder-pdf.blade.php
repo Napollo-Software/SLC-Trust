@@ -1259,7 +1259,7 @@
                         </p>
                     </td>
                     <td class='xs' style="width:80px;padding:0;">
-                        <div  style="margin:0;padding:3px;text-align:left;padding-left:12px:padding-top:12px">
+                        <div  style="margin:0;padding:3px;text-align:center;padding-left:12px:padding-top:12px">
                             <input type="checkbox" name="beneficiary_receive_medicaid_applicant1" class="checkboxissue" value="Yes"
                                 {{ isset($beneficiary_receive_medicaid_applicant1) && $beneficiary_receive_medicaid_applicant1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
@@ -1318,7 +1318,7 @@
             </table>
             <br>
             <div style="margin: 0;padding: 0;" class='xs'>
-                <span>if the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these
+                <span>If the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these
                 benefits.
                 and monthly amounts.
                 </span>
@@ -1336,10 +1336,10 @@
             </span>
             <br><br>
             <div class='xs' style='padding-top:2px'>
-                <span>
+                <span style='font-weight:700' class='xs'>
                      Spouse Information
                 </span>
-                 <span class='italic'>
+                 <span class='italic xs'>
                     (please include proof of income)
                 </span>
             </div>
@@ -1362,11 +1362,12 @@
                 <input type="checkbox" class="checkboxissue" name="applying_together1" value="No"
                     {{ isset($applying_together1) && $applying_together1 === 'No' ? 'checked' : '' }}>
                     <label>No</label>
-                    
-                If Yes, Fill in Spouse’s Income.
+                    <span style='padding-left:10px'>
+                        If Yes, Fill in Spouse’s Income.
+                    </span>
             </p>
             <div style="display: table; width: 100%;">
-                <div style="display: table-row;margin-top:6px">
+                <div style="display: table-row;margin-top:6px;width:40%">
                     <div style="display: table-cell;padding-bottom:7px;padding-top:3px" class='xs'>
                         <label style='padding-bottom:10px;'>Name:</label>
                         <span>First</span>
@@ -1375,7 +1376,7 @@
                    &nbsp;
 
                     <div style="display: table-cell;padding-bottom:7px;padding-top:3px" class='xs'>
-                        <label  style='padding-bottom:10px;'>Name: </label>
+                        <!-- <label  style='padding-bottom:10px;'>Name: </label> -->
                         <span>Last</span>
                         <input style='width:72%' type="text" value="{{ $spouse_lname }}" name="spouse_lname" />
                     </div>
@@ -1576,7 +1577,7 @@
             </table>
             <br>
             <p class='italic' style="padding: 0;margin: 0;" class='xs'>
-                Please note: All disbursements must be for sole benefit of the country beneficiary.
+                Please Note: All disbursements must be for sole benefit of the country beneficiary.
                 <br>
                 A spouse is not a beneficiary for the account.
             </p>
@@ -1605,7 +1606,7 @@
 
         <div class="page-4">
             <div>
-                <p class='italic' style="padding: 2%;text-align: center">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECESSARY
+                <p class='sm' style="padding: 2%;text-align: center">FOR ANY APPLICABLE ITEMS BELOW, PLEASE ATTACH THE NECESSARY
                     PROOF.</p>
             </div>
             <p class='md section-heading'
@@ -1625,7 +1626,7 @@
                             {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}>
                             <label>D</label>
                         </span>
-                        <span style='margin-left:10spanx;margin-left:12px' class='xs'>
+                        <span style='margin-left:20px' class='xs'>
                             Does the applicant have a supplemental policy?
                             <input type="checkbox" class="checkboxissue" name="supplemental_yes" value="Yes"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
@@ -1668,14 +1669,14 @@
                                 <label>No</label>
 
                         </p>
-                        <p class='italic' style='font-size:13px'>If you answered yes, please attach funeral provision documents.</p>
+                        <p class='italic' style='font-size:15px'>If you answered yes, please attach funeral provision documents.</p>
                     </div>
                 </div>
             </div>
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p class='md section-heading' style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
+                       <p class='md section-heading' style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
                     </div>
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
@@ -1689,7 +1690,7 @@
                         <label>No</label>
 
                 </p>
-                    <p class='italic'>If you answered yes, please attach funeral provision documents</p>
+                    <p class='italic xs'>If you answered yes, please attach funeral provision documents</p>
                 <div style="display: table-row;">
                         <div style="display: table-cell;padding-bottom:14px" class='xs'>
                             <label>Name of Insured</label>
@@ -1708,8 +1709,8 @@
                 </div>
                 <div style="display: table-row;" class='xs'>
                     <div style="display: table-cell; padding-bottom: 14px;">
-                        <span>Term of policy: &nbsp;</span>
                         <label>
+                            <span>Term of Policy:</span> &nbsp;
                             <input style="height: 15px; vertical-align: middle;" class="checkboxissue" type="checkbox" name="type_of_policy1" value="Term"
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                             Term
@@ -1721,13 +1722,13 @@
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}>
                             Life
                         </label>
-                        <input type="text" value="{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;">
-                        <br>
+                        <input type="text" value="name{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;">
+                        <br><br>
                         <span style='padding-top:5px;margin-top:5px'>
-                            <label>Cash Surrender Value</label>
+                            <label>Cash Surrender Value $</label>
                             <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" style="margin-left: 5px;">
+                        </div>
                         </span>
-                    </div>
                 </div>
 
                 <div style="display: table-row;">
@@ -2750,7 +2751,7 @@
                             <div style="display: table-cell;margin-top:10px">
         
                                 <label class="sm">Bank Name</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 60%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 62%" /> 
                             </div>
                             <div style="display: table-cell;margin-top:10px">
         
@@ -2825,11 +2826,10 @@
                     <!-- Signature Input and Canvas Preview Container -->
 
                     <div style="display: table-row;" class="md">
-                        <div style="display: table-cell;">
-
+                        <div style="display: table-cell;width:40%">
                             <label>Beneficiary/ Representative Sign Here </label>
                         </div>
-                        <div style="display: table-cell;">
+                        <div style="display: table-cell;border-bottom:1px solid;text-align:center">
                             @if ($joinder_signature_5)
                             <img src="{{ $joinder_signature_5 }}" alt="Signature 5"
                                 style="max-width: 300px; height: 90px;">
@@ -2850,10 +2850,10 @@
                 <div
                 class="strong md"
                 style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
-                FOR OFFICE USE
+                FOR OFFICE USE:
                 </div>
                 <br>
-           <div style="margin-left:40px">
+           <div style="margin-left:40px" class='xs'>
                 <div style="display: table;width:100%">
                     <div style="display: table-row;width:100%" >
                         <div style="display: table-cell;width:50%">
