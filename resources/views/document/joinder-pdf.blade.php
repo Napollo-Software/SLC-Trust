@@ -260,6 +260,11 @@
             font-family: 'Poppins-SemiBold' !important;
         }
 
+        .checkboxissue{
+            margin-top:-7px;
+            padding-top: -7px;
+        }
+
 
 
 
@@ -394,17 +399,17 @@
                 <div style="display: table-row;">
                     <p style="display:table-cell;margin-top:10px;padding-top:10px" class="sm strong"> Marital Status
                         <label style="font-family:Poppins-Regular"  class="xs">
-                            <input type="checkbox" name="sponsor_marital_status1" value="Married"
+                            <input type="checkbox" name="sponsor_marital_status1" style="margin-top:-7px;padding-top:-7px" value="Married"
                                 {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Married' ? 'checked' : '' }}>
                             <label>Married</label>
                         </label>
                         <label style="font-family:Poppins-Regular" class="xs">
-                            <input type="checkbox" name="sponsor_marital_status1" value="Widowed"
+                            <input type="checkbox" name="sponsor_marital_status1" style="margin-top:-7px;padding-top:-7px" value="Widowed"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Widowed' ? 'checked' : '' }}>
                         <label>Widowed</label>
                         </label>
                         <label style="font-family:Poppins-Regular" class="xs">
-                            <input type="checkbox" name="sponsor_marital_status" value="Single"
+                            <input type="checkbox" name="sponsor_marital_status" style="margin-top:-7px;padding-top:-7px" value="Single"
                             {{ isset($sponsor_marital_status1) && $sponsor_marital_status1 === 'Single' ? 'checked' : '' }}>
                         <label>Single</label>
                         </label>
@@ -491,12 +496,12 @@
 
                 <p class="strong sm" style="margin-top:10px">Preferred Phone:
                     <label style="font-family:Poppins-Regular" class="sm">
-                        <input type="checkbox" name="prefered_cell" value="Cell"
+                        <input type="checkbox" name="prefered_cell" style="margin-top:-7px;padding-top:-7px" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
                         <label style="">Cell</label>
                     </label>
                     <label style="font-family:Poppins-Regular">
-                        <input type="checkbox" name="prefered_cell" value="Phone"
+                        <input type="checkbox" name="prefered_cell" style="margin-top:-7px;padding-top:-7px" value="Phone"
                             {{ isset($prefered_cell) && $prefered_cell === 'Phone' ? 'checked' : '' }}>
                         <label style="">Home</label>
                     </label>
@@ -793,18 +798,18 @@
             </div>
             <p class="xs" style=" ">Who will be your primary contact?
                 <label style="margin: 0;">
-                    <input type="checkbox" name="auth_beneficiary" value="Beneficiary"
+                    <input type="checkbox" style="margin-top:-7px;padding-top:-7px" name="auth_beneficiary" value="Beneficiary"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Beneficiary' ? 'checked' : '' }}>
                         <label>Beneficiary</label>
 
                 </label>
                 <label style="margin: 0;">
-                    <input type="checkbox" name="auth_beneficiary" value="Auth. Rep.1"
+                    <input type="checkbox" name="auth_beneficiary" style="margin-top:-7px;padding-top:-7px" value="Auth. Rep.1"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Auth. Rep.1' ? 'checked' : '' }}>
                         <label>Auth. Rep. 1</label>
                 </label>
                 <label style="margin: 0;">
-                    <input type="checkbox" name="auth_beneficiary" value="Auth. Rep. 2"
+                    <input type="checkbox" name="auth_beneficiary" style="margin-top:-7px;padding-top:-7px" value="Auth. Rep. 2"
                         {{ isset($auth_beneficiary) && $auth_beneficiary === 'Auth. Rep. 2' ? 'checked' : '' }}>
                         <label>Auth. Rep. 2</label>
                 </label>
@@ -847,12 +852,12 @@
                     </div>
                     <p style="margin-left:10px;margin-top:0px">Preferred Phone
                     <label style="margin: 0;">
-                        <input type="checkbox" name="authorized_preferred_cell_form_inp" value="Authorized_1_cell"
+                        <input type="checkbox" name="authorized_preferred_cell_form_inp" class="checkboxissue" value="Authorized_1_cell"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
                         <label>Cell</label>
                     </label>
                     <label style="margin: 0;">
-                        <input type="checkbox" name="authorized_preferred_cell_form_inp" value="Authorized_1_home"
+                        <input type="checkbox" name="authorized_preferred_cell_form_inp" class="checkboxissue" value="Authorized_1_home"
                             {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_home' ? 'checked' : '' }}>
                         <label>Home</label>
                     </label>
@@ -947,12 +952,12 @@
                     </div>
                     <p style="margin-left:10px;margin-top:0px">Preferred Phone
                     <label style="margin: 0;">
-                        <input type="checkbox" name="authorized_preferred_cell2" value="Cell"
+                        <input type="checkbox" name="authorized_preferred_cell2" class="checkboxissue" value="Cell"
                             {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Cell' ? 'checked' : '' }}>
                         <label>Cell</label>
                     </label>
                     <label style="margin: 0;">
-                        <input type="checkbox" name="authorized_preferred_cell2" value="Home"
+                        <input type="checkbox" name="authorized_preferred_cell2" class="checkboxissue" value="Home"
                             {{ isset($authorized_preferred_cell2) && $authorized_preferred_cell2 === 'Home' ? 'checked' : '' }}>
                         <label>Home</label>
                     </label>
@@ -1166,9 +1171,9 @@
                 I authorize any applicable documents necessary for reporting to Government Agencies to be sent referring
                 source
                 above.
-                <input type="checkbox" name="referring_auth1" value="Yes"
+                <input type="checkbox" name="referring_auth1" value="Yes" class="checkboxissue"
                     {{ isset($referring_auth1) && $referring_auth1 === 'Yes' ? 'checked' : '' }}> Yes
-                <input type="checkbox" name="referring_auth2" value="No"
+                <input type="checkbox" name="referring_auth2" value="No" class="checkboxissue"
                     {{ isset($referring_auth1) && $referring_auth1 === 'No' ? 'checked' : '' }}> No
             </p>
 
