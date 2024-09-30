@@ -356,11 +356,10 @@
                     Profile Sheet</p>
             </div>
             <div  class="xs">
-                <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created
-                    pursuant to 42 United States Code §1396. You are encouraged to seek independent, professional advice
-                    before signing this agreement. The undersigned hereby adopts, enrolls in, and establishes a
-                    sub-trust account under the TRUSTED SURPLUS SOLUTIONS DISABILITY POOLED TRUST, dated February 13,
-                    2023. The Trust is Irrevocable.</p>
+                <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created pursuant to 42 United States 
+                    Code §1396p(d)(4). You are encouraged to seek independent, professional advice before signing this agreement. The 
+                    undersigned hereby adopts, enrolls in and establishes a sub-trust account under the SLC Supplemental Needs Trust, dated 
+                    December 24, 2017.</p>
                 <p class="" style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
             </div class="md">
                 <p
@@ -419,9 +418,9 @@
                         <label>Single</label>
                         </label>
                     </p>
-                    <label style="display:table-cell; margin-top:10px;padding-top:10px">
+                    <label style="display:table-cell;width:60% margin-top:10px;padding-top:10px">
                             <label class="sm" >Gender</label>
-                            <input class="xs" value="{{ $sponsor_gender }}" type="text" name="sponsor_gender" >
+                            <input class="xs" value="{{ $sponsor_gender }}" style="width:248px" type="text" name="sponsor_gender" >
                         </label>
                     </div>
 
@@ -478,7 +477,7 @@
             <div style="display: table; width:100%">
                 <div style="display: table-row;">
                     <div style="display: table-cell">
-                        <label style="" class="sm strong">Contact Information</label>
+                        <label style="" class="sm strong">Contact Information:</label>
                     </div>
                 </div> <br>
                 <div style="display: table-row;" class="xs">
@@ -499,7 +498,7 @@
             </div>
             <br/>
 
-                <p class="strong sm" style="margin-top:10px">Preferred Phone:
+                <p class="strong sm" style="margin-top:10px">Preferred Phone
                     <label style="font-family:Poppins-Regular" class="sm">
                         <input type="checkbox" name="prefered_cell" style="margin-top:-7px;padding-top:-7px" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
@@ -580,7 +579,7 @@
                 </div>
             </div>
             <br />
-            <div class="xs" style="display:table;width:100%">
+            <div class="xs" style="display:table;width:100%;">
                <div style="display: table-row;width:100%">
                 <div style="display: table-cell">
                     <label style="margin: 0;">
@@ -822,9 +821,8 @@
 
             <div class="border-container">
             <p style="padding:0;margin: 0;" class="xs">
-                The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
-                individual
-                to: Make Deposits, Request Statements and Disbursements.
+            The following individual will be authorized to communicate with SLC Supplemental Needs Trust. I authorize
+            this individual to: Make Deposits, Request Statements and Request Disbursements.
             </p>
             <p class="strong sm" style="margin-top:5px;margin-bottom:10px">Authorized Representative # 1</p>
             <div class="xs" style="display: table;width:100%;">
@@ -926,9 +924,8 @@
 
             <div class="border-container" style="margin-top: 5px;">
             <p style="padding:0;margin: 0;" class="xs">
-                The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
-                individual
-                to: Make Deposits, Request Statements and Disbursements.
+            The following individual will be authorized to communicate with SLC Supplemental Needs Trust. I authorize
+            this individual to: Make Deposits, Request Statements and Request Disbursements.
             </p>
             <p class="strong sm" style="margin-top:5px">Authorized Representative # 2</p>
        
@@ -1243,7 +1240,7 @@
             </div>
             <div style='padding-top:4px;'>
                 <p class='md section-heading'
-                    style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px">
+                    style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px">
                     MEDICAID INFORMATION
                 </p>
 
@@ -1261,8 +1258,8 @@
                             <span class="xs">
                                 Application Status
                             </span>
-                            <br>
-                            <span class="xs">
+                            <br/>
+                            <span class="xs" style="margin-top:-8px;padding-top:-8px">
                                 Does the beneficiary receive Medicaid?
                             </span>
                         </p>
@@ -1329,7 +1326,7 @@
             <div style="margin: 0;padding: 0;" class='xs'>
                 <span>If the Beneficiary receives other benefits, such as Food Stamps, HUD Section 8, etc. list these
                 benefits.
-                and monthly amounts.
+                and monthly amounts
                 </span>
                 <input
                  type="text" class="no-border"
@@ -1340,8 +1337,8 @@
         </div>
             <br>
             <span class='md section-heading'
-                style="width:45%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-top:-60px;">
-                HOUSEHOLD INCOME INFORMATION 
+                style="width:47%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+                HOUSEHOLD INCOME 
             </span>
             <br><br>
             <div class='xs' style='padding-top:2px'>
@@ -1423,7 +1420,7 @@
                 <thead>
                     <tr style="padding: 0;margin: 0;">
                         <td style="padding:3px ;margin: 0;">
-                        <p style="padding: 5px;margin: 0;color:#349f99;text-align:left;padding-left:12px;width:230px" class='xs'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
+                        <p style="padding: 5px;margin: 0;color:#349f99;text-align:left;padding-left:12px;width:230px;font-family:Poppins-SemiBold" class='xs'>  TYPE OF BENEFIT MONTHLY AMOUNT</p>
                     </td>
                     <td style="padding: 5px;margin: 0;">
                         <p style="padding: 3px;margin: 0;text-align:left;padding-left:12px" class='xs'> Applicant <br></p>
@@ -1586,7 +1583,7 @@
             </table>
             <br>
             <p class='italic' style="padding: 0;margin: 0;" class='xs'>
-                Please Note: All disbursements must be for sole benefit of the country beneficiary.
+               Please Note: All disbursements must be for sole benefit of the account beneficiary.
                 <br>
                 A spouse is not a beneficiary for the account.
             </p>
@@ -1624,7 +1621,7 @@
             </p>
             <div style='display:table'>
             <div style=" display: table-row;">
-                <div style='display:table-cell;padding-bottom:5px'>
+                <div style='display:table-cell;padding-bottom:15px'>
                     <span style="margin: 0;padding:0" class='xs'>
                         Medicare Part:
                         <span>
@@ -1648,7 +1645,7 @@
                     </div>
                </div>
                 </span>
-            <div style="display: table-row;" class='xs' >
+            <div style="display: table-row;margin-top:10px;padding-top:10px" class='xs' >
                 <span style='margin-top:4px'>
                     If yes, what is the monthly premium? $
                 </span>
@@ -1662,7 +1659,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <p class='md section-heading' style="width:39%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-size: 14px;">FUNERAL INFORMATION</p>
+                        <p class='md section-heading' style="width:40%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-size: 14px;">FUNERAL INFORMATION</p>
                     </div>
                 </div>
                 <div style="display: table-row;">
@@ -1685,7 +1682,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p class='md section-heading' style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
+                       <p class='md section-heading' style="width:31%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
                     </div>
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
@@ -1699,7 +1696,7 @@
                         <label>No</label>
 
                 </p>
-                    <p class='xs' style="">If you answered yes, please attach funeral provision documents.</p>
+                    <p class='italic xs' style="">If you answered yes, please attach funeral provision documents.</p>
                 <div style="display: table-row;">
                         <div style="display: table-cell;padding-bottom:14px" class='xs'>
                             <label>Name of Insured</label>
@@ -1724,14 +1721,14 @@
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                             Term
                         </label>
-                        <input type="text" value="{{ $healthcare_plan }}"  class="no-border" name="healthcare_plan" style="margin-left: 5px;width:65px">
+                        <input type="text" value="{{ $healthcare_plan }}"  class="no-border" name="healthcare_plan" style="margin-left: 5px;width:78px">
 
                         <label>
                             <input style="height: 15px; vertical-align: middle" class="checkboxissue" type="checkbox"   name="type_of_policy1" value="Life"
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}>
                             Life
                         </label>
-                        <input type="text" value="name{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;width:65px">
+                        <input type="text" value="name{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;width:83px">
                         <span style='padding-top:5px;margin-top:5px'>
                             <label>Cash Surrender Value $</label>
                             <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" style="margin-left: 5px;vertical-align: middle">
@@ -1741,24 +1738,24 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;" class='xs'>
-                        Upon the death of the Beneficiary, amounts remaining in the Beneficiary's sub-account shall be
-                        reined in
-                        the
-                        Trust solely for the benefit of individuals who are disabled as defined in Soc. Sec. Law Section
-                        1614(a)(3) [42
-                        USC 1382c(a)(3)] and any subsequent definitions that are enacted into law.
+                    Upon the death of the Beneficiary, amounts remaining in the Beneficiary’s sub-account shall be 
+                        retained in the Trust solely for the benefit of individuals who are disabled as defined in Soc. Sec. Law 
+                        Section 1614(a) (3) [42 USC 1382c(a) (3)] and any subsequent definitions that are enacted into law.
                     </div>
                 </div>
             </div>
             <br>
             <div style="display: table;justify-content: space-between">
-                    <span class='md section-heading'
-            style="width:36%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
-            LIVING ARRANGEMENTS </span>
-           &nbsp;
-            <span class='xs'>(Indicate the living arrangement of the Beneficiary)</span>
+            <div style="display: inline-block; width: 100%;">
+                <p class="strong md section-heading" style="display: inline-block; width: 168px; background-color: rgb(184, 221, 219); color: rgb(52, 159, 153); margin-right: 10px;">
+                    LIVING ARRANGEMENTS
+                </p>
+                <span class="italic xs" style="display: inline-block; vertical-align: top;margin-top:3px">
+                    (indicate the living arrangement of the Beneficiary)
+                </span>
             </div>
-            <p style="padding-bottom: 0;margin-bottom:0;padding-top:4px" class='xs'>
+            </div>
+            <p style="padding-bottom: 0;margin-bottom:0;padding-top:-14px;margin-top:-15px" class='xs'>
                 <input type="checkbox" id="independently" name="living_arrangement1" value="Independently"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Independently' ? 'checked' : '' }}>
                 <label for="independently" style="vertical-align: middle;">Independently</label>&nbsp;
@@ -1801,9 +1798,9 @@
                     name="living_arrangement_other">
             </p>
             <br>
-            <span class='md md section-heading'
-            style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-bottom:8px">
-            LIVING ARRANGEMENTS </span>
+            <p class="strong md section-heading"  style="width:24%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+                LIVING ARRANGEMENTS
+            </p>
             <p class='italic xs' style='padding:0'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
                 Does the Beneficiary have a court appointed Guardian?
@@ -2115,11 +2112,11 @@
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}>
             <label>No</label>
 
-        <div style="font-family: Poppins-Italic;" class="sm"> If you answered yes, continue to fill out below:</div>
+        <div style="font-family: Poppins-Italic;margin-top:-10px;padding-top:-10px" class="sm"> If you answered yes, continue to fill out below:</div>
         <br/>
        
     </p>
-    <p class="sm" style="margin: 0;padding: 0;">
+    <p class="sm" style="margin: 0;padding: 0;margin-top:-2px;padding-top:-2px">
         Guardian of the:<input style="margin-left:5px" type="checkbox" name="guardian_appointed_for1" value="Person" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
         <label>Person </label>
@@ -2163,13 +2160,13 @@
     </div>
 </div>
 
-<p class="md strong section-heading" style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+<p class="md strong section-heading" style="width:23%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
         BENEFICIARY SERVICE
     </p>
     <p class="sm" style="padding:0;margin-top:5px;">
         List other services that the Beneficiary receives (include day services, service coordination,
         employment
-        program, etc.)
+        program, etc.):
     </p>
     {{-- <br> --}}
     <div style="display: table; padding: 0; margin: 0;width: 100%">
@@ -2220,7 +2217,7 @@
         <div class="page-break"></div>
 
         <div class="page-6 sm" style="position: relative;">
-            <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); width:33%" class="strong md section-heading" >
+            <p style="background-color:rgb(184 221 219); color:rgb(52 159 153); width:35%" class="strong md section-heading" >
                 INFORMATION AND DISCLOSURES:
             </p>
             <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;line-height:0.9 !important;">
@@ -2416,7 +2413,7 @@
                     the Beneficiary in the SLC Supplemental Needs
                     Trust or the suitability of such participation by the
                     Beneficiary in the SLC Supplemental Needs Trust
-                    based upon the particular circumstances of the
+                    based upon the particular circumstances of the Beneficiary.
                 </p>
             </div>
 
@@ -2635,7 +2632,7 @@
 
             </div>
             <div class='section-heading md'
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:7px;padding:7px;">
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:14px;padding:7px;">
                 FOR OFFICE USE ONLY
             </div>
             <p style='text-align:center' class='xs'>
@@ -2806,7 +2803,7 @@
                             <div class="sm" style="display: table-cell;vertical-align:middle;text-align:right;margin-top:10px">
                                 <label class="sm">Account Type: </label>
                                 <input type="checkbox" name="direct_debit_bank_type1" style="margin-right:5px" class="checkboxissue"  value="Checking" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Checking' ? 'checked' : '' }}>Checking
-                                <input type="checkbox" name="direct_debit_bank_type1" class="checkboxissue" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
+                                <input type="checkbox" style="margin-left:5px;margin-right:5px" name="direct_debit_bank_type1" class="checkboxissue" value="Savings" {{ isset($direct_debit_bank_type1) && $direct_debit_bank_type1 === 'Savings' ? 'checked' : '' }} >Savings
                             </div>
 
                         </div>
@@ -2821,13 +2818,11 @@
                     <div class='sm semiBold'>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</div>
                 </p>
                 <p class="xs">
-                    I authorize and request Trusted Pooled Trust to initiate debit entries to my account at the depository
-                    financial
-                    institution indicated above. This authorization is to remain in full force and affect until Trusted has
-                    written
-                    notification from me of its termination in such time and manner as to afford Trusted and depository
-                    financial
-                    institution a reasonable opportunity to act on it.
+                I authorize and request SLC Supplemental Needs Trust, dated December 24, 2017 to initiate debit entries 
+                    to my account at the depository financial institution indicated above. This authorization is to remain in full 
+                    force and affect until SLC Supplemental Needs Trust has written notification from me of its termination in 
+                    such time and manner as to afford SLC Supplemental Needs Trust and depository financial institution a 
+                    reasonable opportunity to act on it. 
                 </p>
                 <div style="display: table; width: 100%; margin-top: 20px;">
                     <!-- Label for signature -->
