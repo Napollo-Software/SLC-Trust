@@ -400,7 +400,7 @@
 
                 <br/>
             <div style="display: table; width: 118%;">
-                <div style="display: table-row;">
+                <div style="display: table-row;padding-righ:5px">
                     <p style="display:table-cell;margin-top:10px;padding-top:10px" class="sm strong"> Marital Status
                         <label style="font-family:Poppins-Regular"  class="xs">
                             <input type="checkbox" name="sponsor_marital_status1" style="margin-top:-7px;padding-top:-7px" value="Married"
@@ -418,9 +418,9 @@
                         <label>Single</label>
                         </label>
                     </p>
-                    <label style="display:table-cell;width:60% margin-top:10px;padding-top:10px">
+                    <label style="display:table-cell;width:60% margin-top:10px;padding-top:10px; margin-right:8px;padding-right:8px">
                             <label class="sm" >Gender</label>
-                            <input class="xs" value="{{ $sponsor_gender }}" style="width:248px" type="text" name="sponsor_gender" >
+                            <input class="xs" value="{{ $sponsor_gender }}" style="width:247px" type="text" name="sponsor_gender" >
                         </label>
                     </div>
 
@@ -824,7 +824,7 @@
             The following individual will be authorized to communicate with SLC Supplemental Needs Trust. I authorize
             this individual to: Make Deposits, Request Statements and Request Disbursements.
             </p>
-            <p class="strong sm" style="margin-top:5px;margin-bottom:10px">Authorized Representative # 1</p>
+            <p class="strong sm" style="margin-top:5px;margin-bottom:10px">Authorized Representative #1</p>
             <div class="xs" style="display: table;width:100%;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -927,7 +927,7 @@
             The following individual will be authorized to communicate with SLC Supplemental Needs Trust. I authorize
             this individual to: Make Deposits, Request Statements and Request Disbursements.
             </p>
-            <p class="strong sm" style="margin-top:5px">Authorized Representative # 2</p>
+            <p class="strong sm" style="margin-top:5px">Authorized Representative #2</p>
        
             <div style="display: table;width:100%;margin-top:10px" class="xs">
                 <div style="display: table-row;">
@@ -1178,7 +1178,7 @@
                     style="width: 150px; height: 20px;  ">
             </p> --}}
 
-            <p style="padding:0;margin: 0;width:100%" class="sm" style="margin-top:5px">
+            <p style="width:100%; margin-top:15px;padding-top:15px" class="sm" >
                 I Authorize any applicable documents necessary for reporting to Government Agencies to be sent referring
                 source
                 above.
@@ -1617,7 +1617,7 @@
             </div>
             <p class='md section-heading'
                 style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
-                HEALTH CARE PREMIUMS
+                HEALTHCARE PREMIUMS
             </p>
             <div style='display:table'>
             <div style=" display: table-row;">
@@ -1707,7 +1707,7 @@
                 </div>
                 <div style="display: table-row;">
                     <div style="display: table-cell;padding-bottom:14px" class='xs'>
-                        <label>Name of insurance company</label>
+                        <label>Name of Insurance Company</label>
                         <input type="text" value="{{ $insurance_company }}" name="insurance_company" />
                         <label>Policy #</label>
                         <input type="text" value="{{ $insurance_policy_number }}" name="insurance_policy_number" />
@@ -1766,21 +1766,21 @@
 
                 <input type="checkbox" id="with_parents" name="living_arrangement1" value="With Parents"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'With Parents' ? 'checked' : '' }}>
-                <label for="with_parents" style="vertical-align: middle;">With parents/other family</label>&nbsp;
+                <label for="with_parents" style="vertical-align: middle;">With Parents/other family</label>&nbsp;
 
                 <input type="checkbox" id="assisted_living" name="living_arrangement1"
                     value="Assisted Living facility"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Assisted Living facility' ? 'checked' : '' }}>
-                <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
+                <label for="assisted_living" style="vertical-align: middle;">Assisted Living Facility</label>
             </p>
             <p style="padding: 0;margin:0;margin-top:15px" class='xs'>
                 <input type="checkbox" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
-                <label for="family_care" style="vertical-align: middle;">Family care program</label>&nbsp;
+                <label for="family_care" style="vertical-align: middle;">Family Care Program</label>&nbsp;
 
                 <input type="checkbox" id="nursing_home" name="living_arrangement1" value="Nursing Home"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Nursing Home' ? 'checked' : '' }}>
-                <label for="nursing_home" style="vertical-align: middle;">Nursing home</label>&nbsp;
+                <label for="nursing_home" style="vertical-align: middle;">Nursing Home</label>&nbsp;
 
                 <input type="checkbox" id="supervised" name="living_arrangement1" value="CR/IRA/ICF(supervised)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA/ICF(supervised)' ? 'checked' : '' }}>
@@ -1788,12 +1788,12 @@
 
                 <input type="checkbox" id="supportive" name="living_arrangement1" value="CR/IRA(Supportive)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
-                <label for="supportive" style="vertical-align: middle;">CR/IRA(Supportive)</label>
+                <label for="supportive" style="vertical-align: middle;">CR/IRA(supportive)</label>
             </p>
             <p style="padding: 0; margin: 0;margin-top:15px" class='xs'>
                 <input type="checkbox" id="other_living_arrangement" name="living_arrangement1" value="Other"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Other' ? 'checked' : '' }}>
-                <label for="other_living_arrangement" style="vertical-align: middle;">Other</label>&nbsp;
+                <label for="other_living_arrangement" style="vertical-align: middle;">Other - </label>&nbsp;
                 <input type="text" value="{{ $living_arrangement_other }}" style="width:70%" class="no-border"
                     name="living_arrangement_other">
             </p>
@@ -2091,7 +2091,7 @@
 <p class="md strong section-heading" style=";width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
         GUARDIAN INFORMATION
     </p>
-    <p class="sm" style="margin: 0;padding: 0;">
+    <p class="sm italic" style="margin: 0;padding: 0;">
         Please attach a copy of Decree or Letter of guardianship
     </p>
     {{-- <p style="padding:0;margin: 0;">
@@ -2166,7 +2166,7 @@
     <p class="sm" style="padding:0;margin-top:5px;">
         List other services that the Beneficiary receives (include day services, service coordination,
         employment
-        program, etc.):
+        programs, etc.):
     </p>
     {{-- <br> --}}
     <div style="display: table; padding: 0; margin: 0;width: 100%">
