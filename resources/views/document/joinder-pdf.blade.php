@@ -261,7 +261,7 @@
             padding-right:5px;
             padding-top:4px;
             padding-bottom:4px;
-            font-family: 'Poppins-SemiBold' !important;
+            font-family: 'Poppins-Medium' !important;
             text-align: center;
         }
 
@@ -1336,11 +1336,10 @@
             </div>
         </div>
             <br>
-            <span class='md section-heading'
-                style="width:47%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+            <p class='md section-heading'
+                style="width:22%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
                 HOUSEHOLD INCOME 
-            </span>
-            <br><br>
+            </p>
             <div class='xs' style='padding-top:2px'>
                 <span style='' class='sm strong'>
                      Spouse Information
@@ -2347,7 +2346,7 @@
                     Should any provision of this Agreement be or
                     become invalid or unenforceable, the remaining
                     provisions of this Agreement shall be and continue
-                    to be fully e ective. <br/>By signing below, you a rm that you understand
+                    to be fully efective. <br/>By signing below, you a rm that you understand
                     and agree to the following: <br/>I have received and read a copy of the applicable
                     Master Trust prior to the signing of this Joinder
                     Agreement and acknowledge that I understand
