@@ -263,6 +263,7 @@
             padding-bottom:4px;
             font-family: 'Poppins-Medium' !important;
             text-align: center;
+            margin-left:-20px
         }
 
         .checkboxissue{
@@ -350,7 +351,7 @@
         <div class="page-break"></div>
 
         <div class="page-1">
-            <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;">
+            <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;width:120%;margin-left:-10%">
                 <p style="text-align:center;" class="strong lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 <p style="text-align:center;color:rgb(52 159 153);margin-top:-11px" class="lg">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
@@ -529,7 +530,7 @@
             </div>
             <br>
 
-            <div style="display: table;">
+            <div style="display: table;margin-top:-15px;padding-top:-15px">
 
                 <div style="display: table-row;">
                     <div style="display: table-cell">
@@ -1222,11 +1223,11 @@
 
 <div class="page-break"></div>
 
+        <p class='md section-heading'
+        style="width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px; margin-left:-20px">
+            PURPOSE OF ENROLLMENT
+        </p>
         <div class="page-3">
-            <p class='md section-heading'
-            style="width:27%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px">
-                PURPOSE OF ENROLLMENT
-            </p>
             <p style="font-size: 12px; margin: 0;padding-top:5px" class='xs'>
                 Indicate reason for establishing an account.
             </p>
@@ -1238,11 +1239,12 @@
                     {{ isset($account_establishing_reason1) && $account_establishing_reason1 === 'Shelter Excess Resources' ? 'checked' : '' }}>
                 <label> Shelter Excess Resources</label>
             </div>
+            <br/>
+            <p class='md section-heading'
+                style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px;margin-left:-20px">
+                MEDICAID INFORMATION
+            </p>
             <div style='padding-top:4px;'>
-                <p class='md section-heading'
-                    style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin:0;margin-bottom:7px">
-                    MEDICAID INFORMATION
-                </p>
 
             <table style="padding-top: 0px; margin-top:10px;">
             <thead>
@@ -2631,7 +2633,7 @@
 
             </div>
             <div class='section-heading md'
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:14px;padding:7px;">
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center;margin-top:14px;padding:7px;width:120%;margin-left:-10%">
                 FOR OFFICE USE ONLY
             </div>
             <p style='text-align:center' class='xs'>
@@ -2689,8 +2691,8 @@
             <div style="display: table; width: 40%;margin-left: auto; border: none;">
                 <div style="display: table-row;border: none;">
                     <table class="mem-table" style="border: none;">
-                        <tr  style="border:none;padding: 5px;background-color:rgb(184 221 219)">
-                            <td class="md strong" colspan="2" style="color: rgb(52 159 153);border: none;">FOR OFFICE USE ONLY</td>
+                        <tr  style="border:none; background-color:rgb(184 221 219)">
+                            <td class="sm strong" colspan="2" style="color: rgb(52 159 153);border: none;padding:6px !important;">FOR OFFICE USE ONLY</td>
                         </tr>
                     </table>
                     <div style="display: table; width:100%;background-color: #ecf6f7;text-align:center;padding:15px 0px">
@@ -2698,15 +2700,15 @@
                         <div style="display: table-row;margin-top:10px" class="md">
                             <div style="display: table-cell;">
 
-                                <label class="sm">Member ID#:</label>
-                                <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_member_id_above }}" name="office_use_member_id_above" />
+                                <label class="xs">Member ID#:</label>
+                                <input style="background-color: #ecf6f7"  style="padding-left:7px;background-color: transparent" class="xs" type="text" value="{{ $office_use_member_id_above }}" name="office_use_member_id_above" />
                             </div>
                         </div>
                         <br>
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;">
 
-                                <label  class="sm">Effective Date:</label>
+                                <label  class="xs">Effective Date:</label>
                                 <input style="background-color: #ecf6f7"  class="xs" type="text" value="{{ $office_use_effective_date }}" name="office_use_effective_date"  />
                             </div>
                         </div>
@@ -2853,7 +2855,7 @@
             <div>
                 <div
                 class="strong md"
-                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;">
+                style="background-color:rgb(184 221 219);color:rgb(52 159 153); text-align: center; vertical-align: center; padding:1%;height: 20px;width:120%;margin-left:-10%">
                 FOR OFFICE USE:
                 </div>
                 <br>
