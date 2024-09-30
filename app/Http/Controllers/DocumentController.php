@@ -383,7 +383,9 @@ class DocumentController extends Controller
         if ($request->has('sig_date2') && $request->sig_date2) {
             $formattedDates['sig_date2'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
         }
-        
+        if ($request->has('sponsor_dob') && $request->sig_date2) {
+            $formattedDates['sponsor_dob'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
+        }
         // Merge the formatted dates back into the request, keeping all other data unchanged
         $request->merge($formattedDates);
         set_time_limit(200);

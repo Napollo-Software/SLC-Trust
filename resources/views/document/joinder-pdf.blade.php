@@ -365,7 +365,7 @@
             </div class="md">
                 <p
                 class="md section-heading"
-                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);;width:29%">
+                    style="background-color:rgb(184 221 219);color:rgb(52 159 153);width:29%">
                     BENEFICIARY INFORMATION</p>
             </div>
             <p class="xs">
@@ -457,19 +457,19 @@
                         <!-- Social Security Number -->
                         <div style="display: table-cell; width: 33.33%; padding-right: 20px;" class="xs">
                             <input type="text" value="{{ $sponsor_ssn }}" name="sponsor_ssn" style="width: 100%;">
-                            <label class="italic">Social Security Number:</label>
+                            <label class="italic">Social Security Number</label>
                         </div>
 
                         <!-- Date of Birth -->
                         <div style="display: table-cell; width: 33.33%; padding-right: 20px;" class="xs">
                             <input type="text" name="sponsor_dob" value="{{ $sponsor_dob }}" style="width: 100%;">
-                            <label class="italic">Date of Birth:</label>
+                            <label class="italic">Date of Birth</label>
                         </div>
 
                         <!-- Citizenship -->
                         <div style="display: table-cell;width: 33.33%;" class="xs">
                             <input type="text" name="sponsor_citizenship" value="{{ $sponsor_citizen }}" style="width: 100%;">
-                            <label class="italic">Citizenship:</label>
+                            <label class="italic">Citizenship</label>
                         </div>
                     </div>
                 </div>
@@ -503,23 +503,23 @@
                     <label style="font-family:Poppins-Regular" class="sm">
                         <input type="checkbox" name="prefered_cell" style="margin-top:-7px;padding-top:-7px" value="Cell"
                             {{ isset($prefered_cell) && $prefered_cell === 'Cell' ? 'checked' : '' }}>
-                        <label style="">Cell</label>
+                        <label style="" class="strong" >Cell</label>
                     </label>
                     <label style="font-family:Poppins-Regular">
                         <input type="checkbox" name="prefered_cell" style="margin-top:-7px;padding-top:-7px" value="Phone"
                             {{ isset($prefered_cell) && $prefered_cell === 'Phone' ? 'checked' : '' }}>
-                        <label style="">Home</label>
+                        <label style="" class="strong">Home</label>
                     </label>
                 </p>
 
 
-            {{-- <br /> --}}
+            <br />
 
             <div style="display: table; width:45%" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
                         <input type="text" value="{{ $beneficiary_email }}" name="beneficiary_email" style="width:100%">
-                        <label class="italic">Email:</label>
+                        <label class="italic">Email</label>
                     </div>
                 </div>
                &nbsp;
@@ -871,24 +871,30 @@
                 </div>
             </div>
 
-            <div style="display: table;width:100%;margin-top:10px" class="xs">
+            <div style="display: table; width: 100%; margin-top: 10px;" class="xs">
                 <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_one_email }}" name="auth_rep_one_email" style="width: 95%" /> <br>
+                    <div style="display: table-cell;width:270px">
+                        <input type="text" value="{{ $auth_rep_one_email }}" name="auth_rep_one_email" style="width: 95%;" />
+                        <br>
                         <label class="italic">Email</label>
                     </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary" style="width: 95%" /> <br>
-                        <label class="italic">Relationship to Beneficiary
-                        </label>
+                    <div style="display: table-cell;">
+                        <div style="display: inline-block; width: 100%;">
+                            <label class="sm" style="display: inline-block; margin-left: 10px; vertical-align: bottom;">
+                                Relationship to Beneficiary
+                            </label>
+                            <input type="text" value="{{ $auth_rep_one_relation_beneficiary }}" name="auth_rep_one_relation_beneficiary"
+                                style="width: 200px; display: inline-block; vertical-align: bottom; float: right;" />
+                        </div>
                     </div>
                 </div>
             </div>
+
                 <div style="display: table;width:100%;margin-top:10px">
 
                     <div style="display: table-row;">
                         <div style="display: table-cell;margin-bottom:10px;padding-bottom:10px">
-                            <label style="" class="sm strong">Address:</label>
+                            <label style="" class="sm strong">Address</label>
                         </div>
                     </div>
                     <div style="display: table-row;" class="xs">
@@ -971,19 +977,26 @@
                 </div>
             </div>
 
-            <div style="display: table;width:100%;margin-top:10px;padding-top:10px" class="xs" >
+            <div style="display: table; width: 100%; margin-top: 10px;" class="xs">
                 <div style="display: table-row;">
-                    <div style="display: table-cell;">
-                        <input type="text" value="{{ $auth_rep_two_email }}" name="auth_rep_two_email" style="width: 95%" /> <br>
+                    <div style="display: table-cell;width:270px">
+                        <input type="text" value="{{ $auth_rep_two_email }}" name="auth_rep_two_email" style="width: 95%;" />
+                        <br>
                         <label class="italic">Email</label>
                     </div>
-                    <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary" style="width: 95%" /> <br>
-                        <label class="italic">Relationship to Beneficiary
-                        </label>
+                    <div style="display: table-cell;">
+                        <div style="display: inline-block; width: 100%;">
+                            <label class="sm" style="display: inline-block; margin-left: 10px; vertical-align: bottom;">
+                                Relationship to Beneficiary
+                            </label>
+                            <input type="text" value="{{ $auth_rep_two_relation_beneficiary }}" name="auth_rep_two_relation_beneficiary"
+                                style="width: 200px; display: inline-block; vertical-align: bottom; float: right;" />
+                        </div>
                     </div>
                 </div>
             </div>
+
+
                 <div style="display: table;width:100%">
 
                     <div style="display: table-row;padding-bottom:10px">
@@ -1070,10 +1083,6 @@
                 style="background-color:rgb(184 221 219);color:rgb(52 159 153);; width:21%">
                 REFERRING SOURCE
             </p>
-            <p class="xs"> The following individual will be authorized to communicate with Trusted Pooled Trust. I authorize this
-                individual
-                to: Make Deposits, Request Statements and Disbursements.</p>
-
             <div style="display: table; width:100%" class="xs">
                 <div style="display: table-row;width:100%">
                     <div style="display: table-cell; width: 50%;">
@@ -1173,7 +1182,7 @@
             </p> --}}
 
             <p style="padding:0;margin: 0;width:100%" class="sm" style="margin-top:5px">
-                I authorize any applicable documents necessary for reporting to Government Agencies to be sent referring
+                I Authorize any applicable documents necessary for reporting to Government Agencies to be sent referring
                 source
                 above.
                 <input type="checkbox" name="referring_auth1" value="Yes" class="checkboxissue"
@@ -1241,19 +1250,19 @@
             <table style="padding-top: 0px; margin-top:10px;">
             <thead>
                     <tr style="padding: 0; margin: 0;">
-                        <td class='xs' style='width:190px;padding:6px;text-align:left;padding-left:12px'>Please Attach MAP / LDSS Notice of Decision</td>
-                        <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px">Applicant</td>
-                        <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px">Spouse</td>
+                        <td  style='width:190px;padding:6px;text-align:left;padding-left:12px;padding-top:13px;margin-top:8px;font-size:11px '>Please Attach MAP / LDSS Notice of Decision</td>
+                        <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px;padding-top:13px;margin-top:8px">Applicant</td>
+                        <td class='xs' style="vertical-align: bottom;padding:6px;text-align:left;padding-left:12px;padding-top:3px;margin-top:8px">Spouse</td>
                     </tr>
                 </thead>
-                <tr style="padding: 0; margin: 0;" class='xs'>
+                <tr style="padding: 0; margin: 0;" class='sm'>
                     <td style="width:180px;margin:0;padding:0px;">
                         <p style="margin:0;padding:3px;text-align:left;padding-left:12px;padding-top:4px;line-height :12px !important;">
-                            <span>
+                            <span class="xs">
                                 Application Status
                             </span>
                             <br>
-                            <span>
+                            <span class="xs">
                                 Does the beneficiary receive Medicaid?
                             </span>
                         </p>
@@ -1289,29 +1298,29 @@
                         </div>
                     </td>
                 </tr>
-                <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px;padding:4px;text-align:left;padding-left:12px">
+                <tr style="padding: 0; margin: 0;" class='sm'>
+                    <td class="xs" style="width:80px;padding:4px;text-align:left;padding-left:12px">
                         CIN Number/medicaid Number
                     </td>
                     <td style="width:80px;vertical-align: bottom;padding:4px;text-align:left;padding-left:12px">
-                        <input type="text" value="{{ $applicant_medicaid_cin_number }}" style='border:none' class="no-border"
+                        <input type="text" value="{{ $applicant_medicaid_cin_number }}" style='border:none' class="no-border xs"
                             name="applicant_medicaid_cin_number">
                     </td>
                     <td style="width:80px;vertical-align: bottom;padding:4px;text-align:left;padding-left:12px">
-                        <input type="text" value="{{ $spouse_medicaid_cin_number }}" style='border:none' class="no-border"
+                        <input type="text" value="{{ $spouse_medicaid_cin_number }}" style='border:none' class="no-border xs"
                             name="spouse_medicaid_cin_number">
                     </td>
                 </tr>
-                <tr style="padding: 0; margin: 0;" class='xs'>
-                    <td style="width:80px; padding:4px;text-align:left;padding-left:12px">
+                <tr style="padding: 0; margin: 0;" class='sm'>
+                    <td class="xs" style="width:80px; padding:4px;text-align:left;padding-left:12px">
                         Monthly Spend Down $
                     </td>
                     <td style="width:80px;vertical-align: bottom;padding:4px;text-align:left;padding-left:12px">
-                        <input type="text" value="{{ $medicaid_applicant_monthly_spend_down }}" style='border:none' class="no-border"
+                        <input type="text" value="{{ $medicaid_applicant_monthly_spend_down }}" style='border:none' class="no-border xs"
                             name="medicaid_applicant_monthly_spend_down">
                     </td>
                     <td style="width:80px;vertical-align: bottom;padding:4px;text-align:left;padding-left:12px">
-                        <input type="text" value="{{ $medicaid_spouse_monthly_spend_down }}" style='border:none' class="no-border"
+                        <input type="text" value="{{ $medicaid_spouse_monthly_spend_down }}" style='border:none'  class="no-border xs"
                             name="medicaid_spouse_monthly_spend_down">
                     </td>
                 </tr>
@@ -1325,7 +1334,7 @@
                 <input
                  type="text" class="no-border"
                  name="beneficiary_benefits"
-                 value="{{ $beneficiary_benefits }}" style="width: 50%"
+                 value="{{ $beneficiary_benefits }}" style="width: 73%"
                  >
             </div>
         </div>
@@ -1336,7 +1345,7 @@
             </span>
             <br><br>
             <div class='xs' style='padding-top:2px'>
-                <span style='font-weight:700' class='xs'>
+                <span style='' class='sm strong'>
                      Spouse Information
                 </span>
                  <span class='italic xs'>
@@ -1626,7 +1635,7 @@
                             {{ isset($healthcare_b) && $healthcare_b === 'D' ? 'checked' : '' }}>
                             <label>D</label>
                         </span>
-                        <span style='margin-left:20px' class='xs'>
+                        <span style='margin-left:46px' class='xs'>
                             Does the applicant have a supplemental policy?
                             <input type="checkbox" class="checkboxissue" name="supplemental_yes" value="Yes"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
@@ -1653,7 +1662,7 @@
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                        <p class='md section-heading' style="width:43%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">FUNERAL INFORMATION</p>
+                        <p class='md section-heading' style="width:39%;background-color:rgb(184 221 219);color:rgb(52 159 153);font-size: 14px;">FUNERAL INFORMATION</p>
                     </div>
                 </div>
                 <div style="display: table-row;">
@@ -1669,14 +1678,14 @@
                                 <label>No</label>
 
                         </p>
-                        <p class='italic' style='font-size:15px'>If you answered yes, please attach funeral provision documents.</p>
+                        <p class='italic' style="font-size:12px">If you answered yes, please attach funeral provision documents.</p>
                     </div>
                 </div>
             </div>
             <div style="display: table;">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
-                       <p class='md section-heading' style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
+                       <p class='md section-heading' style="width:32%;background-color:rgb(184 221 219);color:rgb(52 159 153);;font-size: 14px;">LIFE INSURANCE INFORMATION</p>
                     </div>
                 </div>
                 <p style="padding:0;margin: 0;" class='xs'>
@@ -1690,7 +1699,7 @@
                         <label>No</label>
 
                 </p>
-                    <p class='italic xs'>If you answered yes, please attach funeral provision documents</p>
+                    <p class='xs' style="">If you answered yes, please attach funeral provision documents.</p>
                 <div style="display: table-row;">
                         <div style="display: table-cell;padding-bottom:14px" class='xs'>
                             <label>Name of Insured</label>
@@ -1715,18 +1724,17 @@
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Term' ? 'checked' : '' }}>
                             Term
                         </label>
-                        <input type="text" value="{{ $healthcare_plan }}" class="no-border" name="healthcare_plan" style="margin-left: 5px;">
+                        <input type="text" value="{{ $healthcare_plan }}"  class="no-border" name="healthcare_plan" style="margin-left: 5px;width:65px">
 
                         <label>
-                            <input style="height: 15px; vertical-align: middle;" type="checkbox" name="type_of_policy1" value="Life"
+                            <input style="height: 15px; vertical-align: middle" class="checkboxissue" type="checkbox"   name="type_of_policy1" value="Life"
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}>
                             Life
                         </label>
-                        <input type="text" value="name{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;">
-                        <br><br>
+                        <input type="text" value="name{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;width:65px">
                         <span style='padding-top:5px;margin-top:5px'>
                             <label>Cash Surrender Value $</label>
-                            <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" style="margin-left: 5px;">
+                            <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" style="margin-left: 5px;vertical-align: middle">
                         </div>
                         </span>
                 </div>
@@ -1768,7 +1776,7 @@
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Assisted Living facility' ? 'checked' : '' }}>
                 <label for="assisted_living" style="vertical-align: middle;">Assisted living facility</label>
             </p>
-            <p style="padding: 0;margin:0;margin-top:8px" class='xs'>
+            <p style="padding: 0;margin:0;margin-top:15px" class='xs'>
                 <input type="checkbox" id="family_care" name="living_arrangement1" value="Family Care Program"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Family Care Program' ? 'checked' : '' }}>
                 <label for="family_care" style="vertical-align: middle;">Family care program</label>&nbsp;
@@ -1785,36 +1793,36 @@
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
                 <label for="supportive" style="vertical-align: middle;">CR/IRA(Supportive)</label>
             </p>
-            <p style="padding: 0; margin: 0;margin-top:8px" class='xs'>
+            <p style="padding: 0; margin: 0;margin-top:15px" class='xs'>
                 <input type="checkbox" id="other_living_arrangement" name="living_arrangement1" value="Other"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'Other' ? 'checked' : '' }}>
                 <label for="other_living_arrangement" style="vertical-align: middle;">Other</label>&nbsp;
-                <input type="text" value="{{ $living_arrangement_other }}" class="no-border"
+                <input type="text" value="{{ $living_arrangement_other }}" style="width:70%" class="no-border"
                     name="living_arrangement_other">
             </p>
             <br>
             <span class='md md section-heading'
             style="width:35%;background-color:rgb(184 221 219);color:rgb(52 159 153);;margin-bottom:8px">
             LIVING ARRANGEMENTS </span>
-            <p class='italic' style='padding:0' class='xs'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
+            <p class='italic xs' style='padding:0'> Please attach a copy of the guardianship order with this Joinder Agreement.</p>
             <p style="padding:0;margin: 0;" class='xs'>
                 Does the Beneficiary have a court appointed Guardian?
                 <label style="margin: 0;">
-                    <input type="checkbox" name="living_arrangements_yes" value="Yes"
+                    <input type="checkbox" name="living_arrangements_yes" class="checkboxissue" value="Yes"
                         {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'Yes' ? 'checked' : '' }}>
                         <label>Yes</label>
                 </label>
                 <label style="margin: 0;">
-                    <input type="checkbox" name="living_arrangements_yes" value="No"
+                    <input type="checkbox" name="living_arrangements_yes" class="checkboxissue" value="No"
                         {{ isset($living_arrangements_yes) && $living_arrangements_yes === 'No' ? 'checked' : '' }}>
                         <label>No</label>
 
                 </label>
             </p>
-            <p style="padding:0;margin: 0;margin-top:0px;margin-bottom:3px" class='xs italic'>
+            <p style="padding:0;margin-top: 9px;" class='xs italic'>
                 If you answered yes, continue to fill out below:
             </p>
-            <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px" class='xs'>
+            <p style="padding:0;margin-top: 7px;" class='xs'>
                 Guardian of the:
                 <label style="margin: 0;margin-left:5px">
                     <input type="checkbox" name="living_arrangements_person" class="checkboxissue" value="Person"
@@ -1835,29 +1843,31 @@
 
                 </label>
             </p>
-            <p style="padding:0;margin: 0;padding-top:3px;margin-top:5px;padding-bottom:5px" class='xs'>
+            <p style="padding:0;margin-top: 8px;" class='xs'>
                 Court Appointed Guardian Information
             </p>
+            <br/>
             <div style="display: table;width:100%;margin-top:4px">
                 <div style="display: table-row;">
                     <div style="display: table-cell;width:50%" class='xs'>
                         <input type="text" value="{{ $living_arrangement_first }}" name="living_arrangement_first" style="width: 95%" /> <br>
-                        <label>First</label>
+                        <label class="italic">First</label>
                     </div>
                 
                     <div style="display: table-cell;width:50%" class='xs'>
                         <input type="text" value="{{ $living_arrangement_last }}" name="living_arrangement_last" style="width: 95%" /> <br>
-                        <label>Last</label>
+                        <label class="italic">Last</label>
                     </div>
                 </div>
+                <br/>
                 <div style="display: table-row;">
                     <div style="display: table-cell;width:50%;" class='xs'>
                         <input type="text" value="{{ $living_arrangement_primary }}" name="living_arrangement_primary" style="width: 95%" /> <br>
-                        <label>Primary Phone</label>
+                        <label class="italic">Primary Phone</label>
                     </div>
                     <div style="display: table-cell;width:50%" class='xs'>
                         <input type="text" value="{{ $living_arrangement_email }}" name="living_arrangement_email" style="width: 95%" /> <br>
-                        <label>Email</label>
+                        <label class="italic">Email</label>
                     </div>
                 </div>
             </div>
@@ -1900,7 +1910,7 @@
         <div class="page-5">
 
 <div class="section-title">
-    <p class="strong md section-heading"  style="width:25%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
+    <p class="strong md section-heading"  style="width:23%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
         POWER OF ATTORNEY
     </p>
 
@@ -1909,12 +1919,12 @@
 
         <div style="display: table; width: 100%;" class="xs">
             <div style="display: table-row;margin-bottom:0">
-                <div style="display: table-cell;margin-bottom:0">
+                <div style="display: table-cell;margin-bottom:0; width:50%">
 
-                    <input type="text" value="{{ $power_fname }}" name="power_fname" style="width: 95%;margin-bottom:0" />
+                    <input type="text" value="{{ $power_fname }}"  name="power_fname" style="width: 95%;margin-bottom:0" />
                     <label class="italic">First</label>
                 </div>
-                <div style="display: table-cell">
+                <div style="display: table-cell;width:50%">
                     <input type="text" value="{{ $power_lname }}" name="power_lname" style="width: 95%" />
                     <label class="italic">Last</label>
                 </div>
@@ -1924,12 +1934,12 @@
         {{-- <br> --}}
         <div style="display: table; width: 100%; margin-top:6px" class="xs">
             <div style="display: table-row;">
-                <div style="display: table-cell;margin-top:6px">
+                <div style="display: table-cell;margin-top:6px;width:50%">
 
                     <input type="text" value="{{ $power_tel_home }}" name="power_tel_home" style="width: 95%" /> <br>
                     <label class="italic">Primary Phone</label>
                 </div>
-                <div style="display: table-cell;margin-top:6px">
+                <div style="display: table-cell;margin-top:6px;width:50%">
                     <input type="text" value="{{ $power_email }}" name="power_email" style="width: 95%" /> <br>
                     <label class="italic">Email</label>
                 </div>
@@ -1944,8 +1954,8 @@
                     <input type="text" value="{{ $power_address }}" name="power_address" style="width: 95%">
                     <label class="italic">Address</label>
                 </div>
-                <div style="display: table-cell;margin-top:6px">
-                    <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 95%">
+                <div style="display: table-cell;margin-top:6px;">
+                    <input type="text" value="{{ $power_apt }}" name="power_apt" style="width: 84%">
                     <label class="italic">Apt #</label>
                 </div>
                 <div style="display: table-cell;margin-top:6px">
@@ -1990,12 +2000,12 @@
     <div style="display: table; width: 100%;">
 
         <div style="display: table-row;">
-            <div style="display: table-cell;">
+            <div style="display: table-cell;width:50%">
 
                 <input type="text" value="{{ $power_fname2 }}" name="power_fname2" style="width: 95%" /> <br>
                 <label class="italic">First</label>
             </div>
-            <div style="display: table-cell">
+            <div style="display: table-cell;width:50%">
                 <input type="text" value="{{ $power_lname2 }}" name="power_lname2" style="width: 95%" /> <br>
                 <label class="italic">Last</label>
             </div>
@@ -2009,13 +2019,13 @@
     <div style="display: table; width: 100%;margin-top:6px">
 
         <div style="display: table-row;">
-            <div style="display: table-cell;margin-top:6px">
+            <div style="display: table-cell;margin-top:6px;width:50%">
 
                 <input type="text" value="{{ $power_tel_home2 }}" name="power_tel_home2" style="width: 95%" /> <br>
                 <label class="italic">Primary Phone</label>
             </div>
 
-            <div style="display: table-cell;margin-top:6px">
+            <div style="display: table-cell;margin-top:6px;width:50%">
                 <input type="text" value="{{ $power_email2 }}" name="power_email2" style="width: 95%" /> <br>
                 <label class="italic">Email</label>
             </div>
@@ -2029,7 +2039,7 @@
                 <label class="italic">Address</label>
             </div>
             <div style="display: table-cell;margin-top:6px">
-                <input type="text" value="{{ $power_apt2 }}" name="power_apt2" style="width: 95%">
+                <input type="text" value="{{ $power_apt2 }}" name="power_apt2" style="width: 83%">
                 <label class="italic">Apt #</label>
             </div>
             <div style="display: table-cell;margin-top:6px">
@@ -2433,17 +2443,17 @@
             <p class='xs' style="padding:0;margin: 0;padding-bottom:2px">
                 Who is signing this Joinder Agreement?
                
-                <input type="checkbox" name="agreement_signature_beneficiary" value="Beneficiary"
+                <input type="checkbox" name="agreement_signature_beneficiary" class="checkboxissue" value="Beneficiary"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}> Beneficiary
-                <input type="checkbox" name="agreement_signature_beneficiary" value="Power of Attorney"
+                <input type="checkbox" name="agreement_signature_beneficiary" class="checkboxissue" value="Power of Attorney"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Power of Attorney' ? 'checked' : '' }}>
                 Power of Attorney
-                <input type="checkbox" name="agreement_signature_guardian" value="Guardian"
+                <input type="checkbox" name="agreement_signature_guardian" class="checkboxissue" value="Guardian"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p>
             
-            <p class='xs' style='margin:0;padding-bottom:12px;padding-top:10px;margin-top:10px;padding-bottom:10px;margin-bottom:10px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
+            <p class='xs' style='margin:0;padding-bottom:12px;padding-top:10px;margin-top:10px;padding-bottom:14px;margin-bottom:14px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
             <div style="display: table; width: 100%; margin: 0; text-align: center;">
             <div style="display: table-row;">
                 <div style="display: table-cell; width: 30%;">
@@ -2503,7 +2513,7 @@
                 <div style='display:table-cell;width:50%'>
                         <p style="margin:0;padding-bottom:5px:">
                             undersigned, a Notary Public in and for said State, personally appeared,<br>
-                            <input type="text" value="{{ $notary_appeared }}" style="width:70%" class="no-border" name="notary_appeared">,
+                            <input type="text" value="{{ $notary_appeared }}" style="width:70%; margin-top:9px;padding-top:5px; margin-bottom:2px" class="no-border" name="notary_appeared">,
                            <br> personally  known to me or proved to me on the basis of satisfactory evidence to be the individual whose
                             name
                             is subscribed to the within instrument and acknowledged to me that he/she/they executed the same in
@@ -2639,7 +2649,7 @@
                          <div style='text-align:center'>
                              @if ($joinder_signature_4)
                              <img src="{{ $joinder_signature_4 }}" alt="Signature 4"
-                             style="width: 300px; height: 50px;text-align:center;width:50%;margin-right:40px">
+                             style="width: 300px; height: 48px;text-align:center;width:50%;margin-right:40px">
                              @else
                              <div style="width: 200px;height:50px; text-align: center;">
                                  No Signature Provided
@@ -2711,7 +2721,7 @@
 
 
         
-            <p class="strong md" style="background-color:rgb(184 221 219); color:rgb(52 159 153);width:32%;padding:8px 20px">DIRECT DEBIT REQUEST FORM</p>
+            <p class="strong md section-heading" style="background-color:rgb(184 221 219); color:rgb(52 159 153);width:31%">DIRECT DEBIT REQUEST FORM</p>
 
                     <div style="display: table; width: 100%;" class="xs">
                         <div style="display: table-row;" class="md">
@@ -2808,7 +2818,7 @@
                 {{-- <br> --}}
 
                 <p>
-                    <div class='sm strong'>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</div>
+                    <div class='sm semiBold'>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</div>
                 </p>
                 <p class="xs">
                     I authorize and request Trusted Pooled Trust to initiate debit entries to my account at the depository
@@ -2863,8 +2873,8 @@
                         </div>
                        
                         <div style="display: table-cell;">
-                            <label class="xs">MemberID #:</label>
-                            <input class="xs" type="text" value="{{ $office_use_member_id_below }}" name="office_use_member_id_below" style="width:30%" />
+                            <label class="xs">Member #:</label>
+                            <input class="xs" type="text" value="{{ $office_use_member_id_below }}" name="office_use_member_id_below" style="width:37%" />
                         </div>
                     </div>
                 </div>
@@ -2897,12 +2907,11 @@
                 {{-- <br> --}}
                 <div style="display: table;width:100%;">
                     <div style="display: table-row;width:100%">
-                        <div style="display: table-cell;width:50%">
+                        <div style="display: table-cell;width:40%">
 
                             <label class="xs">Date of Monthly Debit:</label>
                             <input class="xs" type="text" value="{{ $office_use_monthly_debit_date }}" name="office_use_monthly_debit_date" style="width:45%" />
                         </div>
-                        &nbsp;&nbsp;
 
                         <div style="display: table-cell;width:40%">
                             <label class="xs">First Debit Month:</label>
@@ -2916,7 +2925,7 @@
                 {{-- <br> --}}
                 <p style="margin-top:25px" class="xs italic">
                     If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
-                    A $150 annual-renewal fee will be charged on the anniversary of the account
+                    A $150 annual - renewal fee will be charged on the anniversary of the account
                 </p>
                 <div style="text-align: center;">
                     <img src="{{ public_path('images/new_logo.png') }}" alt="logo" width="250">
