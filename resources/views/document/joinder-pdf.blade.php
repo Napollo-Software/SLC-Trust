@@ -642,7 +642,7 @@
 
             <div style="width: 100%;display: table;">
                 <p style="margin-top:20px" class="text-center xs">Please mail all trust documents to:</p>
-                <p style="margin-top:-10px" class="text-center xs strong"> SLC Supplemental Needs Trust</p>
+                <p style="margin-top:-5px" class="text-center xs strong"> SLC Supplemental Needs Trust</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> 5014-16th Ave, Suite 489</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> Brooklyn, NY 11204</p>
         </div>
@@ -1783,11 +1783,11 @@
 
                 <input type="checkbox" id="supervised" name="living_arrangement1" value="CR/IRA/ICF(supervised)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA/ICF(supervised)' ? 'checked' : '' }}>
-                <label for="supervised" style="vertical-align: middle;">CR/IRA/ICF(supervised)</label>&nbsp;
+                <label for="supervised" style="vertical-align: middle;">CR/IRA/ICF (supervised)</label>&nbsp;
 
                 <input type="checkbox" id="supportive" name="living_arrangement1" value="CR/IRA(Supportive)"
                     {{ isset($living_arrangement1) && $living_arrangement1 === 'CR/IRA(Supportive)' ? 'checked' : '' }}>
-                <label for="supportive" style="vertical-align: middle;">CR/IRA(supportive)</label>
+                <label for="supportive" style="vertical-align: middle;">CR/IRA (supportive)</label>
             </p>
             <p style="padding: 0; margin: 0;margin-top:15px" class='xs'>
                 <input type="checkbox" id="other_living_arrangement" name="living_arrangement1" value="Other"
