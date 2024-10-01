@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title></title>
+    <title>{{ config('app.professional_name') }} | Account Rejected</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -98,12 +97,11 @@
         div[style*="margin: 16px 0;"] {
             margin: 0 !important;
         }
+
     </style>
 </head>
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
-    <!-- HIDDEN PREHEADER TEXT -->
-
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <!-- LOGO -->
         <tr>
@@ -120,7 +118,8 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
-                            <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" /> <h1 style="font-size: 30px; font-weight: 400;">Hi {{$name}}!</h1>
+                            <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
+                            <h1 style="font-size: 30px; font-weight: 400;">Hi {{$name}}!</h1>
                         </td>
                     </tr>
                 </table>
@@ -131,16 +130,12 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" > Your profile has been rejected by {{ config('app.name') }},For immediate assistance please call {{ config('app.contact') }}. </p>
+                            <p style="margin: 0;text-align:center;"> Your profile has been rejected by {{ config('app.professional_name') }},For immediate assistance please call {{ config('app.contact') }}. </p>
                         </td>
                     </tr>
-                   <!-- COPY -->
                 </table>
             </td>
         </tr>
-
-
     </table>
 </body>
-
 </html>
