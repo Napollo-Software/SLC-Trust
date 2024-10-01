@@ -33,6 +33,18 @@ return array(
         'Poppins-ExtraBold' => [
             'R'  => 'Poppins-ExtraBold.ttf',   
         ],
+
+        /* Disabiliy pdf font */
+        'OKMVMP-Info-Normal' => [
+            'R'  => 'OKMVMP-Info-Normal.ttf',   
+        ],
+        'OKMVMP-Info-Bold' => [
+            'R'  => 'OKMVMP-Info-Bold.ttf',   
+        ],
+        'Nimbus Sans' => [
+            'R'  => 'Nimbus Sans.ttf',   
+        ],
+
     ],
 
     /*
