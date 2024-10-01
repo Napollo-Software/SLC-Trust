@@ -18,7 +18,6 @@ use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DropboxController;
 use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\categoryController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FollowupController;
 use App\Http\Controllers\MedicaidController;
@@ -120,6 +119,8 @@ Route::group(['prefix' => 'follow-up', 'middleware' => ['isLoggedIn']], function
     Route::post('update', [FollowupController::class, 'update'])->name('follow_up.update');
     Route::post('delete/{id}', [FollowupController::class, 'delete'])->name('follow_up.delete');
 });
+
+Route::post('note', [FollowupController::class, 'noteStore'])->name('note.store');
 
 Route::group(['prefix' => 'leads', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [LeadController::class, 'index'])->name('lead.list');

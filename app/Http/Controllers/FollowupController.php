@@ -45,6 +45,29 @@ class FollowupController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function noteStore(Request $request)
+    {
+
+        $this->validate($request, [
+            'to' => 'required',
+            'from' => 'required',
+            'note' => 'required',
+        ]);
+        $followup = new Followup();
+        $followup->from = $request->input('from');
+        $followup->to = $request->input('to');
+        $followup->date = date('Y-m-d');
+        $followup->time = date('H:i:s');
+        $followup->note = $request->input('note');
+        $followup->save();
+        $type = new Type();
+        $type->category = $request->type === "other" ? "Designation" : $request->type;
+        $type->name = $request->type === "other" ? "Designation" : $request->type;
+
+        $type->save();
+        return response()->json(['success' => true, 'note' => $followup]);
+    }
+
     public function edit($id)
     {
         $followup = Followup::find($id);
