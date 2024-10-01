@@ -35,15 +35,16 @@ return array(
         ],
 
         /* Disabiliy pdf font */
-        'OKMVMP-Info-Normal' => [
-            'R'  => 'OKMVMP-Info-Normal.ttf',   
+        'info-normal' => [
+            'R'  => 'info-normal.ttf',   
         ],
-        'OKMVMP-Info-Bold' => [
-            'R'  => 'OKMVMP-Info-Bold.ttf',   
+        'info-semibold' => [
+            'R'  => 'info-semibold.ttf',   
         ],
-        'Nimbus Sans' => [
-            'R'  => 'Nimbus Sans.ttf',   
+        'Info-Bold' => [
+            'R'  => 'Info-Bold.otf',   
         ],
+      
 
         // hippa state pdf fonts
         'TKLCCE-Info-Normal' => [

@@ -1,11 +1,11 @@
 {
-    "okmvmp-info-normal": {
-        "normal": "okmvmp_info_normal_normal_84953d405fc94aa0324dddc44aed579e"
+    "info-normal": {
+        "normal": "info_normal_normal_8e9bee386a7e2af567dabf06015647b3"
     },
-    "okmvmp-info-bold": {
-        "normal": "okmvmp_info_bold_normal_fb8d830810547a161746c9182ece23ac"
+    "info-bold": {
+        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
     },
-    "nimbus sans": {
-        "normal": "nimbus_sans_normal_0b9d3213a3cfeec756007d568fb6c621"
+    "info-semibold": {
+        "normal": "info_semibold_normal_3461e18117e484083763c0fd75d810d8"
     }
 }
