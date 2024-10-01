@@ -146,7 +146,7 @@
                                         <td>{{ $u->id }}</td>
                                         <td>
                                             @if ($role == 'Admin')
-                                                <a href="{{ route('show_user', $u['id']) }}">{{ $u['name'] }}
+                                                <a href="{{ route('edit_user', $u['id']) }}">{{ $u['name'] }}
                                                     {{ $u['last_name'] }}</a>
                                         </td>
                                         @else

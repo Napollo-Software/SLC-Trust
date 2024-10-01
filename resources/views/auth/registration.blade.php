@@ -378,13 +378,7 @@
     <script>
         $(document).on('submit', '#formAuthentication', function(e) {
             e.preventDefault();
-
-            // Ensure consistent button selectors
-            let $submitButton = $('#sign-up-btn');
-
-            $submitButton.attr('disabled', true).text("Creating...");
-
-            // Clear previous error states
+            $('.register-submit').attr('disabled',true).text('Signing Up...');
             $('.form-control').removeClass('is-invalid');
             $('.password-error').text("");
             $('.terms-error').text("");
@@ -412,18 +406,19 @@
                     });
 
                     $('#formAuthentication').trigger('reset');
+                    $('.register-submit').attr('disabled',false).text("Sign Up");
                 },
-                error: function(xhr) {
-
+                error:function(xhr)
+                {
                     erroralert(xhr);
-
-                    if (xhr.responseJSON && xhr.responseJSON.errors && xhr.responseJSON.errors.password) {
-                        $('#password').addClass('is-invalid');
-                        $('.password-error').text(xhr.responseJSON.errors.password);
-                    }
-                    if (xhr.responseJSON && xhr.responseJSON.errors && xhr.responseJSON.errors.terms) {
-                        $('.terms-error').text(xhr.responseJSON.errors.terms);
-                    }
+                    if(xhr.responseJSON.errors.password){
+                    $('#password').removeClass('is-invalid');
+                    $('.password-error').text(xhr.responseJSON.errors.password);
+                    };
+                    if(xhr.responseJSON.errors.terms){
+                    $('.terms-error').text(xhr.responseJSON.errors.terms);
+                    };
+                    $('.register-submit').attr('disabled',false);
                 }
             }).always(function() {
                  $('#sign-up-btn').attr('disabled', false).text("Sign Up");
