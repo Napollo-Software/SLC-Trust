@@ -8,6 +8,17 @@
     <title>DOH 5173-HIPPA State</title>
 </head>
 <style>
+            @font-face {
+                font-family: 'TKLCCE-Info-Normal';
+                src: url('fonts/TKLCCE-Info-Normal.ttf') format('truetype');
+            }
+            @font-face {
+                font-family: 'TKLCCE-Info-SemiBold';
+                src: url('fonts/TKLCCE-Info-SemiBold.ttf') format('truetype');
+            }
+            body{
+                font-family:'TKLCCE-Info-SemiBold'
+            }
     table {
         border-collapse: collapse;
 
@@ -86,8 +97,6 @@
                 HIPAA</h5>
         </div>
     </div>
-
-
     <hr style="width: 100%;height:5px;background-color: #231F20;">
     <table style="border-width: 0.5px;margin:0;padding: 0;width: 100%;">
         <tr style="border-width: 0.5px;margin:0;padding: 0;vertical-align: top">
@@ -266,7 +275,7 @@
                     </p></div>
                 <p style="display: block; text-align: start;">
                     SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW
-                </p>
+                </p>p
                 @endif
             </div>
             <div style="display: table-cell; vertical-align: bottom;">

@@ -7,6 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Disability</title>
     <style>
+
+        @font-face {
+            font-family: 'OKMVMP-Info-Normal';
+            src: url('fonts/OKMVMP-Info-Normal.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'OKMVMP-Info-Bold';
+            src: url('fonts/OKMVMP-Info-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Nimbus Sans';
+            src: url('fonts/Nimbus Sans.ttf') format('truetype');
+        }
+
+        body{
+            font-family:  'OKMVMP-Info-Normal' ;
+        }
+
+      
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -68,7 +90,7 @@
     <div style="display: table; width: 100%;">
         <div style="display: table-row;">
             <p style="display: table-cell; width: 50%;">
-                NEW YORK STATE DEPARTMENT OF HEALTH <br>
+                NEW YORK STATE DEPARTMENT OF HEALTH<br>
                 State Disability Review Unit
             </p>
             <h2 style="display: table-cell; width: 50%; text-align: right;">

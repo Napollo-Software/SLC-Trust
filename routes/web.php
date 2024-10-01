@@ -1,34 +1,35 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\claimsController;
-use App\Http\Controllers\categoryController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\FollowupController;
-use App\Http\Controllers\ForgotController;
-use App\Http\Controllers\LeadController;
-use App\Http\Controllers\PrintController;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\ArchiveController;
-use App\Http\Controllers\AdjustmentController;
-use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\CreateChequeController;
-use App\Http\Controllers\DropboxController;
-use App\Http\Controllers\DeveloperController;
-use App\Http\Controllers\EmergencyController;
-use App\Http\Controllers\PayeeController;
-use App\Http\Controllers\LogController;
-use App\Http\Controllers\MedicaidController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SMSController;
-use App\Http\Controllers\TypesController;
-use App\Http\Controllers\VendorController;
-use App\Http\Controllers\ReferralController;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\LeadReportController;
-use App\Http\Controllers\ReleaseNotesController;
 use App\Models\EmergencyContacts;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\SMSController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LeadController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PayeeController;
+use App\Http\Controllers\PrintController;
+use App\Http\Controllers\TypesController;
+use App\Http\Controllers\claimsController;
+use App\Http\Controllers\ForgotController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\VendorController;
+use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DropboxController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\FollowupController;
+use App\Http\Controllers\MedicaidController;
+use App\Http\Controllers\ReferralController;
+use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\EmergencyController;
+use App\Http\Controllers\AdjustmentController;
+use App\Http\Controllers\LeadReportController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CreateChequeController;
+use App\Http\Controllers\ReleaseNotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -336,6 +337,8 @@ Route::get('/profile_setting', [AuthController::class, 'profile_setting'])->midd
 
 Route::match(['GET', 'POST'], '/main', [AuthController::class, 'bill_reports'])->name('bill_reports')->middleware('isLoggedIn', );
 
+Route::match(['GET', 'POST'], '/filter-transactions/{module}', [TransactionController::class, 'filterTransactions'])->name('filter.transactions')->middleware('isLoggedIn', );
+
 Route::get('/notifications', [AuthController::class, 'notifications'])->name('notifications')->middleware('isLoggedIn', 'permission:Notification View');
 
 Route::get('adjustments/index', [AdjustmentController::class, 'index'])->name('adjustment')->middleware('permission:Adjustments');
@@ -609,4 +612,203 @@ Route::get('join',function(){
         "office_use_monthly_debit_first_month" => "4",
     ];
     return view('document/joinder-pdf', $data);
+});
+Route::get('disable',function(){
+    $data = [
+        "sponsor_first_name" => "Moana",
+        "sponsor_middle_name" => "Vanna Hardin",
+        "sponsor_last_name" => "Benjamin",
+        "sponsor_marital_status1" => "Married",
+        "sponsor_gender" => "Qui nulla beatae nec",
+        "sponsor_ssn" => "mailto:kureju@mailinator.com",
+        "sponsor_dob" => "2020-11-23",
+        "sponsor_citizen" => "Test Tes",
+        "sponsor_tel_home" => "+1 (379) 997-7616",
+        "sponsor_tel_cell" => "+1 (822) 625-7372",
+        "_token" => "hfs9oXWPOY55oVDXn01L2U06Q5mdTb0M0QJ7tkKj",
+        "referral_id" => "1",
+        "document_id" => "67",
+        "first_name" => "Imogene",
+        "middle_name" => "Zia Heath",
+        "last_name" => "Jarvis",
+        "ssn_last_4" => "Deleniti voluptatibu",
+        "date_of_birth" => "2009-02-04",
+        "telephone_number" => "+1 (523) 912-8595",
+       "case_number" => "840",
+        "client_id_number" => "479",
+        "disability_id_number" => "569",
+        "medicaid_application" => "1979-02-02",
+        "medicaid_waiver_yes" => "yes",
+        "medicaid_waiver_no" => "no",
+        "waiver_type" => "Quod perspiciatis u",
+        "ssa_application_date" => "11-Apr-2000",
+        "ssa_decision_date" => "21-Dec-1979",
+        "ssa_decision" => "Est sunt quo aut iu",
+        "ssa_denial_reason" => "Tempora qui ipsa co",
+        "appealed_decision2" => "no",
+        "appeal_date" => "30-Apr-2018",
+        "medical_conditions" => "Nostrum architecto p",
+        "medical_condition_impact" => "Natus harum quaerat",
+        "medications" => "Nostrum officiis aut",
+        "primary_care_provider_yes" => "yes",
+        "primary_care_provider_no" => "no",
+        "care_provider_text" => "Dignissimos porro re",
+        "primary_care_provider_details" => "Accusamus quidem lab",
+        "medical_provider_yes" => "yes",
+        "medical_provider_no" => "no",
+        "medical_provider_1_name" => "Cruz Mills",
+        "medical_provider_1_phone" => "62",
+        "medical_provider_1_address" => "Porro aut et vel eni",
+        "medical_provider_1_reason" => "Sapiente deserunt pl",
+        "medical_provider_2_name" => "Porter Odonnell",
+        "medical_provider_2_phone" => "45",
+        "medical_provider_2_address" => "Voluptas hic repelle",
+        "medical_provider_2_reason" => "Accusamus consequat",
+        "medical_provider_3_name" => "Ulysses Huffman",
+        "medical_provider_3_phone" => "93",
+        "medical_provider_3_address" => "In voluptate in cupi",
+        "medical_provider_3_reason" => "Similique ad assumen",
+        "got_medicare_yes" => "yes",
+        "medicare_rec_1_name" => "Hedwig Juarez",
+        "medicare_rec_1_phone" => "14",
+        "medicare_rec_1_address" => "Eaque illo facilis s",
+        "medicare_rec_1_reason" => "Blanditiis duis reic",
+        "medicare_rec_2_name" => "Cassandra Park",
+        "medicare_rec_2_phone" => "15",
+        "medicare_rec_2_address" => "Anim voluptate volup",
+        "medicare_rec_2_reason" => "Dignissimos id sit s",
+        "medicare_rec_3_name" => "Madaline Nieves",
+        "medicare_rec_3_phone" => "8",
+        "medicare_rec_3_address" => "Occaecat dolores mol",
+        "medicare_rec_3_reason" => "Atque fuga Nesciunt",
+        "agency_assist_yes" => "yes",
+        "agency_assist_no" => "no",
+        "agency_1_name" => "Devin Murphy",
+        "agency_1_phone" => "7",
+        "agency_1_address" => "In iure eius labore",
+        "agency_1_reason" => "Similique qui molest",
+        "agency_2_name" => "Charde Pollard",
+        "agency_2_phone" => "64",
+        "agency_2_address" => "Porro itaque irure i",
+        "agency_2_reason" => "Veritatis duis quaer",
+        "agency_3_name" => "Ethan Ryan",
+        "agency_3_phone" => "99",
+        "agency_3_address" => "Voluptatem Velit n",
+        "agency_3_reason" => "Hic laborum Repelle",
+        "schooling" => "Sed temporibus delec",
+        "school_name" => "Genevieve Franklin",
+        "school_address" => "Dolorum laboriosam",
+        "special_education_yes" => "yes",
+        "special_help_yes" => "yes",
+        "special_help_text" => "Et enim tempore rer",
+        "vocational_training_yes" => "yes",
+        "vocational_training_no" => "no",
+        "vocational_training_text" => "Eligendi fuga Cupid",
+        "simple_message_yes" => "yes",
+        "write_simple_message_yes" => "yes",
+        "interpreter_yes" => "yes",
+        "interpreter_no" => "no",
+        "interpreter_text" => "Rerum asperiores qui",
+        "worked_fifteen_yes" => "yes",
+        "start_employment_date_one" => "2008-05-16",
+        "end_employment_date_one" => "2012-12-19",
+        "job_title_one" => "Esse tempora quo eo",
+        "hours_one" => "Ut consequat Provid",
+        "type_business_one" => "Ut iste voluptatum q",
+        "rate_pay_one" => "Tempora illum enim",
+        "duties_one" => "Culpa corrupti dolo",
+        "day_stand" => "27",
+        "day_walk" => "20",
+        "day_sit" => "19",
+        "lift_one" => "Cumque fugit rerum",
+        "lift_pounds_one" => "Amet nisi Nam sunt",
+        "leaving_reason_one" => "Officia ratione magn",
+        "start_employment_date_two" => "2014-04-14",
+        "end_employment_date_two" => "1994-07-08",
+        "job_title_two" => "Cillum et eos deseru",
+        "hours_two" => "Suscipit mollitia eu",
+        "type_business_two" => "Cupidatat quam conse",
+        "rate_pay_two" => "Iusto officiis in do",
+        "duties_two" => "Nisi deserunt et ani",
+        "day_stand_two" => "16",
+        "day_walk_two" => "3",
+        "day_sit_two" => "4",
+        "lift_two" => "Quod totam aute aliq",
+        "lift_pounds_two" => "Ut quis et hic quae",
+        "leaving_reason_two" => "Ut esse et labore et",
+        "start_employment_date_three" => "1994-05-29",
+        "end_employment_date_three" => "1984-03-09",
+        "job_title_three" => "Eu in velit ducimus",
+        "hours_three" => "Nihil dolore proiden",
+        "type_business_three" => "Id repellendus Qui",
+        "rate_pay_three" => "Optio voluptatem id",
+        "duties_three" => "Voluptas fugiat id e",
+        "day_stand_three" => "2",
+        "day_walk_three" => "6",
+        "day_sit_three" => "3",
+        "lift_three" => "Aliqua Natus totam",
+        "lift_pounds_three" => "Quis et nostrud eius",
+        "leaving_reason_three" => "Incidunt voluptatib",
+        "start_employment_date_four" => "2006-02-16",
+        "end_employment_date_four" => "1993-11-12",
+        "job_title_four" => "Aut laborum esse fug",
+        "hours_four" => "Eligendi rem ipsum r",
+        "type_business_four" => "Quod pariatur Susci",
+        "rate_pay_four" => "Ut ex iusto molestia",
+        "duties_four" => "Fuga Sunt voluptas",
+        "day_stand_four" => "19",
+        "day_walk_four" => "26",
+        "day_sit_four" => "2",
+        "lift_four" => "Quia reprehenderit h",
+        "lift_pounds_four" => "Sit tempore a non",
+        "leaving_reason_four" => "Quas vitae eum nihil",
+        "start_employment_date_five" => "1993-07-06",
+        "end_employment_date_five" => "1978-01-18",
+        "job_title_five" => "Temporibus fuga Fac",
+        "hours_five" => "Tenetur eos in eaqu",
+        "type_business_five" => "Odit ex et magni quo",
+        "rate_pay_five" => "Ut sed minus in sed",
+        "duties_five" => "Laborum in itaque si",
+        "day_stand_five" => "19",
+        "day_walk_five" => "10",
+        "day_sit_five" => "14",
+        "lift_five" => "Commodi expedita ut",
+        "lift_pounds_five" => "Excepturi amet aliq",
+        "leaving_reason_five" => "Veniam nobis expedi",
+        "undef" => "Esse aute aperiam ni",
+        "person_name" => "Yoshi Reese",
+        "form_date" => "1980-02-03",
+        "person_tell" => "Commodi adipisci sit",
+    ];
+    return view('document.disability-pdf', $data);
+});
+Route::get('hipp',function(){
+    $data = [
+        "_token" => "lgapP2muQBcp2M7H0D815sEuMkreT1SHsmxfAg9v",
+        "referral_id" => "2",
+        "document_id" => "72",
+        "patient_name" => "Desirae Sears",
+        "dob" => "1980-06-16",
+        "ssn" => "98",
+        "address" => "Excepteur dignissimo",
+        "client_id" => "Cillum ut duis sint",
+        "disablity_number" => "597",
+        "name_address" => "Clare Mosley",
+        "released_info" => "medical_other",
+        "medical_record_from" => "1981-03-19",
+        "medical_record_to" => "1997-11-16",
+        "other" => "Possimus laborum R",
+        "init" => "Officiis cumque lore",
+        "auth_name" => "Natalie Mullen",
+        "alcoholDrugTreatment" => "alcoholDrugTreatment",
+        "mentalHealthInformation" => "mentalHealthInformation",
+        "hivRelatedInformation" => "hivRelatedInformation",
+        "other_indiviual_name" => "Savannah Le",
+        "person_signing" => "Molestias quae nostr",
+        "auth_info" => "Reiciendis in ad qui",
+        "hippa_state_signature" => "Error qui eu dolor",
+        "hippa_state_sign" => "C:\\xampp\\htdocs\\SLC\\SLC-Trust\\storage\\app/public/alihamza.dev4@gmail.com/hippa_state_sign20241001_081236.png",
+        "date_hippa_state" => "1987-01-17"
+    ];
+    return view('document/hippa-state-pdf', $data);
 });
