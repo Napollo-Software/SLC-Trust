@@ -389,6 +389,8 @@
                     }
                 });
             } else {
+                // swal("Oops...", xhr.responseText.message, "error");
+                alert("Something went wrong.");
             }
         }
 </script>

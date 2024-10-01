@@ -249,7 +249,6 @@
         input[type="checkbox"] {
             width: 15px;
             height: 15px !important;
-
         }
 
         input[type="checkbox"] + label{

@@ -9,25 +9,70 @@
     <style>
 
         @font-face {
-            font-family: 'OKMVMP-Info-Normal';
-            src: url('fonts/OKMVMP-Info-Normal.ttf') format('truetype');
+            font-family: 'info-normal';
+            src: url('fonts/info-normal.ttf') format('truetype');
         }
 
         @font-face {
-            font-family: 'OKMVMP-Info-Bold';
-            src: url('fonts/OKMVMP-Info-Bold.ttf') format('truetype');
+            font-family: 'Info-Bold';
+            src: url('fonts/Info-Bold.otf') format('truetype');
         }
 
+
         @font-face {
-            font-family: 'Nimbus Sans';
-            src: url('fonts/Nimbus Sans.ttf') format('truetype');
+            font-family: 'info-semibold';
+            src: url('fonts/info-semibold.ttf') format('truetype');
         }
+
+   
 
         body{
-            font-family:  'OKMVMP-Info-Normal' ;
+            font-family:  'info-normal' ;
+            font-size: 13px;
+        }
+
+        .xs{
+            font-size: 12px;
+        }
+
+        .xxs{
+            font-size: 9px;
+        }
+
+        .sm{
+            font-size: 14px;
+        }
+
+        .md{
+            font-size: 14px;
+        }
+
+        .lg{
+            font-size: 16px;
+        }
+        .xl{
+            font-size: 17px;
+        }
+        
+        .mt-0{
+            margin-top:0px
+        }
+
+        .semiBold{
+            font-family: "info-semibold" !important;
+        }
+
+        .bold{
+            font-family: "Info-Bold" !important;
         }
 
       
+
+        .gap1{
+            margin-top:10px;
+            padding-top:10px
+        }
+
 
         table {
             border-collapse: collapse;
@@ -59,7 +104,7 @@
 
 
         .custom-hr {
-            height: 10px;
+            height: 7px;
             /* Adjust the height as needed */
             border: none;
             background-color: black;
@@ -80,6 +125,27 @@
             display: flex;
             align-items: center;
         }
+
+        input{
+            font-size: 12px !important;
+            /* border: none !important; */
+            background-color: transparent  !important;
+        }
+        input[type="checkbox"] {
+            margin-bottom: 2px;
+        }
+
+        textarea{
+            font-family:  'info-normal' !important ;
+            font-size: 13px !important;
+            border: none !important;
+            margin-top:-10px !important
+        }
+
+        .noborder{
+            border: none !important;
+        }
+
     </style>
 </head>
 
@@ -89,24 +155,24 @@
     <input type="hidden" id=referral_id" name="referral_id">
     <div style="display: table; width: 100%;">
         <div style="display: table-row;">
-            <p style="display: table-cell; width: 50%;">
+            <p style="display: table-cell; width: 50%;" class="xs">
                 NEW YORK STATE DEPARTMENT OF HEALTH<br>
                 State Disability Review Unit
             </p>
-            <h2 style="display: table-cell; width: 50%; text-align: right;">
+            <p style="display: table-cell; width: 50%; text-align: right;margin-top:17px;font-size:1.5rem;" class="bold" >
                 Disability Questionnaire
-            </h2>
+            </p>
         </div>
     </div>
 
 
     <hr class="custom-hr">
     <div style="display: table;width: 100%;padding:0;margin: 0;">
-        <div style="display: table-row; width: 100%;vertical-align: center;">
-            <h6 style="display: table-cell; width: 50%;padding:10px 0 0 20px;">Name:</h6>
-            <h6 style="display: table-cell; width: 50%;text-align: left;padding:0;margin: 0; ">COMPLETED BY THE STATE
+        <div style="display: table-row; width: 100%;vertical-align: center;margin-top:10px">
+            <p style="display: table-cell; width: 50%;" class="sm semiBold" ></p>
+            <p style="display: table-cell; width: 50%;text-align: left;padding-bottom:5px;margin-bottom: 5px;" class="sm" >COMPLETED BY THE STATE
                 DISABILITY REVIEW
-                UNIT:</h6>
+                UNIT:</p>
         </div>
     </div>
 
@@ -114,39 +180,38 @@
     <div style="display: table; width: 100%;padding:0;margin: 0;background-color: rebeccapurple">
         <!-- Single Row for Both Sections -->
         <div style="display: table-row; width: 100%;background-color: peru;padding:0;margin: 0">
-
-            <div style="display: table-cell; width: 50%;padding:0;margin: 0">
+            <div style="display: table-cell; width: 50%;padding-top:5px;margin-top:5px !important;padding-right:5px !important">
+                <p style=" width: 50%;margin-bottom:0px !important;" class="sm semiBold" >Name:</p>
                 <div
-                    style="display: table; width: 100%; vertical-align: middle; text-align: start; margin: 0; padding: 10px;">
-
+                    style="display: table; width: 100%; vertical-align: bottom; text-align: start; margin: 0;">
                     <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">First:</h6>
+                        <p  style="display: table-cell; vertical-align: bottom;">First:</p>
                         <input type="text" class="no-border" name="first_name" value="{{$first_name}}"
                                style="padding: 2px;">
                     </div>
                     <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Middle:</h6>
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;">Middle:</p>
                         <input type="text" class="no-border" name="middle_name" value="{{$middle_name}}"
                                style="padding: 2px;">
                     </div>
                     <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Last:</h6>
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;">Last:</p>
                         <input type="text" class="no-border" name="last_name" value="{{$last_name}}"
                                style="padding: 2px;">
                     </div>
                     <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">SSN Number (last 4
-                            digits):</h6>
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;">SSN Number (last 4
+                            digits):</p>
                         <input type="text" class="no-border" name="ssn_last_4" value="{{$ssn_last_4}}"
                                style="padding: 2px;">
                     </div>
                     <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Date Of Birth:</h6>
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;">Date Of Birth:</p>
                         <input type="text" class="no-border" name="date_of_birth" value="{{$date_of_birth}}"
                                style="padding: 2px;">
                     </div>
                     <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Telephone Number:</h6>
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;">Telephone Number:</p>
                         <input type="text" class="no-border" name="telephone_number" value="{{$telephone_number}}"
                                style="padding: 2px;">
                     </div>
@@ -157,32 +222,32 @@
             <!-- Second Section: 50% Width -->
             <div style="display: table-cell; width: 50%; background-color: #d1d2d4;padding-right: 10px;margin: 0">
                 <div
-                    style="display: table; width: 100%; vertical-align: middle; text-align: start; margin: 0; padding: 10px;">
+                    style="display: table; width: 100%; vertical-align: bottom; text-align: start; margin: 0; padding: 10px;">
 
-                    <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Case Number:</h6>
-                        <input style="display: table-cell; padding: 4px;" type="text" value="{{$case_number}}"
+                    <div style="display: table-row;">
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;padding-top:7px ">Case Number:</p>
+                        <input style="display: table-cell; padding: 4px;padding-top:7px" type="text" value="{{$case_number}}"
                                class="no-border" name="case_number">
                     </div>
-                    <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Client ID Number:</h6>
-                        <input style="display: table-cell; padding: 4px;" type="text" value="{{$client_id_number}}"
+                    <div style="display: table-row;">
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;padding-top:7px">Client ID Number:</p>
+                        <input style="display: table-cell; padding: 4px;padding-top:7px" type="text" value="{{$client_id_number}}"
                                class="no-border" name="client_id_number">
                     </div>
-                    <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Disability ID Number:</h6>
-                        <input style="display: table-cell; padding: 4px;" type="text" value="{{$disability_id_number}}"
+                    <div style="display: table-row;">
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;padding-top:7px">Disability ID Number:</p>
+                        <input style="display: table-cell;padding-top:7px" type="text" value="{{$disability_id_number}}"
                                class="no-border" name="disability_id_number">
                     </div>
-                    <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Medicaid Application
-                            date:</h6>
-                        <input style="display: table-cell; padding: 4px;" type="text" class="no-border"
+                    <div style="display: table-row;">
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;padding-top:7px">Medicaid Application
+                            date:</p>
+                        <input style="display: table-cell; padding-top:7px" type="text" class="no-border"
                                name="medicaid_application" value="{{$medicaid_application}}">
                     </div>
-                    <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Medicaid waiver?</h6>
-                        <div style="display: table-cell;">
+                    <div style="display: table-row; margin: 0; padding-left: 10px;padding-top:14px">
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;padding-top:7px">Medicaid waiver?</p>
+                        <div style="display: table-cell;padding-top:7px">
                             <input type="checkbox"
                                    name="medicaid_waiver_yes" {{isset($medicaid_waiver_yes) && $medicaid_waiver_yes == 'yes' ? 'checked' : ''}} style="vertical-align: bottom;">
                             Yes
@@ -191,9 +256,9 @@
                             No
                         </div>
                     </div>
-                    <div style="display: table-row; margin: 0; padding: 10px;">
-                        <h6 style="display: table-cell; width: 100%; vertical-align: middle;">Waiver type:</h6>
-                        <input style="display: table-cell; padding: 4px;" type="text" value="{{$waiver_type}}"
+                    <div style="display: table-row; margin: 0; padding-left: 10px;padding-top:14px">
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;padding-top:7px">Waiver type:</p>
+                        <input style="display: table-cell; padding-top:7px" type="text" value="{{$waiver_type}}"
                                class="no-border" name="waiver_type">
                     </div>
                 </div>
@@ -205,9 +270,9 @@
 
 
     <div style="display: table;">
-        <h6 style="display: table-cell; vertical-align: middle; padding-right: 10px;">Have you ever applied to the
-            Social Security Administration (SSA) for disability benefits?</h6>
-        <div style="display: table-cell; vertical-align: bottom;">
+        <p style="display: table-cell; vertical-align: bottom; padding-right: 10px;padding-top:7px">Have you ever applied to the
+            Social Security Administration (SSA) for disability benefits?</p>
+        <div style="display: table-cell; vertical-align: bottom;padding-top:7px">
             <label>
                 <input type="checkbox" name="applied_for_ssa1"
                        value="yes" {{ isset($applied_for_ssa1) && $applied_for_ssa1 == 'yes' ? 'checked' : '' }} style="vertical-align: bottom;">
@@ -221,44 +286,44 @@
         </div>
     </div>
 
-    <div style="display: table; width: 100%;">
-        <h6 style="display: table-cell; vertical-align: middle; white-space: nowrap; padding-right: 10px;font-size: 10px;">
-            If “Yes”, when? (month/year)</h6>
+    <div style="display: table; width: 100%;padding-top:7px ">
+        <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px;">
+            If “Yes”, when? (month/year)</p>
         <input type="text" value="{{$ssa_application_date}}" class="no-border" name="ssa_application_date"
-               style="display: table-cell; vertical-align: middle;">
-        <h6 style="display: table-cell; vertical-align: middle; white-space: nowrap; padding-left: 10px; padding-right: 10px;font-size: 10px;">
-            SSA decision date: (month/year)</h6>
+               style="display: table-cell; vertical-align: bottom;">
+        <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-left: 10px; padding-right: 10px;">
+            SSA decision date: (month/year)</p>
         <input type="text" class="no-border" name="ssa_decision_date" value="{{$ssa_decision_date}}"
-               style="display: table-cell; vertical-align: middle;">
+               style="display: table-cell; vertical-align: bottom;">
     </div>
 
-    <div style="display: table; width: 100%;">
-        <h6 style="display: table-cell; vertical-align: middle; white-space: nowrap; padding-right: 10px; margin: 0;">
+    <div style="display: table; width: 100%;padding-top:7px">
+        <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
             What was the decision?
-        </h6>
+        </p>
         <input type="text" value="{{$ssa_decision}}" class="no-border" name="ssa_decision"
-               style="display: table-cell; vertical-align: middle; width: 80%;">
+               style="display: table-cell; vertical-align: bottom; width: 85%;">
     </div>
 
-    <div style="display: table; width: 100%;">
+    <div style="display: table; width: 100%;padding-top:7px">
         <div
-            style="display: table-cell; vertical-align: middle; white-space: nowrap; padding-right: 5px; width: auto; min-width: 0;">
-            <h6 style="margin: 0;">
+            style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 5px; width: auto; min-width: 0;">
+            <p style="margin: 0;">
                 If denied for benefits, what was the reason (medical or non-medical)?
-            </h6>
+            </p>
         </div>
-        <div style="display: table-cell; vertical-align: middle; width: 100%;">
+        <div style="display: table-cell; vertical-align: bottom; width: 100%;">
             <input type="text" value="{{$ssa_denial_reason}}" class="no-border" name="ssa_denial_reason"
                    style="width: 100%;">
         </div>
     </div>
 
 
-    <div style="display: table; width: 100%;">
-        <h6 style="display: table-cell; vertical-align: middle; white-space: nowrap; padding-right: 10px; margin: 0;">
+    <div style="display: table; width: 100%;padding-top:7px">
+        <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
             Did you appeal the decision?
-        </h6>
-        <div style="display: table-cell; vertical-align: middle;">
+        </p>
+        <div style="display: table-cell; vertical-align: bottom;">
             <label>
                 <input type="checkbox" name="appealed_decision1" value="yes"
                        class="show-when-yes" {{ isset($appealed_decision1) && $appealed_decision1 == 'yes' ? 'checked' : '' }} style="vertical-align: bottom;">
@@ -270,11 +335,11 @@
                 No
             </label>
         </div>
-        <h6 style="display: table-cell; vertical-align: middle; white-space: nowrap; padding-left: 10px; padding-right: 10px; margin: 0;">
+        <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-left: 10px; padding-right: 10px; margin: 0;">
             If “Yes”, when? (month/year)
-        </h6>
+        </p>
         <input type="text" name="appeal_date" class="no-border" value="{{$appeal_date}}"
-               style="display: table-cell; vertical-align: middle;">
+               style="display: table-cell; vertical-align: bottom;">
     </div>
     <br>
 
@@ -282,47 +347,47 @@
     <table>
         <tr>
             <td>
-                <h5 style="font-size: larger;text-align: center !important;">
+                <p style="text-align: center !important;margin-top:0px" class="lg bold">
                     PART I – INFORMATION ABOUT YOUR MEDICAL CONDITIONS
-                </h5>
-                <p style="font-size: larger;">
+                </p>
+                <p class="sm">
                     A. Please list all of your medical conditions (diagnoses):
                 </p>
-                <textarea class="no-border" style="width: 100%; font-size: larger; height: 105px;"
+                <textarea class="no-border" style="width: 100%;  height: 118px;"
                           name="medical_conditions">{{$medical_conditions}}</textarea>
             </td>
         </tr>
         <tr>
             <td>
-                <p style="font-size: larger;">
+                <p class="sm mt-0" >
                     B. How do your medical conditions affect your ability to function? (Please include any limitations
                     in your ability to perform activities of daily living and work-related activities.)
                 </p>
-                <textarea class="no-border" style="width: 100%; font-size: larger; height: 105px;"
+                <textarea class="no-border" style="width: 100%; height: 118px;"
                           name="medical_condition_impact">{{$medical_condition_impact}}</textarea>
             </td>
         </tr>
         <tr>
             <td>
-                <p style="font-size: larger;">
+                <p class="sm mt-0">
                     C. Please list your medications (or attach a list).
                 </p>
-                <textarea class="no-border" style="width: 100%; font-size: larger; height:105px;"
+                <textarea class="no-border" style="width: 100%; height: 118px;"
                           name="medications">{{$medications}}</textarea>
             </td>
         </tr>
     </table>
     <hr>
-    <p style="font-size: 8px;">DOH-5139 01/21  Page 1 of 5</p>
+    <p style="font-size: 10px;">DOH-5139 01/21  Page 1 of 5</p>
 
     <br>
     <table style="text-align: start !important;">
-        <tr style="height: 15px !important;padding:0 !important;margin:0;text-align: start !important;">
-            <td style="height: 15px !important;padding:0 !important;margin:0;text-align: start !important;" colspan="3">
-                <h5 style="padding: 0 5px;margin: 0;text-align: center !important; font-size: larger;">
+        <tr style="height: 15px !important;padding:4px !important;margin:0;text-align: start !important;">
+            <td style="height: 15px !important;margin:0;text-align: start !important;" colspan="3">
+                <p style=" margin: 0;text-align: center !important;" class="lg semiBold"  >
                     PART II — INFORMATION ABOUT YOUR MEDICAL RECORDS
                 </h5>
-                <p style="padding: 0 5px;margin: 0;"><b>In order to make a disability determination, current medical
+                <p style="padding: 0 5px;margin: 0;" class="sm semiBold">In order to make a disability determination, current medical
                         evidence
                         is
                         needed to evaluate your
@@ -330,14 +395,14 @@
                         impairments. If you have not seen a medical provider for your impairment(s)
                         within the past 12
                         months, a consultative exam
-                        may be arranged for you by the local agency.</b>
+                        may be arranged for you by the local agency.
                 </p>
             </td>
         </tr>
 
-        <tr style="height: 15px !important;padding:0 !important;">
+        <tr style="height: 15px !important;padding:0 !important;" class="sm">
             <td style="height: 15px !important;padding:0 !important;" colspan="3">
-                <p style="padding: 0 5px;margin: 0;">
+                <p style="padding: 0 5px;margin: 0;" class="sm">
                     A. Do you have a primary care provider? <input type="checkbox"
                                                                    name="primary_care_provider_yes"
                                                                    {{isset($primary_care_provider_yes) && $primary_care_provider_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom">
@@ -349,10 +414,10 @@
                 </p>
                 <p style="padding: 0 5px;margin: 0;">(If “Yes”, please provide name, address, phone number.)</p>
                 <textarea
-                    style="  border-bottom: 1px solid black;border-top: none;border-left: none;border-right: none;font-size: larger; height: 50px;">{{$care_provider_text}}</textarea>
+                    style="  border-bottom: 1px solid black;border-top: none;border-left: none;border-right: none; height: 50px;">{{$care_provider_text}}</textarea>
             </td>
         </tr>
-        <tr style="height: 15px !important;padding:0 !important;">
+        <tr style="height: 15px !important;padding:0 !important;" class="sm">
             <td style="height: 15px !important;padding:0 !important;" colspan="3">
                 <p style="padding: 0 5px;margin: 0;">Date of last visit (month/year):
                     <textarea class="no-border"
@@ -360,7 +425,7 @@
                 </p>
             </td>
         </tr>
-        <tr style="height: 15px !important;padding:0 !important;">
+        <tr style="height: 15px !important;padding:0 !important;" class="sm">
             <td style="height: 15px !important;padding:0 5px!important;" colspan="3">
                 B. Have you seen any other medical provider(s) within the past 12 months? <input
                     type="checkbox"
@@ -384,7 +449,7 @@
                 </b>
             </td>
         </tr>
-        <tr style="height: 15px !important;padding:0 5px !important;margin:0;">
+        <tr style="height: 15px !important;padding:0 5px !important;margin:0;" class="sm">
             <td style="height: 15px !important;padding:0 5px !important;margin:0;">
                 <p style="margin: 0;padding: 0 5px;">Name</p>
                 <input type="text" value="{{$medical_provider_1_name}}" class="no-border"
