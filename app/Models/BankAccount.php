@@ -15,6 +15,8 @@ class BankAccount extends Model
         'routing_aba',
         'referral_id',
         'account_type',
+        'billing_cycle',
+        'surplus_amount',
         'account_number',
     ];
 }

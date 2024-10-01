@@ -428,6 +428,7 @@ class ReferralController extends Controller
         $dest = $path . $newAvatarname;
         $createAvatar = makeAvatar($fontpath, $dest, $char);
         $avatar = $createAvatar == true ? $newAvatarname : '';
+
         $user = new User();
         $user->role = "User";
         $user->billing_method = 'manual';
@@ -448,7 +449,11 @@ class ReferralController extends Controller
         $user->user_balance = '0';
         $user->token = $request->_token . rand();
         $user->password = Hash::make(123456);
+        $user->billing_cycle = $referral->bankAccount->billing_cycle;
+        $user->surplus_amount = $referral->bankAccount->surplus_amount;
         $user->save();
+
+        $referral->bankAccount()->update(["user_id" => $user->id]);
 
         $referral->convert_to_customer = $user->id;
         $referral->save();
