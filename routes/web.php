@@ -781,6 +781,7 @@ Route::get('disable',function(){
         "person_tell" => "Commodi adipisci sit",
     ];
     return view('document.disability-pdf', $data);
+});
 Route::get('hipp',function(){
     $data = [
         "_token" => "lgapP2muQBcp2M7H0D815sEuMkreT1SHsmxfAg9v",

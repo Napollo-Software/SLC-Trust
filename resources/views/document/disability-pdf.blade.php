@@ -23,6 +23,10 @@
             src: url('fonts/Nimbus Sans.ttf') format('truetype');
         }
 
+        body{
+            font-family:  'OKMVMP-Info-Normal' ;
+        }
+
       
 
         table {
