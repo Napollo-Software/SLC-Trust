@@ -1,34 +1,35 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\claimsController;
-use App\Http\Controllers\categoryController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\FollowupController;
-use App\Http\Controllers\ForgotController;
-use App\Http\Controllers\LeadController;
-use App\Http\Controllers\PrintController;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\ArchiveController;
-use App\Http\Controllers\AdjustmentController;
-use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\CreateChequeController;
-use App\Http\Controllers\DropboxController;
-use App\Http\Controllers\DeveloperController;
-use App\Http\Controllers\EmergencyController;
-use App\Http\Controllers\PayeeController;
-use App\Http\Controllers\LogController;
-use App\Http\Controllers\MedicaidController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SMSController;
-use App\Http\Controllers\TypesController;
-use App\Http\Controllers\VendorController;
-use App\Http\Controllers\ReferralController;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\LeadReportController;
-use App\Http\Controllers\ReleaseNotesController;
 use App\Models\EmergencyContacts;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\SMSController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LeadController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PayeeController;
+use App\Http\Controllers\PrintController;
+use App\Http\Controllers\TypesController;
+use App\Http\Controllers\claimsController;
+use App\Http\Controllers\ForgotController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\VendorController;
+use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DropboxController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\FollowupController;
+use App\Http\Controllers\MedicaidController;
+use App\Http\Controllers\ReferralController;
+use App\Http\Controllers\DeveloperController;
+use App\Http\Controllers\EmergencyController;
+use App\Http\Controllers\AdjustmentController;
+use App\Http\Controllers\LeadReportController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CreateChequeController;
+use App\Http\Controllers\ReleaseNotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -335,6 +336,8 @@ Route::get('/manage_roles', [AuthController::class, 'manage_roles'])->middleware
 Route::get('/profile_setting', [AuthController::class, 'profile_setting'])->middleware('isLoggedIn', 'permission:Profile Setting')->name('profile.setting');
 
 Route::match(['GET', 'POST'], '/main', [AuthController::class, 'bill_reports'])->name('bill_reports')->middleware('isLoggedIn', );
+
+Route::match(['GET', 'POST'], '/filter-transactions/{module}', [TransactionController::class, 'filterTransactions'])->name('filter.transactions')->middleware('isLoggedIn', );
 
 Route::get('/notifications', [AuthController::class, 'notifications'])->name('notifications')->middleware('isLoggedIn', 'permission:Notification View');
 
@@ -778,4 +781,33 @@ Route::get('disable',function(){
         "person_tell" => "Commodi adipisci sit",
     ];
     return view('document.disability-pdf', $data);
+Route::get('hipp',function(){
+    $data = [
+        "_token" => "lgapP2muQBcp2M7H0D815sEuMkreT1SHsmxfAg9v",
+        "referral_id" => "2",
+        "document_id" => "72",
+        "patient_name" => "Desirae Sears",
+        "dob" => "1980-06-16",
+        "ssn" => "98",
+        "address" => "Excepteur dignissimo",
+        "client_id" => "Cillum ut duis sint",
+        "disablity_number" => "597",
+        "name_address" => "Clare Mosley",
+        "released_info" => "medical_other",
+        "medical_record_from" => "1981-03-19",
+        "medical_record_to" => "1997-11-16",
+        "other" => "Possimus laborum R",
+        "init" => "Officiis cumque lore",
+        "auth_name" => "Natalie Mullen",
+        "alcoholDrugTreatment" => "alcoholDrugTreatment",
+        "mentalHealthInformation" => "mentalHealthInformation",
+        "hivRelatedInformation" => "hivRelatedInformation",
+        "other_indiviual_name" => "Savannah Le",
+        "person_signing" => "Molestias quae nostr",
+        "auth_info" => "Reiciendis in ad qui",
+        "hippa_state_signature" => "Error qui eu dolor",
+        "hippa_state_sign" => "C:\\xampp\\htdocs\\SLC\\SLC-Trust\\storage\\app/public/alihamza.dev4@gmail.com/hippa_state_sign20241001_081236.png",
+        "date_hippa_state" => "1987-01-17"
+    ];
+    return view('document/hippa-state-pdf', $data);
 });

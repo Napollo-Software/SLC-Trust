@@ -45,6 +45,13 @@ return array(
             'R'  => 'Nimbus Sans.ttf',   
         ],
 
+        // hippa state pdf fonts
+        'TKLCCE-Info-Normal' => [
+            'R'  => 'TKLCCE-Info-Normal.ttf',   
+        ],
+        'TKLCCE-Info-SemiBold' => [
+            'B'  => 'TKLCCE-Info-SemiBold.ttf',   
+        ],
     ],
 
     /*
