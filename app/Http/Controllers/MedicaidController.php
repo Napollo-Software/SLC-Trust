@@ -121,7 +121,7 @@ class MedicaidController extends Controller
             'bank_name' => 'required|string',
             'routing_aba' => 'required|string',
             'billing_cycle' => 'required|string',
-            'surplus_amount' => 'required|numeric|lt:10000',
+            'surplus_amount' => 'required|numeric|lt:10000|gt:0',
             'account_number' => 'required|string',
         ]);
 

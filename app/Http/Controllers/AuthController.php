@@ -63,6 +63,8 @@ class AuthController extends Controller
                 $request->validate([
                     'name' => 'required',
                     'email' => 'required|email|unique:users',
+                    'billing_cycle' => 'required',
+                    'surplus_amount' => 'required|numeric|lt:10000|gt:0'
                 ]);
             }
 
@@ -145,6 +147,12 @@ class AuthController extends Controller
         }
 
         $user->billing_cycle = $request->billing_cycle;
+
+        if($request->surplus_amount)
+        {
+            $user->surplus_amount = $request->surplus_amount;
+        }
+
         $user->zipcode = $request->zipcode;
         $user->marital_status = $request->marital_status;
         $user->gender = $request->gender;
@@ -161,7 +169,7 @@ class AuthController extends Controller
         $user = User::find($user->id);
 
         if ($role && $role != "User") {
-//            set_time_limit(13000);
+
             $details = $user;
 
             $directory = storage_path('app/public/' . $user->email);
@@ -173,7 +181,7 @@ class AuthController extends Controller
 
 
             $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
-            // Save the PDF file to the specified location
+
             $pdf->save($savePath);
 
             Mail::to($request->email)->send(new \App\Mail\Register($details, $savePath));
@@ -187,6 +195,7 @@ class AuthController extends Controller
             $ignore_admin_notification = ignoreAdminEmails();
 
             foreach ($admins_notification as $notify) {
+
                 /////////////// Admin Notification//////////
                 if (in_array($notify->email, $ignore_admin_notification))
                     continue;
@@ -684,6 +693,8 @@ class AuthController extends Controller
             'last_name' => 'required',
             'profile_pic' => 'mimes:jpeg,png,jpg,gif,pdf',
             'email' => 'required|email',
+            'billing_cycle' => 'required',
+            'surplus_amount' => 'required|numeric|lt:10000|gt:0',
             // 'dob' => 'date|before:'.$before,
         ], [
             'profile_pic.required' => 'Photo ID is required',
@@ -725,6 +736,8 @@ class AuthController extends Controller
         }
         $user->phone = $request->phone;
         $user->gender = $request->gender;
+        $user->billing_cycle = $request->billing_cycle;
+        $user->surplus_amount = $request->surplus_amount;
         // $user->date_of_withdrawal = $request->date_of_withdrawal;
         $user->email = $request->email;
         $res = $user->save();
