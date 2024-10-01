@@ -609,8 +609,6 @@ return $colors[$randomIndex];
                                     <label for="bank_ame" class="form-label">Bank Name</label>
                                     <input type="text" class="form-control" value="{{ $referral->bankAccount->bank_name }}" name="bank_name" id="bank_ame" placeholder="Bank name">
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="routing_aba" class="form-label">Routing ABA</label>
                                     <input type="text" class="form-control" value="{{ $referral->bankAccount->routing_aba }}" name="routing_aba" id="routing_aba" placeholder="Routing aba">
@@ -618,6 +616,21 @@ return $colors[$randomIndex];
                                 <div class="col-md-6 mb-3">
                                     <label for="account_number" class="form-label">Account Number</label>
                                     <input type="text" value="{{ $referral->bankAccount->account_number }}" class="form-control" name="account_number" id="account_number" placeholder="Account number">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="billing_cycle" class="form-label">Billing Cycle</label>
+                                    <select class="form-control p-2" id="billing_cycle" name="billing_cycle" required>
+                                        <option {{ $referral->bankAccount->billing_cycle == "1" ? 'selected' : '' }} value="1">1st of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "3" ? 'selected' : '' }} value="3">3rd of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "7" ? 'selected' : '' }} value="7">7th of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "14" ? 'selected' : '' }} value="14">14th of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "21" ? 'selected' : '' }} value="21">21st of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "28" ? 'selected' : '' }} value="28">28th of every Month </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="surplus_amount" class="form-label">Surpus Amount</label>
+                                    <input type="number" value="{{ $referral->bankAccount->surplus_amount }}" class="form-control" name="surplus_amount" id="surplus_amount" placeholder="Surplus amount">
                                 </div>
                             </div>
                             <button class="btn btn-primary m-1" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>

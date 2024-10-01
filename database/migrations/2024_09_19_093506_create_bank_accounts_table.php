@@ -19,6 +19,8 @@ class CreateBankAccountsTable extends Migration
             $table->string('bank_name')->nullable();
             $table->string('routing_aba')->nullable();
             $table->string('account_number')->nullable();
+            $table->string('billing_cycle')->nullable();
+            $table->decimal('surplus_amount')->nullable();
             $table->unsignedBigInteger('referral_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
