@@ -613,3 +613,33 @@ Route::get('join',function(){
     ];
     return view('document/joinder-pdf', $data);
 });
+Route::get('hipp',function(){
+    $data = [
+        "_token" => "lgapP2muQBcp2M7H0D815sEuMkreT1SHsmxfAg9v",
+        "referral_id" => "2",
+        "document_id" => "72",
+        "patient_name" => "Desirae Sears",
+        "dob" => "1980-06-16",
+        "ssn" => "98",
+        "address" => "Excepteur dignissimo",
+        "client_id" => "Cillum ut duis sint",
+        "disablity_number" => "597",
+        "name_address" => "Clare Mosley",
+        "released_info" => "medical_other",
+        "medical_record_from" => "1981-03-19",
+        "medical_record_to" => "1997-11-16",
+        "other" => "Possimus laborum R",
+        "init" => "Officiis cumque lore",
+        "auth_name" => "Natalie Mullen",
+        "alcoholDrugTreatment" => "alcoholDrugTreatment",
+        "mentalHealthInformation" => "mentalHealthInformation",
+        "hivRelatedInformation" => "hivRelatedInformation",
+        "other_indiviual_name" => "Savannah Le",
+        "person_signing" => "Molestias quae nostr",
+        "auth_info" => "Reiciendis in ad qui",
+        "hippa_state_signature" => "Error qui eu dolor",
+        "hippa_state_sign" => "C:\\xampp\\htdocs\\SLC\\SLC-Trust\\storage\\app/public/alihamza.dev4@gmail.com/hippa_state_sign20241001_081236.png",
+        "date_hippa_state" => "1987-01-17"
+    ];
+    return view('document/hippa-state-pdf', $data);
+});

@@ -33,6 +33,13 @@ return array(
         'Poppins-ExtraBold' => [
             'R'  => 'Poppins-ExtraBold.ttf',   
         ],
+        // hippa state pdf fonts
+        'TKLCCE-Info-Normal' => [
+            'R'  => 'TKLCCE-Info-Normal.ttf',   
+        ],
+        'TKLCCE-Info-SemiBold' => [
+            'B'  => 'TKLCCE-Info-SemiBold.ttf',   
+        ],
     ],
 
     /*
