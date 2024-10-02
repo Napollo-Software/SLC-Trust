@@ -34,7 +34,10 @@
 
 </style>
 <div class="">
-    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Add Referral</h5>
+    <h5 class=" d-flex justify-content-between pt-2 pb-2">
+        <b>Dashboard</b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
+    </h5>
     <form id="referralStoreForm">
         @csrf
         <div class="row">
@@ -363,7 +366,7 @@
                                     <label for="form-label">APT/SUITE</label>
                                     <input type="text" class="form-control" id="emergency_apt" name="emergency_apt">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-0">
                                     <input type="checkbox" id="live_with_parent" name="live_with_parent" value="1">
                                     <label for="option1 mb-1">Lives with parents</label>
                                 </div>

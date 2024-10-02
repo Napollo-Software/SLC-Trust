@@ -3,7 +3,9 @@
 @section('wrapper')
     @include('types.create')
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Add Account
+        <h5 class=" d-flex justify-content-between pt-2 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Vendor</b> </div>
         </h5>
         <div class="row">
 
@@ -11,12 +13,10 @@
                 <form class="mb-3" action="{{ route('store.vendors') }}" method="post">
                     @csrf
                     <div class="card  mb-xl-0">
-                        <div class="card-header">
-                            <div class="d-flex">
-                                <h4 class="col-md-11">Vendor Information</h4>
-                            </div>
-                        </div>
                         <div class="card-body">
+                            <div style="display: flex; padding-bottom: 3%">
+                                <h4>Vendor Information</h4>
+                            </div>
                             <div class="row-cols-lg-6">
                                 <label for="exampleFormControlInput1" class="form-label">Name<span
                                         class="text-danger">*</span></label>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Phone<span class="text-danger">*</span></h6>
+                                <label class="mb-0">Phone<span class="text-danger">*</span></label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control phone" placeholder="(___) ___-___" name="phone"
@@ -106,7 +106,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Website</h6>
+                                <label class="mb-0">Website</label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="url" class="form-control" placeholder="Website" name="website"
@@ -121,7 +121,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3 ">
-                                <h6 class="mb-0">Country<span class="text-danger">*</span></h6>
+                                <label class="mb-0">Country<span class="text-danger">*</span></label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <div class="form-group">
@@ -154,7 +154,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">State / Province<span class="text-danger">*</span></h6>
+                                <label class="mb-0">State / Province<span class="text-danger">*</span></label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <select id="SelectState" class="form-select select-2" name="state">
@@ -171,7 +171,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">City<span class="text-danger">*</span></h6>
+                                <label class="mb-0">City<span class="text-danger">*</span></label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control" placeholder="User City" name="city"
@@ -186,7 +186,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Zip Code<span class="text-danger">*</span></h6>
+                                <label class="mb-0">Zip Code<span class="text-danger">*</span></label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control" placeholder="Zip Code" maxlength="6"
@@ -201,7 +201,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Address 1<span class="text-danger">*</span></h6>
+                                <label class="mb-0">Address 1<span class="text-danger">*</span></label>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <textarea type="text" class="form-control" placeholder="Address" required
@@ -216,7 +216,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Address 2</h6>
+                                <label class="mb-0">Address 2</label>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <textarea type="text" class="form-control" placeholder="Address"
@@ -232,7 +232,7 @@
                         <div class="row pt-4">
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary update-bill-button" style="color: white;">
-                                    <i class="bx bx-save pb-1"></i>Add Account
+                                    <i class="bx bx-save pb-1"></i>Add Vendor
                                 </button>
                                 <a href="{{ url('/vendors') }}" class="btn btn-secondary"><i
                                         class="bx bx-window-close pb-1"></i>Close </a>

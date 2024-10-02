@@ -24,7 +24,10 @@
         }
     </style>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / All Contacts</h5>
+        <h5 class=" d-flex justify-content-between pt-2 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Contacts</b> </div>
+        </h5>
         <div class="row">
             <div class="col-lg-12 mb-12">
                 <div class="card">
@@ -44,30 +47,18 @@
                         <table class="table align-middle mb-0 table-hover dataTable">
                             <thead class="table-light">
                             <tr>
+                                <th class="text-center">Actions</th>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Contact Type</th>
                                 <th>Address</th>
                                 <th>Created By</th>
                                 <th>Created Date</th>
-                                <th class="text-center">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($contacts as $item)
                                 <tr class="row-{{ $item['id'] }}">
-                                    <td>
-                                        {{ $item->fname . ' ' . $item->lname }}
-                                    </td>
-                                    <td>
-                                        {{ $item->phone }}
-                                    </td>
-                                    <td>
-                                        {{ $item->designation->name }}
-                                    </td>
-                                    <td>{{ $item->address }}</td>
-                                    <td>{{ $item->created_by }}</td>
-                                    <td>{{ $item->created_at }} </td>
                                     <td class="text-center">
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -96,6 +87,19 @@
                                             </div>
                                         </div>
                                     </td>
+                                    <td>
+                                        {{ $item->fname . ' ' . $item->lname }}
+                                    </td>
+                                    <td>
+                                        {{ $item->phone }}
+                                    </td>
+                                    <td>
+                                        {{ $item->designation->name }}
+                                    </td>
+                                    <td>{{ $item->address }}</td>
+                                    <td>{{ $item->created_by }}</td>
+                                    <td>{{ $item->created_at }} </td>
+
                                 </tr>
                             @endforeach
                             </tbody>

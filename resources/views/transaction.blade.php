@@ -139,11 +139,12 @@
     </div>
     @if ($role != 'User')
         <div class="">
+            <h5 class=" d-flex justify-content-between pt-2 pb-2">
+                <b></b>
+               <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Overview</b> </div>
+            </h5>
             <div class="col-md-12">
                 <div style="display:flex">
-                    <div>
-                        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span></h5>
-                    </div>
                     <div style="margin-left:auto" class="d-none">
                         <button type="button" class="btn btn-primary p-2 mb-3" data-toggle="modal"
                             data-target="#filter-record">
