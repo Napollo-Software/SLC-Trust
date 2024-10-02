@@ -12,7 +12,10 @@
     $role = User::where('id', '=', Session::get('loginId'))->value('role');
     ?>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Edit Recurring Bill #{{ $claim->id}}
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/claim/recurring')}}" class="text-muted fw-light pointer"><b>All Recurring Bills</b></a> / <b>View Bill</b> </div>
+        </h5>
         </h5>
         <div class="row">
             <div class="col-xl-3" >
@@ -40,7 +43,7 @@
                                     @endif
                                   </a>
                               </div>
-                            </div> 
+                            </div>
                             {{-- <input class="form-control mt-3" name="claim_bill_attachment" type="file"
                                        id="formFileMultiple"> --}}
                         @if ($claim->recurred != "0")
@@ -51,7 +54,7 @@
                         @if ($claim->recurred == "0")
                         <div class="col-lg-12 pt-0 pb-2">
                           <b for="exampleFormControlInput1" class="form-label pt-2">Recurring Bill</b>
-                          <input class="manual-check-ctrl" {{ $claim->recurring_bill==1 ? 'checked' : ' ' }}  value="{{ 1 }}" name="recurring_bill" type="checkbox" 
+                          <input class="manual-check-ctrl" {{ $claim->recurring_bill==1 ? 'checked' : ' ' }}  value="{{ 1 }}" name="recurring_bill" type="checkbox"
                            id="recurring_bill" disabled>
                            <div class="col-lg-12 p-0 recurring">
                             <label for="exampleFormControlInput1" class="form-label">Billing Cycle*</label>
@@ -60,13 +63,13 @@
                               @for ($i = 1; $i <= 28; $i++)
                                   <option value="{{ $i }}" @if ($claim->recurring_day == $i) selected @endif>{{ $i }}{{ in_array($i % 100, [11, 12, 13]) ? 'th' : ($i % 10 == 1 ? 'st' : ($i % 10 == 2 ? 'nd' : ($i % 10 == 3 ? 'rd' : 'th'))) }} of every Month</option>
                               @endfor
-                           </select>                      
+                           </select>
                               <span class="text-danger">@error('recurring_day'){{$message}} @enderror</span>
                             </div>
                       </div>
                         @endif
                     </div>
-                </div>        
+                </div>
                 <div class="card mt-2">
                   <div class="card-header pb-0">
                     <h5 class="col-md-11">Recurring Bills</h5>
@@ -90,9 +93,9 @@
                         </tbody>
                       </table>
                     </div>
-                    
+
                   </div>
-                </div>       
+                </div>
             </div>
             <div class="col-md-9">
                 <div class="card mb-3">
@@ -183,7 +186,7 @@
                           <h6 class="mb-0">Bill Description</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="claim_description" 
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="claim_description"
                             @if ($claim->claim_status != 'Pending') disabled @endif     rows="3"
                                       @if ($role == "User") readonly @endif>{{ $claim->claim_description }}</textarea>
                             <span class="text-danger">@error('claim_description'){{$message}} @enderror</span>
@@ -266,7 +269,7 @@ $(document).on('submit','#update_bill',function(e){
     contentType : false,
     processData : false,
     cache : false,
-    success:function(data){ 
+    success:function(data){
           console.log(data.message);
           swal.fire(data.header,data.message,data.type);
           $('.claim-submit').text('Submit');

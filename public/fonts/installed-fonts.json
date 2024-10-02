@@ -22,5 +22,23 @@
     },
     "arial": {
         "normal": "arial_normal_f67d0e664f8f031d02fee677028d5f73"
+    },
+    "poppins-regular": {
+        "normal": "poppins_regular_normal_d4e7ffc6c0dd15c4f83f2a6fb9734d75"
+    },
+    "poppins-medium": {
+        "normal": "poppins_medium_normal_dee1b51f00c1d879a9cdcd76d85e7aa7"
+    },
+    "poppins-semibold": {
+        "normal": "poppins_semibold_normal_8b3165189ede54a5fec9b33361d564d2"
+    },
+    "poppins-bold": {
+        "normal": "poppins_bold_normal_a23439bbfc7f94a36c733a3dfc0bb6a6"
+    },
+    "poppins-italic": {
+        "normal": "poppins_italic_normal_fc0167a5e6efe61b54a2bd5bcfab5429"
+    },
+    "poppins-extrabold": {
+        "normal": "poppins_extrabold_normal_c441836c68343d41d36ecf9bb0a5db0f"
     }
 }

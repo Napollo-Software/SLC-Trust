@@ -78,19 +78,10 @@ return $colors[$randomIndex];
     <!-- CONTENT -->
 
     <!-- PAGE-HEADER -->
-    <div class="page-header m-0 fw-bold">
-        <div>
-            <h1 class="page-title">Referral ID:{{ $referral->id }}
-            </h1>
-        </div>
-        <div class="ms-auto pageheader-btn">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">Referrals</li>
-                {{-- <li class="breadcrumb-item"><a href="javascript:void(0);">File Manager</a></li> --}}
-                <li class="breadcrumb-item active" aria-current="page">View Referral</li>
-            </ol>
-        </div>
-    </div>
+    <h5 class=" d-flex justify-content-between pt-4 pb-2">
+        <b></b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referral</b></a> / <b>View Referral</b> </div>
+    </h5>
     <!-- PAGE-HEADER END -->
 
     <!-- ROW -->
@@ -103,8 +94,8 @@ return $colors[$randomIndex];
                             Referral</a>
                     </div> --}}
                 <div class="card-body p-2">
-                    <h4 class="mt-3">Referral ID:{{ $referral->id }}</h4>
-                    <ul class="nav1 nav-column flex-column br-7 p-3">
+                    <h4 class="mt-3 ml-3">Referral ID:{{ $referral->id }}</h4>
+                    <ul class="nav1 nav-column flex-column br-7">
                         <li class="nav-item1 mt-0 services-tab">
                             <a class="nav-link thumb active" onclick="showTab('services-card')">
                                 <i class="menu-icon tf-icons bx bx-layout "></i>
@@ -180,11 +171,11 @@ return $colors[$randomIndex];
                                 </div>
                                 <div class="ms-4">
                                     <h4 class="m-0">{{ $referral->full_name() }}</h4>
-                                    <p class="text-muted m-1">{{ $referral->email }}</p>
-                                    <span class="mx-1">
-                                        {{ $referral->created_at }}</span>
+                                    <p class="text-muted mt-1">{{ $referral->email }}</p>
+                                    <!--span class="mx-1">
+                                        {{ $referral->created_at }}</span-->
                                     <span href="#" class="">
-                                        {{ $referral->status }}</span>
+                                       Status: {{ $referral->status }}</span>
                                 </div>
                             </div>
                         </div>
@@ -502,7 +493,7 @@ return $colors[$randomIndex];
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <td>
+                                        <td style="width:10px">
                                             <input type="checkbox" {{ $checks->disability == 1 ? 'checked' : '' }} name="document_checkboxes1">
                                         </td>
                                         <td>DOH -5139 Disability FILLABLE Questionnaire</td>
@@ -633,8 +624,8 @@ return $colors[$randomIndex];
                                     <input type="number" value="{{ $referral->bankAccount->surplus_amount }}" class="form-control" name="surplus_amount" id="surplus_amount" placeholder="Surplus amount">
                                 </div>
                             </div>
-                            <button class="btn btn-primary m-1" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
-                            <button class="btn btn-primary m-1 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if($referral->convert_to_customer!=null)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
+                            <button class="btn btn-primary mt-2" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
+                            <button class="btn btn-primary mr-2 mt-2 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if($referral->convert_to_customer!=null)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
                         </form>
 
                     </div>
@@ -925,7 +916,7 @@ return $colors[$randomIndex];
                                 <table class="table table-bordered ">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center;">Select</th>
+                                            <th style="text-align: center; width:10px">Select</th>
                                             <th>Document Details</th>
                                         </tr>
                                     </thead>
@@ -963,7 +954,7 @@ return $colors[$randomIndex];
         <div class="card patient-card d-none" id="patientCard">
             <div class="card-body">
                 <div class="row align-items-center">
-                    <div class="wideget-user-tab">
+                    <div class="wideget-user-tab" style="margin-left:-10px !important; margin-top:-10px !important;">
                         <div class="tab-menu-heading">
                             <div class="tabs-menu1">
                                 <ul class="nav">

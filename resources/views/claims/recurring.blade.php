@@ -144,7 +144,10 @@
                 </div>
             </div>
             <div class="">
-                <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b>/ Recurring bills</span></h5>
+                <h5 class=" d-flex justify-content-between pt-3 pb-2">
+                    <b></b>
+                   <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Recurring Bills</b> </div>
+                </h5>
                 <div class="row">
                     <div class="col-lg-12 mb-12">
                         <div class="card">
@@ -164,7 +167,7 @@
                           <a class="dropdown-item" target="blank" href="{{ route('printpage') }}">PDF Format</a>
                           <a class="dropdown-item" target="blank" href="{{ route('printpage') }}">Excel/CSV Format</a>
                         </div> --}}
-                                </div> 
+                                </div>
                                 <div class="table-responsive text-nowrap overflow-auto pb-2">
                                     <table class="table align-middle mb-0 table-hover dataTable">
                                         <thead class="table-light">

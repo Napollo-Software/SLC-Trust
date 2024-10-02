@@ -34,8 +34,8 @@
 
 </style>
 <div class="">
-    <h5 class=" d-flex justify-content-between pt-2 pb-2">
-        <b>Dashboard</b>
+    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
     </h5>
     <form id="referralStoreForm">
@@ -196,7 +196,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="text-secondary">
-                                            <label class="form-label mb-1">Intake Coordinator<span class="text-danger">*</span></label>
+                                            <label class="form-label mb-1">Intake Coordinator<span class="text-danger"></span></label>
                                             <select id="intake" class="form-control select-2" name="intake">
                                                 <option disabled selected hidden>Intake Coordinator</option>
                                                 @foreach ($intakeCordinator as $coordinator)
@@ -212,7 +212,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-secondary">
-                                            <label class="form-label mb-1">Referral Marketer<span class="text-danger">*</span></label>
+                                            <label class="form-label mb-1">Referral Marketer<span class="text-danger"></span></label>
                                             <select id="marketer" class="form-control select-2" name="marketer">
                                                 <option disabled selected hidden>Referral Marketer</option>
                                                 @foreach ($intakeCordinator as $coordinator)

@@ -63,8 +63,8 @@ class AuthController extends Controller
                 $request->validate([
                     'name' => 'required',
                     'email' => 'required|email|unique:users',
-                    'billing_cycle' => 'required',
-                    'surplus_amount' => 'required|numeric|lt:10000|gt:0'
+                   // 'billing_cycle' => 'required',
+                   // 'surplus_amount' => 'required|numeric|lt:10000|gt:0'
                 ]);
             }
 

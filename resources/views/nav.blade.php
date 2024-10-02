@@ -194,13 +194,13 @@
 
     .btn-primary:hover {
         color: white;
-        background-color: #6c9ee8;
-        border-color: #6c9ee8;
+        background-color: #467f7b;
+        border-color: #3e726f;
     }
     .btn-primary:active {
         color: white;
-        background-color: #6c9ee8;
-        border-color: #6c9ee8;
+        background-color: #467f7b;
+        border-color: #3e726f;
     }
     .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle{
     background-color: #467f7b !important;
@@ -218,6 +218,12 @@
     .apexcharts-legend-series{
         display: none !important;
     }
+    .alert-success {
+    background-color: #467f7b !important;
+    border-color: #467f7b !important;
+    color: white !important;
+    }
+
     </style>
     <!--end switcher-->
 	<!-- Bootstrap JS -->

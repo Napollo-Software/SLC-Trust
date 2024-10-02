@@ -116,13 +116,19 @@
             margin:0px !important;
         }
 
+        hr{
+            margin-top:0px !important;
+            background-color: black !important;
+        }
+
 
 
         .custom-hr {
-            height: 6px;
+            height: 6px !important;
             /* Adjust the height as needed */
             border: none;
             background-color: black;
+            margin:0px !important;
             /* Adjust the color as needed */
         }
 
@@ -267,9 +273,9 @@
                         <div style="display: table-cell;padding-top:7px">
                             <input type="checkbox"
                                    name="medicaid_waiver_yes" {{isset($medicaid_waiver_yes) && $medicaid_waiver_yes == 'yes' ? 'checked' : ''}} style="vertical-align: bottom;">
-                            Yes
+                                   &nbsp;Yes 
                             <input type="checkbox"
-                                   name="medicaid_waiver_no" {{isset($medicaid_waiver_no) && $medicaid_waiver_no == 'no' ? 'checked' : ''}} style="vertical-align: bottom;">
+                                   name="medicaid_waiver_no" {{isset($medicaid_waiver_no) && $medicaid_waiver_no == 'no' ? 'checked' : ''}} style="vertical-align: bottom;margin-left:6px"> &nbsp;
                             No
                         </div>
                     </div>
@@ -420,13 +426,13 @@
         <tr style="padding:2px" class="sm">
             <td  colspan="3">
                 <p style="padding: 0 0px;margin: 0;" class="sm">
-                    A. Do you have a primary care provider? <input type="checkbox"
+                    A. Do you have a primary care provider? &nbsp;&nbsp; <input type="checkbox"
                                                                    name="primary_care_provider_yes"
                                                                    {{isset($primary_care_provider_yes) && $primary_care_provider_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom;">
-                    Yes
+                                                                   &nbsp;Yes 
                     <input type="checkbox"
                            name="primary_care_provider_no"
-                           {{isset($primary_care_provider_no) && $primary_care_provider_no == 'no' ? 'checked':''}} style="vertical-align: bottom">
+                           {{isset($primary_care_provider_no) && $primary_care_provider_no == 'no' ? 'checked':''}} style="vertical-align: bottom; margin-left:6px"> &nbsp;
                     No
                 </p>
                 <p class="sm" style="margin-left:10px;padding-left:10px; margin-top:4px">(If “Yes”, please provide name, address, phone number.)</p>
@@ -443,13 +449,13 @@
         </tr>
         <tr style="height: 15px !important;padding:2px !important;" class="sm">
             <td style="height: 15px !important;padding:0 5px!important;" class="sm" colspan="3">
-                B. Have you seen any other medical provider(s) within the past 12 months? <input
+                B. Have you seen any other medical provider(s) within the past 12 months? &nbsp;&nbsp; <input
                     type="checkbox"
                     {{isset($medical_provider_yes) && $medical_provider_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom">
-                Yes
+                    &nbsp;Yes 
                 <input
                     type="checkbox"
-                    {{isset($medical_provider_no) && $medical_provider_no == 'no' ? 'checked':''}} style="vertical-align: bottom">No
+                    {{isset($medical_provider_no) && $medical_provider_no == 'no' ? 'checked':''}} style="vertical-align: bottom;margin-left:6px"> &nbsp;No
                 <br>
 
                 <p style="padding: 0 ;margin: 0;" class="sm">(If “Yes”, please complete the section below.)</p><br>
@@ -550,13 +556,13 @@
         <!-- Second................. -->
         <tr style="height: 15px !important;padding:2px !important;" class="sm">
             <td style="height: 15px !important;padding:0 5px!important;" class="sm" colspan="3">
-                C. Have you received medical care in a hospital or other health care facility within the past 12 months? <input
+                C. Have you received medical care in a hospital or other health care facility within the past 12 months?&nbsp;  &nbsp;  <input
                     type="checkbox"
-                    {{isset($got_medicare_yes) && $got_medicare_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom">
-                Yes
+                    {{isset($got_medicare_yes) && $got_medicare_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom"> 
+                    &nbsp;  Yes 
                 <input
                     type="checkbox"
-                    {{isset($got_medicare_no) && $got_medicare_no == 'no' ? 'checked':''}} style="vertical-align: bottom">No
+                    {{isset($got_medicare_no) && $got_medicare_no == 'no' ? 'checked':''}} style="vertical-align: bottom; margin-left:6px"> &nbsp;  No
                 <br>
 
                 <p style="padding: 0 ;margin: 0;" class="sm">(If “Yes”, please complete the section below.)</p><br>
@@ -656,15 +662,15 @@
             <td style="height: 15px !important;padding:0 5px!important;" class="sm" colspan="3">
                 D. Have you received services from any agencies to assist you with your
                     impairment(s) within the
-                    past 12 months <input
+                    past 12 months &nbsp;&nbsp; <input
                     type="checkbox"
                      name="agency_assist_yes"
                     {{isset($agency_assist_yes) && $agency_assist_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom">
-                Yes
+                    &nbsp; Yes 
                 <input
                     type="checkbox"
                      name="agency_assist_no"
-                    {{isset($agency_assist_no) && $agency_assist_no == 'no' ? 'checked':''}} style="vertical-align: bottom">No
+                    {{isset($agency_assist_no) && $agency_assist_no == 'no' ? 'checked':''}} style="vertical-align: bottom;margin-left:6px">&nbsp; No
                 <br>
 
                 <p style="padding: 0 ;margin: 0;" class="sm">(If “Yes”, please complete the section below.)</p><br>
@@ -805,114 +811,106 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3" class="sm">
-                C. Were (are) you involved in Special Education classes in school?
+            <td colspan="3" class="sm" >
+                C. Were (are) you involved in Special Education classes in school? &nbsp;&nbsp;
                 <input  class="sm"  type="checkbox"
                        name="special_education_yes"
                        {{isset($special_education_yes) && $special_education_yes == 'yes' ? 'checked':''}}   style="vertical-align: bottom">
-                Yes
+                       &nbsp;Yes 
                 <input class="sm" type="checkbox"
                        name="special_education_no"
-                       {{isset($special_education_no) && $special_education_no == 'no' ? 'checked':''}}   style="vertical-align: bottom">
+                       {{isset($special_education_no) && $special_education_no == 'no' ? 'checked':''}}   style="vertical-align: bottom;margin-left:6px"> &nbsp;
                 No
             </td>
         </tr>
         <tr>
-            <td colspan="3">
-                <p>D. Did (do) you receive any special help or accommodations in school? <input
+            <td colspan="3" class="sm">
+                <p style="margin-top:3px !important;">D. Did (do) you receive any special help or accommodations in school? &nbsp;&nbsp; <input
                         type="checkbox"
                         name="special_help_yes"
                         {{isset($special_help_yes) && $special_help_yes == 'yes' ? 'checked':''}}  style="vertical-align: bottom">
-                    Yes <input type="checkbox"
+                        &nbsp;Yes  <input type="checkbox"
                                name="special_help_no"
-                               {{isset($special_help_no) && $special_help_no == 'no' ? 'checked':''}}  style="vertical-align: bottom">
-                    No
-                <p>
-                    (If “Yes”, please describe.)
-                </p>
-
-                <textarea class="border-btm"
-                          name="special_help_text" style="height: 80px;">{{$special_help_text}} </textarea>
-                <p>(If you have a copy of your IEP, please include it with the returned forms.)
+                               {{isset($special_help_no) && $special_help_no == 'no' ? 'checked':''}}  style="vertical-align: bottom; margin-left:6px"> &nbsp;
+                    No   &nbsp; &nbsp; (If “Yes”, please describe.)
+                    <p style="margin-top:-15px !important;padding-top:-15px !important" ></p>
+                <textarea class=""
+                          name="special_help_text" style="height: 100px;">{{$special_help_text}} </textarea>
+                <p style="margin-left:10px;">(If you have a copy of your IEP, please include it with the returned forms.)
                 </p>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
-                <p>
+            <td colspan="3" class="sm">
+                <p style="margin-top:3px !important;margin-bottom:3px !important">
                     E. Have you received any vocational training or additional education within
-                    the past 12 months?
-                    <br>
+                    the past 12 months? &nbsp; &nbsp;
                     <input type="checkbox"
                            name="vocational_training_yes"
                            {{isset($vocational_training_yes) && $vocational_training_yes == 'yes' ? 'checked':''}}  style="vertical-align: bottom">
-                    Yes <input type="checkbox"
+                    &nbsp; Yes <input type="checkbox"
                                name="vocational_training_no"
-                               {{isset($vocational_training_no) && $vocational_training_no == 'no' ? 'checked':''}}  style="vertical-align: bottom">
-                    No
+                               {{isset($vocational_training_no) && $vocational_training_no == 'no' ? 'checked':''}}  style="vertical-align: bottom; margin-left:6px">
+                    &nbsp; No 
                     <br>
-                    (If “Yes”, please describe.)
-                    <br>
-
+                    <p style="margin-left:10px; margin-top:3px !important">
+                        (If “Yes”, please describe.)
+                    </p>
                 </p>
 
                 <textarea class="noborder"
-                          name="vocational_training_text" style="height: 80px;">{{$vocational_training_text}}</textarea>
+                          name="vocational_training_text" style="height: 155px;">{{$vocational_training_text}}</textarea>
 
             </td>
         </tr>
         <tr>
-            <td colspan="3">
-                <p>
+            <td colspan="3" class="sm">
+                <p style="margin-top:3px !important; margin-bottom:3px !important">
                     F. Can you read a simple message in any language (such as simple
                     instructions, or a list of
-                    items)?
-                    <br>
+                    items)? &nbsp; &nbsp;
                     <input type="checkbox"
                            name="simple_message_yes"
                            {{isset($simple_message_yes) && $simple_message_yes== 'yes' ? 'checked':''}}  style="vertical-align: bottom">
-                    Yes <input type="checkbox"
+                           &nbsp; Yes <input type="checkbox"
                                name="simple_message_no"
-                               {{isset($simple_message_no) && $simple_message_no == 'no' ? 'checked':''}}  style="vertical-align: bottom">
-                    No
+                               {{isset($simple_message_no) && $simple_message_no == 'no' ? 'checked':''}}  style="vertical-align: bottom; margin-left:6px">
+                               &nbsp; No
                     <br>
                 </p>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
-                G. Can you write a simple message in any language?
-                <br>
+            <td colspan="3" class="sm">
+                G. Can you write a simple message in any language?  &nbsp; &nbsp;
                 <input type="checkbox"
                        name="write_simple_message_yes"
                        {{isset($write_simple_message_yes) && $write_simple_message_yes == 'yes' ? 'checked':''}}  style="vertical-align: bottom">
-                Yes <input type="checkbox"
+                       &nbsp; Yes <input type="checkbox"
                            name="write_simple_message_no"
-                           {{isset($write_simple_message_no) && $write_simple_message_no == 'no' ? 'checked':''}}  style="vertical-align: bottom">
-                No
-                <br>
+                           {{isset($write_simple_message_no) && $write_simple_message_no == 'no' ? 'checked':''}}  style="vertical-align: bottom; margin-left:6px">
+                           &nbsp; No
             </td>
         </tr>
         <tr>
-            <td colspan="3">
-                <p>
-                    H. Was assistance or an interpreter necessary to complete this application?
-                    <br>
-                    <input type="checkbox"
+            <td colspan="3" class="sm">
+                <p style="margin-top:3px !important;margin-bottom:3px !important">
+                    H. Was assistance or an interpreter necessary to complete this application?  &nbsp; &nbsp;
+                    <input type="checkbox" 
                            name="interpreter_yes"
                            {{isset($interpreter_yes) && $interpreter_yes == 'yes' ? 'checked':''}}  style="vertical-align: bottom">
-                    Yes <input type="checkbox"
+                           &nbsp; &nbsp; Yes <input type="checkbox"
                                name="interpreter_no"
-                               {{isset($interpreter_no) && $interpreter_no == 'no' ? 'checked':''}}  style="vertical-align: bottom">
-                    No
+                               {{isset($interpreter_no) && $interpreter_no == 'no' ? 'checked':''}}  style="vertical-align: bottom;margin-left:6px">
+                               &nbsp; &nbsp; No
                     <br>
-                    <br>
-                    (If “Yes”, please indicate your primary language.)
+                    <p style="margin-left:10px ;margin-top:3px !important;">(If “Yes”, please indicate your primary language.)</p>
+                    
 
                 </p>
 
                 <textarea class="noborder"
-                          name="interpreter_text" style="height: 80px;">{{$interpreter_text}}</textarea>
+                          name="interpreter_text" style="height: 185px;">{{$interpreter_text}}</textarea>
             </td>
         </tr>
     </table>

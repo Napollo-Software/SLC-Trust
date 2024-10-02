@@ -7,7 +7,10 @@
             }
 </style>
 <div class="">
-    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / All Referrals</h5>
+    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <b></b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Reports</b> </div>
+    </h5>
     <div class="row">
         <div class="col-lg-12 mb-12">
             <div class="">
