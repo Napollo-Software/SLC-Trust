@@ -6,6 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Map</title>
     <style>
+
+        @font-face {
+            font-family: 'APEFNO-Arial-BoldMT';
+            src: url('fonts/APEFNO-Arial-BoldMT.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'HEEJYJ-Arial_2';
+            src: url('fonts/HEEJYJ-Arial_2.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'HEEJYJ-Arial';
+            src: url('fonts/HEEJYJ-Arial.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'KEESCU-ArialMT';
+            src: url('fonts/KEESCU-ArialMT.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ARIALBI';
+            src: url('fonts/ARIALBI.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ArialCEMTBlack';
+            src: url('fonts/ArialCEMTBlack.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ArialMdm';
+            src: url('fonts/ArialMdm.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ARIAL';
+            src: url('fonts/ARIAL.ttf') format('truetype');
+        }
+
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -13,6 +48,7 @@
         }
         *{
             font-size: 12px;
+            font-family: "ARIAL"
         }
 
         th, td {
@@ -58,7 +94,7 @@
         <h4>
             AUTHORIZATION TO RELEASE MEDICAL INFORMATION
 
-            <img src="{{public_path('/images/nyc.png')}}" alt="NYC" style="max-width: 50%; height: 50px;">
+            <img src="{{public_path('/images/nyc.png')}}" alt="NYC" style="max-width: 120%; height: 120px;">
         </h4>
 
     </div>

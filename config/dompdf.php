@@ -66,6 +66,36 @@ return array(
         'times new roman italic' => [
             'I'  => 'times new roman italic.ttf',   
         ],
+
+        // map pdf fonts
+
+        'APEFNO-Arial-BoldMT' => [
+            'R'  => 'APEFNO-Arial-BoldMT.ttf',   
+        ],
+        'HEEJYJ-Arial_2' => [
+            'B'  => 'HEEJYJ-Arial_2.ttf',   
+        ],
+        'HEEJYJ-Arial' => [
+            'R'  => 'HEEJYJ-Arial.ttf',   
+        ],
+        'KEESCU-ArialMT' => [
+            'R'  => 'KEESCU-ArialMT.ttf',   
+        ],
+
+        'ARIALBI' => [
+            'R'  => 'ARIALBI.ttf',   
+        ],
+        'ArialCEMTBlack' => [
+            'B'  => 'ArialCEMTBlack.ttf',   
+        ],
+        'ArialMdm' => [
+            'R'  => 'ArialMdm.ttf',   
+        ],
+        'ARIAL' => [
+            'R'  => 'ARIAL.ttf',   
+        ],
+        
+
     ],
 
     /*

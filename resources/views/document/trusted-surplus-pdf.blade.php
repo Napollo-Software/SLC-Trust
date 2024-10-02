@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Map</title>
     <style>
-         /* @font-face {
+         @font-face {
             font-family: 'Poppins-Regular';
             src: url('fonts/Poppins-Regular.ttf') format('truetype');
         }
@@ -30,7 +30,7 @@
         @font-face {
             font-family: 'Poppins-ExtraBold';
             src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');
-        } */
+        }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -39,20 +39,8 @@
 
         * {
             font-size: 12px;
+            
         }
-
-        th,
-        td {
-            /* border: 1px solid black; */
-            padding: 8px;
-            font-size: 10px;
-            /* text-align: center; */
-        }
-
-        tr:first-child th {
-            font-size: 12px;
-        }
-
         /* .content {
 
             flex-direction: column;
@@ -134,53 +122,42 @@ footer img {
         </div>
      <div>
         <div>
-            <h2 style="text-align: center;font-size: 20px;margin-top:0;margin-bottom: 0;">
-                Trusted Surplus Solution
-            </h2>
-            <p style="text-align: center;">VERIFICATION OF DEPOSITS</p>
+            <p style="text-align: center;font-size: 30px;margin-top:0;margin-bottom: 0;font-family: Poppins-Bold;line-height:1">
+                Senior Life Care
+            </p>
+            <p style="text-align: center;font-family: 'Poppins-Regular';font-size:14px;margin:0;line-height:1">VERIFICATION OF DEPOSITS</p>
 
         </div>
         <div style="">
             <div style="">
-                <div style="font-weight: bold;text-align:right;">
+                <div style="text-align:right;">
                     {{-- <p>Date: {{ date('m/d/Y') }}</p>
                     <p>Account: {{ $user->id }}</p>
                     <p>Status: Active</p> --}}
 
-                    <p style="line-height: 1.8;margin:0">Date: 05/09/2024</p>
-                    <p style="line-height: 1.8;margin:0">Account: 99554</p>
-                    <p style="line-height: 1.8;margin:0">Status: Active</p>
+                    <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Date: 05/09/2024</p>
+                    <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Account: 99554</p>
+                    <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Status: Active</p>
 
 
                 </div>
-                <div style="font-weight: bold;">
-                    <p style="line-height: 1.8;margin:0">Erica McLeod</p>
-                    <p style="line-height: 1.8;margin:0">126-02 Locust Manor Lane</p>
-                    <p style="line-height: 1.8;margin:0">Apartment #2A</p>
-                    <p style="line-height: 1.8;margin:0">Queens, NY, 11434</p>
+                <div>
+                    <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Erica McLeod</p>
+                    <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">126-02 Locust Manor Lane</p>
+                    <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Apartment #2A</p>
+                    <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Queens, NY, 11434</p>
                 </div>
             </div>
             <div style="text-align: center">
                 {{-- <p>{{ date('m/d/Y', strtotime($transaction->created_at)) }}</p> --}}
-                <p>04/29/2024 - 04/28/2025</p>
+                <p style="font-family: 'Poppins-SemiBold';font-size:14px">04/29/2024 - 04/28/2025</p>
             </div>
             <table style="width: 100%;">
-                <tr style="background-color:#aaa">
-                    {{-- <td colspan="1">DATE</td>
-                    <td colspan="1">TRANS. TYPE</td>
-                    <td colspan="1">DESCRIPTION</td>
-                    <td colspan="1">TYPE</td>
-                    <td colspan="1">AMOUNT</td> --}}
-
-
-                    <td colspan="1" style="color: white;font-size:16px">DATE</td>
-                    <td colspan="1" style="color: white;font-size:16px">TRANS. TYPE</td>
-                    <td colspan="1" style="color: white;font-size:16px">DESCRIPTION</td>
-                    <td colspan="1" style="color: white;font-size:16px">DEBIT</td>
-                    
-
-
-
+                <tr style="background-color:#999;vertical-align:middle">
+                    <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;padding-left:5px">DATE</span></td>
+                    <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">TRANS. TYPE</span></td>
+                    <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DESCRIPTION</span></td>
+                    <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DEBIT</span></td>
                 </tr>
                 {{-- <tr>
                     <td colspan="1">
@@ -204,17 +181,17 @@ footer img {
 
 
                 <tr>
-                    <td colspan="1">
-                        <label>04/29/2024</label>
+                    <td colspan="1" style="padding-left:5px">
+                        <label style="font-family: 'Poppins-Regular';font-size:14px">04/29/2024</label>
                     </td>
                     <td colspan="1">
-                        <label>Required Monthly Surplus</label>
+                        <label style="font-family: 'Poppins-Regular';font-size:14px">Required Monthly Surplus</label>
                     </td>
                     <td colspan="1">
-                        <label>April 2024</label>
+                        <label style="font-family: 'Poppins-Regular';font-size:14px">April 2024</label>
                     </td>
-                    <td colspan="1">
-                        <label>$204.00</label>
+                    <td style="text-align: end;" colspan="1">
+                        <label style="font-family: 'Poppins-Regular';font-size:14px">$204.00</label>
                     </td>
                     {{-- <td colspan="1">
                         <label>
@@ -223,17 +200,17 @@ footer img {
                     </td> --}}
                 </tr>
                 <tr>
-                    <td colspan="1">
-                        <label>05/02/2024</label>
+                    <td colspan="1" style="padding-left:5px">
+                        <label style="font-family: 'Poppins-Regular';font-size:14px">05/02/2024</label>
                     </td>
                     <td colspan="1">
-                        <label>Initial Fee</label>
+                        <label style="font-family: 'Poppins-Regular';font-size:14px">Initial Fee</label>
                     </td>
                     <td colspan="1">
-                        <label>Enrollment</label>
+                        <label style="font-family: 'Poppins-Regular';font-size:14px">Enrollment</label>
                     </td>
-                    <td colspan="1">
-                        <label>$250.00</label>
+                    <td style="text-align: end;" colspan="1">
+                        <label style="font-family: 'Poppins-Regular';font-size:14px">$250.00</label>
                     </td>
                 </tr>
 
@@ -246,21 +223,27 @@ footer img {
     <div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:30px">
         <div style="width: 100%;">
             <div style="width: 25%; float: left">
-                <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span>
-                <span style="font-family:Poppins-Regular">718.500.3235</span>
+                {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span> --}}
+                 <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/tel.png') }}" alt="int" width="20px" height="20px">
+                <span style="font-family:Poppins-Regular;">718.500.3235</span>
             </div>
             <div style="width: 45%; float: left;text-align: center">
-                <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Address:</span>
+                {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Address:</span> --}}
+                <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/address.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular">5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
             </div>
             <div style="width: 25%; float: right; text-align: right;">
-                <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span>
+                {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span> --}}
+                <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/mail.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular">info@slctrusts.org</span>
             </div>
     
         </div>
         <div>
-            <p style="width: 95%;text-align: center;font-family:Poppins-Regular;">www.seniorlifecaretrusts.org</p>
+            <img style="position: relative;top: 38px;right: 38%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
+            <p style="width: 95%;text-align: center;font-family:Poppins-Regular;">
+                www.seniorlifecaretrusts.org
+            </p>
        </div>
     </div>
    
