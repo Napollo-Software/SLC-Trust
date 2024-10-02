@@ -197,13 +197,13 @@ return $colors[$randomIndex];
                     <div class="wideget-user-tab">
                         <div class="tab-menu-heading d-flex justify-content-between align-items-center flex-md-row flex-column px-md-3">
                             <div class="tabs-menu1 order-md-1 order-2 ">
-                                <ul class="nav py-3 ">
-                                    <li ><a href="#esignCard" data-bs-toggle="tab" class="active p-0 mx-2 mb-sm-0 mb-3">E-sign</a>
+                                <ul class="nav py-3 px-3">
+                                    <li ><a href="#esignCard" data-bs-toggle="tab" class="active p-0 px-2  mb-sm-0 mb-3">E-sign</a>
                                     </li>
-                                    <li ><a href="#documentCard" data-bs-toggle="tab" class="p-0 mx-2 mb-sm-0 mb-3">Documents</a>
+                                    <li ><a href="#documentCard" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0 mb-3">Documents</a>
                                     </li>
-                                    <li ><a href="#checkList" data-bs-toggle="tab" class="p-0 mx-2 mb-sm-0 mb-3">Checklist</a></li>
-                                    <li ><a href="#financeCard" data-bs-toggle="tab" class="p-0 mx-2 mb-sm-0 mb-3">Finance</a></li>
+                                    <li ><a href="#checkList" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0 mb-3">Checklist</a></li>
+                                    <li class="mb-0"><a href="#financeCard" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0  ">Finance</a></li>
                                 </ul>
                             </div>
                             <div class="order-md-2 order-1 pt-md-0 pt-3 pl-3 status-field mx-2" style=" ">
