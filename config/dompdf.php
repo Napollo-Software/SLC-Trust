@@ -53,6 +53,16 @@ return array(
         'TKLCCE-Info-SemiBold' => [
             'B'  => 'TKLCCE-Info-SemiBold.ttf',   
         ],
+        // courier
+        'times new roman' => [
+            'R'  => 'times new roman.ttf',   
+        ],
+        'times new roman bold' => [
+            'B'  => 'times new roman bold.ttf',   
+        ],
+        'times new roman italic' => [
+            'I'  => 'times new roman italic.ttf',   
+        ],
     ],
 
     /*

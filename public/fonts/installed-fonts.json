@@ -1,17 +1,11 @@
 {
-    "tklcce-info-normal": {
-        "normal": "tklcce_info_normal_normal_3a43954c0f9a5421d7f4ddeb648d9d18"
+    "times new roman": {
+        "normal": "times_new_roman_normal_2b41e7e6f9a863ef281e4d7c709dc663"
     },
-    "tklcce-info-semibold": {
-        "normal": "tklcce_info_semibold_normal_b00b4db0231036e7fecb7b5c7ef4570e"
+    "times new roman bold": {
+        "normal": "times_new_roman_bold_normal_6dc8eb08b4b0314766c7ce70cedf3cb2"
     },
-    "info-normal": {
-        "normal": "info_normal_normal_8e9bee386a7e2af567dabf06015647b3"
-    },
-    "info-bold": {
-        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
-    },
-    "info-semibold": {
-        "normal": "info_semibold_normal_3461e18117e484083763c0fd75d810d8"
+    "times new roman italic": {
+        "normal": "times_new_roman_italic_normal_586a3ba9526edf6111343dbb0e20bc4d"
     }
 }

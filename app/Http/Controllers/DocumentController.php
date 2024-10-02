@@ -494,7 +494,7 @@ class DocumentController extends Controller
         ->setOption([
             'fontDir' => public_path('/fonts'),
             'fontCache' => public_path('/fonts'),
-            'defaultFont' => 'Nominee-Black'
+            'defaultFont' => 'Courier'
         ])
         ->setPaper('A4', 'portrait');
 
