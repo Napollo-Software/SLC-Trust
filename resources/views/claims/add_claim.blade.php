@@ -6,7 +6,10 @@
     $role = User::where('id', '=', Session::get('loginId'))->value('role');
     ?>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Add Bill</h5>
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Bill</b> </div>
+        </h5>
         <div class="row">
             <div class="col-lg-12 mb-12">
                 <div class="card">
@@ -163,7 +166,7 @@
                                     @for ($i = 1; $i <= 28; $i++)
                                         <option value="{{ $i }}" >{{ $i }}{{ in_array($i % 100, [11, 12, 13]) ? 'th' : ($i % 10 == 1 ? 'st' : ($i % 10 == 2 ? 'nd' : ($i % 10 == 3 ? 'rd' : 'th'))) }} of every Month</option>
                                     @endfor
-                                </select>                                
+                                </select>
                                     <span class="text-danger">@error('recurring_day'){{$message}} @enderror</span>
                             </div>
                     </div>
@@ -202,7 +205,7 @@ $(document).on('submit', '#add_claim', function(e) {
             if (data.type == 'success') {
                 $('#add_claim').trigger('reset');
                 $('.select-2').val(null).trigger('change');
-            } 
+            }
             $('.claim-submit').attr('disabled', false);
         },
         error: function(xhr) {

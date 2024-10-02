@@ -13,13 +13,10 @@ use App\Mail\Email;
 class sendEmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    
     public $subject,$name,$email_message,$urls;
     protected $send_mail;
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
+
     public function __construct($send_mail,$subject,$name,$email_message,$urls)
     {
         $this->send_mail = $send_mail;
@@ -29,11 +26,6 @@ class sendEmailJob implements ShouldQueue
         $this->urls = $urls;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle()
     {
         $email = new Email($this->subject,$this->name,$this->email_message,$this->urls);

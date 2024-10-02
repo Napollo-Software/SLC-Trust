@@ -30,9 +30,18 @@
         font-weight:normal !important;
         white-space: nowrap !important;
     }
+    td{
+        font-size:14px !important;
+    }
+    h4{
+        font-size: 1.01rem !important;
+    }
     h5{
         font-weight:normal !important;
         font-size: 1.01rem !important;
+    }
+    .search-bar-padding{
+        height:40px !important;
     }
 </style>
 <div class="primary-menu">
@@ -245,16 +254,16 @@
                             </li>
                             @endif --}}
                             @if ($user->hasPermissionTo('Bank Reconciliation'))
-                            <li class="nav-item dropend">
+                            {{-- <li class="nav-item dropend">
                                 <a class="dropdown-item  {{  in_array(Route::currentRouteName() ,['bank.reconciliation','bank.reconciliation.filter']) ? 'open active' : ''  }}" href="{{ route('bank.reconciliation') }}"><i class="bx bx-arch"></i>Bank
                                     Reconciliation</a>
-                            </li>
+                            </li> --}}
                             @endif
                             @if ($user->hasPermissionTo('Monthly Statement'))
-                            <li class="nav-item dropend">
+                            {{-- <li class="nav-item dropend">
                                 <a class="dropdown-item  {{ in_array(Route::currentRouteName() ,['monthly.statement','monthly.filter']) ? 'open active' : '' }}" href="{{ route('monthly.statement') }}"><i class="bx bx-book-bookmark"></i>Monthly
                                     Statement</a>
-                            </li>
+                            </li> --}}
                             @endif
                             @if ($user->hasPermissionTo('Transactions'))
                             <li class="nav-item dropend">

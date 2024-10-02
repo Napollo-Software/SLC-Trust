@@ -21,7 +21,7 @@
 
     </head>
     <div class="">
-        <h5 class=" d-flex justify-content-between pt-2 pb-2">
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
             <b></b>
            <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Referrals</b> </div>
         </h5>
@@ -48,11 +48,12 @@
                                     <th>Actions</th>
                                     <!--th>ID</th-->
                                     <th>Full name</th>
+                                    <th>Convert to Customer</th>
                                     <!-- TODO:/NEED TO BE DONE -->
                                     <!-- <th>Intake status</th> -->
-                                    <th>Intake coordinator</th>
+                                    <!--th>Intake coordinator</th-->
                                     <!--th>Follow Up note</th-->
-                                    <th>Follow up Date</th>
+                                    <!--th>Follow up Date</th-->
 
                                     <!-- <th>Open services</th> -->
                                     <th>Modified Date</th>
@@ -62,7 +63,6 @@
                                     <th>Case type</th>
                                     <th>Admission date</th>
                                     <th>Created by</th>
-                                    <th>Convert</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -105,16 +105,26 @@
                                             style="cursor: pointer;">
                                             <div class="d-flex align-items-center">
                                                 <div class="">
-                                                    <small> {{ $u['first_name'] }} {{ $u['last_name'] }}</small> <br>
+                                                     {{ $u['first_name'] }} {{ $u['last_name'] }} <br>
                                                 </div>
                                             </div>
                                         </td>
+                                        <td>
+                                            <button type="button" data-id="{{ $u['id'] }}"
+                                                    class=" @if ($u->convert_to_customer == null) btn btn-primary p-1 convert-btn custom-design-{{ $u['id'] }} @else dropdown-item @endif ">
+                                                @if ($u->convert_to_customer == null)
+                                                    <i class="bx bx-analyse me-1"></i>Convert to customer
+                                                @else
+                                                    Converted to customer
+                                                @endif
+                                            </button>
+                                        </td>
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">OPEN</td> -->
-                                        <td>{{ $u->intake }}</td>
+                                        <!--td>{{ $u->intake }}</td-->
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">{{ $u['date_of_birth'] }}</td> -->
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;"><b>Country:</b>{{ $u['country'] }} <br> -->
                                         <!-- <b> City:</b>{{ $u['city'] }} -->
-                                        <td>{{ $u->referralFollowup->date }}</td>
+                                        <!--td>{{ $u->referralFollowup->date }}</td-->
                                         <!--td>{{ $u->referralFollowup->note }}</td-->
 
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">{{ $u['medicaid_number'] }}</td> -->
@@ -159,6 +169,9 @@
                                                 @case('walk_in')
                                                     <b>Walk In</b>
                                                     @break
+                                                @case('Manual')
+                                                <b>Manual</b>
+                                                @break
 
                                                 @default
                                                     N/A
@@ -201,16 +214,6 @@
                                         <td>{{ $u->case_type }}</td>
                                         <td>{{ us_date_format($u->admission_date) }}</td>
                                         <td>{{ $u->created_by }}</td>
-                                        <td>
-                                            <button type="button" data-id="{{ $u['id'] }}"
-                                                    class=" @if ($u->convert_to_customer == null) btn btn-primary p-1 convert-btn custom-design-{{ $u['id'] }} @else dropdown-item @endif ">
-                                                @if ($u->convert_to_customer == null)
-                                                    <i class="bx bx-analyse me-1"></i>Convert to customer
-                                                @else
-                                                    Converted to customer
-                                                @endif
-                                            </button>
-                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

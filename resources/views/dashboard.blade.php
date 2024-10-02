@@ -71,7 +71,10 @@
     </div>
 </div>
 <div class="">
-    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b>/ All Bills</span></h5>
+    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <b></b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Bills</b> </div>
+    </h5>
     @if (( $role != 'User'))
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
         <div class="col">
@@ -187,6 +190,7 @@
                         <table class="table align-middle mb-0 table-hover dataTable ">
                             <thead class="table-light">
                                 <tr>
+                                    <th>Actions</th>
                                     <th>Title</th>
                                     <th>User</th>
                                     <th>Date</th>
@@ -198,12 +202,34 @@
                                     <th>Balance</th>
                                     <th>Amount</th>
                                     <th>Attachment</th>
-                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($claim_details as $claim)
                                 <tr class="row-{{ $claim['id'] }}">
+                                    <td style="vertical-align: middle;">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                <i class="menu-icon tf-icons bx bx-cog"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="claims/{{ $claim['id'] }}"><i class="bx bx-menu me-1"></i>Status</a>
+                                                @if ($role != 'User')
+                                                <a class="dropdown-item" href="edit-bill/{{ $claim['id'] }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                @endif
+                                                @if ($role != 'User')
+                                                <form action="{{ action('App\Http\Controllers\claimsController@destroy', $claim['id']) }} " id="delete_bill" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <input type="hidden" name="id" value="{{ $claim['id'] }}">
+                                                    <button class="dropdown-item deleteBtn" id="{{ $claim['id'] }}">
+                                                        <i class="bx bx-trash me-1"></i> Delete
+                                                    </button>
+                                                </form>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td style="vertical-align: middle;"><a href="claims/{{ $claim['id'] }}">Bill#{{ str_pad($claim['id'], 2, '0', STR_PAD_LEFT) }}</a>
                                     </td>
                                     <td style="vertical-align: middle;">
@@ -271,29 +297,7 @@
                                         </a>
 
                                     </td>
-                                    <td style="vertical-align: middle;">
-                                        <div class="dropdown">
-                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                <i class="menu-icon tf-icons bx bx-cog"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="claims/{{ $claim['id'] }}"><i class="bx bx-menu me-1"></i>Status</a>
-                                                @if ($role != 'User')
-                                                <a class="dropdown-item" href="edit-bill/{{ $claim['id'] }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                @endif
-                                                @if ($role != 'User')
-                                                <form action="{{ action('App\Http\Controllers\claimsController@destroy', $claim['id']) }} " id="delete_bill" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <input type="hidden" name="id" value="{{ $claim['id'] }}">
-                                                    <button class="dropdown-item deleteBtn" id="{{ $claim['id'] }}">
-                                                        <i class="bx bx-trash me-1"></i> Delete
-                                                    </button>
-                                                </form>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </td>
+
                                 </tr>
                                 @endforeach
                             </tbody>
