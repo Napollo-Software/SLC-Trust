@@ -168,8 +168,14 @@ class AuthController extends Controller
             if (!is_dir($directory)) {
                 mkdir($directory, 0777, true);
             }
-
-            $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
+            $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'Nominee-Black'
+        ])
+        ->setPaper('A4', 'portrait');
+            // $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
 
             $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';

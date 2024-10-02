@@ -826,7 +826,13 @@ class DocumentController extends Controller
 
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.approval-letter-pdf', $data);
+        $pdf = PDF::loadView('document.approval-letter-pdf', $data)
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'Nominee-Black'
+        ])
+        ->setPaper('A4', 'portrait');
 
 
         $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
