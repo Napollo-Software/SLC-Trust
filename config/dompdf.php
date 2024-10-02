@@ -44,6 +44,9 @@ return array(
         'Info-Bold' => [
             'R'  => 'Info-Bold.otf',   
         ],
+        'info_web-italic' => [
+            'R'  => 'info_web-italic.ttf',   
+        ],
       
 
         // hippa state pdf fonts
