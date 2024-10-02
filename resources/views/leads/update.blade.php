@@ -23,9 +23,9 @@
     </style>
 
     <div class="">
-        <h5 class=" d-flex justify-content-between pt-2 pb-2">
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
             <b></b>
-           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Edit Contact</b> </div>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/leads')}}" class="text-muted fw-light pointer"><b>All Leads</b></a> / <b>Edit Lead</b> </div>
         </h5>
         <!-- Account page navigation-->
         <form method="post" id="leadUpdateForm" action="{{ route('update.lead', $lead->id) }}">

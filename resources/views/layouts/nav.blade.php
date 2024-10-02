@@ -30,6 +30,12 @@
         font-weight:normal !important;
         white-space: nowrap !important;
     }
+    td{
+        font-size:14px !important;
+    }
+    h4{
+        font-size: 1.01rem !important;
+    }
     h5{
         font-weight:normal !important;
         font-size: 1.01rem !important;

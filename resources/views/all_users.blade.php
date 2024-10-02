@@ -84,7 +84,10 @@
         </div>
     </div>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / All Users</h5>
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add User</b> </div>
+        </h5>
         <div class="row">
             <div class="col-lg-12 mb-12">
                 <div class="card">
@@ -130,20 +133,47 @@
                             <table class="table align-middle mb-0 table-hover dataTable">
                                 <thead class="table-light">
                                 <tr>
-                                    <th>UID#</th>
+                                    <th>Actions</th>
+                                    <!--th>UID#</th-->
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th>Account Status</th>
                                     <th>Balance</th>
-                                    <th>Avatar</th>
-                                    <th>Actions</th>
+                                    <th>Billing Cycle</th>
+                                    <th>Surplus Amount</th>
+                                    <!--th>Avatar</th-->
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach ($user as $k => $u)
                                     <tr>
-                                        <td>{{ $u->id }}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                        data-bs-toggle="dropdown">
+                                                    <i class="bx bx-cog"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    @if ($role != 'Moderator')
+                                                        <a class="dropdown-item pb-2"
+                                                           href="{{ route('show_user', $u['id']) }}"><i
+                                                                class='bx bxs-show'></i> View</a>
+                                                        {{-- @if ($users->hasPermissionTo('User Edit')) --}}
+                                                        <a class="dropdown-item pb-2"
+                                                           href="{{ route('edit_user', $u['id']) }}"><i
+                                                                class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                        {{-- @endif --}}
+                                                    @endif
+                                                    @if ($users->hasPermissionTo('Deposit') && $u->role == 'User')
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('view_user', $u['id']) }}"><i
+                                                                class="bx bx-dollar-circle me-1"></i> Add Balance</a>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!--td>{{ $u->id }}</td-->
                                         <td>
                                             @if ($role == 'Admin')
                                                 <a href="{{ route('edit_user', $u['id']) }}">{{ $u['name'] }}
@@ -183,11 +213,28 @@
                                         <td>
                                             @if ($u['role'] == 'User')
                                                 ${{ number_format((float) userBalance($u['id']), 2, '.', ',') }}
+                                                @else
+                                                N/A
+                                           @endif
                                         </td>
-                                        @else
-                                            N/A
-                                        @endif
-                                        <td class="text-center">
+                                        <td>
+                                            @if ($u['role'] == 'User' && $u['billing_cycle'] != '')
+                                                {{ $u['billing_cycle'] }} of every month
+                                            @elseif($u['role'] == 'User' && $u['billing_cycle'] == '')
+                                                1 of every month
+                                           @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($u['role'] == 'User')
+                                                ${{ number_format((float) $u['surplus_amount'], 2, '.', ',') }}
+                                                @else
+                                                N/A
+                                            @endif
+                                        </td>
+
+                                        <!--td class="text-center">
                                             <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                                 <li data-bs-toggle="tooltip" data-popup="tooltip-custom"
                                                     data-bs-placement="top" class="avatar avatar-xs pull-up"
@@ -196,32 +243,7 @@
                                                          alt="Avatar" class="rounded-circle" style="width: 25px"/>
                                                 </li>
                                             </ul>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                        data-bs-toggle="dropdown">
-                                                    <i class="bx bx-cog"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    @if ($role != 'Moderator')
-                                                        <a class="dropdown-item pb-2"
-                                                           href="{{ route('show_user', $u['id']) }}"><i
-                                                                class='bx bxs-show'></i> View</a>
-                                                        {{-- @if ($users->hasPermissionTo('User Edit')) --}}
-                                                        <a class="dropdown-item pb-2"
-                                                           href="{{ route('edit_user', $u['id']) }}"><i
-                                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                        {{-- @endif --}}
-                                                    @endif
-                                                    @if ($users->hasPermissionTo('Deposit') && $u->role == 'User')
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('view_user', $u['id']) }}"><i
-                                                                class="bx bx-dollar-circle me-1"></i> Add Balance</a>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </td>
+                                        </td-->
                                     </tr>
                                 @endforeach
                                 </tbody>
