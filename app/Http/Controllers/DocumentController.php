@@ -607,32 +607,33 @@ class DocumentController extends Controller
 
     function uploadMultipleDocuments(Request $request)
     {
-        $request->validate([
-            'uploadedfile.*' => 'required|mimes:pdf',
-        ]);
+        $request->validate([ 'uploadedfile.*' => 'required|mimes:pdf']);
 
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
 
         if ($request->uploadedfile != null) {
+
             foreach ($request->uploadedfile as $item) {
+
                 $attachment = $item->getClientOriginalName();
-                $path = $item->move(public_path('documents'), $attachment);
+                $item->move(public_path('documents'), $attachment);
                 $data = new Documents();
-                $data->actual_url = '/documents/' . $attachment;
+                $data->actual_url = "/documents/$attachment";
                 $data->name = $attachment;
                 $data->slug = $attachment;
                 $data->status = 'Sent';
                 $data->referral_id = $request->referral_id;
                 $data->save();
-                $urls[] = url('/documents/' . $attachment); // Storing document link
-
+                $urls[] = url("/documents/$attachment");
 
             }
+
             $referral = Referral::find($request->referral_id);
             $recipientEmail = $referral->email;
             $subject = "Document By Intruspit";
-            $name = $referral->first_name . ' ' . $referral->last_name;
+            $name = "{$referral->first_name} {$referral->last_name}";
             $email_message = "{$app_name} has sent the following documents to sign:";
+
             try {
                 SendEmailJob::dispatch($recipientEmail, $subject, $name, $email_message, $urls);
             } catch (\Exception $e) {
@@ -645,7 +646,7 @@ class DocumentController extends Controller
             $message = "Please select a file to upload.";
             return response()->json(['message' => $message], 404);
         }
-        return response()->json(['message' => 'Document(s) sent to ' . $name . ' successfully.'], 200);
+        return response()->json(['message' => "Document(s) sent to {$name} successfully."], 200);
 
 
     }
