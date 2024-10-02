@@ -159,11 +159,6 @@ class claimsController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
         $users = User::orderBy('name')->get();
@@ -282,9 +277,9 @@ class claimsController extends Controller
                 ]);
 
                 $subject = "Bill Approved";
-                $name = $claimUser->name . ' ' . $claimUser->last_name;
+                $name = "{$claimUser->name} {$claimUser->last_name}";
                 $email_message = "Your bill#" . $details->id . " added on " . date('m-d-Y', strtotime($details->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
-                $url = '/claims/' . $details->id;
+                $url = "/claims/$details->id";
                 SendEmailJob::dispatch($claimUser->email, $subject, $name, $email_message, $url);
 
             } else {
@@ -454,7 +449,7 @@ class claimsController extends Controller
         $claim = Claim::findOrFail($request->id);
         $claimUser = User::findOrFail($claim->claim_user);
         $name = Category::findOrFail($request->claim_category);
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
 
         if ($claimUser->account_status == 'Disable') {
             return response()->json(['type' => 'warning', 'header' => 'User Disabled!', 'message' => "You cannot update bill for disabled customer."]);
@@ -464,7 +459,7 @@ class claimsController extends Controller
         $amountToUpdate = $request->claim_status == 'Partial' ? $validated['partial_amount'] : $claim->claim_amount;
 
         if ($balance < $amountToUpdate && $request->claim_status != 'Refused') {
-            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to update this bill."]);
+            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => "{$claimUser->name}'s balance is insufficient to update this bill."]);
         }
 
         $claim = Claim::find($id);
@@ -486,6 +481,7 @@ class claimsController extends Controller
             ]);
 
             if ($request->claim_status == 'Approved') {
+
                 $claim->update(['claim_status' => 'Approved']);
 
                 ////////////////Customer Ledger/////////////////
@@ -500,37 +496,38 @@ class claimsController extends Controller
                     "payment_number" => $request->card_number,
                     "payment_method" => $request->payment_method,
                     "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category.",
+                    "description" => "{$app_name} has processed payment against bill submitted for {$name->category_name} category.",
                 ]);
 
                 ////////////////Admin Ledger/////////////////
 
                 $admin->transactions()->create([
+                    "status" => 1,
                     "bill_id" => $claim->id,
                     "reference_id" => $reference_id,
                     "credit" => $request->claim_amount,
                     "payment_number" => $request->card_number,
                     "payment_method" => $request->payment_method,
                     "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => "{$app_name} has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category.",
-                    "status" => 1,
+                    "description" => "{$app_name} has processed {$claimUser->name} {$claimUser->last_name}'s payment against bill submitted for {$name->category_name} category.",
                 ]);
 
                 /////////////User Bill Approved Notification/////////////
 
                 Notifcation::create([
-                    'user_id' => $claimUser->id,
-                    'name' => $claimUser->name,
+                    'status' => 0,
                     'bill_id' => $claim->id,
+                    'name' => $claimUser->name,
+                    'user_id' => $claimUser->id,
                     'description' => "Your Bill # " . $claim->id . " with $" . $request->claim_amount . " amount added on " . date('m/d/Y', strtotime(now())) . " has been approved successfully.",
                     'title' => 'Bill Approved',
-                    'status' => 0,
                 ]);
 
                 $name = "$claimUser->name  $claimUser->last_name";
                 $subject = "Bill Approved";
                 $email_message = "Your bill#" . $claim->id . " added on " . date('m-d-Y', strtotime($claim->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
-                $url = '/claims/' . $claim->id;
+                $url = "/claims/$claim->id";
+                
                 SendEmailJob::dispatch($claimUser->email, $subject, $name, $email_message, $url);
 
             }
