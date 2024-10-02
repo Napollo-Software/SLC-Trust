@@ -3,15 +3,17 @@
 @section('wrapper')
 
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Account Details
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/vendors')}}" class="text-muted fw-light pointer"><b>All Vendors</b></a> / <b>View Vendor</b> </div>
         </h5>
         <div class="row">
             <div class="col-xl-4">
                     <div class="card mb-3">
-                        <div class="card-header d-flex pl-0 pb-1">
-                            <h4 class="col-md-12">Account Information</h4>
-                        </div>
                         <div class="card-body">
+                            <div style="display: flex; padding-bottom: 3%">
+                                <h4>Vendor Information</h4>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Name</h6>
@@ -41,8 +43,10 @@
                         </div>
                     </div>
                     <div class="card mb-3">
-                        <div class="card-header d-flex pl-0 pb-1">
-                            <h4 class="col-md-12">Related Contacts</h4>
+                        <div class="card-body">
+                            <div style="display: flex; padding-bottom: 3%">
+                                <h4>Related Contacts</h4>
+                            </div>
                         </div>
                         <table class="  table " >
                             <thead>
@@ -76,10 +80,10 @@
             </div>
             <div class="col-md-8">
                 <div class="card mb-3">
-                    <div class="card-header d-flex pl-0 pb-1 pl-2">
-                        <h4>Other Information</h4>
-                    </div>
                     <div class="card-body">
+                        <div style="display: flex; padding-bottom: 3%">
+                            <h4>Other Information</h4>
+                        </div>
                         <div class="row">
                             <div class="col-sm-4">
                                 <h6 class="mb-0">Phone</h6>

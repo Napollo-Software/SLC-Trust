@@ -80,7 +80,10 @@
 
     </style>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Lead</b></span> / Lead View</h5>
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/leads')}}" class="text-muted fw-light pointer"><b>All Leads</b></a> / <b>View Lead</b> </div>
+        </h5>
         <!-- Account page navigation-->
         <div class="row">
             <div class="col-md-4">

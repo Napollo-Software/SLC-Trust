@@ -1,7 +1,9 @@
 @extends('nav')
 @section('title', 'Vendors | SLC Trust')
 @section('wrapper')
-
+@php
+    $user = App\Models\User::find(Session::get('loginId'));
+@endphp
     <head>
         <style>
             .scrol-card {
@@ -20,38 +22,40 @@
         </style>
     </head>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / All Vendors</h5>
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Vendors</b> </div>
+        </h5>
         <div class="row ">
             <div class="col-lg-12 mb-12 ">
-                <div class="card ">
-                    <div class="d-flex align-items-center p-3 ">
+                <div class="card">
+                    <div class="d-flex align-items-center p-3 mb-1">
                         <div>
-                          <h5 class="mb-1">Manage Vendors</h5>
-                          <p class="mb-0 font-13 text-secondary"><i class="bx bxs-calendar"></i>All Vendors</p>
+                            <h5 class="mb-1">Manage Vendors</h5>
+                            <p class="mb-0 font-13 text-secondary "><i class='bx bxs-calendar'></i>Overall Vendors</p>
                         </div>
-                      </div>
+                        <div class="ms-auto">
+                            @if ($user->hasPermissionTo('Add Account'))
+                            <a href="{{ route('add.vendors') }}" class="btn btn-primary print-btn pb-1 pt-1 " style="color: white;">
+                               <i class="bx bx-save pb-1"></i>Add Vendor </a>
+                            @endif
+                        </div>
+                    </div>
                     <div class="table-responsive text-nowrap  overflow-auto p-3"  style="margin-top: -15px">
                         <table class="table align-middle mb-0 table-hover dataTable ">
                             <thead class="table-light">
                             <tr>
+                                <th class="text-center">Actions</th>
                                 <th>Name</th>
                                 <th style="width: 15%">Phone</th>
                                 <th style="width: 20%">Email</th>
                                 {{-- <th>Address</th> --}}
                                 <th>Address</th>
-                                <th class="text-center">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($vendors as $k => $u)
                                 <tr>
-                                    <td>
-                                       <a href="{{ route('view.vendors', ['id'=>$u->id]) }}">{{ $u->name . ' ' . $u->last_name }}</a>
-                                    </td>
-
-                                    <td>{{ $u['phone'] }}</td>
-                                    <td>{{ $u->email }} </td>
-                                    <td>{{ $u['address'] }}</td>
                                     <td class="text-center">
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -68,6 +72,13 @@
                                             </div>
                                         </div>
                                     </td>
+                                    <td>
+                                       <a href="{{ route('view.vendors', ['id'=>$u->id]) }}">{{ $u->name . ' ' . $u->last_name }}</a>
+                                    </td>
+
+                                    <td>{{ $u['phone'] }}</td>
+                                    <td>{{ $u->email }} </td>
+                                    <td>{{ $u['address'] }}</td>
                                 </tr>
                             @endforeach
                             </tbody>

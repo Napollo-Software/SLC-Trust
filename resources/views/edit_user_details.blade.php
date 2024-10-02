@@ -85,7 +85,10 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 
 </style>
 <div class="">
-    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Edit User #{{$user->id}}</h5>
+    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <b></b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>Edit User</b> </div>
+    </h5>
     <!-- Account page navigation-->
     <form id="formAuthentication" class="mb-3" action="{{route('update_existing_user_profile', $user['id'] )}}" method="post" enctype="multipart/form-data" autocomplete="off">
         <div class="row">

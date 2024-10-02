@@ -6,19 +6,19 @@
         $americanStates = [ 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
     @endphp
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Edit Vendor
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a>/ <a href="{{url('/vendors')}}" class="text-muted fw-light pointer"><b>All Vendors</b></a> / <b>Edit Vendor</b> </div>
         </h5>
         <div class="row">
             <div class="col-xl-4">
                 <form class="mb-3" action="{{ route('update.vendors', $vendor->id) }}" method="post">
                     @csrf
                     <div class="card  mb-xl-0">
-                        <div class="card-header pl-0 pb-0">
-                            <div class="d-flex">
-                                <h4 class="col-md-11">Vendor Information</h4>
-                            </div>
-                        </div>
                         <div class="card-body">
+                            <div style="display: flex; padding-bottom: 3%">
+                                <h4>Vendor Information</h4>
+                            </div>
                             <div class="row-cols-lg-6">
                                 <label for="exampleFormControlInput1" class="form-label">Name<span
                                         class="text-danger">*</span></label>
@@ -82,10 +82,10 @@
             </div>
             <div class="col-md-8">
                 <div class="card mb-3">
-                    <div class="card-header pl-2 pb-0">
-                        <h4>Other Information</h4>
-                    </div>
                     <div class="card-body">
+                        <div style="display: flex; padding-bottom: 3%">
+                            <h4>Other Information</h4>
+                        </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Phone<span class="text-danger">*</span></h6>

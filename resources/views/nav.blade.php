@@ -51,7 +51,7 @@
 		<!--end navigation-->
 		<!--start page wrapper -->
         <div class="page-wrapper">
-            <div class="page-content">
+            <div class="container_basic">
 		       @yield("wrapper")
             </div>
         </div>
@@ -131,11 +131,17 @@
         </div>
     </div>
     <style>
+        .container_basic {
+            width: 92% !important; /* Ensures the width is applied even if other rules exist */
+            margin: 0 auto; /* Centers the container */
+        }
+
         .nav-alignment{
             justify-content: center !important;
         }
         .fw-bold{
-            display: none !important;
+            padding-top:2px !important;
+            padding-bottom:2px !important;
         }
         .select2-container .select2-selection--single .select2-selection__rendered {
         display: block;
@@ -188,16 +194,17 @@
 
     .btn-primary:hover {
         color: white;
-        background-color: #6c9ee8;
-        border-color: #6c9ee8;
+        background-color: #467f7b;
+        border-color: #3e726f;
     }
     .btn-primary:active {
         color: white;
-        background-color: #6c9ee8;
-        border-color: #6c9ee8;
+        background-color: #467f7b;
+        border-color: #3e726f;
     }
-    th{
-            font-size:14px !important;
+    .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle{
+    background-color: #467f7b !important;
+    border-color: #3e726f !important;
     }
     .switcher-wrapper{
         display: none !important;
@@ -211,6 +218,12 @@
     .apexcharts-legend-series{
         display: none !important;
     }
+    .alert-success {
+    background-color: #467f7b !important;
+    border-color: #467f7b !important;
+    color: white !important;
+    }
+
     </style>
     <!--end switcher-->
 	<!-- Bootstrap JS -->

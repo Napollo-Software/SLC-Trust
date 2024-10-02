@@ -54,8 +54,10 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
 </style>
 
 <div class="">
-    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span>
-        / Update Referral</h5> <!-- Account page navigation-->
+    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <b></b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referrals</b></a> / <b>Edit Referral</b> </div>
+    </h5>
     <form id="referralUpdateForm">
         @csrf
         <input type="hidden" name="id" value="{{ $Referral->id }}">

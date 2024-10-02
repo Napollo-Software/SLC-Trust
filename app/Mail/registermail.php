@@ -30,7 +30,7 @@ class registermail extends Mailable
      */
     public function build()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
         return $this->subject('Welcome to '.$app_name.'!')
                     ->view('emails.registermail');
     }

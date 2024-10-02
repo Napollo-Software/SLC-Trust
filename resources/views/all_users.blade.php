@@ -84,16 +84,23 @@
         </div>
     </div>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / All Users</h5>
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Users</b> </div>
+        </h5>
         <div class="row">
             <div class="col-lg-12 mb-12">
                 <div class="card">
-                    <div class="d-flex align-items-center p-3">
+                    <div class="d-flex align-items-center p-3 mb-1">
                         <div>
                             <h5 class="mb-1">Manage Users</h5>
-                            <p class="mb-0 font-13 text-secondary"><i class="bx bxs-calendar"></i>Overall Users</p>
+                            <p class="mb-0 font-13 text-secondary "><i class='bx bxs-calendar'></i>Overall Users</p>
                         </div>
-                        <div class="dropdown ms-auto">
+                        <div class="ms-auto">
+                            <a href="{{ route('add_user') }}" class="btn btn-primary print-btn pb-1 pt-1 " style="color: white;">
+                               <i class="bx bx-save pb-1"></i>Add User </a>
+                        </div>
+                        <!--div class="dropdown ms-auto">
                             <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"> <i
                                     class="bx bx-dots-horizontal-rounded font-22 text-option"></i>
                             </a>
@@ -123,80 +130,28 @@
                                             class='bx bx-printer'></i></a>
                                 </li>
                             </ul>
-                        </div>
+                        </div-->
                     </div>
                     <div class="card-body " >
                         <div class="table-responsive overflow-auto pb-2 " style="margin-top:-15px ">
                             <table class="table align-middle mb-0 table-hover dataTable">
                                 <thead class="table-light">
                                 <tr>
-                                    <th>UID#</th>
+                                    <th>Actions</th>
+                                    <!--th>UID#</th-->
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th>Account Status</th>
                                     <th>Balance</th>
-                                    <th>Avatar</th>
-                                    <th>Actions</th>
+                                    <th>Billing Cycle</th>
+                                    <th>Surplus Amount</th>
+                                    <!--th>Avatar</th-->
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach ($user as $k => $u)
                                     <tr>
-                                        <td>{{ $u->id }}</td>
-                                        <td>
-                                            @if ($role == 'Admin')
-                                                <a href="{{ route('edit_user', $u['id']) }}">{{ $u['name'] }}
-                                                    {{ $u['last_name'] }}</a>
-                                        </td>
-                                        @else
-                                            {{ $u['name'] }} {{ $u['last_name'] }}
-                                        @endif
-                                        <td>{{ $u['email'] }}</td>
-                                        <td>{{ $u['role'] }}</td>
-                                        <th>
-                            <span
-                                class="badge
-                    @if ($u->account_status == 'Pending') bg-success @endif
-                    @if ($u->account_status == 'Approved') bg-primary @endif
-                    @if ($u->account_status == 'Not Approved' || $u->account_status == 'Suspended') bg-danger @endif
-                    me-1  @if ($u->account_status == 'Disable') bg-danger @endif
-                    me-1">
-
-                                @if ($u->account_status == 'Suspended')
-                                    {{ $u['account_status'] }}
-                                @endif
-                                @if ($u->account_status == 'Pending')
-                                    {{ $u['account_status'] }}
-                                @endif
-                                @if ($u->account_status == 'Approved')
-                                    {{ $u['account_status'] }}
-                                @endif
-                                @if ($u->account_status == 'Not Approved')
-                                    {{ $u['account_status'] }}
-                                @endif
-                                @if ($u->account_status == 'Disable')
-                                    {{ $u['account_status'] }}
-                                @endif
-                            </span>
-                                        </th>
-                                        <td>
-                                            @if ($u['role'] == 'User')
-                                                ${{ number_format((float) userBalance($u['id']), 2, '.', ',') }}
-                                        </td>
-                                        @else
-                                            N/A
-                                        @endif
-                                        <td class="text-center">
-                                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom"
-                                                    data-bs-placement="top" class="avatar avatar-xs pull-up"
-                                                    title="{{ $u['name'] }}">
-                                                    <img src="{{ url('user/images93561655300919_avatar.png') }}"
-                                                         alt="Avatar" class="rounded-circle" style="width: 25px"/>
-                                                </li>
-                                            </ul>
-                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -222,6 +177,77 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <!--td>{{ $u->id }}</td-->
+                                        <td>
+                                            @if ($role == 'Admin')
+                                                <a href="{{ route('show_user', $u['id']) }}">{{ $u['name'] }}
+                                                    {{ $u['last_name'] }}</a>
+                                        </td>
+                                        @else
+                                            {{ $u['name'] }} {{ $u['last_name'] }}
+                                        @endif
+                                        <td>{{ $u['email'] }}</td>
+                                        <td>{{ $u['role'] }}</td>
+                                        <th>
+                            <span
+                                            class="badge
+                                @if ($u->account_status == 'Pending') bg-success @endif
+                                @if ($u->account_status == 'Approved') bg-primary @endif
+                                @if ($u->account_status == 'Not Approved' || $u->account_status == 'Suspended') bg-danger @endif
+                                me-1  @if ($u->account_status == 'Disable') bg-danger @endif
+                                me-1">
+
+                                @if ($u->account_status == 'Suspended')
+                                    {{ $u['account_status'] }}
+                                @endif
+                                @if ($u->account_status == 'Pending')
+                                    {{ $u['account_status'] }}
+                                @endif
+                                @if ($u->account_status == 'Approved')
+                                    {{ $u['account_status'] }}
+                                @endif
+                                @if ($u->account_status == 'Not Approved')
+                                    {{ $u['account_status'] }}
+                                @endif
+                                @if ($u->account_status == 'Disable')
+                                    {{ $u['account_status'] }}
+                                @endif
+                            </span>
+                                        </th>
+                                        <td>
+                                            @if ($u['role'] == 'User')
+                                                ${{ number_format((float) userBalance($u['id']), 2, '.', ',') }}
+                                                @else
+                                                N/A
+                                           @endif
+                                        </td>
+                                        <td>
+                                            @if ($u['role'] == 'User' && $u['billing_cycle'] != '')
+                                                {{ $u['billing_cycle'] }} of every month
+                                            @elseif($u['role'] == 'User' && $u['billing_cycle'] == '')
+                                                1 of every month
+                                           @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($u['role'] == 'User')
+                                                ${{ number_format((float) $u['surplus_amount'], 2, '.', ',') }}
+                                                @else
+                                                N/A
+                                            @endif
+                                        </td>
+
+                                        <!--td class="text-center">
+                                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom"
+                                                    data-bs-placement="top" class="avatar avatar-xs pull-up"
+                                                    title="{{ $u['name'] }}">
+                                                    <img src="{{ url('user/images93561655300919_avatar.png') }}"
+                                                         alt="Avatar" class="rounded-circle" style="width: 25px"/>
+                                                </li>
+                                            </ul>
+                                        </td-->
                                     </tr>
                                 @endforeach
                                 </tbody>

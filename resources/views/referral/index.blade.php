@@ -21,34 +21,39 @@
 
     </head>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / All Referrals</h5>
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Referrals</b> </div>
+        </h5>
         <div class="row">
             <div class="col-lg-12 mb-12">
-                <div class="card p-3">
-                    <div class="d-flex align-items-center mb-1 pb-2">
-                        <div>
-                            <h5 class="mb-1">Manage Referral</h5>
-                            <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Overall referrals</p>
+                <div class="card">
+                        <div class="d-flex align-items-center p-3 mb-1">
+                            <div>
+                                <h5 class="mb-1">Manage Referrals</h5>
+                                <p class="mb-0 font-13 text-secondary "><i class='bx bxs-calendar'></i>All Referrals</p>
+                            </div>
+                            <div class="ms-auto">
+                                @if ($user->hasPermissionTo('Add Referral'))
+                                <a href="{{ route('create.referral') }}" class="btn btn-primary print-btn pb-1 pt-1 " style="color: white;">
+                                   <i class="bx bx-save pb-1"></i>Add Referral </a>
+                                @endif
+                            </div>
                         </div>
-                        {{-- <div class="ms-auto">
-                            <a href="{{ route('create.referral') }}"
-                            class="btn btn-primary import-file-user-data print-btn pb-1 pt-1">
-                             Add Referral
-                         </a>
-                        </div> --}}
-                    </div>
                     <div>
-                        <div class="table-responsive text-nowrap overflow-auto">
+                        <div class="table-responsive text-nowrap overflow-auto p-3" style="margin-top: -15px">
                             <table class="table align-middle mb-0 table-hover dataTable">
                                 <thead class="table-light">
                                 <tr style="white-space: nowrap">
+                                    <th>Actions</th>
                                     <!--th>ID</th-->
                                     <th>Full name</th>
+                                    <th>Convert to Customer</th>
                                     <!-- TODO:/NEED TO BE DONE -->
                                     <!-- <th>Intake status</th> -->
-                                    <th>Intake coordinator</th>
+                                    <!--th>Intake coordinator</th-->
                                     <!--th>Follow Up note</th-->
-                                    <th>Follow up Date</th>
+                                    <!--th>Follow up Date</th-->
 
                                     <!-- <th>Open services</th> -->
                                     <th>Modified Date</th>
@@ -58,8 +63,6 @@
                                     <th>Case type</th>
                                     <th>Admission date</th>
                                     <th>Created by</th>
-                                    <th>Convert</th>
-                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -68,21 +71,60 @@
                                         <!--td>
                                             {{ $u->id }}
                                         </td-->
+                                        <td class="text-center row-{{ $u['id'] }}">
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                        data-bs-toggle="dropdown">
+                                                        <i class="menu-icon tf-icons bx bx-cog"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        @if ($user->hasPermissionTo('Edit Referral'))
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('edit.referral', $u['id']) }}"><i
+                                                                class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                    @endif
+                                                    @if ($user->hasPermissionTo('View Referral'))
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('view.referral', $u['id']) }}"><i
+                                                                class='bx bxs-show'></i> View</a>
+                                                    @endif
+                                                    @if ($user->hasPermissionTo('Delete Referral'))
+                                                        <button type="button" data-id="{{ $u['id'] }}"
+                                                                class="dropdown-item deleteBtn">
+                                                            <i class="bx bx-trash-alt me-1"></i> Delete
+                                                        </button>
+                                                    @endif
+                                                    <!-- <a class="dropdown-item"
+                                                           href="{{ route('emergency.referral', $u['id']) }}"><i
+                                                                class="bx bx-no-entry me-1"></i>Emergency Details</a> -->
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td class="row-{{ $u['id'] }}"
                                             onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';"
                                             style="cursor: pointer;">
                                             <div class="d-flex align-items-center">
                                                 <div class="">
-                                                    <small> {{ $u['first_name'] }} {{ $u['last_name'] }}</small> <br>
+                                                     {{ $u['first_name'] }} {{ $u['last_name'] }} <br>
                                                 </div>
                                             </div>
                                         </td>
+                                        <td>
+                                            <button type="button" data-id="{{ $u['id'] }}"
+                                                    class=" @if ($u->convert_to_customer == null) btn btn-primary p-1 convert-btn custom-design-{{ $u['id'] }} @else dropdown-item @endif ">
+                                                @if ($u->convert_to_customer == null)
+                                                    <i class="bx bx-analyse me-1"></i>Convert to customer
+                                                @else
+                                                    Converted to customer
+                                                @endif
+                                            </button>
+                                        </td>
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">OPEN</td> -->
-                                        <td>{{ $u->intake }}</td>
+                                        <!--td>{{ $u->intake }}</td-->
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">{{ $u['date_of_birth'] }}</td> -->
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;"><b>Country:</b>{{ $u['country'] }} <br> -->
                                         <!-- <b> City:</b>{{ $u['city'] }} -->
-                                        <td>{{ $u->referralFollowup->date }}</td>
+                                        <!--td>{{ $u->referralFollowup->date }}</td-->
                                         <!--td>{{ $u->referralFollowup->note }}</td-->
 
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">{{ $u['medicaid_number'] }}</td> -->
@@ -127,6 +169,9 @@
                                                 @case('walk_in')
                                                     <b>Walk In</b>
                                                     @break
+                                                @case('Manual')
+                                                <b>Manual</b>
+                                                @break
 
                                                 @default
                                                     N/A
@@ -169,45 +214,6 @@
                                         <td>{{ $u->case_type }}</td>
                                         <td>{{ us_date_format($u->admission_date) }}</td>
                                         <td>{{ $u->created_by }}</td>
-                                        <td>
-                                            <button type="button" data-id="{{ $u['id'] }}"
-                                                    class=" @if ($u->convert_to_customer == null) btn btn-primary p-1 convert-btn custom-design-{{ $u['id'] }} @else dropdown-item @endif ">
-                                                @if ($u->convert_to_customer == null)
-                                                    <i class="bx bx-analyse me-1"></i>Convert to customer
-                                                @else
-                                                    Converted to customer
-                                                @endif
-                                            </button>
-                                        </td>
-                                        <td class="text-center row-{{ $u['id'] }}">
-                                            <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                        data-bs-toggle="dropdown">
-                                                        <i class="menu-icon tf-icons bx bx-cog"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        @if ($user->hasPermissionTo('Edit Referral'))
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('edit.referral', $u['id']) }}"><i
-                                                                class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                    @endif
-                                                    @if ($user->hasPermissionTo('View Referral'))
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('view.referral', $u['id']) }}"><i
-                                                                class='bx bxs-show'></i> View</a>
-                                                    @endif
-                                                    @if ($user->hasPermissionTo('Delete Referral'))
-                                                        <button type="button" data-id="{{ $u['id'] }}"
-                                                                class="dropdown-item deleteBtn">
-                                                            <i class="bx bx-trash-alt me-1"></i> Delete
-                                                        </button>
-                                                    @endif
-                                                    <!-- <a class="dropdown-item"
-                                                           href="{{ route('emergency.referral', $u['id']) }}"><i
-                                                                class="bx bx-no-entry me-1"></i>Emergency Details</a> -->
-                                                </div>
-                                            </div>
-                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

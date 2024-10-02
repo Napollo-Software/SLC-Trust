@@ -10,12 +10,9 @@ use Illuminate\Queue\SerializesModels;
 class Email extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $subject,$name,$email_message,$urls;
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+
     public function __construct($subject,$name,$email_message,$urls)
     {
         $this->subject = $subject;
@@ -24,15 +21,9 @@ class Email extends Mailable
         $this->urls = $urls;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        $app_name = config('app.name');
-        return $this->subject($app_name.' | '.$this->subject)
+        return $this->subject(config('app.professional_name').' | '.$this->subject)
         ->view('emails.mail');
     }
 }

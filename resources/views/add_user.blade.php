@@ -2,7 +2,10 @@
 @section('title', 'Add User | SLC Trust')
 @section('wrapper')
 <div class="">
-    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Add User</h5>
+    <h5 class=" d-flex justify-content-between pt-3 pb-1">
+        <b></b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add User</b> </div>
+    </h5>
     <div class="row">
         <div class="col-xl-4">
             <form id="formAuthentication" class="mb-3" action="{{ route('store_user') }}" method="post">
@@ -89,7 +92,7 @@
                             <h6 class="mb-0">Billing Method</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
-                            <select class="form-control form-select mb-3" id="" name="billing_method">
+                            <select class="form-control form-select " id="" name="billing_method">
                                 <option value="manual">Manual Billing</option>
                                 <option value="prepaid">Prepaid Credit Card</option>
                             </select>
@@ -101,8 +104,8 @@
                             </span>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Full SSN</h6>
                         </div>
@@ -110,8 +113,8 @@
                             <input type="text" class="form-control p-2" placeholder="Full SSN" name="full_ssn">
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Date of Birth</h6>
                         </div>
@@ -120,8 +123,8 @@
                             <span class="text-danger">@error('dob'){{$message}} @enderror</span>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Phone</h6>
                         </div>
@@ -129,13 +132,13 @@
                             <input type="text" name="phone" placeholder="Enter Phone Number" class="form-control p-2">
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Billing Cycle*</h6>
+                            <h6 class="mb-0">Billing Cycle</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
-                            <select class="form-control p-2 form-select" id="state" name="billing_cycle" required>
+                            <select class="form-control p-2 form-select" id="state" name="billing_cycle">
                                 <option value="1">1st of every Month </option>
                                 <option value="3">3rd of every Month </option>
                                 <option value="7">7th of every Month </option>
@@ -146,18 +149,18 @@
                             <span class="text-danger">@error('billing_cycle'){{$message}} @enderror</span>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Surplus Amount *</h6>
+                            <h6 class="mb-0">Surplus Amount</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
-                            <input type="number" class="form-control p-2" name="surplus_amount" placeholder="Enter surplus amount" required>
+                            <input type="number" class="form-control p-2" name="surplus_amount" placeholder="Enter surplus amount">
                             <span class="text-danger">@error('surplus_amount'){{$message}} @enderror</span>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Gender</h6>
                         </div>
@@ -171,8 +174,8 @@
                             <span class="text-danger">@error('gender'){{$message}} @enderror</span>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Marital Status</h6>
                         </div>
@@ -187,8 +190,8 @@
                             <span class="text-danger">@error('marital_status'){{$message}} @enderror</span>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Notify Before</h6>
                         </div>
@@ -199,8 +202,8 @@
                             </select>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">State</h6>
                         </div>
@@ -213,8 +216,8 @@
                             </select>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">City</h6>
                         </div>
@@ -222,8 +225,8 @@
                             <input type="text" class="form-control p-2" name="city" placeholder="Enter City">
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Zipcode</h6>
                         </div>
@@ -231,8 +234,8 @@
                             <input type="text" class="form-control p-2" name="zipcode" placeholder="Enter Zipcode">
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    <hr class="billing_method d-none">
+                    <div class="row billing_method d-none">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Address</h6>
                         </div>
@@ -255,82 +258,7 @@
         </form>
     </div>
 </div>
-<div class="row d-none">
-    <div class="col-lg-12 mb-12">
-        <div class="card">
-            <h5 class="card-header"><b>Add User</b></h5>
-            <form id="formAuthentication" class="mb-3" action="{{ route('store_user') }}" method="post">
-                @csrf
-                <div class="card-body">
-                    @if (Session::has('success'))
-                    <div class="alert alert-success">{{ Session::get('success') }}</div>
-                    @endif
-                    @if (Session::has('fail'))
-                    <div class="alert alert-danger">{{ Session::get('fail') }}</div>
-                    @endif
-                    <div class="row mb-3">
-                        <div class="col-lg-3">
-                            <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                            <input type="text" class="form-control" placeholder="First Name" name="name" required />
-                            <span class="text-danger">
-                                @error('name')
-                                {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <div class="col-lg-3">
-                            <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" placeholder="Last Name" name="last_name" required />
-                            <span class="text-danger">
-                                @error('last_name')
-                                {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input type="Email" class="form-control" placeholder="User Email" name="email" required />
-                            <span class="text-danger">
-                                @error('email')
-                                {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">User Role</label>
-                            <select id="" class="form-select" name="role" required multiple>
-                                <option value="">--</option>
-                                @foreach ($roles as $role)
-                                <option value="{{ $role->name }}">{{ $role->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-lg-6" id="billing_method">
-                            <label for="username" class="form-label">Billing Method</label>
-                            <select class="form-control form-select mb-3" id="" name="billing_method">
-                                <option value="manual">Manual Billing</option>
-                                <option value="prepaid">Prepaid Credit Card</option>
-                            </select>
-                            <span class="text-danger">
-                                @error('billing_method')
-                                {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <input type="hidden" name="account_status" value="Approved">
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-lg-3">
-                            <button class="btn btn-primary add-user" type="submit">Add User</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 </div>
 @endsection
 

@@ -6,7 +6,9 @@
     $role = User::where('id', '=', Session::get('loginId'))->value('role');
     ?>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Status of Bill #{{ $claim->id}}
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/claims')}}" class="text-muted fw-light pointer"><b>All Bills</b></a> / <b>View Bill</b> </div>
         </h5>
         <div class="row">
             <div class="col-xl-3" >
@@ -37,7 +39,7 @@
                                     @endif
                                   </a>
                               </div>
-                            </div> 
+                            </div>
                         <!-- Profile picture help block-->
                         @if ($claim->recurred != "0")
                         <div class="col-lg-12 pt-3 text-center">
@@ -47,7 +49,7 @@
                         @if ($claim->recurred == "0")
                         <div class="col-lg-12 pt-3 pb-2">
                           <b for="exampleFormControlInput1" class="form-label pt-2">Recurring Bill</b>
-                          <input class="manual-check-ctrl" {{ $claim->recurring_bill==1 ? 'checked' : ' ' }}  value="{{ 1 }}" name="recurring_bill" type="checkbox" 
+                          <input class="manual-check-ctrl" {{ $claim->recurring_bill==1 ? 'checked' : ' ' }}  value="{{ 1 }}" name="recurring_bill" type="checkbox"
                           @if ($claim->claim_status != 'Pending') disabled @endif  id="recurring_bill">
                       </div>
                         @endif
@@ -61,25 +63,25 @@
                     <div class="alert alert-danger alert-dismissible" role="alert">
                       {{$message}}
                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>     
+                    </div>
                     @enderror
                     @error('refusal_reason')
                     <div class="alert alert-danger alert-dismissible" role="alert">
                       {{$message}}
                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>     
+                    </div>
                     @enderror
                     @error('recurring_day')
                     <div class="alert alert-danger alert-dismissible" role="alert">
                       {{$message}}
                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>     
+                    </div>
                     @enderror
-                    <div style="display: flex"> 
+                    <div style="display: flex">
                         <h4>Bill Info</h4>
                     <div class="col-lg-3 " style="margin-right: 1%;margin-left:auto">
-                      @if ($role != "User") 
-                        <select id="bill_status" class="form-select  text-white @if ($claim->claim_status == 'Approved' || $claim->claim_status == 'Partially approved') bg-success @endif @if ($claim->claim_status == 'Pending')bg-primary  @endif @if ($claim->claim_status == 'Refused') bg-danger @endif" name="claim_status" 
+                      @if ($role != "User")
+                        <select id="bill_status" class="form-select  text-white @if ($claim->claim_status == 'Approved' || $claim->claim_status == 'Partially approved') bg-success @endif @if ($claim->claim_status == 'Pending')bg-primary  @endif @if ($claim->claim_status == 'Refused') bg-danger @endif" name="claim_status"
                                 >
                             <option value="Pending" class="bg-light  text-black" @if ($claim->claim_status == 'Pending') class="bg-light" selected @endif disabled>
                                 Pending
@@ -88,7 +90,7 @@
                             Approved
                             </option>
                             <option value="Partial" class="bg-light  text-black" @if ($claim->claim_status == 'Partially approved') selected @endif>
-                                Partially approved 
+                                Partially approved
                             </option>
                             <option value="Refused" class="bg-light  text-black" @if ($claim->claim_status == 'Refused') class="bg-light" selected @endif>
                                 Refused
@@ -108,7 +110,7 @@
                     <h6 class="mb-0"> <b>Reason of Refusal</b> </h6>
                   </div>
                   <div class="col-sm-9 text-secondary ">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="refusal_reason" 
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="refusal_reason"
                                           rows="3"
                                           @if ($claim->claim_status == 'Approved' || $claim->claim_status=='Refused') readonly @endif  @if ($role == "User") readonly @endif>{{ $claim->refusal_reason }}</textarea>
                   </div>
@@ -185,13 +187,13 @@
                         <h6 class="mb-0">Due Date</h6>
                       </div>
                       <div class="col-sm-4 text-secondary">
-                        <input 
+                        <input
                         type="date"
                         name="expense_date"
                         value="{{$claim->expense_date}}"
                         class="form-control"
                         @if ($role == "User") readonly @endif
-                        @if ($claim->claim_status != 'Pending') disabled @endif 
+                        @if ($claim->claim_status != 'Pending') disabled @endif
                          />
                          <span class="text-danger">@error('expense_date'){{$message}} @enderror</span>
                       </div>
@@ -218,7 +220,7 @@
                           <h6 class="mb-0">Bill Description</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="claim_description" 
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="claim_description"
                             @if ($claim->claim_status != 'Pending') disabled @endif     rows="3"
                                       @if ($role == "User") readonly @endif>{{ $claim->claim_description }}</textarea>
                             <span class="text-danger">@error('claim_description'){{$message}} @enderror</span>

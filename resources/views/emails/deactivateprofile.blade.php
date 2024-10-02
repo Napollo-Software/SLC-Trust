@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ config('app.professional_name') }} | Documents</title>
+    <title>{{ config('app.professional_name') }} | Account Deactivated</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -130,23 +130,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;">{{ $email_message }}</p>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                    <tr>
-                        <td bgcolor="#ffffff" align="center" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            @foreach($filtered_links as $link)
-                            <a href="{{ $link }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column">
-                                <img style="width: 50px; height: 50px;" src="{{ url('img/form_icon.png') }}" alt="document">
-                                <p style="display: flex; align-items: center; justify-content: center;color:black;font-size:14px">{{ $filtered_names[$loop->index] }}</p>
-                            </a>
-                            @endforeach
+                            <p style="margin: 0;text-align:center;"> Your profile has been deactivated by {{ config('app.professional_name') }},For immediate assistance please call {{ config('app.contact') }}.</p>
                         </td>
                     </tr>
                 </table>

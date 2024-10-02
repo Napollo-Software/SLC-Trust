@@ -34,7 +34,10 @@
 
 </style>
 <div class="">
-    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Add Referral</h5>
+    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <b></b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
+    </h5>
     <form id="referralStoreForm">
         @csrf
         <div class="row">
@@ -193,7 +196,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="text-secondary">
-                                            <label class="form-label mb-1">Intake Coordinator<span class="text-danger">*</span></label>
+                                            <label class="form-label mb-1">Intake Coordinator<span class="text-danger"></span></label>
                                             <select id="intake" class="form-control select-2" name="intake">
                                                 <option disabled selected hidden>Intake Coordinator</option>
                                                 @foreach ($intakeCordinator as $coordinator)
@@ -209,7 +212,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="text-secondary">
-                                            <label class="form-label mb-1">Referral Marketer<span class="text-danger">*</span></label>
+                                            <label class="form-label mb-1">Referral Marketer<span class="text-danger"></span></label>
                                             <select id="marketer" class="form-control select-2" name="marketer">
                                                 <option disabled selected hidden>Referral Marketer</option>
                                                 @foreach ($intakeCordinator as $coordinator)
@@ -363,7 +366,7 @@
                                     <label for="form-label">APT/SUITE</label>
                                     <input type="text" class="form-control" id="emergency_apt" name="emergency_apt">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-0">
                                     <input type="checkbox" id="live_with_parent" name="live_with_parent" value="1">
                                     <label for="option1 mb-1">Lives with parents</label>
                                 </div>

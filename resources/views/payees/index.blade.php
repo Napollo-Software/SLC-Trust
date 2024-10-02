@@ -8,7 +8,7 @@
 #hidden_div {
     display: none;
 }
-#hidden_div2 { 
+#hidden_div2 {
     display: none;
 }
 .search-nav{
@@ -64,7 +64,10 @@
     </div>
   </div>
 <div class="">
-    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Payee</b>/ All Payees</span></h5>
+    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <b></b>
+       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Manage Payee</b> </div>
+    </h5>
 <div class="row">
     <div class="col-lg-12 mb-12">
       <div class="card ">
