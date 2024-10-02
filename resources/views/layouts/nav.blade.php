@@ -1,5 +1,11 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+@php
+    $user = App\Models\User::find(Session::get('loginId'));
+@endphp
 <style>
-    .dropdown-toggle {
+   .dropdown-toggle {
         padding-right: 7px !important;
         padding-left: 7px !important;
     }
@@ -9,14 +15,25 @@
     }
 
     body {
-        font-family: 'Arial' !important;
+        background-color: #F0F1F7 !important;
+        font-family: Poppins !important;
     }
 
+    .pointer{
+        cursor: pointer;
+    }
     .btn-primary:hover {
         background-color: #6bb0aa !important;
         border-color: #5da298 !important;
     }
-
+    th{
+        font-weight:normal !important;
+        white-space: nowrap !important;
+    }
+    h5{
+        font-weight:normal !important;
+        font-size: 1.01rem !important;
+    }
 </style>
 <div class="primary-menu">
     <nav class="navbar navbar-expand-lg align-items-center">

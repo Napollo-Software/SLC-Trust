@@ -6,6 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Map</title>
     <style>
+         @font-face {
+            font-family: 'Poppins-Regular';
+            src: url('fonts/Poppins-Regular.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-Medium';
+            src: url('fonts/Poppins-Medium.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-SemiBold';
+            src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-Bold';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+        }
+     
+        @font-face {
+            font-family: 'Poppins-Italic';
+            src: url('fonts/Poppins-Italic.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins-ExtraBold';
+            src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'BrittanySignature-MaZx';
+            src: url("fonts/BrittanySignature-MaZx.ttf");
+        }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -14,6 +43,10 @@
 
         * {
             font-size: 12px;
+        }
+
+        .signature{
+            font-family: 'BrittanySignature-MaZx' !important;  
         }
 
         th, td {
@@ -36,12 +69,6 @@
 
             align-items: center;
         }
-
-        body {
-            margin-left: 50px;
-            margin-right: 50px;
-        }
-
 
         .no-border {
             border-bottom: 1px solid black;
@@ -101,7 +128,11 @@ footer img {
     width: 25px;
     height: 25px;
 }
-
+.content {
+        padding: 40px;
+        font-family: 'Poppins-Regular';
+        padding-top: 0;
+    }
 
 @media (max-width: 768px) {
     .footer-table {
@@ -116,70 +147,71 @@ footer img {
     </style>
 </head>
 <body>
-<div class="row-container" >
-    <h4>
-        <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" alt="int" style="height: 50px;">
-    </h4>
+<div style="position: relative;height:100%;background-image: url('{{ public_path("images/jbg2.png") }}');background-size: cover;background-repeat: no-repeat;background-position: center;width:100%">
+    <div class="row-container" >
+        <h4>
+            <img src="{{ public_path('images/new_logo.png') }}" alt="int" width="180px">
+        </h4>
 
-</div>
-<div>
-    <h2 style="text-align: center;font-size: 20px;margin-top:0;margin-bottom: 0;">
-        Approval Letter
-    </h2>
-</div>
-<hr>
-{{-- <div style="width: 90%;margin:0 auto">
-    <div style="font-weight: bold;text-align:left;">
-        <p>Date: {{\Carbon\Carbon::today()->format('m/d/Y')}}</p>
     </div>
-    <div style="text-align: center; margin: auto;">
-        <div style="font-weight: bold;text-align:left; width: 50%; margin: auto;">
-            <p style="font-weight: bold;text-decoration: underline;">Beneficiary Name: <span style="font-weight: lighter;">{{$user->name.' '.$user->last_name}}</span></p>
-            <p style="font-weight: bold;text-decoration: underline;">Account Number: <span style="font-weight: lighter">{{'000'.$user->id}}</span></p>
-            <p style="font-weight: bold;text-decoration: underline;">Data Established: <span style="font-weight: lighter">{{\Carbon\Carbon::today()->format('m/d/Y')}}</span></p>
+
+    <div >
+
+            <div>
+                <p style="text-align: center;font-size: 30px;margin-top:0;margin-bottom: 0;font-family: Poppins-Bold;padding-bottom: 15px;border-bottom: 0.5px solid black">
+                    Approval Letter
+                </p>
+            </div>
+        {{-- <hr> --}}
+
+        {{-- <div style="border: 0.5px solid black;width: 89%;margin: auto;"></div> --}}
+
+        <div class="content" >
+            <div>
+                <p style="font-size: 14px">Date: 04/29/2024</p>
+            </div>
+            <div style="position: relative;left: 40%;margin-top:35px">
+                <p style="margin:0;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Beneficiary Name : </span></p>
+                <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Account Number : </span> 9955</p>
+                <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Date Established : </span> 04/29/2024</p>
+            </div>
+            <div style="margin-top: 35px">
+                <p style="font-size: 18px;font-family:Poppins-Regular;margin:0;line-height: 1">This letter is to confirm that Joinder Agreement application for the above named Beneficiary to join the Senior Life Care Pooled trust has been approved and a sub-account has been established. The account is effective upon receipt
+                    of surplus deposit.
+                </p>
+                <p style="font-size: 18px;font-family:Poppins-Regular;margin:0;line-height: 1;margin-top:15px">
+                    Should you have any further inquiries please do not hesitate to contact our office at 718-500-3235
+                </p>
+            </div>
+            <div style="font-size: 18px;font-family:Poppins-Regular;margin-top:15px">
+                <p style="margin: 0;font-size: 16px;font-family:Poppins-Regular">Sincerely,</p>
+                <p style="margin: 0;font-size: 18px;" class="signature">Senior Life Care</p>
+
+                <p style="margin: 0;font-size: 16px;font-family:Poppins-Regular">Enrollment Department</p>
+            </div>
         </div>
     </div>
-</div> --}}
-<div style="width: 90%;margin:40px auto">
+
+</div>
+<div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:30px">
+    <div style="width: 100%;">
+        <div style="width: 25%; float: left">
+            <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span>
+            <span style="font-family:Poppins-Regular">718.500.3235</span>
+        </div>
+        <div style="width: 45%; float: left;text-align: center">
+            <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Address:</span>
+            <span style="font-family:Poppins-Regular">5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
+        </div>
+        <div style="width: 25%; float: right; text-align: right;">
+            <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span>
+            <span style="font-family:Poppins-Regular">info@slctrusts.org</span>
+        </div>
+
+    </div>
     <div>
-        <p style="font-size: 18px">This letter is to confirm that Joinder Agreement application for the above named Beneficiary to join Senior Care Life Pooled trust has been approved and a sub-account has been established. The account is effective upon receipt
-            of surplus deposit.
-        </p>
-        <p style="font-size: 18px">
-            Should you have any further inquiries please do not hesitate to contact our office at 718-500-3235
-        </p>
-    </div>
-    <div style="font-size: 18px">
-        <p style="margin: 0">Sincerely</p>
-        <p style="font-family: serif; font-style: italic; font-weight: bold;margin: 0">Senior Care Life</p>
-
-        <p style="margin: 0">Enrollment Department</p>
-    </div>
-</div>
-<div>
-    <div>
-        <div style="width: 100%;">
-            <div style="width: 25%; float: left">
-                <span style="color: rgb(52 159 153)">Tel:</span>
-                <span>718.500.3235</span>
-            </div>
-            <div style="width: 50%; float: left;text-align: center">
-                <span style="color: rgb(52 159 153)">Address:</span>
-                <span>5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
-            </div>
-            <div style="width: 25%; float: left; text-align: right">
-                <span style="color: rgb(52 159 153)">Email:</span>
-                <span>info@slctrusts.org</span>
-            </div>
-
-        </div>
-        <div>
-            <br>
-            <div style="width: 100%;text-align: center">
-                <span>www.seniorlifecaretrusts.org</span>
-            </div>
-        </div>
-    </div>
+        <p style="width: 95%;text-align: center;font-family:Poppins-Regular;">www.seniorlifecaretrusts.org</p>
+   </div>
 </div>
 
 </body>

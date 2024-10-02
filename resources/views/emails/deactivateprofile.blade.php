@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ config('app.professional_name') }} | Account Created</title>
+    <title>{{ config('app.professional_name') }} | Account Deactivated</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,8 +102,6 @@
 </head>
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
-    <!-- HIDDEN PREHEADER TEXT -->
-
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <!-- LOGO -->
         <tr>
@@ -120,8 +118,8 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
-                            <img src="{{ url('/assets/img/'.config('app.name').'-Logo.png') }}" style="height:110px" style="display: block; border: 0px;" />
-                            <h1 style="font-size: 30px; font-weight: 400; margin: 2;">Hi {{$details->name}}!</h1>
+                            <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
+                            <h1 style="font-size: 30px; font-weight: 400;">Hi {{$name}}!</h1>
                         </td>
                     </tr>
                 </table>
@@ -132,22 +130,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;"> You have successfully registered with {{ config('app.professional_name') }}. Please set your password.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#ffffff" align="left">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="#559e99"><a href="{{url('/setpassword/'.$details->token)}}" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #559e99; display: inline-block;">Set Password</a></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
+                            <p style="margin: 0;text-align:center;"> Your profile has been deactivated by {{ config('app.professional_name') }},For immediate assistance please call {{ config('app.contact') }}.</p>
                         </td>
                     </tr>
                 </table>

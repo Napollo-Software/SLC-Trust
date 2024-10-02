@@ -23,7 +23,10 @@
     </style>
 
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Edit Lead</h5>
+        <h5 class=" d-flex justify-content-between pt-2 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Edit Contact</b> </div>
+        </h5>
         <!-- Account page navigation-->
         <form method="post" id="leadUpdateForm" action="{{ route('update.lead', $lead->id) }}">
             @csrf
