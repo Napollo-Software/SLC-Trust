@@ -684,7 +684,7 @@
             <td>
                 <input type="text" name="job_title_one" class="no-border">
                 <br>
-                <p>Number of hours/week: <input type="text" name="hours_one" class="no-border"></p>
+                <p>Number of hours/week: <input type="number" name="hours_one" class="no-border"></p>
             </td>
             <td>
                 <input type="text" name="type_business_one" class="no-border">
@@ -752,7 +752,7 @@
             <td>
                 <input type="text" name="job_title_two" class="no-border">
                 <br>
-                <p>Number of hours/week: <input type="text" name="hours_two" class="no-border"></p>
+                <p>Number of hours/week: <input type="number" name="hours_two" class="no-border"></p>
             </td>
             <td>
                 <input type="text" name="type_business_two" class="no-border">
@@ -820,7 +820,7 @@
             <td>
                 <input type="text" name="job_title_three" class="no-border">
                 <br>
-                <p>Number of hours/week: <input type="text" name="hours_three" class="no-border"></p>
+                <p>Number of hours/week: <input type="number" name="hours_three" class="no-border"></p>
             </td>
             <td>
                 <input type="text" name="type_business_three" class="no-border">
@@ -888,7 +888,7 @@
             <td>
                 <input type="text" name="job_title_four" class="no-border">
                 <br>
-                <p>Number of hours/week: <input type="text" name="hours_four" class="no-border"></p>
+                <p>Number of hours/week: <input type="number" name="hours_four" class="no-border"></p>
             </td>
             <td>
                 <input type="text" name="type_business_four" class="no-border">
@@ -956,7 +956,7 @@
             <td>
                 <input type="text" name="job_title_five" class="no-border">
                 <br>
-                <p>Number of hours/week: <input type="text" name="hours_five" class="no-border"></p>
+                <p>Number of hours/week: <input type="number" name="hours_five" class="no-border"></p>
             </td>
             <td>
                 <input type="text" name="type_business_five" class="no-border">
