@@ -173,6 +173,9 @@
                                                         <a class="dropdown-item"
                                                            href="{{ route('view_user', $u['id']) }}"><i
                                                                 class="bx bx-dollar-circle me-1"></i> Add Balance</a>
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('approval-letter', $u['id']) }}"><i
+                                                                class="bx bxs-file-pdf me-1"></i>Approval Letter</a>
                                                     @endif
                                                 </div>
                                             </div>

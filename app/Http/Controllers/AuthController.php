@@ -63,8 +63,8 @@ class AuthController extends Controller
                 $request->validate([
                     'name' => 'required',
                     'email' => 'required|email|unique:users',
-                   // 'billing_cycle' => 'required',
-                   // 'surplus_amount' => 'required|numeric|lt:10000|gt:0'
+                    // 'billing_cycle' => 'required',
+                    // 'surplus_amount' => 'required|numeric|lt:10000|gt:0'
                 ]);
             }
 
@@ -171,17 +171,17 @@ class AuthController extends Controller
 
             $details = $user;
 
-        //     $directory = storage_path('app/public/' . $user->email);
-        //     if (!is_dir($directory)) {
-        //         mkdir($directory, 0777, true);
-        //     }
-        //     $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
-        // ->setOption([
-        //     'fontDir' => public_path('/fonts'),
-        //     'fontCache' => public_path('/fonts'),
-        //     'defaultFont' => 'Nominee-Black'
-        // ])
-        // ->setPaper('A4', 'portrait');
+            //     $directory = storage_path('app/public/' . $user->email);
+            //     if (!is_dir($directory)) {
+            //         mkdir($directory, 0777, true);
+            //     }
+            //     $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+            // ->setOption([
+            //     'fontDir' => public_path('/fonts'),
+            //     'fontCache' => public_path('/fonts'),
+            //     'defaultFont' => 'Nominee-Black'
+            // ])
+            // ->setPaper('A4', 'portrait');
             // $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
 
@@ -681,7 +681,7 @@ class AuthController extends Controller
 
         $user->phone = $request->phone;
         $user->save();
-        
+
         alert()->success('Profile updated!', 'Profile has been updated successfully!');
         return redirect("profile_setting");
     }
@@ -819,13 +819,13 @@ class AuthController extends Controller
                 mkdir($directory, 0777, true);
             }
 
-            $pdf = PDF::loadView('document.trusted-surplus-pdf', ['user' => $user,"transaction" => $transaction])
-            ->setOption([
-                'fontDir' => public_path('/fonts'),
-                'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Nominee-Black'
-            ])
-            ->setPaper('A4', 'portrait');
+            $pdf = PDF::loadView('document.trusted-surplus-pdf', ['user' => $user, "transaction" => $transaction])
+                ->setOption([
+                    'fontDir' => public_path('/fonts'),
+                    'fontCache' => public_path('/fonts'),
+                    'defaultFont' => 'Nominee-Black'
+                ])
+                ->setPaper('A4', 'portrait');
 
             $pdfLink = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
 
@@ -981,6 +981,28 @@ class AuthController extends Controller
         $referrals = $referralsOfVendor->merge($referralsOfContacts)->sortByDesc('id');
 
         return view('vendors.vendor_dashboard', compact('vendor', 'referrals'));
+    }
+
+    public function approvalLetter($id)
+    {
+        $user = User::findOrFail($id);
+
+        $directory = storage_path("app/public/$user->email");
+
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+            ->setOption([
+                'fontDir' => public_path('/fonts'),
+                'fontCache' => public_path('/fonts'),
+                'defaultFont' => 'Nominee-Black'
+            ])
+            ->setPaper('A4', 'portrait');
+
+
+        return $pdf->download("approval-letter-{$user->id}.pdf");
     }
 
 

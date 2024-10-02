@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Claim;
+use PDF;
+use Session;
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Claim;
+use App\Exports\Users;
 use App\Models\Category;
+use App\Exports\userbills;
 use App\Models\Notifcation;
 use App\Models\Transaction;
-use Session;
-use PDF;
 use App\Exports\latestbill;
+use App\Exports\UserExport;
 use App\Exports\deletebills;
-use App\Exports\userbills;
+use Illuminate\Http\Request;
 use App\Exports\AllTransaction;
-use App\Exports\BankReconciliationExport;
 use App\Exports\UserTransaction;
 use App\Exports\TransectionExport;
-use App\Exports\TransectionMonthlyExport;
-use App\Exports\UserExport;
-use App\Exports\Users;
 use App\Exports\PendingBillExport;
 use Maatwebsite\Excel\Facades\Excel;
-use Carbon\Carbon;
+use App\Exports\TransectionMonthlyExport;
+use App\Exports\BankReconciliationExport;
 
 class PrintController extends Controller
 {
@@ -57,7 +57,6 @@ class PrintController extends Controller
     public function deletepdfbill()
     {
         $role = User::where('id', '=', Session::get('loginId'))->value('role');
-        //dd($role);
 
         if ($role != 'User') {
 
@@ -357,4 +356,5 @@ class PrintController extends Controller
 
         return Excel::download(new UserTransaction, 'transactions.csv');
     }
+
 }
