@@ -819,8 +819,13 @@ class AuthController extends Controller
                 mkdir($directory, 0777, true);
             }
 
-
-            $pdf = PDF::loadView('document.trusted-surplus-pdf', ["user" => $user, "transaction" => $transaction]);
+            $pdf = PDF::loadView('document.trusted-surplus-pdf', ['user' => $user,"transaction" => $transaction])
+            ->setOption([
+                'fontDir' => public_path('/fonts'),
+                'fontCache' => public_path('/fonts'),
+                'defaultFont' => 'Nominee-Black'
+            ])
+            ->setPaper('A4', 'portrait');
 
             $pdfLink = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
 

@@ -1,4 +1,37 @@
 {
+    "times new roman": {
+        "normal": "times_new_roman_normal_2b41e7e6f9a863ef281e4d7c709dc663"
+    },
+    "times new roman bold": {
+        "normal": "times_new_roman_bold_normal_6dc8eb08b4b0314766c7ce70cedf3cb2"
+    },
+    "times new roman italic": {
+        "normal": "times_new_roman_italic_normal_586a3ba9526edf6111343dbb0e20bc4d"
+    },
+    "apefno-arial-boldmt": {
+        "normal": "apefno_arial_boldmt_normal_f5153ded337f4d271c6113b9226b281d"
+    },
+    "heejyj-arial_2": {
+        "normal": "heejyj_arial_2_normal_845ebfa297e03c26aa0d087fc07246e2"
+    },
+    "heejyj-arial": {
+        "normal": "heejyj_arial_normal_fc8b57526644f2bc3c1cfaeacae580a2"
+    },
+    "keescu-arialmt": {
+        "normal": "keescu_arialmt_normal_e4cdc6bec769eeec5bc3b6bf17f4a75e"
+    },
+    "arialbi": {
+        "normal": "arialbi_normal_40262b9640b147af8043052aac70fa16"
+    },
+    "arialcemtblack": {
+        "normal": "arialcemtblack_normal_1f7b898c6a52ad00b1e1ca4812ea08d1"
+    },
+    "arialmdm": {
+        "normal": "arialmdm_normal_29f851b1b879a6e61c5dc1c0c1bacded"
+    },
+    "arial": {
+        "normal": "arial_normal_f67d0e664f8f031d02fee677028d5f73"
+    },
     "info-normal": {
         "normal": "info_normal_normal_8e9bee386a7e2af567dabf06015647b3"
     },
