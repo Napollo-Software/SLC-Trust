@@ -8,21 +8,27 @@
     <title>DOH 5173-HIPPA State</title>
 </head>
 <style>
-     @font-face {
-        font-family: 'TKLCCE-Info-Normal';
-        src: url('fonts/TKLCCE-Info-Normal.ttf') format('truetype');
+            @font-face {
+                font-family: 'TKLCCE-Info-Normal';
+                src: url('fonts/TKLCCE-Info-Normal.ttf') format('truetype');
             }
             @font-face {
                 font-family: 'TKLCCE-Info-SemiBold';
                 src: url('fonts/TKLCCE-Info-SemiBold.ttf') format('truetype');
+            }
+            @font-face {
+                font-family: 'info-bold';
+                src: url('fonts/info-bold.otf') format('truetype');
             }
             body{
                 font-family:'TKLCCE-Info-Normal';
                 font-size:12px
             }
             .font-bold{
+                font-family:'info-bold';
+            }
+            .font-semibold{
                 font-family:'TKLCCE-Info-SemiBold';
-                font-weight:bold !important
             }
             table {
                 border-collapse: collapse;
@@ -38,9 +44,17 @@
             }
 
             th,
+            td:nth-child(1) {
+                border: 1px solid black;
+                padding-right: 3px;
+                padding-top: 2px;
+                padding-bottom: 3px;
+                padding-left: 0px;
+            }
+            th,
             td {
                 border: 1px solid black;
-                padding: 3px;
+                padding-left:3px
             }
             th {
                 background-color: #f2f2f2;
@@ -60,9 +74,13 @@
 
             .styled-hr {
                 border: none;
-                border-top: 02px solid #000;
+                border-top: 0.1px solid #000000;
                 width: 95%;
-                /* Adjust the color as needed */
+                margin:2px
+            }
+            .line {
+                border: none;
+                border-top: 0.1px solid #000;
             }
 
 
@@ -75,7 +93,7 @@
 
             /* styles */
             .border-bottom{
-                border-bottom:1px solid !important;
+                border-bottom:0.6px solid !important;
                 border-right: none;
                 border-left: none;
                 border-top: none;
@@ -86,20 +104,18 @@
                 border-left: none;
                 border-top: none;
             }
-            tr td > label{
+            /* tr td > label{
                 padding-left:3px
-            }
+            } */
             tr td > input{
-                font-size:10px
+                font-size:10px;
+                padding-left:0
             }
             td:nth-child(odd){
                 border-left:none;
             }
             td:nth-child(3){
                 border-right:none;
-            }
-            .font-bold{
-                font-weight:700
             }
             .text-sm{
                 font-size:10px
@@ -141,7 +157,7 @@
                 padding-bottom:7px;  
             }
             .pl-20{
-                padding-left:20px
+                padding-left:25px
             }
             .w-full{
                 width:100%
@@ -160,11 +176,11 @@
         <p style="display: table-cell; width: 40%; font-size: 12px; padding: 0; margin: 0; position: relative; bottom: 0;">
             NEW YORK STATE DEPARTMENT OF HEALTH
             <br>
-            Disability Review Unit
+           State Disability Review Unit
         </p>
         <div style="display: table-cell; width: 60%; text-align: right; vertical-align: bottom;">
-            <h5 class='font-bold' style="margin: 0;padding: 0;font-size: 18px;white-space:nowrap">Authorization for Release of Health Information Pursuant to
-                HIPAA</h5>
+            <span class='font-bold' style="margin: 0;padding: 0;font-size: 18px;white-space:nowrap">Authorization for Release of Health Information Pursuant to
+                HIPAA</span>
         </div>
     </div>
     <hr style="width: 100%;height:5px;background-color: #231F20;">
@@ -200,7 +216,7 @@
         </tr>
     </table>
     <div class="authorization-text">
-        <p class='m-0'>I, or my authorized representative, request that health information regarding my care and treatment be
+        <p class='m-0' style='padding-top:5px'>I, or my authorized representative, request that health information regarding my care and treatment be
             released as set forth on this form. In accordance with New York
             State Law and the Privacy Rule of the Health Insurance Portability and Accountability Act of 1996 (HIPAA), I
             understand that:</p>
@@ -245,15 +261,20 @@
         </ol>
             </div>
             <div>
-                <input type="text" name="name_address" class="border-bottom text-sm" style="width: 100%;" value="{{$name_address}}">
+                <input type="text" name="name_address" class="text-sm no-border" style="width: 100%;" value="{{$name_address}}">
+                <hr class='line'>
                 <p style='padding:0;' class='m-0'>7. Name and address of the health provider or entity authorized to release this information:</p>
             </div>
             <div>
-                <input type="text" name="name_address" class="border-bottom text-sm" style="width: 100%" value="{{$name_address}}">
-                <p style='padding:0;margin:3px' class=''>8. Name and address of person(s) or agency to whom this information is to be sent:</p>
+                <input type="text" name="name_address" class="no-border text-sm" style="width: 100%" value="{{$name_address}}">
+                <hr class='line'>
+                <p style='padding:0;margin:0px' class=''>8. Name and address of person(s) or agency to whom this information is to be sent:</p>
             </div>
             </div>
-                <p class='font-bold border-bottom m-0' style='padding-left:40px;font-weight:600'>State Disability Review Unit OCP-826, State of New York, Department of Health, Albany, NY 12237</p>
+            <div class='w-full'>
+                <span class='font-bold m-0' style='padding-left:40px;display:block;padding-bottom:0px'>State Disability Review Unit OCP-826, State of New York, Department of Health, Albany, NY 12237</span>
+            </div>
+            <hr class='line'>
     <div class="authorization">
         <p class='m-0 '>
          9(a). Specific information to be released:
@@ -302,15 +323,23 @@
         <p class='m-0'>
             9(b). Authorization to discuss Health Information:
         </p>
-        <div style="display: inline-block; width: 95%;" class='pl-20'>
-            <span>
-                By initialing here: 
-            </span>
-        <input type="text" name="init" class="border-bottom text-sm" value="{{$init}}" style="width: 20%;">
-            I authorize 
-            <input type="text" name="auth_name" class="border-bottom text-sm" value="{{$auth_name}}" style="width: 45%;"
-            placeholder="Name of individual/Health care provider"></div>
-        <p class='m-0' style="padding-left: 20px;">to discuss my health information with the <b>State Disability Review Unit</b></p>
+        <div style="display: table; width: 95%;" class='pl-20'>
+            <div style='display:table-cell;width:30%'>
+                <span>
+                    By initialing here: 
+                </span>
+                <input type="text" name="init" class="border-bottom text-sm" value="{{$init}}" style="width: 50%;">
+            </div>
+            <div style='table-cell'>
+                I authorize 
+                <input type="text" name="auth_name" class="border-bottom text-sm" value="{{$auth_name}}" style="width: 70%;"
+                placeholder="Name of individual/Health care provider">
+                <p style='padding-left:45px' class='m-0'>
+                    (NAME OF INDIVIDUAL/HEALTH CARE PROVIDER)
+                </p>
+                </div>
+        </div>
+        <p class='m-0' style="padding-left: 24px;">to discuss my health information with the <b>State Disability Review Unit</b></p>
         <div class="checkbox-container" style="width: 100%;display:table">
             <div style='display:table-cell;width:50%;vertical-align:middle;padding-top:4px'>
                 <p class='m-0' style="display: inline;">9(c). I do not consent to the disclosure of (Check all boxes that apply):</p>
@@ -333,9 +362,9 @@
             </label>
         </div>
         </div>
-        <hr>
+        <hr class='styled-hr'>
         <div class='m-0 w-full' style='display:table'>
-            <span class='w-50' style='display:table-cell;vertical-align:middle;padding-top:4px'>
+            <span class='w-50' style='display:table-cell;vertical-align:middle;padding-top:1px'>
                 10. Reason for release of information:
             </span>
             <span style='vertical-align:middle'>
@@ -357,7 +386,7 @@
             </label>
         </span>
                 </div>
-        <hr>
+        <hr class='styled-hr'>
         <div style='display:table;width:100%'>
             <div style='display:table-row'>
                 <div style='display:table-cell;width:50.3%;'>
@@ -368,7 +397,7 @@
                 </div>
             </div>
         </div>
-        <hr/>
+        <hr class='styled-hr'/>
         <p class='m-0'></p>
         <p class='m-0'>
             <span   >
@@ -379,7 +408,7 @@
             class="no-border text-sm"
             value="{{$person_signing}}">
         </p>
-        <hr>
+        <hr class='styled-hr'>
         <p class='m-0'>
             <span>
                 13. Type of authority to sign on behalf of the patient:
@@ -390,50 +419,56 @@
                  value="{{$auth_info}}"
                  >
                 </p>
+                <hr class='styled-hr'/>
         <p class='m-0'>All sections on this form have been completed and my questions about this form have
             been answered.
             I authorize the facility/person noted on this page to release health information of the person named on this
             page to the New York State Department of Health State
-            State Disability Review Unit.</p>
+            <span class='font-bold'>
+                State Disability Review Unit.
+            </span>
+        </p>
 
         <div style="display: table; width: 100%;">
             <div style="display: table-cell; vertical-align: bottom;">
                 @if($hippa_state_sign)
-                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="300" height="70">
-                @else
-                    <div style=" width:150px; height:70px;vertical-align: center;text-align: center"><p>
-                            <b style="vertical-align: bottom">No Signature Provided</b>
-                    </p></div>
-                <p style="display: block; text-align: start; border-bottom">
+                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="300" height="60">
+                    <p class='m-0' style="display: block; text-align: start;border-top:1px solid">
                     SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW
-                </p>p
+                    </p>
+                @else
+                    <div style=" width:150px; height:60px;vertical-align: center;text-align: center">
+                    <p>
+                        <b style="vertical-align: bottom">No Signature Provided</b>
+                    </p>
+                </div>
                 @endif
             </div>
-            <div style="display: table-cell; vertical-align: bottom;">
+            <div style="display: table-cell; vertical-align: bottom;padding-left:15px;margin-top:15px">
                 <input type="text" class="border-bottom text-sm" name="date_hippa_state" value="{{$date_hippa_state}}">
                 <p style="display: block; text-align: start;vertical-align: bottom" class='m-0'>
                     DATE
                 </p>
             </div>
         </div>
-        <div style='margin-bottom:30px;margin-top:5px;padding-top:2px' class='styled-hr'>
+        <div style='margin-bottom:30px;margin-top:2px;padding-top:2px' class='styled-hr'>
             DOH-5173 (4/16) Page 1 of 2
         </div>
         <div style="display: table; width: 100%; padding: 0; margin: 0;">
-            <p style="display: table-cell; width: 40%; font-size: 12px; padding: 0; margin: 0; position: relative; bottom: 0;">
+            <p style="display: table-cell; width: 32%; font-size: 12px; padding: 0; margin: 0; position: relative; bottom: 0;vertical-align:bottom">
                 NEW YORK STATE DEPARTMENT OF HEALTH
                 <br>
-                Disability Review Unit
+                State Disability Review Unit
             </p>
 
-            <div style="display: table-cell; width: 60%; text-align: right; vertical-align: bottom;">
-                <h5 style="margin: 0;padding: 0;font-size: 14px">
+            <div style="display: table-cell; width: 68%; text-align: right; vertical-align: bottom;">
+                <span style="margin: 0;padding: 0;font-size: 18px;" class='font-bold'>
                   Instructions for Completing the <br/>    
                   Authorization for Release of Health Information Pursuant to HIPAA
-                </h5>
+                </span>
             </div>
         </div>
-        <hr class="styled-hr">
+        <hr style="width: 100%;height:5px;background-color: #231F20;">
         <p class='m-0'>
             <span class='pb-7'>
                 The “Authorization for Release of Health Information and Confidential HIV-Related Information” form gives
@@ -462,12 +497,12 @@
             <span>
                 7)
             </span>
-            <span style='margin-left:10px;'>
+            <span style='margin-left:5px;'>
                 <span>
                     Put the name and address of the healthcare provider who is to send your health records to the State
                     Disability Review Team. <br/>
                 </span>
-                <span style='margin-left:20px;padding-top:20px'>
+                <span style='margin-left:24px;padding-top:20px' class='font-bold'>
                     Fill out one form for each of your healthcare providers
                 </span>
             </span>
@@ -477,11 +512,15 @@
             <span>
             8)
             </span>
-            <span style='margin-left:10px;'>
+            <span style='margin-left:5px;'>
             Informs the healthcare provider to whom to send the health records. This box will
             be already filled in
             with
-            the State Disability Review Team’s information.
+            the State Disability Review Team’s
+            <br/>
+            <span style='padding-left:15px'>
+                information.
+            </span>
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
@@ -498,22 +537,30 @@
             • If you want the healthcare provider to send your entire medical record, put a check in the second box.
 
         </p>
-        <p class='m-0 py-7' style='margin-left:15px'>
+        <p class='m-0 py-7' style='margin-left:15px;'>
             • If you want the healthcare provider to send in any other information, put a check in the third box (Other)
             and
             write the information that the healthcare
-            provider is to send
+            <br/>
+            <span style='margin-left:10px'>
+                provider is to send
+            </span>
         </p>
+        <hr class='styled-hr'style='margin-left:35px'/>
         <p class='m-0 py-7' style='margin-left:15px'>
             <span>
             9b)
             </span>
-            <span style='margin-left:10px;'>
+            <span style='margin-left:5px;'>
             If you want to allow your healthcare provider to speak with someone on the State
             Disability Review Team,
             put
-            your initials and the name of your healthcare
-            provider on the lines provided
+            your initials and the name of your
+            <br/>
+            <span style='margin-left:20px'>
+                healthcare
+                provider on the lines provided
+            </span>
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
@@ -521,7 +568,7 @@
             <span>
             9c)
             </span>
-            <span style='margin-left:10px;'>
+            <span style='margin-left:5px;'>
             Under 9(c), check the boxes for the type of medical information that your healthcare provider is not
             permitted to send.
             </span>
@@ -531,17 +578,17 @@
             <span>
             10)
             </span>
-            <span style='margin-left:10px;'>
+            <span style='margin-left:5px;'>
             Check the box if the individual requested the release of information, or check Other and state the
             reason for the request.
             </span>
-            <hr class='styled-hr' style='margin-left:35px'/>
         </p>
+        <hr class='styled-hr' style='margin-left:35px'/>
         <p class='m-0 py-7' style='margin-left:15px'>
             <span>
             11)
             </span>
-            <span style='margin-left:10px;'>
+            <span style='margin-left:5px;'>
             The purpose of this request is for a disability determination and review.
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
@@ -550,7 +597,7 @@
             <span>
             12)
             </span>
-            <span style='margin-left:10px;'>
+            <span style='margin-left:5px;'>
             If you are not the patient filling out the form to request medical records, print your name.
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
@@ -559,10 +606,14 @@
             <span>
             13)
             </span>
-            <span style='margin-left:10px;'>
-            If you are the legal representative of the patient, put the relationship you have to the patient.  For example, if the patient is a child and you are the parent, put  
-            parent.  If you are the legal guardian of the patient, put legal guardian
+            <span style='margin-left:5px;'>
+            If you are the legal representative of the patient, put the relationship you have to the patient.  For example, if the patient is a child and you are the
+            <br/>
+            <span style='padding-left:20px'>
+                parent, put  
+                parent.  If you are the legal guardian of the patient, put legal guardian
             </span>
+        </span>
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
         <br>

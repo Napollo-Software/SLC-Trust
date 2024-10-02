@@ -812,4 +812,61 @@ Route::get('hipp',function(){
         "date_hippa_state" => "1987-01-17"
     ];
     return view('document/hippa-state-pdf', $data);
+
+});
+
+Route::get('hipa',function(){
+
+    $data = [
+        "_token" => "DUBwDrJfasbPNXhk3gJlWe1E4eWfbD2jZvbFGRuR",
+        "referral_id" => "2",
+        "document_id" => "70",
+        "hippa_name" => "Eagan Mcleod",
+        "hippa_dob" => "1998-01-27",
+        "hippa_ssn" => null,
+        "hippa_address" => "Mollit non ipsa in,Quia sunt quam fugi,New Hampshire,United States of America,88150",
+        "health_provider" => null,
+        "info_released_from" => null,
+        "info_released_to" => null,
+        "info_other" => null,
+        "authorised_person" => null,
+        "authorize" => null,
+        "reason_other" => null,
+        "person_signing" => null,
+        "authority_sign" => null,
+        "hippa_signature" => null,
+        "hippa_sign" => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAAAXNSR0IArs4c6QAABGlJREFUeF7t1AEJADAMA8HVv9sa2GAuHq4KwqVkdvceR4AAgYDAGKxASyISIPAFDJZHIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRB4yA0/gy//ne4AAAAASUVORK5CYII=",
+        "sign_date" => null,
+    ];
+
+    return view('document.hippa-pdf', $data);
+
+    
+});
+
+
+Route::get('test-email',function(){
+
+    $data = [
+        "name" => "Alamgir Khan",
+        "email_message" => "ADDDDDDDDDDDD aDDDDDDDDDD asssss",
+        "filtered_names" => [
+            0 => "1-Joinder Agreement.pdf",
+            1 => "2-DOH-960 Hipaa.pdf",
+            2 => "3-MAP-751e - Authorization to Release Medical Information.pdf",
+            3 => "4-DOH 5173-Hipaa State.pdf",
+            4 => "5- DOH -5139 Disability FILLABLE Questionnaire.pdf",
+            5 => "6-DOH-5143.pdf",
+        ],
+        "filtered_links" => [
+        0 => "http://localhost:8000/joinder?referralId=eyJpdiI6Illha2hYNG5qMkxKYjkyNEdjZmROUUE9PSIsInZhbHVlIjoicGFIdzk4RDVCVHVCcWwxS2JrblVLUT09IiwibWFjIjoiOTEzZDI2NjY4ODcxZDc0M2UyOWQwNmYxYWZkYmIxZGQwOWI2ZWZiN2U3YmFkYjAwYzVlNjMwNDNkNmM5MWVkMiIsInRhZyI6IiJ9",
+        1 => "http://localhost:8000/hippa?referralId=eyJpdiI6Illha2hYNG5qMkxKYjkyNEdjZmROUUE9PSIsInZhbHVlIjoicGFIdzk4RDVCVHVCcWwxS2JrblVLUT09IiwibWFjIjoiOTEzZDI2NjY4ODcxZDc0M2UyOWQwNmYxYWZkYmIxZGQwOWI2ZWZiN2U3YmFkYjAwYzVlNjMwNDNkNmM5MWVkMiIsInRhZyI6IiJ9",
+        2 => "http://localhost:8000/map?referralId=eyJpdiI6Illha2hYNG5qMkxKYjkyNEdjZmROUUE9PSIsInZhbHVlIjoicGFIdzk4RDVCVHVCcWwxS2JrblVLUT09IiwibWFjIjoiOTEzZDI2NjY4ODcxZDc0M2UyOWQwNmYxYWZkYmIxZGQwOWI2ZWZiN2U3YmFkYjAwYzVlNjMwNDNkNmM5MWVkMiIsInRhZyI6IiJ9",
+        3 => "http://localhost:8000/hippa_state?referralId=eyJpdiI6Illha2hYNG5qMkxKYjkyNEdjZmROUUE9PSIsInZhbHVlIjoicGFIdzk4RDVCVHVCcWwxS2JrblVLUT09IiwibWFjIjoiOTEzZDI2NjY4ODcxZDc0M2UyOWQwNmYxYWZkYmIxZGQwOWI2ZWZiN2U3YmFkYjAwYzVlNjMwNDNkNmM5MWVkMiIsInRhZyI6IiJ9",
+        4 => "http://localhost:8000/disability?referralId=eyJpdiI6Illha2hYNG5qMkxKYjkyNEdjZmROUUE9PSIsInZhbHVlIjoicGFIdzk4RDVCVHVCcWwxS2JrblVLUT09IiwibWFjIjoiOTEzZDI2NjY4ODcxZDc0M2UyOWQwNmYxYWZkYmIxZGQwOWI2ZWZiN2U3YmFkYjAwYzVlNjMwNDNkNmM5MWVkMiIsInRhZyI6IiJ9",
+        5 => "http://localhost:8000/doh?referralId=eyJpdiI6Illha2hYNG5qMkxKYjkyNEdjZmROUUE9PSIsInZhbHVlIjoicGFIdzk4RDVCVHVCcWwxS2JrblVLUT09IiwibWFjIjoiOTEzZDI2NjY4ODcxZDc0M2UyOWQwNmYxYWZkYmIxZGQwOWI2ZWZiN2U3YmFkYjAwYzVlNjMwNDNkNmM5MWVkMiIsInRhZyI6IiJ9",
+    ]];
+
+    return view('emails.email_documents', $data);
+
 });

@@ -421,13 +421,6 @@ class ReferralController extends Controller
     {
 
         $referral = Referral::find($request->id);
-        $path = 'user/images';
-        $fontpath = public_path('fonts/oliciy.ttf');
-        $char = strtoupper($referral->first_name);
-        $newAvatarname = rand(12, 34355) . time() . '_avatar.png';
-        $dest = $path . $newAvatarname;
-        $createAvatar = makeAvatar($fontpath, $dest, $char);
-        $avatar = $createAvatar == true ? $newAvatarname : '';
 
         $user = new User();
         $user->role = "User";
@@ -445,7 +438,6 @@ class ReferralController extends Controller
         $user->zipcode = $referral->zip_code;
         $user->gender = $referral->gender;
         $user->email = $referral->email;
-        $user->avatar = $avatar;
         $user->user_balance = '0';
         $user->token = $request->_token . rand();
         $user->password = Hash::make(123456);
@@ -458,18 +450,18 @@ class ReferralController extends Controller
         $referral->convert_to_customer = $user->id;
         $referral->save();
 
-        $directory = storage_path('app/public/' . $user->email);
-        if (!is_dir($directory)) {
-            mkdir($directory, 0777, true);
-        }
+        // $directory = storage_path('app/public/' . $user->email);
+        // if (!is_dir($directory)) {
+        //     mkdir($directory, 0777, true);
+        // }
 
-        $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
+        // $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
-        $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+        // $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
 
-        $pdf->save($savePath);
+        // $pdf->save($savePath);
 
-        Mail::to($referral->email)->send(new Register($user, $savePath));
+        Mail::to($referral->email)->send(new Register($user));
 
         return response()->json(['success' => 'Customer created successfully!']);
     }

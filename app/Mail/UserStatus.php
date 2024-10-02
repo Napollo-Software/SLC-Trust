@@ -11,34 +11,22 @@ class UserStatus extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
-    public $username;
-    public $pdfPath;
+    public $details, $username, $pdfPath;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($details, $username, $pdfPath)
+    public function __construct($details, $username, $pdfPath = null)
     {
         $this->details = $details;
         $this->username = $username;
         $this->pdfPath = $pdfPath;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this->subject(config('app.professional_name').' | Account Verified')
-            ->view('emails.userstatus')
-            ->attach($this->pdfPath, [
-                'as' => 'approval_letter.pdf',
-                'mime' => 'application/pdf',
-            ]);
+            ->view('emails.userstatus');
+            // ->attach($this->pdfPath, [
+            //     'as' => 'approval_letter.pdf',
+            //     'mime' => 'application/pdf',
+            // ]);
     }
 }

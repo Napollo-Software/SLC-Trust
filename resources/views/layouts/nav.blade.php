@@ -254,16 +254,16 @@
                             </li>
                             @endif --}}
                             @if ($user->hasPermissionTo('Bank Reconciliation'))
-                            <li class="nav-item dropend">
+                            {{-- <li class="nav-item dropend">
                                 <a class="dropdown-item  {{  in_array(Route::currentRouteName() ,['bank.reconciliation','bank.reconciliation.filter']) ? 'open active' : ''  }}" href="{{ route('bank.reconciliation') }}"><i class="bx bx-arch"></i>Bank
                                     Reconciliation</a>
-                            </li>
+                            </li> --}}
                             @endif
                             @if ($user->hasPermissionTo('Monthly Statement'))
-                            <li class="nav-item dropend">
+                            {{-- <li class="nav-item dropend">
                                 <a class="dropdown-item  {{ in_array(Route::currentRouteName() ,['monthly.statement','monthly.filter']) ? 'open active' : '' }}" href="{{ route('monthly.statement') }}"><i class="bx bx-book-bookmark"></i>Monthly
                                     Statement</a>
-                            </li>
+                            </li> --}}
                             @endif
                             @if ($user->hasPermissionTo('Transactions'))
                             <li class="nav-item dropend">

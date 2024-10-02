@@ -25,10 +25,20 @@
         }
 
    
+        @font-face {
+            font-family: 'info_web-italic';
+            src: url('fonts/info_web-italic.ttf') format('truetype');
+        }
+
+   
 
         body{
             font-family:  'info-normal' ;
             font-size: 13px;
+        }
+
+        .italic{
+            font-family:  'info_web-italic' !important ;
         }
 
         .xs{
@@ -168,7 +178,16 @@
             border: none !important;
         }
 
+        .th{
+            font-weight:none !important;
+            text-align: left;
+            padding: 3px;
+            font-family: 'info-semibold';
+        }
 
+        .inputLabel{
+            margin-top:-3px !important;
+        }
     </style>
 </head>
 
@@ -205,22 +224,20 @@
         <div style="display: table-row; width: 100%;background-color: peru;padding:0;margin: 0">
             <div style="display: table-cell; width: 50%;padding-top:5px;margin-top:5px !important;padding-right:5px !important">
                 <p style=" width: 50%;margin-bottom:0px !important;" class="sm semiBold" >Name:</p>
-                <div
-                    style="display: table; width: 100%; vertical-align: bottom; text-align: start; margin: 0;">
-                    <div  style="display: table-row; margin: 0; padding: 10px;">
-                        <p   style="display: table-cell; vertical-align: bottom;">First:</p>
-                        <input type="text" class="border-btm" name="first_name"   value="{{$first_name}}"
-                               style="padding: 2px;">
+                <div style="display: table; width: 100%;; margin: 0; table-layout: fixed;">
+                     <div style="display: table-row;">
+                        <p style="display: table-cell; vertical-align: middle; white-space: nowrap; padding-right: 10px; ">First:   <input type="text" class="border-btm" name="first_name" value="{{$first_name}}" 
+                        style=" width: 89%; padding: 2px;float: right;"></p>
                     </div>
                     <div style="display: table-row; margin: 0; padding: 10px;">
-                        <p style="display: table-cell; width: 100%; vertical-align: bottom;">Middle:</p>
-                        <input type="text" class="border-btm" name="middle_name" value="{{$middle_name}}"
-                               style="padding: 2px;">
+                        <p style="display: table-cell; width: 100%; vertical-align: middle;;">Middle: <input type="text" class="border-btm" name="middle_name" value="{{$middle_name}}"
+                        style="padding: 2px;width: 85%;"></p>
+                       
                     </div>
                     <div style="display: table-row; margin: 0; padding: 10px;">
-                        <p style="display: table-cell; width: 100%; vertical-align: bottom;">Last:</p>
-                        <input type="text" class="border-btm" name="last_name" value="{{$last_name}}"
-                               style="padding: 2px;">
+                        <p style="display: table-cell; width: 100%; vertical-align: bottom;width:10%">Last:  <input type="text" class="border-btm" name="last_name" value="{{$last_name}}"
+                        style="padding: 2px;width:90%"></p>
+                      
                     </div>
                     <div style="display: table-row; margin: 0; padding: 10px;">
                         <p style="display: table-cell; width: 100%; vertical-align: bottom;">SSN Number (last 4
@@ -369,7 +386,7 @@
 
     <table>
         <tr>
-            <td>
+            <td style="padding-left:9px">
                 <p style="text-align: center !important;margin-top:0px" class="lg bold">
                     PART I – INFORMATION ABOUT YOUR MEDICAL CONDITIONS
                 </p>
@@ -381,7 +398,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="padding-left:9px">
                 <p class="sm mt-0" >
                     B. How do your medical conditions affect your ability to function? (Please include any limitations
                     in your ability to perform activities of daily living and work-related activities.)
@@ -391,7 +408,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="padding-left:9px">
                 <p class="sm mt-0">
                     C. Please list your medications (or attach a list).
                 </p>
@@ -401,7 +418,7 @@
         </tr>
     </table>
     <hr>
-    <p style="font-size: 10px;">DOH-5139 01/21  Page 1 of 5</p>
+    <p style="font-size: 10px;">DOH-5139 06/24 Page 1 of 5 </p>
 
     <br>
     <table style="text-align: start !important;">
@@ -443,12 +460,12 @@
         <tr style="height: 35px !important;padding:0 !important;" class="sm">
             <td style="height: 35px !important;padding:0 !important;" colspan="3">
                 <p style="padding-left:5px;margin: 0;" class="sm">Date of last visit (month/year):
-                    <input  style="width:350px; border-bottom: 1px solid black;" value="{{$primary_care_provider_details}}"   name="primary_care_provider_details" />
+                    <input  style="width:450px; border-bottom: 1px solid black;" value="{{$primary_care_provider_details}}"   name="primary_care_provider_details" />
                 </p>
             </td>
         </tr>
         <tr style="height: 15px !important;padding:2px !important;" class="sm">
-            <td style="height: 15px !important;padding:0 5px!important;" class="sm" colspan="3">
+            <td style="height: 15px !important;padding:0 5px!important;padding-top:6px !important" class="sm" colspan="3">
                 B. Have you seen any other medical provider(s) within the past 12 months? &nbsp;&nbsp; <input
                     type="checkbox"
                     {{isset($medical_provider_yes) && $medical_provider_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom">
@@ -473,18 +490,18 @@
         </tr>
         <tr style="height: 15px !important;padding:0 3px !important;margin:0;" class="sm">
             <td style="height: 15px !important;padding:0 3px !important;margin:0;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$medical_provider_1_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px; font-size:10px !important"
                        name="medical_provider_1_name">
             </td>
             <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Phone Number</p>
+                <p style="margin: 0;padding: 0 0px;">Phone Number:</p>
                 <input type="text" class="noborder" name="medical_provider_1_phone" style="margin: 0;padding: 0 0px;font-size:10px !important"
                        value="{{$medical_provider_1_phone}}">
             </td>
             <td style="height: 15px !important;padding:0 3px !important; vertical-align: top; " rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medical_provider_1_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="medical_provider_1_address">
@@ -500,18 +517,18 @@
         </tr>
         <tr style="height: 15px !important;padding:0 5px!important;">
             <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$medical_provider_2_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="medical_provider_2_name">
             </td>
             <td style="height: 15px !important;padding:0 3px !important;">
-                <p style="margin: 0;padding:0px;">Phone</p>
+                <p style="margin: 0;padding:0px;">Phone Number:</p>
                 <input type="text" class="noborder" name="medical_provider_2_phone" style="margin: 0;padding: 0 0px;font-size:10px !important"
                        value="{{$medical_provider_2_phone}}">
             </td>
             <td style="height: 15px !important;padding:0 3px !important;vertical-align: top;" rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medical_provider_2_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="medical_provider_2_address">
@@ -527,18 +544,18 @@
         </tr>
         <tr style="height: 15px !important;">
             <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$medical_provider_3_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px; font-size:10px !important"
                        name="medical_provider_3_name">
             </td>
             <td style="height: 15px !important;padding:0 3px !important;">
-                <p style="margin: 0;padding: 0 0px;">Phone</p>
+                <p style="margin: 0;padding: 0 0px;">Phone Number:</p>
                 <input type="text" class="noborder" name="medical_provider_3_phone" style="margin: 0;padding: 0 0px; font-size:10px !important"
                        value="{{$medical_provider_3_phone}}">
             </td>
             <td style="height: 15px !important;padding:0 3px!important;vertical-align: top;" rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medical_provider_3_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%"
                        name="medical_provider_3_address">
@@ -555,7 +572,7 @@
        
         <!-- Second................. -->
         <tr style="height: 15px !important;padding:2px !important;" class="sm">
-            <td style="height: 15px !important;padding:0 5px!important;" class="sm" colspan="3">
+            <td style="height: 15px !important;padding:0 5px!important;padding-top:6px !important" class="sm" colspan="3">
                 C. Have you received medical care in a hospital or other health care facility within the past 12 months?&nbsp;  &nbsp;  <input
                     type="checkbox"
                     {{isset($got_medicare_yes) && $got_medicare_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom"> 
@@ -576,19 +593,15 @@
             </td>
         </tr>
         <tr style="height: 15px !important;padding:0 3px !important;margin:0;" class="sm">
-            <td style="height: 15px !important;padding:0 3px !important;margin:0;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+            <td style="height: 15px !important;padding:0 3px !important;margin:0;" colspan="2">
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$medicare_rec_1_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px; font-size:10px !important"
                        name="medicare_rec_1_name">
             </td>
-            <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Phone Number</p>
-                <input type="text" class="noborder" name="medicare_rec_1_phone" style="margin: 0;padding: 0 0px;font-size:10px !important"
-                       value="{{$medicare_rec_1_phone}}">
-            </td>
+         
             <td style="height: 15px !important;padding:0 3px !important; vertical-align: top; " rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medicare_rec_1_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="medicare_rec_1_address">
@@ -596,26 +609,21 @@
         </tr>
         <tr style="height: 15px !important;padding:0px !important">
             <td style="height: 15px !important;padding:0px 3px !important" colspan="2">
-                <p style="margin: 0;padding: 0;">Reason for seeing:</p>
+                <p style="margin: 0;padding: 0;">Reason:</p>
                 <input type="text" value="{{$medicare_rec_1_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="medicare_rec_1_reason">
             </td>
         </tr>
         <tr style="height: 15px !important;padding:0 5px!important;">
-            <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+            <td style="height: 15px !important;padding:0 3px!important;" colspan="2">
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$medicare_rec_2_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="medicare_rec_2_name">
             </td>
-            <td style="height: 15px !important;padding:0 3px !important;">
-                <p style="margin: 0;padding:0px;">Phone</p>
-                <input type="text" class="noborder" name="medicare_rec_2_phone" style="margin: 0;padding: 0 0px;font-size:10px !important"
-                       value="{{$medicare_rec_2_phone}}">
-            </td>
             <td style="height: 15px !important;padding:0 3px !important;vertical-align: top;" rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medicare_rec_2_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="medicare_rec_2_address">
@@ -623,26 +631,21 @@
         </tr>
         <tr style="height: 15px !important;padding:0 3px!important;">
             <td style="height: 15px !important;padding:0 3px !important;" colspan="2">
-                <p style="margin: 0;padding: 0 0px;">Reason for seeing:</p>
+                <p style="margin: 0;padding: 0 0px;">Reason:</p>
                 <input type="text" value="{{$medicare_rec_2_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="medicare_rec_2_reason">
             </td>
         </tr>
         <tr style="height: 15px !important;">
-            <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+            <td style="height: 15px !important;padding:0 3px!important;" colspan="2">
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$medicare_rec_3_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px; font-size:10px !important"
                        name="medicare_rec_3_name">
             </td>
-            <td style="height: 15px !important;padding:0 3px !important;">
-                <p style="margin: 0;padding: 0 0px;">Phone</p>
-                <input type="text" class="noborder" name="medicare_rec_3_phone" style="margin: 0;padding: 0 0px; font-size:10px !important"
-                       value="{{$medicare_rec_3_phone}}">
-            </td>
             <td style="height: 15px !important;padding:0 3px!important;vertical-align: top;" rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medicare_rec_3_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%"
                        name="medicare_rec_3_address">
@@ -684,19 +687,14 @@
             </td>
         </tr>
         <tr style="height: 15px !important;padding:0 3px !important;margin:0;" class="sm">
-            <td style="height: 15px !important;padding:0 3px !important;margin:0;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+            <td style="height: 15px !important;padding:0 3px !important;margin:0;" colspan="2">
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$agency_1_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px; font-size:10px !important"
                        name="agency_1_name">
             </td>
-            <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Phone Number</p>
-                <input type="text" class="noborder" name="agency_1_phone" style="margin: 0;padding: 0 0px;font-size:10px !important"
-                       value="{{$agency_1_phone}}">
-            </td>
             <td style="height: 15px !important;padding:0 3px !important; vertical-align: top; " rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$agency_1_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="agency_1_address">
@@ -704,26 +702,21 @@
         </tr>
         <tr style="height: 15px !important;padding:0px !important">
             <td style="height: 15px !important;padding:0px 3px !important" colspan="2">
-                <p style="margin: 0;padding: 0;">Reason for seeing:</p>
+                <p style="margin: 0;padding: 0;">Reason:</p>
                 <input type="text" value="{{$agency_1_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="agency_1_reason">
             </td>
         </tr>
         <tr style="height: 15px !important;padding:0 5px!important;">
-            <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+            <td style="height: 15px !important;padding:0 3px!important;" colspan="2">
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$agency_2_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="agency_2_name">
             </td>
-            <td style="height: 15px !important;padding:0 3px !important;">
-                <p style="margin: 0;padding:0px;">Phone Number</p>
-                <input type="text" class="noborder" name="agency_2_phone" style="margin: 0;padding: 0 0px;font-size:10px !important"
-                       value="{{$agency_2_phone}}">
-            </td>
             <td style="height: 15px !important;padding:0 3px !important;vertical-align: top;" rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$agency_2_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="agency_2_address">
@@ -731,26 +724,21 @@
         </tr>
         <tr style="height: 15px !important;padding:0 3px!important;">
             <td style="height: 15px !important;padding:0 3px !important;" colspan="2">
-                <p style="margin: 0;padding: 0 0px;">Reason for seeing:</p>
+                <p style="margin: 0;padding: 0 0px;">Reason:</p>
                 <input type="text" value="{{$agency_2_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="agency_2_reason">
             </td>
         </tr>
         <tr style="height: 15px !important;">
-            <td style="height: 15px !important;padding:0 3px!important;">
-                <p style="margin: 0;padding: 0 0px;">Name</p>
+            <td style="height: 15px !important;padding:0 3px!important;" colspan="2">
+                <p style="margin: 0;padding: 0 0px;">Name:</p>
                 <input type="text" value="{{$agency_3_name}}" class="noborder"
                        style="margin: 0;padding: 0 0px; font-size:10px !important"
                        name="agency_3_name">
             </td>
-            <td style="height: 15px !important;padding:0 3px !important;">
-                <p style="margin: 0;padding: 0 0px;">Phone</p>
-                <input type="text" class="noborder" name="agency_3_phone" style="margin: 0;padding: 0 0px; font-size:10px !important"
-                       value="{{$agency_3_phone}}">
-            </td>
             <td style="height: 15px !important;padding:0 3px!important;vertical-align: top;" rowspan="2">
-                <p style="margin: 0;padding: 0 0px;">Address</p>
+                <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$agency_3_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%"
                        name="agency_3_address">
@@ -758,7 +746,7 @@
         </tr>
         <tr style="height: 15px !important;">
             <td style="height: 15px !important;padding:0 3px!important;" colspan="2">
-                <p style="margin: 0;padding: 0 0px;">Reason for seeing:</p>
+                <p style="margin: 0;padding: 0 0px;">Reason:</p>
                 <input type="text" value="{{$agency_3_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
                        name="agency_3_reason">
@@ -767,14 +755,14 @@
 
     </table>
     <hr>
-    <p style="font-size: 10px;">DOH-5139 01/21  Page 2 of 5</p>
+    <p style="font-size: 10px;">DOH-5139 06/24 Page 2 of 5 </p>
 
     <table>
         <tr style="padding:3px !important">
             <td colspan="3" style="padding:3px !important;">
                 <p class="lg semiBold" style="text-align: center;padding:0 !important; margin:0 !important">PART III – INFORMATION ABOUT YOUR EDUCATION AND LITERACY
                 </b>
-                <p class="sm" style="margin:7px 3px !important"  >If a disability determination cannot be made based on your medical conditions
+                <p class="sm" style="margin:7px 3px !important; margin-bottom:21px !important">If a disability determination cannot be made based on your medical conditions
                     alone, the factors
                     of education, literacy,
                     and work history will be used to determine disability</p>
@@ -798,12 +786,14 @@
                     program, please
                     provide the school or program’s name and address.
                 </p>
-                <p class="sm" style="margin-left:5%" >School/Program Name: <input type="text" value="{{$school_name}}"
+                <p class="sm" style="margin-left:5%;margin-top:-2px" >School/Program Name: <input type="text" value="{{$school_name}}"
                                                name="school_name"
                                                style="width:74%"
                                                class="border-btm"></p>
                 <p class="sm "style="margin-left:5%" >Address: <input type="text" value="{{$school_address}}" name="school_address"
                                    class="border-btm" style="width:84%"></p>
+                <p class="sm "style="margin-left:5%" > <input type="text" 
+                                   class="border-btm" style="width:84%; margin-left:49px"></p>
                 <p class="sm " style="margin-bottom:6px !important">Please complete the DOH-5173, Authorization for Release of Medical
                     Information Pursuant to HIPAA
                     form for this school/program.
@@ -836,7 +826,7 @@
                     <p style="margin-top:-15px !important;padding-top:-15px !important" ></p>
                 <textarea class=""
                           name="special_help_text" style="height: 100px;">{{$special_help_text}} </textarea>
-                <p style="margin-left:10px;">(If you have a copy of your IEP, please include it with the returned forms.)
+                <p style="margin-left:10px;margin-bottom:3px;">(If you have a copy of your IEP, please include it with the returned forms.)
                 </p>
             </td>
         </tr>
@@ -910,96 +900,89 @@
                 </p>
 
                 <textarea class="noborder"
-                          name="interpreter_text" style="height: 185px;">{{$interpreter_text}}</textarea>
+                          name="interpreter_text" style="height: 165px;">{{$interpreter_text}}</textarea>
             </td>
         </tr>
     </table>
     <hr>
-    <p style="font-size: 8px;">DOH-5139 01/21  Page 3 of 5</p>
+    <p style="font-size: 10px;">DOH-5139 01/21  Page 3 of 5</p>
 
     <br>
     <br>
     <br>
-    <table style="padding: 0; margin: 0;">
-        <tr style="padding: 0; margin: 0;">
-            <td style="padding: 0; margin: 0;">
-                <h4 style="padding: 0; margin: 0;text-align: center">
+    <table style="">
+        <tr style="">
+            <td style="border:none !important;">
+                <p style="text-align: center; margin-top:3px !important;margin-bottom:0px !important" class="lg semiBold ">
                     PART IV – INFORMATION ABOUT WORK YOU DID IN THE PAST 15 YEARS
-                </h4>
+                </p>
             </td>
         </tr>
-        <tr style="padding: 0; margin: 0;">
-            <td style="padding: 0; margin: 0;">
-                <p style="padding: 0; margin: 0;">
-                    Have you worked in the past 15 years?
-                </p>
-                <input type="checkbox" name="worked_fifteen_yes" style="padding: 0; margin: 0;"
+        <tr style="">
+            <td style="border:none !important" class="sm">
+                <p style="margin-top:5px;margin-bottom:12px" class="sm">
+                    <span class="semiBold"> Have you worked in the past 15 years? </span> &nbsp;&nbsp;
+                <input type="checkbox" name="worked_fifteen_yes" style=""
                        {{isset($worked_fifteen_yes) && $worked_fifteen_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom;">
-                Yes
-                <input type="checkbox" name="worked_fifteen_no" style="padding: 0; margin: 0;"
-                       {{isset($worked_fifteen_no) && $worked_fifteen_no == 'no' ? 'checked':''}} style="vertical-align: bottom;">
-                No
-                <br>
-                <p style="padding: 0; margin: 0;">
+                       &nbsp; Yes
+                <input type="checkbox" name="worked_fifteen_no" style=""
+                       {{isset($worked_fifteen_no) && $worked_fifteen_no == 'no' ? 'checked':''}} style="vertical-align: bottom;margin-left:6px">
+                       &nbsp;No
+                </p>
+
+                <p style="padding: 0; margin: 0;" class="sm">
                     If YES, in as much detail as possible, please list jobs (up to 5) that you
                     performed IN THE PAST 15
                     YEARS, starting with your
                     most recent job.
                 </p>
-
-                <br>
-                <br>
             </td>
         </tr>
     </table>
 
-    <br><br>
+    <br>
     <table style=" margin: 0;padding:0">
         <tr style=" margin: 0;padding:0;background-color: #c7c8ca">
-            <th style=" margin: 0;padding:0">Dates of Employment</th>
-            <th style=" margin: 0;padding:0">Job Title</th>
-            <th style=" margin: 0;padding:0">Type of business</th>
+            <th style="" class="th">Dates of Employment:</th>
+            <th style="" class="th">Job Title:</th>
+            <th style="" class="th">Type of business:</th>
         </tr>
         <tr style=" margin: 0;padding:0">
-            <td style=" margin: 0;padding:0">
+            <td style=" margin: 0;padding:3">
                 <p>
-                    From: <input type="text" class="noborder" name="start_employment_date_one"
-                                 value="{{$start_employment_date_one}}">
+                    <span class="sm semiBold">From: </span> <input type="text" class="border-btm " name="start_employment_date_one"
+                                 value="{{$start_employment_date_one}}" >
                 </p>
 
                 <p style=" margin: 0;padding:0">
-                    to: <input type="text" class="noborder" name="end_employment_date_one"
+                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_one"
                                value="{{$end_employment_date_one}}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_one}}" name="job_title_one"
-                       class="noborder">
-                <br>
-                <p style=" margin: 0;padding:0">Number of hours/week: <input type="text" value="{{$hours_one}}"
-                                                                               name="hours_one" class="noborder"  style=" vertical-align: bottom;">
-                </p>
+                style=" height:40px;width:101%;" class="border-btm xs">
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" name="hours_one" style="width:60px"
+                class="border-btm xs"> </p>
             </td>
-            <td style=" margin: 0;padding:0">
+            <td style="margin: 0;padding:0">
                 <input type="text" value="{{$type_business_one}}" name="type_business_one"
-                       class="noborder">
-                <br>
-                <p style=" margin: 0;padding:0">Rate of Pay: </p>
-                <input type="text" value="{{$rate_pay_one}}" name="rate_pay_one"
-                       class="noborder">
-
+                       style=" height:40px;width:98%;" class="border-btm" >
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_one}}" name="rate_pay_one"
+                class="border-btm xs"> </p>
             </td>
         </tr>
-        <tr style=" margin: 0;padding:0">
-            <td style=" margin: 0;padding:0" colspan="3">
-                <p style=" margin: 0;padding:0">
+        <tr style=" margin: 0;padding:3">
+            <td style=" margin: 0;padding:3" colspan="3" class="sm">
+                <p style=" margin: 0;padding:0;">
                     Descirbe your basic duties:
+                    <p></p>
+                    <textarea class="noborder" name="duties_one">{{$duties_one}}</textarea>
                 </p>
-                <textarea class="noborder" name="duties_one">{{$duties_one}}</textarea>
             </td>
         </tr>
-        <tr style=" margin: 0;padding:0">
-            <td style=" margin: 0; padding: 0" colspan="3">
+        <tr style=" margin: 0;padding:0" class="sm">
+            <td style=" margin: 0; padding: 0" colspan="3" class="sm">
                 <div style="display: table; width: 100%;">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->

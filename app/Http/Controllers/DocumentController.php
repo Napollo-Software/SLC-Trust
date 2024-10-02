@@ -2,30 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Cache;
-
-
-use App\Exports\Users;
-use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
-use App\Models\DocumentESign;
-use App\Models\Lead;
-use App\Models\Documents;
-use App\Models\Referral;
-use App\Models\User;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Session;
-use App\Jobs\sendEmailJob;
-use App\Jobs\DocumentJob;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
-use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
+use App\Models\Lead;
+use App\Models\User;
+use App\Models\Referral;
+use App\Jobs\DocumentJob;
+use App\Models\Documents;
+use App\Jobs\sendEmailJob;
+use Illuminate\Http\Request;
+use App\Models\DocumentESign;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DocumentController extends Controller
 {
@@ -193,9 +184,11 @@ class DocumentController extends Controller
             '5- DOH -5139 Disability FILLABLE Questionnaire.pdf' => 'disability',
             '6-DOH-5143.pdf' => 'doh',
         ];
+
         $selected_documents = $request->selected_documents;
         $filtered_names = [];
         $filtered_links = [];
+
         foreach ($selected_documents as $doc) {
             if (isset($documentMappings[$doc])) {
                 $filtered_names[] = $doc;
@@ -204,10 +197,12 @@ class DocumentController extends Controller
         }
 
         Documents::whereIn('name', $selected_documents)->where('referral_id', $referral->id)->update(['status' => 'Sent']);
+
         $name = $referral->full_name();
         $email_message = 'Please fill the following documents and share it on info@slctrusts.org';
 
         DocumentJob::dispatch($referral->email, $name, $email_message, $filtered_links, $filtered_names, $referralId);
+
         return response()->json(['success' => 'Documents sent to ' . $referral->full_name() . ' successfully!', 'filtered_links' => $filtered_links, 'filtered_names' => $filtered_names, 'referralId' => $referralId]);
     }
 
@@ -354,38 +349,36 @@ class DocumentController extends Controller
 
     public function saveJoinder(Request $request)
     {
-       
+
         $formattedDates = [];
         if ($request->has('office_use_monthly_debit_date') && $request->office_use_monthly_debit_date) {
             $formattedDates['office_use_monthly_debit_date'] = Carbon::parse($request->office_use_monthly_debit_date)->format('m/d/Y');
         }
-        
+
         if ($request->has('office_use_date_approved') && $request->office_use_date_approved) {
             $formattedDates['office_use_date_approved'] = Carbon::parse($request->office_use_date_approved)->format('m/d/Y');
         }
-        
+
         if ($request->has('office_use_effective_date') && $request->office_use_effective_date) {
             $formattedDates['office_use_effective_date'] = Carbon::parse($request->office_use_effective_date)->format('m/d/Y');
         }
-        
+
         if ($request->has('joinder_date') && $request->joinder_date) {
             $formattedDates['joinder_date'] = Carbon::parse($request->joinder_date)->format('m/d/Y');
         }
-        
+
         if ($request->has('notary_on_date') && $request->notary_on_date) {
             $formattedDates['notary_on_date'] = Carbon::parse($request->notary_on_date)->format('m/d/Y');
         }
-        
+
         if ($request->has('sig_date1') && $request->sig_date1) {
             $formattedDates['sig_date1'] = Carbon::parse($request->sig_date1)->format('m/d/Y');
         }
-        
+
         if ($request->has('sig_date2') && $request->sig_date2) {
             $formattedDates['sig_date2'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
         }
-        if ($request->has('sponsor_dob') && $request->sig_date2) {
-            $formattedDates['sponsor_dob'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
-        }
+        
         // Merge the formatted dates back into the request, keeping all other data unchanged
         $request->merge($formattedDates);
         set_time_limit(200);
@@ -494,7 +487,7 @@ class DocumentController extends Controller
         ->setOption([
             'fontDir' => public_path('/fonts'),
             'fontCache' => public_path('/fonts'),
-            'defaultFont' => 'Nominee-Black'
+            'defaultFont' => 'Courier'
         ])
         ->setPaper('A4', 'portrait');
 
@@ -563,13 +556,7 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.hippa-state-pdf', $data)
-        ->setOption([
-            'fontDir' => public_path('/fonts'),
-            'fontCache' => public_path('/fonts'),
-            'defaultFont' => 'TKLCCE-Info-Normal'
-        ])
-        ->setPaper('A4', 'portrait');
+        $pdf = PDF::loadView('document.hippa-state-pdf', $data);
 
 
         $savePath = $directory . '/hippa_state_' . date('Ymd_His') . '.pdf';
@@ -612,32 +599,33 @@ class DocumentController extends Controller
 
     function uploadMultipleDocuments(Request $request)
     {
-        $request->validate([
-            'uploadedfile.*' => 'required|mimes:pdf',
-        ]);
+        $request->validate([ 'uploadedfile.*' => 'required|mimes:pdf']);
 
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
 
         if ($request->uploadedfile != null) {
+
             foreach ($request->uploadedfile as $item) {
+
                 $attachment = $item->getClientOriginalName();
-                $path = $item->move(public_path('documents'), $attachment);
+                $item->move(public_path('documents'), $attachment);
                 $data = new Documents();
-                $data->actual_url = '/documents/' . $attachment;
+                $data->actual_url = "/documents/$attachment";
                 $data->name = $attachment;
                 $data->slug = $attachment;
                 $data->status = 'Sent';
                 $data->referral_id = $request->referral_id;
                 $data->save();
-                $urls[] = url('/documents/' . $attachment); // Storing document link
-
+                $urls[] = url("/documents/$attachment");
 
             }
+
             $referral = Referral::find($request->referral_id);
             $recipientEmail = $referral->email;
             $subject = "Document By Intruspit";
-            $name = $referral->first_name . ' ' . $referral->last_name;
+            $name = "{$referral->first_name} {$referral->last_name}";
             $email_message = "{$app_name} has sent the following documents to sign:";
+
             try {
                 SendEmailJob::dispatch($recipientEmail, $subject, $name, $email_message, $urls);
             } catch (\Exception $e) {
@@ -650,7 +638,7 @@ class DocumentController extends Controller
             $message = "Please select a file to upload.";
             return response()->json(['message' => $message], 404);
         }
-        return response()->json(['message' => 'Document(s) sent to ' . $name . ' successfully.'], 200);
+        return response()->json(['message' => "Document(s) sent to {$name} successfully."], 200);
 
 
     }
@@ -746,7 +734,14 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.map-pdf', $data);
+        $pdf = PDF::loadView('document.map-pdf', $data)
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'Nominee-Black'
+        ])
+        ->setPaper('A4', 'portrait');
+
 
 
         $savePath = $directory . '/map_' . date('Ymd_His') . '.pdf';
@@ -802,13 +797,7 @@ class DocumentController extends Controller
 
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.disability-pdf', $data)
-        ->setOption([
-            'fontDir' => public_path('/fonts'),
-            'fontCache' => public_path('/fonts'),
-            'defaultFont' => 'Nominee-Black'
-        ])
-        ->setPaper('A4', 'portrait');
+        $pdf = PDF::loadView('document.disability-pdf', $data);
 
 
         $savePath = $directory . '/disability_' . date('Ymd_His') . '.pdf';
