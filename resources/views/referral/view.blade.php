@@ -1,13 +1,12 @@
 @extends('nav')
 @section('title', 'View Referrals | SLC Trust')
 @section('wrapper')
-
-<!-- BOOTSTRAP CSS -->
-<!-- STYLE CSS -->
 <link href="{{ url('/assets/custom/style.css') }}" rel="stylesheet" />
-<!--- FONT-ICONS CSS -->
 @php
-$role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');
+
+$user = App\Models\User::find(Session::get('loginId'));
+$role = $user->role;
+
 function randomColor()
 {
 $colors = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'];
@@ -16,18 +15,23 @@ return $colors[$randomIndex];
 }
 @endphp
 <style>
-    .btn-primary{
+    .btn-primary {
         color: white !important;
         background-color: #559e99 !important;
         border-color: #4a8f8b !important;
     }
+
     .btn-primary:hover {
         color: white !important;
         background-color: #6bb0aa !important;
         border-color: #5da298 !important;
     }
 
-    .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle{
+    .btn-check:checked+.btn-primary,
+    .btn-check:active+.btn-primary,
+    .btn-primary:active,
+    .btn-primary.active,
+    .show>.btn-primary.dropdown-toggle {
         color: white !important;
         background-color: #467f7b !important;
         border-color: #3e726f !important;
@@ -41,34 +45,25 @@ return $colors[$randomIndex];
         text-decoration: none;
         display: inline-block;
         font-size: 14px;
-        /* Slightly smaller font size */
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 4px;
-        /* Less rounded corners for a horizontal rectangle */
-        transition: transform 0.3s, background-color 0.3s;
-        /* Smooth transition */
-
+        | transition: transform 0.3s, background-color 0.3s;
     }
 
     .dataTable {
         white-space: nowrap;
-
     }
 
     .fancy-plus-button:hover,
     .fancy-plus-button:focus {
         background-color: #16b6d3;
-        /* Bright turquoise on hover/focus */
         transform: scale(1.05);
-        /* Slightly increase size on hover/focus for feedback */
     }
 
     .fancy-plus-button::before {
         content: '+';
-        /* Add the plus sign */
         color: white;
-        /* White color for the plus sign */
 
     }
 
@@ -77,11 +72,6 @@ return $colors[$randomIndex];
         background-color: #f5f6f7 !important;
     }
 
-    /* .search-bar-padding{
-            width: 94% !important;
-            padding:7px !important;
-            font-size: 1rem !important;
-        } */
 </style>
 <div class="">
 
@@ -113,7 +103,7 @@ return $colors[$randomIndex];
                             Referral</a>
                     </div> --}}
                 <div class="card-body p-2">
-                    <h4>Referral ID:{{ $referral->id }}</h4>
+                    <h4 class="mt-3">Referral ID:{{ $referral->id }}</h4>
                     <ul class="nav1 nav-column flex-column br-7 p-3">
                         <li class="nav-item1 mt-0 services-tab">
                             <a class="nav-link thumb active" onclick="showTab('services-card')">
@@ -130,7 +120,7 @@ return $colors[$randomIndex];
                         <li class="nav-item1 tasks-tab">
                             <a class="nav-link thumb" onclick="showTab('tasks-card')">
                                 <i class="menu-icon tf-icons bx bx-task "></i>
-                                Follow Up
+                                Notes
                             </a>
                         </li>
                         {{-- <li class="nav-item1 sms-tab">
@@ -178,42 +168,7 @@ return $colors[$randomIndex];
                     </ul>
                 </div>
             </div>
-
-
-            <div class="card">
-                @if ($referral->get_followup->isNotEmpty())
-                <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col-md-9">
-                            <h5 style="margin-top: 9px;">Follow Up</h5>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editModal">
-                                <i class='bx bx-edit-alt me-1'></i> Edit
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body upgrade-storage bg-primary-transparent" style="padding: 15px;">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p id="followup-note">{{ $referral->get_followup->first()->note }}</p>
-                        </div>
-                        <div class="col-md-7">
-                            <h6>Date</h6>
-                            <p>{{ $referral->get_followup->first()->date }}</p>
-                        </div>
-                        <div class="col-md-5">
-                            <h6>Time</h6>
-                            <p>{{ $referral->get_followup->first()->time }}</p>
-                        </div>
-                    </div>
-                </div>
-                @endif
-            </div>
         </div>
-
-
         <div class="col-xl-8 col-lg-8 ">
             <div class="card " id="alwaysShow">
                 <div class="card-body p-4">
@@ -226,10 +181,10 @@ return $colors[$randomIndex];
                                 <div class="ms-4">
                                     <h4 class="m-0">{{ $referral->full_name() }}</h4>
                                     <p class="text-muted m-1">{{ $referral->email }}</p>
-                                    <a href="#" class="btn btn-primary btn-sm custom-hover p-2">
-                                        {{ $referral->created_at }}</a>
-                                    <a href="#" class="btn btn-primary btn-sm custom-hover p-2">
-                                        {{ $referral->status }}</a>
+                                    <span class="mx-1">
+                                        {{ $referral->created_at }}</span>
+                                    <span href="#" class="">
+                                        {{ $referral->status }}</span>
                                 </div>
                             </div>
                         </div>
@@ -292,7 +247,6 @@ return $colors[$randomIndex];
                                             and
                                             scrambled it to make a type specimen book.</p>
                                     </div>
-
                                     <div>
                                         <h5 class="text-dark text-14 mb-0">Senior Graphic Designer</h5>
                                         <a href="javascript:void(0)" class="text-primary">samplewebsite.com</a>
@@ -600,7 +554,7 @@ return $colors[$randomIndex];
                 <div class="card services-card">
                     <div style="margin:20px">
                         <form id="bank-info-form" method="post">
-                        @csrf
+                            @csrf
                             <!-- <div class="row">
                                 <div style="padding-left: 15px">
                                     <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
@@ -655,8 +609,6 @@ return $colors[$randomIndex];
                                     <label for="bank_ame" class="form-label">Bank Name</label>
                                     <input type="text" class="form-control" value="{{ $referral->bankAccount->bank_name }}" name="bank_name" id="bank_ame" placeholder="Bank name">
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="routing_aba" class="form-label">Routing ABA</label>
                                     <input type="text" class="form-control" value="{{ $referral->bankAccount->routing_aba }}" name="routing_aba" id="routing_aba" placeholder="Routing aba">
@@ -664,6 +616,21 @@ return $colors[$randomIndex];
                                 <div class="col-md-6 mb-3">
                                     <label for="account_number" class="form-label">Account Number</label>
                                     <input type="text" value="{{ $referral->bankAccount->account_number }}" class="form-control" name="account_number" id="account_number" placeholder="Account number">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="billing_cycle" class="form-label">Billing Cycle</label>
+                                    <select class="form-control p-2" id="billing_cycle" name="billing_cycle" required>
+                                        <option {{ $referral->bankAccount->billing_cycle == "1" ? 'selected' : '' }} value="1">1st of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "3" ? 'selected' : '' }} value="3">3rd of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "7" ? 'selected' : '' }} value="7">7th of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "14" ? 'selected' : '' }} value="14">14th of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "21" ? 'selected' : '' }} value="21">21st of every Month </option>
+                                        <option {{ $referral->bankAccount->billing_cycle == "28" ? 'selected' : '' }} value="28">28th of every Month </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="surplus_amount" class="form-label">Surpus Amount</label>
+                                    <input type="number" value="{{ $referral->bankAccount->surplus_amount }}" class="form-control" name="surplus_amount" id="surplus_amount" placeholder="Surplus amount">
                                 </div>
                             </div>
                             <button class="btn btn-primary m-1" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
@@ -1713,21 +1680,25 @@ return $colors[$randomIndex];
             </div>
         </div>
         <div class="card tasks-card d-none">
-            <div class="border-bottom p-2 mt-2">
-                <h3 class="">Follow Ups</h3>
+            <div class="border-bottom d-flex justify-content-between p-2 mt-2">
+                <h3 class="">Notes</h3>
+                @if ($user->hasPermissionTo('Add Contact'))
+                <a class="btn btn-primary NoteAddBtn print-btn pb-1 pt-1 " style="color: white;">
+                    <i class="bx bx-save pb-1"></i>Add Note</a>
+                @endif
             </div>
             <div class="card-body p-3">
+                <ul class="task-list" id="notes-list">
                 @foreach ($referral->get_followup as $item)
-                <ul class="task-list">
                     <li>
                         <div class="row-container">
                             <i class="task-icon bg-{{ randomColor() }}"></i>
                             <h6>{{ $item->note }}</h6>
-                            <p class="text-muted fs-12">{{ $item->date }}</p>
+                            <p class="text-muted fs-12">{{ $item->date }} {{$item->time}}</p>
 
                     </li>
-                </ul>
                 @endforeach
+                </ul>
             </div>
         </div>
         <div class="card sms-card d-none pb-3">
@@ -2133,11 +2104,11 @@ return $colors[$randomIndex];
 </div>
 </div>
 
-<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Upload PDF</h5>
+                <h5 class="modal-title" id="addNoteModalLabel">Upload PDF</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -2156,14 +2127,14 @@ return $colors[$randomIndex];
     </div>
 </div>
 
-<div id="uploadMoredocument" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div id="uploadMoredocument" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form id="fileDocumenentMultiple" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <input type="hidden" name="referral_id" value="{{ $referral->id }}">
-                    <h4 class="modal-title" id="exampleModalLabel">Upload Documents (Multiple Allowed)</h4>
+                    <h4 class="modal-title" id="addNoteModalLabel">Upload Documents (Multiple Allowed)</h4>
 
                 </div>
                 <div class="modal-body">
@@ -2186,12 +2157,12 @@ return $colors[$randomIndex];
 
 
 {{--
-<div class="modal fade" id="modalFollowup" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modalFollowup" tabindex="-1" aria-labelledby="addNoteModalLabel"
 aria-hidden="true">
 <div class="modal-dialog">
    <div class="modal-content">
        <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">Upload PDF</h5>
+           <h5 class="modal-title" id="addNoteModalLabel">Upload PDF</h5>
            <button type="button" class="btn-close" data-bs-dismiss="modal"
                    aria-label="Close"></button>
        </div>
@@ -2214,7 +2185,7 @@ enctype="multipart/form-data">
 </div> --}}
 
 
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content sty bg-transparent  " style="border: none; box-shadow: none">
             <div class="card">
@@ -2261,6 +2232,51 @@ enctype="multipart/form-data">
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="addNoteModal" tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNoteModalLabel">Add Note</h5>
+                <button type="button" class="close close-btn closeContactModal" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="add_note_form" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class="row">
+                        <input type="hidden" name="from" value="{{ $user->id }}">
+                        <input type="hidden" name="to" value="{{ $referral->id }}">
+                        <div class="col-md-12 p-2">
+                            <label for="form-label">Note</label>
+                            <textarea type="text" name="note" maxlength="40"placeholder="Type note here" class="form-control address" required></textarea>
+                        </div>
+                        {{-- <div class="col-md-6">
+                            <label for="exampleFormControlInput1" class="form-label">Date</label>
+                            <input type="date" class="form-control" name="date" />
+                            <span id="nameError" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="exampleFormControlInput1" class="form-label">Time</label>
+                            <input type="time" class="form-control" name="time" />
+                            <span id="categoryError" class="text-danger"></span>
+                        </div> --}}
+                    </div>
+                </div>
+                <div class="modal-footer ">
+                    <button type="submit" class="btn btn-primary note-button mb-3">Submit</button>
+                    <button type="button" class="btn btn-secondary mb-3 closeContactModal"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 
 <script src="{{ url('/assets/custom/jquery.min.js') }}"></script>
@@ -2833,6 +2849,7 @@ enctype="multipart/form-data">
             });
         });
     });
+
     $(document).ready(function() {
         // Remove the readonly attribute from the input element by its ID
         $(".remove-readonly").removeAttr("readonly");
@@ -2846,5 +2863,84 @@ enctype="multipart/form-data">
             }
         });
     });
+
+    function showAddNoteModal() {
+        $('#addNoteModal').modal('show')
+    }
+
+    function hideAddContactModal() {
+        $('#addNoteModal').modal('hide')
+    }
+
+    $('.closeContactModal').on('click', function (e) {
+        e.preventDefault()
+        hideAddContactModal()
+    })
+    $('.NoteAddBtn').on('click', function (e) {
+        e.preventDefault()
+        showAddNoteModal()
+    })
+
 </script>
+
+<script>
+    $(document).ready(function() {
+        $('#designation').change(function() {
+            var selectedValue = $(this).val();
+            var otherInputDiv = $('.other-input');
+
+            if (selectedValue === 'other') {
+                otherInputDiv.show();
+            } else {
+                otherInputDiv.hide();
+            }
+        });
+    });
+
+
+    $(document).on('submit', '#add_note_form', function(e) {
+        e.preventDefault();
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback.is-invalid').remove();
+        $('.note-button').attr('disabled', true);
+        $.ajax({
+            'url': "{{ route('note.store') }}",
+            'method': "POST",
+            'data': new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function(data) {
+                hideAddContactModal();
+                $('.note-button').attr('disabled', false);
+                $("#addNoteModal").removeClass("in");
+                $("#addNoteModal").hide();
+                $("#add_note_form").trigger("reset");
+                swal.fire('success', 'Note added successfully', 'success');
+                let notes_list = $("#notes-list");
+
+                notes_list.prepend(`
+                    <li>
+                        <div class="row-container">
+                            <i class="task-icon bg-${randomColor()}"></i>
+                            <h6>${data.note.note}</h6>
+                            <p class="text-muted fs-12">${data.note.date} ${data.note.time}</p>
+                        </div>
+                    </li>
+                `);
+            },
+            error: function(xhr) {
+                $('.note-button').attr('disabled', false);
+                erroralert(xhr);
+            }
+        })
+    })
+
+    function randomColor() {
+        const colors = ['primary', 'secondary', 'success', 'danger', 'warning', 'info'];
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+    }
+</script>
+
 @endsection

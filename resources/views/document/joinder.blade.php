@@ -3433,13 +3433,13 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                         <input type="radio" name="type_of_policy1" value="Term" id="life-insurance-term">
                                         <label style="font-style: normal;font-size:16px" for="life-insurance-term">Term</label>
                                         <input type="text" name="healthcare_plan" id="healthcare-plan"
-                                            style="border: none; border-bottom: 1px solid black; flex:1">
+                                            style="border: none; border-bottom: 1px solid black; flex:1" maxlength="10">
                                     </div>
                                     <div class="life-policy-style">
                                         <input type="radio" name="type_of_policy1" value="Life" id="life-insurance-life">
                                         <label style="font-style: normal;font-size:16px" for="life-insurance-life">Life</label>
                                         <input type="text" name="healthcare_plan2" id="healthcare-plan"
-                                            style="border: none; border-bottom: 1px solid black; flex:1">
+                                            style="border: none; border-bottom: 1px solid black; flex:1" maxlength="9">
                                     </div>
                                 </div>
                                 <div class="cs-value">

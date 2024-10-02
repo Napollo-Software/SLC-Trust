@@ -55,35 +55,35 @@ class ReferralController extends Controller
         $request->validate([
             'first_name' => 'required|string|max:250',
             'last_name' => 'required|string|max:250',
-            'age' => 'required|integer',
+            'age' => 'nullable|integer',
             'phone' => 'required|string',
             'email' => 'required|email',
-            'date_of_birth' => 'required|date',
-            'country' => 'required|max:250',
-            'city' => 'required|string|max:250',
-            'state' => 'required|string',
-            'address' => 'required|string|max:250',
-            'ssn' => 'required|string|max:250',
-            'patient_language' => 'required|string|max:250',
-            'zip' => 'required|string|max:250',
-            'medicaid_phone' => 'required|string',
-            'medicaid_plan' => 'required|string',
-            'medicare_phone' => 'required|string',
+            'date_of_birth' => 'nullable|date',
+            'country' => 'nullable|max:250',
+            'city' => 'nullable|string|max:250',
+            'state' => 'nullable|string',
+            'address' => 'nullable|string|max:250',
+            'ssn' => 'nullable|string|max:250',
+            'patient_language' => 'nullable|string|max:250',
+            'zip' => 'nullable|string|max:250',
+            'medicaid_phone' => 'nullable|string',
+            'medicaid_plan' => 'nullable|string',
+            'medicare_phone' => 'nullable|string',
             'emergency_first_name' => 'required|string|max:250',
             'emergency_last_name' => 'required|string|max:250',
-            'emergency_ext' => 'required|numeric',
-            'emergency_state' => 'required|string',
+            'emergency_ext' => 'nullable|numeric',
+            'emergency_state' => 'nullable|string',
             'emergency_email' => 'required|email',
-            'emegency_relationship' => 'required|string',
-            'emergency_phone' => 'required|string',
-            'emergency_city' => 'required|string|max:250',
-            'emergency_zip' => 'required|numeric',
-            'emergency_address' => 'required|string|max:250',
-            'source_type' => 'required',
+            'emegency_relationship' => 'nullable|string',
+            'emergency_phone' => 'nullable|string',
+            'emergency_city' => 'nullable|string|max:250',
+            'emergency_zip' => 'nullable|numeric',
+            'emergency_address' => 'nullable|string|max:250',
+            'source_type' => 'nullable',
             'contact' => $request->input('source_type') === 'contact' ? 'required' : 'nullable',
             'account' => $request->input('source_type') === 'account' ? 'required' : 'nullable',
             'source' => $request->input('source_type') === 'FnF' ? 'required' : 'nullable',
-            'admission_date' => 'required|date',
+            'admission_date' => 'nullable|date',
 
         ]);
         $referral = new Referral();
@@ -428,6 +428,7 @@ class ReferralController extends Controller
         $dest = $path . $newAvatarname;
         $createAvatar = makeAvatar($fontpath, $dest, $char);
         $avatar = $createAvatar == true ? $newAvatarname : '';
+
         $user = new User();
         $user->role = "User";
         $user->billing_method = 'manual';
@@ -448,7 +449,11 @@ class ReferralController extends Controller
         $user->user_balance = '0';
         $user->token = $request->_token . rand();
         $user->password = Hash::make(123456);
+        $user->billing_cycle = $referral->bankAccount->billing_cycle;
+        $user->surplus_amount = $referral->bankAccount->surplus_amount;
         $user->save();
+
+        $referral->bankAccount()->update(["user_id" => $user->id]);
 
         $referral->convert_to_customer = $user->id;
         $referral->save();

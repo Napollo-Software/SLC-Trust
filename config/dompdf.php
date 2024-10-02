@@ -33,6 +33,26 @@ return array(
         'Poppins-ExtraBold' => [
             'R'  => 'Poppins-ExtraBold.ttf',   
         ],
+
+        /* Disabiliy pdf font */
+        'info-normal' => [
+            'R'  => 'info-normal.ttf',   
+        ],
+        'info-semibold' => [
+            'R'  => 'info-semibold.ttf',   
+        ],
+        'Info-Bold' => [
+            'R'  => 'Info-Bold.otf',   
+        ],
+      
+
+        // hippa state pdf fonts
+        'TKLCCE-Info-Normal' => [
+            'R'  => 'TKLCCE-Info-Normal.ttf',   
+        ],
+        'TKLCCE-Info-SemiBold' => [
+            'B'  => 'TKLCCE-Info-SemiBold.ttf',   
+        ],
     ],
 
     /*

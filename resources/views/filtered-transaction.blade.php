@@ -26,80 +26,33 @@
         $completedCases = [];
         $pendingCases = [];
         $months = [];
-        // Get the current date
+        
         $endDate = Carbon::now();
 
-        // Loop through the last 6 months
         for ($i = 1; $i <= 6; $i++) {
-            // Calculate the start date for the current iteration
+
             $startDate = $endDate->copy()->subMonth();
             $months[] = $startDate->format('F');
-            // Fetch a single referral for the current month
+
             $referralForMonth = Referral::whereDate('created_at', '>=', $startDate)
                 ->whereDate('created_at', '<=', $endDate)
                 ->get();
-            // dd($referralForMonth,$startDate,$endDate );
-            // Count cases for each category
+
             $totalCases[] = $referralForMonth ? $referralForMonth->count() : 0;
             $completedCases[] = $referralForMonth ? $referralForMonth->where('status', 'Approved')->count() : 0;
             $pendingCases[] = $referralForMonth ? $referralForMonth->where('status', 'Pending')->count() : 0;
 
-            // Move to the previous month for the next iteration
             $endDate = $startDate;
         }
         $totalCasesJson = json_encode($totalCases);
         $completedCasesJson = json_encode($completedCases);
         $pendingCasesJson = json_encode($pendingCases);
         $monthsJson = json_encode($months);
-        // dd($months);
-        // Continue with the rest of your code...
     @endphp
 
     <head>
 
     </head>
-    <style>
-        /* .apexcharts-toolbar{
-                display: none;
-            }
-            .search-nav {
-                padding-bottom: 1%;
-            }
-
-            .stats-margin {
-                margin-left: 60%;
-            }
-
-            .two-value {
-                border: 2px solid;
-                border-color: #559e99 #559e99;
-            }
-
-            button {
-                all: unset;
-                cursor: pointer;
-            }
-
-            button:focus {
-                outline: orange 5px auto;
-            }
-            .dataTables_filter{
-                display: none
-            } */
-        @media screen and (max-width: 425px) {
-            .custome-top-padding {
-                padding-top: 15px !important;
-            }
-
-            .custom-flex {
-                flex-direction: column !important;
-            }
-
-            .fc-header-toolbar {
-                font-size: 10px !important;
-            }
-        }
-    </style>
     <div class="modal fade no-print" id="filter-record" tabindex="-1" role="dialog" aria-labelledby="customerdpositLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -139,12 +92,11 @@
     </div>
     @if ($role != 'User')
         <div class="">
-            <h5 class=" d-flex justify-content-between pt-2 pb-2">
-                <b></b>
-               <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Overview</b> </div>
-            </h5>
             <div class="col-md-12">
                 <div style="display:flex">
+                    <div>
+                        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span></h5>
+                    </div>
                     <div style="margin-left:auto" class="d-none">
                         <button type="button" class="btn btn-primary p-2 mb-3" data-toggle="modal"
                             data-target="#filter-record">

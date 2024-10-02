@@ -1,15 +1,15 @@
 {
-    "poppins-regular": {
-        "normal": "poppins_regular_normal_456586f45660e82c9a79c5a72264a232"
+    "tklcce-info-normal": {
+        "normal": "tklcce_info_normal_normal_3a43954c0f9a5421d7f4ddeb648d9d18"
     },
-    "poppins-medium": {
-        "normal": "poppins_medium_normal_b1f8ff3348612901ff846f1b9d91955d"
+    "tklcce-info-semibold": {
+        "normal": "tklcce_info_semibold_normal_b00b4db0231036e7fecb7b5c7ef4570e"
     },
-    "poppins-semibold": {
-        "normal": "poppins_semibold_normal_a018a64e65d87786c7175a4a33da6cbf"
+    "info-normal": {
+        "normal": "info_normal_normal_8e9bee386a7e2af567dabf06015647b3"
     },
-    "poppins-bold": {
-        "normal": "poppins_bold_normal_0d720beeb333f43589c26d51ddd14670"
+    "info-bold": {
+        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
     },
     "poppins-italic": {
         "normal": "poppins_italic_normal_90c7b6122061f79384ebba85dd1a6700"
@@ -19,5 +19,8 @@
     },
     "brittanysignature-mazx": {
         "normal": "brittanysignature_mazx_normal_fa41915968d6bf087ce0ea7ac1a6c321"
+    },
+    "info-semibold": {
+        "normal": "info_semibold_normal_3461e18117e484083763c0fd75d810d8"
     }
 }

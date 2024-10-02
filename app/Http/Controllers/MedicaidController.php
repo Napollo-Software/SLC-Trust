@@ -120,19 +120,22 @@ class MedicaidController extends Controller
             'account_type' => 'required|string',
             'bank_name' => 'required|string',
             'routing_aba' => 'required|string',
+            'billing_cycle' => 'required|string',
+            'surplus_amount' => 'required|numeric|lt:10000|gt:0',
             'account_number' => 'required|string',
         ]);
 
-        $id = $request->input('id');
-        $referral = Referral::findOrFail($id);
+        $referral = Referral::findOrFail($request->id);
 
         $referral->bankAccount()->updateOrCreate(
             ['referral_id' => $referral->id],
             [
-                'account_type' => $request->input('account_type'),
-                'bank_name' => $request->input('bank_name'),
-                'routing_aba' => $request->input('routing_aba'),
-                'account_number' => $request->input('account_number'),
+                'account_type' => $request->account_type,
+                'bank_name' => $request->bank_name,
+                'routing_aba' => $request->routing_aba,
+                'account_number' => $request->account_number,
+                'billing_cycle' => $request->billing_cycle,
+                'surplus_amount' => $request->surplus_amount,
             ]
         );
 

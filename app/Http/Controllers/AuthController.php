@@ -47,7 +47,7 @@ class AuthController extends Controller
     {
         $request->role = ucfirst(trans($request->role));
 
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
 
         $role = User::where('id', '=', Session::get('loginId'))->value('role');
 
@@ -63,6 +63,8 @@ class AuthController extends Controller
                 $request->validate([
                     'name' => 'required',
                     'email' => 'required|email|unique:users',
+                    'billing_cycle' => 'required',
+                    'surplus_amount' => 'required|numeric|lt:10000|gt:0'
                 ]);
             }
 
@@ -145,6 +147,11 @@ class AuthController extends Controller
         }
 
         $user->billing_cycle = $request->billing_cycle;
+
+        if ($request->surplus_amount) {
+            $user->surplus_amount = $request->surplus_amount;
+        }
+
         $user->zipcode = $request->zipcode;
         $user->marital_status = $request->marital_status;
         $user->gender = $request->gender;
@@ -161,7 +168,7 @@ class AuthController extends Controller
         $user = User::find($user->id);
 
         if ($role && $role != "User") {
-//            set_time_limit(13000);
+
             $details = $user;
 
             $directory = storage_path('app/public/' . $user->email);
@@ -179,7 +186,7 @@ class AuthController extends Controller
 
 
             $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
-            // Save the PDF file to the specified location
+
             $pdf->save($savePath);
 
             Mail::to($request->email)->send(new \App\Mail\Register($details, $savePath));
@@ -193,6 +200,7 @@ class AuthController extends Controller
             $ignore_admin_notification = ignoreAdminEmails();
 
             foreach ($admins_notification as $notify) {
+
                 /////////////// Admin Notification//////////
                 if (in_array($notify->email, $ignore_admin_notification))
                     continue;
@@ -218,7 +226,7 @@ class AuthController extends Controller
                 alert()->success('success', 'Account has been created Successfully.');
                 return back()->with('success', 'Thank you.');
             } else {
-                return response()->json(['header' => 'User Registered', 'message' => 'Thank you for choosing ' . $app_name . '. We are reviewing your request at the moment. You will receive an email once your account is approved or if we need more information. For immediate assistance, please call '.config('app.contact'), 'type' => "success"]);
+                return response()->json(['header' => 'User Registered', 'message' => 'Thank you for choosing ' . $app_name . '. We are reviewing your request at the moment. You will receive an email once your account is approved or if we need more information. For immediate assistance, please call ' . config('app.contact'), 'type' => "success"]);
             }
         } else {
             return back()->with('fail', 'Something went wrong!');
@@ -574,7 +582,7 @@ class AuthController extends Controller
     }
     public function update_existing_user(Request $request, $id)
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
         if ($request->has('approval_action')) {
             $user = User::find($id);
             $user->account_status = $request->account_status;
@@ -608,6 +616,7 @@ class AuthController extends Controller
                 ];
                 Mail::to($user->email)->send(new \App\Mail\RejectProfile($user->name));
             } elseif ($request->account_status == "Disable") {
+
                 $status = "Disabled";
                 if ($request->approval_action != '1') {
                     $log_id = createLog('User', Session::get('loginId'), $id, "The " . $user->full_name() . "'s account has been deactivated, and their pending bills: " . $request->approval_action . " have been moved to the archives.");
@@ -616,19 +625,14 @@ class AuthController extends Controller
                         'claim_status' => 'Pending'
                     ])->update(['archived' => $log_id]);
                 }
-                $subject = 'Account Deactivate';
-                $name = "{$user->name}  {$user->last_name}";
-                $email_message = "Your profile has been deactivated by {$app_name},For immediate assistance please call ".config('app.contact');
-                $url = "";
-                if ($user->notify_by == "email") {
-                    SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
-                } else {
 
-                }
+                Mail::to($user->email)->send(new \App\Mail\DeactivateProfile($user->name));
+
             }
             alert()->success('Account ' . $status . '!', 'Customer account has been updated successfully!');
             return redirect("show_user/" . $id);
         }
+
         $dt = new Carbon();
         $before = $dt->subYears(16)->format('Y-m-d');
         $this->validate($request, [
@@ -690,6 +694,8 @@ class AuthController extends Controller
             'last_name' => 'required',
             'profile_pic' => 'mimes:jpeg,png,jpg,gif,pdf',
             'email' => 'required|email',
+            'billing_cycle' => 'required',
+            'surplus_amount' => 'required|numeric|lt:10000|gt:0',
             // 'dob' => 'date|before:'.$before,
         ], [
             'profile_pic.required' => 'Photo ID is required',
@@ -731,6 +737,8 @@ class AuthController extends Controller
         }
         $user->phone = $request->phone;
         $user->gender = $request->gender;
+        $user->billing_cycle = $request->billing_cycle;
+        $user->surplus_amount = $request->surplus_amount;
         // $user->date_of_withdrawal = $request->date_of_withdrawal;
         $user->email = $request->email;
         $res = $user->save();
@@ -804,7 +812,7 @@ class AuthController extends Controller
                 "type" => Transaction::Deposit
             ]);
 
-            $directory = storage_path('app/public/'.$user->id);
+            $directory = storage_path('app/public/' . $user->id);
             if (!is_dir($directory)) {
                 mkdir($directory, 0777, true);
             }
