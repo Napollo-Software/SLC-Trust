@@ -7,28 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RejectProfile extends Mailable
+class DeactivateProfile extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $name;
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+   
     public function __construct($name)
     {
         $this->name = $name;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->subject(config('app.professional_name').' | Profile Rejected!')
-        ->view('emails.rejectprofile');
+        return $this->subject(config('app.professional_name').' | Profile Deactivated!')
+        ->view('emails.deactivateprofile');
     }
 }

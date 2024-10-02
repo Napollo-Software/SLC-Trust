@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title></title>
+    <title>{{ config('app.professional_name') }} | Account Created</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -37,7 +36,6 @@
             }
         }
 
-        /* CLIENT-SPECIFIC STYLES */
         body,
         table,
         td,
@@ -56,7 +54,6 @@
             -ms-interpolation-mode: bicubic;
         }
 
-        /* RESET STYLES */
         img {
             border: 0;
             height: auto;
@@ -76,7 +73,6 @@
             width: 100% !important;
         }
 
-        /* iOS BLUE LINKS */
         a[x-apple-data-detectors] {
             color: inherit !important;
             text-decoration: none !important;
@@ -86,7 +82,6 @@
             line-height: inherit !important;
         }
 
-        /* MOBILE STYLES */
         @media screen and (max-width:600px) {
             h1 {
                 font-size: 32px !important;
@@ -94,7 +89,6 @@
             }
         }
 
-        /* ANDROID CENTER FIX */
         div[style*="margin: 16px 0;"] {
             margin: 0 !important;
         }
@@ -102,10 +96,8 @@
 </head>
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
-    <!-- HIDDEN PREHEADER TEXT -->
 
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <!-- LOGO -->
         <tr>
             <td bgcolor="#559e99" align="center">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
@@ -131,7 +123,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" >You have successfully registered with {{ config('app.name') }}. Your profile is under review, and we will get back in 24/48hours. For immediate assistance, please call {{ config('app.contact') }}</p>
+                            <p style="margin: 0;text-align:center;" >You have successfully registered with {{ config('app.professional_name') }}. Your profile is under review, and we will get back in 24/48hours. For immediate assistance, please call {{ config('app.contact') }}</p>
                         </td>
                     </tr>
                     <tr>
@@ -148,14 +140,10 @@
                                 </tr>
                             </table>
                         </td>
-                    </tr> <!-- COPY -->
-
+                    </tr>
                 </table>
             </td>
         </tr>
-
-
     </table>
 </body>
-
 </html>

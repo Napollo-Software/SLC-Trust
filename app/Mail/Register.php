@@ -31,7 +31,7 @@ class Register extends Mailable
     public function build()
     {
 
-        return $this->subject(config('app.name') . ' | Set Password')
+        return $this->subject(config('app.professional_name') . ' | Set Password')
             ->view('emails.registered')
             ->attach($this->pdfpath, [
                 'as' => 'approval_letter.pdf',

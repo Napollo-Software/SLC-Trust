@@ -499,6 +499,7 @@ class DocumentController extends Controller
         ->setPaper('A4', 'portrait');
 
 
+
         $savePath = $directory . '/hippa_' . date('Ymd_His') . '.pdf';
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
@@ -562,8 +563,13 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        
-        $pdf = PDF::loadView('document.hippa-state-pdf', $data);
+        $pdf = PDF::loadView('document.hippa-state-pdf', $data)
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'TKLCCE-Info-Normal'
+        ])
+        ->setPaper('A4', 'portrait');
 
 
         $savePath = $directory . '/hippa_state_' . date('Ymd_His') . '.pdf';
