@@ -527,7 +527,7 @@ class claimsController extends Controller
                 $subject = "Bill Approved";
                 $email_message = "Your bill#" . $claim->id . " added on " . date('m-d-Y', strtotime($claim->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
                 $url = "/claims/$claim->id";
-                
+
                 SendEmailJob::dispatch($claimUser->email, $subject, $name, $email_message, $url);
 
             }
@@ -576,9 +576,9 @@ class claimsController extends Controller
                     'status' => 1,
                     'bill_id' => $claim->id,
                     'reference_id' => $reference_id,
+                    'credit' => $request->partial_amount,
                     'payment_number' => $request->card_number,
                     'payment_method' => $request->payment_method,
-                    'credit' => $request->partial_amount,
                     'transaction_type' => \TransactionType::TrustedSurplus,
                     'description' => "{$app_name} has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category."
                 ]);
