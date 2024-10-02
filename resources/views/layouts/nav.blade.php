@@ -340,12 +340,7 @@
                             @endif
                             @if ($user->hasPermissionTo('Roles&Permissions'))
                             <li>
-                                <a class="dropdown-item {{ Route::currentRouteName() ==='roles.list' ? 'active' : '' }}" href="{{ route('roles.list') }}"><i class="bx bx-abacus"></i>Roles & Permissions</a>
-                            </li>
-                            @endif
-                            @if ($user->hasPermissionTo('Manage Categories'))
-                            <li>
-                                <a class="dropdown-item {{ Route::currentRouteName() ==='category.index'? 'active' : '' }}" href="{{ route('category.index') }}"><i class="bx bx-area"></i>Manage Categories</a>
+                                <a class="dropdown-item {{ Route::currentRouteName() ==='roles.list' ? 'active' : '' }}" href="{{ route('roles.list') }}"><i class="bx bx-abacus"></i>Manage Roles</a>
                             </li>
                             @endif
                             @if ($user->hasPermissionTo('Manage Types'))
@@ -353,6 +348,12 @@
                                 <a class="dropdown-item {{ Route::currentRouteName() ==='types.list'? 'active' : '' }}" href="{{ route('types.list') }}"><i class="bx bx-book-content"></i>Manage
                                     Types</a></li>
                             @endif
+                            @if ($user->hasPermissionTo('Manage Categories'))
+                            <li>
+                                <a class="dropdown-item {{ Route::currentRouteName() ==='category.index'? 'active' : '' }}" href="{{ route('category.index') }}"><i class="bx bx-area"></i>Categories</a>
+                            </li>
+                            @endif
+
                             @if ($user->hasPermissionTo('Payee List'))
                             <li>
                                 <a class="dropdown-item {{ Route::currentRouteName() ==='payee.list' ? 'active' : '' }}" href="{{ route('payee.list') }}"><i class="bx bx-book"></i>Payee List</a></li>

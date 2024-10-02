@@ -173,6 +173,7 @@
                     </div>
                 </div>
             </div>
+            @if ($login_user->hasPermissionTo('Business Statistics'))
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
                 @if ($login_user->hasPermissionTo('Back Office'))
                     <div class="col">
@@ -322,6 +323,7 @@
                     </div>
                 @endif
             </div>
+            @endif
             @php
                 $balance = User::where('role', 'User')->sum('user_balance');
             @endphp
@@ -394,6 +396,7 @@
                                 <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
                                 </div>
                             </div>
+                            @if ($login_user->hasPermissionTo('Business Statistics'))
                             <h4 style="text-align: center"><span class="bg bg-primary text-white p-2 rounded">Total
                                     Balance:${{ number_format((float) $pool_amount+$total_revenue,2,'.',',') }}</span>
                                 </h5>
@@ -407,6 +410,7 @@
                                     </h6>
                                 </div>
                                 <hr>
+                                @endif
                                 <div>
                                     <form action="{{ url('/main') }}" method="post">
                                         @csrf
