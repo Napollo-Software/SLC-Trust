@@ -21,7 +21,7 @@ class User extends Model
         return $this->hasMany(Claim::class, 'claim_user');
     }
     public function full_name(){
-        return $this->name.' '.$this->last_name;
+        return "{$this->name} {$this->last_name}";
     }
     public function getAvatarAttribute($value)
     {
