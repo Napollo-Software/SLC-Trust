@@ -40,6 +40,9 @@
         font-weight:normal !important;
         font-size: 1.01rem !important;
     }
+    .search-bar-padding{
+        height:40px !important;
+    }
 </style>
 <div class="primary-menu">
     <nav class="navbar navbar-expand-lg align-items-center">

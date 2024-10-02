@@ -80,7 +80,9 @@
         }
     </style>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Show User #{{ $user->id }}
+        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>View User</b> </div>
         </h5>
         <!-- Account page navigation-->
         <div class="row">
@@ -142,10 +144,17 @@
             <div class="col-md-8">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <div style="display: flex">
+                        <div class="d-flex justify-content-between">
                             <h4>Profile Details</h4>
+                            <span class="d-flex">
+                                @if($user->role == "User")
+                                <a href="{{ route('view_user', $user->id) }}" class="btn btn-secondary" style="color: white;">
+                                    <i class="bx bx-dollar-circle pb-1"></i>Add Balance</a>
+                                @endif
+                                <a href="{{ route('edit_user', $user->id) }}" class="btn btn-primary ml-1 mr-1" style="color: white;">
+                                   <i class="bx bx-edit-alt pb-1"></i>Edit User </a>
                             @if ($user->id != \Company::Account_id)
-                                <div class="col-sm-3" style="margin-left:auto;margin-right:1%">
+                                <div class="">
                                     <select id="defaultSelect"
                                         class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif"
                                         id="account_status" name="account_status"
@@ -165,7 +174,8 @@
                                     </select>
                                 </div>
                             @endif
-                        </div>
+                            </span>
+                             </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">

@@ -86,17 +86,21 @@
     <div class="">
         <h5 class=" d-flex justify-content-between pt-3 pb-2">
             <b></b>
-           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add User</b> </div>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Users</b> </div>
         </h5>
         <div class="row">
             <div class="col-lg-12 mb-12">
                 <div class="card">
-                    <div class="d-flex align-items-center p-3">
+                    <div class="d-flex align-items-center p-3 mb-1">
                         <div>
                             <h5 class="mb-1">Manage Users</h5>
-                            <p class="mb-0 font-13 text-secondary"><i class="bx bxs-calendar"></i>Overall Users</p>
+                            <p class="mb-0 font-13 text-secondary "><i class='bx bxs-calendar'></i>Overall Users</p>
                         </div>
-                        <div class="dropdown ms-auto">
+                        <div class="ms-auto">
+                            <a href="{{ route('add_user') }}" class="btn btn-primary print-btn pb-1 pt-1 " style="color: white;">
+                               <i class="bx bx-save pb-1"></i>Add User </a>
+                        </div>
+                        <!--div class="dropdown ms-auto">
                             <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"> <i
                                     class="bx bx-dots-horizontal-rounded font-22 text-option"></i>
                             </a>
@@ -126,7 +130,7 @@
                                             class='bx bx-printer'></i></a>
                                 </li>
                             </ul>
-                        </div>
+                        </div-->
                     </div>
                     <div class="card-body " >
                         <div class="table-responsive overflow-auto pb-2 " style="margin-top:-15px ">
@@ -176,7 +180,7 @@
                                         <!--td>{{ $u->id }}</td-->
                                         <td>
                                             @if ($role == 'Admin')
-                                                <a href="{{ route('edit_user', $u['id']) }}">{{ $u['name'] }}
+                                                <a href="{{ route('show_user', $u['id']) }}">{{ $u['name'] }}
                                                     {{ $u['last_name'] }}</a>
                                         </td>
                                         @else
@@ -186,12 +190,12 @@
                                         <td>{{ $u['role'] }}</td>
                                         <th>
                             <span
-                                class="badge
-                    @if ($u->account_status == 'Pending') bg-success @endif
-                    @if ($u->account_status == 'Approved') bg-primary @endif
-                    @if ($u->account_status == 'Not Approved' || $u->account_status == 'Suspended') bg-danger @endif
-                    me-1  @if ($u->account_status == 'Disable') bg-danger @endif
-                    me-1">
+                                            class="badge
+                                @if ($u->account_status == 'Pending') bg-success @endif
+                                @if ($u->account_status == 'Approved') bg-primary @endif
+                                @if ($u->account_status == 'Not Approved' || $u->account_status == 'Suspended') bg-danger @endif
+                                me-1  @if ($u->account_status == 'Disable') bg-danger @endif
+                                me-1">
 
                                 @if ($u->account_status == 'Suspended')
                                     {{ $u['account_status'] }}

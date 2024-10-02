@@ -46,10 +46,10 @@
     </div>
   </div>
          <div class="">
-                <div class="d-flex justify-content-between no-print">
-                    <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dropbox</b></span></h5>
-
-                </div>
+            <h5 class=" d-flex justify-content-between pt-3 pb-2">
+                <b></b>
+               <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Manage Dropbox</b> </div>
+            </h5>
                 <div class="card ">
                 <div class="card-body overflow-auto" >
                     <div class="d-flex align-items-center mb-2">
