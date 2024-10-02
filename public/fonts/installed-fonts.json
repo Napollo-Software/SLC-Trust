@@ -1,26 +1,26 @@
 {
-    "tklcce-info-normal": {
-        "normal": "tklcce_info_normal_normal_3a43954c0f9a5421d7f4ddeb648d9d18"
+    "apefno-arial-boldmt": {
+        "normal": "apefno_arial_boldmt_normal_f5153ded337f4d271c6113b9226b281d"
     },
-    "tklcce-info-semibold": {
-        "normal": "tklcce_info_semibold_normal_b00b4db0231036e7fecb7b5c7ef4570e"
+    "heejyj-arial_2": {
+        "normal": "heejyj_arial_2_normal_845ebfa297e03c26aa0d087fc07246e2"
     },
-    "info-normal": {
-        "normal": "info_normal_normal_8e9bee386a7e2af567dabf06015647b3"
+    "heejyj-arial": {
+        "normal": "heejyj_arial_normal_fc8b57526644f2bc3c1cfaeacae580a2"
     },
-    "info-bold": {
-        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
+    "keescu-arialmt": {
+        "normal": "keescu_arialmt_normal_e4cdc6bec769eeec5bc3b6bf17f4a75e"
     },
-    "poppins-italic": {
-        "normal": "poppins_italic_normal_90c7b6122061f79384ebba85dd1a6700"
+    "arialbi": {
+        "normal": "arialbi_normal_40262b9640b147af8043052aac70fa16"
     },
-    "poppins-extrabold": {
-        "normal": "poppins_extrabold_normal_bd25a78da585f0ebbf97caf10a35c72f"
+    "arialcemtblack": {
+        "normal": "arialcemtblack_normal_1f7b898c6a52ad00b1e1ca4812ea08d1"
     },
-    "brittanysignature-mazx": {
-        "normal": "brittanysignature_mazx_normal_fa41915968d6bf087ce0ea7ac1a6c321"
+    "arialmdm": {
+        "normal": "arialmdm_normal_29f851b1b879a6e61c5dc1c0c1bacded"
     },
-    "info-semibold": {
-        "normal": "info_semibold_normal_3461e18117e484083763c0fd75d810d8"
+    "arial": {
+        "normal": "arial_normal_f67d0e664f8f031d02fee677028d5f73"
     }
 }

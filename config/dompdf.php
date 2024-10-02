@@ -53,6 +53,36 @@ return array(
         'TKLCCE-Info-SemiBold' => [
             'B'  => 'TKLCCE-Info-SemiBold.ttf',   
         ],
+
+        // map pdf fonts
+
+        'APEFNO-Arial-BoldMT' => [
+            'R'  => 'APEFNO-Arial-BoldMT.ttf',   
+        ],
+        'HEEJYJ-Arial_2' => [
+            'B'  => 'HEEJYJ-Arial_2.ttf',   
+        ],
+        'HEEJYJ-Arial' => [
+            'R'  => 'HEEJYJ-Arial.ttf',   
+        ],
+        'KEESCU-ArialMT' => [
+            'R'  => 'KEESCU-ArialMT.ttf',   
+        ],
+
+        'ARIALBI' => [
+            'R'  => 'ARIALBI.ttf',   
+        ],
+        'ArialCEMTBlack' => [
+            'B'  => 'ArialCEMTBlack.ttf',   
+        ],
+        'ArialMdm' => [
+            'R'  => 'ArialMdm.ttf',   
+        ],
+        'ARIAL' => [
+            'R'  => 'ARIAL.ttf',   
+        ],
+        
+
     ],
 
     /*

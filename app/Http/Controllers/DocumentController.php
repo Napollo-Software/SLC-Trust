@@ -383,9 +383,7 @@ class DocumentController extends Controller
         if ($request->has('sig_date2') && $request->sig_date2) {
             $formattedDates['sig_date2'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
         }
-        if ($request->has('sponsor_dob') && $request->sig_date2) {
-            $formattedDates['sponsor_dob'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
-        }
+        
         // Merge the formatted dates back into the request, keeping all other data unchanged
         $request->merge($formattedDates);
         set_time_limit(200);
@@ -490,14 +488,7 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.hippa-pdf', $data)
-        ->setOption([
-            'fontDir' => public_path('/fonts'),
-            'fontCache' => public_path('/fonts'),
-            'defaultFont' => 'Nominee-Black'
-        ])
-        ->setPaper('A4', 'portrait');
-
+        $pdf = PDF::loadView('document.hippa-pdf', $data);
 
 
         $savePath = $directory . '/hippa_' . date('Ymd_His') . '.pdf';
@@ -563,13 +554,7 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.hippa-state-pdf', $data)
-        ->setOption([
-            'fontDir' => public_path('/fonts'),
-            'fontCache' => public_path('/fonts'),
-            'defaultFont' => 'TKLCCE-Info-Normal'
-        ])
-        ->setPaper('A4', 'portrait');
+        $pdf = PDF::loadView('document.hippa-state-pdf', $data);
 
 
         $savePath = $directory . '/hippa_state_' . date('Ymd_His') . '.pdf';
@@ -746,7 +731,14 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.map-pdf', $data);
+        $pdf = PDF::loadView('document.map-pdf', $data)
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'Nominee-Black'
+        ])
+        ->setPaper('A4', 'portrait');
+
 
 
         $savePath = $directory . '/map_' . date('Ymd_His') . '.pdf';
@@ -802,13 +794,7 @@ class DocumentController extends Controller
 
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.disability-pdf', $data)
-        ->setOption([
-            'fontDir' => public_path('/fonts'),
-            'fontCache' => public_path('/fonts'),
-            'defaultFont' => 'Nominee-Black'
-        ])
-        ->setPaper('A4', 'portrait');
+        $pdf = PDF::loadView('document.disability-pdf', $data);
 
 
         $savePath = $directory . '/disability_' . date('Ymd_His') . '.pdf';

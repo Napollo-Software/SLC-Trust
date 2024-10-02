@@ -196,21 +196,27 @@ footer img {
 <div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:30px">
     <div style="width: 100%;">
         <div style="width: 25%; float: left">
-            <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span>
-            <span style="font-family:Poppins-Regular">718.500.3235</span>
+            {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span> --}}
+             <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/tel.png') }}" alt="int" width="20px" height="20px">
+            <span style="font-family:Poppins-Regular;">718.500.3235</span>
         </div>
         <div style="width: 45%; float: left;text-align: center">
-            <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Address:</span>
+            {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Address:</span> --}}
+            <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/address.png') }}" alt="int" width="20px" height="20px">
             <span style="font-family:Poppins-Regular">5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
         </div>
         <div style="width: 25%; float: right; text-align: right;">
-            <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span>
+            {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span> --}}
+            <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/mail.png') }}" alt="int" width="20px" height="20px">
             <span style="font-family:Poppins-Regular">info@slctrusts.org</span>
         </div>
 
     </div>
     <div>
-        <p style="width: 95%;text-align: center;font-family:Poppins-Regular;">www.seniorlifecaretrusts.org</p>
+        <img style="position: relative;top: 40px;right: 38%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
+        <p style="width: 95%;text-align: center;font-family:Poppins-Regular;">
+            www.seniorlifecaretrusts.org
+        </p>
    </div>
 </div>
 
