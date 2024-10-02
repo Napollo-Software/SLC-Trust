@@ -1,26 +1,14 @@
 {
-    "tklcce-info-normal": {
-        "normal": "tklcce_info_normal_normal_3a43954c0f9a5421d7f4ddeb648d9d18"
-    },
-    "tklcce-info-semibold": {
-        "normal": "tklcce_info_semibold_normal_b00b4db0231036e7fecb7b5c7ef4570e"
-    },
     "info-normal": {
         "normal": "info_normal_normal_8e9bee386a7e2af567dabf06015647b3"
     },
     "info-bold": {
         "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
     },
-    "poppins-italic": {
-        "normal": "poppins_italic_normal_90c7b6122061f79384ebba85dd1a6700"
-    },
-    "poppins-extrabold": {
-        "normal": "poppins_extrabold_normal_bd25a78da585f0ebbf97caf10a35c72f"
-    },
-    "brittanysignature-mazx": {
-        "normal": "brittanysignature_mazx_normal_fa41915968d6bf087ce0ea7ac1a6c321"
-    },
     "info-semibold": {
         "normal": "info_semibold_normal_3461e18117e484083763c0fd75d810d8"
+    },
+    "info_web-italic": {
+        "normal": "info_web_italic_normal_1184b192ea1d9c0c2a4f637cb716e623"
     }
 }
