@@ -344,11 +344,11 @@
         </div>
         <p class='m-0' style="padding-left: 24px;">to discuss my health information with the <span class='font-bold'>State Disability Review Unit.</span></p>
         <div class="checkbox-container" style="width: 100%;display:table">
-            <div style='display:table-cell;width:50%;vertical-align:middle;padding-top:4px'>
-                <p class='m-0' style="display: inline;">9(c). I do not consent to the disclosure of (Check all boxes that apply):</p>
+            <div style='display:table-cell;width:40%;vertical-align:middle;padding-top:4px'>
+                <p class='m-0' style="display: inline;white-space:nowrap">9(c). I do not consent to the disclosure of (Check all boxes that apply):</p>
             </div>
-            <div style='width:50%;display:table-cell;'>
-                <label for="alcoholDrugTreatment" style="white-space: nowrap; display: inline;font-size: 10px;margin-top:-10px">
+            <div style='width:60%;display:table-cell;'>
+                <label for="alcoholDrugTreatment" style="white-space: nowrap; display: inline;font-size: 10px;margin-top:-10px;margin-left:20px">
                     <input type="checkbox" name="alcoholDrugTreatment" class='my-0' style='vertical-align:bottom;'
                     value="alcoholDrugTreatment" {{ isset($alcoholDrugTreatment) && $alcoholDrugTreatment == 'alcoholDrugTreatment' ? 'checked' : '' }}>
                     <span style='font-size:10px'>
@@ -438,7 +438,7 @@
         <div style="display: table; width: 100%;">
             <div style="display: table-cell; vertical-align: bottom;">
                 @if($hippa_state_sign)
-                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="300" height="60">
+                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="250" height="45">
                     <p class='m-0' style="display: block; text-align: start;border-top:1px solid">
                     SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW
                     </p>
