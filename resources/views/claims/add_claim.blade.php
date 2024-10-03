@@ -172,7 +172,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-lg-3">
-                            <button class="btn btn-primary claim-submit"><i class="bx bx-save pb-1"></i>Submit</button>
+                            <button class="btn btn-primary claim-submit" style="background-color: #559e99 !important; outline: none !important; box-shadow: none !important;"><i class="bx bx-save pb-1"></i>Submit</button>
                             </form>
                         </div>
                     </div>

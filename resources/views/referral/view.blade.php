@@ -45,7 +45,7 @@ return $colors[$randomIndex];
         text-decoration: none;
         display: inline-block;
         font-size: 14px;
-        margin: 4px 2px;
+        /* margin: 4px 2px; */
         cursor: pointer;
         border-radius: 4px;
         | transition: transform 0.3s, background-color 0.3s;
@@ -57,7 +57,7 @@ return $colors[$randomIndex];
 
     .fancy-plus-button:hover,
     .fancy-plus-button:focus {
-        background-color: #16b6d3;
+        background-color: #559e99;
         transform: scale(1.05);
     }
 
@@ -948,7 +948,7 @@ return $colors[$randomIndex];
                                         @endforeach
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="fancy-plus-button">
+                                                <a class="fancy-plus-button m-0">
 
                                                 </a>
                                             </td>
