@@ -437,11 +437,11 @@ class AuthController extends Controller
 
     public function bill_reports(Request $request)
     {
-        // Calculate pool fund, bill payments, total accounts, contacts, leads, and referrals
         $pool_fund = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
             - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
 
-        $bill_payments = Claim::sum('claim_amount');
+        $bill_payments = Transaction::whereNotNull("claim_id")->sum('credit') - Transaction::whereNotNull("claim_id")->sum('debit');
+
         $total_accounts = User::where('role', 'Vendor')->count();
         $total_contacts = Contacts::count();
         $total_leads = Lead::count();
@@ -505,6 +505,7 @@ class AuthController extends Controller
         $total_revenue = $maintenance_fee + $enrollment_fee;
 
         $start_date = null;
+
         $followup = Followup::select('note', 'date')->get();
 
         $customers = User::where('role', 'User')
@@ -697,7 +698,7 @@ class AuthController extends Controller
             'profile_pic' => 'mimes:jpeg,png,jpg,gif,pdf',
             'email' => 'required|email',
             'billing_cycle' => 'required',
-            'surplus_amount' => 'required|numeric|lt:10000|gt:0',
+            'surplus_amount' => 'nullable|numeric|lt:10000|gt:0',
             // 'dob' => 'date|before:'.$before,
         ], [
             'profile_pic.required' => 'Photo ID is required',
@@ -766,7 +767,11 @@ class AuthController extends Controller
 
         $user = User::findOrFail($id);
         $admin = User::findOrFail(\Company::Account_id);
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
+
+        $deposit_transaction = null;
+        $registration_transaction = null;
+        $maintenance_transaction = null;
 
         $maintenance_fee_amount = $request->balance * ($request->maintenance_fee / 100);
 
@@ -807,31 +812,12 @@ class AuthController extends Controller
                 "reference_id" => $reference_id,
             ]);
 
-            $transaction = $user->transactions()->create([
+            $deposit_transaction = $user->transactions()->create([
                 "reference_id" => $reference_id,
                 "credit" => $request->balance,
                 "description" => $customer_description,
                 "type" => Transaction::Deposit
             ]);
-
-            $directory = storage_path('app/public/' . $user->id);
-            if (!is_dir($directory)) {
-                mkdir($directory, 0777, true);
-            }
-
-            $pdf = PDF::loadView('document.trusted-surplus-pdf', ['user' => $user, "transaction" => $transaction])
-                ->setOption([
-                    'fontDir' => public_path('/fonts'),
-                    'fontCache' => public_path('/fonts'),
-                    'defaultFont' => 'Nominee-Black'
-                ])
-                ->setPaper('A4', 'portrait');
-
-            $pdfLink = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
-
-            $pdf->save($pdfLink);
-
-            Mail::to($user->email)->send(new CashDepositMail($pdfLink));
 
             $platform_fee_description = "Maintenance fee of \${$maintenance_fee_amount} has been charged.";
             $customer_platform_fee_description = "Maintenance fee of \${$maintenance_fee_amount} deducted.";
@@ -839,7 +825,7 @@ class AuthController extends Controller
             // Deduct maintenance fee and record it as a debit
             $reference_id = generateTransactionId();
 
-            $user->transactions()->create([
+            $maintenance_transaction = $user->transactions()->create([
                 "reference_id" => $reference_id,
                 "debit" => $maintenance_fee_amount,
                 "type" => Transaction::MaintenanceFee,
@@ -863,7 +849,7 @@ class AuthController extends Controller
 
                 $reference_id = generateTransactionId();
 
-                $user->transactions()->create([
+                $registration_transaction = $user->transactions()->create([
                     "reference_id" => $reference_id,
                     "type" => Transaction::EnrollmentFee,
                     "debit" => $request->registration_fee_amount,
@@ -879,6 +865,30 @@ class AuthController extends Controller
                     "transaction_type" => \TransactionType::Operational
                 ]);
             }
+
+            $directory = storage_path("app/public/$user->id");
+            if (!is_dir($directory)) {
+                mkdir($directory, 0777, true);
+            }
+
+            $pdf = PDF::loadView('document.trusted-surplus-pdf', [
+                'user' => $user,
+                "deposit_transaction" => $deposit_transaction,
+                "registration_transaction" => $registration_transaction,
+                "maintenance_transaction" => $maintenance_transaction,
+            ])
+                ->setOption([
+                    'fontDir' => public_path('/fonts'),
+                    'fontCache' => public_path('/fonts'),
+                    'defaultFont' => 'Nominee-Black'
+                ])
+                ->setPaper('A4', 'portrait');
+
+            $pdfLink = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
+
+            $pdf->save($pdfLink);
+
+            Mail::to($user->email)->send(new CashDepositMail($pdfLink));
 
             /////////////User Add Balance Notification/////////////
             Notifcation::create([
