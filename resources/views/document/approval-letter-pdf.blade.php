@@ -181,9 +181,10 @@
                     <p style="font-size: 14px">Date: {{ date('m/d/Y') }}</p>
                 </div>
                 <div style="position: relative;left: 40%;margin-top:35px">
-                    <p style="margin:0;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Beneficiary Name : {{ $user->full_name() }}</span></p>
-                    <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Account Number : </span> {{ $user->id }}</p>
-                    <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Date Established : </span> {{ date('m/d/Y',strtotime($user->created_at)) }}</p>
+                    <p style="margin:0;font-size:14px;font-family:Poppins-Bold;line-height: 0.8;text-decoration: underline;">Beneficiary Name : <span style="font-size:14px;font-family:Poppins-Regular;text-decoration: underline;">{{ $user->full_name() }}</span></p>
+                    <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Bold;line-height: 0.8;text-decoration: underline;">Account Number :  <span style="font-size:14px;font-family: Poppins-Regular;text-decoration: underline;">{{ $user->id }}</span>
+                    </p>
+                    <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Bold;line-height: 0.8;text-decoration: underline;">Date Established :  <span style="font-size:14px;font-family: Poppins-Regular;text-decoration: underline;">{{ date('m/d/Y',strtotime($user->created_at)) }}</span></p>
                 </div>
                 <div style="margin-top: 35px">
                     <p style="font-size: 18px;font-family:Poppins-Regular;margin:0;line-height: 1">This letter is to confirm that Joinder Agreement application for the above named Beneficiary to join the Senior Life Care Pooled trust has been approved and a sub-account has been established. The account is effective upon receipt
