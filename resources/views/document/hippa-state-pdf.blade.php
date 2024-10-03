@@ -373,14 +373,14 @@
         </div>
         <hr class='styled-hr'>
         <div class='m-0 w-full' style='display:table'>
-            <span class='w-50' style='display:table-cell;vertical-align:middle;padding-top:1px'>
+            <span class='' style='display:table-cell;vertical-align:middle;padding-top:1px;width:46.4%'>
                 10. Reason for release of information:
             </span>
             <span style='vertical-align:middle'>
                 <label>
                     <input type="checkbox" class='align-check'
                     name="other_individual" {{isset($other_individual) =='other_individual'? 'checked' : ''}}>
-                    <span>
+                    <span class="text-sm">
                         At request of individual
                     </span>
                 </label>
@@ -438,8 +438,8 @@
         <div style="display: table; width: 100%;">
             <div style="display: table-cell; vertical-align: bottom;">
                 @if($hippa_state_sign)
-                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="250" height="45">
-                    <p class='m-0' style="display: block; text-align: start;border-top:1px solid">
+                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="170" height="34">
+                    <p class='m-0 text-sm' style="display: block; text-align: start;border-top:1px solid;">
                     SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW
                     </p>
                 @else
@@ -452,12 +452,12 @@
             </div>
             <div style="display: table-cell; vertical-align: bottom;padding-left:15px;margin-top:15px">
                 <input type="text" class="border-bottom text-sm" name="date_hippa_state" value="{{$date_hippa_state}}">
-                <p style="display: block; text-align: start;vertical-align: bottom" class='m-0'>
+                <p style="display: block; text-align: start;vertical-align: bottom" class='m-0 text-sm'>
                     DATE
                 </p>
             </div>
         </div>
-        <div style='margin-bottom:30px;margin-top:2px;padding-top:2px' class='styled-hr'>
+        <div style='margin-bottom:30px;margin-top:11px;padding-top:2px' class='styled-hr text-sm'>
             DOH-5173 (4/16) Page 1 of 2
         </div>
         <div style="display: table; width: 100%; padding: 0; margin: 0;">
@@ -557,10 +557,9 @@
         </p>
         <p class='m-0 py-7' style='margin-left:32px;'>
             • If you want the healthcare provider to send in any other information, put a check in the third box (Other) and
-            write the information that the 
+            write the information that the healthcare
             <br/>
-            <span style='margin-left:5px'>
-                healthcare
+            <span style='padding-left:-1px'>
                 provider is to send.
             </span>
         </p>
@@ -578,7 +577,7 @@
             <br/>
             <span style='margin-left:24px'>
                 healthcare
-                provider on the lines provided
+                provider on the lines provided.
             </span>
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
@@ -635,7 +634,7 @@
             <br/>
             <span style='padding-left:27px'>
                 parent, put  
-                parent.  If you are the legal guardian of the patient, put legal guardian
+                parent.  If you are the legal guardian of the patient, put legal guardian.
             </span>
         </span>
             <hr class='styled-hr' style='margin-left:35px'/>
@@ -644,7 +643,7 @@
         <p>
         If you want your healthcare provider to send your medical records, this form must be signed and dated by the patient or the patient’s legal representative.
         <p>
-        <div style='margin-bottom:30px;margin-top:120px;padding-top:2px;border-top:3px solid'>
+        <div class='text-sm' style='padding-top:2px;border-top:3px solid;position: absolute; bottom:0;width:100%'>
             DOH-5173 (4/16) Page 2 of 2
         </div>
 </form>
