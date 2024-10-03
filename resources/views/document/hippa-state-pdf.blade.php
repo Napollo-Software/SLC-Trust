@@ -183,7 +183,7 @@
                 HIPAA</span>
         </div>
     </div>
-    <hr style="width: 100%;height:5px;background-color: #231F20;">
+    <hr style="width: 100%;height:4px;background-color: #231F20;">
     <table style="border-width: 0.5px;margin:0;padding: 0;width: 100%;">
         <tr style="border-width: 0.5px;margin:0;padding: 0;vertical-align: top">
             <td style="border-width: 0.5px;margin:0;width:240px">
@@ -326,18 +326,18 @@
         <p class='m-0'>
             9(b). Authorization to discuss Health Information:
         </p>
-        <div style="display: table; width: 95%;" class='pl-20'>
-            <div style='display:table-cell;width:40%'>
+        <div style="display: table; width: 100%;" class='pl-20'>
+            <div style='display:table-cell;width:30%'>
                 <span>
                     By initialing here
                 </span>
-                <input type="text" name="init" class="border-bottom text-sm" value="{{$init}}" style="width: 50%;">
+                <input type="text" name="init" class="border-bottom text-sm" value="{{$init}}" style="width: 100px;">
             </div>
-            <div style='table-cell:width:60%'>
+            <div style='table-cell:width:70%'>
                 I authorize 
-                <input type="text" name="auth_name" class="border-bottom text-sm" value="{{$auth_name}}" style="width: 80%;"
+                <input type="text" name="auth_name" class="border-bottom text-sm" value="{{$auth_name}}" style="width: 410px"
                 placeholder="Name of individual/Health care provider">
-                <p style='padding-left:50px;margin-top:-4px' class='m-0'>
+                <p style='padding-left:50px;margin-top:-4px; font-size:10px' class='m-0'>
                     (NAME OF INDIVIDUAL/HEALTH CARE PROVIDER)
                 </p>
                 </div>
@@ -390,7 +390,7 @@
                     <span>
                 Other:
                 </span>
-                <input type="text" id="other_indiviual_name" class="border-bottom" value="{{$other_indiviual_name}}"
+                <input type="text" id="other_indiviual_name" class="border-bottom text-sm" value="{{$other_indiviual_name}}"
                 name="other_indiviual_name" style="vertical-align: baseline">
             </label>
         </span>
@@ -398,11 +398,11 @@
         <hr class='styled-hr'>
         <div style='display:table;width:100%'>
             <div style='display:table-row'>
-                <div style='display:table-cell;width:50.3%;'>
+                <div style='display:table-cell;width:43.3%;'>
                 11. Purpose of the Use/Disclosure:
                 </div>
                 <div style='display:table-cell;width:50%'>
-                <p class='font-bold m-0'>Disability Determination and Review</p>
+                    <p class='font-bold m-0'>Disability Determination and Review</p>
                 </div>
             </div>
         </div>
@@ -436,7 +436,7 @@
         </p>
 
         <div style="display: table; width: 100%;">
-            <div style="display: table-cell; vertical-align: bottom;">
+            <div style="display: table-cell; vertical-align: bottom;width:70%">
                 @if($hippa_state_sign)
                     <img src="{{ $hippa_state_sign }}" alt="map_sign" width="170" height="34">
                     <p class='m-0 text-sm' style="display: block; text-align: start;border-top:1px solid;">
@@ -450,14 +450,14 @@
                 </div>
                 @endif
             </div>
-            <div style="display: table-cell; vertical-align: bottom;padding-left:15px;margin-top:15px">
-                <input type="text" class="border-bottom text-sm" name="date_hippa_state" value="{{$date_hippa_state}}">
-                <p style="display: block; text-align: start;vertical-align: bottom" class='m-0 text-sm'>
+            <div style="display: table-cell; vertical-align: bottom;padding-left:15px;margin-top:15px;width:30%">
+                <input type="text" class="border-bottom text-sm" style="width:90%" name="date_hippa_state" value="{{$date_hippa_state}}">
+                <p style="display: block; text-align: start;vertical-align: bottom; white-space: no-wrap;" class='m-0 text-sm'>
                     DATE
                 </p>
             </div>
         </div>
-        <div style='margin-bottom:30px;margin-top:11px;padding-top:2px' class='styled-hr text-sm'>
+        <div style='margin-bottom:30px;margin-top:11px;padding-top:2px;width:98% !important' class='styled-hr text-sm'>
             DOH-5173 (4/16) Page 1 of 2
         </div>
         <div style="display: table; width: 100%; padding: 0; margin: 0;">

@@ -157,7 +157,7 @@
         </tr>
         <tr>
             <td class="c-tr" colspan="2" >
-                <label class="label-style" style="font-size: 10px;bottom:7px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON HAD CONTACT WITH SOURCE (Include Zip Code)</p></label>
+                <label class="label-style" style="font-size: 10px;bottom:7px" for="Patient Name"><p style="margin:0;font-size:8.6px;line-height:1;margin-top:5px">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON HAD CONTACT WITH SOURCE (Include Zip Code)</p></label>
                 <input style="bottom: 10px" class="inp-style" type="text" name="source_contact_name_address" value="{{$source_contact_name_address}}">
             </td>
             <td class="c-tr-center" colspan="1">
@@ -192,11 +192,11 @@
         <tr>
                 <td class="c-tr" colspan="2">
                     <label class="label-style">
-                       <p style="margin:0;font-size:10px;line-height:1;margin-top:5px"><span style="font-size: 10px;background:yellow">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> ACT IN HIS/HER BEHALF</p> 
+                       <p style="margin:0;font-size:8.6px;line-height:1;margin-top:5px"><span style="font-size: 8.6px;background:yellow">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> ACT IN HIS/HER BEHALF</p> 
                     </label>
                     <div>
                         @if($map_sign)
-                            <img src="{{ $map_sign }}" alt="map_sign" width="300px"  height="65px" >
+                            <img src="{{ $map_sign }}" alt="map_sign" width="280px"  height="65px" >
                         @else
                             No Signature Provided
                         @endif
@@ -204,7 +204,7 @@
                 </td>
                 <td class="c-tr">
                     <label class="label-style">
-                        <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">RELATION TO DISABLED PERSON
+                        <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">RELATION TO DISABLED PERSON <br>
                         (If other than self)
                         </p>
                     </label>
@@ -216,22 +216,22 @@
                         different than SSN.) </label><br>
                     <input type="text" name="disabled_id_other" class="no-border" value={{$disabled_id_other}}>
                 </td> --}}
-                <td class="c-tr">
+                <td class="c-tr" style="width: 15%">
 
                     <label class="label-style" ><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DATE</p></label>
-                    <input class="inp-style" type="text" name="date_map" value="{{$date_map}}">
+                    <input style="position:relative;right:5px" class="inp-style" type="text" name="date_map" value="{{$date_map}}">
 
                 </td>
             </tr>
         <tr>
-            <td class="c-tr" colspan="2">
+            <td class="c-tr" colspan="2" style="height: 15px !important;">
                 <label class="label-style">
                     <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">STREET ADDRESS</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_street"
                        value="{{$disabled_relation_street}}" style="width:100%">
             </td>
-            <td class="c-tr" colspan="2" >
+            <td class="c-tr" colspan="2" style="height: 15px !important;">
                 <label class="label-style">
                     <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">TELEPHONE NUMBER (include area code)</p>
                 </label>
@@ -241,7 +241,7 @@
 
         </tr>
         <tr>
-            <td class="c-tr"  colspan="2">
+            <td class="c-tr"  colspan="2" style="height: 15px !important;">
                 <label class="label-style">
                     <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">CITY</p>
                 </label>
@@ -249,7 +249,7 @@
                        style="width:100%">
             </td>
             <td class="c-tr">
-                <label class="label-style">
+                <label class="label-style" style="height: 15px !important;">
                     <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">STATE</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_state" value="{{$disabled_relation_state}}"
