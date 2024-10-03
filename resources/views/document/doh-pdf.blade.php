@@ -138,6 +138,9 @@
             .mt-3{
                margin-top:3px
             }
+            .mt-4{
+               margin-top:4px
+            }
         .py-3{
             padding-top:3px;
             padding-bottom:3px
@@ -152,7 +155,7 @@
 
     <div class="container-row">
         <div>
-            <p class='font-base my-3 pt-20'>
+            <p style="font-size:14px" class='my-3 pt-20'>
                 NEW YORK STATE DEPARTMENT OF HEALTH <br>
                 Disability Review Unit
             </p>
@@ -162,10 +165,10 @@
         </div>
     </div>
     <hr class="custom-hr m-0">
-    <div style="width: 100%; background-color: rgb(184, 182, 182);margin: 0;">
-        <h4 style="padding: 3px" class='font-base mt-3'>
+    <div style="width: 100%; background-color: #ccc;margin: 0;">
+        <p style="padding: 5px;margin-top:8px" class='font-base'>
             Section I – Identification
-        </h4>
+        </p>
     </div>
 
     <div class="container-row" style="display: table; width: 100%;">
@@ -202,11 +205,10 @@
                       style="box-sizing: border-box;width: 90%">{{$address_text}}</textarea>
         </p>
         <p style="display: table-cell; width: 20%;">
-            <label style="display: block; margin: 5px 0;">Date of Birth</label>
-            <input type="text" class="border-bottom" value="{{$dob}}"
-                   style=" box-sizing: border-box;width: 80%"><br>
-
-            <label>Sex</label><br>
+            <label>Date of Birth</label> <br>
+            <input type="text" value="{{$dob}}"
+            style="border:none;border-bottom:1px solid black;width: 100%; margin: 5px 0;">
+            <label style="margin: 5px 0;">Sex</label><br>
             <label>
 
                 <input type="checkbox"
@@ -229,17 +231,15 @@
 
         <p style="display: table-cell; width: 20%;">
 
-            <label for="" style="margin: 10px 0;">Client ID Number</label>
-            <input type="text" name="client_id" class="no-border" value="{{$client_id}}"
-                   style="border: none;  max-width: 100px; margin: 5px 0;">
-            <br>
-            <label for="" style="margin: 10px 0;">Disability ID Number</label>
-            <input type="text" name="disability_id" class="no-border" value="{{$disability_id}}"
-                   style="border: none;  max-width: 100px; margin: 5px 0;">
-
-            SSN(Last four digits)
-            <input type="text" name="ssn_last_four" class="no-border" value="{{$ssn_last_four}}"
-                   style="border: none;  max-width: 100px; margin: 5px 0;">
+            <label for="" style="margin: 10px 0;">Client ID Number</label> <br>
+            <input type="text" name="client_id"  value="{{$client_id}}"
+                   style="border:none;border-bottom:1px solid black;width: 100%; margin: 5px 0;">
+            <label for="" style="margin: 5px 0;">Disability ID Number</label> <br>
+            <input type="text" name="disability_id" value="{{$disability_id}}"
+            style="border:none;border-bottom:1px solid black;width: 100%; margin: 5px 0;">
+            <label for="" style="margin: 5px 0;">SSN(Last four digits)</label> <br>
+            <input type="text" name="ssn_last_four" value="{{$ssn_last_four}}"
+            style="border:none;border-bottom:1px solid black;width: 100%; margin: 5px 0;">
             <br>
         </p>
 
