@@ -98,14 +98,12 @@
         div[style*="margin: 16px 0;"] {
             margin: 0 !important;
         }
+
     </style>
 </head>
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
-    <!-- HIDDEN PREHEADER TEXT -->
-    
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <!-- LOGO -->
         <tr>
             <td bgcolor="#559e99" align="center">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
@@ -120,7 +118,8 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Hi {{$name}}!</h1> 
+                           <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
+                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Hi {{$name}}!</h1>
                         </td>
                     </tr>
                 </table>
@@ -131,7 +130,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" >Do you want to reset your password? Please click on the button to reset your account password.</p>
+                            <p style="margin: 0;text-align:center;">Do you want to reset your password? Please click on the button to reset your account password.</p>
                         </td>
                     </tr>
                     <tr>
@@ -148,13 +147,10 @@
                                 </tr>
                             </table>
                         </td>
-                    </tr> <!-- COPY -->
-                    
+                    </tr>
                 </table>
             </td>
         </tr>
-    
-        
     </table>
 </body>
 

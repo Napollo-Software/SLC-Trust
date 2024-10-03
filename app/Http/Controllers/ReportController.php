@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Validator;
 
 
 class ReportController extends Controller
-
 {
     public function index()
     {
@@ -103,20 +102,28 @@ class ReportController extends Controller
 
     public function transaction(Request $request)
     {
+
         $start_date = '';
         $end_date = '';
         $user_id = '';
-        $type = $request->type ? $request->type : ' ';
+        $type = $request->type ?? '';
+
         $users = User::where('role', 'User')->get();
-        $transactions = Transaction::where('chart_of_account', \Company::Account_id);
-        if ($request->type == 'operational') {
-            $transactions = $transactions->where('transaction_type', 'Operational')->orderBy('id', 'DESC')->get();
-        } elseif ($request->type == 'trusted_surplus') {
-            $transactions = $transactions->where('transaction_type', 'Trusted Surplus')->orderBy('id', 'DESC')->get();
-        } else {
-            $transactions = $transactions->orderBy('id', 'DESC')->take('500')->get();
+        $transactions = Transaction::where('user_id', \Company::Account_id);
+
+        if ($request->type == 'operational')
+        {
+            $transactions = $transactions->where('transaction_type', \TransactionType::Operational)->orderBy('id', 'DESC')->get();
+        } elseif ($request->type == 'trusted_surplus')
+        {
+            $transactions = $transactions->where('transaction_type', \TransactionType::TrustedSurplus)->orderBy('id', 'DESC')->get();
+        } else
+        {
+            $transactions = $transactions->orderBy('id', 'DESC')->get();
         }
+
         return view('reports.transaction', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'type'));
+
     }
 
     public function monthly_statement(Request $request)
@@ -176,7 +183,7 @@ class ReportController extends Controller
         $user_id = '';
         $users = User::where('role', 'User')->get();
         $transactions = [];
-        return view('reports.bank-reconciliation', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'opening_balance', 'payments', 'deposits',));
+        return view('reports.bank-reconciliation', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'opening_balance', 'payments', 'deposits', ));
     }
 
     public function filter_bank_reconciliation(Request $request)
@@ -207,7 +214,7 @@ class ReportController extends Controller
         $user_id = '';
         $users = User::where('role', 'User')->get();
         $transactions = [];
-        return view('reports.bank-reconciliation', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'opening_balance', 'payments', 'deposits', 'this_month',));
+        return view('reports.bank-reconciliation', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'opening_balance', 'payments', 'deposits', 'this_month', ));
     }
 
     public function cheque(Request $request)
@@ -253,14 +260,14 @@ class ReportController extends Controller
 
         $start_date = $request->from;
         $user_id = $request->user;
-        
+
         $year = date('Y', strtotime($start_date));
         $month = date('m', strtotime($start_date));
         $users = User::where('role', 'User')->get();
 
         $transactions = Transaction::where('user_id', $request->user)
-        ->whereYear('created_at', '=', $year)
-        ->whereMonth('created_at', '=', $month)->get();
+            ->whereYear('created_at', '=', $year)
+            ->whereMonth('created_at', '=', $month)->get();
 
         return view('reports.monthly-statement', compact('users', 'transactions', 'start_date', 'user_id'));
     }
@@ -572,7 +579,7 @@ class ReportController extends Controller
         $endDate = Carbon::parse($endDate)->endOfDay();
         $reportArray = $request->input('reportArray');
         $data = json_decode($reportArray, true);
-        $report =  Report::find($request->report_id);
+        $report = Report::find($request->report_id);
         $userId = $report->uploaded_by;
         if ($data !== null) {
             $report->fileUrl = json_encode($data);

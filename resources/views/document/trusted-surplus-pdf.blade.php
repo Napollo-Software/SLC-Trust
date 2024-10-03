@@ -146,53 +146,53 @@
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;padding-left:5px">DATE</span></td>
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">TRANS. TYPE</span></td>
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DESCRIPTION</span></td>
-                        <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DEBIT</span></td>
+                        <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;left:56px">DEBIT</span></td>
                     </tr>
                     @if(!empty($deposit_transaction))
                     <tr>
-                        <td colspan="1" style="padding-left:5px">
+                        <td colspan="1" style="padding-left:5px;vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($deposit_transaction->created_at)) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td colspan="1" style="vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ str_replace("_", " ", $deposit_transaction->type) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $deposit_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
+                        <td style="text-align: end;vertical-align:top" colspan="1">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
                     @if(!empty($registration_transaction))
                     <tr>
-                        <td colspan="1" style="padding-left:5px">
+                        <td colspan="1" style="padding-left:5px;vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($registration_transaction->created_at)) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td colspan="1" style="vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ str_replace("_", " ", $registration_transaction->type) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $registration_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
+                        <td style="text-align: end;vertical-align:top" colspan="1">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
                     @if(!empty($maintenance_transaction))
                     <tr>
-                        <td colspan="1" style="padding-left:5px">
+                        <td colspan="1" style="padding-left:5px;vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($maintenance_transaction->created_at)) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td colspan="1" style="vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ str_replace("_", " ", $maintenance_transaction->type) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $maintenance_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px">${{ $maintenance_transaction->credit > 0 ? number_format($maintenance_transaction->credit, 2) : ($maintenance_transaction->debit > 0 ? number_format($maintenance_transaction->debit, 2) : '') }}</label>
+                        <td style="text-align: end;vertical-align:top" colspan="1">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $maintenance_transaction->credit > 0 ? number_format($maintenance_transaction->credit, 2) : ($maintenance_transaction->debit > 0 ? number_format($maintenance_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
@@ -202,25 +202,29 @@
     </div>
     <div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:30px">
         <div style="width: 100%;">
-            <div style="width: 25%; float: left">
-                <img style="position: relative;right: 1%;top: 5px;" src="{{ public_path('images/tel.png') }}" alt="int" width="20px" height="20px">
+            <div style="width: 25%; float: left;text-align:center">
+                {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span> --}}
+                 <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/tel.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular;">718.500.3235</span>
             </div>
             <div style="width: 45%; float: left;text-align: center">
-                <img style="position: relative;right: 1%;top: 5px;" src="{{ public_path('images/address.png') }}" alt="int" width="20px" height="20px">
+                {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Address:</span> --}}
+                <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/address.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular">5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
             </div>
-            <div style="width: 25%; float: right; text-align: right;">
-                <img style="position: relative;right: 1%;top: 5px;" src="{{ public_path('images/mail.png') }}" alt="int" width="20px" height="20px">
+            <div style="width: 25%; float: right; text-align: left;">
+                {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span> --}}
+                <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/mail.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular">info@slctrusts.org</span>
             </div>
+    
         </div>
         <div>
-            <img style="position: relative;top: 38px;right: 38%;" src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
-            <p style="width: 95%;text-align: center;font-family:Poppins-Regular;">
+            <img style="position: relative;top: 38px;right: 36%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
+            <p style="width: 100%;text-align: center;font-family:Poppins-Regular;position:relative;bottom:2.7px">
                 www.seniorlifecaretrusts.org
             </p>
-        </div>
+       </div>
     </div>
 </body>
 </html>
