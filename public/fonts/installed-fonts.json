@@ -1,9 +1,12 @@
 {
-    "times new roman": {
-        "normal": "times_new_roman_normal_2b41e7e6f9a863ef281e4d7c709dc663"
+    "bswijo-info-bold": {
+        "normal": "bswijo_info_bold_normal_57454136bc771bdcd39131b7b406aa23"
     },
-    "times new roman bold": {
-        "normal": "times_new_roman_bold_normal_6dc8eb08b4b0314766c7ce70cedf3cb2"
+    "bswijo-info-book": {
+        "normal": "bswijo_info_book_normal_3553481012dc6b787359af7b8e640abd"
+    },
+    "bswijo-info-normal": {
+        "normal": "bswijo_info_normal_normal_16902de02ce6c4a5b2b3f797524683cb"
     },
     "times new roman italic": {
         "normal": "times_new_roman_italic_normal_586a3ba9526edf6111343dbb0e20bc4d"
