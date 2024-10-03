@@ -169,7 +169,7 @@
                                                 @case('walk_in')
                                                     <b>Walk In</b>
                                                     @break
-                                                @case('Manual')
+                                                @case('manual')
                                                 <b>Manual</b>
                                                 @break
 
