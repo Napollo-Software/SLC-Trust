@@ -40,6 +40,43 @@
             vertical-align: top;
         }
 
+        
+        .xs{
+            font-size: 12px;
+        }
+
+        .xxs{
+            font-size: 9px;
+        }
+
+        .sm{
+            font-size: 13px;
+        }
+
+        .md{
+            font-size: 14px;
+        }
+
+        .lg{
+            font-size: 16px;
+        }
+        .xl{
+            font-size: 17px;
+        }
+        
+        .mt-0{
+            margin-top:0px
+        }
+
+        .semiBold{
+            font-family: "info-semibold" !important;
+        }
+
+        .bold{
+            font-family: "Info-Bold" !important;
+        }
+
+
         input[type="checkbox"] {
             margin-right: 5px;
             vertical-align: top;
