@@ -135,22 +135,22 @@
     <form id="hippa-form">
         @csrf
         <div style="display: table; width: 100%;padding: 0;margin: 0;">
-            <div style='display:table-cell;width:10%'>
+            <div style='display:table-cell;width:10%;'>
                 <img src="{{ public_path('images/logo.png') }}" alt="Logo"
-                style="display: table-cell; width: fit-content; vertical-align: top; margin: 0; padding: 0;"
-                height="50" width="50">
+                style="display: table-cell; width: fit-content; vertical-align: top; margin: 0; padding: 0;padding-left:-6px;margin-left:-6px"
+                height="60" width="60">
             </div>
-            <div style='display:table-cell;width:80%'>
-                <span class='text-left pt-16 font-bold text-center text-gray' style='vertical-align:bottom:'>
-                    <span class='font-lg'>
+            <div style='display:table-cell;width:90%'>
+                <span class='text-left pt-16 font-bold text-center text-gray' style='vertical-align:bottom; margin-left:-12px;padding-left:-12px'>
+                    <span class='' style="font-size:14px;" >
                         AUTHORIZATION FOR RELEASE OF HEALTH INFORMATION PURSUANT TO HIPAA
                     </span>
                     <br>
-                    <span class='text-center' style='font-size:14px;'>
+                    <span class='text-center' style='font-size:14px;margin-top:-5px;padding-top:-5px'>
                         [This form has been approved by the New York State Department of Health]
                     </span>
                 </span>
-                <span class='text-right font-bold text-gray' style='padding-top:9px'>OCA Official Form No.: 960</span>
+                <span class='text-right font-bold text-gray' style='padding-top:9px;font-size:12px'>OCA Official Form No.: 960</span>
                 </div>
         </div>
         <table style="padding: 0;margin: 0;" class='mt-20'>
@@ -224,7 +224,7 @@
         </ol>
             <span style="font-size: 11px;margin:0;" class='font-bold'>
                 6. THIS AUTHORIZATION DOES NOT AUTHORIZE YOU TO DISCUSS MY HEALTH INFORMATION OR MEDICAL
-                CARE WITH ANYONE OTHER THAN THE ATTORNEY OR GOVERNMENTAL AGENCY SPECIFIED IN ITEM 9 (b),
+                CARE WITH ANYONE OTHER THAN THE ATTORNEY OR GOVERNMENTAL AGENCY SPECIFIED IN ITEM 9 (b).
             </span>
         <table style="width: 100%; table-layout: fixed; border-collapse: collapse;font-size: 10px;padding: 0;margin: 0;">
             <tr style="padding:0 3px;">
@@ -242,20 +242,23 @@
                     <p style="margin: 0;">
                         8. Name and address of person(s) or category of person to whom this information will be sent:
                         <br>
-                        <b>Trusted Surplus Solutions 2361 Nostrand Ave STE 504 Brooklyn NY 11210</b>
+                        <textarea type="text" name="" rows="2" class="border-none"
+                              style="width: 90%;height:10px"></textarea>
+                        
                     </p>
                 </td>
             </tr>
             <tr style="padding:0 5px;">
                 <td colspan="2" style="padding:0 5px;">
                     <p style="margin: 0;">
-                        9(a) Specific information to be released:
+                        9(a). Specific information to be released:
                     </p>
                     <!-- input -->
                     <input
                     type="checkbox"
                     name="info_released"
                     class='m-0 align-bottom'
+                    style="margin-top:-5px;padding-top:-5px"
                     value="dated" {{isset($info_released1) && $info_released1 == 'dated' ? 'checked' : '' }}
                     >
                     <span>
@@ -264,6 +267,7 @@
                     <input
                     type="text"
                     class="no-border"
+                    style="margin-bottom:0px !important"
                     name="info_released_from"
                     value="{{$info_released_from}}"
                     >
@@ -275,6 +279,7 @@
                     type="text"
                     class="no-border"
                     name="info_released_to"
+                    style="margin-bottom:0px !important"
                     value="{{$info_released_to}}"
                     >
                     <p style="display: table; width: 100%; margin: 0; margin-bottom: 3px;">
@@ -300,7 +305,7 @@
                              value="other"{{isset($info_released3) && $info_released3 == 'other' ? 'checked' : '' }}
                              >
                             <span>
-                                 other: 
+                                 Other: 
                             </span>
                              <input type="text"
                              name="info_other"
@@ -401,6 +406,10 @@
                         style="display: table-cell; width: 60%;"
                         >
                         </div>
+                        <div>
+                            <span class="text-sm" style="margin-left:150px">Initials</span>
+                            <span class="text-sm" style="margin-left:210px">Name of individual health care provider</span>
+                        </div>
                     <div style="max-width: 100%; text-align: start;">
                         <div style='padding-left:15px'>
                             to discuss my health information with my attorney, or a governmental agency, listed here:
@@ -410,7 +419,7 @@
                         </div>
                     </div>
                     <p style="margin: 0;text-align: center;">
-                        (Attorney/Finn Name or Governmental Agency Name)
+                        (Attorney/Firm Name or Governmental Agency Name)
                     </p>
                 </td>
             </tr>
@@ -461,14 +470,14 @@
             </tr>
         </table>
         <p  style="padding: 0; margin: 0;">
-            All items on this form have been completed, and my questions about this form have been answered.
+            All items on this form have been completed and my questions about this form have been answered.
             In addition,
             I have been provided a copy of the form.
         </p>
         <div style='display:table;width:100%'>
                 <div style="display:table-cell;width:50%">
                     @if($hippa_sign)
-                        <img src="{{ $hippa_sign }}" alt="Signature 1" width="300 " height="80">
+                        <img src="{{ $hippa_sign }}" alt="Signature 1" width="230" height="50">
                     @else
                         No Signature Provided
                     @endif
@@ -476,7 +485,7 @@
                       Signature of patient or representative authorized by law.
                    </div>
                 </div>
-                <div style="width: 50%; text-align: right; float: right;vertical-align:bottom;margin-top:70px">
+                <div style="width: 50%; text-align: right; float: right;vertical-align:bottom;margin-top:40px">
                     <span>
                         Date:
                     </span>
@@ -485,16 +494,15 @@
                     class="no-border"
                     name="sign_date"
                     value="{{$sign_date}}"
-                    style="width: fit-content;padding-left: 5px">
+                    style="width: fit-content;">
                 </div>
             </div>
-        <div style="max-width: 100%;font-weight: bold;padding-top: 3px;margin: 0;font-size: 11px">
+        <div style="max-width: 100%;padding-top: 6px;margin: 0;font-size: 11px" class='font-bold'>
             * Human Immunodeficiency Virus that causes AIDS. The New York State Public Health Law protects information
             which
             reasonably could
             identify someone as having HIV symptoms or infection and information regarding a person's contacts.
         </div>
-        <br>
     </form>
 </div>
 
