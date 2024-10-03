@@ -146,7 +146,7 @@
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;padding-left:5px">DATE</span></td>
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">TRANS. TYPE</span></td>
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DESCRIPTION</span></td>
-                        <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;left:56px">DEBIT</span></td>
+                        <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;left:56px">AMOUNT</span></td>
                     </tr>
                     @if(!empty($deposit_transaction))
                     <tr>
@@ -217,7 +217,7 @@
                 <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/mail.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular">info@slctrusts.org</span>
             </div>
-    
+
         </div>
         <div>
             <img style="position: relative;top: 38px;right: 36%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
