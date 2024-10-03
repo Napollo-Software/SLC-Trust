@@ -1333,25 +1333,25 @@ case management agencies, etc.).
         <tr style=" margin: 0;padding:0">
             <td style=" margin: 0;padding:3">
                 <p>
-                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_one"
-                                 value="{{$start_employment_date_one}}" >
+                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_four"
+                                 value="{{$start_employment_date_four}}" >
                 </p>
 
                 <p style=" margin: 0;padding:0">
-                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_one"
-                               value="{{$end_employment_date_one}}">
+                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_four"
+                               value="{{$end_employment_date_four}}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
-                <input type="text" value="{{$job_title_one}}" name="job_title_one"
+                <input type="text" value="{{$job_title_four}}" name="job_title_four"
                 style=" height:40px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" name="hours_one" style="width:60px"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_four}}" name="hours_four" style="width:60px"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
-                <input type="text" value="{{$type_business_one}}" name="type_business_one"
+                <input type="text" value="{{$type_business_four}}" name="type_business_four"
                        style=" height:40px;width:98%;" class="border-btm" >
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_one}}" name="rate_pay_one"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_four}}" name="rate_pay_four"
                 class="border-btm xs"> </p>
             </td>
         </tr>
@@ -1363,7 +1363,7 @@ case management agencies, etc.).
                             <label for="duties_one" class="sm" style="display: block;">Describe your basic duties:</label>
                         </td>
                         <td style="width: 77%;border:none !important;padding-top:13px">
-                            <textarea name="duties_one" id="duties_one" style="width: 100%; min-height: 65px;">{{$duties_one}}</textarea>
+                            <textarea name="duties_four"  style="width: 100%; min-height: 65px;">{{$duties_four}}</textarea>
                         </td>
                     </tr>
                 </table>
@@ -1382,19 +1382,19 @@ case management agencies, etc.).
                         <!-- Stand -->
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Stand</span>
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-                            <input type="text" value="{{$day_stand}}" style="width:70px" name="day_stand" class="border-btm">
+                            <input type="text" value="{{$day_stand_four}}" style="width:70px" name="day_stand_four" class="border-btm">
                         </span>
 
                         <!-- Walk -->
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Walk</span>
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-            <input type="text" value="{{$day_walk}}" name="day_walk" style="width:70px" class="border-btm">
+                         <input type="text" value="{{$day_walk_four}}" name="day_walk_four" style="width:70px" class="border-btm">
         </span>
 
                         <!-- Sit -->
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Sit</span>
                         <span style="display: table-cell; vertical-align: bottom;">
-            <input type="text" value="{{$day_sit}}" name="day_sit" style="width:70px" class="border-btm">
+            <input type="text" value="{{$day_sit_four}}" name="day_sit_four" style="width:70px" class="border-btm">
         </span>
                     </div>
                 </div>
@@ -1412,7 +1412,7 @@ case management agencies, etc.).
 
                         <!-- Lift -->
                         <span style="display: table-cell; vertical-align: middle; padding-right: 20px;">
-            <input type="text" value="{{$lift_one}}" name="lift_one" class="border-btm">
+            <input type="text" value="{{$lift_four}}" name="lift_four" class="border-btm">
         </span>
 
                         <!-- Pounds Label -->
@@ -1420,7 +1420,7 @@ case management agencies, etc.).
 
                         <!-- Pounds Input -->
                         <span style="display: table-cell; vertical-align: middle;">
-            <input type="text" value="{{$lift_pounds_one}}" name="lift_pounds_one" class="noborder sm">
+            <input type="text" value="{{$lift_pounds_four}}" name="lift_pounds_four" class="noborder sm">
         </span>
                     </div>
                 </div>
@@ -1434,7 +1434,7 @@ case management agencies, etc.).
                         Reason for leaving:
                     </span>
                     <span style="display: table-cell; vertical-align: middle;width:82%;">
-                        <input type="text" value="{{$leaving_reason_one}}" style="width:100%" name="leaving_reason_one" class="noborder sm"  >
+                        <input type="text" value="{{$leaving_reason_four}}" style="width:100%" name="leaving_reason_four" class="noborder sm"  >
                     </span>
                 </p>
 
@@ -1452,25 +1452,25 @@ case management agencies, etc.).
         <tr style=" margin: 0;padding:0">
             <td style=" margin: 0;padding:3">
                 <p>
-                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_one"
-                                 value="{{$start_employment_date_one}}" >
+                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_five"
+                                 value="{{$start_employment_date_five}}" >
                 </p>
 
                 <p style=" margin: 0;padding:0">
-                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_one"
-                               value="{{$end_employment_date_one}}">
+                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_five"
+                               value="{{$end_employment_date_five}}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
-                <input type="text" value="{{$job_title_one}}" name="job_title_one"
+                <input type="text" value="{{$job_title_five}}" name="job_title_five"
                 style=" height:40px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" name="hours_one" style="width:60px"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_five}}" name="hours_five" style="width:60px"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
-                <input type="text" value="{{$type_business_one}}" name="type_business_one"
+                <input type="text" value="{{$type_business_five}}" name="type_business_five"
                        style=" height:40px;width:98%;" class="border-btm" >
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_one}}" name="rate_pay_one"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_five}}" name="rate_pay_five"
                 class="border-btm xs"> </p>
             </td>
         </tr>
@@ -1482,7 +1482,7 @@ case management agencies, etc.).
                             <label for="duties_one" class="sm" style="display: block;">Describe your basic duties:</label>
                         </td>
                         <td style="width: 77%;border:none !important;padding-top:13px">
-                            <textarea name="duties_one" id="duties_one" style="width: 100%; min-height: 65px;">{{$duties_one}}</textarea>
+                            <textarea name="duties_five" id="duties_five" style="width: 100%; min-height: 65px;">{{$duties_five}}</textarea>
                         </td>
                     </tr>
                 </table>
@@ -1501,19 +1501,19 @@ case management agencies, etc.).
                         <!-- Stand -->
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Stand</span>
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-                            <input type="text" value="{{$day_stand}}" style="width:70px" name="day_stand" class="border-btm">
+                            <input type="text" value="{{$day_stand_five}}" style="width:70px" name="day_stand_five" class="border-btm">
                         </span>
 
                         <!-- Walk -->
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Walk</span>
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-            <input type="text" value="{{$day_walk}}" name="day_walk" style="width:70px" class="border-btm">
+            <input type="text" value="{{$day_walk_five}}" name="day_walk_five" style="width:70px" class="border-btm">
         </span>
 
                         <!-- Sit -->
                         <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Sit</span>
                         <span style="display: table-cell; vertical-align: bottom;">
-            <input type="text" value="{{$day_sit}}" name="day_sit" style="width:70px" class="border-btm">
+            <input type="text" value="{{$day_sit_five}}" name="day_sit_five" style="width:70px" class="border-btm">
         </span>
                     </div>
                 </div>
@@ -1531,7 +1531,7 @@ case management agencies, etc.).
 
                         <!-- Lift -->
                         <span style="display: table-cell; vertical-align: middle; padding-right: 20px;">
-            <input type="text" value="{{$lift_one}}" name="lift_one" class="border-btm">
+            <input type="text" value="{{$lift_five}}" name="lift_five" class="border-btm">
         </span>
 
                         <!-- Pounds Label -->
@@ -1539,7 +1539,7 @@ case management agencies, etc.).
 
                         <!-- Pounds Input -->
                         <span style="display: table-cell; vertical-align: middle;">
-            <input type="text" value="{{$lift_pounds_one}}" name="lift_pounds_one" class="noborder sm">
+            <input type="text" value="{{$lift_pounds_five}}" name="lift_pounds_five" class="noborder sm">
         </span>
                     </div>
                 </div>
@@ -1553,7 +1553,7 @@ case management agencies, etc.).
                         Reason for leaving:
                     </span>
                     <span style="display: table-cell; vertical-align: middle;width:82%;">
-                        <input type="text" value="{{$leaving_reason_one}}" style="width:100%" name="leaving_reason_one" class="noborder sm"  >
+                        <input type="text" value="{{$leaving_reason_five}}" style="width:100%" name="leaving_reason_five" class="noborder sm"  >
                     </span>
                 </p>
 

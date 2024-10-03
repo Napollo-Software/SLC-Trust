@@ -398,15 +398,13 @@
                             </div>
                             @if ($login_user->hasPermissionTo('Business Statistics'))
                                 <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap">
-                                        <h6 class="d-flex border  border-primary rounded p-2 m-0">Pool Amount 
-                                            :${{ number_format((float) $pool_amount,2,'.',',') }}
-                                        </h6> 
-                                        <h6 class="d-flex border  border-primary rounded p-2 m-0">Revenue
-                                            :${{ number_format((float) $total_revenue,2,'.',',') }}
+                                        <h6 class="d-flex border  border-primary rounded p-2 m-0">Pool Amount: ${{ number_format((float) $pool_amount,2,'.',',') }}
+                                        </h6>
+                                        <h6 class="d-flex border  border-primary rounded p-2 m-0">Revenue: ${{ number_format((float) $total_revenue,2,'.',',') }}
                                         </h6>
                                         <h6 class="d-flex border  border-primary rounded p-2 m-0"> Total
-                                            Balance:${{ number_format((float) $pool_amount+$total_revenue,2,'.',',') }} 
-                                        </h6> 
+                                            Balance: ${{ number_format((float) $pool_amount+$total_revenue,2,'.',',') }}
+                                        </h6>
                                 </div>
                                 <hr>
                                 @endif

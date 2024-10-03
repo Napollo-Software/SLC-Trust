@@ -1,0 +1,81 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/dompdf/php-font-lib
+EncodingScheme FontSpecific
+Copyright Copyright Erik Spiekermann, Ole Sch\212fer, 1996. Published by FontShop International FontFont release 17
+FontName TKLCCE+Info-SemiBold
+FontSubfamily SemiBold
+UniqueID FontForge 2.0 : TKLCCE+Info-SemiBold : 1-10-2024
+FullName TKLCCE+Info-SemiBold
+Version Version 1.0
+PostScriptName TKLCCE+Info-SemiBold
+Weight Bold
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 716
+Descender -206
+FontBBox 1 -213 686 716
+StartCharMetrics 49
+U 32 ; WX 196 ; N space ; G 3
+U 44 ; WX 206 ; N comma ; G 4
+U 45 ; WX 307 ; N hyphen ; G 5
+U 46 ; WX 195 ; N period ; G 6
+U 47 ; WX 1000 ; N .notdef ; G 0
+U 48 ; WX 1000 ; N .notdef ; G 0
+U 49 ; WX 479 ; N one ; G 7
+U 50 ; WX 479 ; N two ; G 8
+U 51 ; WX 479 ; N three ; G 9
+U 52 ; WX 1000 ; N .notdef ; G 0
+U 53 ; WX 1000 ; N .notdef ; G 0
+U 54 ; WX 479 ; N six ; G 10
+U 55 ; WX 479 ; N seven ; G 11
+U 56 ; WX 484 ; N eight ; G 12
+U 65 ; WX 540 ; N A ; G 13
+U 66 ; WX 1000 ; N .notdef ; G 0
+U 67 ; WX 461 ; N C ; G 14
+U 68 ; WX 539 ; N D ; G 15
+U 69 ; WX 1000 ; N .notdef ; G 0
+U 70 ; WX 437 ; N F ; G 16
+U 71 ; WX 1000 ; N .notdef ; G 0
+U 72 ; WX 574 ; N H ; G 17
+U 73 ; WX 265 ; N I ; G 18
+U 78 ; WX 597 ; N N ; G 19
+U 79 ; WX 542 ; N O ; G 20
+U 80 ; WX 501 ; N P ; G 21
+U 81 ; WX 1000 ; N .notdef ; G 0
+U 82 ; WX 541 ; N R ; G 22
+U 83 ; WX 453 ; N S ; G 23
+U 84 ; WX 1000 ; N .notdef ; G 0
+U 85 ; WX 578 ; N U ; G 24
+U 86 ; WX 1000 ; N .notdef ; G 0
+U 87 ; WX 1000 ; N .notdef ; G 0
+U 88 ; WX 1000 ; N .notdef ; G 0
+U 89 ; WX 498 ; N Y ; G 25
+U 97 ; WX 446 ; N a ; G 26
+U 98 ; WX 469 ; N b ; G 27
+U 99 ; WX 376 ; N c ; G 28
+U 100 ; WX 469 ; N d ; G 29
+U 101 ; WX 439 ; N e ; G 30
+U 102 ; WX 291 ; N f ; G 31
+U 103 ; WX 468 ; N g ; G 32
+U 104 ; WX 476 ; N h ; G 33
+U 105 ; WX 249 ; N i ; G 34
+U 107 ; WX 438 ; N k ; G 35
+U 108 ; WX 263 ; N l ; G 36
+U 109 ; WX 698 ; N m ; G 37
+U 110 ; WX 476 ; N n ; G 38
+U 111 ; WX 450 ; N o ; G 39
+U 112 ; WX 470 ; N p ; G 40
+U 114 ; WX 337 ; N r ; G 41
+U 115 ; WX 373 ; N s ; G 42
+U 116 ; WX 292 ; N t ; G 43
+U 117 ; WX 475 ; N u ; G 44
+U 118 ; WX 424 ; N v ; G 45
+U 119 ; WX 683 ; N w ; G 46
+U 121 ; WX 434 ; N y ; G 47
+U 122 ; WX 380 ; N z ; G 48
+EndCharMetrics
+EndFontMetrics
