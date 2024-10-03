@@ -129,7 +129,7 @@ footer img {
     height: 25px;
 }
 .content {
-        padding: 40px;
+        padding: 6px;
         font-family: 'Poppins-Regular';
         padding-top: 0;
     }
@@ -147,7 +147,7 @@ footer img {
     </style>
 </head>
 <body>
-<div style="position: relative;height:100%;background-image: url('{{ public_path("images/jbg2.png") }}');background-size: cover;background-repeat: no-repeat;background-position: center;width:100%">
+<div style="position: relative;height:100%;background-image: url('{{ public_path("images/jbg2.png") }}');background-size: cover;background-repeat: no-repeat;background-position: center;width:95%;margin:auto">
     <div class="row-container" >
         <h4>
             <img src="{{ public_path('images/new_logo.png') }}" alt="int" width="180px">
@@ -171,19 +171,19 @@ footer img {
                 <p style="font-size: 14px">Date: 04/29/2024</p>
             </div>
             <div style="position: relative;left: 40%;margin-top:35px">
-                <p style="margin:0;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Beneficiary Name : </span></p>
-                <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Account Number : </span> 9955</p>
-                <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Date Established : </span> 04/29/2024</p>
+                <p style="margin:0;font-size:14px;font-family:Poppins-Regular;line-height: 0.8"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Beneficiary Name :</span></p>
+                <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Regular;line-height: 0.8;text-decoration:underline"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Account Number : </span> 99555</p>
+                <p style="margin:0;margin-top:2px;font-size:14px;font-family:Poppins-Regular;line-height: 0.8;text-decoration:underline"><span style="font-size:14px;font-family: Poppins-SemiBold;text-decoration: underline;">Date Established : </span> 04/29/2024</p>
             </div>
             <div style="margin-top: 35px">
-                <p style="font-size: 18px;font-family:Poppins-Regular;margin:0;line-height: 1">This letter is to confirm that Joinder Agreement application for the above named Beneficiary to join the Senior Life Care Pooled trust has been approved and a sub-account has been established. The account is effective upon receipt
+                <p style="font-size: 18px;font-family:Poppins-Regular;margin:0;line-height: 1">This Letter is to confirm that Joinder Agreement application for the above named Beneficiary to join the Senior Life Care Pooled trust has been approved and a sub-account has been established. The account is effective upon receipt
                     of surplus deposit.
                 </p>
-                <p style="font-size: 18px;font-family:Poppins-Regular;margin:0;line-height: 1;margin-top:15px">
+                <p style="font-size: 18px;font-family:Poppins-Regular;margin:0;line-height: 1;margin-top:20px">
                     Should you have any further inquiries please do not hesitate to contact our office at 718-500-3235
                 </p>
             </div>
-            <div style="font-size: 18px;font-family:Poppins-Regular;margin-top:15px">
+            <div style="font-size: 18px;font-family:Poppins-Regular;margin-top:20px">
                 <p style="margin: 0;font-size: 16px;font-family:Poppins-Regular">Sincerely,</p>
                 <p style="margin: 0;font-size: 18px;" class="signature">Senior Life Care</p>
 
@@ -193,9 +193,10 @@ footer img {
     </div>
 
 </div>
+
 <div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:30px">
     <div style="width: 100%;">
-        <div style="width: 25%; float: left">
+        <div style="width: 25%; float: left;text-align:center">
             {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span> --}}
              <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/tel.png') }}" alt="int" width="20px" height="20px">
             <span style="font-family:Poppins-Regular;">718.500.3235</span>
@@ -205,7 +206,7 @@ footer img {
             <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/address.png') }}" alt="int" width="20px" height="20px">
             <span style="font-family:Poppins-Regular">5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
         </div>
-        <div style="width: 25%; float: right; text-align: right;">
+        <div style="width: 25%; float: right; text-align:left;">
             {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span> --}}
             <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/mail.png') }}" alt="int" width="20px" height="20px">
             <span style="font-family:Poppins-Regular">info@slctrusts.org</span>
@@ -213,8 +214,8 @@ footer img {
 
     </div>
     <div>
-        <img style="position: relative;top: 40px;right: 38%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
-        <p style="width: 95%;text-align: center;font-family:Poppins-Regular;">
+        <img style="position: relative;top: 40px;right: 36%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
+        <p style="width: 100%;text-align: center;font-family:Poppins-Regular;">
             www.seniorlifecaretrusts.org
         </p>
    </div>

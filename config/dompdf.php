@@ -84,6 +84,9 @@ return array(
         'ARIAL' => [
             'R'  => 'ARIAL.ttf',   
         ],
+        'ARIALBD' => [
+            'R'  => 'ARIALBD.ttf',   
+        ],
         
 
     ],

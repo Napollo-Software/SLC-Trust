@@ -112,7 +112,7 @@ footer img {
 </head>
 <body>
 
-    <div style="position: relative;height:100%;background-image: url('{{ public_path("images/jbg2.png") }}');background-size: cover;background-repeat: no-repeat;background-position: center;width:100%">
+    <div style="position: relative;height:100%;background-image: url('{{ public_path("images/jbg2.png") }}');background-size: cover;background-repeat: no-repeat;background-position: center;width:95%;margin:auto">
 
         <div class="row-container">
             <h4>
@@ -128,7 +128,7 @@ footer img {
             <p style="text-align: center;font-family: 'Poppins-Regular';font-size:14px;margin:0;line-height:1">VERIFICATION OF DEPOSITS</p>
 
         </div>
-        <div style="">
+        <div style="margin-top:20px">
             <div style="">
                 <div style="text-align:right;">
                     {{-- <p>Date: {{ date('m/d/Y') }}</p>
@@ -150,7 +150,7 @@ footer img {
             </div>
             <div style="text-align: center">
                 {{-- <p>{{ date('m/d/Y', strtotime($transaction->created_at)) }}</p> --}}
-                <p style="font-family: 'Poppins-SemiBold';font-size:14px">04/29/2024 - 04/28/2025</p>
+                <p style="font-family: 'Poppins-SemiBold';font-size:14px;margin: 0;margin-top: 20px;">04/29/2024 - 04/28/2025</p>
             </div>
             <table style="width: 100%;">
                 <tr style="background-color:#999;vertical-align:middle">
@@ -222,7 +222,7 @@ footer img {
     </div>
     <div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:30px">
         <div style="width: 100%;">
-            <div style="width: 25%; float: left">
+            <div style="width: 25%; float: left;text-align:center">
                 {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span> --}}
                  <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/tel.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular;">718.500.3235</span>
@@ -232,7 +232,7 @@ footer img {
                 <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/address.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular">5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
             </div>
-            <div style="width: 25%; float: right; text-align: right;">
+            <div style="width: 25%; float: right; text-align: left;">
                 {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span> --}}
                 <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/mail.png') }}" alt="int" width="20px" height="20px">
                 <span style="font-family:Poppins-Regular">info@slctrusts.org</span>
@@ -240,8 +240,8 @@ footer img {
     
         </div>
         <div>
-            <img style="position: relative;top: 38px;right: 38%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
-            <p style="width: 95%;text-align: center;font-family:Poppins-Regular;">
+            <img style="position: relative;top: 38px;right: 36%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
+            <p style="width: 100%;text-align: center;font-family:Poppins-Regular;">
                 www.seniorlifecaretrusts.org
             </p>
        </div>
