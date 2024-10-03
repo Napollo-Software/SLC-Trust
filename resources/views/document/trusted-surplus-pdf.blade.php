@@ -150,48 +150,48 @@
                     </tr>
                     @if(!empty($deposit_transaction))
                     <tr>
-                        <td colspan="1" style="padding-left:5px">
+                        <td colspan="1" style="padding-left:5px;vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($deposit_transaction->created_at)) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td colspan="1" style="vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ str_replace("_", " ", $deposit_transaction->type) }}</label>
                         </td>
-                        <td style="width:40%" colspan="1">
+                        <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $deposit_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;" colspan="1">
+                        <td style="text-align: end;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
                     @if(!empty($registration_transaction))
                     <tr>
-                        <td colspan="1" style="padding-left:5px">
+                        <td colspan="1" style="padding-left:5px;vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($registration_transaction->created_at)) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td colspan="1" style="vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ str_replace("_", " ", $registration_transaction->type) }}</label>
                         </td>
-                        <td style="width:40%" colspan="1">
+                        <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $registration_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;" colspan="1">
+                        <td style="text-align: end;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
                     @if(!empty($maintenance_transaction))
                     <tr>
-                        <td colspan="1" style="padding-left:5px">
+                        <td colspan="1" style="padding-left:5px;vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($maintenance_transaction->created_at)) }}</label>
                         </td>
-                        <td colspan="1">
+                        <td colspan="1" style="vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ str_replace("_", " ", $maintenance_transaction->type) }}</label>
                         </td>
-                        <td style="width:40%" colspan="1">
+                        <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $maintenance_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;" colspan="1">
+                        <td style="text-align: end;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $maintenance_transaction->credit > 0 ? number_format($maintenance_transaction->credit, 2) : ($maintenance_transaction->debit > 0 ? number_format($maintenance_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
