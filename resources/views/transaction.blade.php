@@ -173,6 +173,7 @@
                     </div>
                 </div>
             </div>
+            @if ($login_user->hasPermissionTo('Business Statistics'))
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
                 @if ($login_user->hasPermissionTo('Back Office'))
                     <div class="col">
@@ -322,6 +323,7 @@
                     </div>
                 @endif
             </div>
+            @endif
             @php
                 $balance = User::where('role', 'User')->sum('user_balance');
             @endphp
@@ -394,26 +396,28 @@
                                 <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
                                 </div>
                             </div>
-                            <h4 style="text-align: center"><span class="bg bg-primary text-white p-2 rounded">Total
-                                    Balance:${{ number_format((float) $pool_amount+$total_revenue,2,'.',',') }}</span>
-                                </h5>
-                                <div style="display: flex;justify-content:center;" class="custom-flex pt-2">
-                                    <h6 style="margin-right:5%">Pool Amount
-
-                                        :${{ number_format((float) $pool_amount,2,'.',',') }}
-                                    </h6>
-                                    <h6 style="margin-right:10px">Revenue
-                                        :${{ number_format((float) $total_revenue,2,'.',',') }}
-                                    </h6>
+                            @if ($login_user->hasPermissionTo('Business Statistics'))
+                                <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap">
+                                        <h6 class="d-flex border  border-primary rounded p-2 m-0">Pool Amount 
+                                            :${{ number_format((float) $pool_amount,2,'.',',') }}
+                                        </h6> 
+                                        <h6 class="d-flex border  border-primary rounded p-2 m-0">Revenue
+                                            :${{ number_format((float) $total_revenue,2,'.',',') }}
+                                        </h6>
+                                        <h6 class="d-flex border  border-primary rounded p-2 m-0"> Total
+                                            Balance:${{ number_format((float) $pool_amount+$total_revenue,2,'.',',') }} 
+                                        </h6> 
                                 </div>
                                 <hr>
+                                @endif
                                 <div>
                                     <form action="{{ url('/main') }}" method="post">
                                         @csrf
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label class="form-label">Select Customer</label><br>
-                                                <select name="customer" class="form-control select-2" required>
+                                               <div>
+                                               <select name="customer" class="form-control select-2" required>
                                                     <option value="">Select</option>
                                                     <option value="all"
                                                         @if ($customer == 'all') selected @endif>All</option>
@@ -424,6 +428,7 @@
                                                             ({{ $item->balance ?? 0 }})</option>
                                                     @endforeach
                                                 </select>
+                                               </div>
                                             </div>
                                             <div class="col-md-3 custome-top-padding">
                                                 <label class="form-label">Start Date</label>

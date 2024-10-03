@@ -41,7 +41,7 @@ class Notify extends Command
      */
     public function handle()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
 
         $notifications = Claim::where('recurring_bill', 1)->where('claim_status','Approved')->orwhere('claim_status','Partially approved')->get();
         foreach($notifications as $notify){

@@ -7,14 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HIPPA</title>
     <style>
+          @font-face {
+                font-family: 'times new roman';
+                src: url('fonts/times new roman.ttf') format('truetype');
+            }
+            @font-face {
+                font-family: 'times new roman bold';
+                src: url('fonts/times new roman bold.ttf') format('truetype');
+            }
+            @font-face {
+                font-family: 'times new roman italic';
+                src: url('fonts/times new roman italic.ttf') format('truetype');
+            }
         table {
             border-collapse: collapse;
             width: 100%;
-            /* margin-left: 20% */
         }
-
-        * {
-            font-size: 12px;
+        body{
+            font-size:10px;
+            font-family:'times new roman';
+            margin:20px;
+            color:black;
+            opacity:0.8
+        }
+        .text-sm{
+            font-size:10px
+        }
+        .text-gray{
+            color:black;
+            opacity:0.7
+        }
+        input{
+            padding:0;
+            font-size:10px
         }
 
         .no-border {
@@ -23,18 +48,17 @@
             border-left: none;
             border-right: none;
         }
-
+        .border-none{
+            border:none;
+        }
+        .border-bottom{
+            border-bottom:1px solid black;
+        }
         th,
         td {
             border: 1px solid black;
-            padding: 8px;
-            /* text-align: center; */
+            padding: 3px;
         }
-
-        th {
-
-        }
-
         .content {
             display: flex;
             flex-direction: column;
@@ -45,77 +69,115 @@
             gap: 20%;
             align-items: center;
         }
-
-        body {
-            margin-left: 50px;
-            margin-right: 50px;
-        }
-
         .styled-hr {
             border: none;
             border-top: 05px solid #000;
-            /* Adjust the color as needed */
         }
-
         .authorization-text {
             margin: 20px;
             font-size: 14px;
             line-height: 1.2;
         }
-
         .authorization:after {
             content: "";
             display: block;
             page-break-after: always;
         }
 
-
+        /* padding */
+        .pb-20{
+            padding-bottom:20px
+        }
+        .pt-20{
+            padding-top:20px
+        }
+        .pt-16{
+            padding-top:20px
+        }
+        .pl-5{
+            padding-left:10px;
+        }
+        /* margin */
+        .m-0{
+            margin-bottom:2px;
+        }
+        .mt-20{
+            margin-top:20px !important;
+        }
+        /* align */
+        .text-center{
+            text-align:center
+        }
+        .text-left{
+            float:left
+        }
+        .text-right{
+            float:right
+        }
+        .align-bottom{
+            vertical-align:bottom;
+        }
+        /* font */
+        .font-bold{
+            font-family:'times new roman bold' !important;
+        }
+        .font-lg{
+            font-size:15px;
+            white-space:nowrap
+        }
+        .font-italic{
+            font-family:'times new roman italic'
+        }
     </style>
 </head>
-
 <body>
 <div class="card" style="max-width: 2480px;">
     <form id="hippa-form">
         @csrf
-
-        <p style="float: right;"><b>OCA Official Form No.: 960</b></p>
         <div style="display: table; width: 100%;padding: 0;margin: 0;">
-
-            <img src="{{ public_path('images/logo.png') }}" alt="Logo"
-                 style="display: table-cell; width: fit-content; vertical-align: top; margin: 0; padding: 0;"
-                 height="50" width="50">
-            <p style="display: table-cell; font-size: 12px; font-weight: bold; margin: 0; width: 90%; justify-content: start;vertical-align: bottom">
-                AUTHORIZATION FOR RELEASE OF HEALTH INFORMATION PURSUANT TO HIPAA
-                <br>
-                [This form has been approved by the New York State Department of Health]</p>
+            <div style='display:table-cell;width:10%'>
+                <img src="{{ public_path('images/logo.png') }}" alt="Logo"
+                style="display: table-cell; width: fit-content; vertical-align: top; margin: 0; padding: 0;"
+                height="50" width="50">
+            </div>
+            <div style='display:table-cell;width:80%'>
+                <span class='text-left pt-16 font-bold text-center text-gray' style='vertical-align:bottom:'>
+                    <span class='font-lg'>
+                        AUTHORIZATION FOR RELEASE OF HEALTH INFORMATION PURSUANT TO HIPAA
+                    </span>
+                    <br>
+                    <span class='text-center' style='font-size:14px;'>
+                        [This form has been approved by the New York State Department of Health]
+                    </span>
+                </span>
+                <span class='text-right font-bold text-gray' style='padding-top:9px'>OCA Official Form No.: 960</span>
+                </div>
         </div>
-
-
-        <table style="padding: 0;margin: 0;">
+        <table style="padding: 0;margin: 0;" class='mt-20'>
             <tr>
                 <td>
-                    <label>Name</label>
-                    <input type="text" name="hippa_name" class="no-border" value="{{$hippa_name}}" style="width: 90%;">
+                    <label>Patient Name</label>
+                    <input type="text" name="hippa_name" class="border-none" value="{{$hippa_name}}" style="width: 90%;">
                 </td>
                 <td>
                     <label for="Date of Birth">Date of Birth</label>
-                    <input type="text" name="hippa_dob" class="no-border" value="{{$hippa_dob}}" style="width: 90%;">
+                    <input type="text" name="hippa_dob" class="border-none" value="{{$hippa_dob}}" style="width: 90%;">
                 </td>
                 <td>
                     <label for="SSN Number">Social Security Number</label>
-                    <input type="text" class="no-border" name="hippa_ssn" value="{{$hippa_ssn}}" style="width: 90%;">
+                    <input type="text" class="border-none" name="hippa_ssn" value="{{$hippa_ssn}}" style="width: 90%;">
                 </td>
             </tr>
             <tr>
                 <td colspan="3">
                     <label for="Address">Patient Address</label><br>
-                    <input type="text" name="hippa_address" class="no-border" style="width: 100%;"
+                    <input type="text" name="hippa_address" class="border-none" style="width: 100%;"
                            value="{{$hippa_address}}">
                 </td>
             </tr>
         </table>
 
-        <p style="font-size: 11px;margin-bottom: 0;padding-bottom: 0;">I, or my authorized representative, request that health information regarding my
+        <p style="font-size: 11px;margin-top: 1px;padding-bottom: 0;margin-bottom: 3px">I, or my authorized representative, request that health information regarding my
             care and treatment be
             released
             as set forth on this form:</p>
@@ -124,10 +186,10 @@
             Accountability
             Act of 1996 (HIPAA), I understand that:</p>
         <ol style="padding:0 12px;font-size: 11px;margin:0;">
-            <li style="font-size: 11px">This authorization may include disclosure of information relating to <b>ALCOHOL</b> and <b>DRUG ABUSE,
+            <li style="font-size: 11px">This authorization may include disclosure of information relating to <span class='font-bold'>ALCOHOL</span> and <span class='font-bold'>DRUG ABUSE,
                     MENTAL
                     HEALTH
-                    TREATMENT,</b> except psychotherapy notes, and <b>CONFIDENTIAL HIV* RELATED INFORMATION</b> only if
+                    TREATMENT,</span> except psychotherapy notes, and <span class='font-bold'>CONFIDENTIAL HIV* RELATED INFORMATION</span> only if
                 I place my
                 initials
                 on the appropriate line in Item 9(a). In the event the health information described below includes any
@@ -160,18 +222,19 @@
                 in Item 2), and this redisclosure may no longer be protected by federal or state law.
             </li>
         </ol>
-        <b>
-            <p style="font-size: 11px;margin:0;">6. THIS AUTHORIZATION DOES NOT AUTHORIZE YOU TO DISCUSS MY HEALTH INFORMATION OR
-                MEDICAL
-                CARE WITH ANYONE OTHER THAN THE ATTORNEY OR GOVERNMENTAL AGENCY SPECIFIED IN ITEM 9 (b),</p>
-        </b>
+            <span style="font-size: 11px;margin:0;" class='font-bold'>
+                6. THIS AUTHORIZATION DOES NOT AUTHORIZE YOU TO DISCUSS MY HEALTH INFORMATION OR MEDICAL
+                CARE WITH ANYONE OTHER THAN THE ATTORNEY OR GOVERNMENTAL AGENCY SPECIFIED IN ITEM 9 (b),
+            </span>
         <table style="width: 100%; table-layout: fixed; border-collapse: collapse;font-size: 10px;padding: 0;margin: 0;">
-            <tr style="padding:0 5px;">
-                <td colspan="2" style="text-align: left;padding:0 5px;">
-                    <label style="margin: 0;">7. Name and address of health provider or entity to release this
-                        information:</label>
-                    <textarea type="text" name="health_provider" rows="2" class="no-border"
-                              style="width: 100%;height:20px">{{$health_provider}}</textarea>
+            <tr style="padding:0 3px;">
+                <td colspan="2" style="text-align: left;padding:0 3px;">
+                    <label style="margin: 0;">
+                        7. Name and address of health provider or entity to release this
+                        information:
+                    </label>
+                    <textarea type="text" name="health_provider" rows="2" class="border-none"
+                              style="width: 90%;height:10px">{{$health_provider}}</textarea>
                 </td>
             </tr>
             <tr style="padding:0 5px;">
@@ -188,88 +251,212 @@
                     <p style="margin: 0;">
                         9(a) Specific information to be released:
                     </p>
-                    <input type="checkbox" name="info_released"
-                           value="dated" {{isset($info_released1) && $info_released1 == 'dated' ? 'checked' : '' }}>
-                    Medical Record from (insert date) <input type="text" class="no-border" name="info_released_from" value="{{$info_released_from}}"> to
-                    (insert date) <input
-                        type="text" class="no-border" name="info_released_to" value="{{$info_released_to}}">
-
+                    <!-- input -->
+                    <input
+                    type="checkbox"
+                    name="info_released"
+                    class='m-0 align-bottom'
+                    value="dated" {{isset($info_released1) && $info_released1 == 'dated' ? 'checked' : '' }}
+                    >
+                    <span>
+                        Medical Record from (insert date)
+                    </span>
+                    <input
+                    type="text"
+                    class="no-border"
+                    name="info_released_from"
+                    value="{{$info_released_from}}"
+                    >
+                    <span>
+                        to (insert date)
+                    </span>
+                    <!-- input -->
+                    <input
+                    type="text"
+                    class="no-border"
+                    name="info_released_to"
+                    value="{{$info_released_to}}"
+                    >
                     <p style="display: table; width: 100%; margin: 0; margin-bottom: 3px;">
-                        <input type="checkbox" name="info_released" value="Entire_med" {{isset($info_released2) && $info_released2 == 'Entire_med' ? 'checked' : '' }}>
-                        Entire Medical Record, including patient histories, office notes (except psychotherapy notes),
-                        test
-                        results, radiology studies, films, referrals, consults, billing records, insurance records, and
-                        records sent to you by other health care providers.
+                        <input
+                        type="checkbox"
+                        class='m-0 align-bottom'
+                        name="info_released"
+                        value="Entire_med" {{isset($info_released2) && $info_released2 == 'Entire_med' ? 'checked' : '' }}
+                        >
+                        <span>
+                                Entire Medical Record, including patient histories, office notes (except psychotherapy notes),
+                                test
+                                results, radiology studies, films, referrals, consults, billing records, insurance records, and
+                                records sent to you by other health care providers.
+                        </span>
                     </p>
-
                     <div style="display: table; width: 100%;">
-                        <div style="display: table-cell; padding: 0; margin: 0; vertical-align: top;">
-                            <input type="checkbox" name="info_released3" value="other"{{isset($info_released3) && $info_released3 == 'other' ? 'checked' : '' }}> other: <input type="text"
-                                                                                                                                                                                name="info_other"
-                                                                                                                                                                                class="no-border"
-                            value="{{$info_other}}">
+                        <div style="display: table-cell; padding: 0; vertical-align: top;">
+                            <input
+                             type="checkbox"
+                             class='m-0 align-bottom' 
+                             name="info_released3" 
+                             value="other"{{isset($info_released3) && $info_released3 == 'other' ? 'checked' : '' }}
+                             >
+                            <span>
+                                 other: 
+                            </span>
+                             <input type="text"
+                             name="info_other"
+                             class="no-border"
+                             value="{{$info_other}}"
+                             >
+                             <p style='margin-left:45px;margin-top:8px' class='m-0'>
+                                 <input type="text"
+                                 name="info_other"
+                                 class="no-border"
+                                 value="{{$info_other}}"
+                                 >
+                            </p>
+                            <p style="margin-top: 1px;padding: 0">
+                               <span class='font-bold text-gray' style='font-size:13px'>Authorization to Discuss Health Information</span>
+                            </p>
                         </div>
                         <div style="display: table-cell; padding: 0; margin: 0;">
-                            <p style="margin: 0;padding: 0;">Include: (Indicate by Initialing) </p>
+                            <p style="margin: 0;padding: 0;">
+                                 Include:
+                                  <span class='font-italic'>(Indicate by Initialing)</span> </p>
                             <ul style="list-style-type: none;margin: 0;padding: 0;">
-                                <li><input type="checkbox" name="alcoholDrug" {{isset($alcoholDrug) && $alcoholDrug == 'alcoholDrug' ? 'checked' : '' }}><label
-                                        for="alcoholDrug">Alcohol/Drug Treatment</label></li>
-                                <li><input type="checkbox" name="mentalHealth" {{isset($mentalHealth) && $mentalHealth == 'mentalHealth' ? 'checked' : '' }}><label
-                                        for="mentalHealth">Mental Health Information</label></li>
-                                <li><input type="checkbox" name="hivRelated" {{isset($hivRelated) && $hivRelated == 'hivRelated' ? 'checked' : '' }}><label
-                                        for="hivRelated">HIV-Related Information</label></li>
+                                <li>
+                                    <input
+                                    type="text" 
+                                    name="alcoholDrug" 
+                                    class='border-none border-bottom'
+                                    {{isset($alcoholDrug) && $alcoholDrug == 'alcoholDrug' ? 'checked' : '' }}
+                                    >
+                                    <label
+                                    for="alcoholDrug">
+                                    <span class='font-bold text-gray'>
+                                        Alcohol/Drug Treatment
+                                    </span>
+                                  </label>
+                                </li>
+                                <li>
+                                    <input 
+                                    type="text" 
+                                    name="mentalHealth"
+                                    class='border-none border-bottom' 
+                                    {{isset($mentalHealth) && $mentalHealth == 'mentalHealth' ? 'checked' : '' }}
+                                    >
+                                    <label
+                                        for="mentalHealth" class='font-bold text-gray'>
+                                        Mental Health Information
+                                    </label>
+                                </li>
+                                <li>
+                                    <input 
+                                    type="text" 
+                                    name="hivRelated"
+                                    class='border-none border-bottom' 
+                                    {{isset($hivRelated) && $hivRelated == 'hivRelated' ? 'checked' : '' }}
+                                    >
+                                    <label
+                                        for="hivRelated"
+                                        class='font-bold text-gray'
+                                        >
+                                        HIV-Related Information
+                                    </label>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <p style="margin: 0;padding: 0">
-                        <b>Authorization to Discuss Health Information</b>
-                    </p>
-                    <p style="display: table; white-space: nowrap;width: 100%">
-                        (b) <input type="checkbox" name="discuss" value="discuss" style="display: table-cell;" {{isset($discuss) && $discuss == 'discuss' ? 'checked' : '' }}> By initialing here
-                        <input type="text" name="authorised_person" placeholder="initials" class="no-border" value="{{$authorised_person}}" style="display: table-cell;width: 20%">
-                        I authorize <input type="text" name="authorize" class="no-border" value="{{$authorize}}" placeholder="Name of individual health care provider" style="display: table-cell; width: 70%;">
-                    </p>
-
-
-
+                    <div style="display: table; white-space: nowrap;width: 100%">
+                        <div style='display:table-cell'>
+                            <span>
+                                (b)
+                            </span>
+                            <input
+                            type="checkbox"
+                            class='align-bottom m-0' 
+                            name="discuss"
+                            value="discuss"
+                            {{isset($discuss) && $discuss == 'discuss' ? 'checked' : '' }}
+                            >
+                        </div>
+                        <span>
+                            By initialing here
+                        </span>
+                        <input
+                        type="text" 
+                        name="authorised_person" 
+                        placeholder="initials" 
+                        class="no-border" 
+                        value="{{$authorised_person}}" style="display: table-cell;width: 20%"
+                        >
+                        <span class='pl-5 align-bottom pt-20'>
+                            I authorize 
+                        </span>
+                        <input
+                        type="text"
+                        name="authorize"
+                        class="no-border" 
+                        value="{{$authorize}}" 
+                        placeholder="Name of individual health care provider"
+                        style="display: table-cell; width: 60%;"
+                        >
+                        </div>
                     <div style="max-width: 100%; text-align: start;">
-                        <div>
+                        <div style='padding-left:15px'>
                             to discuss my health information with my attorney, or a governmental agency, listed here:
                         </div>
-                        <div style=" text-align: center;">
-                            <b>NYC HRA Medical Assistance program 785 Atlantic Ave</b>
+                        <div style="text-align: center;">
+                            <input type='text' class='border-bottom border-none' style='width:100%;padding-top:7px'/>
                         </div>
                     </div>
-
-                    <hr style="margin: 0;">
                     <p style="margin: 0;text-align: center;">
                         (Attorney/Finn Name or Governmental Agency Name)
                     </p>
                 </td>
             </tr>
-            <tr style="padding:0 5px;">
+            <tr style="padding:20px 5px;">
                 <td style="padding: 0; margin: 0;">
                     <p style="margin: 0;">10. Reason for release of information:</p>
-                    <p style="margin:0;padding: 0"><s>At request of individual</s></p>
-
-                    <input type="checkbox" name="reason" style="margin: 0; padding: 0;" {{isset($reason) && $reason =='reason'? 'checked' :''}}> Other:
-                    <input type="text" name="reason_other"  class="no-border" value="{{$reason_other}}" style="padding: 0;margin: 0;">
+                    <div style='padding-left:16px'>
+                        <input
+                        type="checkbox" 
+                        name="reason"
+                        class='m-0 align-bottom'  
+                        {{isset($reason) && $reason =='reason'? 'checked' :''}}
+                        > 
+                        <span style="margin:0;padding: 0">At request of individual</span>
+                    </div>
+                    <div style='padding-left:16px'>
+                        <input
+                        type="checkbox" 
+                        name="reason_other"  
+                        class='m-0 align-bottom' 
+                        value="{{$reason_other}}" 
+                        style="padding: 0;margin: 0;">
+                        <span>
+                            Other:
+                        </span>
+                    </div>
                 </td>
-                <td style="padding: 0; margin: 0;">
+                <td style="padding-left: 20px; margin: 0;">
                     <p style="margin: 0;">
                         11. Date or event on which this authorization will expire:
                     </p>
-                    NO Expiration
+                    <input type='text' class='border-bottom border-none' style='width:100%;padding-top:7px'/>
                 </td>
             </tr>
             <tr>
-                <td style="padding: 0; margin: 0;">
-                    12. If not the patient, name of the person signing the form:
-                    <input type="text" name="person_signing" class="no-border" value="{{$person_signing}}" style="width: 100%;">
+                <td style="padding-left: 20px; margin: 0;">
+                    <p style='margin-top:0'>
+                        12. If not the patient, name of the person signing the form:
+                    </p>
+                    <input type="text" name="person_signing" class="border-none" value="{{$person_signing}}" style="width: 100%;">
                 </td>
-                <td style="padding: 0; margin: 0;">
-                    13. Authority to sign on behalf of the patient:
-                    <input type="text" name="authority_sign" class="no-border" value="{{$authority_sign}}" style="width: 95%;">
+                <td style="padding-left: 20px; margin: 0;">
+                    <p style='margin-top:0'>
+                        13. Authority to sign on behalf of the patient:
+                    </p>
+                    <input type="text" name="authority_sign" class="border-none" value="{{$authority_sign}}" style="width: 95%;">
                 </td>
             </tr>
         </table>
@@ -278,36 +465,36 @@
             In addition,
             I have been provided a copy of the form.
         </p>
-        <br>
-        <div class="row-container"  style="padding: 0; margin: 0;">
-            <div class="card-body" style="display: flex; justify-content: space-around; align-items: center;">
-                <div style="max-width: 50%; max-width: fit-content">
+        <div style='display:table;width:100%'>
+                <div style="display:table-cell;width:50%">
                     @if($hippa_sign)
-                        <img src="{{ $hippa_sign }}" alt="Signature 1" width="300 " height="150">
+                        <img src="{{ $hippa_sign }}" alt="Signature 1" width="300 " height="80">
                     @else
                         No Signature Provided
                     @endif
+                    <div  style="padding: 0; margin: 0;border-top:1px solid;">
+                      Signature of patient or representative authorized by law.
+                   </div>
                 </div>
-                <div style="max-width: 50%; text-align: right; float: right;align-content: center;">
-                    Date: <input type="text" class="no-border" name="sign_date" value="{{$sign_date}} "
-                               style="width: fit-content;padding-left: 5px">
+                <div style="width: 50%; text-align: right; float: right;vertical-align:bottom;margin-top:70px">
+                    <span>
+                        Date:
+                    </span>
+                    <input
+                    type="text" 
+                    class="no-border"
+                    name="sign_date"
+                    value="{{$sign_date}}"
+                    style="width: fit-content;padding-left: 5px">
                 </div>
             </div>
-
-            <div  style="padding: 0; margin: 0;">
-               Signature of patient or representative authorized by law.
-            </div>
-        </div>
-        <br>
-
-        <div style="max-width: 100%;font-weight: bold;padding: 0;margin: 0;font-size: 11px">
+        <div style="max-width: 100%;font-weight: bold;padding-top: 3px;margin: 0;font-size: 11px">
             * Human Immunodeficiency Virus that causes AIDS. The New York State Public Health Law protects information
             which
             reasonably could
             identify someone as having HIV symptoms or infection and information regarding a person's contacts.
         </div>
         <br>
-
     </form>
 </div>
 

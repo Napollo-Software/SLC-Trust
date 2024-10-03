@@ -28,7 +28,7 @@ class Setpassword extends Mailable
      */
     public function build()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
         return $this->subject($app_name.' | Set Password')
                     ->view('emails.setpassword');
     }

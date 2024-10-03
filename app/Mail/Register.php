@@ -12,31 +12,22 @@ class Register extends Mailable
     use Queueable, SerializesModels;
     public $details;
     public $pdfpath;
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($details, $pdfpath)
+
+    public function __construct($details, $pdfpath = null)
     {
         $this->details = $details;
         $this->pdfpath = $pdfpath;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
 
         return $this->subject(config('app.professional_name') . ' | Set Password')
-            ->view('emails.registered')
-            ->attach($this->pdfpath, [
-                'as' => 'approval_letter.pdf',
-                'mime' => 'application/pdf',
-            ]);
+            ->view('emails.registered');
+            // ->attach($this->pdfpath, [
+            //     'as' => 'approval_letter.pdf',
+            //     'mime' => 'application/pdf',
+            // ]);
 
     }
 }
