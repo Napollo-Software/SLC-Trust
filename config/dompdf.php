@@ -94,6 +94,17 @@ return array(
         'ARIAL' => [
             'R'  => 'ARIAL.ttf',   
         ],
+
+        // doh
+        'BSWIJO-Info-Bold' => [
+            'B'  => 'BSWIJO-Info-Bold.ttf',   
+        ],
+        'BSWIJO-Info-Book' => [
+            'R'  => 'BSWIJO-Info-Book.ttf',   
+        ],
+        'BSWIJO-Info-Normal' => [
+            'R'  => 'BSWIJO-Info-Normal.ttf',   
+        ],
         
 
     ],
