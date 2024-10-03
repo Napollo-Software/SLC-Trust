@@ -2,7 +2,7 @@
  function update(Request $request)
  {
      $id = $request->id;
-     $app_name = config('app.name');
+     $app_name = config('app.professional_name');
      $request->validate(
          [
              'claim_status' => 'required',

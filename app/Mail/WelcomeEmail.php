@@ -31,7 +31,7 @@ class WelcomeEmail extends Mailable
      */
     public function build()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
         return $this->subject($app_name.' | Welcome Email')
         ->view('emails.welcome-email');
     }

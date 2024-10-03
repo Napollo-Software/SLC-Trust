@@ -7,5 +7,21 @@
     },
     "info-bold": {
         "normal": "info_bold_normal_9dd3d32ef9556c2c8125abcb0cf0309d"
+    },
+    "info-normal": {
+        "normal": "info_normal_normal_8e9bee386a7e2af567dabf06015647b3"
+        
+    },
+    "info-bold": {
+        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
+    },
+    "poppins-regular": {
+        "normal": "poppins_regular_normal_d4e7ffc6c0dd15c4f83f2a6fb9734d75"
+    },
+    "info-semibold": {
+        "normal": "info_semibold_normal_3461e18117e484083763c0fd75d810d8"
+    },
+    "info_web-italic": {
+        "normal": "info_web_italic_normal_1184b192ea1d9c0c2a4f637cb716e623"
     }
 }

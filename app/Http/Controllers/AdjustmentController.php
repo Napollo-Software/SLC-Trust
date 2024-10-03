@@ -33,7 +33,7 @@ class AdjustmentController extends Controller
 
         $userBalance = userBalance($user->id);
 
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
 
         if ($validated['type'] == 'debit' && $userBalance < $validated['amount']) {
             return response()->json(['type' => 0, 'message' => "{$user->name} {$user->last_name}'s balance of \${$userBalance} is insufficient."]);
@@ -106,5 +106,5 @@ class AdjustmentController extends Controller
             return response()->json(['type' => 0, 'message' => 'Failed to create adjustment: ' . $e->getMessage()]);
         }
     }
-    
+
 }

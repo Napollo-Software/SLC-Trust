@@ -12,24 +12,15 @@ class PasswordGenerate extends Mailable
     public $details;
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+
    public function __construct($details)
     {
         $this->details = $details;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
        return $this->subject($app_name.' | Password Generated!')
                     ->view('emails.passwordGenerate');
     }

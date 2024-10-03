@@ -164,6 +164,6 @@
       <div class="dollars amount-in-word-text">Seventy-five and 00/100</div>
     </div>
     <div class="memo memo-text"><small>Aleksandra Gelman-Apt 9F, 2775 West 5ht streat(3B) Brooklyn, NY 11224</small></div>
-    <div class="sig signature-text">{{ config('app.name') }}</div>
+    <div class="sig signature-text">{{ config('app.professional_name') }}</div>
   </div>
 </div>

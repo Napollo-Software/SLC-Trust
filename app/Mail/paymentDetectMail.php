@@ -31,7 +31,7 @@ class paymentDetectMail extends Mailable
      */
     public function build()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
           return $this->subject($app_name.' |Your recurring bill was charged successfully!')
                     ->view('emails.paymentdetect');
     }
