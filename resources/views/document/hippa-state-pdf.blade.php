@@ -438,7 +438,7 @@
         <div style="display: table; width: 100%;">
             <div style="display: table-cell; vertical-align: bottom;">
                 @if($hippa_state_sign)
-                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="300" height="60">
+                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="250" height="45">
                     <p class='m-0' style="display: block; text-align: start;border-top:1px solid">
                     SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW
                     </p>
