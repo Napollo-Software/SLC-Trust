@@ -525,7 +525,9 @@ pre code {
     padding-right: 0.75rem;
     padding-left: 0.75rem;
 }
-
+.status-field {
+    border-left: 2px solid var(--primary-bg-color) !important;
+}
 @media (max-width: 576px) {
     .container {
         padding-right: 0.75rem;
@@ -542,6 +544,14 @@ pre code {
 @media (min-width: 768px) {
     .container {
         max-width: 720px;
+    }
+}
+@media (max-width: 768px) {
+    .status-field {
+        border-left: none !important;
+        border-bottom: 1px solid #eaedf1 !important;
+        width: 100% !important; 
+        padding-bottom: 10px !important;
     }
 }
 

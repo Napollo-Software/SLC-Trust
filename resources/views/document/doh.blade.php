@@ -178,6 +178,7 @@ textarea{
 <div class="card">
     <form id="doh-form">
         @csrf
+        
         <input type="hidden" id=referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
         <div class="container-row">

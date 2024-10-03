@@ -483,7 +483,14 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.hippa-pdf', $data);
+        $pdf = PDF::loadView('document.hippa-pdf', $data)
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'Courier'
+        ])
+        ->setPaper('A4', 'portrait');
+
 
 
         $savePath = $directory . '/hippa_' . date('Ymd_His') . '.pdf';
@@ -663,8 +670,14 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.doh-pdf', $data);
-
+        $pdf = PDF::loadView('document.doh-pdf', $data)
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'info-normal'
+        ])
+        ->setPaper('A4', 'portrait');
+        
 
         $savePath = $directory . '/doh_' . date('Ymd_His') . '.pdf';
         $pdf->save($savePath);

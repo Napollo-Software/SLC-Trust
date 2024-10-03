@@ -7,6 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+         @font-face {
+                font-family: 'Info-Bold';
+                src: url('fonts/Info-Bold.ttf') format('truetype');
+            }
+            @font-face {
+                font-family: 'info-normal';
+                src: url('fonts/info-normal.ttf') format('truetype');
+            }
+            /* @font-face {
+                font-family: 'BSWIJO-Info-Normal';
+                src: url('fonts/BSWIJO-Info-Normal.ttf') format('truetype');
+            } */
         table {
             border-collapse: collapse;
             width: 100%;
@@ -15,7 +27,7 @@
 
         * {
             font-size: 12px;
-
+            font-family:'info-normal'
         }
 
         table, th, td {

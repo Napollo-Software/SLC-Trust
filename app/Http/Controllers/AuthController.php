@@ -63,8 +63,8 @@ class AuthController extends Controller
                 $request->validate([
                     'name' => 'required',
                     'email' => 'required|email|unique:users',
-                   // 'billing_cycle' => 'required',
-                   // 'surplus_amount' => 'required|numeric|lt:10000|gt:0'
+                    // 'billing_cycle' => 'required',
+                    // 'surplus_amount' => 'required|numeric|lt:10000|gt:0'
                 ]);
             }
 
@@ -171,25 +171,27 @@ class AuthController extends Controller
 
             $details = $user;
 
-            $directory = storage_path('app/public/' . $user->email);
-            if (!is_dir($directory)) {
-                mkdir($directory, 0777, true);
-            }
-            $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
-        ->setOption([
-            'fontDir' => public_path('/fonts'),
-            'fontCache' => public_path('/fonts'),
-            'defaultFont' => 'Nominee-Black'
-        ])
-        ->setPaper('A4', 'portrait');
+            //     $directory = storage_path('app/public/' . $user->email);
+            //     if (!is_dir($directory)) {
+            //         mkdir($directory, 0777, true);
+            //     }
+            //     $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+            // ->setOption([
+            //     'fontDir' => public_path('/fonts'),
+            //     'fontCache' => public_path('/fonts'),
+            //     'defaultFont' => 'Nominee-Black'
+            // ])
+            // ->setPaper('A4', 'portrait');
             // $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
 
-            $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+            // $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
 
-            $pdf->save($savePath);
+            // $pdf->save($savePath);
 
-            Mail::to($request->email)->send(new \App\Mail\Register($details, $savePath));
+            // Mail::to($request->email)->send(new \App\Mail\Register($details, $savePath));
+
+            Mail::to($request->email)->send(new \App\Mail\Register($details));
 
         } else {
             $details = $request->_token;
@@ -588,25 +590,28 @@ class AuthController extends Controller
             $user->account_status = $request->account_status;
             $user->save();
             if ($request->account_status == "Approved") {
+
                 $status = "Approved";
-                $directory = storage_path('app/public/' . $user->email);
-                if (!is_dir($directory)) {
-                    mkdir($directory, 0777, true);
-                }
 
+                // $directory = storage_path("app/public/$user->email");
 
-                $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
+                // if (!is_dir($directory)) {
+                //     mkdir($directory, 0777, true);
+                // }
 
+                // $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
-                $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
-                // Save the PDF file to the specified location
-                $pdf->save($savePath);
+                // $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+
+                // $pdf->save($savePath);
+
                 $details = [
-
-                    'title' => 'Mail from ' . $app_name,
-                    'body' => 'Your ' . $app_name . ' account has been verified successfully.'
+                    'title' => "Mail from {$app_name}",
+                    'body' => "Your {$app_name} account has been verified successfully."
                 ];
-                Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name, $savePath));
+
+                // Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name, $savePath));
+                Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name));
 
             } elseif ($request->account_status == "Not Approved") {
                 $status = "Not Approved";
@@ -635,12 +640,14 @@ class AuthController extends Controller
 
         $dt = new Carbon();
         $before = $dt->subYears(16)->format('Y-m-d');
+
         $this->validate($request, [
             'dob' => 'date|before:' . $before,
         ], [
             'dob.required' => "Date of birth field is required",
             'dob.before' => "Age should be greater than 16 years",
         ]);
+
         $user = User::find($id);
         $user->name = $request->name;
         $user->last_name = $request->last_name;
@@ -659,10 +666,7 @@ class AuthController extends Controller
         $user->zipcode = $request->zipcode;
         //$user->notify_by = $request->notify_by;
         $user->marital_status = $request->marital_status;
-        $role = User::where('id', '=', Session::get('loginId'))->value('role');
-        if ($role == "User") {
-            $user->account_status = $user->account_status;
-        }
+
         if ($request->hasfile('profile_pic')) {
             $this->validate($request, [
                 'profile_pic' => 'required|mimes:jpeg,png,jpg,gif,pdf',
@@ -676,10 +680,8 @@ class AuthController extends Controller
         }
 
         $user->phone = $request->phone;
-        $user->gender = $user->gender;
-        $user->date_of_withdrawal = $user->date_of_withdrawal;
-        $user->email = $user->email;
-        $res = $user->save();
+        $user->save();
+
         alert()->success('Profile updated!', 'Profile has been updated successfully!');
         return redirect("profile_setting");
     }
@@ -817,13 +819,13 @@ class AuthController extends Controller
                 mkdir($directory, 0777, true);
             }
 
-            $pdf = PDF::loadView('document.trusted-surplus-pdf', ['user' => $user,"transaction" => $transaction])
-            ->setOption([
-                'fontDir' => public_path('/fonts'),
-                'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Nominee-Black'
-            ])
-            ->setPaper('A4', 'portrait');
+            $pdf = PDF::loadView('document.trusted-surplus-pdf', ['user' => $user, "transaction" => $transaction])
+                ->setOption([
+                    'fontDir' => public_path('/fonts'),
+                    'fontCache' => public_path('/fonts'),
+                    'defaultFont' => 'Nominee-Black'
+                ])
+                ->setPaper('A4', 'portrait');
 
             $pdfLink = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
 
@@ -979,6 +981,28 @@ class AuthController extends Controller
         $referrals = $referralsOfVendor->merge($referralsOfContacts)->sortByDesc('id');
 
         return view('vendors.vendor_dashboard', compact('vendor', 'referrals'));
+    }
+
+    public function approvalLetter($id)
+    {
+        $user = User::findOrFail($id);
+
+        $directory = storage_path("app/public/$user->email");
+
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+            ->setOption([
+                'fontDir' => public_path('/fonts'),
+                'fontCache' => public_path('/fonts'),
+                'defaultFont' => 'Nominee-Black'
+            ])
+            ->setPaper('A4', 'portrait');
+
+
+        return $pdf->download("approval-letter-{$user->id}.pdf");
     }
 
 

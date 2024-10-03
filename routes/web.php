@@ -332,6 +332,8 @@ Route::get('/recycle-bin/bills', [claimsController::class, 'deletedbills'])->mid
 
 //Route::get('/add_user', [AuthController::class, 'add_user'])->middleware('isLoggedIn');
 
+Route::get('/approval-letter/{id}', [AuthController::class, 'approvalLetter'])->name('approval-letter');
+
 Route::get('/manage_roles', [AuthController::class, 'manage_roles'])->middleware('isLoggedIn');
 
 Route::get('/profile_setting', [AuthController::class, 'profile_setting'])->middleware('isLoggedIn', 'permission:Profile Setting')->name('profile.setting');
@@ -812,6 +814,83 @@ Route::get('hipp',function(){
         "date_hippa_state" => "1987-01-17"
     ];
     return view('document/hippa-state-pdf', $data);
+
+});
+
+Route::get('hipa',function(){
+
+    $data = [
+        "_token" => "DUBwDrJfasbPNXhk3gJlWe1E4eWfbD2jZvbFGRuR",
+        "referral_id" => "2",
+        "document_id" => "70",
+        "hippa_name" => "Eagan Mcleod",
+        "hippa_dob" => "1998-01-27",
+        "hippa_ssn" => null,
+        "hippa_address" => "Mollit non ipsa in,Quia sunt quam fugi,New Hampshire,United States of America,88150",
+        "health_provider" => null,
+        "info_released_from" => null,
+        "info_released_to" => null,
+        "info_other" => null,
+        "authorised_person" => null,
+        "authorize" => null,
+        "reason_other" => null,
+        "person_signing" => null,
+        "authority_sign" => null,
+        "hippa_signature" => null,
+        "hippa_sign" => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAAAXNSR0IArs4c6QAABGlJREFUeF7t1AEJADAMA8HVv9sa2GAuHq4KwqVkdvceR4AAgYDAGKxASyISIPAFDJZHIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRAwWH6AAIGMgMHKVCUoAQIGyw8QIJARMFiZqgQlQMBg+QECBDICBitTlaAECBgsP0CAQEbAYGWqEpQAAYPlBwgQyAgYrExVghIgYLD8AAECGQGDlalKUAIEDJYfIEAgI2CwMlUJSoCAwfIDBAhkBAxWpipBCRB4yA0/gy//ne4AAAAASUVORK5CYII=",
+        "sign_date" => null,
+    ];
+
+    return view('document.hippa-pdf', $data);
+
+
+});
+
+Route::get('doh-test',function(){
+    
+    $data = [
+        "_token" => "DUtutc0ECm2FdXhGXaRoe6G3ANNXXv73jk5rsvli",
+        "referral_id" => "2",
+        "document_id" => "74",
+        "first_name" => "Brittany",
+        "address_text" => "Sit consequuntur et",
+        "dob" => "2011-08-06",
+        "case_number" => "694",
+        "client_id" => "Voluptatem reprehend",
+        "disability_id" => "Magna nostrum qui ip",
+        "ssn_last_four" => "Deserunt rerum nostr",
+        "diagnosis" => "Nemo reprehenderit v",
+        "last_exam_date" => "2020-01-23",
+        "height_ft" => "39",
+        "height_in" => "84",
+        "weight" => "48",
+        "lifting2" => "Max. 10lbs.",
+        "lifting5" => ">50lbs.",
+        "carrying3" => "Max. 20lbs/freq. 10lbs.",
+        "standing1" => "less_than_two",
+        "standing2" => "2hrs./day",
+        "pushing1" => "Using R arm",
+        "pushing4" => "Using L leg",
+        "pulling1" => "Using R arm",
+        "sensory1" => "No Limitations",
+        "sensory3" => "Hearing",
+        "sensory4" => "Speaking",
+        "postural1" => "No Limitations",
+        "postural2" => "Stooping/Bending",
+        "postural4" => "Climbing",
+        "manipulative1" => "No Limitations",
+        "environmental2" => "Tolerating dust, fumes, extremes of temperature",
+        "mental4" => "Responding appropriately to supervision, co-workers, work situations",
+        "doh_signature" => "Beatae occaecat re",
+        "doh_sign" => "C:\xampp\htdocs\SLC\SLC-Trust\storage\app/public/alihamza.dev4@gmail.com/doh_sign20241003_074012.png",
+        "print_name" => "Brett Mueller",
+        "date_signed" => "1999-03-15",
+        "speciallity" => "Ea fugit eum doloru",
+        "office_address" => "Velit excepturi reru",
+        "office_phone" => "+1 (615) 435-3798",
+      ];
+
+    return view('document.doh-pdf', $data);
 });
 
 

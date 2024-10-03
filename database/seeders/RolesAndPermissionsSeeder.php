@@ -25,7 +25,7 @@ class RolesAndPermissionsSeeder extends Seeder
         DB::table('model_has_permissions')->truncate();
 
         $roles = ['admin', 'moderator', 'user', 'vendor', 'Front office', 'Back office'];
-        $dashboardPermissions = ['Front Office','Back Office'];
+        $dashboardPermissions = ['Business Statistics','Front Office','Back Office'];
         $archivePermissions = ['Archives'];
         // $payeePermissions = ['Payee View', 'Payee Add'];
         $billPermissions = ['Add Bill','View Bills', 'Update Bill Status','Recurring Bills','Recycle'];
@@ -35,7 +35,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $userPermissions = ['Add User','View Users','Deposit'];
         // $categoryPermissions = ['Manage Categories'];
         $notificationsPermissions = ['Notification View'];
-        // $recyclebinPermissions = ['Recycle Bin View']; 
+        // $recyclebinPermissions = ['Recycle Bin View'];
         // $recyclebinPermissions = ['Recycle Bin View'];
         // $rolePermissions = ['Role View', 'Role Create', 'Role Edit', 'Role Delete'];
         $vendorPermissions = ['Add Account', 'View Account'];
