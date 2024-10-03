@@ -46,7 +46,7 @@ class RecurringBill extends Command
      */
     public function handle()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
         $currentMonth = Carbon::now()->format('Y-m');
         $claims=Claim::where('recurring_bill', 1)
         ->where(function($query){

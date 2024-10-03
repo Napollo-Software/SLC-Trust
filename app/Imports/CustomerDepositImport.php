@@ -31,7 +31,7 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
          '*.maintenance_fee'=>'required'
         ])->validate();
         $array=$rows;
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
         foreach($array as $k=>$data){
             // if($k!=0)
             {
