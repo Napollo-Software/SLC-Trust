@@ -1,38 +1,11 @@
 {
-    "bswijo-info-bold": {
-        "normal": "bswijo_info_bold_normal_57454136bc771bdcd39131b7b406aa23"
-    },
-    "bswijo-info-book": {
-        "normal": "bswijo_info_book_normal_3553481012dc6b787359af7b8e640abd"
-    },
-    "bswijo-info-normal": {
-        "normal": "bswijo_info_normal_normal_16902de02ce6c4a5b2b3f797524683cb"
-    },
-    "times new roman italic": {
-        "normal": "times_new_roman_italic_normal_586a3ba9526edf6111343dbb0e20bc4d"
-    },
-    "apefno-arial-boldmt": {
-        "normal": "apefno_arial_boldmt_normal_f5153ded337f4d271c6113b9226b281d"
+    "tklcce-info-normal": {
+        "normal": "tklcce_info_normal_normal_3a43954c0f9a5421d7f4ddeb648d9d18"
     },
     "tklcce-info-semibold": {
         "normal": "tklcce_info_semibold_normal_b00b4db0231036e7fecb7b5c7ef4570e"
     },
-    "poppins-semibold": {
-        "normal": "poppins_semibold_normal_296419b0bfb9e237d7dced3da6e87cef"
-    },
     "info-bold": {
-        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
-    },
-    "poppins-italic": {
-        "normal": "poppins_italic_normal_90c7b6122061f79384ebba85dd1a6700"
-    },
-    "poppins-extrabold": {
-        "normal": "poppins_extrabold_normal_bd25a78da585f0ebbf97caf10a35c72f"
-    },
-    "brittanysignature-mazx": {
-        "normal": "brittanysignature_mazx_normal_fa41915968d6bf087ce0ea7ac1a6c321"
-    },
-    "info-semibold": {
-        "normal": "info_semibold_normal_3461e18117e484083763c0fd75d810d8"
+        "normal": "info_bold_normal_9dd3d32ef9556c2c8125abcb0cf0309d"
     }
 }
