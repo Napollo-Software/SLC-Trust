@@ -88,12 +88,16 @@
          }
          /* font */
          .font-lg{
-            font-size:23px;
+            font-size:22px;
             white-space:nowrap;
+         }
+         .text-base{
+             font-size:13px;
          }
          .font-base{
             font-size:13px;
             white-space:nowrap;
+            font-family:'info-semibold'
          }
          .font-bold{
           font-family:'Info-Bold'
@@ -125,12 +129,15 @@
          }
          /* margin */
          .m-0{
-            margin:0;
-         }
-        .my-3{
-            margin-top:3px;
-            margin-bottom:3px
-        }
+             margin:0;
+            }
+            .my-3{
+                margin-top:3px;
+                margin-bottom:3px
+            }
+            .mt-3{
+               margin-top:3px
+            }
         .py-3{
             padding-top:3px;
             padding-bottom:3px
@@ -156,34 +163,48 @@
     </div>
     <hr class="custom-hr m-0">
     <div style="width: 100%; background-color: rgb(184, 182, 182);margin: 0;">
-        <h4 style="margin: 0;padding: 3px" class='font-base'>
+        <h4 style="padding: 3px" class='font-base mt-3'>
             Section I – Identification
         </h4>
     </div>
 
     <div class="container-row" style="display: table; width: 100%;">
         <p style="display: table-cell; width: 25%;font-size: 10px">
-            <b style="font-size: 14px;">Agency</b><br>
-            State Disability Review Unit OCP-826 <br>
-            State of New York <br>
-            Department of Health <br>
-            Albany, NY 12237 <br>
-            Telephone Number: 1(866) 330–0591
+            <span class='font-base'>Agency</span><br>
+            <span class='text-base'>
+                State Disability Review Unit OCP-826
+            </span>
+             <br>
+             <span class='text-base'>
+                 State of New York 
+            </span>
+            <br>
+            <span class='text-base'>
+                Department of Health
+            </span>
+             <br>
+             <span class='text-base'>
+                 Albany, NY 12237
+                </span>
+             <br>
+             <span class='text-base'>
+                 Telephone Number: 1(866) 330–0591
+            </span>
         </p>
         <p style="display: table-cell; width: 35%;padding-inline-end: 55px">
-            <b>Patient</b><br>
-            <label style="display: block; margin: 5px 0;">Name (Last, First, Middle)</label>
-            <input type="text" class="no-border" value="{{$first_name}}" name="first_name"
-                   style="border: none; background-color: #b8b6b6;box-sizing: border-box;width: 90%">
+            <span class='font-base'>Patient</span><br>
+            <label style="display: block; margin: 5px 0;" class='text-base'>Name (Last, First, Middle)</label>
+            <input type="text" class="border-bottom" value="{{$first_name}}" name="first_name"
+                   style="box-sizing: border-box;width: 90%">
 
-            <label style="display: block; margin: 5px 0;">Address (Street, City, State & Zip Code):</label>
-            <textarea rows="10" class="no-border"
-                      style="border: none; background-color: #b8b6b6;box-sizing: border-box;width: 90%">{{$address_text}}</textarea>
+            <label style="display: block; margin: 5px 0;" clas='text-base'>Address (Street, City, State & Zip Code):</label>
+            <textarea rows="10" class="border-bottom"
+                      style="box-sizing: border-box;width: 90%">{{$address_text}}</textarea>
         </p>
         <p style="display: table-cell; width: 20%;">
             <label style="display: block; margin: 5px 0;">Date of Birth</label>
-            <input type="text" class="no-border" value="{{$dob}}"
-                   style="border: none; background-color: #b8b6b6; box-sizing: border-box;width: 80%"><br>
+            <input type="text" class="border-bottom" value="{{$dob}}"
+                   style=" box-sizing: border-box;width: 80%"><br>
 
             <label>Sex</label><br>
             <label>
@@ -203,22 +224,22 @@
             Case Number
 
             <input type="text" name="case_number" class="no-border" value="{{$case_number}}"
-                   style="border: none; background-color: #b8b6b6; box-sizing: border-box;width: 80%;margin: 5px 0;">
+                   style="border: none;  box-sizing: border-box;width: 80%;margin: 5px 0;">
         </p>
 
         <p style="display: table-cell; width: 20%;">
 
             <label for="" style="margin: 10px 0;">Client ID Number</label>
             <input type="text" name="client_id" class="no-border" value="{{$client_id}}"
-                   style="border: none; background-color: #b8b6b6; max-width: 100px; margin: 5px 0;">
+                   style="border: none;  max-width: 100px; margin: 5px 0;">
             <br>
             <label for="" style="margin: 10px 0;">Disability ID Number</label>
             <input type="text" name="disability_id" class="no-border" value="{{$disability_id}}"
-                   style="border: none; background-color: #b8b6b6; max-width: 100px; margin: 5px 0;">
+                   style="border: none;  max-width: 100px; margin: 5px 0;">
 
             SSN(Last four digits)
             <input type="text" name="ssn_last_four" class="no-border" value="{{$ssn_last_four}}"
-                   style="border: none; background-color: #b8b6b6; max-width: 100px; margin: 5px 0;">
+                   style="border: none;  max-width: 100px; margin: 5px 0;">
             <br>
         </p>
 
@@ -245,24 +266,24 @@
             <p style="margin: 0;padding: 0;">Diagnosis(es)</p>
 
             <textarea class="no-border" rows="3" name="diagnosis" cols="50"
-                      style="border: none; background-color: #b8b6b6; width: 100%; height: 150px;">{{$diagnosis}}</textarea>
+                      style="border: none;  width: 100%; height: 150px;">{{$diagnosis}}</textarea>
         </div>
         <div style="display: table-cell; vertical-align: bottom; width: 25%; padding-left:10px;">
             <p>
                 <span style="display: inline-block; font-size: 12px;">Date of last Exam</span>
                 <input type="text" class="no-border" value="{{$last_exam_date}}" name="last_exam_date"
-                       style="border: none; background-color: #b8b6b6;display: inline-block;width: 65px">
+                       style="border: none; display: inline-block;width: 65px">
             </p>
 
             <p>Height <input type="text" class="no-border" value="{{$height_ft}}" name="height_ft"
-                             style="border: none; background-color: #b8b6b6;width: 25px"> ft. <input type="text"
+                             style="border: none; width: 25px"> ft. <input type="text"
                                                                                                      class="no-border"
                                                                                                      value="{{$height_in}}"
                                                                                                      name="height_in"
-                                                                                                     style="border: none; background-color: #b8b6b6; width: 30px">
+                                                                                                     style="border: none;  width: 30px">
                 In.</p>
             <p>Weight <input type="text" name="weight" class="no-border" value="{{$weight}}"
-                             style="border: none; background-color: #b8b6b6; width: 40px"> lbs.</p>
+                             style="border: none;  width: 40px"> lbs.</p>
         </div>
     </div>
 
@@ -499,7 +520,7 @@
             </p>
             <div>
                 <input type="text" name="print_name" class="no-border" value="{{ $print_name }}"
-                       style="border: none; background-color: #b8b6b6; width: 80%">
+                       style="border: none;  width: 80%">
             </div>
         </div>
 
@@ -510,7 +531,7 @@
             </p>
             <div>
                 <input type="text" name="date_signed" class="no-border" value="{{ $date_signed }}"
-                       style="border: none; background-color: #b8b6b6; width: 80%;">
+                       style="border: none;  width: 80%;">
             </div>
         </div>
 
@@ -525,7 +546,7 @@
             </p>
             <div>
                 <input type="text" name="speciallity" class="no-border" value="{{$speciallity}}"
-                       style="border: none; background-color: #b8b6b6;width: 80%;">
+                       style="border: none; width: 80%;">
             </div>
         </div>
 
@@ -535,7 +556,7 @@
             </p>
             <div>
                 <input type="text" name="office_address" class="no-border" value="{{$office_address}}"
-                       style="border: none; background-color: #b8b6b6;width: 80%;">
+                       style="border: none; width: 80%;">
             </div>
         </div>
 
@@ -545,7 +566,7 @@
             </p>
             <div>
                 <input type="text" name="office_phone" class="no-border" value="{{$office_phone}}"
-                       style="border: none; background-color: #b8b6b6; width: 80%;">
+                       style="border: none;  width: 80%;">
             </div>
         </div>
     </div>
