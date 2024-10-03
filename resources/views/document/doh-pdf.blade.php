@@ -25,7 +25,7 @@
             margin: 10px;
         }
 
-        *{
+        body{
             font-size: 12px;
             font-family:'info-normal'
          }
