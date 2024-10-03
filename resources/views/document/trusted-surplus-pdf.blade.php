@@ -155,9 +155,9 @@ footer img {
             <table style="width: 100%;">
                 <tr style="background-color:#999;vertical-align:middle">
                     <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;padding-left:5px">DATE</span></td>
-                    <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">TRANS. TYPE</span></td>
+                    <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;left:5px">TRANS. TYPE</span></td>
                     <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DESCRIPTION</span></td>
-                    <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DEBIT</span></td>
+                    <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;left:30px">DEBIT</span></td>
                 </tr>
                 {{-- <tr>
                     <td colspan="1">
@@ -185,13 +185,13 @@ footer img {
                         <label style="font-family: 'Poppins-Regular';font-size:14px">04/29/2024</label>
                     </td>
                     <td colspan="1">
-                        <label style="font-family: 'Poppins-Regular';font-size:14px">Required Monthly Surplus</label>
+                        <label style="font-family: 'Poppins-Regular';font-size:14px"><span style="position: relative;left:8px">Required Monthly Surplus</span></label>
                     </td>
                     <td colspan="1">
                         <label style="font-family: 'Poppins-Regular';font-size:14px">April 2024</label>
                     </td>
                     <td style="text-align: end;" colspan="1">
-                        <label style="font-family: 'Poppins-Regular';font-size:14px">$204.00</label>
+                        <label style="font-family: 'Poppins-Regular';font-size:14px"><span style="position: relative;left:30px">$204.00</span></label>
                     </td>
                     {{-- <td colspan="1">
                         <label>
@@ -204,13 +204,13 @@ footer img {
                         <label style="font-family: 'Poppins-Regular';font-size:14px">05/02/2024</label>
                     </td>
                     <td colspan="1">
-                        <label style="font-family: 'Poppins-Regular';font-size:14px">Initial Fee</label>
+                        <label style="font-family: 'Poppins-Regular';font-size:14px"><span style="position: relative;left:8px">Initial Fee</span></label>
                     </td>
                     <td colspan="1">
                         <label style="font-family: 'Poppins-Regular';font-size:14px">Enrollment</label>
                     </td>
                     <td style="text-align: end;" colspan="1">
-                        <label style="font-family: 'Poppins-Regular';font-size:14px">$250.00</label>
+                        <label style="font-family: 'Poppins-Regular';font-size:14px"><span style="position: relative;left:30px">$250.00</span></label>
                     </td>
                 </tr>
 
@@ -241,7 +241,7 @@ footer img {
         </div>
         <div>
             <img style="position: relative;top: 38px;right: 36%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
-            <p style="width: 100%;text-align: center;font-family:Poppins-Regular;">
+            <p style="width: 100%;text-align: center;font-family:Poppins-Regular;position:relative;bottom:2.7px">
                 www.seniorlifecaretrusts.org
             </p>
        </div>

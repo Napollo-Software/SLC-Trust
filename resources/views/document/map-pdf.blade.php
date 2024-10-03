@@ -144,7 +144,7 @@
         </tr>
         <tr>
             <td class="c-tr"  colspan="3">
-                <label class="label-style" style="font-size: 10px" ><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">Name and address of source (with zip code)</p></label>
+                <label class="label-style" style="font-size: 10px" ><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">NAME AND ADDRESS OF SOURCE (include Zip Code)</p></label>
                 <input class="inp-style" style="font-size: 10px" type="text" name="name_address"  value="{{$name_address}}">
             </td>
             <td class="c-tr" colspan="1">
@@ -153,7 +153,7 @@
             </td>
         </tr>
         <tr style="background-color:#ddd">
-            <td style="font-family: 'ARIAL';font-size:11px;" colspan="4">INFORMATION ABOUT DISABLED PERSON—PLEASE PRINT, TYPE, OR WRITE CLEARLY</td>
+            <td style="font-family: 'ARIAL';font-size:11px;" colspan="4">INFORMATION ABOUT DISABLED PERSON - PLEASE PRINT, TYPE, OR WRITE CLEARLY</td>
         </tr>
         <tr>
             <td class="c-tr" colspan="2" >
@@ -161,11 +161,11 @@
                 <input style="bottom: 10px" class="inp-style" type="text" name="source_contact_name_address" value="{{$source_contact_name_address}}">
             </td>
             <td class="c-tr-center" colspan="1">
-                <label class="label-style" style="text-align: center" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">Date Of Birth</p></label>
+                <label class="label-style" style="text-align: center" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DATE OF BIRTH</p></label>
                 <input class="inp-style" style="text-align: left" type="text" name="dob" value="{{$dob}}">
             </td>
             <td class="c-tr" colspan="1">
-                <label class="label-style" style="bottom:7px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DISABLED PERSON'S I.D. NUMBER (If known and if different than SSN.)</p></label>
+                <label class="label-style" style="bottom:10px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DISABLED PERSON'S I.D. NUMBER (If known and if different than SSN.)</p></label>
                 <input class="inp-style" type="text" name="disabled_id" value="{{$disabled_id}}">
             </td>
         </tr>
@@ -192,7 +192,7 @@
         <tr>
                 <td class="c-tr" colspan="2">
                     <label class="label-style">
-                       <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO ACT IN HIS/HER BEHALF</p> 
+                       <p style="margin:0;font-size:10px;line-height:1;margin-top:5px"><span style="font-size: 10px;background:yellow">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> ACT IN HIS/HER BEHALF</p> 
                     </label>
                     <div>
                         @if($map_sign)
@@ -218,7 +218,7 @@
                 </td> --}}
                 <td class="c-tr">
 
-                    <label class="label-style" ><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">Date</p></label>
+                    <label class="label-style" ><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DATE</p></label>
                     <input class="inp-style" type="text" name="date_map" value="{{$date_map}}">
 
                 </td>
@@ -233,7 +233,7 @@
             </td>
             <td class="c-tr" colspan="2" >
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">TELEPHONE NUMBER</p>
+                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">TELEPHONE NUMBER (include area code)</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_street"
                        value="{{$disabled_relation_street}}" style="width:100%">
@@ -243,7 +243,7 @@
         <tr>
             <td class="c-tr"  colspan="2">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">City</p>
+                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">CITY</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_city" value="{{$disabled_relation_city}}"
                        style="width:100%">
