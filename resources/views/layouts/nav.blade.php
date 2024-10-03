@@ -43,6 +43,12 @@
     .search-bar-padding{
         height:40px !important;
     }
+
+    button {
+        background-color: #559e99 !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
 </style>
 <div class="primary-menu">
     <nav class="navbar navbar-expand-lg align-items-center">
