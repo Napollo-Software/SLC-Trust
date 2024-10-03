@@ -171,7 +171,7 @@
         </tr>
         <tr>
             <td class="c-tr" colspan="4">
-                <label class="label-style" style="bottom:7px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">APPROXIMATE DATES OF DISABLED PERSON'S CONTACT WITH SOURCE (e.g., dates of hospital admission, treatment, discharges, etc.)</p></label><br>
+                <label class="label-style" style="bottom:7px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">APPROXIMATE DATES OF DISABLED PERSON'S CONTACT WITH SOURCE <span style="font-size: 12px">(e.g., dates of hospital admission, treatment, discharges, etc.)</span></p></label><br>
                 <input class="inp-style" type="text" name="disabled_contact_time" value="{{$disabled_contact_time}}" style="width:100%;bottom:25px">
             </td>
         </tr>

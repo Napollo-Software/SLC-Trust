@@ -19,7 +19,7 @@ class CashDepositMail extends Mailable
 
     public function build()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
         return $this->subject("{$app_name} | Verification Of Deposits")->view('emails.cash-deposit')
             ->attach($this->pdfLink, [
                 'as' => 'deposit-verification.pdf',

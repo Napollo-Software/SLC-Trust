@@ -62,7 +62,7 @@ class ForgotController extends Controller
     public function changepassworduser(Request $request)
     {
         $user = User::where('email', $request->email)->first();
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
         if ($request->password == $request->confirm_password) {
             $user->password = Hash::make($request->password);
             $user->save();

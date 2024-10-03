@@ -176,7 +176,7 @@ return $colors[$randomIndex];
                                     <p class="text-muted mt-1 mb-0">{{ $referral->email }}</p>
                                     <!--span class="mx-1">
                                         {{ $referral->created_at }}</span-->
-                                  
+
                                 </div>
                             </div>
                         </div>
@@ -198,12 +198,12 @@ return $colors[$randomIndex];
                         <div class="tab-menu-heading d-flex justify-content-between align-items-center flex-md-row flex-column px-md-3">
                             <div class="tabs-menu1 order-md-1 order-2 ">
                                 <ul class="nav py-3 px-3">
-                                    <li ><a href="#esignCard" data-bs-toggle="tab" class="active p-0 px-2  mb-sm-0 mb-3">E-sign</a>
+                                    <li ><a href="#esignCard" data-bs-toggle="tab" class="active p-0 mx-2  mb-sm-0 mb-3">E-sign</a>
                                     </li>
-                                    <li ><a href="#documentCard" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0 mb-3">Documents</a>
+                                    <li ><a href="#documentCard" data-bs-toggle="tab" class="p-0 mx-2  mb-sm-0 mb-3">Documents</a>
                                     </li>
-                                    <li ><a href="#checkList" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0 mb-3">Checklist</a></li>
-                                    <li class="mb-0"><a href="#financeCard" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0  ">Finance</a></li>
+                                    <li ><a href="#checkList" data-bs-toggle="tab" class="p-0 mx-2  mb-sm-0 mb-3">Checklist</a></li>
+                                    <li class="mb-0"><a href="#financeCard" data-bs-toggle="tab" class="p-0 mx-2  mb-sm-0  ">Finance</a></li>
                                 </ul>
                             </div>
                             <div class="order-md-2 order-1 pt-md-0 pt-3 pl-3 status-field mx-2" style=" ">
@@ -495,12 +495,12 @@ return $colors[$randomIndex];
                                 <input class="trustCheckList" type="checkbox" name="checkList" {{ $referral->trustCheckList ? 'checked' : '' }}>
                                 <label class="m-0">Mark As Complete</label>
                             </div>
-                            
+
                            <div class="px-3 pt-3">
                            <table class="table table-bordered align-middle ">
                                 <tbody>
                                     <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                             <div class="align-self-center">
                                                 <input type="checkbox"  class="document-list m-0 mt-2" {{ $checks->disability == 1 ? 'checked' : '' }}  name="document_checkboxes1">
                                             </div>
@@ -508,31 +508,31 @@ return $colors[$randomIndex];
                                         <td class="align-middle">DOH -5139 Disability FILLABLE Questionnaire</td>
                                     </tr>
                                     <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                             <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->doh == 1 ? 'checked' : '' }} name="document_checkboxes2">
                                         </td>
                                         <td class="align-middle">DOH</td>
                                     </tr>
                                     <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                             <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->hipaa_state == 1 ? 'checked' : '' }} name="document_checkboxes3">
                                         </td>
                                         <td class="align-middle">DOH 5173-Hipaa State</td>
                                     </tr>
                                     <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                             <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->joinder == 1 ? 'checked' : '' }} name="document_checkboxes5">
                                         </td>
                                         <td class="align-middle">Joinder Agreement</td>
                                     </tr>
                                     <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                             <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->hipaa == 1 ? 'checked' : '' }} name="document_checkboxes4">
                                         </td>
                                         <td class="align-middle">DOH-960 Hipaa</td>
                                     </tr>
                                     <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                             <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->map == 1 ? 'checked' : '' }} name="document_checkboxes6">
                                         </td>
                                         <td class="align-middle">MAP-751e - Authorization to Release Medical Information</td>
@@ -933,7 +933,7 @@ return $colors[$randomIndex];
                                     <tbody>
                                         @foreach ($actualDocuments as $actualDocument)
                                         <tr>
-                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;"> 
+                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                                 <div class="align-self-center">
 
                                                     <input name="selected_documents[{{ $actualDocument->name }}]" class="document-list m-0 mt-2" value="{{ $actualDocument->name }}" type="checkbox">
@@ -1730,7 +1730,7 @@ return $colors[$randomIndex];
                             <tbody>
                                 @foreach ($actualDocuments as $actualDocument)
                                 <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;"> 
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                         <div class="align-self-center">
                                             <input name="selected_documents[{{ $actualDocument->name }}]" class="document-list m-0 mt-2" value="{{ $actualDocument->name }}" type="checkbox">
                                         </div>

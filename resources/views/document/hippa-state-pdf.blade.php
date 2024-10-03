@@ -236,7 +236,7 @@
                 a list of people who may receive or use my HIV-related information without authorization. If I
                 experience discrimination because of the release or
                 disclosure of HIV-related information, I may contact the New York State Division of Human Rights at
-                (888) 392-3644 or TDD/TTY (718) 741-8300.
+                (888) 392-3644 or TDD/TTY (718) 741-8300
             </li>
             <li>I have the right to revoke this authorization at any time by writing to the health care provider listed
                 below in Section 7. I understand that I may revoke this
@@ -303,9 +303,12 @@
             <input type="checkbox" name="released_info" style='vertical-align:bottom;margin-bottom:3px'
                   value="medical_entire" {{isset($released_info) == 'medical_entire' ? 'checked' : '' }}> Entire Medical
             Record, including patient histories, office notes (except
-            psychotherapy notes), test results, radiology studies, films, referrals, consults, billing records,
-            insurance records, and records sent to you by other health care providers.</p>
-        <p class='m-0 pl-20'>
+            psychotherapy notes), test results, radiology studies, films, referrals, consults,
+            <span style='padding-left:30px'>
+                billing records,
+                insurance records, and records sent to you by other health care providers.</p>
+            </span>
+                <p class='m-0 pl-20'>
             <input type="checkbox" name="released_info" style='vertical-align:bottom;margin-bottom:3px'
             value="medical_other" {{isset($released_info) == 'medical_other' ? 'checked' : '' }}>
                 <span>
@@ -324,41 +327,47 @@
             9(b). Authorization to discuss Health Information:
         </p>
         <div style="display: table; width: 95%;" class='pl-20'>
-            <div style='display:table-cell;width:30%'>
+            <div style='display:table-cell;width:40%'>
                 <span>
-                    By initialing here: 
+                    By initialing here
                 </span>
                 <input type="text" name="init" class="border-bottom text-sm" value="{{$init}}" style="width: 50%;">
             </div>
-            <div style='table-cell'>
+            <div style='table-cell:width:60%'>
                 I authorize 
-                <input type="text" name="auth_name" class="border-bottom text-sm" value="{{$auth_name}}" style="width: 70%;"
+                <input type="text" name="auth_name" class="border-bottom text-sm" value="{{$auth_name}}" style="width: 80%;"
                 placeholder="Name of individual/Health care provider">
-                <p style='padding-left:45px' class='m-0'>
+                <p style='padding-left:50px;margin-top:-4px' class='m-0'>
                     (NAME OF INDIVIDUAL/HEALTH CARE PROVIDER)
                 </p>
                 </div>
         </div>
-        <p class='m-0' style="padding-left: 24px;">to discuss my health information with the <b>State Disability Review Unit</b></p>
+        <p class='m-0' style="padding-left: 24px;">to discuss my health information with the <span class='font-bold'>State Disability Review Unit.</span></p>
         <div class="checkbox-container" style="width: 100%;display:table">
-            <div style='display:table-cell;width:50%;vertical-align:middle;padding-top:4px'>
-                <p class='m-0' style="display: inline;">9(c). I do not consent to the disclosure of (Check all boxes that apply):</p>
+            <div style='display:table-cell;width:40%;vertical-align:middle;padding-top:4px'>
+                <p class='m-0' style="display: inline;white-space:nowrap">9(c). I do not consent to the disclosure of (Check all boxes that apply):</p>
             </div>
-            <div style='width:50%;display:table-cell;'>
-                <label for="alcoholDrugTreatment" style="white-space: nowrap; display: inline;font-size: 10px;margin-top:-10px">
+            <div style='width:60%;display:table-cell;'>
+                <label for="alcoholDrugTreatment" style="white-space: nowrap; display: inline;font-size: 10px;margin-top:-10px;margin-left:20px">
                     <input type="checkbox" name="alcoholDrugTreatment" class='my-0' style='vertical-align:bottom;'
                     value="alcoholDrugTreatment" {{ isset($alcoholDrugTreatment) && $alcoholDrugTreatment == 'alcoholDrugTreatment' ? 'checked' : '' }}>
-                    Alcohol/Drug Treatment
+                    <span style='font-size:10px'>
+                        Alcohol/Drug Treatment
+                    </span>
                 </label>
             <label for="mentalHealthInformation" style="white-space: nowrap; display: inline;font-size: 10px;margin-top:-10px">
                 <input type="checkbox" id="mentalHealthInformation" name="mentalHealthInformation" class='my-0' style='vertical-align:bottom;'
                        value="mentalHealthInformation" {{ isset($mentalHealthInformation) && $mentalHealthInformation == 'mentalHealthInformation' ? 'checked' : '' }}>
-                       Mental Health Information
+                       <span style='font-size:10px'>
+                           Mental Health Information
+                        </span>
                     </label>
             <label for="hivRelatedInformation" style="white-space: nowrap; display: inline;font-size: 10px;margin-top:-10px">
                 <input type="checkbox" id="hivRelatedInformation" name="hivRelatedInformation" class='my-0' style='vertical-align:bottom;'
                 value="hivRelatedInformation" {{ isset($hivRelatedInformation) && $hivRelatedInformation == 'hivRelatedInformation' ? 'checked' : '' }}>
-                HIV-Related Information
+              <span style='font-size:10px'>
+                  HIV-Related Information
+                  </span>
             </label>
         </div>
         </div>
@@ -421,18 +430,15 @@
                 </p>
                 <hr class='styled-hr'/>
         <p class='m-0'>All sections on this form have been completed and my questions about this form have
-            been answered.
+            been answered. <br/>
             I authorize the facility/person noted on this page to release health information of the person named on this
-            page to the New York State Department of Health State
-            <span class='font-bold'>
-                State Disability Review Unit.
-            </span>
+            page to the New York State Department of Health State Disability Review Unit.
         </p>
 
         <div style="display: table; width: 100%;">
             <div style="display: table-cell; vertical-align: bottom;">
                 @if($hippa_state_sign)
-                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="300" height="60">
+                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="250" height="45">
                     <p class='m-0' style="display: block; text-align: start;border-top:1px solid">
                     SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW
                     </p>
@@ -473,7 +479,7 @@
             <span class='pb-7'>
                 The “Authorization for Release of Health Information and Confidential HIV-Related Information” form gives
                 permission to your healthcare providers (hospitals, doctors,
-                therapists, etc.) to send in copies of your health records.
+                therapists, etc.) to send in copies of your health records
                 to the State Disability Review Team. These health
                 records will help the Disability Review Team determine if you
                 are disabled. You will need to fill out and send one of these forms to every one of your healthcare
@@ -497,13 +503,14 @@
             <span>
                 7)
             </span>
-            <span style='margin-left:5px;'>
+            &nbsp;
+            <span style='margin-left:0px;'>
                 <span>
                     Put the name and address of the healthcare provider who is to send your health records to the State
                     Disability Review Team. <br/>
                 </span>
-                <span style='margin-left:24px;padding-top:20px' class='font-bold'>
-                    Fill out one form for each of your healthcare providers
+                <span style='margin-left:21px;padding-top:20px' class='font-bold'>
+                    Fill out one form for each of your healthcare providers.
                 </span>
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
@@ -512,104 +519,121 @@
             <span>
             8)
             </span>
-            <span style='margin-left:5px;'>
+            &nbsp;
+            <span style='margin-left:0px;'>
             Informs the healthcare provider to whom to send the health records. This box will
             be already filled in
             with
             the State Disability Review Team’s
             <br/>
-            <span style='padding-left:15px'>
+            <span style='padding-left:18px'>
                 information.
             </span>
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
-        <p class='m-0 py-7' style='margin-left:15px'>
-            9a) • If you want the healthcare provider to send your medical records for a certain period of time, put a
-            check
-            in the first box and enter the dates for the time
-            period. To make a disability determination, at least 12 months of health records are needed for the time
-            period
-            in which the disability is being
-            determined
+        <p class='m-0 py-7' style='margin-left:13px'>
+            <span>
+                9a) 
+            </span>
+            • If you want the healthcare provider to send your medical records for a certain period of time, put a check
+            in the first box and enter the dates for the 
+            <br/>
+            <span style='padding-left:20px'>
+            time
+                period.
+                To make a disability determination, at least
+                12 months of health records are needed for the time
+                period in which the disability is being
+            </span>
+            <br/>
+            <span style='padding-left:20px'>
+                determined.
+            </span>
         </p>
-        <p class='m-0 py-7' style='margin-left:15px'>
+        <p class='m-0 py-7' style='margin-left:32px'>
             • If you want the healthcare provider to send your entire medical record, put a check in the second box.
 
         </p>
-        <p class='m-0 py-7' style='margin-left:15px;'>
-            • If you want the healthcare provider to send in any other information, put a check in the third box (Other)
-            and
-            write the information that the healthcare
+        <p class='m-0 py-7' style='margin-left:32px;'>
+            • If you want the healthcare provider to send in any other information, put a check in the third box (Other) and
+            write the information that the 
             <br/>
-            <span style='margin-left:10px'>
-                provider is to send
+            <span style='margin-left:5px'>
+                healthcare
+                provider is to send.
             </span>
         </p>
         <hr class='styled-hr'style='margin-left:35px'/>
-        <p class='m-0 py-7' style='margin-left:15px'>
+        <p class='m-0 py-7' style='margin-left:13px'>
             <span>
             9b)
             </span>
-            <span style='margin-left:5px;'>
+            &nbsp;
+            <span style='margin-left:0px;'>
             If you want to allow your healthcare provider to speak with someone on the State
             Disability Review Team,
             put
             your initials and the name of your
             <br/>
-            <span style='margin-left:20px'>
+            <span style='margin-left:24px'>
                 healthcare
                 provider on the lines provided
             </span>
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
-        <p class='m-0 py-7' style='margin-left:15px'>
+        <p class='m-0 py-7' style='margin-left:13px'>
             <span>
             9c)
             </span>
-            <span style='margin-left:5px;'>
+            &nbsp;
+            <span style='margin-left:0px;'>
             Under 9(c), check the boxes for the type of medical information that your healthcare provider is not
             permitted to send.
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
-        <p class='m-0 py-7' style='margin-left:15px'>
+        <p class='m-0 py-7' style='margin-left:13px'>
             <span>
             10)
             </span>
-            <span style='margin-left:5px;'>
+            &nbsp;
+            <span style='margin-left:0px;'>
             Check the box if the individual requested the release of information, or check Other and state the
             reason for the request.
             </span>
         </p>
         <hr class='styled-hr' style='margin-left:35px'/>
-        <p class='m-0 py-7' style='margin-left:15px'>
+        <p class='m-0 py-7' style='margin-left:13px'>
             <span>
             11)
             </span>
-            <span style='margin-left:5px;'>
+            &nbsp;
+            <span style='margin-left:0px;'>
             The purpose of this request is for a disability determination and review.
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
-        <p class='m-0 py-7' style='margin-left:15px'>
+        <p class='m-0 py-7' style='margin-left:13px'>
             <span>
             12)
             </span>
-            <span style='margin-left:5px;'>
+            &nbsp;
+            <span style='margin-left:0px;'>
             If you are not the patient filling out the form to request medical records, print your name.
             </span>
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
-        <p class='m-0 py-7' style='margin-left:15px'>
+        <p class='m-0 py-7' style='margin-left:13px'>
             <span>
             13)
             </span>
-            <span style='margin-left:5px;'>
+            &nbsp;
+            <span style='margin-left:0px;'>
             If you are the legal representative of the patient, put the relationship you have to the patient.  For example, if the patient is a child and you are the
             <br/>
-            <span style='padding-left:20px'>
+            <span style='padding-left:27px'>
                 parent, put  
                 parent.  If you are the legal guardian of the patient, put legal guardian
             </span>
@@ -617,7 +641,12 @@
             <hr class='styled-hr' style='margin-left:35px'/>
         </p>
         <br>
-
+        <p>
+        If you want your healthcare provider to send your medical records, this form must be signed and dated by the patient or the patient’s legal representative.
+        <p>
+        <div style='margin-bottom:30px;margin-top:120px;padding-top:2px;border-top:3px solid'>
+            DOH-5173 (4/16) Page 2 of 2
+        </div>
 </form>
 
 </body>

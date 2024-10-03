@@ -86,7 +86,7 @@ class DocumentController extends Controller
 
     public function generatePDF()
     {
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
 
         $referrals = Referral::where('status', 'Pending')->get();
         $message = "Emails sent successfully";
@@ -378,7 +378,7 @@ class DocumentController extends Controller
         if ($request->has('sig_date2') && $request->sig_date2) {
             $formattedDates['sig_date2'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
         }
-        
+
         // Merge the formatted dates back into the request, keeping all other data unchanged
         $request->merge($formattedDates);
         set_time_limit(200);
@@ -556,7 +556,13 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        $pdf = PDF::loadView('document.hippa-state-pdf', $data);
+        $pdf = PDF::loadView('document.hippa-state-pdf', $data)
+        ->setOption([
+            'fontDir' => public_path('/fonts'),
+            'fontCache' => public_path('/fonts'),
+            'defaultFont' => 'TKLCCE-Info-Normal'
+        ])
+        ->setPaper('A4', 'portrait');
 
 
         $savePath = $directory . '/hippa_state_' . date('Ymd_His') . '.pdf';
@@ -622,7 +628,7 @@ class DocumentController extends Controller
 
             $referral = Referral::find($request->referral_id);
             $recipientEmail = $referral->email;
-            $subject = "Document By Intruspit";
+            $subject = "Document By ".config('app.professional_name');
             $name = "{$referral->first_name} {$referral->last_name}";
             $email_message = "{$app_name} has sent the following documents to sign:";
 
@@ -677,7 +683,7 @@ class DocumentController extends Controller
             'defaultFont' => 'info-normal'
         ])
         ->setPaper('A4', 'portrait');
-        
+
 
         $savePath = $directory . '/doh_' . date('Ymd_His') . '.pdf';
         $pdf->save($savePath);

@@ -9,26 +9,26 @@
     <style>
          @font-face {
                 font-family: 'Info-Bold';
-                src: url('fonts/Info-Bold.ttf') format('truetype');
+                src: url('fonts/Info-Bold.otf') format('truetype');
             }
             @font-face {
                 font-family: 'info-normal';
                 src: url('fonts/info-normal.ttf') format('truetype');
             }
-            /* @font-face {
-                font-family: 'BSWIJO-Info-Normal';
-                src: url('fonts/BSWIJO-Info-Normal.ttf') format('truetype');
-            } */
+            @font-face {
+                font-family: 'info-semibold';
+                src: url('fonts/info-semibold.ttf') format('truetype');
+            }
         table {
             border-collapse: collapse;
             width: 100%;
             margin: 10px;
         }
 
-        * {
+        *{
             font-size: 12px;
             font-family:'info-normal'
-        }
+         }
 
         table, th, td {
             border: none;
@@ -48,14 +48,6 @@
         tr:first-child th {
             font-size: 16px;
         }
-
-        .no-border {
-            border-bottom: 1px solid black;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-        }
-
         .container-row::after {
             content: "";
             clear: both;
@@ -71,36 +63,100 @@
         }
 
         .custom-hr {
-            height: 10px;
+            height: 5px;
             border: none;
             background-color: black;
         }
-
         h6 {
             margin: 5px 0;
         }
 
         .checkbox-row label {
             margin-right: 20px;
-        }</style>
+        }
+        /* styles */
+
+        /* border */
+        .border-bottom {
+            border-bottom: 1px solid black;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+         .border-none{
+            border:none;
+         }
+         /* font */
+         .font-lg{
+            font-size:23px;
+            white-space:nowrap;
+         }
+         .font-base{
+            font-size:13px;
+            white-space:nowrap;
+         }
+         .font-bold{
+          font-family:'Info-Bold'
+         }
+         .text-right{
+            float:right;
+         }
+         .text-center{
+            text-align:center;
+         }
+         .text-left{
+            float:left;
+         }
+         .align-middle{
+            vertical-align:middle;
+         }
+         .align-bottom{
+            vertical-align:bottom;
+         }
+         /* padding */
+         .p-0{
+            padding:0;
+         }
+         .pt-20{
+            padding-top:16px
+         }
+         .pt-12{
+            padding-top:12px
+         }
+         /* margin */
+         .m-0{
+            margin:0;
+         }
+        .my-3{
+            margin-top:3px;
+            margin-bottom:3px
+        }
+        .py-3{
+            padding-top:3px;
+            padding-bottom:3px
+        }
+
+        </style>
 </head>
 
 <body>
 <form id="doh-form">
     @csrf
 
-    <div class="container-row" style="align-items:center; display:flex; justify-content:space-between">
-        <p>
-            NEW YORK STATE DEPARTMENT OF HEALTH <br>
-            Disability Review Unit
-        </p>
-        <h4>
-            Medical Report for Determination of Disability
-        </h4>
+    <div class="container-row">
+        <div>
+            <p class='font-base my-3 pt-20'>
+                NEW YORK STATE DEPARTMENT OF HEALTH <br>
+                Disability Review Unit
+            </p>
+            <span class='font-lg font-bold text-right pt-12'>
+                Medical Report for Determination of Disability
+            </span>
+        </div>
     </div>
-    <hr class="custom-hr" style="background-color:black; border:none; height:10px" bgcolor="black" height="10">
+    <hr class="custom-hr m-0">
     <div style="width: 100%; background-color: rgb(184, 182, 182);margin: 0;">
-        <h4 style="margin: 0;padding: 3px">
+        <h4 style="margin: 0;padding: 3px" class='font-base'>
             Section I – Identification
         </h4>
     </div>

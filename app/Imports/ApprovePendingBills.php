@@ -31,7 +31,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
             '*.user_balance' => 'required',
         ]);
 
-        $app_name = config('app.name');
+        $app_name = config('app.professional_name');
 
         foreach ($collection as $k => $item) {
             // dd($item);
@@ -93,8 +93,6 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             $url = '/claims/' . $claim->id;
                             if ($user->notify_by == "email") {
                                 SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
-                            } else {
-
                             }
                         }
                         if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] == 'Partially Approve' && $item['paid_amount'] <= $claim->claim_amount && $user->user_balance >= $item['paid_amount']) {

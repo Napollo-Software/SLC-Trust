@@ -646,7 +646,7 @@
                     <div
                         class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                         <div class="mb-2 mb-md-0">
-                            <a href="#" target="_blank" class="footer-link fw-bolder">{{ config('app.name') }}</a> ©
+                            <a href="#" target="_blank" class="footer-link fw-bolder">{{ config('app.professional_name') }}</a> ©
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
@@ -931,7 +931,7 @@
     <link rel="stylesheet" href="{{ asset('assets/new_theme/css/dark-theme.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/new_theme/css/semi-dark.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/new_theme/css/header-colors.css')}}" />
-    <title>{{ config('app.name') }} - Dashboard</title>
+    <title>{{ config('app.professional_name') }} - Dashboard</title>
     <style>
         .fw-bold{
             display: none !important;
