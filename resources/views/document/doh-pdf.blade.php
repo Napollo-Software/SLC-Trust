@@ -207,7 +207,7 @@
         <p style="display: table-cell; width: 20%;">
             <label>Date of Birth</label> <br>
             <input type="text" value="{{$dob}}"
-            style="border:none;border-bottom:1px solid black;width: 100%; margin: 5px 0;">
+            style="border:none;border-bottom:1px solid black;width: 85%; margin: 5px 0;"> <br>
             <label style="margin: 5px 0;">Sex</label><br>
             <label>
 
@@ -233,13 +233,13 @@
 
             <label for="" style="margin: 10px 0;">Client ID Number</label> <br>
             <input type="text" name="client_id"  value="{{$client_id}}"
-                   style="border:none;border-bottom:1px solid black;width: 100%; margin: 5px 0;">
+                   style="border:none;border-bottom:1px solid black;width: 85%; margin: 5px 0;">
             <label for="" style="margin: 5px 0;">Disability ID Number</label> <br>
             <input type="text" name="disability_id" value="{{$disability_id}}"
-            style="border:none;border-bottom:1px solid black;width: 100%; margin: 5px 0;">
+            style="border:none;border-bottom:1px solid black;width: 85%; margin: 5px 0;">
             <label for="" style="margin: 5px 0;">SSN(Last four digits)</label> <br>
             <input type="text" name="ssn_last_four" value="{{$ssn_last_four}}"
-            style="border:none;border-bottom:1px solid black;width: 100%; margin: 5px 0;">
+            style="border:none;border-bottom:1px solid black;width: 85%; margin: 5px 0;">
             <br>
         </p>
 
