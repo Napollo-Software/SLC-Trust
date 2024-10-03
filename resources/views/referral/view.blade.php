@@ -78,7 +78,7 @@ return $colors[$randomIndex];
     <!-- CONTENT -->
 
     <!-- PAGE-HEADER -->
-    <h5 class=" d-flex justify-content-between pt-4 pb-2">
+    <h5 class=" d-flex justify-content-between pt-5 pb-2 px-2">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referral</b></a> / <b>View Referral</b> </div>
     </h5>
@@ -94,65 +94,67 @@ return $colors[$randomIndex];
                             Referral</a>
                     </div> --}}
                 <div class="card-body p-2">
-                    <h4 class="mt-3 ml-3">Referral ID:{{ $referral->id }}</h4>
-                    <ul class="nav1 nav-column flex-column br-7">
+                    <div class="border-bottom mt-3  ">
+                        <h4 class=" ">Referral ID:{{ $referral->id }}</h4>
+                    </div>
+                    <ul class="nav1 nav-column pb-0 flex-column br-7 px-0">
                         <li class="nav-item1 mt-0 services-tab">
-                            <a class="nav-link thumb active" onclick="showTab('services-card')">
-                                <i class="menu-icon tf-icons bx bx-layout "></i>
+                            <a class="nav-link  thumb active" onclick="showTab('services-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-layout "></i>
                                 Services
                             </a>
                         </li>
                         <li class="nav-item1 patient-tab">
-                            <a class="nav-link thumb" onclick="showTab('patient-card')">
-                                <i class="menu-icon tf-icons bx bx-user "></i>
+                            <a class="nav-link  thumb" onclick="showTab('patient-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-user "></i>
                                 Patient
                             </a>
                         </li>
                         <li class="nav-item1 tasks-tab">
-                            <a class="nav-link thumb" onclick="showTab('tasks-card')">
-                                <i class="menu-icon tf-icons bx bx-task "></i>
+                            <a class="nav-link  thumb" onclick="showTab('tasks-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-task "></i>
                                 Notes
                             </a>
                         </li>
                         {{-- <li class="nav-item1 sms-tab">
-                            <a class="nav-link thumb" onclick="showTab('sms-card')">
-                                <i class="menu-icon tf-icons bx bx-message "></i>
+                            <a class="nav-link  thumb" onclick="showTab('sms-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-message "></i>
                                 SMS
                             </a>
                         </li> --}}
                         <li class="nav-item1 esign-tab">
-                            <a class="nav-link thumb" onclick="showTab('esign-card')">
-                                <i class="menu-icon tf-icons bx bx-file "></i>
+                            <a class="nav-link  thumb" onclick="showTab('esign-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-file "></i>
                                 E-Sign / Document
                             </a>
                         </li>
                         <li class="nav-item1 attachment-tab">
-                            <a class="nav-link thumb" onclick="showTab('attachment-card')">
-                                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                            <a class="nav-link  thumb" onclick="showTab('attachment-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-spreadsheet"></i>
                                 Attachment
                             </a>
                         </li>
                         <li class="nav-item1 medicaid-tab">
-                            <a class="nav-link thumb" onclick="showTab('medicaid-card')">
-                                <i class="menu-icon tf-icons bx bx-shekel"></i>
+                            <a class="nav-link  thumb" onclick="showTab('medicaid-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-shekel"></i>
                                 Medicaid / Medicare
                             </a>
                         </li>
                         <li class="nav-item1 submission-tab d-none">
-                            <a class="nav-link thumb" onclick="showTab('submission-card')">
-                                <i class="menu-icon tf-icons bx bx-alarm"></i>
+                            <a class="nav-link  thumb" onclick="showTab('submission-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-alarm"></i>
                                 Submission Info
                             </a>
                         </li>
-                        <li class="nav-item1 physician-tab">
-                            <a class="nav-link thumb" onclick="showTab('physician-card')">
-                                <i class="menu-icon tf-icons bx bx-briefcase"></i>
+                        <li class="nav-item1 physician-tab ">
+                            <a class="nav-link  thumb" onclick="showTab('physician-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-briefcase"></i>
                                 Physician
                             </a>
                         </li>
                         <li class="nav-item1 related-records-tab d-none">
-                            <a class="nav-link thumb" onclick="showTab('records-card')">
-                                <i class="menu-icon tf-icons bx bx-food-menu"></i>
+                            <a class="nav-link  thumb" onclick="showTab('records-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-food-menu"></i>
                                 Related Records
                             </a>
                         </li>
@@ -167,15 +169,14 @@ return $colors[$randomIndex];
                         <div class="col-md-9 ">
                             <div class="d-flex flex-wrap align-items-center">
                                 <div class="profile-img-main rounded">
-                                    <img src="{{ url('user/images93561655300919_avatar.png') }}" alt="img" class="m-0 p-1 rounded hrem-6">
+                                    <img src="{{ url('user/images93561655300919_avatar.png') }}" alt="img" class="m-0 p-1 rounded hpx-65">
                                 </div>
                                 <div class="ms-4">
                                     <h4 class="m-0">{{ $referral->full_name() }}</h4>
-                                    <p class="text-muted mt-1">{{ $referral->email }}</p>
+                                    <p class="text-muted mt-1 mb-0">{{ $referral->email }}</p>
                                     <!--span class="mx-1">
                                         {{ $referral->created_at }}</span-->
-                                    <span href="#" class="">
-                                       Status: {{ $referral->status }}</span>
+                                  
                                 </div>
                             </div>
                         </div>
@@ -186,7 +187,7 @@ return $colors[$randomIndex];
                                     <div class="progress-bar bg-info" role="progressbar" style="width: {{ $totalTrust }}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <div>
-                                    <h4 class="total-trust" style="float: right">{{ $totalTrust }}%</h4>
+                                    <h4 class="total-trust mt-1" style="float: right">{{ $totalTrust }}%</h4>
                                 </div>
                             </div>
                         </div>
@@ -194,16 +195,20 @@ return $colors[$randomIndex];
                 </div>
                 <div class="border-top services-card" id="serviceController">
                     <div class="wideget-user-tab">
-                        <div class="tab-menu-heading">
-                            <div class="tabs-menu1">
-                                <ul class="nav">
-                                    <li><a href="#esignCard" data-bs-toggle="tab" class="active">E-sign</a>
+                        <div class="tab-menu-heading d-flex justify-content-between align-items-center flex-md-row flex-column px-md-3">
+                            <div class="tabs-menu1 order-md-1 order-2 ">
+                                <ul class="nav py-3 px-3">
+                                    <li ><a href="#esignCard" data-bs-toggle="tab" class="active p-0 px-2  mb-sm-0 mb-3">E-sign</a>
                                     </li>
-                                    <li><a href="#documentCard" data-bs-toggle="tab" class="">Documents</a>
+                                    <li ><a href="#documentCard" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0 mb-3">Documents</a>
                                     </li>
-                                    <li><a href="#checkList" data-bs-toggle="tab" class="">Checklist</a></li>
-                                    <li><a href="#financeCard" data-bs-toggle="tab" class="">Finance</a></li>
+                                    <li ><a href="#checkList" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0 mb-3">Checklist</a></li>
+                                    <li class="mb-0"><a href="#financeCard" data-bs-toggle="tab" class="p-0 px-2  mb-sm-0  ">Finance</a></li>
                                 </ul>
+                            </div>
+                            <div class="order-md-2 order-1 pt-md-0 pt-3 pl-3 status-field mx-2" style=" ">
+
+                                <span class="fw-bold">Status: </span>{{ $referral->status }}
                             </div>
                         </div>
                     </div>
@@ -384,24 +389,24 @@ return $colors[$randomIndex];
                 <div class="tab-pane" id="documentCard">
                     <div class="card services-card">
                         <div class="row">
-                            <div class="col-md-12 mt-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div style="padding-left: 15px">
-                                            <input class="trustDocument" type="checkbox" name="document" {{ $referral->trustDocument ? 'checked' : '' }}>
-                                            <label>Mark As Read</label>
+                            <div class="col-md-12 mt-3 ">
+                                <div class="row  px-3">
+                                    <div class="col-md-4 ">
+                                        <div class="d-flex align-items-center gap-2 "  >
+                                            <input class="trustDocument m-0" type="checkbox" name="document" {{ $referral->trustDocument ? 'checked' : '' }}>
+                                            <label class="m-0">Mark As Read</label>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <h5>Received Documents {{ $recievedDocumentCount }}</h5>
+                                        <h5 class="m-0">Received Documents: {{ $recievedDocumentCount }}</h5>
                                     </div>
                                     <div class="col-md-4">
-                                        <h5>Pending Documents {{ $pendingDocumentCount }}</h5>
+                                        <h5 class="m-0">Pending Documents: {{ $pendingDocumentCount }}</h5>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <div class="overflow-auto" style="padding: 10px">
+                                    <div class="overflow-auto px-3 py-1"  >
                                         <table class="table table-bordered dataTable">
                                             <thead>
                                                 <tr>
@@ -480,60 +485,65 @@ return $colors[$randomIndex];
 
 
             <div class="tab-pane" id="checkList">
-                <div class="card services-card pt-3">
+                <div class="card services-card py-3 px-3">
 
                     <form id="referralUpdateForm">
                         @csrf
                         <input type="hidden" name="referral_id" id="referral_id" value="{{ $referral->id }}">
-                        <div class="row" style="display: flex; justify-content: space-around; padding: 20px; padding-left:20px">
-                            <div style="padding-left: 10px">
+                        <div class="row " style="display: flex; justify-content: space-around;  ">
+                            <div  class="d-flex  align-items-center">
                                 <input class="trustCheckList" type="checkbox" name="checkList" {{ $referral->trustCheckList ? 'checked' : '' }}>
-                                <label>Mark As Complete</label>
+                                <label class="m-0">Mark As Complete</label>
                             </div>
-                            <table class="table">
+                            
+                           <div class="px-3 pt-3">
+                           <table class="table table-bordered align-middle ">
                                 <tbody>
                                     <tr>
-                                        <td style="width:10px">
-                                            <input type="checkbox" {{ $checks->disability == 1 ? 'checked' : '' }} name="document_checkboxes1">
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                            <div class="align-self-center">
+                                                <input type="checkbox"  class="document-list m-0 mt-2" {{ $checks->disability == 1 ? 'checked' : '' }}  name="document_checkboxes1">
+                                            </div>
                                         </td>
-                                        <td>DOH -5139 Disability FILLABLE Questionnaire</td>
+                                        <td class="align-middle">DOH -5139 Disability FILLABLE Questionnaire</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <input type="checkbox" {{ $checks->doh == 1 ? 'checked' : '' }} name="document_checkboxes2">
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->doh == 1 ? 'checked' : '' }} name="document_checkboxes2">
                                         </td>
-                                        <td>DOH</td>
+                                        <td class="align-middle">DOH</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <input type="checkbox" {{ $checks->hipaa_state == 1 ? 'checked' : '' }} name="document_checkboxes3">
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->hipaa_state == 1 ? 'checked' : '' }} name="document_checkboxes3">
                                         </td>
-                                        <td>DOH 5173-Hipaa State</td>
+                                        <td class="align-middle">DOH 5173-Hipaa State</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <input type="checkbox" {{ $checks->joinder == 1 ? 'checked' : '' }} name="document_checkboxes5">
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->joinder == 1 ? 'checked' : '' }} name="document_checkboxes5">
                                         </td>
-                                        <td>Joinder Agreement</td>
+                                        <td class="align-middle">Joinder Agreement</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <input type="checkbox" {{ $checks->hipaa == 1 ? 'checked' : '' }} name="document_checkboxes4">
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->hipaa == 1 ? 'checked' : '' }} name="document_checkboxes4">
                                         </td>
-                                        <td>DOH-960 Hipaa</td>
+                                        <td class="align-middle">DOH-960 Hipaa</td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <input type="checkbox" {{ $checks->map == 1 ? 'checked' : '' }} name="document_checkboxes6">
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">  
+                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->map == 1 ? 'checked' : '' }} name="document_checkboxes6">
                                         </td>
-                                        <td>MAP-751e - Authorization to Release Medical Information</td>
+                                        <td class="align-middle">MAP-751e - Authorization to Release Medical Information</td>
                                     </tr>
                                 </tbody>
                             </table>
+                           </div>
 
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-primary m-2 custom-hover" style="text-align: center; float: right;">
+                            <button type="submit" class="btn btn-primary mx-2 mb-1 custom-hover fs-6" style="text-align: center; float: right;">
                                 Save <i class="bx bx-save custom-hover"></i>
                             </button>
                         </div>
@@ -624,8 +634,8 @@ return $colors[$randomIndex];
                                     <input type="number" value="{{ $referral->bankAccount->surplus_amount }}" class="form-control" name="surplus_amount" id="surplus_amount" placeholder="Surplus amount">
                                 </div>
                             </div>
-                            <button class="btn btn-primary mt-2" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
-                            <button class="btn btn-primary mr-2 mt-2 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if($referral->convert_to_customer!=null)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
+                            <button class="btn btn-primary mt-2 fs-6" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
+                            <button class="btn btn-primary mr-2 mt-2 fs-6 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if($referral->convert_to_customer!=null)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
                         </form>
 
                     </div>
@@ -907,13 +917,13 @@ return $colors[$randomIndex];
                     @csrf
                     <input type="hidden" value="{{ $referral->id }} " name="referral_id">
                     <div class="card">
-                        <div class="card-body col-md-12">
+                        <div class="card-body col-md-12 py-3">
                             <div class="overflow-auto">
-                                <div>
+                                <div class="d-flex align-items-center mb-3">
                                     <input class="trustEsign" type="checkbox" name="esign" {{ $referral->trustEsign ? 'checked' : '' }}>
-                                    <label>Mark As Complete</label>
+                                    <label class="mb-0">Mark As Complete</label>
                                 </div>
-                                <table class="table table-bordered ">
+                                <table class="table table-bordered align-middle">
                                     <thead>
                                         <tr>
                                             <th style="text-align: center; width:10px">Select</th>
@@ -923,13 +933,17 @@ return $colors[$randomIndex];
                                     <tbody>
                                         @foreach ($actualDocuments as $actualDocument)
                                         <tr>
-                                            <td style="text-align: center;">
-                                                <input name="selected_documents[{{ $actualDocument->name }}]" class="document-list" value="{{ $actualDocument->name }}" type="checkbox">
+                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;"> 
+                                                <div class="align-self-center">
+
+                                                    <input name="selected_documents[{{ $actualDocument->name }}]" class="document-list m-0 mt-2" value="{{ $actualDocument->name }}" type="checkbox">
+                                                </div>
                                             </td>
-                                            <td>
+                                            <td class="align-middle">
                                                 {{ $actualDocument->name() }}
                                             </td>
                                         </tr>
+
 
                                         @endforeach
                                         <tr>
@@ -944,7 +958,7 @@ return $colors[$randomIndex];
                                         </tr>
                                     </tbody>
                                 </table>
-                                <button class="btn btn-primary email-btn custom-hover disabled" id="submitBtn" type="submit" style="float: right; margin-bottom:10px">Send Email <i class="bx bx-message"></i></button>
+                                <button class="btn btn-primary email-btn custom-hover disabled fs-6" id="submitBtn" type="submit" style="float: right; margin-bottom:10px">Send Email <i class="bx bx-message"></i></button>
                             </div>
                         </div>
                     </div>
@@ -952,15 +966,15 @@ return $colors[$randomIndex];
             </div>
         </div>
         <div class="card patient-card d-none" id="patientCard">
-            <div class="card-body">
-                <div class="row align-items-center">
+            <div class="card-body px-0">
+                <div class="row align-items-center px-5">
                     <div class="wideget-user-tab" style="margin-left:-10px !important; margin-top:-10px !important;">
                         <div class="tab-menu-heading">
                             <div class="tabs-menu1">
-                                <ul class="nav">
-                                    <li><a href="#referral_detail" data-bs-toggle="tab" class="active">Account</a>
+                                <ul class="nav pb-4">
+                                    <li><a href="#referral_detail" data-bs-toggle="tab" class="active py-0 px-0 mr-3">Account</a>
                                     </li>
-                                    <li><a href="#emergency_detail" data-bs-toggle="tab" class="">Emergency Details</a>
+                                    <li><a href="#emergency_detail" data-bs-toggle="tab" class="py-0 px-0">Emergency Details</a>
                                     </li>
                                 </ul>
                             </div>
@@ -968,163 +982,165 @@ return $colors[$randomIndex];
                     </div>
                 </div>
                 <div class="tab-content">
-                    <div class="col-md-12  tab-pane active" id="referral_detail">
-                        <div class="form-group ">
+                    <div class="col-md-12 px-0 tab-pane active" id="referral_detail">
+                        <div class="form-group px-3">
                             <div class="row row-sm">
-                                <div class="col-md-3">
+                                <div class="col-md-3 align-middle">
                                     <label for="userName" class="form-label">User Name</label>
                                 </div>
-                                <div class="col-md-9">
-                                    <p> {{ $referral->first_name }} {{ $referral->last_name }} </p>
+                                <div class="col-md-9 d-flex align-items-center ">
+                                    <p class="m-0"> {{ $referral->first_name }} {{ $referral->last_name }} </p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group ">
+                        <div class="form-group px-3 ">
                             <div class="row row-sm">
                                 <div class="col-md-3">
                                     <label for="eMail" class="form-label">Email</label>
                                 </div>
-                                <div class="col-md-9">
-                                    <p> {{ $referral->email }}</p>
+                                <div class="col-md-9 d-flex align-items-center  d-flex align-items-center ">
+                                    <p class="m-0" > {{ $referral->email }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="108">
+                        <div class="form-group px-3 " data-select2-id="108">
                             <div class="row" data-select2-id="107">
                                 <div class="col-md-3">
                                     <label for="language" class="form-label">Phone</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="106">
-                                    <p> {{ $referral->phone_number }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="106">
+                                    <p class="m-0"> {{ $referral->phone_number }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Gender</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->gender }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->gender }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Date of birth</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->date_of_birth }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->date_of_birth }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Patient SSN</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->patient_ssn }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->patient_ssn }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Patient Address</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->address }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->address }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Patient Age</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->age }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->age }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Country</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->country }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->country }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">City</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->city }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->city }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">State</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->state }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->state }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Address</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->address }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->address }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">ZIP Code</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->zip_code }}</p>
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->zip_code }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="form-group " data-select2-id="10">
+                        <div class="form-group px-3 " data-select2-id="10">
                             <div class="row" data-select2-id="9">
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Source Type</label>
                                 </div>
-                                <div class="col-md-9" data-select2-id="8">
-                                    <p> {{ $referral->source_type }}</p>
+                                <div class="col-md-9 d-flex align-items-center "  data-select2-id="8">
+                                    <p class="m-0"> {{ $referral->source_type }}</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <input type="checkbox">
-                        <label>Mark As Main Contact</label>
+                        <div class="d-flex align-items-center pt-2 px-3">
+                            <input type="checkbox">
+                            <label class="m-0">Mark As Main Contact</label>
+                        </div>
                     </div>
                     <div class="col-md-12 tab-pane" id="emergency_detail">
                         <form id="EmergencyForm">
@@ -1253,11 +1269,11 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" style="float: right" class="btn btn-primary custom-hover editButton">Edit
+                            <button type="button" style="float: right" class="btn btn-primary custom-hover editButton fs-6">Edit
                             </button>
-                            <button type="submit" style="float: right; display: none;" class="btn btn-primary custom-hover submitButton">Submit
+                            <button type="submit" style="float: right; display: none;" class="btn btn-primary custom-hover submitButton fs-6">Submit
                             </button>
-                            <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary custom-hover cancelButton">Cancel
+                            <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary custom-hover cancelButton fs-6">Cancel
                             </button>
 
                         </form>
@@ -1287,7 +1303,7 @@ return $colors[$randomIndex];
 
                             <div class="col-md-12 col-lg-12 col-xl-6">
                                 <div class="form-group">
-                                    <label for="firstname" class="form-label">First Name</label>
+                                    <label for="firstname" class="form-label ">First Name</label>
                                     <input type="text" class="form-control" id="firstname" placeholder="First Name" value="Elena">
                                 </div>
                             </div>
@@ -1702,9 +1718,9 @@ return $colors[$randomIndex];
             <form id="emailForm">
                 @csrf
                 <input type="hidden" value="{{ $referral->id }} " name="referral_id">
-                <div class="card-body col-md-12">
+                <div class="card-body col-md-12 p-0">
                     <div class="overflow-auto">
-                        <table class="table align-middle mb-0 table-hover dataTable ">
+                        <table class="table table-bordered align-middle ">
                             <thead>
                                 <tr>
                                     <th style="width: 5px;">CheckBox</th>
@@ -1714,8 +1730,10 @@ return $colors[$randomIndex];
                             <tbody>
                                 @foreach ($actualDocuments as $actualDocument)
                                 <tr>
-                                    <td style="width: 5px; text-align:center">
-                                        <input name="selected_documents[{{ $actualDocument->name }}]" class="document-list" value="{{ $actualDocument->name }}" type="checkbox">
+                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;"> 
+                                        <div class="align-self-center">
+                                            <input name="selected_documents[{{ $actualDocument->name }}]" class="document-list m-0 mt-2" value="{{ $actualDocument->name }}" type="checkbox">
+                                        </div>
                                     </td>
                                     <td>
                                         {{ $actualDocument->name() }}
@@ -1724,7 +1742,7 @@ return $colors[$randomIndex];
                                 @endforeach
                             </tbody>
                         </table>
-                        <button class="btn btn-primary email-btn custom-hover disabled" id="submitBtn" type="submit" style="float: right; margin-bottom:10px">Send Email
+                        <button class="btn btn-primary email-btn custom-hover disabled mx-3 mb-3 fs-6" id="submitBtn" type="submit" style="float: right; ">Send Email
                             <i class="bx bx-message"></i>
                         </button>
                     </div>
@@ -1786,15 +1804,15 @@ return $colors[$randomIndex];
         <div class="row medicaid-card">
             <div class="">
                 <div class="card medicaid-card d-none ">
-                    <h4 style="padding-top: 20px; padding-left: 30px">Medicaid Details</h4>
-                    <div class="card-body" style="padding-top:10px ">
+                    <h4 class="px-3 py-3 border-bottom " style=" ">Medicaid Details</h4>
+                    <div class="card-body px-0" style="padding-top:10px ">
                         <div class="row align-items-center">
-                            <form id="MedicaidForm">
+                            <form id="MedicaidForm px-0">
                                 @csrf
                                 <input type="hidden" name="inputId" value="{{ $referral->referral_medcaid->id }}">
                                 <input type="hidden" name="referral_id" value="{{ $referral->id }}">
-                                <div class="col-md-12">
-                                    <div class="form-group">
+                                <div class="col-md-12 px-0">
+                                    <div class="form-group px-3">
                                         <div class="row row-sm">
                                             <div class="col-md-3">
                                                 <label for="medicaidNumber" class="form-label">Medicaid
@@ -1806,7 +1824,7 @@ return $colors[$randomIndex];
                                         </div>
                                     </div>
                                     <hr>
-                                    <div class="form-group">
+                                    <div class="form-group px-3">
                                         <div class="row row-sm">
                                             <div class="col-md-3">
                                                 <label for="type" class="form-label">Type</label>
@@ -1816,7 +1834,7 @@ return $colors[$randomIndex];
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group px-3">
                                         <div class="row row-sm">
                                             <hr>
                                             <div class="col-md-3">
@@ -1827,7 +1845,7 @@ return $colors[$randomIndex];
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" data-select2-id="108">
+                                    <div class="form-group px-3" data-select2-id="108">
                                         <div class="row" data-select2-id="107">
                                             <hr>
                                             <div class="col-md-3">
@@ -1838,7 +1856,7 @@ return $colors[$randomIndex];
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" data-select2-id="10">
+                                    <div class="form-group px-3" data-select2-id="10">
                                         <div class="row" data-select2-id="9">
                                             <hr>
                                             <div class="col-md-3">
@@ -1850,7 +1868,7 @@ return $colors[$randomIndex];
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" data-select2-id="10">
+                                    <div class="form-group px-3" data-select2-id="10">
                                         <div class="row" data-select2-id="9">
                                             <hr>
                                             <div class="col-md-3">
@@ -1861,11 +1879,11 @@ return $colors[$randomIndex];
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" style="float: right" class="btn btn-primary custom-hover editButton">Edit
+                                    <button type="button" style="float: right" class="btn btn-primary custom-hover editButton fs-6 mx-3">Edit
                                     </button>
-                                    <button type="submit" style="float: right; display: none;" class="btn btn-primary custom-hover submitButton">Submit
+                                    <button type="submit" style="float: right; display: none;" class="btn btn-primary custom-hover submitButton fs-6 mx-3">Submit
                                     </button>
-                                    <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary custom-hover cancelButton">Cancel
+                                    <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary fs-6 custom-hover cancelButton mx-3">Cancel
                                     </button>
                                 </div>
                             </form>
@@ -1880,15 +1898,15 @@ return $colors[$randomIndex];
             </div>
         </div>
         <div class="card physician-card d-none">
-            <div class="card-body" style="padding-top:10px ">
+            <div class="card-body px-0" style="padding-top:10px ">
                 <div class="row align-items-center">
                     <form id="PhysicianForm">
                         @csrf
                         <input type="hidden" id="userId" name="userId" class="form-control" value="{{ $referral->referral_phy->id }}">
                         <input type="hidden" name="referral_id" value="{{ $referral->id }}">
-                        <div class="col-md-12">
-                            <h4 style="padding-top: 10px; padding-bottom: 10px">Physician Detail</h4>
-                            <div class="form-group">
+                        <div class="col-md-12 px-0">
+                            <h4  class="pb-3 px-3 border-bottom">Physician Detail</h4>
+                            <div class="form-group my-3 my-3 px-3">
                                 <div class="row row-sm">
                                     <div class="col-md-3">
                                         <label for="userName" class="form-label">User Name</label>
@@ -1898,7 +1916,7 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group my-3 px-3">
                                 <div class="row row-sm">
                                     <hr>
                                     <div class="col-md-3">
@@ -1909,7 +1927,7 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group" data-select2-id="108">
+                            <div class="form-group my-3 px-3" data-select2-id="108">
                                 <div class="row" data-select2-id="107">
                                     <hr>
                                     <div class="col-md-3">
@@ -1920,7 +1938,7 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group" data-select2-id="10">
+                            <div class="form-group my-3 px-3" data-select2-id="10">
                                 <div class="row" data-select2-id="9">
                                     <hr>
                                     <div class="col-md-3">
@@ -1931,7 +1949,7 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group" data-select2-id="10">
+                            <div class="form-group my-3 px-3" data-select2-id="10">
                                 <div class="row" data-select2-id="9">
                                     <hr>
                                     <div class="col-md-3">
@@ -1942,7 +1960,7 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group" data-select2-id="10">
+                            <div class="form-group my-3 px-3" data-select2-id="10">
                                 <div class="row" data-select2-id="9">
                                     <hr>
                                     <div class="col-md-3">
@@ -1953,7 +1971,7 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group" data-select2-id="10">
+                            <div class="form-group my-3 px-3" data-select2-id="10">
                                 <div class="row" data-select2-id="9">
                                     <hr>
                                     <div class="col-md-3">
@@ -1964,11 +1982,11 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" style="float: right" class="btn btn-primary custom-hover editButton">Edit
+                            <button type="button" style="float: right" class="btn btn-primary custom-hover editButton mx-3 fs-6">Edit
                             </button>
-                            <button type="submit" style="float: right; display: none;" class="btn btn-primary custom-hover submitButton">Submit
+                            <button type="submit" style="float: right; display: none;" class="btn btn-primary custom-hover submitButton mx-3 fs-6">Submit
                             </button>
-                            <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary custom-hover cancelButton">Cancel
+                            <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary custom-hover cancelButton mx-3 fs-6">Cancel
                             </button>
                         </div>
                     </form>
@@ -2062,32 +2080,32 @@ return $colors[$randomIndex];
     <div class="col-md-2">
         <div class="card">
             <div class="card-body">
-                <h6>Created Date</h6>
+                <h6 class="fw-bold mb-1">Created Date</h6>
                 {{ $referral->created_at }}
                 <hr>
-                <h6>Updated Date</h6>
+                <h6 class="fw-bold mb-1">Updated Date</h6>
                 {{ $referral->updated_at }}
             </div>
         </div>
         <div class="card">
             <div class="card-body">
-                <h6>Intake Coordinator</h6>
+                <h6 class="fw-bold mb-1 ">Intake Coordinator</h6>
                 {{ $referral->intake }}
                 <hr>
-                <h6>Referral Marketer</h6>
+                <h6 class="fw-bold mb-1">Referral Marketer</h6>
                 {{ $referral->marketer }}
             </div>
         </div>
         <div class="card">
             <div class="card-body">
-                <h6>Admission Date</h6>
+                <h6 class="fw-bold mb-1">Admission Date</h6>
                 {{ \Carbon\Carbon::parse($referral->admission_date)->format('M d, Y ') }}
                 <hr>
-                <h6>Admitted</h6>
+                <h6 class="fw-bold mb-1">Admitted</h6>
                 @if ($referral->status == 'Admitted')
-                <h6>Yes</h6>
+                <h6 class=" ">Yes</h6>
                 @else
-                <h6>No</h6>
+                <h6 class=" ">No</h6>
                 @endif
             </div>
         </div>
@@ -2100,7 +2118,7 @@ return $colors[$randomIndex];
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addNoteModalLabel">Upload PDF</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="uploadFile" action="{{ route('upload.document') }}" method="POST" enctype="multipart/form-data">

@@ -332,6 +332,8 @@ Route::get('/recycle-bin/bills', [claimsController::class, 'deletedbills'])->mid
 
 //Route::get('/add_user', [AuthController::class, 'add_user'])->middleware('isLoggedIn');
 
+Route::get('/approval-letter/{id}', [AuthController::class, 'approvalLetter'])->name('approval-letter');
+
 Route::get('/manage_roles', [AuthController::class, 'manage_roles'])->middleware('isLoggedIn');
 
 Route::get('/profile_setting', [AuthController::class, 'profile_setting'])->middleware('isLoggedIn', 'permission:Profile Setting')->name('profile.setting');
@@ -841,7 +843,7 @@ Route::get('hipa',function(){
 
     return view('document.hippa-pdf', $data);
 
-    
+
 });
 
 Route::get('doh-test',function(){
