@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Dashboard | SLC Trust')
+@section('title', 'Dashboard | SLC Trusts')
 @section('wrapper')
     @php
         use App\Models\User;
@@ -139,7 +139,7 @@
     </div>
     @if ($role != 'User')
         <div class="">
-            <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <h5 class=" d-flex justify-content-start pt-3 pb-2">
                 <b></b>
                <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Overview</b> </div>
             </h5>

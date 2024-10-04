@@ -1,7 +1,7 @@
 @extends("nav")
-@section('title', 'All Claims | SLC Trust')
+@section('title', 'All Claims | SLC Trusts')
 @section("wrapper")
-<?php 
+<?php
 use App\Models\User;
 $role = User::where('id', '=', Session::get('loginId'))->value('role');
 ?>
@@ -17,21 +17,21 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="filter">
-                        <label>Search:</label>
-                          <input type="search" name="search" class="input-control" placeholder="Search your claims here" value="{{ $search }}">                        
-                      </div>                      
+                        <label>Search: </label>
+                          <input type="search" name="search" class="input-control" placeholder="Search your claims here" value="{{ $search }}">
+                      </div>
                     </div>
                     <div class="col-lg-1">
                       <div class="filter pull-left">
-                        <button class="btn btn-primary">Search</button>                       
+                        <button class="btn btn-primary">Search</button>
                       </div>
-                      </form>                      
+                      </form>
                     </div>
                     <div class="col-lg-5">
                       <form action="{{ action('App\Http\Controllers\claimsController@create') }}">
                         <button class="btn btn-primary btn-ctrl">Add Claim</button>
-                      </form>                  
-                    </div>                                                            
+                      </form>
+                    </div>
                   </div>
                 -->
                   <div class="row">
@@ -42,22 +42,22 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                       <a onclick="window.print()" class="btn btn-primary print-btn" href="#">Print Bills<i class='bx bx-printer'></i></a>
                       <div class="dropdown download-btn">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Download Bills 
+                          Download Bills
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" href="#">PDF Format</a>
                           <a class="dropdown-item" href="#">Excel/CSV Format</a>
                         </div>
-                      </div>                                                         
-                    </div>                                                            
-                  </div>                
+                      </div>
+                    </div>
+                  </div>
                   <div class="card-body">
                   @if(Session::has('success'))
                   <div class="alert alert-success">{{Session::get('success')}}</div>
                   @endif
                   @if(Session::has('fail'))
                   <div class="alert alert-danger">{{Session::get('fail')}}</div>
-                  @endif                    
+                  @endif
                     @include('alerts.messages')
                     <div class="table-responsive text-nowrap">
                       <table class="table table-bordered">
@@ -65,7 +65,7 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                           <tr>
                             <th>CID#</th>
                             <th>Bill tittle</th>
-                            <th>User</th>                            
+                            <th>User</th>
                             <th>Submission Date</th>
                             <th>Category</th>
                             <th>Status</th>
@@ -81,17 +81,17 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                             <td>
                               @foreach($all_users as $user)
                               @if($claim->claim_user==$user->id)
-                              {{$user->name }} {{$user->last_name }}             
+                              {{$user->name }} {{$user->last_name }}
                               @endif
-                              @endforeach         
-                            </td>                            
+                              @endforeach
+                            </td>
                             <td>{{ $claim['submission_date'] }}</td>
                             <td>{{ $claim['claim_category'] }}</td>
                             <td>
-                              <span class="badge 
-                              @if ($claim->claim_status == 'Approved') bg-label-success @endif 
-                              @if ($claim->claim_status == 'Processed') bg-label-primary @endif 
-                              @if ($claim->claim_status == 'Pending') bg-label-info @endif 
+                              <span class="badge
+                              @if ($claim->claim_status == 'Approved') bg-label-success @endif
+                              @if ($claim->claim_status == 'Processed') bg-label-primary @endif
+                              @if ($claim->claim_status == 'Pending') bg-label-info @endif
                               @if ($claim->claim_status == 'Refused') bg-label-danger @endif
                               me-1">
                               @if ($claim->claim_status == 'Approved') {{ $claim['claim_status'] }} @endif
@@ -111,35 +111,35 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                                   <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
 
-                                <div class="dropdown-menu"> 
-                                @if ($role == 'Admin')                              
+                                <div class="dropdown-menu">
+                                @if ($role == 'Admin')
                                   <a class="dropdown-item" href="claims/{{ $claim['id'] }}/edit"
                                     ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                   >
-                                @endif 
-                                  <form action="{{ action('App\Http\Controllers\claimsController@destroy', $claim['id']) }} " method="post">  
+                                @endif
+                                  <form action="{{ action('App\Http\Controllers\claimsController@destroy', $claim['id']) }} " method="post">
                                   @csrf
-                                  @method('delete')                                  
+                                  @method('delete')
                                   <button class="dropdown-item">
                                     <i class="bx bx-trash me-1"></i> Delete
                                   </button>
-                                  </form>  
+                                  </form>
 
                                 </div>
                               </div>
                             </td>
                           </tr>
-                          @endforeach                                             
+                          @endforeach
                         </tbody>
                       </table>
 
-                        {{ $claims->links() }}                     
+                        {{ $claims->links() }}
                     </div>
                   </div>
-                </div>              
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-@endsection 
+@endsection

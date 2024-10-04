@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Archived Bills | SLC Trust')
+@section('title', 'Archived Bills | SLC Trusts')
 @section('wrapper')
     <?php
     use App\Models\Claim;
@@ -26,7 +26,7 @@
             <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Archive</b></span> / Bills</h5>
             <div class="row">
               <div class="col-lg-12 mb-12">
-                <div class="card radius-10"> 
+                <div class="card radius-10">
                   <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
@@ -127,7 +127,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header pt-2">
-                <h5 class="modal-title" id="customerdpositLabel">Log Details 
+                <h5 class="modal-title" id="customerdpositLabel">Log Details
                 </h5>
                 <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -171,7 +171,7 @@
                     $('.created-at').text(created_at);
                 });
             });
-        </script> 
+        </script>
          <script>
             $(document).ready(function() {
                 $('.dataTable').DataTable({
@@ -183,4 +183,4 @@
                 });
             });
         </script>
-   
+

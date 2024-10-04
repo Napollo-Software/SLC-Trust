@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'View Referrals | SLC Trust')
+@section('title', 'View Referrals | SLC Trusts')
 @section('wrapper')
 <link href="{{ url('/assets/custom/style.css') }}" rel="stylesheet" />
 @php
@@ -78,7 +78,7 @@ return $colors[$randomIndex];
     <!-- CONTENT -->
 
     <!-- PAGE-HEADER -->
-    <h5 class=" d-flex justify-content-between pt-5 pb-2 px-2">
+    <h5 class=" d-flex justify-content-start pt-5 pb-2 px-2">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referral</b></a> / <b>View Referral</b> </div>
     </h5>
@@ -95,7 +95,7 @@ return $colors[$randomIndex];
                     </div> --}}
                 <div class="card-body p-2">
                     <div class="border-bottom mt-3  ">
-                        <h4 class=" ">Referral ID:{{ $referral->id }}</h4>
+                        <h4 class=" ">Referral ID: {{ $referral->id }}</h4>
                     </div>
                     <ul class="nav1 nav-column pb-0 flex-column br-7 px-0">
                         <li class="nav-item1 mt-0 services-tab">
@@ -950,13 +950,10 @@ return $colors[$randomIndex];
                                                 {{ $actualDocument->name() }}
                                             </td>
                                         </tr>
-
-
                                         @endforeach
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="fancy-plus-button m-0">
-
+                                                <a style="border-radius:50%;" class="fancy-plus-button m-0">
                                                 </a>
                                             </td>
                                             <td>

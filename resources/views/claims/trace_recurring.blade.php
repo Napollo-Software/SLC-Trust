@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Trace Recurring | SLC Trust')
+@section('title', 'Trace Recurring | SLC Trusts')
 @section("wrapper")
 <style>
 
@@ -276,5 +276,5 @@ $users = User::find(Session::get('loginId'));
             </div>
           </div>
           @endif
-          @endif   
+          @endif
 @endsection

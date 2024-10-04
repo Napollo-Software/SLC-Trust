@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'All Users | SLC Trust')
+@section('title', 'All Users | SLC Trusts')
 @section('wrapper')
     <head>
         <style>
@@ -84,7 +84,7 @@
         </div>
     </div>
     <div class="">
-        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
            <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Users</b> </div>
         </h5>

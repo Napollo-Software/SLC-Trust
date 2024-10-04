@@ -1,9 +1,9 @@
 @extends('nav')
-@section('title', 'View Account | SLC Trust')
+@section('title', 'View Account | SLC Trusts')
 @section('wrapper')
 
     <div class="">
-        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
            <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/vendors')}}" class="text-muted fw-light pointer"><b>All Vendors</b></a> / <b>View Vendor</b> </div>
         </h5>

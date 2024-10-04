@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Edit User | SLC Trust')
+@section('title', 'Edit User | SLC Trusts')
 @section('wrapper')
     @php
         $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');
@@ -146,7 +146,7 @@
                             </div>
                         </div>
                         <hr>
-                        
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <button id="back-btn" class="btn btn-info">Close</button>
@@ -164,5 +164,5 @@
           window.history.back();
       });
   </script>
-  
+
 @endsection

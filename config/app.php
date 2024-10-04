@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'SLC TRUST'),
-    'professional_name' => env('APP_PROFESSIONAL_NAME', 'SLC TRUST'),
+    'professional_name' => env('APP_PROFESSIONAL_NAME', 'SLC Trusts'),
     'contact' => env('SUPPORT_CONTACT', '718-500-3235'),
 
     /*

@@ -216,8 +216,6 @@ class ReferralController extends Controller
         $checkListTrust = $referral->trustCheckList;
         $totalTrust = $esignTrust + $documentTrust + $financeTrust + $checkListTrust;
 
-        // dd($totalTrust,$financeTrust);
-
         return view('referral.view', compact('pendingDocumentCount', 'recievedDocumentCount', 'totalTrust', 'fromFollowup', 'referral', 'referralDocuments', 'actualDocuments', 'document', 'checks', 'emergencyDetails'));
     }
 

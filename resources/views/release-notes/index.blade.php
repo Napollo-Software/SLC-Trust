@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Release Note | SLC Trust')
+@section('title', 'Release Note | SLC Trusts')
 @section('wrapper')
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 
@@ -30,7 +30,7 @@
     <div class="container-xl px-4 mt-4">
         <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Release Note</h5>
         <!-- Account page navigation-->
-       
+
         <form method="post" id="save-release-note">
             @csrf
              <div class="card">
@@ -77,7 +77,7 @@
                 [25, 50, 100, -1],
                 [25, 50, 100, "All"]
             ],
-            "order": false // "0" means First column and "desc" is order type; 
+            "order": false // "0" means First column and "desc" is order type;
         });
     });
         $(document).on('submit', '#save-release-note', function(e) {

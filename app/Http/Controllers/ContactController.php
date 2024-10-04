@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use Illuminate\Http\Request;
-use App\Models\Type;
-use App\Models\contacts;
-use App\Models\User;
 use Session;
+use App\Models\Type;
+use App\Models\User;
+use App\Models\contacts;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
-use function PHPSTORM_META\type;
 
 class ContactController extends Controller
 {
