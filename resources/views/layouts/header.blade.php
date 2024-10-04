@@ -44,7 +44,7 @@
                                 </a>
                                 @endif
                                 @foreach ($notifications as $item)
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="{{ url('notifications/'.$item->id) }}">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
                                             <img src="{{ $item->user_details->avatar }}" class="msg-avatar" alt="user avatar">

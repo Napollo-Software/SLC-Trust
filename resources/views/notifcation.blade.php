@@ -94,18 +94,17 @@
     }
 
 </style>
-@php
-$name = App\Models\User::where('id', '=', Session::get('loginId'))->value('name');
-@endphp
 <div class="">
     <div class="d-flex justify-content-end col-md-12">
         <h5 class="fw-bold mt-3"><span class="text-muted fw-light"><b>Dashboard</b></span> / Notifcations</h5>
     </div>
     <div class="d-flex justify-content-center">
         <div class="read-all col-md-12">
-            @if(!empty($notifcation) && count($notifcation))
+            @if(!empty($notifications) && count($notifications))
+            @if(!$id)
             <button style="margin-right: 0.5%;margin-left:auto" class="btn btn-secondary mb-3 remove-notification" data-id="0"><i class="menu-icon tf-icons bx bx-copy-alt"></i>Read All</button>
-            @foreach($notifcation as $data)
+            @endif
+            @foreach($notifications as $data)
             <div class="notification-list notification-list--read rounded div-{{$data->id}} pt-2 pb-2">
                 <div class="notification-list_content">
                     <div class="notification-list_img rounded-circle bg-success"> </div>
