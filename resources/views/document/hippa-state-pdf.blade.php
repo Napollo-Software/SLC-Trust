@@ -179,11 +179,11 @@
            State Disability Review Unit
         </p>
         <div style="display: table-cell; width: 60%; text-align: right; vertical-align: bottom;">
-            <span class='font-bold' style="margin: 0;padding: 0;font-size: 18px;white-space:nowrap">Authorization for Release of Health Information Pursuant to
+            <span class='font-bold' style="font-size: 18px;white-space:nowrap;height:25px !important; display: block">Authorization for Release of Health Information Pursuant to
                 HIPAA</span>
         </div>
     </div>
-    <hr style="width: 100%;height:4px;background-color: #231F20;">
+    <hr style="width: 100%;height:3px;background-color: #231F20;margin-top:4px !important; margin-bottom:8px !important">
     <table style="border-width: 0.5px;margin:0;padding: 0;width: 100%;">
         <tr style="border-width: 0.5px;margin:0;padding: 0;vertical-align: top">
             <td style="border-width: 0.5px;margin:0;width:240px">
@@ -371,7 +371,7 @@
             </label>
         </div>
         </div>
-        <hr class='styled-hr'>
+        <hr class='styled-hr' style="width:98%">
         <div class='m-0 w-full' style='display:table'>
             <span class='' style='display:table-cell;vertical-align:middle;padding-top:1px;width:46.4%'>
                 10. Reason for release of information:
@@ -395,7 +395,7 @@
             </label>
         </span>
                 </div>
-        <hr class='styled-hr'>
+        <hr class='styled-hr' style="width:98%">
         <div style='display:table;width:100%'>
             <div style='display:table-row'>
                 <div style='display:table-cell;width:43.3%;'>
@@ -406,7 +406,7 @@
                 </div>
             </div>
         </div>
-        <hr class='styled-hr'/>
+        <hr class='styled-hr' style="width:98%"/>
         <p class='m-0'></p>
         <p class='m-0'>
             <span   >
@@ -417,7 +417,7 @@
             class="no-border text-sm"
             value="{{$person_signing}}">
         </p>
-        <hr class='styled-hr'>
+        <hr class='styled-hr' style="width:98%">
         <p class='m-0'>
             <span>
                 13. Type of authority to sign on behalf of the patient:
@@ -428,7 +428,7 @@
                  value="{{$auth_info}}"
                  >
                 </p>
-                <hr class='styled-hr'/>
+                <hr class='styled-hr' style="width:98%;height:1px;background-color:black "/>
         <p class='m-0'>All sections on this form have been completed and my questions about this form have
             been answered. <br/>
             I authorize the facility/person noted on this page to release health information of the person named on this
@@ -438,7 +438,7 @@
         <div style="display: table; width: 100%;">
             <div style="display: table-cell; vertical-align: bottom;width:70%">
                 @if($hippa_state_sign)
-                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="170" height="34">
+                    <img src="{{ $hippa_state_sign }}" alt="map_sign" width="300" height="75">
                     <p class='m-0 text-sm' style="display: block; text-align: start;border-top:1px solid;">
                     SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW
                     </p>
@@ -457,7 +457,7 @@
                 </p>
             </div>
         </div>
-        <div style='margin-bottom:30px;margin-top:11px;padding-top:2px;width:98% !important' class='styled-hr text-sm'>
+        <div class='text-sm' style='padding-top:2px;border-top:3px solid;position: absolute; bottom:0;width:100%'>
             DOH-5173 (4/16) Page 1 of 2
         </div>
         <div style="display: table; width: 100%; padding: 0; margin: 0;">
@@ -474,7 +474,7 @@
                 </span>
             </div>
         </div>
-        <hr style="width: 100%;height:5px;background-color: #231F20;">
+        <hr style="width: 100%;height:3px;background-color: #231F20;margin-top:4px !important; margin-bottom:8px !important">
         <p class='m-0'>
             <span class='pb-7'>
                 The “Authorization for Release of Health Information and Confidential HIV-Related Information” form gives

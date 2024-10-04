@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
 use Session;
+use App\Models\User;
 use App\Models\Notifcation;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 
 class ForgotController extends Controller
 {
@@ -61,7 +59,10 @@ class ForgotController extends Controller
     }
     public function changepassworduser(Request $request)
     {
+        $request->validate(["password" => "required|min:5"]);
+
         $user = User::where('email', $request->email)->first();
+        
         $app_name = config('app.professional_name');
         if ($request->password == $request->confirm_password) {
             $user->password = Hash::make($request->password);
@@ -70,7 +71,7 @@ class ForgotController extends Controller
 
                 $bill_date = date('d-m-Y', strtotime($user->created_at));
 
-                $uid = User::where('id', '=', Session::get('loginId'))->first();
+                User::where('id', '=', Session::get('loginId'))->first();
 
                 $notifcation = new Notifcation();
                 $notifcation->user_id = $user->id;
@@ -85,18 +86,18 @@ class ForgotController extends Controller
                     'body' => ' Password Generated Succeussfully'
                 ];
                 $user = User::find(Session::get('loginId'));
-                \Mail::to($request->email)->send(new \App\Mail\PasswordGenerate($details));
+                Mail::to($request->email)->send(new \App\Mail\PasswordGenerate($details));
                 Alert::success('Congrats', 'Password Generated Succeussfully');
                 return redirect()->route('login');
             } else {
 
                 $bill_date = date('d-m-Y', strtotime($user->created_at));
-                $user_id = User::where('id', '=', $claim->claim_user)->first();
-                $uid = User::where('id', '=', Session::get('loginId'))->first();
+                User::where('id', '=', $claim->claim_user)->first();
+                User::where('id', '=', Session::get('loginId'))->first();
                 $notifcation = new Notifcation();
                 $notifcation->user_id = $user->id;
                 $notifcation->name = $user->name;
-                $notifcation->description = " Your password not generated on " . $bill_date . " by " . $user->name . ".";
+                $notifcation->description = " Your password not generated on {$bill_date} by {$user->name}.";
                 $notifcation->title = 'Password Generated';
                 $notifcation->status = 0;
                 //$notifcation->save();
@@ -106,7 +107,7 @@ class ForgotController extends Controller
                     'body' => ' Password Not Generated'
                 ];
                 $user = User::find(Session::get('loginId'));
-                \Mail::to($request->email)->send(new \App\Mail\PasswordGenerate($details));
+                Mail::to($request->email)->send(new \App\Mail\PasswordGenerate($details));
                 Alert::error('Opps!', 'Password Not generate');
                 return back();
             }
