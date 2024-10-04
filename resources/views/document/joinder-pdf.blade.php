@@ -222,7 +222,6 @@
             right: 0px;
             bottom: 10px;
         }
-
         .footer-center{
             border: 1px solid #37A09B;
             padding-top: 3px;
@@ -231,12 +230,10 @@
             padding-right: 6px;
             color: #37A09B
         }
-
         .section-title{
             font-size: 14px;
             max-width: fit-content;
         }
-
         .border-container{
             border:1px solid #B8DDDB;
             padding:15px
@@ -245,16 +242,13 @@
             border: 2px solid rgb(184 221 219);
             padding: 15px 20px;
         }
-
         input[type="checkbox"] {
             width: 15px;
             height: 15px !important;
         }
-
         input[type="checkbox"] + label{
             margin-bottom: -10px;
         }
-
         .section-heading{
             padding-left:5px;
             padding-right:5px;
@@ -264,17 +258,10 @@
             text-align: center;
             margin-left:-20px
         }
-
         .checkboxissue{
             margin-top:-7px;
             padding-top: -7px;
         }
-
-
-
-
-
-
     </style>
 </head>
 
