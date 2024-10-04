@@ -33,10 +33,6 @@
         .text-sm{
             font-size:10px
         }
-        .text-gray{
-            color:black;
-            opacity:0.6
-        }
         input{
             padding:0;
             font-size:10px
@@ -57,7 +53,7 @@
         th,
         td {
             border: 1px solid black;
-            padding: 3.3px;
+            padding: 3px;
         }
         .content {
             display: flex;
@@ -128,6 +124,14 @@
         .font-italic{
             font-family:'times new roman italic'
         }
+        ol li{
+            text-align:justify;
+        }
+        textarea{
+            font-family:'times new roman';
+            font-size:10px;
+            padding-left:10px
+        }
     </style>
 </head>
 <body>
@@ -141,7 +145,7 @@
                 height="60" width="60">
             </div>
             <div style='display:table-cell;width:90%'>
-                <span class='text-left pt-16 font-bold text-center text-gray' style='vertical-align:bottom; margin-left:-12px;padding-left:-12px'>
+                <span class='text-left pt-16 font-bold text-center ' style='vertical-align:bottom; margin-left:-12px;padding-left:-12px'>
                     <span class='' style="font-size:14px;" >
                         AUTHORIZATION FOR RELEASE OF HEALTH INFORMATION PURSUANT TO HIPAA
                     </span>
@@ -149,34 +153,33 @@
                         [This form has been approved by the New York State Department of Health]
                     </p>
                 </span>
-                <span class='text-right font-bold text-gray' style='padding-top:6px;font-size:12px'>OCA Official Form No.: 960</span>
+                <span class='text-right font-bold ' style='padding-top:6px;font-size:12px'>OCA Official Form No.: 960</span>
                 </div>
         </div>
         <table style="padding: 0;margin: 0;" class='mt-20'>
             <tr>
-                <td>
+                <td style='padding-top:0 !important'>
                     <label>Patient Name</label>
                     <input type="text" name="hippa_name" class="border-none" value="{{$hippa_name}}" style="width: 90%;">
                 </td>
-                <td>
+                <td style='padding-top:0 !important'>
                     <label for="Date of Birth">Date of Birth</label>
                     <input type="text" name="hippa_dob" class="border-none" value="{{$hippa_dob}}" style="width: 90%;">
                 </td>
-                <td>
+                <td style='padding-top:0 !important'>
                     <label for="SSN Number">Social Security Number</label>
                     <input type="text" class="border-none" name="hippa_ssn" value="{{$hippa_ssn}}" style="width: 90%;">
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="3" style='padding-top:0 !important'>
                     <label for="Address">Patient Address</label><br>
                     <input type="text" name="hippa_address" class="border-none" style="width: 100%;"
                            value="{{$hippa_address}}">
                 </td>
             </tr>
         </table>
-
-        <p style="font-size: 11px;margin-top: 1px;padding-bottom: 0;margin-bottom: 3px">I, or my authorized representative, request that health information regarding my
+        <p style="font-size: 11px;margin-top: 4px;padding-bottom: 0;margin-bottom: 0px">I, or my authorized representative, request that health information regarding my
             care and treatment be
             released
             as set forth on this form:</p>
@@ -223,8 +226,9 @@
                 in Item 2), and this redisclosure may no longer be protected by federal or state law.
             </li>
         </ol>
+        6.
             <span style="font-size: 11px;margin:0;" class='font-bold'>
-                6. THIS AUTHORIZATION DOES NOT AUTHORIZE YOU TO DISCUSS MY HEALTH INFORMATION OR MEDICAL
+                 THIS AUTHORIZATION DOES NOT AUTHORIZE YOU TO DISCUSS MY HEALTH INFORMATION OR MEDICAL
                 CARE WITH ANYONE OTHER THAN THE ATTORNEY OR GOVERNMENTAL AGENCY SPECIFIED IN ITEM 9 (b).
             </span>
         <table style="width: 100%; table-layout: fixed; border-collapse: collapse;font-size: 10px;padding: 0;margin: 0;">
@@ -234,7 +238,7 @@
                         7. Name and address of health provider or entity to release this
                         information:
                     </label>
-                    <textarea type="text" name="health_provider" rows="2" class="border-none"
+                    <textarea type="text" name="health_provider" rows="2" class="border-none" style='font-family:times new roman'
                               style="width: 90%;height:10px">{{$health_provider}}</textarea>
                 </td>
             </tr>
@@ -328,7 +332,7 @@
                                  >
                             </p>
                             <p style="margin-top: 1px;padding: 0">
-                               <span class='font-bold text-gray' style='font-size:13px'>Authorization to Discuss Health Information</span>
+                               <span class='font-bold ' style='font-size:13px'>Authorization to Discuss Health Information</span>
                             </p>
                         </div>
                         <div style="display: table-cell; padding: 0; margin: 0;">
@@ -345,10 +349,8 @@
                                     {{isset($alcoholDrug) && $alcoholDrug == 'alcoholDrug' ? 'checked' : '' }}
                                     >
                                     <label
-                                    for="alcoholDrug">
-                                    <span class='font-bold text-gray'>
+                                    for="alcoholDrug" class='font-bold '>
                                         Alcohol/Drug Treatment
-                                    </span>
                                   </label>
                                 </li>
                                 <li>
@@ -360,7 +362,7 @@
                                     {{isset($mentalHealth) && $mentalHealth == 'mentalHealth' ? 'checked' : '' }}
                                     >
                                     <label
-                                        for="mentalHealth" class='font-bold text-gray'>
+                                        for="mentalHealth" class='font-bold '>
                                         Mental Health Information
                                     </label>
                                 </li>
@@ -374,7 +376,7 @@
                                     >
                                     <label
                                         for="hivRelated"
-                                        class='font-bold text-gray'
+                                        class='font-bold '
                                         >
                                         HIV-Related Information
                                     </label>
@@ -383,7 +385,7 @@
                         </div>
                     </div>
                     <div style="display: table; white-space: nowrap;width: 100%">
-                        <div style='display:table-cell;padding-left:7px'>
+                        <div style='display:table-cell;padding-left:7px;width:40%'>
                             <span>
                                 (b)
                             </span>
@@ -395,39 +397,38 @@
                             value="discuss"
                             {{isset($discuss) && $discuss == 'discuss' ? 'checked' : '' }}
                             >
+                            <span>
+                                By initialing here
+                            </span>
+                            <input
+                            type="text" 
+                            name="authorised_person" 
+                            placeholder="initials" 
+                            class="no-border" 
+                            value="{{$authorised_person}}"
+                            style='vertical-align:bottom'
+                            >
+                            <span class='pl-5 align-bottom pt-20'>
+                                I authorize 
+                            </span>
+                            <input
+                            type="text"
+                            name="authorize"
+                            class="no-border" 
+                            value="{{$authorize}}" 
+                            placeholder="Name of individual health care provider"
+                            style='width:49%;vertical-align:bottom'
+                            >
                         </div>
-                        <span>
-                            By initialing here
-                        </span>
-                        <input
-                        type="text" 
-                        name="authorised_person" 
-                        placeholder="initials" 
-                        class="no-border" 
-                        value="{{$authorised_person}}" style="display: table-cell;width: 20%"
-                        >
-                        <span class='pl-5 align-bottom pt-20'>
-                            I authorize 
-                        </span>
-                        <input
-                        type="text"
-                        name="authorize"
-                        class="no-border" 
-                        value="{{$authorize}}" 
-                        placeholder="Name of individual health care provider"
-                        style="display: table-cell; width: 60%;"
-                        >
                         </div>
-                        <div>
-                            <span class="text-sm" style="margin-left:150px">Initials</span>
-                            <span class="text-sm" style="margin-left:210px">Name of individual health care provider</span>
-                        </div>
+                            <span class="text-sm" style="margin-left:150px;margin-top:0px">Initials</span>
+                            <span class="text-sm" style="margin-left:210px;margin-top:0px">Name of individual health care provider</span>
                     <div style="max-width: 100%; text-align: start;">
                         <div style='padding-left:27px'>
                             to discuss my health information with my attorney, or a governmental agency, listed here:
                         </div>
                         <div style="text-align: center;">
-                            <input type='text' class='border-bottom border-none' style='width:100%;padding-top:7px'/>
+                            <input type='text' class='border-bottom border-none' style='width:92%;padding-top:7px'/>
                         </div>
                     </div>
                     <p style="margin: 0;text-align: center;">
@@ -459,7 +460,7 @@
                         </span>
                     </div>
                 </td>
-                <td style="padding-left: 20px; margin: 0;">
+                <td style="padding-left: 7px; margin: 0;">
                     <p style="margin: 0;vertical-align:top">
                         11. Date or event on which this authorization will expire:
                     </p>
@@ -473,7 +474,7 @@
                     </p>
                     <input type="text" name="person_signing" class="border-none" value="{{$person_signing}}" style="width: 100%;padding-left:14px">
                 </td>
-                <td style="padding-left: 20px; margin: 0;padding-bottom:0">
+                <td style="padding-left: 7px; margin: 0;padding-bottom:0">
                     <p style='margin:0;'>
                         13. Authority to sign on behalf of the patient:
                     </p>
