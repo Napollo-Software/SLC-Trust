@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ config('app.professional_name') }} | Account Deactivated</title>
+    <title>{{ config('app.professional_name') }} | Documents</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <style type="text/css">
         @media screen {
-            @font-face {
+            @font-face {a
                 font-family: 'Lato';
                 font-style: normal;
                 font-weight: 400;
@@ -98,16 +98,11 @@
             margin: 0 !important;
         }
 
-        .cta-button:hover {
-            background-color: #1faaa7;
-        }
-
     </style>
 </head>
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <!-- LOGO -->
         <tr>
             <td bgcolor="#559e99" align="center">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
@@ -147,30 +142,16 @@
                         <td bgcolor="#ffffff" align="center" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                             @if(!empty($urls) && is_array($urls))
                             @foreach($urls as $url)
-                            <a href="{{ $url }}" target="_blank" class="cta-button" style="background-color: #559e99;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-            font-family: 'Lato', Helvetica, Arial, sans-serif;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-align: center;
-            word-wrap: break-word;
-            width: 150px;">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</a><br><br>
+                            <a href="{{ $url }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column">
+                                <img style="width: 50px; height: 50px;" src="{{ url('img/form_icon.png') }}" alt="document">
+                                <p style="display: flex; align-items: center; justify-content: center !important;color:black;font-size:14px">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</p>
+                            </a>
                             @endforeach
                             @elseif(!empty($urls))
-                            <a href="{{ url($urls) }}" target="_blank" style="background-color: #559e99;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-            font-family: 'Lato', Helvetica, Arial, sans-serif;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-align: center;
-            word-wrap: break-word;
-            width: 150px;" class="cta-button">Click here</a><br><br>
+                             <a href="{{ url($urls) }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column">
+                                <img style="width: 50px; height: 50px;" src="{{ url('img/form_icon.png') }}" alt="document">
+                                <p style="display: flex; align-items: center; justify-content: center !important;color:black;font-size:14px">Click here</p>
+                            </a>
                             @endif
                         </td>
                     </tr>

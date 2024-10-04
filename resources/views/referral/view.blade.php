@@ -556,6 +556,13 @@ return $colors[$randomIndex];
                     <div style="margin:20px">
                         <form id="bank-info-form" method="post">
                             @csrf
+
+                            <div  class="d-flex  align-items-center">
+                                <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
+                                    <label>Mark As Complete</label>
+                            </div>
+                            <hr>
+
                             <!-- <div class="row">
                                 <div style="padding-left: 15px">
                                     <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
@@ -2144,19 +2151,14 @@ return $colors[$randomIndex];
                 <div class="modal-header">
                     <input type="hidden" name="referral_id" value="{{ $referral->id }}">
                     <h4 class="modal-title" id="addNoteModalLabel">Upload Documents (Multiple Allowed)</h4>
-
                 </div>
                 <div class="modal-body">
-                    <!-- Your file input field for multiple document uploads -->
-
                     <input type="file" name="uploadedfile[]" multiple class="form-control">
                     <div id="errorMessagesfor"></div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark closemodalmultiple">Cancel</button>
-                    <button type="submit" class="btn btn-primary custom-hover">Upload & Send Email</button>
-
+                    <button type="submit" id="upload_send_email" class="btn btn-primary custom-hover">Upload & Send Email</button>
                 </div>
             </form>
         </div>
@@ -2422,9 +2424,11 @@ enctype="multipart/form-data">
         });
 
         // Handle the form submission
-        $('#fileDocumenentMultiple').on('submit', function(e) {
+        $(document).on('submit', "#fileDocumenentMultiple",function(e) {
             e.preventDefault();
             let formdata = new FormData(this);
+
+            $("#upload_send_email").attr('disabled', true).text('Processing...');
 
             $.ajax({
                 url: "{{ route('upload.multiple.documents') }}",
@@ -2438,8 +2442,10 @@ enctype="multipart/form-data">
                     swal.fire('Success', response.message, 'success');
                     $('#uploadMoredocument').modal('hide');
                     $('#fileDocumenentMultiple')[0].reset();
+                    $("#upload_send_email").attr('disabled', false).text('Upload & Send Email');
                 },
                 error: function(response) {
+                   $("#upload_send_email").attr('disabled', false).text('Upload & Send Email');
                     if (response.status === 422) {
                         swal.fire('Failed', 'Only PDF Files Allowed.', 'error');
 
@@ -2483,7 +2489,6 @@ enctype="multipart/form-data">
                 $(".document-" + docId).html($button);
                 $("#uploadModal").modal("hide");
                 $("#uploadModal").find("input").val("");
-                console.log(response.id);
                 $('.changeStatus' + response.id).removeClass('bg-dark');
                 $('.changeStatus' + response.id).removeClass('bg-warning');
                 $('.changeStatus' + response.id).removeClass('bg-danger');

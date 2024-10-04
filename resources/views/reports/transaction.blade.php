@@ -4,7 +4,7 @@
 @php
 
 use App\Models\User;
-$loginUser = App\Models\User::where('id', '=', Session::get('loginId'));
+$loginUser = App\Models\User::where('id', '=', Session::get('loginId'))->first();
 $role = $loginUser->role;
 $name = $loginUser->name;
 $last_name = $loginUser->last_name;
@@ -72,7 +72,7 @@ $sum_processed_amount = DB::table('claims')->where('claim_status', 'processed')-
 <div class="">
     <h5 class=" d-flex justify-content-between pt-3 pb-2">
         <b></b>
-        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Vendors</b> </div>
+        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Transactions</b> </div>
     </h5>
     <div class="row">
         <div class="col-lg-12 mb-12">
@@ -125,8 +125,8 @@ $sum_processed_amount = DB::table('claims')->where('claim_status', 'processed')-
                 </div>
                 <div class="card-body overflow-auto pt-1">
                     {{-- <h4 style="text-align: center">
-                        <button class="btn {{ $type == 'operational' ? 'btn-secondary' : 'btn-outline-secondary' }}  preview m-1" onclick="window.location='{{ route('transaction.report', ['operational']) }}'"><i class="menu-icon tf-icons bx bx-copy"></i> Operational Transactions</button>
-                        <button type="submit" class="btn  {{ $type == 'trusted_surplus' ? 'btn-secondary' : 'btn-outline-secondary' }} preview m-1" onclick="window.location='{{ route('transaction.report', ['trusted_surplus']) }}'"><i class="menu-icon tf-icons bx bx-copy-alt"></i> Trusted Surplus Transactions</button>
+                        <button class="btn {{ $type == 'operational' ? 'btn-secondary' : 'btn-outline-secondary' }} preview m-1" onclick="window.location='{{ route('transaction.report', ['operational']) }}'"><i class="menu-icon tf-icons bx bx-copy"></i> Operational Transactions</button>
+                    <button type="submit" class="btn  {{ $type == 'trusted_surplus' ? 'btn-secondary' : 'btn-outline-secondary' }} preview m-1" onclick="window.location='{{ route('transaction.report', ['trusted_surplus']) }}'"><i class="menu-icon tf-icons bx bx-copy-alt"></i> Trusted Surplus Transactions</button>
                     </h4> --}}
                     <table class="table align-middle mb-0 table-hover dataTable">
                         <thead class="table-light">
@@ -140,52 +140,48 @@ $sum_processed_amount = DB::table('claims')->where('claim_status', 'processed')-
                             </tr>
                         </thead>
                         <tbody>
-                                            @foreach ($transactions as $data)
-                                                <tr>
-                                                    <td>{{ $data->reference_id }}</td>
-                                                    <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
-                                                    <td>
-                                                        @if ($data->user_id == \Company::Account_id && in_array($data->type, [Transaction::MaintenanceFee, Transaction::EnrollmentFee, Transaction::RenewalFee]))
-                                                            {{ \Company::Account_name_income }}
-                                                        @elseif ($data->user_id == \Company::Account_id)
-                                                            {{ \Company::Account_name }}
-                                                        @else
-                                                            {{ $data->user->name }}
-                                                        @endif
-                                                    </td>
+                            @foreach ($transactions as $data)
+                            <tr>
+                                <td>{{ $data->reference_id }}</td>
+                                <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
+                                <td>
+                                    @if ($data->user_id == \Company::Account_id && in_array($data->type, [\App\Models\Transaction::MaintenanceFee, \App\Models\Transaction::EnrollmentFee, \App\Models\Transaction::RenewalFee]))
+                                    {{ \Company::Account_name_income }}
+                                    @elseif ($data->user_id == \Company::Account_id)
+                                    {{ \Company::Account_name }}
+                                    @else
+                                    {{ $data->user->name }}
+                                    @endif
+                                </td>
 
-                                                    @if ($data->bill_id)
-                                                        <td style="width:50%"><a
-                                                                href="{{ route('claims.show', $data->bill_id ?? '#') }}">
-                                                                {{ $data->description }} </a></td>
-                                                    @else
-                                                        <td style="width:50%"> <a
-                                                                href="{{ url('show_user/' . $data->user_id) }}"
-                                                                class="text-black"
-                                                                title="This link will redirect you to customer's profile.">{{ $data->description }}
-                                                            </a></td>
-                                                    @endif
-                                                    <td style="text-align:left !important;">
-                                                        <span class="badge {{ $data->credit > 0 ? 'badge-success' : 'badge-danger' }}">
-                                                            @if ($data->credit > 0 )
-                                                                Credit
-                                                            @elseif ($data->debit > 0 )
-                                                                Debit
-                                                            @endif
-                                                        </span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        @if ($data->credit > 0 )
-                                                        ${{ number_format((float) $data->credit, 2, '.', ',') }}
-                                                            @elseif ($data->debit > 0 )
-                                                            ${{ number_format((float) $data->debit, 2, '.', ',') }}
-                                                            @else
-                                                                $0.00
-                                                            @endif
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
+                                @if ($data->bill_id)
+                                <td style="width:50%"><a href="{{ route('claims.show', $data->bill_id ?? '#') }}">
+                                        {{ $data->description }} </a></td>
+                                @else
+                                <td style="width:50%"> <a href="{{ url('show_user/' . $data->user_id) }}" class="text-black" title="This link will redirect you to customer's profile.">{{ $data->description }}
+                                    </a></td>
+                                @endif
+                                <td style="text-align:left !important;">
+                                    <span class="badge {{ $data->credit > 0 ? 'badge-success' : 'badge-danger' }}">
+                                        @if ($data->credit > 0 )
+                                        Credit
+                                        @elseif ($data->debit > 0 )
+                                        Debit
+                                        @endif
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    @if ($data->credit > 0 )
+                                    ${{ number_format((float) $data->credit, 2, '.', ',') }}
+                                    @elseif ($data->debit > 0 )
+                                    ${{ number_format((float) $data->debit, 2, '.', ',') }}
+                                    @else
+                                    $0.00
+                                    @endif
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -265,5 +261,3 @@ $sum_processed_amount = DB::table('claims')->where('claim_status', 'processed')-
     });
 });
 </script>
-
-
