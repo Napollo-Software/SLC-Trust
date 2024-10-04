@@ -7,5 +7,14 @@
     },
     "times new roman italic": {
         "normal": "times_new_roman_italic_normal_586a3ba9526edf6111343dbb0e20bc4d"
+    },
+    "tklcce-info-normal": {
+        "normal": "tklcce_info_normal_normal_1dab10edea848649561b76cbf3d38c5b"
+    },
+    "tklcce-info-semibold": {
+        "normal": "tklcce_info_semibold_normal_8bd7ffbc17fdcbc984f873f6f32b89b4"
+    },
+    "info-bold": {
+        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
     }
 }

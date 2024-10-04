@@ -134,6 +134,7 @@
         .container_basic {
             width: 92% !important; /* Ensures the width is applied even if other rules exist */
             margin: 0 auto; /* Centers the container */
+            margin-bottom:50px !important;
         }
 
         .nav-alignment{

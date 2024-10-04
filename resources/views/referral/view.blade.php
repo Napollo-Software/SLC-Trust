@@ -2261,7 +2261,7 @@ enctype="multipart/form-data">
                         <input type="hidden" name="to" value="{{ $referral->id }}">
                         <div class="col-md-12 p-2">
                             <label for="form-label">Note</label>
-                            <textarea type="text" name="note" maxlength="40"placeholder="Type note here" class="form-control address" required></textarea>
+                            <textarea type="text" name="note" maxlength="255" placeholder="Type note here" class="form-control address" required></textarea>
                         </div>
                         {{-- <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">Date</label>
