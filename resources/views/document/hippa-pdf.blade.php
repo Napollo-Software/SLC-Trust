@@ -482,12 +482,12 @@
                 </td>
             </tr>
         </table>
-        <p  style="padding: 0; margin: 0;">
+        <p  style="padding: 0; margin: 0;padding-left:8px">
             All items on this form have been completed and my questions about this form have been answered.
             In addition,
             I have been provided a copy of the form.
         </p>
-        <div style='display:table;width:100%'>
+        <div style='display:table;width:100%;margin-left:8px'>
                 <div style="display:table-cell;width:45%;">
                     @if($hippa_sign)
                         <img src="{{ $hippa_sign }}" alt="Signature 1" width="230" height="60">
@@ -508,10 +508,10 @@
                     name="sign_date"
                     value="{{$sign_date}}"
                     value="{{date('m/d/Y',strtotime($sign_date))}}"
-                    style="width: 70%;">
+                    style="width: 60%;">
                 </div>
             </div>
-        <div style="max-width: 100%;padding-top: 6px;margin: 0;font-size: 11px" class='font-bold'>
+        <div style="max-width: 100%;padding-top: 6px;margin: 0;font-size: 11px;padding-left:7px" class='font-bold'>
             * Human Immunodeficiency Virus that causes AIDS. The New York State Public Health Law protects information
             which
             reasonably could
