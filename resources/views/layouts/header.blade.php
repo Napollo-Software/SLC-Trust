@@ -9,10 +9,7 @@
             <div class="mobile-toggle-menu d-block d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"><i class="bx bx-menu"></i></div>
             <div class="search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
                 <form action="{{ route('claim.search.user') }}" class="mt-3">
-                <input type="search" name="search"
-                class="form-control search-bar-padding"
-                placeholder="Search your bills here" aria-label="Search..."
-                value=""/>
+                    <input type="search" name="search" class="form-control search-bar-padding" placeholder="Search your bills here" aria-label="Search..." value="" />
                 </form>
             </div>
             <div class="top-menu ms-auto">
@@ -23,7 +20,7 @@
                     </li>
                     {{-- <li class="nav-item dropdown dropdown-laungauge d-none d-sm-flex">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding" href="avascript:;"><img src="{{ asset('assets/new_theme/images/02.png')}}" width="22" alt="">
-                        </a>
+                    </a>
                     </li> --}}
                     {{-- <li class="nav-item dark-mode d-none d-sm-flex">
                         <a class="nav-link dark-mode-icon" href="javascript:;"><i class="bx bx-moon"></i>
@@ -71,11 +68,13 @@
                                     <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
                                 </div>
                             </div>
+                            @if(!empty($notifications) && count($notifications))
                             <a href="{{ route('notifications') }}">
                                 <div class="text-center msg-footer">
                                     <button class="btn btn-primary w-100">View All Notifications</button>
                                 </div>
                             </a>
+                            @endif
                         </div>
                     </li>
                     @if ($user->hasPermissionTo('Front Office'))
@@ -92,7 +91,7 @@
                                 </div>
                             </a>
                             <div class="header-message-list">
-                            @foreach ($messages as $message )
+                                @foreach ($messages as $message )
 
                                 <a class="dropdown-item" href="javascript:;">
                                     <div class="d-flex align-items-center">
@@ -102,14 +101,14 @@
 
                                         <div class="flex-grow-1">
                                             <h6 class="msg-name">{{ $message->messageToName->first_name }} <span class="msg-time float-end">
-                                            {{ $message->created_at->format('H:i:A') }}
-                                            </span></h6>
+                                                    {{ $message->created_at->format('H:i:A') }}
+                                                </span></h6>
                                             <p class="msg-info">{{ $message->message }}</p>
                                         </div>
                                     </div>
 
                                 </a>
-                            @endforeach
+                                @endforeach
 
                             </div>
                             <a href="{{ route('sms.index') }}">
