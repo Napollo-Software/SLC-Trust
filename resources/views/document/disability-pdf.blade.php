@@ -212,7 +212,7 @@
     <div style="display: table;width: 100%;padding:0;margin: 0;">
         <div style="display: table-row; width: 100%;vertical-align: center;margin-top:10px">
             <p style="display: table-cell; width: 50%;" class="sm semiBold" ></p>
-            <p style="display: table-cell; width: 50%;text-align: left;padding-bottom:5px;margin-bottom: 5px;margin-top:5px;padding-top:5px" class="sm" >COMPLETED BY THE STATE
+            <p style="display: table-cell; width: 50%;text-align: left;padding-bottom:5px;margin-bottom: 5px;margin-top:12px;padding-top:12px" class="sm" >COMPLETED BY THE STATE
                 DISABILITY REVIEW
                 UNIT:</p>
         </div>
@@ -251,17 +251,17 @@
 
                 <div style="display: table; width: 100%;padding-top:7px">
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
-                      SSN Number (last 4 digits):
+                    Social Security Number (last 4 digits):
                     </p>
                     <input type="text" value="{{$ssn_last_4}}" class="border-btm" name="ssn_last_4"
-                        style="display: table-cell; vertical-align: bottom; width: 83%;">
+                        style="display: table-cell; vertical-align: bottom; width: 77%;">
                 </div>
 
                 <div style="display: table; width: 100%;padding-top:7px">
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
                      Date Of Birth:
                     </p>
-                    <input type="text" value="{{$date_of_birth}}" class="border-btm" name="date_of_birth"
+                    <input type="text" value="{{date('m/d/Y',strtotime($date_of_birth))}}"   class="border-btm" name="date_of_birth"
                         style="display: table-cell; vertical-align: bottom; width: 88%;">
                 </div>
 
@@ -287,23 +287,23 @@
                 </div>
                 <div style="display: table; width: 100%;padding-top:9px">
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
-                    Client ID Number:
+                     Client ID Number (CIN): 
                     </p>
                     <input type="text" value="{{$client_id_number}}" class="border-btm" name="client_id_number"
-                        style="display: table-cell; vertical-align: bottom; width: 88%; ">
+                        style="display: table-cell; vertical-align: bottom; width: 86%; ">
                 </div>
                 <div style="display: table; width: 100%;padding-top:9px">
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
-                    Disability ID Number:
+                    Disability ID Number (DIN):
                     </p>
                     <input type="text" value="{{$disability_id_number}}" class="border-btm" name="disability_id_number"
-                        style="display: table-cell; vertical-align: bottom; width: 87%; ">
+                        style="display: table-cell; vertical-align: bottom; width: 85%; ">
                 </div>
                 <div style="display: table; width: 100%;padding-top:9px">
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
                     Medicaid Application date:
                     </p>
-                    <input type="text" value="{{$medicaid_application}}" class="border-btm" name="medicaid_application"
+                    <input type="text" value="{{date('m/d/Y',strtotime($medicaid_application))}}"  class="border-btm" name="medicaid_application"
                         style="display: table-cell; vertical-align: bottom; width: 87%; ">
                 </div>
                 <div style="display: table; width: 100%;padding-top:9px">
@@ -353,12 +353,11 @@
     <div style="display: table; width: 100%;padding-top:7px ">
         <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px;">
             If “Yes”, when? (month/year)</p>
-        <input type="text" value="{{$ssa_application_date}}" class="border-btm" name="ssa_application_date"
+        <input type="text"  value="{{date('m/Y',strtotime($ssa_application_date))}}"  class="border-btm" name="ssa_application_date"
                style="display: table-cell; vertical-align: bottom;width:85%">
         <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-left: 10px; padding-right: 10px;">
             SSA decision date: (month/year)</p>
-        <input type="text" class="border-btm" name="ssa_decision_date" value="{{$ssa_decision_date}}"
-               style="display: table-cell; vertical-align: bottom;">
+        <input type="text" class="border-btm" id="ssa_decision_date" name="ssa_decision_date"  value="{{date('m/Y',strtotime($ssa_decision_date))}}" style="display: table-cell; vertical-align: bottom;">
     </div>
 
     <div style="display: table; width: 100%;padding-top:7px">
@@ -397,8 +396,7 @@
         <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-left: 10px; padding-right: 10px; margin: 0;">
             If “Yes”, when? (month/year)
         </p>
-        <input type="text" name="appeal_date" class="border-btm" value="{{$appeal_date}}"
-               style="display: table-cell; vertical-align: bottom;width:135%">
+        <input type="text" name="appeal_date" class="border-btm" value="{{date('m/Y',strtotime($appeal_date))}}"  style="display: table-cell; vertical-align: bottom;width:135%">
     </div>
     <br>
 
@@ -420,7 +418,10 @@
             <td style="padding-left:9px">
                 <p class="sm mt-0" >
                     B. How do your medical conditions affect your ability to function? (Please include any limitations
-                    in your ability to perform activities of daily living and work-related activities.)
+                    in your ability to perform activities of daily 
+                    <br/>
+                    <span style="margin-left:6px;padding-left:6px"> living and work-related activities.)</span>
+                  
                 </p>
                 <textarea class="noborder" style="width: 100%; height: 132px;"
                           name="medical_condition_impact">{{$medical_condition_impact}}</textarea>
@@ -471,16 +472,19 @@
                            {{isset($primary_care_provider_no) && $primary_care_provider_no == 'no' ? 'checked':''}} style="vertical-align: bottom; margin-left:6px"> &nbsp;
                     No
                 </p>
-                <p class="sm italic" style="margin-left:10px;padding-left:10px; margin-top:-3px">(If “Yes”, please provide name, address, phone number.)</p>
+                <p class="sm italic" style="margin-left:6px;padding-left:6px; margin-top:-3px">(If “Yes”, please provide name, address, phone number.)</p>
                 <textarea
                     style="  border-bottom: 1px solid black;border-top: none;border-left: none;border-right: none; height: 65px;width:100%">{{$care_provider_text}}</textarea>
             </td>
         </tr>
-        <tr style="height: 35px !important;padding:0 !important;" class="sm">
-            <td style="height: 35px !important;padding:0 !important;" colspan="3">
-                <p style="padding-left:5px;margin: 0;" class="sm">Date of last visit (month/year):
-                    <input  style="width:450px; border-bottom: 1px solid black;" value="{{$primary_care_provider_details}}"   name="primary_care_provider_details" />
-                </p>
+        <tr>
+            <td colspan="3">
+
+                <div class="form-group">
+                    <label for="schooling" class="sm"  style="vertical-align: middle;"><span class="sm" style="vertical-align: middle"> Date of last visit (month/year):</span></label>
+                    <input type="text" value="{{date('m/Y',strtotime($primary_care_provider_details))}}"  name="primary_care_provider_details" class="border-btm"
+                           style="width: 450px;">
+                </div>
             </td>
         </tr>
         <tr style="height: 15px !important;padding:2px !important;" class="sm">
@@ -773,27 +777,29 @@ case management agencies, etc.).
 
     </table>
     <hr>
-    <p style="font-size: 10px;">DOH-5139 06/24 Page 2 of 5 </p>
+    <p style="font-size: 10px;">DOH-5139 06/24 Page 2 of 5</p>
 
     <table>
         <tr style="padding:3px !important">
             <td colspan="3" style="padding:3px !important;">
                 <p class="lg semiBold" style="text-align: center;padding:0 !important; margin:0 !important">PART III – INFORMATION ABOUT YOUR EDUCATION AND LITERACY
                 </b>
-                <p class="sm" style="margin:7px 3px !important; margin-bottom:21px !important">If a disability determination cannot be made based on your medical conditions
+                <p class="sm italic" style="margin:7px 3px !important; margin-bottom:21px !important; margin-top:-1px !important">If a disability determination cannot be made based on your medical conditions
                     alone, the factors
-                    of education, literacy,
-                    and work history will be used to determine disability</p>
+                    of education, literacy, and work
+                    <br/>
+                    <span >history will be used to determine disability.</span>
+                    </p>
             </td>
         </tr>
         <tr>
             <td colspan="3">
 
                 <div class="form-group">
-                    <label for="schooling" class="sm semiBold" style="margin: 0;">A. <span class="sm semiBold"> What is the highest grade level of schooling that you
+                    <label for="schooling" class="sm"  style="vertical-align: middle;">A. <span class="sm semiBold" style="vertical-align: middle"> What is the highest grade level of schooling that you
                         have completed?</span></label>
                     <input type="text" id="schooling" value="{{$schooling}}" name="schooling" class="border-btm"
-                           style="width: 40%;">
+                           style="width: 43.5%;">
                 </div>
             </td>
         </tr>
@@ -804,14 +810,14 @@ case management agencies, etc.).
                     program, please
                     provide the school or program’s name and address.
                 </p>
-                <p class="sm" style="margin-left:5%;margin-top:-2px" >School/Program Name: <input type="text" value="{{$school_name}}"
+                <p class="sm" style="margin-left:5%;margin-top:-2px" ><span class="sm" style="vertical-align: middle;">School/Program Name:</span>  <input type="text" value="{{$school_name}}"
                                                name="school_name"
-                                               style="width:74%"
+                                               style="width:77.1%"
                                                class="border-btm"></p>
-                <p class="sm "style="margin-left:5%" >Address: <input type="text" value="{{$school_address}}" name="school_address"
-                                   class="border-btm" style="width:84%"></p>
+                <p class="sm "style="margin-left:5%" ><span class="sm" style="vertical-align: middle;">Address:</span>  <input type="text" value="{{$school_address}}" name="school_address"
+                                   class="border-btm" style="width:88%"></p>
                 <p class="sm "style="margin-left:5%" > <input type="text" 
-                                   class="border-btm" style="width:84%; margin-left:49px"></p>
+                                   class="border-btm" style="width:88%; margin-left:45px"></p>
                 <p class="sm  italic" style="margin-bottom:6px !important">Please complete the DOH-5173, Authorization for Release of Medical
                     Information Pursuant to HIPAA
                     form for this school/program.
@@ -923,7 +929,7 @@ case management agencies, etc.).
         </tr>
     </table>
     <hr>
-    <p style="font-size: 10px;">DOH-5139 01/21  Page 3 of 5</p>
+    <p style="font-size: 10px;">DOH-5139 06/24 Page 3 of 5</p>
 
     <br>
     <br>
@@ -932,14 +938,14 @@ case management agencies, etc.).
         <tr style="">
             <td style="border:none !important;">
                 <p style="text-align: center; margin-top:3px !important;margin-bottom:0px !important" class="lg semiBold ">
-                    PART IV – INFORMATION ABOUT WORK YOU DID IN THE PAST 15 YEARS
+                    PART IV – INFORMATION ABOUT WORK YOU DID IN THE PAST 5 YEARS
                 </p>
             </td>
         </tr>
         <tr style="">
             <td style="border:none !important" class="sm">
                 <p style="margin-top:5px;margin-bottom:12px" class="sm">
-                    <span class="semiBold"> Have you worked in the past 15 years? </span> &nbsp;&nbsp;
+                    <span class="semiBold"> Have you worked in the past 5 years? </span> &nbsp;&nbsp;
                 <input type="checkbox" name="worked_fifteen_yes" style=""
                        {{isset($worked_fifteen_yes) && $worked_fifteen_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom;">
                        &nbsp; Yes
@@ -950,9 +956,10 @@ case management agencies, etc.).
 
                 <p style="padding: 0; margin: 0;" class="sm italic">
                     If YES, in as much detail as possible, please list jobs (up to 5) that you
-                    performed IN THE PAST 15
-                    YEARS, starting with your
-                    most recent job.
+                    performed IN THE PAST 5
+                    YEARS, starting with your most
+                    <br/>
+                    <span style="margin-top:-5px;padding-top:-5px">recent job.</span>
                 </p>
             </td>
         </tr>
@@ -963,29 +970,29 @@ case management agencies, etc.).
         <tr style=" margin: 0;padding:0;background-color: #c7c8ca">
             <th style="" class="th">Dates of Employment:</th>
             <th style="" class="th">Job Title:</th>
-            <th style="" class="th">Type of business:</th>
+            <th style="" class="th">Type of Business:</th>
         </tr>
         <tr style=" margin: 0;padding:0">
             <td style=" margin: 0;padding:3">
                 <p>
-                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_one"
-                                 value="{{$start_employment_date_one}}" >
+                    <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm "  style="width:150px" name="start_employment_date_one"
+                    value="{{date('m/d/Y',strtotime($start_employment_date_one))}}"  >
                 </p>
 
                 <p style=" margin: 0;padding:0">
-                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_one"
-                               value="{{$end_employment_date_one}}">
+                <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" class="border-btm xs" style="width:164px" name="end_employment_date_one"
+                value="{{date('m/d/Y',strtotime($end_employment_date_one))}}" >
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_one}}" name="job_title_one"
-                style=" height:40px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" name="hours_one" style="width:60px"
+                style=" height:34px;width:100%;" class="border-btm xs">
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" style="width:140px" name="hours_one"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
                 <input type="text" value="{{$type_business_one}}" name="type_business_one"
-                       style=" height:40px;width:98%;" class="border-btm" >
+                       style=" height:34px;width:98%;" class="border-btm" >
                 <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_one}}" name="rate_pay_one"
                 class="border-btm xs"> </p>
             </td>
@@ -1007,7 +1014,7 @@ case management agencies, etc.).
 
         <tr style=" margin: 0;padding:0" class="sm">
             <td style=" margin: 0; padding: 0" colspan="3" class="sm">
-                <div style="display: table; width: 85%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
+                <div style="display: table; width: 77%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
                         <span style="display: table-cell; vertical-align: bottom;width:50%  ">
@@ -1015,21 +1022,21 @@ case management agencies, etc.).
                     </span>
 
                         <!-- Stand -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Stand</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-                            <input type="text" value="{{$day_stand}}" style="width:70px" name="day_stand" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom;">Stand</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+                            <input type="text" value="{{$day_stand}}" style="width:70px;text-align:center" name="day_stand" class="border-btm">
                         </span>
 
                         <!-- Walk -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Walk</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-            <input type="text" value="{{$day_walk}}" name="day_walk" style="width:70px" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom;padding-left:6px">Walk</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+            <input type="text" value="{{$day_walk}}" name="day_walk" style="width:70px;text-align:center" class="border-btm">
         </span>
 
                         <!-- Sit -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Sit</span>
+                        <span style="display: table-cell; vertical-align: bottom;padding-left:6px">Sit</span>
                         <span style="display: table-cell; vertical-align: bottom;">
-            <input type="text" value="{{$day_sit}}" name="day_sit" style="width:70px" class="border-btm">
+            <input type="text" value="{{$day_sit}}" name="day_sit" style="width:70px;text-align:center" class="border-btm">
         </span>
                     </div>
                 </div>
@@ -1038,24 +1045,24 @@ case management agencies, etc.).
         </tr>
         <tr style=" margin: 0; padding: 0">
             <td style=" margin: 0; padding: 0" colspan="3">
-                <div style="display: table; width: 80%;margin-left:5px;margin-bottom:3px">
+                <div style="display: table; width: 75%;margin-left:5px;margin-bottom:3px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">
             How much did you frequently lift?
         </span>
 
                         <!-- Lift -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 20px;">
-            <input type="text" value="{{$lift_one}}" name="lift_one" class="border-btm">
+                        <span style="display: table-cell; vertical-align: middle;">
+            <input type="text" value="{{$lift_one}}" name="lift_one" style="width:140px" class="border-btm">
         </span>
 
                         <!-- Pounds Label -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">pounds</span>
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">pounds</span>
 
                         <!-- Pounds Input -->
                         <span style="display: table-cell; vertical-align: middle;">
-            <input type="text" value="{{$lift_pounds_one}}" name="lift_pounds_one" class="noborder sm">
+            <input type="text" value="{{$lift_pounds_one}}" name="lift_pounds_one" style="width:170px" class="noborder sm">
         </span>
                     </div>
                 </div>
@@ -1082,29 +1089,29 @@ case management agencies, etc.).
         <tr style=" margin: 0;padding:0;background-color: #c7c8ca">
             <th style="" class="th">Dates of Employment:</th>
             <th style="" class="th">Job Title:</th>
-            <th style="" class="th">Type of business:</th>
+            <th style="" class="th">Type of Business:</th>
         </tr>
         <tr style=" margin: 0;padding:0">
             <td style=" margin: 0;padding:3">
                 <p>
-                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_two"
-                                 value="{{$start_employment_date_two}}" >
+                    <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm " style="width:150px" name="start_employment_date_two"
+                    value="{{date('m/d/Y',strtotime($start_employment_date_two))}}"  >
                 </p>
 
                 <p style=" margin: 0;padding:0">
-                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_two"
-                               value="{{$end_employment_date_two}}">
+                <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" style="width:168px" class="border-btm xs" style="width:164px" name="end_employment_date_two"
+                value="{{date('m/d/Y',strtotime($end_employment_date_two))}}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_two}}" name="job_title_two"
-                style=" height:40px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_two}}" name="hours_two" style="width:60px"
+                style=" height:34px;width:101%;" class="border-btm xs">
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_two}}" name="hours_two" style="width:140px"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
                 <input type="text" value="{{$type_business_two}}" name="type_business_two"
-                       style=" height:40px;width:98%;" class="border-btm" >
+                       style=" height:34px;width:98%;" class="border-btm" >
                 <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_two}}" name="rate_pay_two"
                 class="border-btm xs"> </p>
             </td>
@@ -1126,7 +1133,7 @@ case management agencies, etc.).
 
         <tr style=" margin: 0;padding:0" class="sm">
             <td style=" margin: 0; padding: 0" colspan="3" class="sm">
-                <div style="display: table; width: 85%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
+                <div style="display: table; width: 77%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
                         <span style="display: table-cell; vertical-align: bottom;width:50%  ">
@@ -1134,21 +1141,21 @@ case management agencies, etc.).
                     </span>
 
                         <!-- Stand -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Stand</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-                            <input type="text" value="{{$day_stand_two}}" style="width:70px" name="day_stand_two" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom;">Stand</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+                            <input type="text" value="{{$day_stand_two}}" style="width:70px;text-align:center" name="day_stand_two" class="border-btm">
                         </span>
 
                         <!-- Walk -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Walk</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-            <input type="text" value="{{$day_walk_two}}" name="day_walk_two" style="width:70px" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom; padding-left:6px">Walk</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+            <input type="text" value="{{$day_walk_two}}" name="day_walk_two" style="width:70px;text-align:center" class="border-btm">
         </span>
 
                         <!-- Sit -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Sit</span>
+                        <span style="display: table-cell; vertical-align: bottom;padding-left:6px">Sit</span>
                         <span style="display: table-cell; vertical-align: bottom;">
-            <input type="text" value="{{$day_sit_two}}" name="day_sit_two" style="width:70px" class="border-btm">
+            <input type="text" value="{{$day_sit_two}}" name="day_sit_two" style="width:70px;text-align:center" class="border-btm">
         </span>
                     </div>
                 </div>
@@ -1157,24 +1164,24 @@ case management agencies, etc.).
         </tr>
         <tr style=" margin: 0; padding: 0">
             <td style=" margin: 0; padding: 0" colspan="3">
-                <div style="display: table; width: 80%;margin-left:5px;margin-bottom:3px">
+                <div style="display: table; width: 75%;margin-left:5px;margin-bottom:3px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">
             How much did you frequently lift?
         </span>
 
                         <!-- Lift -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 20px;">
-            <input type="text" value="{{$lift_two}}" name="lift_two" class="border-btm">
+                        <span style="display: table-cell; vertical-align: middle;">
+            <input type="text" value="{{$lift_two}}" name="lift_two" style="width:140px" class="border-btm">
         </span>
 
                         <!-- Pounds Label -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">pounds</span>
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">pounds</span>
 
                         <!-- Pounds Input -->
                         <span style="display: table-cell; vertical-align: middle;">
-            <input type="text" value="{{$lift_pounds_two}}" name="lift_pounds_two" class="noborder sm">
+            <input type="text" value="{{$lift_pounds_two}}" name="lift_pounds_two" style="width:170px"  class="noborder sm">
         </span>
                     </div>
                 </div>
@@ -1202,29 +1209,29 @@ case management agencies, etc.).
         <tr style=" margin: 0;padding:0;background-color: #c7c8ca">
             <th style="" class="th">Dates of Employment:</th>
             <th style="" class="th">Job Title:</th>
-            <th style="" class="th">Type of business:</th>
+            <th style="" class="th">Type of Business:</th>
         </tr>
         <tr style=" margin: 0;padding:0">
             <td style=" margin: 0;padding:3">
                 <p>
-                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_three"
-                                 value="{{$start_employment_date_three}}" >
+                    <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm " style="width:150px" name="start_employment_date_three"
+                    value="{{date('m/d/Y',strtotime($start_employment_date_three))}}">
                 </p>
 
                 <p style=" margin: 0;padding:0">
-                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_three"
-                               value="{{$end_employment_date_three}}">
+                <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" style="width:168px" class="border-btm xs" style="width:164px" name="end_employment_date_three"
+                value="{{date('m/d/Y',strtotime($end_employment_date_three))}}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_three}}" name="job_title_three"
-                style=" height:40px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" name="hours_one" style="width:60px"
+                style=" height:34px;width:101%;" class="border-btm xs">
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" name="hours_one" style="width:140px"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
                 <input type="text" value="{{$type_business_three}}" name="type_business_three"
-                       style=" height:40px;width:98%;" class="border-btm" >
+                       style=" height:34px;width:98%;" class="border-btm" >
                 <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_three}}" name="rate_pay_three"
                 class="border-btm xs"> </p>
             </td>
@@ -1246,7 +1253,7 @@ case management agencies, etc.).
 
         <tr style=" margin: 0;padding:0" class="sm">
             <td style=" margin: 0; padding: 0" colspan="3" class="sm">
-                <div style="display: table; width: 85%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
+                <div style="display: table; width: 77%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
                         <span style="display: table-cell; vertical-align: bottom;width:50%  ">
@@ -1254,21 +1261,21 @@ case management agencies, etc.).
                     </span>
 
                         <!-- Stand -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Stand</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-                            <input type="text" value="{{$day_stand_three}}" style="width:70px" name="day_stand_three" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom;">Stand</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+                            <input type="text" value="{{$day_stand_three}}" style="width:70px;text-align:center" name="day_stand_three" class="border-btm">
                         </span>
 
                         <!-- Walk -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Walk</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-            <input type="text" value="{{$day_walk_three}}" name="day_walk_three" style="width:70px" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom; padding-left:6px">Walk</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+            <input type="text" value="{{$day_walk_three}}" name="day_walk_three" style="width:70px;text-align:center" class="border-btm">
         </span>
 
                         <!-- Sit -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Sit</span>
+                        <span style="display: table-cell; vertical-align: bottom;padding-left:6px">Sit</span>
                         <span style="display: table-cell; vertical-align: bottom;">
-            <input type="text" value="{{$day_sit_three}}" name="day_sit_three" style="width:70px" class="border-btm">
+            <input type="text" value="{{$day_sit_three}}" name="day_sit_three" style="width:70px;text-align:center" class="border-btm">
         </span>
                     </div>
                 </div>
@@ -1277,24 +1284,24 @@ case management agencies, etc.).
         </tr>
         <tr style=" margin: 0; padding: 0">
             <td style=" margin: 0; padding: 0" colspan="3">
-                <div style="display: table; width: 80%;margin-left:5px;margin-bottom:3px">
+                <div style="display: table; width: 75%;margin-left:5px;margin-bottom:3px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">
             How much did you frequently lift?
         </span>
 
                         <!-- Lift -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 20px;">
-            <input type="text" value="{{$lift_three}}" name="lift_three" class="border-btm">
+                        <span style="display: table-cell; vertical-align: middle;">
+            <input type="text" value="{{$lift_three}}" name="lift_three" style="width:140px" class="border-btm">
         </span>
 
                         <!-- Pounds Label -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">pounds</span>
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">pounds</span>
 
                         <!-- Pounds Input -->
                         <span style="display: table-cell; vertical-align: middle;">
-            <input type="text" value="{{$lift_pounds_three}}" name="lift_pounds_three" class="noborder sm">
+            <input type="text" value="{{$lift_pounds_three}}" name="lift_pounds_three" style="width:170px"  class="noborder sm">
         </span>
                     </div>
                 </div>
@@ -1328,29 +1335,29 @@ case management agencies, etc.).
         <tr style=" margin: 0;padding:0;background-color: #c7c8ca">
             <th style="" class="th">Dates of Employment:</th>
             <th style="" class="th">Job Title:</th>
-            <th style="" class="th">Type of business:</th>
+            <th style="" class="th">Type of Business:</th>
         </tr>
         <tr style=" margin: 0;padding:0">
             <td style=" margin: 0;padding:3">
                 <p>
-                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_four"
-                                 value="{{$start_employment_date_four}}" >
+                    <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm " style="width:150px" name="start_employment_date_four"
+                    value="{{date('m/d/Y',strtotime($start_employment_date_four))}}">
                 </p>
 
                 <p style=" margin: 0;padding:0">
-                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_four"
-                               value="{{$end_employment_date_four}}">
+                <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" style="width:168px" class="border-btm xs" style="width:164px" name="end_employment_date_four"
+                value="{{date('m/d/Y',strtotime($end_employment_date_four))}}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_four}}" name="job_title_four"
-                style=" height:40px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_four}}" name="hours_four" style="width:60px"
+                style=" height:34px;width:101%;" class="border-btm xs">
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_four}}" name="hours_four" style="width:140px"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
                 <input type="text" value="{{$type_business_four}}" name="type_business_four"
-                       style=" height:40px;width:98%;" class="border-btm" >
+                       style=" height:34px;width:98%;" class="border-btm" >
                 <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_four}}" name="rate_pay_four"
                 class="border-btm xs"> </p>
             </td>
@@ -1372,7 +1379,7 @@ case management agencies, etc.).
 
         <tr style=" margin: 0;padding:0" class="sm">
             <td style=" margin: 0; padding: 0" colspan="3" class="sm">
-                <div style="display: table; width: 85%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
+                <div style="display: table; width: 77%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
                         <span style="display: table-cell; vertical-align: bottom;width:50%  ">
@@ -1380,21 +1387,21 @@ case management agencies, etc.).
                     </span>
 
                         <!-- Stand -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Stand</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-                            <input type="text" value="{{$day_stand_four}}" style="width:70px" name="day_stand_four" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom;">Stand</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+                            <input type="text" value="{{$day_stand_four}}" style="width:70px;text-align:center" name="day_stand_four" class="border-btm">
                         </span>
 
                         <!-- Walk -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Walk</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-                         <input type="text" value="{{$day_walk_four}}" name="day_walk_four" style="width:70px" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom; padding-left:6px">Walk</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+                         <input type="text" value="{{$day_walk_four}}" name="day_walk_four" style="width:70px;text-align:center" class="border-btm">
         </span>
 
                         <!-- Sit -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Sit</span>
+                        <span style="display: table-cell; vertical-align: bottom;padding-left:6px">Sit</span>
                         <span style="display: table-cell; vertical-align: bottom;">
-            <input type="text" value="{{$day_sit_four}}" name="day_sit_four" style="width:70px" class="border-btm">
+            <input type="text" value="{{$day_sit_four}}" name="day_sit_four" style="width:70px;text-align:center" class="border-btm">
         </span>
                     </div>
                 </div>
@@ -1403,24 +1410,24 @@ case management agencies, etc.).
         </tr>
         <tr style=" margin: 0; padding: 0">
             <td style=" margin: 0; padding: 0" colspan="3">
-                <div style="display: table; width: 80%;margin-left:5px;margin-bottom:3px">
+                <div style="display: table; width: 75%;margin-left:5px;margin-bottom:3px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">
             How much did you frequently lift?
         </span>
 
                         <!-- Lift -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 20px;">
-            <input type="text" value="{{$lift_four}}" name="lift_four" class="border-btm">
+                        <span style="display: table-cell; vertical-align: middle;">
+            <input type="text" value="{{$lift_four}}" name="lift_four" style="width:140px" class="border-btm">
         </span>
 
                         <!-- Pounds Label -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">pounds</span>
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">pounds</span>
 
                         <!-- Pounds Input -->
                         <span style="display: table-cell; vertical-align: middle;">
-            <input type="text" value="{{$lift_pounds_four}}" name="lift_pounds_four" class="noborder sm">
+            <input type="text" value="{{$lift_pounds_four}}" name="lift_pounds_four" style="width:170px"  class="noborder sm">
         </span>
                     </div>
                 </div>
@@ -1447,29 +1454,29 @@ case management agencies, etc.).
         <tr style=" margin: 0;padding:0;background-color: #c7c8ca">
             <th style="" class="th">Dates of Employment:</th>
             <th style="" class="th">Job Title:</th>
-            <th style="" class="th">Type of business:</th>
+            <th style="" class="th">Type of Business:</th>
         </tr>
         <tr style=" margin: 0;padding:0">
             <td style=" margin: 0;padding:3">
                 <p>
-                    <span class="sm semiBold">From: </span> <input type="text"  class="border-btm " name="start_employment_date_five"
-                                 value="{{$start_employment_date_five}}" >
+                    <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm " style="width:150px" name="start_employment_date_five"
+                    value="{{date('m/d/Y',strtotime($start_employment_date_five))}}"  >
                 </p>
 
                 <p style=" margin: 0;padding:0">
-                <span class="sm semiBold">To: </span> <input type="text" style="width:168px" class="border-btm xs" name="end_employment_date_five"
-                               value="{{$end_employment_date_five}}">
+                <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" style="width:168px" class="border-btm xs" style="width:164px" name="end_employment_date_five"
+                value="{{date('m/d/Y',strtotime($end_employment_date_five))}}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_five}}" name="job_title_five"
-                style=" height:40px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_five}}" name="hours_five" style="width:60px"
+                style=" height:34px;width:101%;" class="border-btm xs">
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_five}}" name="hours_five" style="width:140px"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
                 <input type="text" value="{{$type_business_five}}" name="type_business_five"
-                       style=" height:40px;width:98%;" class="border-btm" >
+                       style=" height:34px;width:98%;" class="border-btm" >
                 <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Rate of Pay:  <input type="text" value="{{$rate_pay_five}}" name="rate_pay_five"
                 class="border-btm xs"> </p>
             </td>
@@ -1491,7 +1498,7 @@ case management agencies, etc.).
 
         <tr style=" margin: 0;padding:0" class="sm">
             <td style=" margin: 0; padding: 0" colspan="3" class="sm">
-                <div style="display: table; width: 85%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
+                <div style="display: table; width: 77%;margin-left:5px;margin-bottom:5px;margin-top:-2px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
                         <span style="display: table-cell; vertical-align: bottom;width:50%  ">
@@ -1499,21 +1506,21 @@ case management agencies, etc.).
                     </span>
 
                         <!-- Stand -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Stand</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-                            <input type="text" value="{{$day_stand_five}}" style="width:70px" name="day_stand_five" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom;">Stand</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+                            <input type="text" value="{{$day_stand_five}}" style="width:70px;text-align:center" name="day_stand_five" class="border-btm">
                         </span>
 
                         <!-- Walk -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Walk</span>
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 20px;">
-            <input type="text" value="{{$day_walk_five}}" name="day_walk_five" style="width:70px" class="border-btm">
+                        <span style="display: table-cell; vertical-align: bottom; padding-left:6px">Walk</span>
+                        <span style="display: table-cell; vertical-align: bottom;">
+            <input type="text" value="{{$day_walk_five}}" name="day_walk_five" style="width:70px;text-align:center" class="border-btm">
         </span>
 
                         <!-- Sit -->
-                        <span style="display: table-cell; vertical-align: bottom; padding-right: 10px;">Sit</span>
+                        <span style="display: table-cell; vertical-align: bottom;padding-left:6px">Sit</span>
                         <span style="display: table-cell; vertical-align: bottom;">
-            <input type="text" value="{{$day_sit_five}}" name="day_sit_five" style="width:70px" class="border-btm">
+            <input type="text" value="{{$day_sit_five}}" name="day_sit_five" style="width:70px;text-align:center" class="border-btm">
         </span>
                     </div>
                 </div>
@@ -1522,24 +1529,24 @@ case management agencies, etc.).
         </tr>
         <tr style=" margin: 0; padding: 0">
             <td style=" margin: 0; padding: 0" colspan="3">
-                <div style="display: table; width: 80%;margin-left:5px;margin-bottom:3px">
+                <div style="display: table; width: 75%;margin-left:5px;margin-bottom:3px">
                     <div style="display: table-row;">
                         <!-- Introductory Text -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">
             How much did you frequently lift?
         </span>
 
                         <!-- Lift -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 20px;">
-            <input type="text" value="{{$lift_five}}" name="lift_five" class="border-btm">
+                        <span style="display: table-cell; vertical-align: middle;">
+            <input type="text" value="{{$lift_five}}" name="lift_five" style="width:140px" class="border-btm">
         </span>
 
                         <!-- Pounds Label -->
-                        <span style="display: table-cell; vertical-align: middle; padding-right: 10px;" class="sm">pounds</span>
+                        <span style="display: table-cell; vertical-align: middle;" class="sm">pounds</span>
 
                         <!-- Pounds Input -->
                         <span style="display: table-cell; vertical-align: middle;">
-            <input type="text" value="{{$lift_pounds_five}}" name="lift_pounds_five" class="noborder sm">
+            <input type="text" value="{{$lift_pounds_five}}" name="lift_pounds_five" style="width:170px"  class="noborder sm">
         </span>
                     </div>
                 </div>
@@ -1575,7 +1582,7 @@ case management agencies, etc.).
             </td>
             <td style=" margin: 0; padding: 0; padding-left:5px;padding-bottom:5px">
                 <span class="sm semiBold">Date:</span> 
-                <input type="text" class="noborder" name="form_date" value="{{$form_date}}"  style=" vertical-align: bottom;">
+                <input type="text" class="noborder" name="form_date"  value="{{date('m/d/Y',strtotime($form_date))}}"   style=" vertical-align: bottom;">
             </td>
         </tr>
         <tr style=" margin: 0; padding: 0">
@@ -1589,7 +1596,7 @@ case management agencies, etc.).
     <br>
     <br>
     <hr>
-    <p style="font-size: 8px;">DOH-5139 01/21  Page 5 of 5</p>
+    <p style="font-size: 8px;">DOH-5139 06/24 Page 5 of 5</p>
 
 </form>
 
@@ -1598,7 +1605,6 @@ case management agencies, etc.).
 <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-
         //save this form using ajax
         $('#disability-form').submit(function (e) {
             e.preventDefault();

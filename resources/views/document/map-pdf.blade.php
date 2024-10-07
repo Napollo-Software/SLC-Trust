@@ -107,32 +107,33 @@
         
         }
         .label-style{
-            position:relative;
-            bottom:10px;
             font-size: 10px;
+            line-height: 1;
         }
         .inp-style{
-            position:relative;
-            bottom:12px;
-            display:block;
+            /* position:relative; */
+            /* bottom:12px; */
+            /* display:block; */
             width:100%;
             font-size: 10px;
+            line-height: 1;
         }
     </style>
 </head>
 <body>
+
 <form id="map-form">
     @csrf
 
     <div class="row-container" style="width:100%;">
-        {{-- <div style=""> --}}
+        {{-- <div > --}}
              <div style="width: 55%;display:inline-block;">
                 <p style="width: 100%; font-family: 'ARIALBD';text-align:center;position:relative;bottom:15px">
                     AUTHORIZATION TO RELEASE MEDICAL INFORMATION
                 </p>
              </div>
-             <div style="width: 40%; padding: 5px; text-align: right;display:inline-block;position:relative;left:38px;top:15px">
-                <img src="{{public_path('/images/nyc.png')}}" alt="NYC" style="height: 85px;width:100%;">
+             <div style="width: 40%; padding: 5px; text-align: right;display:inline-block;position:relative;left:25px;top:15px">
+                <img src="{{public_path('/images/nyc2.png')}}" alt="NYC" style="height: 85px;width:100%;">
              </div>
         {{-- </div> --}}
       
@@ -140,39 +141,39 @@
     </div>
     <table style="width: 100%;margin-top:20px">
         <tr style="background-color:#ddd">
-            <td style="font-family: 'ARIAL';font-size:11px;" colspan="4">INFORMATION ABOUT MEDICAL OR OTHER SOURCE - PLEASE PRINT, TYPE, OR WRITE CLEARLY</td>
+            <td style="font-family: 'ARIAL';font-size:11px;" colspan="4" ><span style="position:relative;top:2px;font-size:11px">INFORMATION ABOUT MEDICAL OR OTHER SOURCE - PLEASE PRINT, TYPE, OR WRITE CLEARLY</span></td>
         </tr>
         <tr>
             <td class="c-tr"  colspan="3">
                 <label class="label-style" style="font-size: 10px" ><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">NAME AND ADDRESS OF SOURCE (include Zip Code)</p></label>
-                <input class="inp-style" style="font-size: 10px" type="text" name="name_address"  value="{{$name_address}}">
+                <input class="inp-style" style="font-size: 10px;position:relative;right:5px" type="text" name="name_address"  value="{{$name_address}}">
             </td>
             <td class="c-tr" colspan="1">
                 <label class="label-style" style="font-size: 10px"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">RELATIONSHIP TO DISABLED PERSON</p></label>
-                <input class="inp-style" style="font-size: 10px" type="text" name="relationship_disabled" value="{{$relationship_disabled}}">
+                <input class="inp-style" style="font-size: 10px;position:relative;right:5px" type="text" name="relationship_disabled" value="{{$relationship_disabled}}">
             </td>
         </tr>
         <tr style="background-color:#ddd">
-            <td style="font-family: 'ARIAL';font-size:11px;" colspan="4">INFORMATION ABOUT DISABLED PERSON - PLEASE PRINT, TYPE, OR WRITE CLEARLY</td>
+            <td style="font-family: 'ARIAL';font-size:11px;" colspan="4"><span style="position:relative;top:2px;font-size:11px">INFORMATION ABOUT DISABLED PERSON - PLEASE PRINT, TYPE, OR WRITE CLEARLY</span></td>
         </tr>
         <tr>
             <td class="c-tr" colspan="2" >
                 <label class="label-style" style="font-size: 10px;bottom:7px" for="Patient Name"><p style="margin:0;font-size:8.6px;line-height:1;margin-top:5px">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON HAD CONTACT WITH SOURCE (Include Zip Code)</p></label>
-                <input style="bottom: 10px" class="inp-style" type="text" name="source_contact_name_address" value="{{$source_contact_name_address}}">
+                <input style="position: relative;right:5px" class="inp-style" type="text" name="source_contact_name_address" value="{{$source_contact_name_address}}">
             </td>
             <td class="c-tr-center" colspan="1">
-                <label class="label-style" style="text-align: center" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DATE OF BIRTH</p></label>
-                <input class="inp-style" style="text-align: left" type="text" name="dob" value="{{$dob}}">
+                <label class="label-style" style="text-align: center" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px;position:relative;right:8px">DATE OF BIRTH</p></label>
+                <input class="inp-style" style="text-align: left;position: relative;left:5px" type="text" name="dob" value="{{date('m/d/Y',strtotime($dob))}}">
             </td>
             <td class="c-tr" colspan="1">
                 <label class="label-style" style="bottom:10px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DISABLED PERSON'S I.D. NUMBER (If known and if different than SSN.)</p></label>
-                <input class="inp-style" type="text" name="disabled_id" value="{{$disabled_id}}">
+                <input style="text-align:left;position: relative;right:5px"  class="inp-style" type="text" name="disabled_id" value="{{$disabled_id}}">
             </td>
         </tr>
         <tr>
             <td class="c-tr" colspan="4">
                 <label class="label-style" style="bottom:7px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">APPROXIMATE DATES OF DISABLED PERSON'S CONTACT WITH SOURCE <span style="font-size: 12px">(e.g., dates of hospital admission, treatment, discharges, etc.)</span></p></label><br>
-                <input class="inp-style" type="text" name="disabled_contact_time" value="{{$disabled_contact_time}}" style="width:100%;bottom:25px">
+                <input class="inp-style" type="text" name="disabled_contact_time" value="{{$disabled_contact_time}}" style="position: relative;right:5px;bottom:18px" >
             </td>
         </tr>
     </table>
@@ -187,85 +188,75 @@
         not void this authorization, it will automatically end at the conclusion of any proceedings, administrative or
         judicial, in connection with my Medicaid application, including any appeals. If I am already receiving benefits,
         the authorization will end when a final decision is made as to whether I can continue to receive benefits.</p>
-    <table style="margin-top: 50px">
-
+    <table style="margin-top: 50px;">
         <tr>
-                <td class="c-tr" colspan="2">
-                    <label class="label-style">
-                       <p style="margin:0;font-size:8.6px;line-height:1;margin-top:5px"><span style="font-size: 8.6px;background:yellow">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> ACT IN HIS/HER BEHALF</p> 
-                    </label>
-                    <div>
-                        @if($map_sign)
-                            <img src="{{ $map_sign }}" alt="map_sign" width="280px"  height="65px" >
-                        @else
-                            No Signature Provided
-                        @endif
-                    </div>
-                </td>
-                <td class="c-tr">
-                    <label class="label-style">
-                        <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">RELATION TO DISABLED PERSON <br>
-                        (If other than self)
-                        </p>
-                    </label>
-                    <input class="inp-style" type="text" name="disabled_relation_other" value={{$disabled_relation_other}}>
-                </td>
-                {{-- <td>
-                    <label>DISABLED PERSON'S I.D.
-                        NUMBER (If known and if
-                        different than SSN.) </label><br>
-                    <input type="text" name="disabled_id_other" class="no-border" value={{$disabled_id_other}}>
-                </td> --}}
-                <td class="c-tr" style="width: 15%">
-
-                    <label class="label-style" ><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DATE</p></label>
-                    <input style="position:relative;right:5px" class="inp-style" type="text" name="date_map" value="{{$date_map}}">
-
-                </td>
-            </tr>
-        <tr>
-            <td class="c-tr" colspan="2" style="height: 15px !important;">
+            <td class="c-tr" colspan="2">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">STREET ADDRESS</p>
+                    <p style="margin:0;font-size:7.8px;"><span style="font-size: 7.8px;background:yellow">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> <br> ACT IN HIS/HER BEHALF</p> 
                 </label>
-                <input class="inp-style" type="text" name="disabled_relation_street"
-                       value="{{$disabled_relation_street}}" style="width:100%">
+                <div style="position:relative;width:140px;height:60px;">
+                    @if($map_sign)
+                        <img src="{{ $map_sign }}" alt="map_sign" width="100%"  height="100%" style="position:absolute;left:90%;bottom:10%" >
+                    @else
+                        No Signature Provided
+                    @endif
+                </div>
             </td>
-            <td class="c-tr" colspan="2" style="height: 15px !important;">
+            <td class="c-tr">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">TELEPHONE NUMBER (include area code)</p>
+                    <p style="margin:0;font-size:10px;">RELATION TO DISABLED PERSON <br>
+                    (If other than self)
+                    </p>
                 </label>
-                <input class="inp-style" type="text" name="disabled_relation_street"
-                       value="{{$disabled_relation_street}}" style="width:100%">
+                <input style="position:relative;right:5px" class="inp-style" type="text" name="disabled_relation_other" value={{$disabled_relation_other}}>
             </td>
-
+            <td class="c-tr" style="width: 15%;">
+                <label class="label-style" ><p style="margin:0;font-size:10px;">DATE</p></label>
+                <input style="position:relative;right:5px" class="inp-style" type="text" name="date_map" value="{{date('m/d/Y',strtotime($date_map))}}">
+            </td>
         </tr>
         <tr>
-            <td class="c-tr"  colspan="2" style="height: 15px !important;">
+            <td class="c-tr" colspan="2" style="">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">CITY</p>
+                    <p style="margin:0;font-size:10px;">STREET ADDRESS</p>
+                </label>
+                <input class="inp-style" type="text" name="disabled_relation_street"
+                       value="{{$disabled_relation_street}}" style="position:relative;right:5px">
+            </td>
+            <td class="c-tr" colspan="2" style="">
+                <label class="label-style">
+                    <p style="margin:0;font-size:10px;">TELEPHONE NUMBER (include area code)</p>
+                </label>
+                <input class="inp-style" type="text" name="disabled_relation_street"
+                       value="{{$disabled_relation_street}}" style="position:relative;right:5px">
+            </td>
+        </tr>
+        <tr>
+            <td class="c-tr"  colspan="2" style="">
+                <label class="label-style">
+                    <p style="margin:0;font-size:10px;">CITY</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_city" value="{{$disabled_relation_city}}"
-                       style="width:100%">
+                style="position:relative;right:5px">
             </td>
             <td class="c-tr">
-                <label class="label-style" style="height: 15px !important;">
-                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">STATE</p>
+                <label class="label-style" style="">
+                    <p style="margin:0;font-size:10px;">STATE</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_state" value="{{$disabled_relation_state}}"
-                       style="width:100%">
+                style="position:relative;right:5px">
             </td>
             <td class="c-tr">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;line-height:1;margin-top:5px">ZIP CODE</p>
+                    <p style="margin:0;font-size:10px;">ZIP CODE</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_zip" value="{{$disabled_relation_zip}}"
-                       style="width:100%">
+                style="position:relative;right:5px">
             </td>
         </tr>
     </table>
 
-</form>
+</form> 
 
 </body>
 </html>
