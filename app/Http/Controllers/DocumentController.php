@@ -746,6 +746,7 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
+        
         $pdf = PDF::loadView('document.map-pdf', $data)
         ->setOption([
             'fontDir' => public_path('/fonts'),
