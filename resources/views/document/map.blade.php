@@ -79,23 +79,20 @@
         }
 
         .card {
-            width: 875px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background:white;
+            width: 900px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 100px;
             transition: 0.3s;
             border-radius: 5px;
             margin: 10px;
             overflow: hidden;
-            padding: 10px;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -35%);
         }
 
-
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
-        }
 
 
         .card-body {
@@ -142,6 +139,52 @@ input{
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+
+@font-face {
+            font-family: 'APEFNO-Arial-BoldMT';
+            src: url('fonts/APEFNO-Arial-BoldMT.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'HEEJYJ-Arial_2';
+            src: url('fonts/HEEJYJ-Arial_2.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'HEEJYJ-Arial';
+            src: url('fonts/HEEJYJ-Arial.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'KEESCU-ArialMT';
+            src: url('fonts/KEESCU-ArialMT.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ARIALBI';
+            src: url('fonts/ARIALBI.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ArialCEMTBlack';
+            src: url('fonts/ArialCEMTBlack.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ArialMdm';
+            src: url('fonts/ArialMdm.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ARIAL';
+            src: url('fonts/ARIAL.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ARIALBD';
+            src: url('fonts/ARIALBD.ttf') format('truetype');
+        }
+
+
+    /* ................ */
+    body{
+        background:rgba(0, 0, 0, 0.06);
+        font-family:'ARIAL'
+    }
+
     </style>
 </head>
 <body>
@@ -154,7 +197,7 @@ input{
             <h4>
                 AUTHORIZATION TO RELEASE MEDICAL INFORMATION
             </h4>
-            <img src="/images/nyc.png" alt="NYC" style="max-width: 50%; height: 50px;">
+            <img src="/images/nyc2.png" alt="NYC" style="max-width: 50%; height: 50px;">
 
 
         </div>
