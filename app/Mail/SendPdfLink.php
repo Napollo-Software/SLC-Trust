@@ -13,24 +13,14 @@ class SendPdfLink extends Mailable
 
     public $pdfUrl;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
     public function __construct($pdfUrl)
     {
         $this->pdfUrl = $pdfUrl;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->view('emails.send_pdf_link');
+        return $this->view('emails.send_pdf_link')->bcc(env('MAIL_BCC_ADDRESS'));
     }
 
 }
