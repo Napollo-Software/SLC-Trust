@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Referral | SLC Trust')
+@section('title', 'Referral | SLC Trusts')
 @section('wrapper')
 <style>
     @keyframes slideIn {
@@ -52,7 +52,7 @@
     .center-chat .subtitle {
         animation-delay: 2s;
     }
-    
+
 </style>
 
 <div class="page-content">
@@ -151,7 +151,7 @@
                     <div class="list-inline d-sm-flex mb-0 d-none"> <a href="javascript:;" class="list-inline-item d-flex align-items-center text-secondary"><small class="bx bxs-circle me-1 chart-online"></small>Active Now</a>
                     </div>
                 </div>
-               
+
             </div>
 
             <div class="chat-content ps ps--active-y">

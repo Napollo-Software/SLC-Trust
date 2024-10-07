@@ -414,26 +414,44 @@ class AuthController extends Controller
         return response()->json(['success', 'Read successfully!']);
     }
 
-    public function notifications()
+    public function notifications($id = null)
     {
-        $user = User::where('id', '=', Session::get('loginId'))->first();
-        if ($user->role != 'User') {
-            $notifcation = Notifcation::orderBy('id', 'desc')->where('user_id', $user->id)->get();
-            foreach ($notifcation as $read) {
-                $read = Notifcation::find($read->id);
-                $read->status = '1';
-                $read->save();
+        $user = User::find(Session::get('loginId'));
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+
+        if ($id) {
+
+            $notification = Notifcation::where('id', $id)
+                ->where('user_id', $user->id)
+                ->first();
+
+            if ($notification) {
+
+                $notification->status = '1';
+                $notification->save();
+                $notifications = collect([$notification]);
+            } else {
+                return redirect()->back()->with('error', 'Notification not found.');
             }
         } else {
-            $notifcation = Notifcation::orderBy('id', 'desc')->where('user_id', $user->id)->get();
-            foreach ($notifcation as $read) {
-                $read = Notifcation::find($read->id);
-                $read->status = '1';
-                $read->save();
+
+            $notifications = Notifcation::where('user_id', $user->id)
+                ->orderBy('id', 'desc')
+                ->get();
+
+            foreach ($notifications as $notification) {
+                $notification->status = '1';
+                $notification->save();
             }
         }
-        return view("notifcation", compact('notifcation'));
+
+        return view("notifcation", compact('notifications', 'id'));
     }
+
+
 
     public function bill_reports(Request $request)
     {

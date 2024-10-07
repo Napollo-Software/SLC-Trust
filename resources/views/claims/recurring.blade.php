@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Recurring bills | SLC Trust')
+@section('title', 'Recurring bills | SLC Trusts')
 @section('wrapper')
     <style>
         /* .custom-row {
@@ -144,7 +144,7 @@
                 </div>
             </div>
             <div class="">
-                <h5 class=" d-flex justify-content-between pt-3 pb-2">
+                <h5 class=" d-flex justify-content-start pt-3 pb-2">
                     <b></b>
                    <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Recurring Bills</b> </div>
                 </h5>

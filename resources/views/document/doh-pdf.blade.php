@@ -297,8 +297,6 @@
             style="border:none;border-bottom:1px solid black;width: 95%; margin: 2.5px 0;">
             <br>
         </p>
-
-
     </div>
     <div style="width: 100%; background-color: #ccc;margin: 0;">
         <p style="padding: 2px 5px;margin:0;margin:5px 0;font-size:12px" class='font-base'>

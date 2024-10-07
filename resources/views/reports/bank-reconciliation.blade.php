@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Bank Reconciliation | SLC Trust')
+@section('title', 'Bank Reconciliation | SLC Trusts')
 @section('wrapper')
     @php
         use App\Models\User;
@@ -46,7 +46,7 @@
                 width: 20% !important;
             }
 
-           
+
 
             .custom-row2 > .mb-2 {
                 width: 25% !important;

@@ -1,6 +1,6 @@
 @extends('myprint')
 
-@section('title', 'Print User Details | SLC Trust')
+@section('title', 'Print User Details | SLC Trusts')
 @section('content')
 <style>
   @media print {
@@ -8,7 +8,7 @@
     display: none;
   }
 }
-</style> 
+</style>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-12">
@@ -216,5 +216,5 @@
             </div>
           </div>
     </div>
-    
+
 @endsection

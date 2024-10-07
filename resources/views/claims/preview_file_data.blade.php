@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Update Bill Status | SLC Trust')
+@section('title', 'Update Bill Status | SLC Trusts')
 @section('wrapper')
     <style>
         #content {
@@ -78,7 +78,7 @@
         }
     </style>
     <!-- partial:index.partial.html -->
-  
+
     <div class="">
         <div class="d-flex justify-content-between">
             <h5 class=" mb-3"><span class="text-muted fw-light">Update Pending Bills</h5>
@@ -432,12 +432,12 @@
                 color = 'danger';
                 failed++;
             } else if (paid_amount == bill_amount && status == "Partially Approve") {
-                // rowHTML += 'orange'; 
+                // rowHTML += 'orange';
                 reason = "Incorrect Status!";
                 color = 'danger';
                 failed++;
             } else if (paid_amount > bill_amount && status == "Partially Approve") {
-                // rowHTML += 'orange'; 
+                // rowHTML += 'orange';
                 reason = "Invalid paid amount!";
                 color = 'danger';
                 failed++;

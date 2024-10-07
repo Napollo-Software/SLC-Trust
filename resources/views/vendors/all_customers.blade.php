@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'View Account | SLC Trust')
+@section('title', 'View Account | SLC Trusts')
 @section('wrapper')
     <style>
         .product-list {

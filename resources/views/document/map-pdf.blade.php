@@ -121,6 +121,7 @@
     </style>
 </head>
 <body>
+
 <form id="map-form">
     @csrf
 
@@ -255,7 +256,7 @@
         </tr>
     </table>
 
-</form>
+</form> 
 
 </body>
 </html>

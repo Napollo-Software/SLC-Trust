@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Update Referral | SLC Trust')
+@section('title', 'Update Referral | SLC Trusts')
 @section('wrapper')
 @php
 $canada = [ 'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest
@@ -54,7 +54,7 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
 </style>
 
 <div class="">
-    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+    <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referrals</b></a> / <b>Edit Referral</b> </div>
     </h5>

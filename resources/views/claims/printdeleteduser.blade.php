@@ -1,5 +1,5 @@
 @extends('myprint')
-@section('title', 'Deleted Bills | SLC Trust')
+@section('title', 'Deleted Bills | SLC Trusts')
 @section('content')
 
     <div class="container">

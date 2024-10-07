@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Upload | SLC Trust')
+@section('title', 'Upload | SLC Trusts')
 @section("wrapper")
 <style>
    /* .paginate_button  {
@@ -52,7 +52,7 @@
                         Upload bills  <i class='menu-icon pb-1 tf-icons bx bx-file '></i>
                     </button></small>
                 </div>
-                <div class="card mt-3"> 
+                <div class="card mt-3">
                 <div class="card-body overflow-auto" >
                   <table class="table table-bordered dataTable" >
                     <thead>
@@ -73,7 +73,7 @@
                                       @if (isset($document_type['extension']) && $document_type['extension'] === 'pdf')
                                        <img src="img/pdf_icon.png" alt="" class="img-thumbnail">
                                       @else
-                                      <img src="docs/{{$item->file}}" alt=""   class="img-thumbnail"> 
+                                      <img src="docs/{{$item->file}}" alt=""   class="img-thumbnail">
                                       @endif
                                     </a>
                                   </div>

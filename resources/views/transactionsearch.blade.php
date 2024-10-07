@@ -1,8 +1,8 @@
 @extends("nav")
-@section('title', 'Search Results | SLC Trust')
+@section('title', 'Search Results | SLC Trusts')
 @section("wrapper")
 @php
- 
+
  $search = $searchrequest['search'] ?? "";
 @endphp
           <div class="container-xxl flex-grow-1 container-p-y">
@@ -82,11 +82,11 @@
                                 >
                                   <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
-                                
+
                                 <div class="dropdown-menu">
                                   <a class="dropdown-item" href="{{route("claims.show", $data->bill_id ?? '#')}}"
                                     ><i class='bx bxs-show'></i> View</a>
-                                  
+
                                 </div>
                               </div>
                               @endif
@@ -95,7 +95,7 @@
                           @endforeach
                             </tbody>
                           </table>
-                            
+
                     </div>
                   </div>
                 </div>

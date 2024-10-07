@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Archive | SLC Trust')
+@section('title', 'Archive | SLC Trusts')
 @section("wrapper")
           <div class="">
             <div class="">
@@ -76,8 +76,8 @@
                       <h5 class="mb-1">Archive Transaction</h5>
                       <p class="mb-0 font-13 text-secondary"><i class="bx bxs-calendar"></i>All Archive Transactions</p>
                     </div>
-                  </div> 
-                    <div class="card-body pt-0"> 
+                  </div>
+                    <div class="card-body pt-0">
                       <div class="table-responsive text-nowrap overflow-auto pb-2 " >
                         <table class="table align-middle mb-0 table-hover dataTable " >
                           <thead class="table-light">
@@ -95,7 +95,7 @@
                             </tr>
                           </thead>
                           <tbody class="archive-body">
-                            @foreach ($data as $item)                                
+                            @foreach ($data as $item)
                            <tr>
                             {{-- <td>TID#{{substr("000$item->id",1)}}</td> --}}
                             <td>{{$item->created_at}}</td>
@@ -162,18 +162,18 @@
           }
           html += "<tr><td>"+data[i].created_at+"</td><td>"+data[i].matter+"</td><td>"+data[i].payee+"</td><td>"+data[i].description+"</td><td>"+account+"</td><td>"+split_account+"</td><td>$"+deposit+"</td><td>$"+payment+"</td><td>$"+data[i].balance+"</td></tr>";
         }
-       
+
         var dataTable = $('.dataTable').DataTable();
         dataTable.clear().draw();
         // $.each(data, function(index, value) {
         //              console.log(value.created_at);
         //              html += "<tr><td>"+value.created_at+"</td><td>"+value.matter+"</td><td>"+value.payee+"</td><td>"+value.description+"</td><td>"+value.account+"</td><td>"+value.split_account+"</td><td>"+value.deposit+"</td><td>"+value.paymet+"</td><td>"+value.balance+"</td></tr>";
- 
+
         //       });
               $('.archive-body').html(html);
       },
       error:function(xhr){
-        
+
       }
   })
   })
@@ -185,7 +185,7 @@ $(document).ready(function() {
         [25, 50, 100, 250],
         [25, 50, 100, 250]
     ],
-    //  "order": false // "0" means First column and "desc" is order type; 
+    //  "order": false // "0" means First column and "desc" is order type;
         } );
   } );
 </script>

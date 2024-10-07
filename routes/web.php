@@ -342,7 +342,7 @@ Route::match(['GET', 'POST'], '/main', [AuthController::class, 'bill_reports'])-
 
 Route::match(['GET', 'POST'], '/filter-transactions/{module}', [TransactionController::class, 'filterTransactions'])->name('filter.transactions')->middleware('isLoggedIn', );
 
-Route::get('/notifications', [AuthController::class, 'notifications'])->name('notifications')->middleware('isLoggedIn', 'permission:Notification View');
+Route::get('/notifications/{id?}', [AuthController::class, 'notifications'])->name('notifications')->middleware('isLoggedIn', 'permission:Notification View');
 
 Route::get('adjustments/index', [AdjustmentController::class, 'index'])->name('adjustment')->middleware('permission:Adjustments');
 
@@ -847,7 +847,7 @@ Route::get('hipa',function(){
 });
 
 Route::get('doh-test',function(){
-    
+
     $data = [
         "_token" => "DUtutc0ECm2FdXhGXaRoe6G3ANNXXv73jk5rsvli",
         "referral_id" => "2",

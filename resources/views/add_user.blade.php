@@ -1,8 +1,8 @@
 @extends('nav')
-@section('title', 'Add User | SLC Trust')
+@section('title', 'Add User | SLC Trusts')
 @section('wrapper')
 <div class="">
-    <h5 class=" d-flex justify-content-between pt-3 pb-1">
+    <h5 class=" d-flex justify-content-start pt-3 pb-1">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add User</b> </div>
     </h5>
@@ -26,7 +26,7 @@
                         <div class="row-cols-lg-12">
                             <label for="exampleFormControlInput1" class="form-label">User Role*</label>
                             <select id="defaultSelect" class="form-select" name="role" required multiple>
-                                <option value="">--</option>
+                                <option value="">Select user role</option>
                                 @foreach ($roles as $role)
                                 {{-- @if ($role->name == 'admin' || $role->name == 'moderator' || $role->name == 'user') --}}
                                 <option value="{{ $role->name }}">{{ ucfirst($role->name) }}</option>

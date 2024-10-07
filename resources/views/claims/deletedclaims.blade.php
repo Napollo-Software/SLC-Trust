@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Deleted Bills | SLC Trust')
+@section('title', 'Deleted Bills | SLC Trusts')
 @section("wrapper")
 <?php
 use App\Models\User;
@@ -20,7 +20,7 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                   </div>
                  <div class="row pt-1">
                     <div class="col-lg-12">
-                      
+
                       {{-- <a  class="btn btn-primary print-btn"href="{{ route('alluser.print') }}" target="blank">Export<i class='bx bx-printer'></i></a> --}}
                       {{-- <div class="dropdown download-btn">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,8 +33,8 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                       </div> --}}
                     </div>
                   </div>
-                
-              
+
+
                   <div class="card-body">
                   @if(Session::has('success'))
                   <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -149,7 +149,7 @@ $(document).ready(function() {
     })
   })
   $('.dataTable').DataTable( {
-            "order": [[ 0, "asc" ]] // "0" means First column and "desc" is order type; 
+            "order": [[ 0, "asc" ]] // "0" means First column and "desc" is order type;
         } );
   } );
 </script>
