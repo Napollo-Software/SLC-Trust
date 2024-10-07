@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'View Account | SLC Trust')
+@section('title', 'View Account | SLC Trusts')
 @section('wrapper')
 <style>
     .product-list {
@@ -11,7 +11,7 @@
             <h5 class="fw-bold mb-2">Account Dashboard</h5>
         </div>
         <div class="">
-            <div class="row"> 
+            <div class="row">
                 <div class="col">
                     <div class="card radius-10 overflow-hidden">
                         <div class="card-body">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="" id="w-chart6"></div>
                     </div>
-                </div>			
+                </div>
                 <div class="col">
                     <div class="card radius-10 overflow-hidden">
                         <div class="card-body">
@@ -108,7 +108,7 @@
                                                         $user = App\Models\User::find($data->chart_of_account);
                                                         $customer = App\Models\User::find($data->user_id);
                                                         ?> {{ $item->customer->full_name() }}</td>
-    
+
                                                     @if ($data->bill_id)
                                                         <td style="width:50%"><a href="{{ route('claims.show', $data->bill_id ?? '#') }}">
                                                                 {{ $data->description }} </a></td>
@@ -213,7 +213,7 @@
                 [10, 50, 100, -1],
                 [10, 50, 100, "All"]
             ],
-            "order": false // "0" means First column and "desc" is order type; 
+            "order": false // "0" means First column and "desc" is order type;
         });
     });
 </script>

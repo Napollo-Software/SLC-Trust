@@ -1,6 +1,6 @@
 
 @extends('myprint')
-@section('title', 'Transactions download | SLC Trust')
+@section('title', 'Transactions download | SLC Trusts')
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Export Users</title>
 <meta name="robots" content="noindex,nofollow" />
@@ -338,7 +338,7 @@
   </tr>
 </table>
 {{-- @extends('myprint')
-@section('title', 'Print Users | SLC Trust')
+@section('title', 'Print Users | SLC Trusts')
 @section('content')
 <style>
   @media print {

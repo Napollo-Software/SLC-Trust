@@ -1,12 +1,12 @@
 @extends('nav')
-@section('title', 'Add Bill | SLC Trust')
+@section('title', 'Add Bill | SLC Trusts')
 @section('wrapper')
     <?php
     use App\Models\User;
     $role = User::where('id', '=', Session::get('loginId'))->value('role');
     ?>
     <div class="">
-        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
            <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Bill</b> </div>
         </h5>

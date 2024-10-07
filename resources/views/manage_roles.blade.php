@@ -1,6 +1,6 @@
 @extends("nav")
-@section('title', 'Manage Roles | SLC Trust') 
-@section("wrapper")          
+@section('title', 'Manage Roles | SLC Trusts')
+@section("wrapper")
           <div class="container-xxl flex-grow-1 container-p-y">
             <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Manage Roles</h5>
             <div class="row">
@@ -10,9 +10,9 @@
                   <div class="row">
                     <div class="col-lg-3">
                       <div class="filter">
-                        <button class="btn btn-primary">Add Role</button>                       
-                      </div>                      
-                    </div>                                        
+                        <button class="btn btn-primary">Add Role</button>
+                      </div>
+                    </div>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive text-nowrap">
@@ -44,7 +44,7 @@
                                 <div class="dropdown-menu">
                                   <a class="dropdown-item" href="javascript:void(0);"
                                     ><i class='bx bxs-show'></i> View</a
-                                  >                                
+                                  >
                                   <a class="dropdown-item" href="javascript:void(0);"
                                     ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                   >
@@ -69,14 +69,14 @@
                                 <div class="dropdown-menu">
                                   <a class="dropdown-item" href="javascript:void(0);"
                                     ><i class='bx bxs-show'></i> View</a
-                                  >                                
+                                  >
                                   <a class="dropdown-item" href="javascript:void(0);"
                                     ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                   >
                                 </div>
                               </div>
                             </td>
-                          </tr>                                           
+                          </tr>
                         </tbody>
                       </table>
                         <nav class="nav-pagination-ctrl" aria-label="Page navigation">
@@ -117,11 +117,11 @@
                               ></a>
                             </li>
                           </ul>
-                        </nav>                      
+                        </nav>
                     </div>
                   </div>
-                </div>              
+                </div>
               </div>
             </div>
           </div>
-@endsection 
+@endsection

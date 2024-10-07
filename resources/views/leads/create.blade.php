@@ -1,11 +1,11 @@
 @extends('nav')
-@section('title', 'Add Lead | SLC Trust')
+@section('title', 'Add Lead | SLC Trusts')
 @section('wrapper')
 <style> .card { box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); } .card .card-header { font-weight: 500; }
     .card-header:first-child { border-radius: 0.35rem 0.35rem 0 0; } .card-header { padding: 1rem 1.35rem;
     margin-bottom: 0; background-color: rgba(33, 40, 50, 0.03); border-bottom: 1px solid rgba(33, 40, 50, 0.125); }
     </style> <div class="">
-    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+    <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Lead</b> </div>
     </h5>

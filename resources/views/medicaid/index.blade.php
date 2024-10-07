@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Medcaind | SLC Trust')
+@section('title', 'Medcaind | SLC Trusts')
 @section('wrapper')
     <style>
         .card {

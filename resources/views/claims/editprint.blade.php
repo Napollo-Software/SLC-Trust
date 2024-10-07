@@ -1,6 +1,6 @@
 @extends('myprint')
 
-@section('title', 'Print Bill Details | SLC Trust')
+@section('title', 'Print Bill Details | SLC Trusts')
 @section('content')
    <?php
     use App\Models\User;
@@ -12,7 +12,7 @@
           display: none;
         }
       }
-      </style> 
+      </style>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mb-12">
@@ -38,13 +38,13 @@
                                       method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('put')
-                                    
+
 
                                     <span class="text-danger">@error('claim_title'){{$message}} @enderror</span>
                             </div>
-                            
+
                         </div>
-                        
+
                         <div class="row mb-3">
                             <div class="col-lg-3 mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Category</label>
@@ -175,5 +175,5 @@
             </div>
           </div>
     </div>
-    
+
 @endsection

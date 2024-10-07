@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Deposit | SLC Trust')
+@section('title', 'Deposit | SLC Trusts')
 @section('wrapper')
 <style>
 #content {
@@ -30,7 +30,7 @@
 }
 
 .blue {
-  background-color: #3498db;  
+  background-color: #3498db;
 }
 .green {
   background-color: #16a085;
@@ -198,7 +198,7 @@
             title: 'Warning!',
             text: message,
             icon: 'warning',
-            
+
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: 'info',
@@ -227,7 +227,7 @@
                 $('.upload-btn').attr('disabled',false).text('Upload!');
             }
         })
-       
+
     });
 </script>
 <script src="./Upload.js"></script>

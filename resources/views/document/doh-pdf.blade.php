@@ -279,8 +279,6 @@
             style="border:none;border-bottom:1px solid black;width: 85%; margin: 5px 0;">
             <br>
         </p>
-
-
     </div>
     <div style="width: 100%; background-color: rgb(184, 182, 182);margin: 0;">
         <h4 style="margin: 0;padding: 3px">
@@ -340,7 +338,9 @@
                 <b class="custom-heading">Carrying</b>
             </th>
             <th style="border:none; font-size:10px;  padding:5px 0; text-align:start">
-                <b class="custom-heading">Standing</b>
+                <b class="custom-heading">Standing
+                    
+                </b>
             </th>
             <th style="border:none; font-size:10px;  padding:5px 0; text-align:start">
                 <b class="custom-heading">Walking</b>

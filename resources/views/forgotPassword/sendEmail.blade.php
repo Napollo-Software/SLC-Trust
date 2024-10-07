@@ -16,7 +16,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Reset Password | SLC Trust</title>
+    <title>Reset Password | SLC Trusts</title>
 
     <meta name="description" content="" />
 

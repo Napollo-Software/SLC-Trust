@@ -12,7 +12,6 @@ use App\Models\CheckList;
 use App\Models\Documents;
 use Illuminate\Http\Request;
 use App\Models\DocumentESign;
-use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\EmergencyContacts;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -57,7 +56,20 @@ class ReferralController extends Controller
             'last_name' => 'required|string|max:250',
             'age' => 'nullable|integer',
             'phone' => 'required|string',
-            'email' => 'required|email',
+            'email' => [
+                'required',
+                'email',
+                function ($attribute, $value, $fail) {
+                    $emailExistsInReferrals = Referral::where('email', $value)->exists();
+                    $emailExistsInUsers = User::where('email', $value)->exists();
+
+                    if ($emailExistsInReferrals) {
+                        $fail("The $attribute has already been taken in referrals.");
+                    } elseif ($emailExistsInUsers) {
+                        $fail("The $attribute has already been taken in users.");
+                    }
+                },
+            ],
             'date_of_birth' => 'nullable|date',
             'country' => 'nullable|max:250',
             'city' => 'nullable|string|max:250',

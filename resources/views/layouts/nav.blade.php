@@ -44,7 +44,7 @@
         height:40px !important;
     }
 
-    button {
+    button.btn-primary {
         background-color: #559e99 !important;
         outline: none !important;
         box-shadow: none !important;

@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'All Bills | SLC Trust')
+@section('title', 'All Bills | SLC Trusts')
 @section("wrapper")
 <style>
   .paginate_button  {
@@ -186,7 +186,7 @@ $(document).ready(function($) {
         [25, 50, 100, -1],
         [25, 50, 100, "All"]
     ],
-     "order": false // "0" means First column and "desc" is order type; 
-        } ); 
+     "order": false // "0" means First column and "desc" is order type;
+        } );
   } );
 </script>

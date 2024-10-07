@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Profile Setting | SLC Trust')
+@section('title', 'Profile Setting | SLC Trusts')
 @section("wrapper")
 @php
  $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');
@@ -72,7 +72,7 @@ color:#69707a;
 
 </style>
 <div class="">
-    <h5 class=" d-flex justify-content-between pt-3 pb-2">
+    <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Profile Setting</b> </div>
     </h5>

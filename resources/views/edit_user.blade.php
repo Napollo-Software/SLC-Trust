@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Edit User | SLC Trust')
+@section('title', 'Edit User | SLC Trusts')
 @section('wrapper')
     @php
         $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');
@@ -80,7 +80,7 @@
         }
     </style>
     <div class="">
-        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
            <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>View User</b> </div>
         </h5>

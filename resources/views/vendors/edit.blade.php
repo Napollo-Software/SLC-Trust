@@ -1,12 +1,12 @@
 @extends('nav')
-@section('title', 'Edit Vendor | SLC Trust')
+@section('title', 'Edit Vendor | SLC Trusts')
 @section('wrapper')
     @php
         $canada = [ 'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia', 'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Yukon'];
         $americanStates = [ 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
     @endphp
     <div class="">
-        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
            <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a>/ <a href="{{url('/vendors')}}" class="text-muted fw-light pointer"><b>All Vendors</b></a> / <b>Edit Vendor</b> </div>
         </h5>

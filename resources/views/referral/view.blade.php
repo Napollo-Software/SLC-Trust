@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'View Referrals | SLC Trust')
+@section('title', 'View Referrals | SLC Trusts')
 @section('wrapper')
 <link href="{{ url('/assets/custom/style.css') }}" rel="stylesheet" />
 @php
@@ -78,7 +78,7 @@ return $colors[$randomIndex];
     <!-- CONTENT -->
 
     <!-- PAGE-HEADER -->
-    <h5 class=" d-flex justify-content-between pt-5 pb-2 px-2">
+    <h5 class=" d-flex justify-content-start pt-5 pb-2 px-2">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referral</b></a> / <b>View Referral</b> </div>
     </h5>
@@ -95,7 +95,7 @@ return $colors[$randomIndex];
                     </div> --}}
                 <div class="card-body p-2">
                     <div class="border-bottom mt-3  ">
-                        <h4 class=" ">Referral ID:{{ $referral->id }}</h4>
+                        <h4 class=" ">Referral ID: {{ $referral->id }}</h4>
                     </div>
                     <ul class="nav1 nav-column pb-0 flex-column br-7 px-0">
                         <li class="nav-item1 mt-0 services-tab">
@@ -556,6 +556,13 @@ return $colors[$randomIndex];
                     <div style="margin:20px">
                         <form id="bank-info-form" method="post">
                             @csrf
+
+                            <div  class="d-flex  align-items-center">
+                                <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
+                                    <label>Mark As Complete</label>
+                            </div>
+                            <hr>
+
                             <!-- <div class="row">
                                 <div style="padding-left: 15px">
                                     <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
@@ -943,13 +950,10 @@ return $colors[$randomIndex];
                                                 {{ $actualDocument->name() }}
                                             </td>
                                         </tr>
-
-
                                         @endforeach
                                         <tr>
                                             <td style="text-align: center;">
-                                                <a class="fancy-plus-button m-0">
-
+                                                <a style="border-radius:50%;" class="fancy-plus-button m-0">
                                                 </a>
                                             </td>
                                             <td>
@@ -2144,19 +2148,14 @@ return $colors[$randomIndex];
                 <div class="modal-header">
                     <input type="hidden" name="referral_id" value="{{ $referral->id }}">
                     <h4 class="modal-title" id="addNoteModalLabel">Upload Documents (Multiple Allowed)</h4>
-
                 </div>
                 <div class="modal-body">
-                    <!-- Your file input field for multiple document uploads -->
-
                     <input type="file" name="uploadedfile[]" multiple class="form-control">
                     <div id="errorMessagesfor"></div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark closemodalmultiple">Cancel</button>
-                    <button type="submit" class="btn btn-primary custom-hover">Upload & Send Email</button>
-
+                    <button type="submit" id="upload_send_email" class="btn btn-primary custom-hover">Upload & Send Email</button>
                 </div>
             </form>
         </div>
@@ -2261,7 +2260,7 @@ enctype="multipart/form-data">
                         <input type="hidden" name="to" value="{{ $referral->id }}">
                         <div class="col-md-12 p-2">
                             <label for="form-label">Note</label>
-                            <textarea type="text" name="note" maxlength="40"placeholder="Type note here" class="form-control address" required></textarea>
+                            <textarea type="text" name="note" maxlength="255" placeholder="Type note here" class="form-control address" required></textarea>
                         </div>
                         {{-- <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">Date</label>
@@ -2422,9 +2421,11 @@ enctype="multipart/form-data">
         });
 
         // Handle the form submission
-        $('#fileDocumenentMultiple').on('submit', function(e) {
+        $(document).on('submit', "#fileDocumenentMultiple",function(e) {
             e.preventDefault();
             let formdata = new FormData(this);
+
+            $("#upload_send_email").attr('disabled', true).text('Processing...');
 
             $.ajax({
                 url: "{{ route('upload.multiple.documents') }}",
@@ -2438,8 +2439,10 @@ enctype="multipart/form-data">
                     swal.fire('Success', response.message, 'success');
                     $('#uploadMoredocument').modal('hide');
                     $('#fileDocumenentMultiple')[0].reset();
+                    $("#upload_send_email").attr('disabled', false).text('Upload & Send Email');
                 },
                 error: function(response) {
+                   $("#upload_send_email").attr('disabled', false).text('Upload & Send Email');
                     if (response.status === 422) {
                         swal.fire('Failed', 'Only PDF Files Allowed.', 'error');
 
@@ -2483,7 +2486,6 @@ enctype="multipart/form-data">
                 $(".document-" + docId).html($button);
                 $("#uploadModal").modal("hide");
                 $("#uploadModal").find("input").val("");
-                console.log(response.id);
                 $('.changeStatus' + response.id).removeClass('bg-dark');
                 $('.changeStatus' + response.id).removeClass('bg-warning');
                 $('.changeStatus' + response.id).removeClass('bg-danger');

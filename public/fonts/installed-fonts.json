@@ -10,5 +10,14 @@
     },
     "info_web-italic": {
         "normal": "info_web_italic_normal_1184b192ea1d9c0c2a4f637cb716e623"
+    },
+    "times new roman": {
+        "normal": "times_new_roman_normal_2b41e7e6f9a863ef281e4d7c709dc663"
+    },
+    "times new roman bold": {
+        "normal": "times_new_roman_bold_normal_6dc8eb08b4b0314766c7ce70cedf3cb2"
+    },
+    "times new roman italic": {
+        "normal": "times_new_roman_italic_normal_586a3ba9526edf6111343dbb0e20bc4d"
     }
 }

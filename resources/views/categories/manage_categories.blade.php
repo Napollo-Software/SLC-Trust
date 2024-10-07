@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Manage Categories | SLC Trust')
+@section('title', 'Manage Categories | SLC Trusts')
 @section("wrapper")
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
@@ -23,7 +23,7 @@
 
 </script>
           <div class="">
-            <h5 class=" d-flex justify-content-between pt-3 pb-2">
+            <h5 class=" d-flex justify-content-start pt-3 pb-2">
                 <b></b>
                <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Manage Categories</b> </div>
             </h5>

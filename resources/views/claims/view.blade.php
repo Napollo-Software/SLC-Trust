@@ -1,12 +1,12 @@
 @extends("nav")
-@section('title', 'Bill Status | SLC Trust')
+@section('title', 'Bill Status | SLC Trusts')
 @section("wrapper")
 <?php
     use App\Models\User;
     $role = User::where('id', '=', Session::get('loginId'))->value('role');
     ?>
     <div class="">
-        <h5 class=" d-flex justify-content-between pt-3 pb-2">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
            <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/claims')}}" class="text-muted fw-light pointer"><b>All Bills</b></a> / <b>View Bill</b> </div>
         </h5>
@@ -86,6 +86,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-9">
                 <div class="card mb-3">
                   <div class="card-body">
@@ -93,18 +94,24 @@
                         <h4>Bill Info</h4>
                     <div class="col-lg-3 " style="margin-right: 1%;margin-left:auto">
                       @if ($role != "User" && $claim->claim_status == 'Pending')
-                        <select id="bill_status" class="form-control  text-white @if ($claim->claim_status == 'Approved' || $claim->claim_status == 'Partially approved') bg-success @endif @if ($claim->claim_status == 'Pending')bg-primary  @endif @if ($claim->claim_status == 'Refused') bg-danger @endif" name="claim_status"
-                                >
-                            <option value="Pending" class="bg-light  text-black" @if ($claim->claim_status == 'Pending') class="bg-light" selected @endif disabled>
+                        <select
+                            style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2230%22 viewBox=%220 0 24 24%22><path fill=%22white%22 d=%22M7 10l5 5 5-5z%22/></svg>');
+                            background-repeat: no-repeat;
+                            background-position: right 10px center;
+                            padding-right: 30px;"
+                            id="bill_status"
+                            class="form-control form-select text-white @if ($claim->claim_status == 'Approved' || $claim->claim_status == 'Partially approved') bg-success @endif @if ($claim->claim_status == 'Pending') bg-primary @endif @if ($claim->claim_status == 'Refused') bg-danger @endif"
+                            name="claim_status">
+                            <option value="Pending" class="bg-light text-black" @if ($claim->claim_status == 'Pending') selected @endif disabled>
                                 Pending
                             </option>
-                            <option value="Approved" class="bg-light  text-black" @if ($claim->claim_status == 'Approved')  selected @endif>
-                            Approved
+                            <option value="Approved" class="bg-light text-black" @if ($claim->claim_status == 'Approved') selected @endif>
+                                Approved
                             </option>
-                            <option value="Partial" class="bg-light  text-black" @if ($claim->claim_status == 'Partially approved') selected @endif>
+                            <option value="Partial" class="bg-light text-black" @if ($claim->claim_status == 'Partially approved') selected @endif>
                                 Partially approved
                             </option>
-                            <option value="Refused" class="bg-light  text-black" @if ($claim->claim_status == 'Refused') class="bg-light" selected @endif>
+                            <option value="Refused" class="bg-light text-black" @if ($claim->claim_status == 'Refused') selected @endif>
                                 Refused
                             </option>
                         </select>
