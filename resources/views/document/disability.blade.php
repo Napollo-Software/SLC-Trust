@@ -183,9 +183,6 @@
         .form-row > .form-cell{
             flex:1;
         }
-        .flex-1{
-            flex:1;
-        }
         .text-right{
             text-align:right;
         }
@@ -198,31 +195,10 @@
         .vertical-top{
             vertical-align:top;
         }
-        .vertical-center{
-            vertical-align:center;
-        }
-        .vertical-bottom{
-            vertical-align:bottom;
-        }
-        .float-right{
-            float:right;
-        }
-        .flex-row{
-            display:flex;
-        }
         .flex-col{
             display:flex;
             flex-direction:column;
             padding:8px 0px;
-        }
-        .justify-content-between{
-            justify-content:space-between;
-        }
-        .justify-content-center{
-            justify-content: center;
-        }
-        .justify-content-center{
-            justify-content: center;
         }
         .align-items-center{
             align-items:center;
@@ -239,6 +215,9 @@
         /* borders */
         .border-bold{
             border-bottom:7px solid;
+        }
+        .border-none{
+            border:none !important;
         }
         /* padding */
         .p-0{
@@ -259,10 +238,10 @@
         .pl-5{
             padding-left:0.6rem;
         }
+        /* margin */
         .margin{
             margin:0px 60px 0px 0px;
         }
-        /* margin */
         .mt-5{
             margin-top:1.5rem
         }
@@ -284,10 +263,6 @@
             border: 1px solid black;
         }
 
-        /* border */
-        .border-none{
-            border:none !important;
-        }
         /* text */
         .text-lg{
             font-size:14px;
@@ -1478,6 +1453,35 @@
                                 </div>
                         </td>
                     </tr>
+                </table>
+                <div class='form-row'>
+                    <textarea rows="15" cols="" class='w-full' style='border:2px solid'></textarea>
+                </div>
+                <table>
+                <tr>
+                    <td colspan='2'>
+                            <div class='form-row p-0'>
+                                <span class='nowrap text-left font-semibold'>
+                                    Name of person completeing form (Please Print):
+                                </span>
+                                <span style='padding-left:1.3rem'>value</span>
+                            </div>
+                    </td>
+                    <td>
+                        <div class='form-row p-0'>
+                            <span class='nowrap font-semibold'>
+                                    Date:
+                            </span>
+                            <span style='padding-left:1.3rem'>value</span>
+                        </div> 
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='3'>
+                        <span class='nowrap font-semibold '>Telephone Number:</span>
+                        <span class='nowrap'>value</span>
+                    </td>
+                </tr>
                 </table>
         </form> 
     </div>
