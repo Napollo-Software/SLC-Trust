@@ -208,7 +208,7 @@ class DocumentController extends Controller
                 $filtered_names[] = $nameWithoutNumbers;
 
                 $filtered_links[] = URL::to("$documentMappings[$doc]?referralId=$referralId");
-                
+
             }
         }
 
@@ -353,7 +353,6 @@ class DocumentController extends Controller
             return redirect()->route('login');
         }
 
-        //        dd($request->referralId);
         $referralID = Crypt::decryptString($request->referralId);
         $documentId = Documents::where('name', '1-Joinder Agreement.pdf')
             ->where('referral_id', $referralID)
@@ -544,25 +543,27 @@ class DocumentController extends Controller
     }
 
 
-    public
-        function saveHippaState(
-        Request $request
-    ) {
-
+    public function saveHippaState(Request $request)
+    {
 
         set_time_limit(200);
 
         $referralId = $request->referral_id;
         $referral = Referral::find($referralId);
+
         if (!$referral) {
             return response()->json(['message' => 'Referral not found'], 404);
         }
+
         $hippa_state_sign_fieldname = 'hippa_state_sign';
         $directory = storage_path('app/public/' . $referral->email);
+
         if (!is_dir($directory)) {
             mkdir($directory, 0777, true);
         }
+
         $imageData = $request->input($hippa_state_sign_fieldname);
+
         if ($imageData) {
             $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
             $filename = $hippa_state_sign_fieldname . date('Ymd_His') . '.png';
@@ -573,6 +574,7 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
+
         $pdf = PDF::loadView('document.hippa-state-pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),
@@ -617,12 +619,8 @@ class DocumentController extends Controller
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
     }
 
-    public
-
-
-        function uploadMultipleDocuments(
-        Request $request
-    ) {
+    public function uploadMultipleDocuments(Request $request)
+    {
         $request->validate(['uploadedfile.*' => 'required|mimes:pdf']);
 
         $app_name = config('app.professional_name');
@@ -766,7 +764,7 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        
+
         $pdf = PDF::loadView('document.map-pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),
