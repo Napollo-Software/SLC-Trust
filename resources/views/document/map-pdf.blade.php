@@ -121,8 +121,8 @@
     </style>
 </head>
 <body>
-    
-<!-- <form id="map-form">
+
+<form id="map-form">
     @csrf
 
     <div class="row-container" style="width:100%;">
@@ -266,7 +266,7 @@
         </tr>
     </table>
 
-</form> -->
+</form> 
 
 </body>
 </html>
