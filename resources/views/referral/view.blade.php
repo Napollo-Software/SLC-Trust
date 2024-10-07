@@ -391,16 +391,14 @@ return $colors[$randomIndex];
                         <div class="row">
                             <div class="col-md-12 mt-3 ">
                                 <div class="row  px-3">
-                                    <div class="col-md-4 ">
+                                    <div class="col-md-4">
                                         <div class="d-flex align-items-center gap-2 "  >
                                             <input class="trustDocument m-0" type="checkbox" name="document" {{ $referral->trustDocument ? 'checked' : '' }}>
                                             <label class="m-0">Mark As Read</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-8 d-flex justify-content-between">
                                         <h5 class="m-0">Received Documents: {{ $recievedDocumentCount }}</h5>
-                                    </div>
-                                    <div class="col-md-4">
                                         <h5 class="m-0">Pending Documents: {{ $pendingDocumentCount }}</h5>
                                     </div>
                                 </div>
@@ -557,9 +555,9 @@ return $colors[$randomIndex];
                         <form id="bank-info-form" method="post">
                             @csrf
 
-                            <div  class="d-flex  align-items-center">
+                            <div  class="d-flex align-items-center">
                                 <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
-                                    <label>Mark As Complete</label>
+                                    <label class="m-0">Mark As Complete</label>
                             </div>
                             <hr>
 
@@ -642,9 +640,8 @@ return $colors[$randomIndex];
                                 </div>
                             </div>
                             <button class="btn btn-primary mt-2 fs-6" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
-                            <button class="btn btn-primary mr-2 mt-2 fs-6 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if($referral->convert_to_customer!=null)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
+                            <button class="btn btn-primary mr-2 mt-2 fs-6 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if(!$referral->convert_to_customer)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -1691,11 +1688,12 @@ return $colors[$randomIndex];
             </div>
         </div>
         <div class="card tasks-card d-none">
-            <div class="border-bottom d-flex justify-content-between p-2 mt-2">
-                <h3 class="">Notes</h3>
+            <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
+                <h4 class="px-3">Notes</h4>
                 @if ($user->hasPermissionTo('Add Contact'))
+                <div>
                 <a class="btn btn-primary NoteAddBtn print-btn pb-1 pt-1 " style="color: white;">
-                    <i class="bx bx-save pb-1"></i>Add Note</a>
+                    <i class="bx bx-save pb-1"></i>Add Note</a></div>
                 @endif
             </div>
             <div class="card-body p-3">
@@ -1755,7 +1753,7 @@ return $colors[$randomIndex];
         </div>
         <div class="card attachment-card d-none">
             <div class="border-bottom p-2 mt-2">
-                <h3 class="">Attachments</h3>
+                <h4 class="px-3">Attachments</h4>
             </div>
             <div class="row p-2">
                 @if (count($referral->get_uploaded_documents) > 0)
@@ -2317,6 +2315,7 @@ enctype="multipart/form-data">
                         swal.fire('success', data.success, 'success')
                         $('.convert-btn').text('Converted to Customer');
                         $('.convert-btn').attr('disabled',true);
+                        window.location.href="/show_user/"+id;
 
                     },
                     error: function (xhr) {

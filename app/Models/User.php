@@ -26,7 +26,7 @@ class User extends Model
     public function getAvatarAttribute($value)
     {
         if ($value) {
-            return asset('user/images' . $value);
+            return asset("user/images/$value");
         } else {
             return url('default-profile.png');
         }

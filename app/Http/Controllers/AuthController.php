@@ -566,19 +566,16 @@ class AuthController extends Controller
 
         $user = User::find($id);
 
-        $data = compact('user');
-
-        return view("add_balance")->with($data);
+        return view("add_balance",compact('user'));
 
     }
 
     public function show_user(Request $request, $id)
     {
 
-        $user = User::find($id);
-        $data = compact('user');
+        $user = User::findOrFail($id);
 
-        return view("edit_user")->with($data);
+        return view("edit_user",compact('user'));
 
     }
 
