@@ -919,3 +919,29 @@ Route::get('test-email',function(){
     return view('emails.email_documents', $data);
 
 });
+
+Route::get('mapp',function(){
+    $data = [
+        "_token" => "Nm4oLsIJyDrCMv7VbxpJXV8mFVtZd4pMpliVYl9t",
+        "referral_id" => "1",
+        "document_id" => "65",
+        "name_address" => "Breanna Moore sddjsjdk",
+        "relationship_disabled" => "Dicta reiciendis ver",
+        "source_contact_name_address" => "Vanna Johnson",
+        "dob" => "1993-10-06",
+        "disabled_id" => "Incididunt ut fugiat",
+        "disabled_contact_time" => "Excepteur veniam as",
+        "map_signature" => "Quae autem dolore",
+        "map_sign" => "D:\Napollo\SLC\SLC-Trust\storage\app/public/bilalkashif360@gmail.com/map_sign20241004_082254.png",
+        "disabled_relation_other" => "Aut quia nulla velit",
+        "disabled_id_other" => "Magna quia ullam sin",
+        "date_map" => "1984-06-10",
+        "disabled_relation_street" => "Laborum voluptatem s",
+        "disabled_relation_city" => "Ea deserunt consecte",
+        "disabled_relation_state" => "Esse omnis amet de",
+        "disabled_relation_zip" => "57065",
+    ];
+
+    return view('document.map-pdf', $data);
+
+});

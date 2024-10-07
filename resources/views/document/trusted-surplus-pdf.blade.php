@@ -126,12 +126,12 @@
             </div>
             <div style="">
                 <div style="">
-                    <div style="text-align:right;">
+                    <div style="text-align:right;margin-right:15px">
                         <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Date: {{ date('m/d/Y') }}</p>
                         <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Account: {{ $user->id }}</p>
                         <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Status: {{ $user->account_status }}</p>
                     </div>
-                    <div>
+                    <div style="margin-left:15px">
                         <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Erica McLeod</p>
                         <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">126-02 Locust Manor Lane</p>
                         <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Apartment #2A</p>
@@ -139,14 +139,14 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <p style="font-family: 'Poppins-SemiBold';font-size:14px">{{ date('m/d/Y') }}</p>
+                    <p style="font-family: 'Poppins-SemiBold';font-size:14px;margin:0;margin-top:15px;margin-bottom:2px">{{ date('m/d/Y') }}</p>
                 </div>
                 <table style="width: 100%;">
                     <tr style="background-color:#999;vertical-align:middle">
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;padding-left:5px">DATE</span></td>
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">TRANS. TYPE</span></td>
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DESCRIPTION</span></td>
-                        <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;left:56px">AMOUNT</span></td>
+                        <td style="text-align: end" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;left:50px">AMOUNT</span></td>
                     </tr>
                     @if(!empty($deposit_transaction))
                     <tr>
@@ -160,7 +160,7 @@
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $deposit_transaction->description }}</label>
                         </td>
                         <td style="text-align: end;vertical-align:top" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:70px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
@@ -176,7 +176,7 @@
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $registration_transaction->description }}</label>
                         </td>
                         <td style="text-align: end;vertical-align:top" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:70px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
@@ -192,7 +192,7 @@
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $maintenance_transaction->description }}</label>
                         </td>
                         <td style="text-align: end;vertical-align:top" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:56px">${{ $maintenance_transaction->credit > 0 ? number_format($maintenance_transaction->credit, 2) : ($maintenance_transaction->debit > 0 ? number_format($maintenance_transaction->debit, 2) : '') }}</label>
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:70px">${{ $maintenance_transaction->credit > 0 ? number_format($maintenance_transaction->credit, 2) : ($maintenance_transaction->debit > 0 ? number_format($maintenance_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif

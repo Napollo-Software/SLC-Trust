@@ -8,6 +8,10 @@
     <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <title>HIPPA</title>
     <style>
+         @font-face {
+        font-family: BrittanySignature;
+        src: url("/fonts/BrittanySignature-MaZx.ttf");
+    }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -405,6 +409,10 @@ textarea{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
+    generateSignature(1)
+   generateSignature(2)
+   generateSignature(3)
+   generateSignature(4)
     $(document).ready(function () {
         const canvas = document.getElementById('signature-canvas-hippa');
         const signaturePad = new SignaturePad(canvas, {
@@ -477,7 +485,7 @@ textarea{
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = '#f2f2f2';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = '40px "Rage Italic", cursive';
+    ctx.font = '42px "BrittanySignature", BrittanySignature';
     ctx.fillStyle = 'black';
     ctx.fillText(name, 15, 80);
 
