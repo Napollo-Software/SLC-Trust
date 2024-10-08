@@ -45,7 +45,11 @@ if (!function_exists('caseType')) {
 if (!function_exists('us_date_format')) {
     function us_date_format($date)
     {
-        return date('m-d-Y h:i A', strtotime($date));
+        if($date)
+        {
+            return date('m-d-Y h:i A', strtotime($date));
+        }
+        return "N/A";
     }
 }
 

@@ -1269,7 +1269,6 @@ return $colors[$randomIndex];
                                     </div>
                                     <div class="col-md-9" data-select2-id="8">
                                         <input type="text" id="timeZone" name="address_of_emergency" class="form-control" value="{{ $referral->emergency_details->emergency_address }}" readonly>
-
                                     </div>
                                 </div>
                             </div>
@@ -1290,11 +1289,8 @@ return $colors[$randomIndex];
                             </button>
                             <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary custom-hover cancelButton fs-6">Cancel
                             </button>
-
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -2294,7 +2290,6 @@ enctype="multipart/form-data">
 </div>
 
 
-
 <script src="{{ url('/assets/custom/jquery.min.js') }}"></script>
 <script src="{{ url('/assets/custom/custom.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -2335,8 +2330,7 @@ enctype="multipart/form-data">
             }
         })
     })
-</script>
-<script>
+
     function showTab(tabName) {
         $("#alwaysShow").removeClass('d-none');
         $(".services-card").addClass('d-none');
@@ -2351,8 +2345,7 @@ enctype="multipart/form-data">
         $(".records-card").addClass('d-none');
         $("." + tabName).removeClass('d-none');
     }
-</script>
-<script>
+
     $(document).on('submit', '#referralUpdateForm', function(e) {
         e.preventDefault();
         $('.form-control').removeClass('is-invalid');
@@ -2424,12 +2417,11 @@ enctype="multipart/form-data">
     });
 
     $(document).ready(function() {
-        // Function to open the modal
+
         $(document).on('click', '.fancy-plus-button', function() {
             $('#uploadMoredocument').modal('show');
         });
 
-        // Handle the form submission
         $(document).on('submit', "#fileDocumenentMultiple",function(e) {
             e.preventDefault();
             let formdata = new FormData(this);
@@ -2467,15 +2459,12 @@ enctype="multipart/form-data">
             });
         });
 
-        // Function to close the modal when clicking the "Cancel" button
         $('.closemodalmultiple').on('click', function() {
             $('#fileDocumenentMultiple')[0].reset();
             $('#uploadMoredocument').modal('hide');
-
         });
     });
-</script>
-<script>
+
     $('#uploadFile').on('submit', function(e) {
         e.preventDefault();
 
@@ -2509,8 +2498,7 @@ enctype="multipart/form-data">
             }
         })
     });
-</script>
-<script>
+
     $('#editFollowup').on('submit', function(e) {
         var note = $('#note').val();
         e.preventDefault()
@@ -2554,7 +2542,6 @@ enctype="multipart/form-data">
         });
     });
 
-
     $('#PhysicianForm').on('submit', function(e) {
         e.preventDefault()
         $.ajax({
@@ -2577,28 +2564,36 @@ enctype="multipart/form-data">
             }
         });
     });
-</script>
-<script>
+
     $(document).ready(function() {
-        $("hiddenFields").prop("readonly", true);
-        $(".editButton").click(function() {
+        // Set all fields with the hiddenFields class to readonly initially
+        $(".hiddenFields").prop("readonly", true);
+
+        // Edit button click event
+        $(document).on("click", ".editButton", function() { // Corrected here
+            // Allow editing on all input fields
             $("input").prop("readonly", false);
             $(".editButton").hide();
             $(".submitButton").show();
             $(".cancelButton").show();
         });
-        $(".cancelButton").click(function() {
-            $("hiddenFields").prop("readonly", true);
+
+        // Cancel button click event
+        $(document).on("click", ".cancelButton", function() { // Corrected here
+            // Set all fields with the hiddenFields class back to readonly
+            $(".hiddenFields").prop("readonly", true);
+            // Optionally reset other fields if needed
+            $("input").prop("readonly", true);
             $(".editButton").show();
             $(".submitButton").hide();
             $(".cancelButton").hide();
         });
     });
-</script>
-<script>
+
     document.getElementById('back-btn').addEventListener('click', function() {
         window.history.back();
     });
+
     $(document).on('change', '.hidden-file-input', function() {
         const fileInput = $(this);
         const file = fileInput[0].files[0];
@@ -2695,7 +2690,7 @@ enctype="multipart/form-data">
         var csrfToken = $('#csrf_token').val();
         var checkboxes = trustEsignbox.add(trustDocumentbox).add(trustFinancebox).add(trustCheckListbox);
         checkboxes.on('change', function() {
-            console.log("Change detected");
+
             var isCheckedEsign = trustEsignbox.prop('checked');
             var isCheckedDocument = trustDocumentbox.prop('checked');
             var isCheckedFinance = trustFinancebox.prop('checked');
@@ -2961,7 +2956,6 @@ enctype="multipart/form-data">
         const randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
     }
+
 </script>
-
-
 @endsection

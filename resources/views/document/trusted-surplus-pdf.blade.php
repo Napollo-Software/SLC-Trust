@@ -159,8 +159,8 @@
                         <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $deposit_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;vertical-align:top" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:70px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
+                        <td style="text-align: end;vertical-align:top;position:relative" colspan="1">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:absolute;right:5px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
@@ -175,8 +175,8 @@
                         <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $registration_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;vertical-align:top" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:70px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
+                        <td style="text-align: end;vertical-align:top;position:relative" colspan="1">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:absolute;right:5px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif
@@ -191,8 +191,8 @@
                         <td style="width:40%;vertical-align:top" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">{{ $maintenance_transaction->description }}</label>
                         </td>
-                        <td style="text-align: end;vertical-align:top" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:relative;left:70px">${{ $maintenance_transaction->credit > 0 ? number_format($maintenance_transaction->credit, 2) : ($maintenance_transaction->debit > 0 ? number_format($maintenance_transaction->debit, 2) : '') }}</label>
+                        <td style="text-align: end;vertical-align:top;position: relative;" colspan="1">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:absolute;right:5px">${{ $maintenance_transaction->credit > 0 ? number_format($maintenance_transaction->credit, 2) : ($maintenance_transaction->debit > 0 ? number_format($maintenance_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif

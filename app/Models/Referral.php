@@ -99,7 +99,7 @@ class Referral extends Model
     }
     public function accounts_source()
     {
-        return $this->belongsTo(User::class, 'source', 'id');
+        return $this->belongsTo(User::class, 'source', 'id')->withDefault();
     }
     public function get_followup()
     {
