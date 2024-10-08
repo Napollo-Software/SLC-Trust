@@ -164,7 +164,7 @@
         {
             background:rgba(0, 0, 0, 0.06);
             font-family:'info-normal';
-            font-size:13px;
+            font-size:14px;
         }
         .container{
             margin:50px
@@ -228,7 +228,7 @@
             padding:0px;
         }
         .pb-7{
-            padding-bottom:7px;
+            padding-bottom:6px;
         }
         .p-10{
             padding:10px;
@@ -237,7 +237,7 @@
             padding-top:3rem;
         }
         .pb-10{
-            padding-bottom:1.7rem;
+            padding-bottom:1rem;
         }
         .pl-5{
             padding-left:0.6rem;
@@ -334,6 +334,9 @@
         textarea{
             padding:10px;
         }
+        .italic{
+            font-family:'info_web-italic'
+        }
     </style>
 </head>
 
@@ -350,7 +353,7 @@
                     <p>State Disability Review Unit</p>
                 </div>
                 <div class='form-cell text-right'>
-                    <p style='font-size:23px;' class='font-bold'>Disability Questionnaire</p>
+                    <p style='font-size:28px;line-height:1' class='font-bold'>Disability Questionnaire</p>
                 </div>
             </div>
             <!-- name section -->
@@ -383,9 +386,9 @@
                     </div>
                 </div>
                 <div class='form-cell'>
-                    <p style='padding-bottom:3px'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
+                    <p style='padding-bottom:5px'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
                     <div class='form-cell p-10 mt-14' style='background-color:rgba(0,0,0,0.2)'>
-                        <div class='row gap-5 text-base align-items-end'>
+                        <div class='row gap-5 text-base align-items-end' style='margin-top:10px'>
                             <span class='nowrap'>Case Number:</span>
                             <input type='text' name="case_number">    
                         </div>
@@ -419,7 +422,7 @@
                     </div>
                 </div>
              </div>
-            <div class='form-row gap-5 text-base align-items-center '>
+            <div class='form-row gap-5 text-base align-items-center'>
                  <span class='nowrap'>Have you ever applied to the Social Security Administration (SSA) for disability benefits?</span>
                     <div class='row p-0 align-items-center gap-5'>
                         <input type='checkbox' name="applied_for_ssa1"  value="yes">
@@ -525,10 +528,10 @@
                                 </div> 
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="primary_care_provider_no" value="no">
-                                    <label>Yes</label>
+                                    <label>No</label>
                                 </div> 
                             </div>
-                            <p class='text-left' style='padding-left:1.2rem'>(If “Yes”, please provide name, address, phone number.)</p>
+                            <p class='text-left italic' style='padding-left:1.2rem'>(If “Yes”, please provide name, address, phone number.)</p>
                             <textarea rows="10" cols="" name="care_provider_text"></textarea>
                         </div>
                         </td>
@@ -556,7 +559,7 @@
                                     </div> 
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
-                                    <p class='text-left p-0' style='padding-left:1.2rem'>(If “Yes”, please complete the section below.)</p>
+                                    <p class='text-left p-0 italic' style='padding-left:1.2rem'>(If “Yes”, please complete the section below.)</p>
                                     <p class='text-left font-semibold'>
                                         Please list the name, address, and phone number of all medical providers you have seen for the past 12 months (for example physicians, nurse
                                         practitioners/physician assistants, mental health counselors, physical/occupational/speech therapists, audiologists, etc.). (Continuation sheets
@@ -666,7 +669,7 @@
                                     </div> 
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
-                                    <p class='text-left p-0' style='padding-left:1.2rem'> (If “Yes”, please complete the section below.)</p>
+                                    <p class='text-left p-0 italic' style='padding-left:1.2rem'> (If “Yes”, please complete the section below.)</p>
                                     <p class='text-left font-semibold'>
                                     Please list the name and address of all hospitals and other medical facilities at which you have sought treatment in the past 12 months.<br>
                                     (Continuation sheets are available.)
@@ -774,7 +777,7 @@
                                     </div> 
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
-                                    <p class='text-left p-0' style='padding-left:1.2rem'> (If “Yes”, please complete the section below.)</p>
+                                    <p class='text-left p-0 italic' style='padding-left:1.2rem'> (If “Yes”, please complete the section below.)</p>
                                     <p class='text-left font-semibold'>
                                     Please list the name and address of any other agencies that you have seen for assistance with your medical conditions in the past 12 months
                                     (for example, vocational rehabilitation agencies, supported employment or housing agencies, case management agencies, etc.).
@@ -873,7 +876,7 @@
                         <td colspan='3'>
                             <div class='flex-col gap-5'>
                                 <p class='p-0 text-center font-bold' style='font-size:20px'>PART III — INFORMATION ABOUT YOUR MEDICAL RECORDS</p>
-                                <p class='text-left font-semibold'> If a disability determination cannot be made based on your medical conditions alone, the factors of education, literacy, and work history will be
+                                <p class='text-left font-semibold If a disability determination cannot be made based o'> If a disability determination cannot be made based on your medical conditions alone, the factors of education, literacy, and work history will be
                                 used to determine disability.
                                 </p>
                             </div>
@@ -882,7 +885,7 @@
                     <tr>
                         <td colspan='3'>
                             <div class='form-row align-items-end gap-5'>
-                                <span class='nowrap'>A.  What is the highest grade level of schooling that you have completed?</span>
+                                <span class='nowrap font-semibold'>A.  What is the highest grade level of schooling that you have completed?</span>
                                 <input type='text' name='schooling'> 
                             </div>
                         </td>
@@ -902,7 +905,7 @@
                                 <div class='form-row gap-5 align-items-end' style='margin:0px 40px 0px 90px'>
                                     <input type='text' name="school_address">  <br>
                                 </div>
-                                <p class='text-left font-semibold' style='padding-top:1rem'>Please complete the DOH-5173, Authorization for Release of Medical Information Pursuant to HIPAA form for this school/program.</p>
+                                <p class='text-left italic' style='padding-top:1rem'>Please complete the DOH-5173, Authorization for Release of Medical Information Pursuant to HIPAA form for this school/program.</p>
                             </div>
                         </td>
                     </tr>
@@ -934,10 +937,10 @@
                                     <input type='checkbox' name="special_help_no" value="no">
                                     <label>No</label>
                                 </div> 
-                                <span style='padding-left:1rem'> (If “Yes”, please describe.)</span>
+                                <span style='padding-left:1rem' class='italic'> (If “Yes”, please describe.)</span>
                             </div>
                             <textarea rows="10" cols="" name="special_help_text"></textarea>
-                            <p class='text-left'>If you have a copy of your IEP, please include it with the returned forms.)</p>
+                            <p class='text-left italic'>(If you have a copy of your IEP, please include it with the returned forms.)</p>
                         </div>
                         </td>
                     </tr>
@@ -955,7 +958,7 @@
                                     <label>No</label>
                                 </div> 
                             </div>
-                            <p class='text-left' style='padding-left:1.2rem'> (If “Yes”, please describe.)</p>
+                            <p class='text-left italic' style='padding-left:1.2rem'> (If “Yes”, please describe.)</p>
                             <textarea rows="10" cols="" name="vocational_training_text"></textarea>
                         </div>
                         </td>
@@ -1004,7 +1007,7 @@
                                     <label>No</label>
                                 </div> 
                             </div>
-                            <p class='text-left' style='padding-left:1.2rem'>  (If “Yes”, please indicate your primary language.)</p>
+                            <p class='text-left italic' style='padding-left:1.2rem'>  (If “Yes”, please indicate your primary language.)</p>
                             <textarea rows="10" cols="" name="interpreter_text"></textarea>
                         </div>
                         </td>
@@ -1016,7 +1019,7 @@
                             PART IV – INFORMATION ABOUT WORK YOU DID IN THE PAST 15 YEARS
                         </p>
                         <div class='form-row gap-5 text-base px-10' style='padding:0.3rem 0.6rem'>
-                            <span class='nowrap text-left'>G. Can you write a simple message in any language?</span>
+                            <span class='nowrap text-left font-semibold'>G. Have you worked in the past 15 years?</span>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="worked_fifteen_yes" value="yes">
                                     <label>Yes</label>
@@ -1199,7 +1202,7 @@
                                 </div>
                                 <div class='row gap-15 align-items-end p-0' style='width:15%'>
                                     <span>pounds</span>
-                                    <input type="text" name="lift_pounds_two" class="border-none">
+                                    <input type="text" name="lift_pounds_two" class="border-bottom">
                                 </div>
                             </div>
                         </td>
@@ -1289,7 +1292,7 @@
                                 </div>
                                 <div class='form-row gap-15 align-items-end p-0' style='width:15%'>
                                     <span>pounds</span>
-                                    <input type="text" name="lift_pounds_three" class="border-none">
+                                    <input type="text" name="lift_pounds_three" class="border-bottom">
                                 </div>
                             </div>
                         </td>
@@ -1393,7 +1396,7 @@
                                 </div>
                                 <div class='row gap-15 align-items-end p-0' style='width:15%'>
                                     <span>pounds</span>
-                                    <input type="text" name="lift_pounds_four" class="border-none">
+                                    <input type="text" name="lift_pounds_four" class="border-bottom">
                                 </div>
                             </div>
                         </td>
@@ -1483,7 +1486,7 @@
                                 </div>
                                 <div class='row gap-15 align-items-end p-0' style='width:15%'>
                                     <span>pounds</span>
-                                    <input type="text" name="lift_pounds_five" class="border-none">
+                                    <input type="text" name="lift_pounds_five" class="border-bottom">
                                 </div>
                             </div>
                         </td>
