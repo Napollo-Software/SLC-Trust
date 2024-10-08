@@ -741,7 +741,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         </div>
         <div class="sig1">
             <div class="w30">
-                <label for="">Speciality</label>
+                <label for="">Specialty</label>
                 <br>
                 <input type="text" name="speciallity" class="w90">
 
