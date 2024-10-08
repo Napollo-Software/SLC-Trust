@@ -416,16 +416,17 @@ class ReferralController extends Controller
     public function UserTrust(Request $request)
     {
         $referralTrust = Referral::findOrFail($request->referral_id);
-        $esignTrust = $request->input('esign') === 'true' ? 25 : 0;
-        $documentTrust = $request->input('document') === 'true' ? 25 : 0;
-        $financeTrust = $request->input('finance') === 'true' ? 25 : 0;
-        $checkListTrust = $request->input('checklist') === 'true' ? 25 : 0;
+        $esignTrust = $request->input('esign') === 'true' ? 33.33 : 0;
+        $documentTrust = $request->input('document') === 'true' ? 33.33 : 0;
+        $financeTrust = $request->input('finance') === 'true' ? 33.33 : 0;
+        $checkListTrust = $request->input('checklist') === 'true' ? 33.33 : 0;
         $referralTrust->trustEsign = $esignTrust;
         $referralTrust->trustFinance = $financeTrust;
         $referralTrust->trustDocument = $documentTrust;
         $referralTrust->trustCheckList = $checkListTrust;
         $totalTrust = $esignTrust + $documentTrust + $financeTrust + $checkListTrust;
         $referralTrust->save();
+        $totalTrust = $totalTrust > 99 ? 100 : $totalTrust;
         return response()->json(['trust' => $totalTrust, 'message' => 'Success']);
     }
 
@@ -446,7 +447,7 @@ class ReferralController extends Controller
         $user->address = $referral->address;
         $user->state = $referral->state;
         $user->city = $referral->city;
-        $user->phone = '+1' . $referral->phone_number;
+        $user->phone = "+1$referral->phone_number";
         $user->zipcode = $referral->zip_code;
         $user->gender = $referral->gender;
         $user->email = $referral->email;
@@ -475,6 +476,6 @@ class ReferralController extends Controller
 
         Mail::to($referral->email)->send(new Register($user));
 
-        return response()->json(['success' => 'Customer created successfully!']);
+        return response()->json(['success' => 'Customer created successfully!', "user" => $user]);
     }
 }

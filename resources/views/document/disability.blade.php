@@ -307,7 +307,7 @@
                     <label class='font-semibold text-lg'>Name</label>
                     <div class='row gap-5 align-items-end'>
                         <span>First:</span>
-                        <input type='text' name='first_name'>    
+                        <input type='text' name='first_name' value="{{$referral->first_name}}">    
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span>Middle:</span>
@@ -315,7 +315,7 @@
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span>Last:</span>
-                        <input type='text' name='last_name'>    
+                        <input type='text' name='last_name' value="{{$referral->last_name}}">    
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>SSN Number (last 4 digits):</span>
@@ -323,11 +323,11 @@
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Date Of Birth:</span>
-                        <input type='text' name="date_of_birth">    
+                        <input type='text' name="date_of_birth" value="{{$referral->date_of_birth}}">    
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Telephone Number:</span>
-                        <input type='text'name="telephone_number">    
+                        <input type='text'name="telephone_number" value="{{$referral->phone_number}}">    
                     </div>
                 </div>
                 <div class='form-cell'>

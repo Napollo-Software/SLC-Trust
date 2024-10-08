@@ -179,11 +179,11 @@ input{
             <tr >
                 <td >
                     <label for="Patient Name">Patient Name</label>
-                    <input type="text"  name="patient_name" style="margin-top: 3px">
+                    <input type="text"  name="patient_name" style="margin-top: 3px" value="{{$referral->first_name}} {{$referral->last_name}}">
                 </td>
                 <td>
                     <label for="Date of Birth">Date of Birth</label> <br>
-                    <input type="date"  name="dob" style="margin-top: 3px">
+                    <input type="date"  name="dob" style="margin-top: 3px" value="{{$referral->date_of_birth}}">
                 </td>
                 <td>
                     <label for="SSN Number">SSN Number</label>
@@ -193,7 +193,7 @@ input{
             <tr>
                 <td>
                     <label for="Address">Address</label> <br>
-                    <input type="text"  name="address" style="margin-top: 3px">
+                    <input type="text"  name="address" style="margin-top: 3px" value="{{$referral->address}}">
                 </td>
                 <td>
                     <label for="Client ID Number">Client ID Number</label>

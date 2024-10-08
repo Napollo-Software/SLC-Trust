@@ -36,7 +36,7 @@
         }
 
         .submit-button {
-            background-color: #134b7e; /* Dark blue background */
+            background-color: #559E99; /* Dark blue background */
             color: white; /* White text */
             padding: 8px 16px; /* Reduced padding */
             font-size: 14px; /* Smaller font size */
@@ -50,7 +50,7 @@
         }
 
         .submit-button:hover {
-            background-color: #16b6d3; /* Light blue on hover */
+            /* background-color: #438580;  */
         }
 
         .submit-button:focus {
@@ -90,6 +90,11 @@
             justify-content: space-between;
             align-items: flex-end;
         }
+        .container-row2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
 
         .custom-hr {
             height: 6px;
@@ -111,18 +116,18 @@
         }
 
         .card {
-            width: 1000px;
+            max-width: 1000px;
             background: white;
             box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
             transition: 0.3s;
             border-radius: 5px;
-            margin: 10px;
-            overflow: hidden;
-            padding: 10px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -20%);
+            margin: auto;
+            /* overflow: hidden; */
+            /* padding: 10px; */
+            /* position: absolute; */
+            /* top: 50%; */
+            /* left: 50%; */
+            /* transform: translate(-50%, -20%); */
             padding: 70px 110px;
         }
 
@@ -188,7 +193,9 @@ textarea{
 .btn-size{
     width: 12%;
 }
-
+.table-responsive{
+    overflow: auto
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -246,6 +253,195 @@ h3,h4{
 .heading-style{
     padding: 4px 5px
 }
+.mt-15{
+    margin-top: 15px
+}
+.mt-0{
+  margin-top: 0
+}
+.mt-18{
+  margin-top: 18px
+}
+.g-5{
+    gap: 0.5px
+}
+
+.diagonoseContainer{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+.sig1{
+    display: flex;
+    justify-content: space-between;
+}
+.w30{
+    width: 30%;
+}
+.w90{
+    width: 90%;
+}
+.w87{
+    width: 87%;
+}
+.w96{
+    width: 96%;
+}
+.w70{
+        width: 70%;
+    }
+.w57{
+    width: 57%
+}
+.w28{
+    width: 28%
+}
+.l-height{
+    line-height: 1.8
+}
+.w0{
+    width: fit-content;
+}
+input[type="radio"]{
+    appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 0; 
+  position: relative;
+  cursor: pointer;
+  
+}
+input[type="radio"]:checked{
+    background-color: #0075ff;
+    box-shadow: 1px 1px 2px lightgray;
+}
+input[type="radio"]:checked:before {
+  content: "\2713";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 9px;
+  font-weight: bold;
+  color: white;
+  background-color: #0075ff; 
+}
+.mb-6{
+    margin-bottom: 6px
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 1200px){
+    .table-1{
+        overflow-x: auto;
+        min-width: 700px;
+    }
+}
+
+
+
+@media only screen and (max-width: 1000px){
+    .sec-1{
+        flex-direction: column;
+        gap: 5px
+    }
+    .w138{
+        width: 100%;
+    }
+    .w130{
+        width: 100%;
+    }
+    .w100{
+        width: 100%;
+    }
+    .mt-15{
+        margin-top: 8px
+    }
+    .patient-style{
+        gap: 12px;
+    }
+    .mt-0{
+        margin-top: 8px
+    }
+    .mt-18{
+        margin-top: 8px
+    }
+    .g-5{
+    gap: 4.5px
+    }
+    .diagonoseContainer{
+        flex-direction: column;
+        gap: 6px;
+    }
+    .sig1{
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    .w30{
+        width: 100%;
+    }
+    .w90{
+        width: 100%;
+    }
+    .w87{
+        width: 117%;
+    }
+    .w96{
+        width: 117%;
+    }
+    .w70{
+        width: 100%;
+    }
+    .w57{
+        width: 70%;
+    }
+    .w28{
+        width: 92%;
+    }
+    .l-height{
+        line-height: 1
+    }
+    .card{
+        padding: 70px 40px;
+    }
+    .table-1{
+        overflow-x: auto;
+        min-width: 700px;
+    }
+   
+
+    
+}
+
+@media only screen and (max-width: 770px){
+    .container-row{
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+    }
+    .w0{
+        width: 100%
+    }
+}
+@media only screen and (max-width: 515px){
+    .text-md{
+        font-size: 10px;
+    }
+}
+
 
     </style>
 </head>
@@ -258,7 +454,7 @@ h3,h4{
         <input type="hidden" id=referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
         <div class="container-row">
-            <p class="text-md" style="line-height: 1.2;">
+            <p class="text-md w0" style="line-height: 1.2;">
                 NEW YORK STATE DEPARTMENT OF HEALTH <br>
                 Disability Review Unit
             </p>
@@ -272,55 +468,7 @@ h3,h4{
                 Section I – Identification
             </h2>
         </div>
-        {{-- <div class="container-row">
-            <p>
-                <b>Agency</b><br>
-                State Disability Review Unit OCP-826 <br>
-                State of New York <br>
-                Department of Health <br>
-                Albany, NY 12237 <br>
-                Telephone Number: 1(866) 330-0591
-            </p>
-            <p style="padding: 12px">
-                <b>Patient</b>
-                <br>
-                <label>Name (Last, First, Middle)</label>
-                <br>
-                <input type="text"  name="first_name"><br>
-                <br>
-                <label> Address (Street, City, State & Zip Code):</label>
-                <br>
-                <textarea rows="10"  name="address_text"></textarea>
-            </p>
-            <p style="padding: 12px">
-                <label>Date of Birth</label> <br>
-                <input type="date"  name="dob"><br>
-
-                Sex <input type="checkbox" name="sex1" value="male">Male<input type="checkbox" name="sex2"
-                                                                               value="female"> Female
-
-
-                <br>
-                Case Number
-                <br>
-                <input type="text" name="case_number">
-            </p>
-            <p>
-                Client ID Number <br>
-                <input type="text" name="client_id">
-                <br>
-                Disability ID Number <br>
-                <input type="text" name="disability_id">
-                <br>
-                SSN(Lsat four digits) <br>
-                <input type="text" name="ssn_last_four">
-                <br>
-            </p>
-        </div> --}}
-
-
-
-        {{-- New Section 1 Identification --}}
+        
 
 
         <div class="sec-1">
@@ -339,32 +487,33 @@ h3,h4{
                         <div class="patient-style">
                             <div>
                                 <label class="label-block" for="">Name (Last, First, Middle)</label>
-                                <input class="w138" type="text"  name="first_name">
+                                <input class="w138" type="text"  name="first_name" value="{{$referral->last_name}} {{$referral->first_name}}">
                             </div>
-                            <div style="display: flex;flex-direction: column;gap: 0.5px;">
+                            <div class="g-5" style="display: flex;flex-direction: column;">
                                 <label class="label-block" for="">Address (Street, City, State & Zip Code):</label>
-                                <input class="label-block w138" type="text"  name="address_text">
-                                <input class="label-block w138" type="text"  name="address_text2">
-                                <input style="margin-top: 2px;" class="label-block w138" type="text"  name="address_text3">
+                                <input class="label-block w138" type="text"  name="address_text" value="{{$referral->address}}">
+                                <input class="label-block w138" type="text"  name="address_text2" value="{{$referral->city}} {{$referral->state}}" >
+                                <input style="margin-top: 2px;" class="label-block w138" type="text"  name="address_text3" value="{{$referral->zip_code}}">
                             </div>
                         </div>
             </div>
-                    <div class="patient-style" style="margin-top: 15px;">
+                    <div class="patient-style mt-15">
                         <div>
                             <label class="label-block" for="">Date of Birth</label>
-                            <input class="w130" type="date"  name="dob">
+                            <input class="w130" type="date"  name="dob" max="9999-12-31" value="{{$referral->date_of_birth}}">
                         </div>
                         <div style="">
-                            <div>
+                            <div class="mb-6">
                                 <label class="label-block" for="">Sex</label>
                                 <div style="display: flex;justify-content: flex-start;align-items: center;">
-                                    <input type="checkbox" name="sex1" value="male">
-                                    <label for="">Male</label>
-                                    <input type="checkbox" name="sex2" value="female">
-                                    <label for="">Female</label> 
+                                    <input type="radio" name="sex" id="male" {{$referral->gender == "Male"?'checked':''}} value="male">
+                                    <label for="male">Male</label>
+                                    <input type="radio" name="sex" id="female" {{$referral->gender == "Female" ? 'checked' : ''}} value="female">
+
+                                    <label for="female">Female</label>
                                 </div>
                             </div>
-                            <div>
+                            <div class="mt-0">
                                 <label for="">Case Number</label>
                                 <input style="margin-top: 2px;" class="w130" type="text" name="case_number">
                             </div>
@@ -372,7 +521,7 @@ h3,h4{
                         
                         
                     </div>
-                    <div class="patient-style" style="margin-top: 18px;gap:6px">
+                    <div class="patient-style mt-18" style="gap:6px">
                         <div>
                             <label for="">Client ID Number</label>
                             <input class="w100" type="text" name="client_id">
@@ -416,31 +565,31 @@ h3,h4{
         </p>
         <h4 class="text-sm" style="margin-top: 3px;">Please return the completed form to the agency in Section I above, along with a copy of all medical records
             for the past 12 months.</h4>
-        <div style="margin-top: 10px;display: flex;justify-content: flex-start;">
-            <div class="text-sm" style="width: 85%;line-height:1.8">
+        <div class="diagonoseContainer">
+            <div class="text-sm l-height" style="width: 85%;">
                 <label class="text-sm" for="">Diagnosis(es)</label>
                 {{-- <br> --}}
                 {{-- <textarea  rows="3" name="diagnosis" cols="50"></textarea> --}}
-                <input type="text" name="diagnosis" style="width: 87%;">
+                <input type="text" name="diagnosis" class="w87">
                 <div>
-                    <input style="width: 96%;" type="text" name="diagnosis2">
+                    <input  class="w96" type="text" name="diagnosis2">
                 </div>
                 <div>
-                    <input style="width: 96%;" type="text" name="diagnosis3">
+                    <input  class="w96" type="text" name="diagnosis3">
                 </div>
                 {{-- <input type="text" name="diagnosis"> --}}
             </div>
             <div style="line-height: 1.8;">
-                <label class="text-sm" for="">Date of last Exam </label><input style="width: 70%;"  type="date" name="last_exam_date"><br>
+                <label class="text-sm" for="">Date of last Exam </label><input class="w70"  type="date" name="last_exam_date" max="9999-12-31"><br>
                 <label class="text-sm" for="">Height</label>
                 <input style="width: 20%" class="text-sm" type="number"  name="height_ft">
                 <label class="text-sm" for="">ft.</label>
 
-                <input style="width: 57%" type="number"  name="height_in">
+                <input class="w57" type="number"  name="height_in">
                 <label for="">in.</label>
                 <br>
                 <label for="">Weight</label>
-                <input style="width: 28%;" type="number" name="weight" >lbs.
+                <input class="w28" type="number" name="weight" >lbs.
             </div>
         </div>
         <div style="width: 100%; background-color: #ccc;">
@@ -448,7 +597,8 @@ h3,h4{
                 Exertional Functions. Please indicate what the individual is CAPABLE of doing:
             </h4>
         </div>
-        <table>
+    <div class="table-responsive">
+        <table class="table-1">
             <tr>
                 <th><h3 class="text-sm" style="margin-left:5px">Lifting</h3></th>
                 <th><h3 class="text-sm" style="margin-left:5px">Carrying</h3></th>
@@ -460,45 +610,46 @@ h3,h4{
             </tr>
             <tr>
                 <td style="width: 17%;">
-                    <input type="checkbox" name="lifting1" value="10lbs.">> 10 lbs. <br>
-                    <input type="checkbox" name="lifting2" value="Max. 10lbs.">Max. 10 lbs. <br>
-                    <input type="checkbox" name="lifting3" value="Max. 20lbs/freq. 10lbs.">Max. 20 lbs/freq. 10 lbs. <br>
-                    <input type="checkbox" name="lifting4" value="Max. 50lbs/freq. 25lbs.">Max. 50 lbs/freq. 25 lbs. <br>
-                    <input type="checkbox" name="lifting5" value=">50lbs."> > 50 lbs. <br>
+                    <input type="radio" name="lifting" value="10lbs."> > 10 lbs. <br>
+                    <input type="radio" name="lifting" value="Max. 10lbs.">Max. 10 lbs. <br>
+                    <input type="radio" name="lifting" value="Max. 20lbs/freq. 10lbs.">Max. 20 lbs/freq. 10 lbs. <br>
+                    <input type="radio" name="lifting" value="Max. 50lbs/freq. 25lbs.">Max. 50 lbs/freq. 25 lbs. <br>
+                    <input type="radio" name="lifting" value=">50lbs."> > 50 lbs. <br>
                 </td>
                 <td style="width: 17%;">
-                    <input type="checkbox" name="carrying1" value="10lbs.">> 10 lbs. <br>
-                    <input type="checkbox" name="carrying2" value="Max. 10lbs.">Max. 10lbs. <br>
-                    <input type="checkbox" name="carrying3" value="Max. 20lbs/freq. 10lbs.">Max. 20 lbs/freq. 10 lbs. <br>
-                    <input type="checkbox" name="carrying4" value="Max. 50lbs/freq. 25lbs.">Max. 50 lbs/freq. 25 lbs. <br>
-                    <input type="checkbox" name="carrying5" value=">50lbs."> > 50 lbs. <br>
+                    <input type="radio" name="carrying" value="10lbs.">> 10 lbs. <br>
+                    <input type="radio" name="carrying" value="Max. 10lbs.">Max. 10lbs. <br>
+                    <input type="radio" name="carrying" value="Max. 20lbs/freq. 10lbs.">Max. 20 lbs/freq. 10 lbs. <br>
+                    <input type="radio" name="carrying" value="Max. 50lbs/freq. 25lbs.">Max. 50 lbs/freq. 25 lbs. <br>
+                    <input type="radio" name="carrying" value=">50lbs."> > 50 lbs. <br>
                 </td>
                 <td style="width: 14%;">
-                    <input type="checkbox" name="standing1" value="less_than_two"> < 2hrs./day <br>
-                    <input type="checkbox" name="standing2" value="2hrs./day"> 2hrs./day <br>
-                    <input type="checkbox" name="standing3" value="6hrs./day"> 6hrs./day <br>
+                    <input type="radio" name="standing" value="less_than_two"> < 2hrs./day <br>
+                    <input type="radio" name="standing" value="2hrs./day"> 2hrs./day <br>
+                    <input type="radio" name="standing" value="6hrs./day"> 6hrs./day <br>
                 </td >
                 <td style="width: 14%;">
-                    <input type="checkbox" name="walking1" value="less_than_two"> < 2hrs./day <br>
-                    <input type="checkbox" name="walking2" value="2hrs./day"> 2hrs./day <br>
-                    <input type="checkbox" name="walking3" value="6hrs./day"> 6hrs./day <br>
+                    <input type="radio" name="walking" value="less_than_two"> < 2hrs./day <br>
+                    <input type="radio" name="walking" value="2hrs./day"> 2hrs./day <br>
+                    <input type="radio" name="walking" value="6hrs./day"> 6hrs./day <br>
                 </td>
                 <td style="width: 14%;">
-                    <input type="checkbox" name="sitting1" value="less_than_six"> < 6hrs./day <br>
-                    <input type="checkbox" name="sitting2" value="6hrs./day"> 6hrs./day <br>
+                    <input type="radio" name="sitting" value="less_than_six"> < 6hrs./day <br>
+                    <input type="radio" name="sitting" value="6hrs./day"> 6hrs./day <br>
                 </td>
                 <td style="width: 14%;">
-                    <input type="checkbox" name="pushing1" value="Using R arm"> Using R arm <br>
-                    <input type="checkbox" name="pushing2" value="Using L arm"> Using L arm <br>
-                    <input type="checkbox" name="pushing3" value="Using R leg"> Using R leg <br>
-                    <input type="checkbox" name="pushing4" value="Using L leg"> Using L leg <br>
+                    <input type="radio" name="pushing" value="Using R arm"> Using R arm <br>
+                    <input type="radio" name="pushing" value="Using L arm"> Using L arm <br>
+                    <input type="radio" name="pushing" value="Using R leg"> Using R leg <br>
+                    <input type="radio" name="pushing" value="Using L leg"> Using L leg <br>
                 </td>
                 <td style="width: 8%;">
-                    <input type="checkbox" name="pulling1" value="Using R arm"> Using R arm <br>
-                    <input type="checkbox" name="pulling2" value="Using L arm"> Using L arm <br>
+                    <input type="radio" name="pulling" value="Using R arm"> Using R arm <br>
+                    <input type="radio" name="pulling" value="Using L arm"> Using L arm <br>
                 </td>
             </tr>
         </table>
+    </div>
 
 
         <div style="width: 100%; background-color: #ccc">
@@ -506,7 +657,8 @@ h3,h4{
                 Non-Exertional Functions. Please check if LIMITATIONS exist in any of the areas below:
             </h4>
         </div>
-        <table>
+        <div class="table-responsive">
+        <table class="table-1">
             <tr>
                 <th><h3 class="text-sm" style="margin-left:5px">Sensory</h3></th>
                 <th><h3 class="text-sm" style="margin-left:5px">Postural</h3></th>
@@ -516,58 +668,58 @@ h3,h4{
             </tr>
             <tr>
                 <td style="width: 13%;">
-                    <input type="checkbox" name="sensory1" value="No Limitations"> No Limitations. <br>
-                    <input type="checkbox" name="sensory2" value="Seeing"> Seeing <br>
-                    <input type="checkbox" name="sensory3" value="Hearing"> Hearing <br>
-                    <input type="checkbox" name="sensory4" value="Speaking"> Speaking <br>
+                    <input type="radio" name="sensory" value="No Limitations"> No Limitations. <br>
+                    <input type="radio" name="sensory" value="Seeing"> Seeing <br>
+                    <input type="radio" name="sensory" value="Hearing"> Hearing <br>
+                    <input type="radio" name="sensory" value="Speaking"> Speaking <br>
                 </td>
                 <td style="width: 14%;">
-                    <input type="checkbox" name="postural1" value="No Limitations"> No Limitations. <br>
-                    <input type="checkbox" name="postural2" value="Stooping/Bending"> Stooping/Bending <br>
-                    <input type="checkbox" name="postural3" value="Crouching/Squatting"> Crouching/Squatting <br>
-                    <input type="checkbox" name="postural4" value="Climbing"> Climbing <br>
+                    <input type="radio" name="postural" value="No Limitations"> No Limitations. <br>
+                    <input type="radio" name="postural" value="Stooping/Bending"> Stooping/Bending <br>
+                    <input type="radio" name="postural" value="Crouching/Squatting"> Crouching/Squatting <br>
+                    <input type="radio" name="postural" value="Climbing"> Climbing <br>
                 </td>
                 <td style="width: 14%;">
-                    <input type="checkbox" name="manipulative1" value="No Limitations"> No Limitations. <br>
-                    <input type="checkbox" name="manipulative2" value="R Upper Extremity"> R Upper Extremity <br>
-                    <input type="checkbox" name="manipulative3" value="L Upper Extremity"> L Upper Extremity <br>
+                    <input type="radio" name="manipulative" value="No Limitations"> No Limitations. <br>
+                    <input type="radio" name="manipulative" value="R Upper Extremity"> R Upper Extremity <br>
+                    <input type="radio" name="manipulative" value="L Upper Extremity"> L Upper Extremity <br>
                 </td>
                 <td style="width: 23%;">
-                    <input type="checkbox" name="environmental1" value="No Limitations">No Limitations <br>
-                    <input type="checkbox" name="environmental2"
+                    <input type="radio" name="environmental" value="No Limitations">No Limitations <br>
+                    <input type="radio" name="environmental"
                            value="Tolerating dust, fumes, extremes of temperature">
                     Tolerating dust, fumes, extremes of temperature <br>
-                    <input type="checkbox" name="environmental3" value="Tolerating exposure to heights or machinery">
+                    <input type="radio" name="environmental" value="Tolerating exposure to heights or machinery">
                     Tolerating exposure to heights or machinery <br>
-                    <input type="checkbox" name="environmental4" value="Operating a motor vehicle"> Operating a motor
+                    <input type="radio" name="environmental" value="Operating a motor vehicle"> Operating a motor
                     vehicle <br>
                 </td>
                 <td style="width: 31%;">
-                    <input type="checkbox" name="mental1" value="No Limitations"> No Limitations <br>
-                    <input type="checkbox" name="mental2" value="Understanding, carrying out, remembering instructions">
+                    <input type="radio" name="mental" value="No Limitations"> No Limitations <br>
+                    <input type="radio" name="mental" value="Understanding, carrying out, remembering instructions">
                     Understanding, carrying out, remembering instructions <br>
-                    <input type="checkbox" name="mental3" value="Making simple work-related decisions"> Making simple
+                    <input type="radio" name="mental" value="Making simple work-related decisions"> Making simple
                     work-related decisions <br>
-                    <input type="checkbox" name="mental4"
+                    <input type="radio" name="mental"
                            value="Responding appropriately to supervision, co-workers, work situations"> Responding
                     appropriately to supervision, co-workers,work situations <br>
-                    <input type="checkbox" name="mental5" value="Dealing with changes in a routine work setting">
-                    Dealing
-                    with changes in a routine work setting <br>
+                    <input type="radio" name="mental" value="Dealing with changes in a routine work setting">
+                    Dealing with changes in a routine work setting <br>
                 </td>
             </tr>
         </table>
+    </div>
 
         <hr style="border: none;background: #ccc;height: 4px;">
-        <div style="display: flex;justify-content: space-between;">
-            <div style="width:30%">
+        <div class="sig1">
+            <div class="w30">
                 <label>Provider Signature</label>
                 <div id="signature-pad">
-                    <input type="text"  style="width: 90%;margin-bottom: 10px" name="doh_signature" id="doh_signature" oninput="generateSignature()" maxlength="18">
-                    <canvas id="signature-doh" style="height: 60px;width: 90%;"></canvas>
+                    <input type="text" class="w90"  style="margin-bottom: 10px" name="doh_signature" id="doh_signature" oninput="generateSignature()" maxlength="18">
+                    <canvas id="signature-doh" style="height: 60px;" class="w90"></canvas>
                     <div style="margin:5px 0">
 
-                        <div class="container-row" style="justify-content: start">
+                        <div class="container-row2" style="justify-content: start">
 
                             <button id="clear-doh" onclick="clearDohCanvas()">Clear</button>
                         </div>
@@ -576,33 +728,33 @@ h3,h4{
                     </div>
                 </div>
             </div>
-            <div style="width:30%">
+            <div class="w30">
             
                 <label>Print Name</label><br>
-                <input type="text" name="print_name" style="width: 90%;" >
+                <input type="text" name="print_name" class="w90" >
             </div>
             
-                <div style="width:30%">
+                <div class="w30">
                     <label>Date Signed</label><br>
-                    <input type="date" name="date_signed" style="width: 90%;">
+                    <input type="date" name="date_signed" class="w90">
                 </div>
         </div>
-        <div style="display: flex;justify-content: space-between;">
-            <div style="width:30%">
-                <label for="">Speciality</label>
+        <div class="sig1">
+            <div class="w30">
+                <label for="">Specialty</label>
                 <br>
-                <input type="text" name="speciallity" style="width:90%">
+                <input type="text" name="speciallity" class="w90">
 
             </div>
-            <div style="width:30%">
+            <div class="w30">
                 <label for="">Office Address</label>
                 <br>
-                <input type="text" name="office_address" style="width:90%">
+                <input type="text" name="office_address" class="w90">
             </div>
-            <div style="width:30%">
+            <div class="w30">
                 <label for="">Office Phone</label>
                 <br>
-                <input type="text" name="office_phone" style="width:90%" >
+                <input type="text" name="office_phone" class="w90" >
             </div>
         </div>
         <div style="margin-top:2px">

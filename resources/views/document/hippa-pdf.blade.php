@@ -247,8 +247,8 @@
                     <p style="margin: 0;">
                         8. Name and address of person(s) or category of person to whom this information will be sent:
                         <br>
-                        <textarea type="text" name="" rows="2" class="border-none"
-                              style="width: 90%;height:10px"></textarea>
+                        <textarea type="text" name="name_and_address" rows="2" class="border-none"
+                              style="width: 90%;height:10px">{{$name_and_address}}</textarea>
                         
                     </p>
                 </td>
@@ -331,7 +331,7 @@
                                  value="{{$info_other}}"
                                  >
                             </p>
-                            <p style="margin-top: 1px;padding: 0">
+                            <p style="margin-top: 16px;padding: 0">
                                <span class='font-bold ' style='font-size:13px'>Authorization to Discuss Health Information</span>
                             </p>
                         </div>
@@ -346,7 +346,7 @@
                                     name="alcoholDrug" 
                                     class='border-none border-bottom'
                                     style='width:20%'
-                                    {{isset($alcoholDrug) && $alcoholDrug == 'alcoholDrug' ? 'checked' : '' }}
+                                    value="{{$alcoholDrug}}"
                                     >
                                     <label
                                     for="alcoholDrug" class='font-bold '>
@@ -359,7 +359,7 @@
                                     name="mentalHealth"
                                     style='width:20%'
                                     class='border-none border-bottom' 
-                                    {{isset($mentalHealth) && $mentalHealth == 'mentalHealth' ? 'checked' : '' }}
+                                    value="{{$mentalHealth}}"
                                     >
                                     <label
                                         for="mentalHealth" class='font-bold '>
@@ -372,7 +372,7 @@
                                     name="hivRelated"
                                     style='width:20%'
                                     class='border-none border-bottom' 
-                                    {{isset($hivRelated) && $hivRelated == 'hivRelated' ? 'checked' : '' }}
+                                    value="{{$hivRelated}}"
                                     >
                                     <label
                                         for="hivRelated"
@@ -428,7 +428,7 @@
                             to discuss my health information with my attorney, or a governmental agency, listed here:
                         </div>
                         <div style="text-align: center;">
-                            <input type='text' class='border-bottom border-none' style='width:92%;padding-top:7px'/>
+                            <input type='text' class='border-bottom border-none' value="{{$health_information}}" name="health_information" style='width:92%;padding-top:7px'/>
                         </div>
                     </div>
                     <p style="margin: 0;padding: 0;text-align: center;margin-top:-6px">
@@ -442,9 +442,9 @@
                     <div style='padding-left:16px'>
                         <input
                         type="checkbox" 
-                        name="reason"
+                        name="request"
                         class='m-0 align-bottom'  
-                        {{isset($reason) && $reason =='reason'? 'checked' :''}}
+                        {{isset($request) && $request =='request'? 'checked' :''}}
                         > 
                         <span style="margin:0;padding: 0">At request of individual</span>
                     </div>
@@ -453,18 +453,20 @@
                         type="checkbox" 
                         name="reason_other"  
                         class='m-0 align-bottom' 
-                        value="{{$reason_other}}" 
-                        style="padding: 0;margin: 0;">
+                        {{isset($reason) && $reason =='reason'? 'checked' :''}}
+                        style="">
                         <span>
                             Other:
                         </span>
+                        <input type="text" name="reason_other" class="border-none" value="{{$reason_other}}" style="padding-left:4px;vertical-align: bottom;">
+
                     </div>
                 </td>
                 <td style="padding-left: 7px; margin: 0;vertical-align: top;">
                     <p style="margin: 0;vertical-align:top">
                         11. Date or event on which this authorization will expire:
                     </p>
-                    <input type='text' class='border-none' style='width:100%;padding-top:7px'/>
+                    <input type='text' class='border-none' name="date_or_event" value="{{$date_or_event}}" style='width:100%;padding-top:7px'/>
                 </td>
             </tr>
             <tr>
@@ -490,7 +492,7 @@
         <div style='display:table;width:100%;margin-left:8px'>
                 <div style="display:table-cell;width:45%;">
                     @if($hippa_sign)
-                        <img src="{{ $hippa_sign }}" alt="Signature 1" width="230" height="60">
+                        <img src="{{ $hippa_sign }}" alt="Signature 1" width="230" height="57">
                     @else
                         No Signature Provided
                     @endif

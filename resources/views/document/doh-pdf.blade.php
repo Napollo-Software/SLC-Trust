@@ -268,12 +268,12 @@
             <label  style="vertical-align:middle;position: relative;bottom: 4px;">
 
                 <input type="checkbox"
-                       style="margin-right: 1px; vertical-align:middle;transform: scale(1.5);" {{isset($sex1) && $sex1 == 'male' ?'checked': ''}}>
+                       style="margin-right: 1px; vertical-align:middle;transform: scale(1.5);" {{isset($sex) && $sex == 'male' ?'checked': ''}}>
                 <span style="font-size: 11.5px">Male</span>
             </label>
             <label style="vertical-align:middle;position: relative;bottom: 5px;left:2px">
                 <input type="checkbox"
-                       style="margin-right: 1px;vertical-align:middle;transform: scale(1.5);" {{isset($sex2) && $sex2 == 'female' ?'checked': ''}}>
+                       style="margin-right: 1px;vertical-align:middle;transform: scale(1.5);" {{isset($sex) && $sex == 'female' ?'checked': ''}}>
                 <span style="font-size: 11.5px">Female</span>
             </label>
 
@@ -368,66 +368,66 @@
         </tr>
         <tr style="width:100%">
             <td style="padding: 0;margin: 0;text-align: start;width:19%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting1) && $lifting1 == '10lbs.' ? 'checked':''}}>  &lt; 10 lbs.
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting) && $lifting == '10lbs.' ? 'checked':''}}>  &lt; 10 lbs.
                 </label> <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting2) && $lifting2 == 'Max. 10lbs.' ? 'checked':''}}> Max. 10 lbs.</label> <br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting) && $lifting == 'Max. 10lbs.' ? 'checked':''}}> Max. 10 lbs.</label> <br>
                 <label style="position: relative;bottom:4px"><input
-                        type="checkbox" {{isset($lifting3) && $lifting3 == 'Max. 20lbs/freq. 10lbs.' ? 'checked':''}}>
+                        type="checkbox" {{isset($lifting) && $lifting == 'Max. 20lbs/freq. 10lbs.' ? 'checked':''}}>
                     Max. 20 lbs./freq. 10 lbs.</label> <br>
                 <label style="position: relative;bottom:4px"><input
-                        type="checkbox"{{isset($lifting4) && $lifting4 == 'Max. 50lbs/freq. 25lbs.' ? 'checked':''}}>
+                        type="checkbox"{{isset($lifting) && $lifting == 'Max. 50lbs/freq. 25lbs.' ? 'checked':''}}>
                     Max. 50 lbs./freq. 25lbs.</label> <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting5) && $lifting5 == '>50lbs.' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting) && $lifting == '>50lbs.' ? 'checked':''}}>
                     &gt; 50 lbs.</label> <br>
             </td>
 
             <td style="padding: 0;margin: 0;text-align: start;width:19% ">
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($carrying1) && $carrying1 == '10lbs.' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($carrying) && $carrying == '10lbs.' ? 'checked':''}}>
                     &lt; 10 lbs.</label> <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($carrying2) && $carrying2 == 'Max. 10lbs.' ? 'checked':''}}> Max. 10 lbs.</label> <br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($carrying) && $carrying == 'Max. 10lbs.' ? 'checked':''}}> Max. 10 lbs.</label> <br>
                 <label style="position: relative;bottom:4px"><input
-                        type="checkbox" {{isset($carrying3) && $carrying3 == 'Max. 20lbs/freq. 10lbs.' ? 'checked':''}}>
+                        type="checkbox" {{isset($carrying) && $carrying == 'Max. 20lbs/freq. 10lbs.' ? 'checked':''}}>
                     Max. 20 lbs./freq. 10 lbs.</label> <br>
                 <label style="position: relative;bottom:4px"><input
-                        type="checkbox" {{isset($carrying4) && $carrying4 == 'Max. 50lbs/freq. 25lbs.' ? 'checked':''}}>
+                        type="checkbox" {{isset($carrying) && $carrying == 'Max. 50lbs/freq. 25lbs.' ? 'checked':''}}>
                     Max. 50 lbs./freq. 25 lbs.</label> <br>
                 <label style="position: relative;bottom:4px"><input
-                        type="checkbox" {{isset($carrying5) && $carrying5 == '>50lbs.' ? 'checked':''}}> > 50 lbs.</label>
+                        type="checkbox" {{isset($carrying) && $carrying == '>50lbs.' ? 'checked':''}}> > 50 lbs.</label>
                 <br>
             </td>
             <td style="padding: 0;margin: 0;text-align: start;position: relative;bottom:4px;width:12%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($standing1) && $standing1 == 'less_than_two' ? 'checked':''}}> &lt; 2 hrs./day</label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($standing2) && $standing2 == '2hrs./day' ? 'checked':''}}> 2 hrs./day</label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($standing3) && $standing3 == '6hrs./day'? 'checked':''}}> 6 hrs./day<label><br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($standing) && $standing == 'less_than_two' ? 'checked':''}}> &lt; 2 hrs./day</label><br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($standing) && $standing == '2hrs./day' ? 'checked':''}}> 2 hrs./day</label><br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($standing) && $standing == '6hrs./day'? 'checked':''}}> 6 hrs./day<label><br>
 
             </td>
             <td style="padding: 0;margin: 0;text-align: start;width:12%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($walking1) && $walking1 == 'less_than_two' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($walking) && $walking == 'less_than_two' ? 'checked':''}}>
                 &lt; 2 hrs./day</label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($walking2) && $walking2 == '2hrs./day' ? 'checked':''}}> 2 hrs./day</label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($walking3) && $walking3 =='6hrs./day' ? 'checked':''}}> 6 hrs./day</label><br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($walking) && $walking == '2hrs./day' ? 'checked':''}}> 2 hrs./day</label><br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($walking) && $walking =='6hrs./day' ? 'checked':''}}> 6 hrs./day</label><br>
 
             </td>
             <td style="padding: 0;margin: 0;text-align: start;width:12%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($sitting1) && $sitting1 == 'less_than_six' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($sitting) && $sitting == 'less_than_six' ? 'checked':''}}>
                 &lt; 6 hrs./day</label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($sitting2) && $sitting2 == '6hrs./day' ? 'checked':''}}> 6 hrs./day</label><br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($sitting) && $sitting == '6hrs./day' ? 'checked':''}}> 6 hrs./day</label><br>
 
             </td>
             <td style="padding: 0;margin: 0;text-align: start;width:12%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pushing1) && $pushing1 == 'Using R arm' ? 'checked':''}}> Using R arm</label>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pushing) && $pushing == 'Using R arm' ? 'checked':''}}> Using R arm</label>
                 <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pushing2) && $pushing2 == 'Using L arm' ? 'checked':''}}> Using L arm</label>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pushing) && $pushing == 'Using L arm' ? 'checked':''}}> Using L arm</label>
                 <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pushing3) && $pushing3 == 'Using R leg' ? 'checked':''}}> Using R leg</label>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pushing) && $pushing == 'Using R leg' ? 'checked':''}}> Using R leg</label>
                 <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pushing4) && $pushing4 == 'Using L leg' ? 'checked':''}}> Using L leg</label>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pushing) && $pushing == 'Using L leg' ? 'checked':''}}> Using L leg</label>
                 <br>
             </td>
 
             <td style="padding: 0;margin: 0;text-align: start;width:12%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pulling1) && $pulling1 == 'Using R arm' ? 'checked':''}}> Using R arm</label>
-                <br> <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pulling2) && $pulling2 == 'Using L arm' ? 'checked':''}}> Using L arm</label>
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pulling) && $pulling == 'Using R arm' ? 'checked':''}}> Using R arm</label>
+                <br> <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($pulling) && $pulling == 'Using L arm' ? 'checked':''}}> Using L arm</label>
                 <br>
 
             </td>
@@ -460,81 +460,81 @@
         </tr>
         <tr>
             <td style="padding: 0;margin: 0;text-align: start;width: 12.3%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="sensory1"
-                       value="No Limitations" {{isset($sensory1) && $sensory1 == 'No Limitations' ? 'checked':''}}> No Limitations </label>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="sensory"
+                       value="No Limitations" {{isset($sensory) && $sensory == 'No Limitations' ? 'checked':''}}> No Limitations </label>
                 <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="sensory2"
-                       value="Seeing" {{isset($sensory2) && $sensory2 == 'Seeing' ? 'checked':''}}> Seeing</label> <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="sensory3"
-                       value="Hearing" {{isset($sensory3) && $sensory3 == 'Hearing' ? 'checked':''}}> Hearing</label> <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="sensory4"
-                       value="Speaking" {{isset($sensory4) && $sensory4 == 'Speaking' ? 'checked':''}}> Speaking</label> <br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="sensory"
+                       value="Seeing" {{isset($sensory) && $sensory == 'Seeing' ? 'checked':''}}> Seeing</label> <br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="sensory"
+                       value="Hearing" {{isset($sensory) && $sensory == 'Hearing' ? 'checked':''}}> Hearing</label> <br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="sensory"
+                       value="Speaking" {{isset($sensory) && $sensory == 'Speaking' ? 'checked':''}}> Speaking</label> <br>
 
 
             </td>
             <td style="padding: 0;margin: 0;text-align: start;width: 16%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="postural1"
-                       value="No Limitations" {{isset($postural1) && $postural1 == 'No Limitations' ? 'checked':''}}> No
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="postural"
+                       value="No Limitations" {{isset($postural) && $postural == 'No Limitations' ? 'checked':''}}> No
                 Limitations. </label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="postural2"
-                       value="Stooping/Bending" {{isset($postural2) && $postural2 == 'Stooping/Bending' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="postural"
+                       value="Stooping/Bending" {{isset($postural) && $postural == 'Stooping/Bending' ? 'checked':''}}>
                 Stooping/Bending </label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="postural3"
-                       value="Crouching/Squatting" {{isset($postural3) && $postural3 == 'Crouching/Squatting' ? 'checked':''}}> Crouching/Squatting</label>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="postural"
+                       value="Crouching/Squatting" {{isset($postural) && $postural == 'Crouching/Squatting' ? 'checked':''}}> Crouching/Squatting</label>
                 <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="postural4"
-                       value="Climbing" {{isset($postural4) && $postural4 == 'Climbing' ? 'checked':''}}> Climbing </label><br>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="postural"
+                       value="Climbing" {{isset($postural) && $postural == 'Climbing' ? 'checked':''}}> Climbing </label><br>
 
 
             </td>
             <td style="padding: 0;margin: 0;text-align: start;width: 15%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="manipulative1"
-                       value="No Limitations" {{isset($manipulative1) && $manipulative1 == 'No Limitations' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="manipulative"
+                       value="No Limitations" {{isset($manipulative) && $manipulative == 'No Limitations' ? 'checked':''}}>
                 No Limitations.</label>
                 <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="manipulative2"
-                       value="R Upper Extremity" {{isset($manipulative2) && $manipulative2== 'R Upper Extremity' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="manipulative"
+                       value="R Upper Extremity" {{isset($manipulative) && $manipulative== 'R Upper Extremity' ? 'checked':''}}>
                 R Upper Extremity </label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="manipulative3"
-                       value="L Upper Extremity" {{isset($manipulative3) && $manipulative3== 'L Upper Extremity' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="manipulative"
+                       value="L Upper Extremity" {{isset($manipulative) && $manipulative== 'L Upper Extremity' ? 'checked':''}}>
                 L Upper Extremity </label><br>
             </td>
             <td style="padding: 0;margin: 0;text-align: start;width: 29%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental1"
-                       value="No Limitations" {{isset($environmental1) && $environmental1 == 'No Limitations' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental"
+                       value="No Limitations" {{isset($environmental) && $environmental == 'No Limitations' ? 'checked':''}}>
                 No Limitations </label><br>
-                <label style="position: relative;bottom:4px;"><input type="checkbox" name="environmental2"
-                       value="Tolerating dust, fumes, extremes of temperature"{{isset($environmental2) && $environmental2 == 'Tolerating dust, fumes, extremes of temperature' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px;"><input type="checkbox" name="environmental"
+                       value="Tolerating dust, fumes, extremes of temperature"{{isset($environmental) && $environmental == 'Tolerating dust, fumes, extremes of temperature' ? 'checked':''}}>
                 Tolerating dust, fumes, extremes of temperature </label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental3" value="Tolerating exposure to heights or machinery"
-                    {{isset($environmental3) && $environmental3== 'Tolerating exposure to heights or machinery' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental" value="Tolerating exposure to heights or machinery"
+                    {{isset($environmental) && $environmental== 'Tolerating exposure to heights or machinery' ? 'checked':''}}>
                 Tolerating exposure to heights or machinery</label> <br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental4"
-                       value="Operating a motor vehicle" {{isset($environmental4) && $environmental4 == 'Operating a motor vehicle' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental"
+                       value="Operating a motor vehicle" {{isset($environmental) && $environmental == 'Operating a motor vehicle' ? 'checked':''}}>
                 Operating a motor vehicle </label><br>
 
                 <br>
             </td>
             <td style="padding: 0;margin: 0;text-align: start;width: 30%">
 
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="mental1"
-                       value="No Limitations" {{isset($mental1) && $mental1 == 'No Limitations' ? 'checked':''}}> No Limitations</label> <br>
-                <label style="position: relative;bottom:4px;white-space:nowrap"><input type="checkbox" name="mental2" value="Understanding, carrying out, remembering instructions"
-                    {{isset($mental2) && $mental2 == 'Understanding, carrying out, remembering instructions' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="mental"
+                       value="No Limitations" {{isset($mental) && $mental == 'No Limitations' ? 'checked':''}}> No Limitations</label> <br>
+                <label style="position: relative;bottom:4px;white-space:nowrap"><input type="checkbox" name="mental" value="Understanding, carrying out, remembering instructions"
+                    {{isset($mental) && $mental == 'Understanding, carrying out, remembering instructions' ? 'checked':''}}>
                 Understanding, carrying out, remembering instructions
                  </label><br>
                 <label style="position: relative;bottom:4px;white-space:nowrap">
-                    <input type="checkbox" name="mental3"
-                       value="Making simple work-related decisions" {{isset($mental3) && $mental3 == 'Making simple work-related decisions' ? 'checked':''}}>
+                    <input type="checkbox" name="mental"
+                       value="Making simple work-related decisions" {{isset($mental) && $mental == 'Making simple work-related decisions' ? 'checked':''}}>
                 Making simple work-related decisions 
             </label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="mental4"
-                       value="Responding appropriately to supervision, co-workers, work situations"{{isset($mental4) && $mental4 == 'Responding appropriately to supervision, co-workers, work situations' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="mental"
+                       value="Responding appropriately to supervision, co-workers, work situations"{{isset($mental) && $mental == 'Responding appropriately to supervision, co-workers, work situations' ? 'checked':''}}>
                 Responding appropriately to supervision, <br>
                 <span style="margin-left: 11px">co-workers, work situations</span>
                  </label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="mental5"
-                       value="Dealing with changes in a routine work setting" {{isset($mental5) && $mental5 == 'Dealing with changes in a routine work setting' ? 'checked':''}}>
+                <label style="position: relative;bottom:4px"><input type="checkbox" name="mental"
+                       value="Dealing with changes in a routine work setting" {{isset($mental) && $mental == 'Dealing with changes in a routine work setting' ? 'checked':''}}>
                 Dealing with changes in a routine work setting </label><br>
 
             </td>
