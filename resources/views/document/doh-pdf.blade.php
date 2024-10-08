@@ -212,7 +212,7 @@
                 NEW YORK STATE DEPARTMENT OF HEALTH <br>
                 Disability Review Unit
             </p>
-            <span class='font-bold text-right pt-12' style="position:relative;top:9.5px;font-size:19px">
+            <span class='text-right pt-12' style="position:relative;top:9.5px;font-size:19px;font-family: 'Info-Bold'">
                 Medical Report for Determination of Disability
             </span>
         </div>
@@ -257,8 +257,8 @@
             {{-- <textarea rows="10" class="border-bottom"
                       style="box-sizing: border-box;width: 90%">{{$address_text}}</textarea> --}}
             <input type="text" value="{{$address_text}}" name="address_text"style="border:none;border-bottom:1px solid black;width: 90%;">
-            <input type="text" value="{{$address_text}}" name="address_text"style="border:none;border-bottom:1px solid black;width: 90%;">
-            <input type="text" value="{{$address_text}}" name="address_text"style="border:none;border-bottom:1px solid black;width: 90%;position: relative;bottom: 2px;">
+            <input type="text" value="{{$address_text2}}" name="address_text2"style="border:none;border-bottom:1px solid black;width: 90%;">
+            <input type="text" value="{{$address_text3}}" name="address_text3"style="border:none;border-bottom:1px solid black;width: 90%;position: relative;bottom: 2px;">
         </p>
         <p style="display: table-cell; width: 20%;margin-top: 5px;">
             <label style="font-size:11px">Date of Birth</label> <br>
@@ -318,8 +318,8 @@
                       style="border: none;  width: 100%; height: 150px;">{{$diagnosis}}</textarea> --}}
             <label>Diagnosis(es)</label>
             <input type="text" value="{{$diagnosis}}" name="diagnosis"style="border:none;border-bottom:1px solid black;vertical-align:middle;width:87%;position: relative;top: 2px;">
-            <input type="text" value="{{$diagnosis}}" name="diagnosis"style="border:none;border-bottom:1px solid black;vertical-align:middle;width:98%;">
-            <input type="text" value="{{$diagnosis}}" name="diagnosis"style="border:none;border-bottom:1px solid black;vertical-align:middle;width:98%;">
+            <input type="text" value="{{$diagnosis2}}" name="diagnosis2"style="border:none;border-bottom:1px solid black;vertical-align:middle;width:98%;">
+            <input type="text" value="{{$diagnosis3}}" name="diagnosis3"style="border:none;border-bottom:1px solid black;vertical-align:middle;width:98%;">
         </div>
         <div style="display: table-cell; vertical-align: bottom; width: 25%; padding-left:10px;">
             <p style="margin: 0">
