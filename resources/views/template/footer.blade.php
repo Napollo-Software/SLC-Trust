@@ -1,4 +1,4 @@
-	
+
 						</div>
 					</div>
 					<!-- CONTAINER CLOSED -->
@@ -111,13 +111,13 @@
                 </div>
             </footer>
 <!-- DEBUG-VIEW ENDED 5 APPPATH\Views\layouts\components\footer.php -->
-	
+
 			<!-- FOOTER CLOSED -->
 		</div>
 
 		<!-- SCRIPTS -->
 		<!-- DEBUG-VIEW START 6 APPPATH\Views\layouts\components\scripts.php -->
-        
+
         <!-- BACK-TO-TOP -->
         <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
@@ -137,16 +137,16 @@
 
         <!-- STICKY JS -->
         <script src="http://localhost/Noa/assets/js/sticky.js"></script>
-        
+
 		<!-- APEXCHART JS -->
 		<script src="http://localhost/Noa/assets/js/apexcharts.js"></script>
-		
+
 		<!-- INTERNAL SELECT2 JS -->
 		<script src="http://localhost/Noa/assets/plugins/select2/select2.full.min.js"></script>
-		
+
 		<!-- CHART-CIRCLE JS-->
 		<script src="http://localhost/Noa/assets/js/circle-progress.min.js"></script>
-		
+
 		<!-- INTERNAL DATA-TABLES JS-->
 		<script src="http://localhost/Noa/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
 		<script src="http://localhost/Noa/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
@@ -154,18 +154,21 @@
 
 		<!-- INDEX JS -->
 		<script src="http://localhost/Noa/assets/js/index1.js"></script>
-		
+
 		<!-- REPLY JS-->
 		<script src="http://localhost/Noa/assets/js/reply.js"></script>
-		
+
 		<!-- COLOR THEME JS -->
 		<script src="http://localhost/Noa/assets/js/themeColors.js"></script>
 
-	        
+
         <!-- CUSTOM JS -->
         <script src="http://localhost/Noa/assets/js/custom.js"></script>
-       	
-        
+
+         @php
+            Session::forget('success'); // Reset the session message
+            Session::forget('fail'); // Reset the session message
+        @endphp
 
 
 
