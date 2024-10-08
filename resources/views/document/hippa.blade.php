@@ -54,12 +54,10 @@
 
         .row-container {
             display: flex;
-            gap: 20%;
-            align-items: center;
-            justify-content: flex-start;
+            align-items: flex-end;
         }
         .submit-button {
-            background-color: #134b7e; /* Dark blue background */
+            background-color: #559E99; /* Dark blue background */
             color: white; /* White text */
             padding: 8px 16px; /* Reduced padding */
             font-size: 14px; /* Smaller font size */
@@ -73,7 +71,7 @@
         }
 
         .submit-button:hover {
-            background-color: #16b6d3; /* Light blue on hover */
+            background-color: #559E99; /* Light blue on hover */
         }
 
         .submit-button:focus {
@@ -160,8 +158,11 @@ input{
     height: 27px;
     outline: none;
 }
-input[type=='date']{
-    height: 26px;
+.inputDate{
+    height: 14px;
+    border: none;
+    border-bottom:1px solid black;
+
 }
 .input-full{
     border-radius: 2px;
@@ -253,7 +254,7 @@ body{
     }
 
     .sm{
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .md{
@@ -272,6 +273,10 @@ body{
         flex-direction: row;
         align-items: center;
     }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
 
    .mt-3{
         margin-top: 3px;
@@ -320,7 +325,8 @@ body{
 
 
   .border-btm{
-    
+    margin-top:-20px;
+    padding:2px;
   }
   .flex-col{
     display: flex;
@@ -332,9 +338,105 @@ body{
     display: flex;
     flex-direction: row;
   }
+
+  .border-btm{
+    border-bottom: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+
+  @media only screen and (max-width: 520px){
+    .card {
+            background:white;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 5px 5px;
+
+        }
+
+    body{
+        background:white;
+        font-family:'times new roman';
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px !important;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+    }
+    .main-table{
+        overflow-x: auto;
+    }
+
+    .row-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap:15px
+        }
+
+    td{
+        font-size: 16px;
+    }
+    input{
+        font-size: 16px;
+
+    }
+
+    .header_rightTop{
+    text-align: right;
+  }
+
+  .header_rightCenter{
+    text-align: left;
+    font-size: 14px !important;
+    padding-left:15px;
+    padding-right:15px 
+  }
+
+  .header_right{
+    flex: 1;
+  }
+
+
+  .header_rightCenter{
+    text-align: center;
+    font-size: 17px;
+    margin-left: -15px;
+  }
+
+  .header_bottom{
+    margin-top: 5px;
+    text-align: center;
+  }
+
+
+  .border-btm{
+    margin-top:-20px;
+    padding:2px;
+  }
+  .flex-col{
+    display: flex;
+    flex-direction: column;
+    gap:5px
+  }
  
-  
- 
+  .flex-row{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .border-btm{
+    border-bottom: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+
+  }
 
     </style>
 </head>
@@ -374,7 +476,7 @@ body{
                 </td>
                 <td  style="width: 25%;">
                     <label for="Date of Birth">Date of Birth</label><br>
-                    <input type="date" name="hippa_dob" class="new_input input-full mt-5" value="{{$referral->date_of_birth}}">
+                    <input type="date" max="9999-12-31" name="hippa_dob" class="new_input input-full mt-5" value="{{$referral->date_of_birth}}">
                 </td>
                 <td  style="width: 25%;">
                     <label for="SSN Number">Social Security Number</label><br>
@@ -400,7 +502,7 @@ body{
                 these types of information, and I initial the line on the box in Item 9(a), I specifically authorize release
                 of such information to the person(s) indicated in Item 8.
             </li>
-            <li>2.;&nbsp;&nbsp;If I am authorizing the release of HIV-related, alcohol or drug treatment, or mental health treatment
+            <li>2.&nbsp;&nbsp;If I am authorizing the release of HIV-related, alcohol or drug treatment, or mental health treatment
                 information, the recipient is prohibited from redisclosing such information without my authorization unless
                 permitted to do so under federal or state law. I understand that I have the right to request a list of
                 people who may receive or use my HIV-related information without authorization. If I experience
@@ -422,7 +524,8 @@ body{
             <p class="mt-3">6.&nbsp;&nbsp;<span class=" bold">THIS AUTHORIZATION DOES NOT AUTHORIZE YOU TO DISCUSS MY HEALTH INFORMATION OR MEDICAL
                 CARE WITH ANYONE OTHER THAN THE ATTORNEY OR GOVERNMENTAL AGENCY SPECIFIED IN ITEM 9 (b).</span></p>
 
-        <table>
+        <div class="main-table">
+        <table >
             <tr >
                 <td colspan="2">
                     <label>7. Name and address of health provider or entity to release this information:</label>
@@ -443,15 +546,11 @@ body{
                         
                         <div class="row">
                         <input type="checkbox" name="info_released1" value="dated">
-                        Medical Record from (insert date) <input type="date"  name="info_released_from"> to
+                        Medical Record from (insert date) <input type="date" max="9999-12-31" class="inputDate"  name="info_released_from"> to
                         (insert date) <input
-                            type="date"  name="info_released_to">
+                            type="date" max="9999-12-31" class="inputDate"  name="info_released_to">
 
                     </div>
-
-
-
-
                     <div style="padding: 0;margin: 0;align-items: flex-start !important;" class="row">
                         <input type="checkbox" name="info_released2" value="Entire_med">
                         <p style="margin-top:4px"> Entire Medical Record, including patient histories, office notes (except psychotherapy notes), test
@@ -461,25 +560,23 @@ body{
                         providers.</p>
 
                     </div>
-
-
                     <div class="row mt-10 nine-container" style="padding: 0;align-items: flex-start !important;">
-                        <div style="padding: 0;margin: 0;align-items: flex-start !important;" class="row">
-                            <div class="row">
+                        <div style="padding: 0;margin: 0" class="row">
+                            <div class="row" >
                                 <input type="checkbox" name="info_released3" value="other">
                                 <p>Other:</p>
                             </div>
-                            <input type="text" style="margin-top:5px" name="info_other">
+                            <input type="text"class="border-btm" style="" name="info_other">
                         </div>
                         <div style="padding: 0;margin: 0;">
                             <p>Include: (Indicate by Initialing) </p>
 
                             <ul>
-                                <li class="row"><input type="checkbox" name="alcoholDrug" value="alcoholDrug"><label
+                                <li class="row"><input type="text" maxlength="7" max class="border-btm" style="font-size:15px !important;padding:0px !important;margin:0;width:70px;height: 15px;" name="alcoholDrug" ><label
                                         for="alcoholDrug">Alcohol/Drug Treatment</label></li>
-                                <li class="row"><input type="checkbox" name="mentalHealth" value="mentalHealth"><label
+                                <li class="row"><input type="text" maxlength="7" class="border-btm" style="font-size:15px !important;padding:0px !important;margin:0;width:70px;height: 15px;" name="mentalHealth" ><label
                                         for="mentalHealth">Mental Health Information</label></li>
-                                <li class="row"><input type="checkbox" name="hivRelated" value="hivRelated"><label
+                                <li class="row"><input type="text" maxlength="7" class="border-btm" style="font-size:15px !important;padding:0px !important;margin:0;width:70px;height: 15px;" name="hivRelated" ><label
                                         for="hivRelated">HIV-Related Information</label></li>
                             </ul>
                         </div>
@@ -487,64 +584,86 @@ body{
                     <p>
                         <b>Authorization to Discuss Health Information</b>
                     </p>
-                    <p>(b)</p> <input type="checkbox" name="discuss" value="discuss"> By initialing here <input type="text"
-                                                                                                                name="authorised_person"
-                                                                                                                placeholder="initials"
-                                                                                                                >
-                    I authorize <input type="text" name="authorize"
-                                       placeholder="Name of individual health cure provider" style="width:50%;margin-top: 6px;">
-                    <div style="max-width: 100%; text-align: center;">
-                        <div style="text-align: start;">
-                            to discuss my health information with my attorney, or a governmental agency, listed here:
-                        </div>
-                        <div>
-                            <b>NYC HRA Medical Assistance program 785 Atlantic Ave</b>
-                        </div>
-                    </div>
+                    <div class="row">
+                         <p>(b)</p>
+                         <input type="checkbox"  name="discuss" value="discuss">
+                         <p>By initialing here</p>
+                         <div>
+                             <input type="text" class="border-btm" name="authorised_person" style="height:30px;margin:0;height:14px" >
+                             <p class="sm" style="text-align:center">Initials</p>
+                         </div>
+                         <p>I authorize</p>
+                         <div style="width:55%">
+                             <input type="text" class="border-btm" name="authorize"  style="width:100%;height:30px;margin:0;height:14px">
+                             <p class="sm" style="text-align:center">Name of individual healath care provider</p>
+                         </div>
 
-                    <hr>
-                    <p style="text-align: center;">
+                    </div>
+                    <div style="max-width: 100%; text-align: center;">
+                        <div style="text-align: start;margin-left:4.5%; margin-right:4.5%" class="mt-5" >
+                            to discuss my health information with my attorney, or a governmental agency, listed here:
+                                <input type="text" class="border-btm" name="health_information"  style="width:100%;height:30px;margin:0;height:14px">
+                        </div>
+                       
+                    </div>
+                    <p style="text-align: center;margin-bottom:-6px;margin-top:2px" class="sm">
                         (Attorney/Finn Name or Governmental Agency Name)
                     </p>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="width:50%">
                     <p>10. Reason for release of information:</p>
-                    <s>At request of indvidual</s>
-                    <br>
-                    <input type="checkbox" name="reason" value="reason"> Other:
-                    <input type="text" name="reason_other"  >
+                    <div class="row">
+                        <input type="checkbox" name="request" value="request">
+                        <p>At request of indvidual</p>
+                    </div>
+                    <div class="row">
+                        <input type="checkbox" name="reason" value="reason">
+                        <p>Other:</p>
+                        <input type="text" name="reason_other"  >
+                    </div>
                 </td>
-                <td>
-                    <p>
-                        11. Date or event on which this authorization will expire:
-                    </p><br>
-                    NO Experation
+                <td style="width:50%;vertical-align: top;">
+                    <div class="flex-col">
+                        <p>
+                            11. Date or event on which this authorization will expire:
+                        </p>
+                        <input type="text" class="input-full mt-5" name="date_or_event">
+
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    12. If not the patient, name of person signing form:
-                    <input type="text" name="person_signing">
+                    <div class="flex-col">
+                        <p>12. If not the patient, name of person signing form:</p>
+                        <input type="text" class="input-full" name="person_signing">
+
+                    </div>
                 </td>
                 <td>
-                    13. Authority to sign on behalf of patient:
-                    <input type="text" name="authority_sign">
+                    <div>
+                        <p>13. Authority to sign on behalf of patient:</p>
+                        <input class="input-full mt-5" type="text" name="authority_sign">
+                    </div>
                 </td>
             </tr>
         </table>
-        <p>
+
+        </div>
+      
+        <p class="mt-3" style="margin-bottom:3px">
             All items on this form have been completed and my questions about this form have been answered. In add111on, I
             have been provided a
             copy of the form.
         </p>
         <div class="row-container">
-            <div class="card-body" style="justify-content: space-around">
+            <div class="card-body mt-3" style="padding:0;">
 
                 <div id="signature-pad">
-                    <input type="text"  style="width: 63%;margin-bottom: 10px" name="hippa_signature" id="hippa_signature" oninput="generateSignature()" maxlength="18">
-                    <canvas id="signature-canvas-hippa"></canvas>
+                    <input type="text"  style="width: 61%;margin-bottom: 10px" name="hippa_signature" id="hippa_signature" oninput="generateSignature()" maxlength="18">
+                    <canvas  id="signature-canvas-hippa"></canvas>
                     <div>
                         <div class="container-row" style="justify-content: start">
 
@@ -556,11 +675,12 @@ body{
                 </div>
             </div>
 
-            <label for="">Date<input type="date" name="sign_date"></label>
-
+            <div class="flex-row" style="align-items: flex-end;flex:1">
+                <label for="">Date: </label>
+                &nbsp;  <input type="date" max="9999-12-31" class="inputDate" style="width:50%" name="sign_date">
+            </div>
         </div>
-        <br>
-        <div style="max-width: 100%;font-weight: bold">
+        <div class="mt-15" style="max-width: 100%;font-weight: bold;">
             * Human Immunodeficiency Virus that causes AIDS. The New York State Public Health Law protects information which
             reasonably could
             identify someone as having HIV symptoms or infection and information regarding a person's contacts.
