@@ -98,7 +98,7 @@
             margin-bottom:2px;
         }
         .mt-20{
-            margin-top:20px !important;
+            margin-top:4px !important;
         }
         /* align */
         .text-center{
@@ -431,7 +431,7 @@
                             <input type='text' class='border-bottom border-none' style='width:92%;padding-top:7px'/>
                         </div>
                     </div>
-                    <p style="margin: 0;text-align: center;">
+                    <p style="margin: 0;padding: 0;text-align: center;margin-top:-6px">
                         (Attorney/Firm Name or Governmental Agency Name)
                     </p>
                 </td>
@@ -460,7 +460,7 @@
                         </span>
                     </div>
                 </td>
-                <td style="padding-left: 7px; margin: 0;">
+                <td style="padding-left: 7px; margin: 0;vertical-align: top;">
                     <p style="margin: 0;vertical-align:top">
                         11. Date or event on which this authorization will expire:
                     </p>

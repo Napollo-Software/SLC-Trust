@@ -147,6 +147,8 @@
                         <div class="d-flex justify-content-between">
                             <h4>Profile Details</h4>
                             <span class="d-flex">
+                            <a href="{{ route('approval-letter', $user->id) }}" class="btn btn-success ml-1 mr-1" style="color: white;">
+                                   <i class="bx bxs-download me-1"></i>Approval Letter</a>
                                 @if($user->role == "User")
                                 <a href="{{ route('view_user', $user->id) }}" class="btn btn-secondary" style="color: white;">
                                     <i class="bx bx-dollar-circle pb-1"></i>Add Balance</a>

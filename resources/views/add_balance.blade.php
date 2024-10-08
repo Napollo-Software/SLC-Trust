@@ -49,6 +49,14 @@
                         <div class="row mb-3">
                             <div class="row mb-3">
                                 <div class="col-lg-6 mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Customer Name</label>
+                                    <input type="text" class="form-control" readonly disabled value="{{ $user->full_name() }}" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Surplus Amount</label>
+                                    <input type="text" class="form-control" readonly disabled value="{{ $user->surplus_amount }}" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Add Balance</label>
                                     <input type="number" class="form-control" placeholder="$" name="balance" step="any" required />
                                     @error('balance')
