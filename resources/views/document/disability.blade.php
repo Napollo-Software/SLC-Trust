@@ -182,7 +182,7 @@
         }
         .row{
             display:flex;
-            padding:8px 0px;
+            padding:5px 0px;
         }
         .form-row > .form-cell{
             width:100%
