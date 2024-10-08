@@ -10,25 +10,18 @@ use Illuminate\Queue\SerializesModels;
 class RejectProfile extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $name;
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+
     public function __construct($name)
     {
         $this->name = $name;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
-        return $this->subject(config('app.professional_name').' | Profile Rejected!')
-        ->view('emails.rejectprofile');
+        return $this->subject('Profile Rejected!')
+            ->bcc(env('MAIL_BCC_ADDRESS'))
+            ->view('emails.rejectprofile');
     }
 }

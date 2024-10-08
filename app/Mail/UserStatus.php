@@ -22,11 +22,12 @@ class UserStatus extends Mailable
 
     public function build()
     {
-        return $this->subject(config('app.professional_name').' | Account Verified')
+        return $this->subject('Account Verified')
+            ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('emails.userstatus');
-            // ->attach($this->pdfPath, [
-            //     'as' => 'approval_letter.pdf',
-            //     'mime' => 'application/pdf',
-            // ]);
+        // ->attach($this->pdfPath, [
+        //     'as' => 'approval_letter.pdf',
+        //     'mime' => 'application/pdf',
+        // ]);
     }
 }

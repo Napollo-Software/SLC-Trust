@@ -212,7 +212,7 @@
                 NEW YORK STATE DEPARTMENT OF HEALTH <br>
                 Disability Review Unit
             </p>
-            <span class='font-bold text-right pt-12' style="position:relative;top:8px;font-size:19px">
+            <span class='font-bold text-right pt-12' style="position:relative;top:9.5px;font-size:19px">
                 Medical Report for Determination of Disability
             </span>
         </div>
@@ -224,7 +224,7 @@
         </p>
     </div>
 
-    <div class="container-row" style="display: table; width: 100%;margin-top:25px">
+    <div class="container-row" style="display: table; width: 100%;margin-top:17px">
         <p style="display: table-cell; width: 25%;font-size: 10px;position:relative;padding-right: 11px;margin:0">
             <span style="display:block;position: absolute;top: -1.2%;font-size:12px;" class='font-base'>Agency</span>
             <span style="font-size: 11px;display:inline-block;margin-top:2.5px">
@@ -299,7 +299,7 @@
         </p>
     </div>
     <div style="width: 100%; background-color: #ccc;margin: 0;">
-        <p style="padding: 2px 5px;margin:0;margin:5px 0;font-size:12px" class='font-base'>
+        <p style="padding: 2px 5px;margin:0;font-size:12px;margin:5px 0" class='font-base'>
             Section I – Medical Report – Note to Provider
         </p>
     </div>
@@ -325,19 +325,19 @@
             <p style="margin: 0">
                 <span style="display: inline-block; font-size: 12px;">Date of last Exam</span>
                 <input type="text" value="{{date('m/d/Y',strtotime($last_exam_date))}}" name="last_exam_date"
-                       style="border: none;border-bottom:1px solid black ;display: inline-block;width: 77px">
+                       style="border: none;border-bottom:1px solid black ;display: inline-block;width: 77px;position: relative;top: 2px;">
             </p>
 
             <p style="margin: 0">Height <input type="text" value="{{$height_ft}}" name="height_ft"
-            style="border: none;border-bottom:1px solid black ;width: 55px;vertical-align:middle"> ft. 
-            <input type="text" value="{{$height_in}}" name="height_in" style="border: none;border-bottom:1px solid black;width: 35px;vertical-align:middle"> in.</p>
+            style="border: none;border-bottom:1px solid black ;width: 55px;vertical-align:middle;position: relative;top: 2px;"> ft. 
+            <input type="text" value="{{$height_in}}" name="height_in" style="border: none;border-bottom:1px solid black;width: 35px;vertical-align:middle;position: relative;top: 2px;"> in.</p>
             <p style="margin: 0">Weight <input type="text" name="weight" value="{{$weight}}" style="border: none;border-bottom:1px solid black;width: 50px;vertical-align:middle"> lbs.</p>
         </div>
     </div>
 
 
     <div style="width: 100%; background-color: #ccc;margin: 0;">
-        <p style="padding:2px 5px;margin:0;margin-top:8px;font-size:12px" class='font-base'>
+        <p style="padding:2px 5px;margin:0;margin-top:2px;font-size:12px" class='font-base'>
             Exertional Functions. Please indicate what the individual is CAPABLE of doing:
         </p>
     </div>
@@ -368,7 +368,7 @@
         </tr>
         <tr style="width:100%">
             <td style="padding: 0;margin: 0;text-align: start;width:19%">
-                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting1) && $lifting1 == '10lbs.' ? 'checked':''}}>  &gt; 10 lbs.
+                <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting1) && $lifting1 == '10lbs.' ? 'checked':''}}>  &lt; 10 lbs.
                 </label> <br>
                 <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($lifting2) && $lifting2 == 'Max. 10lbs.' ? 'checked':''}}> Max. 10 lbs.</label> <br>
                 <label style="position: relative;bottom:4px"><input
@@ -383,7 +383,7 @@
 
             <td style="padding: 0;margin: 0;text-align: start;width:19% ">
                 <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($carrying1) && $carrying1 == '10lbs.' ? 'checked':''}}>
-                    &gt; 10 lbs.</label> <br>
+                    &lt; 10 lbs.</label> <br>
                 <label style="position: relative;bottom:4px"><input type="checkbox" {{isset($carrying2) && $carrying2 == 'Max. 10lbs.' ? 'checked':''}}> Max. 10 lbs.</label> <br>
                 <label style="position: relative;bottom:4px"><input
                         type="checkbox" {{isset($carrying3) && $carrying3 == 'Max. 20lbs/freq. 10lbs.' ? 'checked':''}}>
@@ -480,7 +480,7 @@
                        value="Stooping/Bending" {{isset($postural2) && $postural2 == 'Stooping/Bending' ? 'checked':''}}>
                 Stooping/Bending </label><br>
                 <label style="position: relative;bottom:4px"><input type="checkbox" name="postural3"
-                       value="Crouching/Squatting" {{isset($postural3) && $postural3 == 'Crouching/Squatting' ? 'checked':''}}>Crouching/Squatting</label>
+                       value="Crouching/Squatting" {{isset($postural3) && $postural3 == 'Crouching/Squatting' ? 'checked':''}}> Crouching/Squatting</label>
                 <br>
                 <label style="position: relative;bottom:4px"><input type="checkbox" name="postural4"
                        value="Climbing" {{isset($postural4) && $postural4 == 'Climbing' ? 'checked':''}}> Climbing </label><br>
@@ -503,7 +503,7 @@
                 <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental1"
                        value="No Limitations" {{isset($environmental1) && $environmental1 == 'No Limitations' ? 'checked':''}}>
                 No Limitations </label><br>
-                <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental2"
+                <label style="position: relative;bottom:4px;"><input type="checkbox" name="environmental2"
                        value="Tolerating dust, fumes, extremes of temperature"{{isset($environmental2) && $environmental2 == 'Tolerating dust, fumes, extremes of temperature' ? 'checked':''}}>
                 Tolerating dust, fumes, extremes of temperature </label><br>
                 <label style="position: relative;bottom:4px"><input type="checkbox" name="environmental3" value="Tolerating exposure to heights or machinery"
@@ -540,9 +540,11 @@
             </td>
         </tr>
     </table>
-     <div style="border-top: 4px solid #ccc;margin-bottom:5px"></div>
+     <div style="border-top: 4px solid #ccc;position: relative;
+    bottom: 13px;"></div>
     {{-- <hr  style="background-color: #e9e9e9;margin-top:10px"> --}}
-    <div style="display: table;width: 100%;">
+    <div style="display: table;width: 100%;position: relative;
+    bottom: 10px;">
         <div style="display: table-cell; vertical-align: middle; width: 25%;">
             <p style="margin:0;margin-bottom:5px">Provider Signature</p>
             <div class="card-body" style="max-width: fit-content;">
@@ -582,7 +584,7 @@
     <div style="display: table;width: 100%">
         <div style="display: table-cell; vertical-align: middle; width: 25%;">
             <p style="margin:0;margin-bottom:5px">
-                <label for="speciality">Speciality</label>
+                <label for="speciality">Specialty</label>
             </p>
             <div>
                 <input type="text" name="speciallity" class="no-border" value="{{$speciallity}}"

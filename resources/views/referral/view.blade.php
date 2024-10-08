@@ -80,7 +80,7 @@ return $colors[$randomIndex];
     <!-- PAGE-HEADER -->
     <h5 class=" d-flex justify-content-start pt-5 pb-2 px-2">
         <b></b>
-       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referral</b></a> / <b>View Referral</b> </div>
+        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referral</b></a> / <b>View Referral</b> </div>
     </h5>
     <!-- PAGE-HEADER END -->
 
@@ -197,13 +197,27 @@ return $colors[$randomIndex];
                     <div class="wideget-user-tab">
                         <div class="tab-menu-heading d-flex justify-content-between align-items-center flex-md-row flex-column px-md-3">
                             <div class="tabs-menu1 order-md-1 order-2 ">
-                                <ul class="nav py-3 px-3">
-                                    <li ><a href="#esignCard" data-bs-toggle="tab" class="active p-0 mx-2  mb-sm-0 mb-3">E-sign</a>
-                                    </li>
-                                    <li ><a href="#documentCard" data-bs-toggle="tab" class="p-0 mx-2  mb-sm-0 mb-3">Documents</a>
-                                    </li>
-                                    <li ><a href="#checkList" data-bs-toggle="tab" class="p-0 mx-2  mb-sm-0 mb-3">Checklist</a></li>
-                                    <li class="mb-0"><a href="#financeCard" data-bs-toggle="tab" class="p-0 mx-2  mb-sm-0  ">Finance</a></li>
+                                <ul class="nav py-0 px-0">
+                                    <div>
+                                        <li>
+                                            <a href="#esignCard" data-bs-toggle="tab" class="active pb-3 px-0 mx-2  mb-sm-0 mb-3">E-sign</a>
+                                        </li>
+                                    </div>
+                                    <div>
+                                        <li>
+                                            <a href="#documentCard" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Documents</a>
+                                        </li>
+                                    </div>
+                                    <div>
+                                        <li>
+                                            <a href="#checkList" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Checklist</a>
+                                        </li>
+                                    </div>
+                                    <div>
+                                        <li class="mb-0">
+                                            <a href="#financeCard" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3 ">Finance</a>
+                                        </li>
+                                    </div>
                                 </ul>
                             </div>
                             <div class="order-md-2 order-1 pt-md-0 pt-3 pl-3 status-field mx-2" style=" ">
@@ -391,22 +405,20 @@ return $colors[$randomIndex];
                         <div class="row">
                             <div class="col-md-12 mt-3 ">
                                 <div class="row  px-3">
-                                    <div class="col-md-4 ">
-                                        <div class="d-flex align-items-center gap-2 "  >
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-center gap-2 ">
                                             <input class="trustDocument m-0" type="checkbox" name="document" {{ $referral->trustDocument ? 'checked' : '' }}>
                                             <label class="m-0">Mark As Read</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-8 d-flex justify-content-between">
                                         <h5 class="m-0">Received Documents: {{ $recievedDocumentCount }}</h5>
-                                    </div>
-                                    <div class="col-md-4">
                                         <h5 class="m-0">Pending Documents: {{ $pendingDocumentCount }}</h5>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <div class="overflow-auto px-3 py-1"  >
+                                    <div class="overflow-auto px-3 py-1">
                                         <table class="table table-bordered dataTable">
                                             <thead>
                                                 <tr>
@@ -491,55 +503,55 @@ return $colors[$randomIndex];
                         @csrf
                         <input type="hidden" name="referral_id" id="referral_id" value="{{ $referral->id }}">
                         <div class="row " style="display: flex; justify-content: space-around;  ">
-                            <div  class="d-flex  align-items-center">
+                            <div class="d-flex  align-items-center">
                                 <input class="trustCheckList" type="checkbox" name="checkList" {{ $referral->trustCheckList ? 'checked' : '' }}>
                                 <label class="m-0">Mark As Complete</label>
                             </div>
 
-                           <div class="px-3 pt-3">
-                           <table class="table table-bordered align-middle ">
-                                <tbody>
-                                    <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                            <div class="align-self-center">
-                                                <input type="checkbox"  class="document-list m-0 mt-2" {{ $checks->disability == 1 ? 'checked' : '' }}  name="document_checkboxes1">
-                                            </div>
-                                        </td>
-                                        <td class="align-middle">DOH -5139 Disability FILLABLE Questionnaire</td>
-                                    </tr>
-                                    <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->doh == 1 ? 'checked' : '' }} name="document_checkboxes2">
-                                        </td>
-                                        <td class="align-middle">DOH</td>
-                                    </tr>
-                                    <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->hipaa_state == 1 ? 'checked' : '' }} name="document_checkboxes3">
-                                        </td>
-                                        <td class="align-middle">DOH 5173-Hipaa State</td>
-                                    </tr>
-                                    <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->joinder == 1 ? 'checked' : '' }} name="document_checkboxes5">
-                                        </td>
-                                        <td class="align-middle">Joinder Agreement</td>
-                                    </tr>
-                                    <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->hipaa == 1 ? 'checked' : '' }} name="document_checkboxes4">
-                                        </td>
-                                        <td class="align-middle">DOH-960 Hipaa</td>
-                                    </tr>
-                                    <tr>
-                                    <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                            <input type="checkbox" class="document-list m-0 mt-2"  {{ $checks->map == 1 ? 'checked' : '' }} name="document_checkboxes6">
-                                        </td>
-                                        <td class="align-middle">MAP-751e - Authorization to Release Medical Information</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                           </div>
+                            <div class="px-3 pt-3">
+                                <table class="table table-bordered align-middle ">
+                                    <tbody>
+                                        <tr>
+                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
+                                                <div class="align-self-center">
+                                                    <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->disability == 1 ? 'checked' : '' }} name="document_checkboxes1">
+                                                </div>
+                                            </td>
+                                            <td class="align-middle">DOH -5139 Disability FILLABLE Questionnaire</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
+                                                <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->doh == 1 ? 'checked' : '' }} name="document_checkboxes2">
+                                            </td>
+                                            <td class="align-middle">DOH</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
+                                                <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->hipaa_state == 1 ? 'checked' : '' }} name="document_checkboxes3">
+                                            </td>
+                                            <td class="align-middle">DOH 5173-Hipaa State</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
+                                                <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->joinder == 1 ? 'checked' : '' }} name="document_checkboxes5">
+                                            </td>
+                                            <td class="align-middle">Joinder Agreement</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
+                                                <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->hipaa == 1 ? 'checked' : '' }} name="document_checkboxes4">
+                                            </td>
+                                            <td class="align-middle">DOH-960 Hipaa</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
+                                                <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->map == 1 ? 'checked' : '' }} name="document_checkboxes6">
+                                            </td>
+                                            <td class="align-middle">MAP-751e - Authorization to Release Medical Information</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
                         </div>
                         <div>
@@ -557,9 +569,9 @@ return $colors[$randomIndex];
                         <form id="bank-info-form" method="post">
                             @csrf
 
-                            <div  class="d-flex  align-items-center">
+                            <div class="d-flex align-items-center">
                                 <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
-                                    <label>Mark As Complete</label>
+                                <label class="m-0">Mark As Complete</label>
                             </div>
                             <hr>
 
@@ -642,9 +654,8 @@ return $colors[$randomIndex];
                                 </div>
                             </div>
                             <button class="btn btn-primary mt-2 fs-6" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
-                            <button class="btn btn-primary mr-2 mt-2 fs-6 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if($referral->convert_to_customer!=null)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
+                            <button class="btn btn-primary mr-2 mt-2 fs-6 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if(!$referral->convert_to_customer)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -1004,7 +1015,7 @@ return $colors[$randomIndex];
                                     <label for="eMail" class="form-label">Email</label>
                                 </div>
                                 <div class="col-md-9 d-flex align-items-center  d-flex align-items-center ">
-                                    <p class="m-0" > {{ $referral->email }}</p>
+                                    <p class="m-0"> {{ $referral->email }}</p>
                                 </div>
                             </div>
                         </div>
@@ -1135,7 +1146,7 @@ return $colors[$randomIndex];
                                 <div class="col-md-3">
                                     <label for="timeZone" class="form-label">Source Type</label>
                                 </div>
-                                <div class="col-md-9 d-flex align-items-center "  data-select2-id="8">
+                                <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
                                     <p class="m-0"> {{ $referral->source_type }}</p>
                                 </div>
                             </div>
@@ -1691,16 +1702,17 @@ return $colors[$randomIndex];
             </div>
         </div>
         <div class="card tasks-card d-none">
-            <div class="border-bottom d-flex justify-content-between p-2 mt-2">
-                <h3 class="">Notes</h3>
+            <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
+                <h4 class="px-3">Notes</h4>
                 @if ($user->hasPermissionTo('Add Contact'))
-                <a class="btn btn-primary NoteAddBtn print-btn pb-1 pt-1 " style="color: white;">
-                    <i class="bx bx-save pb-1"></i>Add Note</a>
+                <div>
+                    <a class="btn btn-primary NoteAddBtn print-btn pb-1 pt-1 " style="color: white;">
+                        <i class="bx bx-save pb-1"></i>Add Note</a></div>
                 @endif
             </div>
             <div class="card-body p-3">
                 <ul class="task-list" id="notes-list">
-                @foreach ($referral->get_followup as $item)
+                    @foreach ($referral->get_followup as $item)
                     <li>
                         <div class="row-container">
                             <i class="task-icon bg-{{ randomColor() }}"></i>
@@ -1708,7 +1720,7 @@ return $colors[$randomIndex];
                             <p class="text-muted fs-12">{{ $item->date }} {{$item->time}}</p>
 
                     </li>
-                @endforeach
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -1755,7 +1767,7 @@ return $colors[$randomIndex];
         </div>
         <div class="card attachment-card d-none">
             <div class="border-bottom p-2 mt-2">
-                <h3 class="">Attachments</h3>
+                <h4 class="px-3">Attachments</h4>
             </div>
             <div class="row p-2">
                 @if (count($referral->get_uploaded_documents) > 0)
@@ -1909,7 +1921,7 @@ return $colors[$randomIndex];
                         <input type="hidden" id="userId" name="userId" class="form-control" value="{{ $referral->referral_phy->id }}">
                         <input type="hidden" name="referral_id" value="{{ $referral->id }}">
                         <div class="col-md-12 px-0">
-                            <h4  class="pb-3 px-3 border-bottom">Physician Detail</h4>
+                            <h4 class="pb-3 px-3 border-bottom">Physician Detail</h4>
                             <div class="form-group my-3 my-3 px-3">
                                 <div class="row row-sm">
                                     <div class="col-md-3">
@@ -2241,14 +2253,12 @@ enctype="multipart/form-data">
     </div>
 </div>
 
-<div class="modal fade" id="addNoteModal" tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="addNoteModal" tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addNoteModalLabel">Add Note</h5>
-                <button type="button" class="close close-btn closeContactModal" data-dismiss="modal"
-                    aria-label="Close">
+                <button type="button" class="close close-btn closeContactModal" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -2276,14 +2286,12 @@ enctype="multipart/form-data">
                 </div>
                 <div class="modal-footer ">
                     <button type="submit" class="btn btn-primary note-button mb-3">Submit</button>
-                    <button type="button" class="btn btn-secondary mb-3 closeContactModal"
-                        data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary mb-3 closeContactModal" data-dismiss="modal">Close</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 
 
 
@@ -2317,6 +2325,7 @@ enctype="multipart/form-data">
                         swal.fire('success', data.success, 'success')
                         $('.convert-btn').text('Converted to Customer');
                         $('.convert-btn').attr('disabled',true);
+                        window.location.href="/show_user/"+id;
 
                     },
                     error: function (xhr) {
@@ -2953,5 +2962,6 @@ enctype="multipart/form-data">
         return colors[randomIndex];
     }
 </script>
+
 
 @endsection

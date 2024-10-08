@@ -17,6 +17,7 @@
     body {
         background-color: #F0F1F7 !important;
         font-family: Poppins !important;
+        color:black !important;
     }
 
     .pointer{
@@ -48,6 +49,11 @@
         background-color: #559e99 !important;
         outline: none !important;
         box-shadow: none !important;
+    }
+
+    .dropdown-toggle {
+        font-size: 14px;
+        font-weight: 400;
     }
 </style>
 <div class="primary-menu">

@@ -3,15 +3,13 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class Register extends Mailable
 {
     use Queueable, SerializesModels;
-    public $details;
-    public $pdfpath;
+    public $details, $pdfpath;
 
     public function __construct($details, $pdfpath = null)
     {
@@ -22,12 +20,13 @@ class Register extends Mailable
     public function build()
     {
 
-        return $this->subject(config('app.professional_name') . ' | Set Password')
+        return $this->subject('Set Password')
+            ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('emails.registered');
-            // ->attach($this->pdfpath, [
-            //     'as' => 'approval_letter.pdf',
-            //     'mime' => 'application/pdf',
-            // ]);
+        // ->attach($this->pdfpath, [
+        //     'as' => 'approval_letter.pdf',
+        //     'mime' => 'application/pdf',
+        // ]);
 
     }
 }
