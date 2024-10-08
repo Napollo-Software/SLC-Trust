@@ -176,7 +176,7 @@
             padding-top:3rem;
         }
         .pb-10{
-            padding-bottom:1rem;
+            padding-bottom:0.7rem;
         }
         .pl-5{
             padding-left:0.6rem;
@@ -325,7 +325,7 @@
                     </div>
                 </div>
                 <div class='form-cell'>
-                    <p style='padding-bottom:5px'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
+                    <p style='padding-bottom:5px;padding-top:5px'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
                     <div class='form-cell p-10 mt-14' style='background-color:rgba(0,0,0,0.2)'>
                         <div class='row gap-5 text-base align-items-end' style='margin-top:10px'>
                             <span class='nowrap'>Case Number:</span>
