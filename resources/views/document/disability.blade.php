@@ -56,74 +56,13 @@
             box-shadow: 0 0 0 2px rgba(19, 75, 126, 0.25); /* Adding a subtle focus shadow with the dark blue color */
         }
 
-
-        tr:first-child th {
-            font-size: 12px;
-            /* Adjust the font size as needed */
-        }
-
         .no-border {
             border-bottom: 1px solid black;
             border-top: none;
             border-left: none;
             border-right: none;
-
-
         }
 
-        .container-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .custom-hr {
-            height: 10px;
-            /* Adjust the height as needed */
-            border: none;
-            background-color: black;
-            /* Adjust the color as needed */
-        }
-
-        /* Adjusted margin for h6 */
-        h6 {
-            /* margin: 5px 0; */
-            margin: 20px 0 10px 0;
-            /* You can adjust this margin value as needed */
-        }
-
-        .checkbox-row label {
-            margin-right: 20px;
-        }
-
-        .checkbox-row {
-            display: flex;
-            align-items: center;
-        }
-        .card {
-            width: 794px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            border-radius: 5px;
-            margin: 10px;
-            overflow: hidden;
-            padding: 10px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -5%);
-        }
-
-
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
-        }
-
-
-
-        .card-body {
-            padding: 2px 16px;
-        }
         .no-border:focus{
             border-radius: 5px;
             padding: 4px 8px
@@ -305,7 +244,7 @@
         }
         th{
             text-align: left;
-            background:rgba(0,0,0,0.2)
+            background:rgba(0,0,0,0.2);
         }
 
         @media only screen and (max-width: 768px) {
