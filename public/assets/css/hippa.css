@@ -1,0 +1,12 @@
+*{
+    margin: 0 ;
+    padding: 0 ;
+  }
+
+  .header_rightTop{
+    text-align: right;
+  }
+
+  .header_rightCenter{
+    text-align: left;
+  }

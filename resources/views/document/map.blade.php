@@ -81,9 +81,9 @@
         }
 
         .submit-button {
-            background-color: #134b7e; /* Dark blue background */
+            background-color: #559E99; /* Dark blue background */
             color: white; /* White text */
-            padding: 8px 16px; /* Reduced padding */
+            padding: 9px 20px; /* Reduced padding */
             font-size: 14px; /* Smaller font size */
             border: none; /* No border */
             border-radius: 4px; /* Rounded corners */
@@ -95,7 +95,7 @@
         }
 
         .submit-button:hover {
-            background-color: #16b6d3; /* Light blue on hover */
+            background-color: #559E99; /* Light blue on hover */
         }
 
         .submit-button:focus {
@@ -118,6 +118,7 @@
             flex-direction: row;
             justify-content: space-between;
             margin-bottom: 60px;
+            margin-top: -15px;
         }
 
         body {
@@ -168,6 +169,13 @@ input{
     margin: 0;
     padding: 0;
     padding-left: 10px !important;
+}
+
+textarea{
+    width: calc(100% - 10px);
+    outline: none;
+    padding: 7px;
+    border: 1px solid #b2b2b2; 
 }
 .loader {
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -244,6 +252,10 @@ input{
         cursor: pointer;
     }
 
+    .main-heading{
+        margin-left:60px
+    }
+
     .para-main{
         padding-left: 140px
     }
@@ -310,6 +322,7 @@ input{
 
         .main-heading{
             font-size: 11px;
+            margin-left:0px
         }
 
         .header-img{
@@ -363,15 +376,15 @@ input{
                 </th>
             </tr>
             <tr>
-                <td style="width:45%">
+                <td style="width:50%">
                     <label for="Patient Name">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON HAD CONTACT WITH SOURCE (Include Zip Code) </label><br>
-                    <input type="text" name="source_contact_name_address" style="margin-top: 5px">
+                    <textarea name="source_contact_name_address" style="margin-top: 5px" rows="4" id=""></textarea>
                 </td>
-                <td style="width:20%"> 
+                <td style="width:23%"> 
                     <label for="Patient Name">DATE OF BIRTH</label><br><br>
                     <input type="date" name="dob" style="margin-top: 5px">
                 </td>
-                <td style="width:40%">
+                <td style="width:28%">
                     <label for="Patient Name">DISABLED PERSON'S I.D.
                         NUMBER (If known and if
                         different than SSN.) </label><br>
@@ -413,7 +426,7 @@ input{
                 <p>Information about how my impairment(s) affected my ability to do work.</p>
             </div>
         </div>
-        <p>I understand that this authorization, except for action already taken, may be voided by me at any time. If I
+        <p style="margin-bottom: 60px;">I understand that this authorization, except for action already taken, may be voided by me at any time. If I
             do
             not void this authorization, it will automatically end at the conclusion of any proceedings, administrative
             or
@@ -472,7 +485,7 @@ input{
                 </td>
                 <td colspan="2">
                     <label>
-                        TELEPHONE NUMBER
+                        TELEPHONE NUMBER (include area code))
                     </label><br>
                     <input type="text" name="disabled_relation_street" style="margin-top: 5px" style="">
                 </td>

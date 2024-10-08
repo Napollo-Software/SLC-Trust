@@ -11,7 +11,20 @@
          @font-face {
         font-family: BrittanySignature;
         src: url("/fonts/BrittanySignature-MaZx.ttf");
-    }
+        }
+        @font-face {
+                font-family: 'times new roman';
+                src: url('fonts/times new roman.ttf') format('truetype');
+            }
+            @font-face {
+                font-family: 'times new roman bold';
+                src: url('fonts/times new roman bold.ttf') format('truetype');
+            }
+            @font-face {
+                font-family: 'times new roman italic';
+                src: url('fonts/times new roman italic.ttf') format('truetype');
+            }
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -28,7 +41,7 @@
 
         th,
         td {
-            border: 1px solid black;
+            border: 2px solid black;
             padding: 8px;
             /* text-align: center; */
         }
@@ -43,6 +56,7 @@
             display: flex;
             gap: 20%;
             align-items: center;
+            justify-content: flex-start;
         }
         .submit-button {
             background-color: #134b7e; /* Dark blue background */
@@ -67,6 +81,11 @@
             box-shadow: 0 0 0 2px rgba(19, 75, 126, 0.25); /* Adding a subtle focus shadow with the dark blue color */
         }
 
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
         body {
             margin-left: 50px;
@@ -94,23 +113,19 @@
         .oca {
             float: right;
         }
+      
         .card {
-            width: 794px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            border-radius: 5px;
-            margin: 10px;
-            overflow: hidden;
-            padding: 10px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -15%);
+            background:white;
+            width: 1000px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 70px 110px;
+
         }
 
 
+
         .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+            /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); */
         }
 
 
@@ -140,6 +155,25 @@ input{
     border: 1px solid #b2b2b2;
     font-size: 12px;
     padding: 4px 6px;
+    outline: none;
+    background-color: transparent !important;
+    height: 27px;
+    outline: none;
+}
+input[type=='date']{
+    height: 26px;
+}
+.input-full{
+    border-radius: 2px;
+    border: 1px solid #b2b2b2;
+    font-size: 12px;
+    height: 30px;
+    outline: none;
+    width: calc(100% - 10px);
+    margin: 0;
+    padding: 0;
+    padding-left: 10px !important;
+    background-color: transparent !important;
 }
 textarea{
     background: #e9e9e9;
@@ -160,6 +194,20 @@ textarea{
     top: 22%;
     transform: translateY(-50%);
 }
+
+ .row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+ } 
+
+ .nine-container{
+    margin-left: 75px;
+    margin-right: 75px;
+    justify-content: space-between;
+ }
+
 .btn-size{
     width: 12%;
 }
@@ -174,6 +222,120 @@ textarea{
     cursor: not-allowed;
 }
 
+/* ...............................................  */
+body{
+        background:rgba(0, 0, 0, 0.06);
+        font-family:'times new roman';
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px !important;
+    }
+
+    li{
+        margin-top: 3px;
+    }
+    .bold{
+        font-family:'times new roman bold';
+    }
+
+    .medium{
+        font-family:'ArialMdm';
+    }
+
+    .xs{
+        font-size: 13px;
+    }
+
+    .xxs{
+        font-size: 9px;
+    }
+
+    .sm{
+        font-size: 16px;
+    }
+
+    .md{
+        font-size: 18px;
+    }
+
+    .lg{
+        font-size: 16px;
+    }
+    .xl{
+        font-size: 17px;
+    }
+
+    .header_Container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+   .mt-3{
+        margin-top: 3px;
+    } 
+   .mt-5{
+        margin-top: 5px;
+    } 
+    .mt-10{
+        margin-top: 10px;
+    }
+    .mt-15{
+        margin-top: 15px;
+    }
+    .mt-20{
+        margin-top: 20px;
+    }
+
+ *{
+    margin: 0 ;
+    padding: 0 ;
+  }
+
+  .header_rightTop{
+    text-align: right;
+  }
+
+  .header_rightCenter{
+    text-align: left;
+  }
+
+  .header_right{
+    flex: 1;
+  }
+
+
+  .header_rightCenter{
+    text-align: center;
+    font-size: 17px;
+    margin-left: -15px;
+  }
+
+  .header_bottom{
+    margin-top: -22px;
+    text-align: center;
+  }
+
+
+  .border-btm{
+    
+  }
+  .flex-col{
+    display: flex;
+    flex-direction: column;
+    gap:5px
+  }
+ 
+  .flex-row{
+    display: flex;
+    flex-direction: row;
+  }
+ 
+  
+ 
+
     </style>
 </head>
 
@@ -183,56 +345,62 @@ textarea{
         @csrf
         <input type="hidden" id="referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
-        <div class="oca">
-            <h5>
-                OCA Official Form No.: 960
-            </h5>
+        <div class="header_Container">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo"
+                    style="display: table-cell; width: fit-content; vertical-align: top; margin: 0; padding: 0;padding-left:-6px;margin-left:-6px"
+                    height="80" width="80">
+            <div class="header_right">
+                <h5 class="header_rightTop">
+                    OCA Official Form No.: 960
+                </h5>
+                <h5 class="header_rightCenter">
+                    AUTHORIZATION FOR RELEASE OF HEALTH INFORMATION PURSUANT TO HIPAA
+                </h5>
+
+            </div>
         </div>
-        <div>
-            <br>
-            <h5>
-                AUTHORIZATION FOR RELEASE OF HEALTH INFORMATION PURSUANT TO HIPAA
-            </h5>
+   
+        <div class="header_bottom">
             <h5>
                 [This form has been approved by the New York State Department of Health]
             </h5>
         </div>
-        <table>
-            <tr>
-                <td>
-                    <label>Name</label>
-                    <input type="text" name="hippa_name" class="new_input"
+        <table class="mt-15" style="border-collapse: collapse;" >
+            <tr >
+                <td  style="width: 50%;">
+                    <label>Patient Name</label><br>
+                    <input type="text" name="hippa_name" class="new_input input-full mt-5"
                            value="{{$referral->first_name}} {{$referral->last_name}}">
                 </td>
-                <td>
-                    <label for="Date of Birth">Date of Birth</label>
-                    <input type="date" name="hippa_dob" class="new_input" value="{{$referral->date_of_birth}}">
+                <td  style="width: 25%;">
+                    <label for="Date of Birth">Date of Birth</label><br>
+                    <input type="date" name="hippa_dob" class="new_input input-full mt-5" value="{{$referral->date_of_birth}}">
                 </td>
-                <td>
-                    <label for="SSN Number">Social Security Number</label>
-                    <input type="number" class="new_input" name="hippa_ssn" value="{{$referral->patient_ssn}}">
+                <td  style="width: 25%;">
+                    <label for="SSN Number">Social Security Number</label><br>
+                    <input type="number" class="new_input input-full mt-5" name="hippa_ssn" value="{{$referral->patient_ssn}}">
                 </td>
             </tr>
-            <tr>
-                <td colspan="3">
-                    <label for="Address">Address</label><br>
-                    <input type="text" name="hippa_address" class="new_input" style="width: 98%;margin-top: 3px;"
+            <tr >
+                <td colspan="3" >
+                    <label for="Address">Patient Address</label><br>
+                    <input type="text" name="hippa_address" class="new_input input-full mt-5" style="margin-top: 3px;"
                            value="{{$referral->address}},{{$referral->city}},{{$referral->state}},{{$referral->country}},{{$referral->zip_code}}">
                 </td>
             </tr>
         </table>
-        <p>I, or my authorized representative, request that health information regarding my care and treatment be released
+        <p class="mt-10">I, or my authorized representative, request that health information regarding my care and treatment be released
             as set forth on this form:</p>
         <p>In accordance with New York State Law and the Privacy Rule of the Health Insurance Portability and Accountability
             Act of 1996 (HIPAA), I understand that:</p>
-        <ol>
-            <li>This authorization may include disclosure of information relating to ALCOHOL and DRUG ABUSE, MENTAL HEALTH
-                TREATMENT, except psychotherapy notes, and CONFIDENTIAL HIV* RELATED INFORMATION only if I place my initials
+        <ul style="text-align: justify;">
+            <li>1.&nbsp;&nbsp;This authorization may include disclosure of information relating to <span class="bold">ALCOHOL</span> and <span class="bold">DRUG ABUSE, MENTAL HEALTH
+                TREATMENT,</span> except psychotherapy notes, and <span class="bold">CONFIDENTIAL HIV* RELATED INFORMATION</span> only if I place my initials
                 on the appropriate line in Item 9(a). In the event the health information described below includes any of
                 these types of information, and I initial the line on the box in Item 9(a), I specifically authorize release
                 of such information to the person(s) indicated in Item 8.
             </li>
-            <li>If I am authorizing the release of HIV-related, alcohol or drug treatment, or mental health treatment
+            <li>2.;&nbsp;&nbsp;If I am authorizing the release of HIV-related, alcohol or drug treatment, or mental health treatment
                 information, the recipient is prohibited from redisclosing such information without my authorization unless
                 permitted to do so under federal or state law. I understand that I have the right to request a list of
                 people who may receive or use my HIV-related information without authorization. If I experience
@@ -240,78 +408,78 @@ textarea{
                 State Division of Human Rights at (212) 480-2493 or the New York City Commission of Human Rights at (212)
                 306-7450. These agencies are responsible for protecting my rights.
             </li>
-            <li>I have the right to revoke this authorization at any time by writing to the health care provider listed
+            <li>3.&nbsp;&nbsp;I have the right to revoke this authorization at any time by writing to the health care provider listed
                 below. I understand that I may revoke this authorization except to the extent that action has already been
                 taken based on this authorization.
             </li>
-            <li>I understand that signing this authorization is voluntary. My treatment, payment, enrollment in a health
+            <li>4.&nbsp;&nbsp;I understand that signing this authorization is voluntary. My treatment, payment, enrollment in a health
                 plan, or eligibility for benefits will not be conditioned upon my authorization of this disclosure.
             </li>
-            <li>Information disclosed under this authorization might be redisclosed by the recipient (except as noted above
+            <li>5.&nbsp;&nbsp;Information disclosed under this authorization might be redisclosed by the recipient (except as noted above
                 in Item 2), and this redisclosure may no longer be protected by federal or state law.
             </li>
-        </ol>
-        <b>
-            <p>6. THIS AUTHORIZATION DOES NOT AUTHORIZE YOU TO DISCUSS MY HEALTH INFORMATION OR MEDICAL
-                CARE WITH ANYONE OTHER THAN THE ATTORNEY OR GOVERNMENTAL AGENCY SPECIFIED IN ITEM 9 (b),</p>
-        </b>
+        </ul>
+            <p class="mt-3">6.&nbsp;&nbsp;<span class=" bold">THIS AUTHORIZATION DOES NOT AUTHORIZE YOU TO DISCUSS MY HEALTH INFORMATION OR MEDICAL
+                CARE WITH ANYONE OTHER THAN THE ATTORNEY OR GOVERNMENTAL AGENCY SPECIFIED IN ITEM 9 (b).</span></p>
 
         <table>
-            <tr>
-                <th colspan="3">
-                    <div>
-                        <label>7. Name and address of health provider or entity to release this information:</label>
-                    </div>
-                    <textarea type="text" name="health_provider" style="margin-top: 3px;" rows="5" cols="100" ></textarea>
-                </th>
-
-            </tr>
-            <tr>
+            <tr >
                 <td colspan="2">
-                    <p>
-                        8. Name and address of person(s) or category of person to whom this information will be sent:
-                        Trusted Surplus Solutions 2361 NOstrand Ave STE 504 Brooklyn NY 11210
-                    </p>
+                    <label>7. Name and address of health provider or entity to release this information:</label>
+                    <input type="text" class="input-full mt-5" name="health_provider">
+                </td>
+            </tr>
+            <tr >
+                <td colspan="2">
+                    <label>8. Name and address of person(s) or category of person to whom this information will be sent:</label>
+                    <input type="text" class="input-full mt-5" name="name_and_address">
                 </td>
             </tr>
             <tr>
                 <td colspan="2" >
                     <p>
-                        9(a) Specific information to be released:
-                    </p>
-
-                    <input type="checkbox" name="info_released1" value="dated">
-                    Medical Record from (insert date) <input type="date"  name="info_released_from"> to
-                    (insert date) <input
-                        type="date"  name="info_released_to">
-
-                    <div style="padding: 0;margin: 0;">
-                        <input type="checkbox" name="info_released2" value="Entire_med">
-
-                        Entire Medical Record, including patient histories, office notes (except psychotherapy notes), test
-                        results, radiology studies, films,
-                        referrals, consults, billing records, insurance records, and records sent to you by other health
-                        care
-                        providers.
+                        9(a). Specific information to be released:
+                        </p>
+                        
+                        <div class="row">
+                        <input type="checkbox" name="info_released1" value="dated">
+                        Medical Record from (insert date) <input type="date"  name="info_released_from"> to
+                        (insert date) <input
+                            type="date"  name="info_released_to">
 
                     </div>
 
 
-                    <div class="row-container " style="padding: 0;margin: 0;vertical-align: top;">
-                        <div style="padding: 0;margin: 0;">
-                            <input type="checkbox" name="info_released3" value="other"> other: <input type="text"
-                                                                                                      name="info_other"
-                                                                                                      >
+
+
+                    <div style="padding: 0;margin: 0;align-items: flex-start !important;" class="row">
+                        <input type="checkbox" name="info_released2" value="Entire_med">
+                        <p style="margin-top:4px"> Entire Medical Record, including patient histories, office notes (except psychotherapy notes), test
+                        results, radiology studies, films,
+                           lass   referrals, consults, billing records, insurance records, and records sent to you by other health
+                        care
+                        providers.</p>
+
+                    </div>
+
+
+                    <div class="row mt-10 nine-container" style="padding: 0;align-items: flex-start !important;">
+                        <div style="padding: 0;margin: 0;align-items: flex-start !important;" class="row">
+                            <div class="row">
+                                <input type="checkbox" name="info_released3" value="other">
+                                <p>Other:</p>
+                            </div>
+                            <input type="text" style="margin-top:5px" name="info_other">
                         </div>
                         <div style="padding: 0;margin: 0;">
                             <p>Include: (Indicate by Initialing) </p>
 
                             <ul>
-                                <li><input type="checkbox" name="alcoholDrug" value="alcoholDrug"><label
+                                <li class="row"><input type="checkbox" name="alcoholDrug" value="alcoholDrug"><label
                                         for="alcoholDrug">Alcohol/Drug Treatment</label></li>
-                                <li><input type="checkbox" name="mentalHealth" value="mentalHealth"><label
+                                <li class="row"><input type="checkbox" name="mentalHealth" value="mentalHealth"><label
                                         for="mentalHealth">Mental Health Information</label></li>
-                                <li><input type="checkbox" name="hivRelated" value="hivRelated"><label
+                                <li class="row"><input type="checkbox" name="hivRelated" value="hivRelated"><label
                                         for="hivRelated">HIV-Related Information</label></li>
                             </ul>
                         </div>
