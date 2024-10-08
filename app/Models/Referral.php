@@ -83,7 +83,7 @@ class Referral extends Model
     }
     public function refferals_check()
     {
-        return $this->belongsTo(CheckList::class, 'id', 'referral_id');
+        return $this->belongsTo(CheckList::class, 'id', 'referral_id')->withDefault();
     }
     public function referrralDocuments()
     {

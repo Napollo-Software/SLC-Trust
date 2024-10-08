@@ -134,42 +134,47 @@ if (!function_exists('createDocument')) {
 
         $documentsData = [
             [
-                'name' => '1-Joinder Agreement.pdf',
-                'actual_url' => '/documents/1-Joinder Agreement.pdf',
+                'name' => '1 Joinder Agreement.pdf',
+                'actual_url' => '/documents/1JoinderAgreement.pdf',
+                'slug' => '/1JoinderAgreement.pdf',
             ],
             [
-                'name' => '2-DOH-960 Hipaa.pdf',
-                'actual_url' => '/documents/2-DOH-960 Hipaa.pdf',
+                'name' => '2 DOH-960 – HIPAA.pdf',
+                'actual_url' => '/documents/2DOH-960–HIPAA.pdf',
+                'slug' => '2DOH-960–HIPAA.pdf',
             ],
             [
-                'name' => '3-MAP-751e - Authorization to Release Medical Information.pdf',
-                'actual_url' => '/documents/3-MAP-751e - Authorization to Release Medical Information.pdf',
+                'name' => '3 MAP-751E – Authorization to Release Medical Info.pdf',
+                'actual_url' => '/documents/3MAP-751E–AuthorizationToReleaseMedicalInfo.pdf',
+                'slug' => '3MAP-751E–AuthorizationToReleaseMedicalInfo.pdf',
             ],
             [
-                'name' => '4-DOH 5173-Hipaa State.pdf',
-                'actual_url' => '/documents/4-DOH 5173-Hipaa State.pdf',
+                'name' => '4 DOH-5173 – HIPAA.pdf',
+                'actual_url' => '/documents/4DOH-5173–HIPAA.pdf',
+                'slug' => '4DOH-5173–HIPAA.pdf',
             ],
             [
-                'name' => '5- DOH -5139 Disability FILLABLE Questionnaire.pdf',
-                'actual_url' => '/documents/5- DOH -5139 Disability FILLABLE Questionnaire.pdf',
+                'name' => '5 DOH-5139 – Disability Questionnaire.pdf',
+                'actual_url' => '/documents/5DOH-5139–DisabilityQuestionnaire.pdf',
+                'slug' => '5DOH-5139–DisabilityQuestionnaire.pdf',
             ],
             [
-                'name' => '6-DOH-5143.pdf',
-                'actual_url' => '/documents/6-DOH-5143.pdf',
+                'name' => '6 DOH-5143 – Medical.pdf',
+                'actual_url' => '/documents/6DOH-5143–Medical.pdf',
+                'slug' => '6DOH-5143–Medical.pdf',
             ],
         ];
 
-        // Loop through the document data and create records
         foreach ($documentsData as $data) {
             $document = new Documents();
             $document->name = $data['name'];
-            $document->slug = str_replace(' ', '', $data['name']);
-            $document->status = 'pending'; // Corrected the status value
-            $document->referral_id = $id; // Corrected the status value
+            $document->slug = $data['slug'];
+            $document->status = 'pending';
+            $document->referral_id = $id;
             $document->actual_url = $data['actual_url'];
             $document->save();
-            //Email document to the referral
-            $referral = Referral::find($id);
+
+            Referral::find($id);
 
         }
     }
