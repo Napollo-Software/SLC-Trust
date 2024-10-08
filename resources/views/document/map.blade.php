@@ -361,7 +361,7 @@ textarea{
             <tr>
                 <td>
                     <label>NAME AND ADDRESS OF SOURCE (include Zip Code)</label><br>
-                    <input type="text" name="name_address" style="margin-top: 5px">
+                    <input type="text" name="name_address" style="margin-top: 5px" value="{{$referral->first_name}} {{$referral->last_name}}">
                 </td>
                 <td>
                     <label>RELATIONSHIP TO DISABLED PERSON </label><br>
@@ -382,7 +382,7 @@ textarea{
                 </td>
                 <td style="width:23%"> 
                     <label for="Patient Name">DATE OF BIRTH</label><br><br>
-                    <input type="date" name="dob" style="margin-top: 5px">
+                    <input type="date" name="dob" style="margin-top: 5px" value="{{$referral->date_of_birth}}">
                 </td>
                 <td style="width:28%">
                     <label for="Patient Name">DISABLED PERSON'S I.D.
@@ -481,7 +481,7 @@ textarea{
                     <label>
                         STREET ADDRESS
                     </label><br>
-                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;">
+                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;" value="{{$referral->address}}">
                 </td>
                 <td colspan="2">
                     <label>
@@ -495,19 +495,19 @@ textarea{
                     <label>
                         City
                     </label><br>
-                    <input type="text" name="disabled_relation_city"  style="margin-top:5px">
+                    <input type="text" name="disabled_relation_city" value="{{$referral->city}}"  style="margin-top:5px">
                 </td>
                 <td>
                     <label>
                         STATE
                     </label><br>
-                    <input type="text" name="disabled_relation_state"  style="margin-top:5px">
+                    <input type="text" name="disabled_relation_state" value="{{$referral->state}}"  style="margin-top:5px">
                 </td>
                 <td>
                     <label>
                         ZIP CODE
                     </label><br>
-                    <input type="text" name="disabled_relation_zip" style="margin-top:5px">
+                    <input type="text" name="disabled_relation_zip" value="{{$referral->zip_code}}" style="margin-top:5px">
                 </td>
             </tr>
 

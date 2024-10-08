@@ -59,10 +59,10 @@ class ForgotController extends Controller
     }
     public function changepassworduser(Request $request)
     {
-        $request->validate(["password" => "required|min:5"]);
+        $request->validate(["password" => "required|min:6|max:20"]);
 
         $user = User::where('email', $request->email)->first();
-        
+
         $app_name = config('app.professional_name');
         if ($request->password == $request->confirm_password) {
             $user->password = Hash::make($request->password);

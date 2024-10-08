@@ -18,7 +18,6 @@ use App\Models\Referral;
 use App\Jobs\sendEmailJob;
 use App\Models\Notifcation;
 use App\Models\Transaction;
-use App\Jobs\CashDepositJob;
 use Illuminate\Http\Request;
 use App\Mail\CashDepositMail;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -77,7 +76,7 @@ class AuthController extends Controller
                 'name' => 'required',
                 'terms' => 'required',
                 'email' => 'required|email|unique:users',
-                'password' => 'min:6|required_with:confirm_password|same:confirm_password',
+                'password' => 'min:6|required_with:confirm_password|same:confirm_password|min:6|max:20',
                 'last_name' => 'required',
                 'full_ssn' => 'required',
                 'DOB' => 'required|date|before:' . $before,

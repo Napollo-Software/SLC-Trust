@@ -82,15 +82,15 @@ class MedicaidController extends Controller
     public function updateMedicaid(Request $request)
     {
         $request->validate([
-            'medicaidNumber' => 'required|string',
-            'type' => 'required|string',
-            'medicaidPlan' => 'required|string',
-            'phone_number' => 'required|string',
-            'activeMedicaid' => 'required|string',
-            'code' => 'required|string',
+            'medicaidNumber' => 'nullable|string',
+            'type' => 'nullable|string',
+            'medicaidPlan' => 'nullable|string',
+            'phone_number' => 'nullable|string',
+            'activeMedicaid' => 'nullable|string',
+            'code' => 'nullable|string',
         ]);
 
-        $inputId = $request->input('inputId');
+        $inputId = $request->inputId;
 
         if ($inputId) {
             $medicaid = Medicaid::findOrFail($inputId);
@@ -98,12 +98,12 @@ class MedicaidController extends Controller
             $medicaid = new Medicaid();
         }
         $medicaid->referral_name = $request->referral_id;
-        $medicaid->medicaid_number = $request->input('medicaidNumber');
-        $medicaid->type = $request->input('type');
-        $medicaid->medicaid_plan = $request->input('medicaidPlan');
-        $medicaid->phone_number = $request->input('phone_number');
-        $medicaid->active_medicaid = $request->input('activeMedicaid');
-        $medicaid->code = $request->input('code');
+        $medicaid->medicaid_number = $request->medicaidNumber;
+        $medicaid->type = $request->type;
+        $medicaid->medicaid_plan = $request->medicaidPlan;
+        $medicaid->phone_number = $request->phone_number;
+        $medicaid->active_medicaid = $request->activeMedicaid;
+        $medicaid->code = $request->code;
         $medicaid->save();
 
         if ($inputId) {
