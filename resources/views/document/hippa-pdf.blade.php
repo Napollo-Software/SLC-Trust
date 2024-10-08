@@ -247,8 +247,8 @@
                     <p style="margin: 0;">
                         8. Name and address of person(s) or category of person to whom this information will be sent:
                         <br>
-                        <textarea type="text" name="" rows="2" class="border-none"
-                              style="width: 90%;height:10px"></textarea>
+                        <textarea type="text" name="name_and_address" rows="2" class="border-none"
+                              style="width: 90%;height:10px">{{$name_and_address}}</textarea>
                         
                     </p>
                 </td>

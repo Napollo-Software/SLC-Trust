@@ -226,21 +226,21 @@ class ReferralController extends Controller
             'first_name' => 'required|string|max:250',
             'last_name' => 'required|string|max:250',
             'gender' => 'required|string|max:250',
-            'age' => 'required|integer',
+            'age' => 'nullable|integer',
             'phone_number' => 'required|string',
             'email' => 'required|email',
-            'date_of_birth' => 'required|date',
-            'country' => 'required|max:250',
-            'city' => 'required|string|max:250',
-            'state' => 'required|string',
-            'address' => 'required|string|max:250',
-            'ssn' => 'required|string|max:250',
-            'patient_language' => 'required|string|max:250',
-            'zip' => 'required|string|max:250',
-            'apt_suite' => 'required|string|max:250',
-            'medicaid_phone' => 'required|string',
-            'medicaid_plan' => 'required|string',
-            'medicare_phone' => 'required|string',
+            'date_of_birth' => 'nullable|date',
+            'country' => 'nullable|max:250',
+            'city' => 'nullable|string|max:250',
+            'state' => 'nullable|string',
+            'address' => 'nullable|string|max:250',
+            'ssn' => 'nullable|string|max:250',
+            'patient_language' => 'nullable|string|max:250',
+            'zip' => 'nullable|string|max:250',
+            'apt_suite' => 'nullable|string|max:250',
+            'medicaid_phone' => 'nullable|string',
+            'medicaid_plan' => 'nullable|string',
+            'medicare_phone' => 'nullable|string',
             'emergency_first_name' => 'string|max:250',
             'emergency_last_name' => 'string|max:250',
             'emergency_ext' => 'numeric',
@@ -252,10 +252,10 @@ class ReferralController extends Controller
             'emergency_zip' => 'numeric',
             'emergency_address' => 'string|max:250',
             'source_type' => 'required',
-            'contact' => $request->input('source_type') === 'contact' ? 'required' : 'nullable',
-            'account' => $request->input('source_type') === 'account' ? 'required' : 'nullable',
+            'contact' => $request->input('source_type') === 'contact' ? 'nullable' : 'nullable',
+            'account' => $request->input('source_type') === 'account' ? 'nullable' : 'nullable',
             'source' => $request->input('source_type') === 'FnF' ? 'required' : 'nullable',
-            'admission_date' => 'required|date',
+            'admission_date' => 'nullable|date',
 
         ]);
 
@@ -416,16 +416,17 @@ class ReferralController extends Controller
     public function UserTrust(Request $request)
     {
         $referralTrust = Referral::findOrFail($request->referral_id);
-        $esignTrust = $request->input('esign') === 'true' ? 25 : 0;
-        $documentTrust = $request->input('document') === 'true' ? 25 : 0;
-        $financeTrust = $request->input('finance') === 'true' ? 25 : 0;
-        $checkListTrust = $request->input('checklist') === 'true' ? 25 : 0;
+        $esignTrust = $request->input('esign') === 'true' ? 33.33 : 0;
+        $documentTrust = $request->input('document') === 'true' ? 33.33 : 0;
+        $financeTrust = $request->input('finance') === 'true' ? 33.33 : 0;
+        $checkListTrust = $request->input('checklist') === 'true' ? 33.33 : 0;
         $referralTrust->trustEsign = $esignTrust;
         $referralTrust->trustFinance = $financeTrust;
         $referralTrust->trustDocument = $documentTrust;
         $referralTrust->trustCheckList = $checkListTrust;
         $totalTrust = $esignTrust + $documentTrust + $financeTrust + $checkListTrust;
         $referralTrust->save();
+        $totalTrust = $totalTrust > 99 ? 100 : $totalTrust;
         return response()->json(['trust' => $totalTrust, 'message' => 'Success']);
     }
 
@@ -446,7 +447,7 @@ class ReferralController extends Controller
         $user->address = $referral->address;
         $user->state = $referral->state;
         $user->city = $referral->city;
-        $user->phone = '+1' . $referral->phone_number;
+        $user->phone = "+1$referral->phone_number";
         $user->zipcode = $referral->zip_code;
         $user->gender = $referral->gender;
         $user->email = $referral->email;
@@ -475,6 +476,6 @@ class ReferralController extends Controller
 
         Mail::to($referral->email)->send(new Register($user));
 
-        return response()->json(['success' => 'Customer created successfully!']);
+        return response()->json(['success' => 'Customer created successfully!', "user" => $user]);
     }
 }

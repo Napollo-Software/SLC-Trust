@@ -499,6 +499,7 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
+        
         $pdf = PDF::loadView('document.hippa-pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),

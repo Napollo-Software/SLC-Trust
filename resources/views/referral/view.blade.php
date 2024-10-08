@@ -208,11 +208,11 @@ return $colors[$randomIndex];
                                             <a href="#documentCard" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Documents</a>
                                         </li>
                                     </div>
-                                    <div>
+                                    {{-- <div>
                                         <li>
                                             <a href="#checkList" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Checklist</a>
                                         </li>
-                                    </div>
+                                    </div> --}}
                                     <div>
                                         <li class="mb-0">
                                             <a href="#financeCard" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3 ">Finance</a>
@@ -411,12 +411,11 @@ return $colors[$randomIndex];
                                             <label class="m-0">Mark As Read</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 d-flex justify-content-between">
+                                    <div class="col-md-8 gap-3 d-flex justify-content-end">
                                         <h5 class="m-0">Received Documents: {{ $recievedDocumentCount }}</h5>
                                         <h5 class="m-0">Pending Documents: {{ $pendingDocumentCount }}</h5>
                                     </div>
                                 </div>
-
                                 <div>
                                     <div class="overflow-auto px-3 py-1">
                                         <table class="table table-bordered dataTable">
@@ -482,8 +481,6 @@ return $colors[$randomIndex];
                                                             </div>
                                                         </div>
                                                     </td>
-                                    </div>
-                                    </td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -560,7 +557,6 @@ return $colors[$randomIndex];
                             </button>
                         </div>
                     </form>
-
                 </div>
             </div>
             <div class="tab-pane" id="financeCard">
@@ -568,7 +564,6 @@ return $colors[$randomIndex];
                     <div style="margin:20px">
                         <form id="bank-info-form" method="post">
                             @csrf
-
                             <div class="d-flex align-items-center">
                                 <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
                                 <label class="m-0">Mark As Complete</label>
@@ -1151,11 +1146,11 @@ return $colors[$randomIndex];
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        {{-- <hr>
                         <div class="d-flex align-items-center pt-2 px-3">
                             <input type="checkbox">
                             <label class="m-0">Mark As Main Contact</label>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-md-12 tab-pane" id="emergency_detail">
                         <form id="EmergencyForm">
@@ -1269,7 +1264,6 @@ return $colors[$randomIndex];
                                     </div>
                                     <div class="col-md-9" data-select2-id="8">
                                         <input type="text" id="timeZone" name="address_of_emergency" class="form-control" value="{{ $referral->emergency_details->emergency_address }}" readonly>
-
                                     </div>
                                 </div>
                             </div>
@@ -1290,11 +1284,8 @@ return $colors[$randomIndex];
                             </button>
                             <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary custom-hover cancelButton fs-6">Cancel
                             </button>
-
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -1823,7 +1814,7 @@ return $colors[$randomIndex];
                     <h4 class="px-3 py-3 border-bottom " style=" ">Medicaid Details</h4>
                     <div class="card-body px-0" style="padding-top:10px ">
                         <div class="row align-items-center">
-                            <form id="MedicaidForm px-0">
+                            <form id="MedicaidForm">
                                 @csrf
                                 <input type="hidden" name="inputId" value="{{ $referral->referral_medcaid->id }}">
                                 <input type="hidden" name="referral_id" value="{{ $referral->id }}">
@@ -2294,7 +2285,6 @@ enctype="multipart/form-data">
 </div>
 
 
-
 <script src="{{ url('/assets/custom/jquery.min.js') }}"></script>
 <script src="{{ url('/assets/custom/custom.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -2325,7 +2315,8 @@ enctype="multipart/form-data">
                         swal.fire('success', data.success, 'success')
                         $('.convert-btn').text('Converted to Customer');
                         $('.convert-btn').attr('disabled',true);
-                        window.location.href="/show_user/"+id;
+
+                        window.location.href="/show_user/"+data.user.id;
 
                     },
                     error: function (xhr) {
@@ -2335,8 +2326,7 @@ enctype="multipart/form-data">
             }
         })
     })
-</script>
-<script>
+
     function showTab(tabName) {
         $("#alwaysShow").removeClass('d-none');
         $(".services-card").addClass('d-none');
@@ -2351,8 +2341,7 @@ enctype="multipart/form-data">
         $(".records-card").addClass('d-none');
         $("." + tabName).removeClass('d-none');
     }
-</script>
-<script>
+
     $(document).on('submit', '#referralUpdateForm', function(e) {
         e.preventDefault();
         $('.form-control').removeClass('is-invalid');
@@ -2424,12 +2413,11 @@ enctype="multipart/form-data">
     });
 
     $(document).ready(function() {
-        // Function to open the modal
+
         $(document).on('click', '.fancy-plus-button', function() {
             $('#uploadMoredocument').modal('show');
         });
 
-        // Handle the form submission
         $(document).on('submit', "#fileDocumenentMultiple",function(e) {
             e.preventDefault();
             let formdata = new FormData(this);
@@ -2467,15 +2455,12 @@ enctype="multipart/form-data">
             });
         });
 
-        // Function to close the modal when clicking the "Cancel" button
         $('.closemodalmultiple').on('click', function() {
             $('#fileDocumenentMultiple')[0].reset();
             $('#uploadMoredocument').modal('hide');
-
         });
     });
-</script>
-<script>
+
     $('#uploadFile').on('submit', function(e) {
         e.preventDefault();
 
@@ -2509,8 +2494,7 @@ enctype="multipart/form-data">
             }
         })
     });
-</script>
-<script>
+
     $('#editFollowup').on('submit', function(e) {
         var note = $('#note').val();
         e.preventDefault()
@@ -2554,7 +2538,6 @@ enctype="multipart/form-data">
         });
     });
 
-
     $('#PhysicianForm').on('submit', function(e) {
         e.preventDefault()
         $.ajax({
@@ -2577,28 +2560,36 @@ enctype="multipart/form-data">
             }
         });
     });
-</script>
-<script>
+
     $(document).ready(function() {
-        $("hiddenFields").prop("readonly", true);
-        $(".editButton").click(function() {
+        // Set all fields with the hiddenFields class to readonly initially
+        $(".hiddenFields").prop("readonly", true);
+
+        // Edit button click event
+        $(document).on("click", ".editButton", function() { // Corrected here
+            // Allow editing on all input fields
             $("input").prop("readonly", false);
             $(".editButton").hide();
             $(".submitButton").show();
             $(".cancelButton").show();
         });
-        $(".cancelButton").click(function() {
-            $("hiddenFields").prop("readonly", true);
+
+        // Cancel button click event
+        $(document).on("click", ".cancelButton", function() { // Corrected here
+            // Set all fields with the hiddenFields class back to readonly
+            $(".hiddenFields").prop("readonly", true);
+            // Optionally reset other fields if needed
+            $("input").prop("readonly", true);
             $(".editButton").show();
             $(".submitButton").hide();
             $(".cancelButton").hide();
         });
     });
-</script>
-<script>
+
     document.getElementById('back-btn').addEventListener('click', function() {
         window.history.back();
     });
+
     $(document).on('change', '.hidden-file-input', function() {
         const fileInput = $(this);
         const file = fileInput[0].files[0];
@@ -2695,7 +2686,7 @@ enctype="multipart/form-data">
         var csrfToken = $('#csrf_token').val();
         var checkboxes = trustEsignbox.add(trustDocumentbox).add(trustFinancebox).add(trustCheckListbox);
         checkboxes.on('change', function() {
-            console.log("Change detected");
+
             var isCheckedEsign = trustEsignbox.prop('checked');
             var isCheckedDocument = trustDocumentbox.prop('checked');
             var isCheckedFinance = trustFinancebox.prop('checked');
@@ -2961,7 +2952,6 @@ enctype="multipart/form-data">
         const randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
     }
+
 </script>
-
-
 @endsection
