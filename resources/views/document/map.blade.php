@@ -481,7 +481,7 @@ textarea{
                     <label>
                         STREET ADDRESS
                     </label><br>
-                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;">
+                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;" value="{{$referral->address}}">
                 </td>
                 <td colspan="2">
                     <label>
