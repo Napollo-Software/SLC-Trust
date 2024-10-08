@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <style type="text/css">
         @media screen {
-            @font-face {a
-                font-family: 'Lato';
+            @font-face {
+                a font-family: 'Lato';
                 font-style: normal;
                 font-weight: 400;
                 src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
@@ -142,15 +142,15 @@
                         <td bgcolor="#ffffff" align="center" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                             @if(!empty($urls) && is_array($urls))
                             @foreach($urls as $url)
-                            <a href="{{ $url }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column">
+                            <a href="{{ $url }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column;">
                                 <img style="width: 50px; height: 50px;" src="{{ url('img/form_icon.png') }}" alt="document">
-                                <p style="display: flex; align-items: center; justify-content: center !important;color:black;font-size:14px">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</p>
+                                <p style="color:black; font-size:14px; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; height: 100%;">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</p>
                             </a>
                             @endforeach
                             @elseif(!empty($urls))
-                             <a href="{{ url($urls) }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column">
+                            <a href="{{ url($urls) }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column;">
                                 <img style="width: 50px; height: 50px;" src="{{ url('img/form_icon.png') }}" alt="document">
-                                <p style="display: flex; align-items: center; justify-content: center !important;color:black;font-size:14px">Click here</p>
+                                <p style="color:black; font-size:14px; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; height: 100%;">Click here</p>
                             </a>
                             @endif
                         </td>

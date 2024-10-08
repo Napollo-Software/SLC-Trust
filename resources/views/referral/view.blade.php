@@ -208,11 +208,11 @@ return $colors[$randomIndex];
                                             <a href="#documentCard" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Documents</a>
                                         </li>
                                     </div>
-                                    <div>
+                                    {{-- <div>
                                         <li>
                                             <a href="#checkList" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Checklist</a>
                                         </li>
-                                    </div>
+                                    </div> --}}
                                     <div>
                                         <li class="mb-0">
                                             <a href="#financeCard" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3 ">Finance</a>
@@ -411,12 +411,11 @@ return $colors[$randomIndex];
                                             <label class="m-0">Mark As Read</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 d-flex justify-content-between">
+                                    <div class="col-md-8 gap-3 d-flex justify-content-end">
                                         <h5 class="m-0">Received Documents: {{ $recievedDocumentCount }}</h5>
                                         <h5 class="m-0">Pending Documents: {{ $pendingDocumentCount }}</h5>
                                     </div>
                                 </div>
-
                                 <div>
                                     <div class="overflow-auto px-3 py-1">
                                         <table class="table table-bordered dataTable">
@@ -482,8 +481,6 @@ return $colors[$randomIndex];
                                                             </div>
                                                         </div>
                                                     </td>
-                                    </div>
-                                    </td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -560,7 +557,6 @@ return $colors[$randomIndex];
                             </button>
                         </div>
                     </form>
-
                 </div>
             </div>
             <div class="tab-pane" id="financeCard">
@@ -568,7 +564,6 @@ return $colors[$randomIndex];
                     <div style="margin:20px">
                         <form id="bank-info-form" method="post">
                             @csrf
-
                             <div class="d-flex align-items-center">
                                 <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
                                 <label class="m-0">Mark As Complete</label>
@@ -1151,11 +1146,11 @@ return $colors[$randomIndex];
                                 </div>
                             </div>
                         </div>
-                        <hr>
+                        {{-- <hr>
                         <div class="d-flex align-items-center pt-2 px-3">
                             <input type="checkbox">
                             <label class="m-0">Mark As Main Contact</label>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-md-12 tab-pane" id="emergency_detail">
                         <form id="EmergencyForm">
@@ -1819,7 +1814,7 @@ return $colors[$randomIndex];
                     <h4 class="px-3 py-3 border-bottom " style=" ">Medicaid Details</h4>
                     <div class="card-body px-0" style="padding-top:10px ">
                         <div class="row align-items-center">
-                            <form id="MedicaidForm px-0">
+                            <form id="MedicaidForm">
                                 @csrf
                                 <input type="hidden" name="inputId" value="{{ $referral->referral_medcaid->id }}">
                                 <input type="hidden" name="referral_id" value="{{ $referral->id }}">
@@ -2320,7 +2315,8 @@ enctype="multipart/form-data">
                         swal.fire('success', data.success, 'success')
                         $('.convert-btn').text('Converted to Customer');
                         $('.convert-btn').attr('disabled',true);
-                        window.location.href="/show_user/"+id;
+
+                        window.location.href="/show_user/"+data.user.id;
 
                     },
                     error: function (xhr) {

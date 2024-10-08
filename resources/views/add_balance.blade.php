@@ -71,8 +71,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 pt-2 ">
-                                    <label for="exampleFormControlInput1" class="form-label">Charge one-time Registration Fee </label>
                                     <input class="manual-check-ctrl" name="registration_fee" type="checkbox" @if ($user['registration_fee']=='1' ) disabled @endif id="charg-one-time-registration-checkbox">
+                                    <label for="exampleFormControlInput1" class="form-label">Charge one-time Registration Fee </label>
                                 </div>
                                 <div class="col-lg-6 pt-2 pb-2 d-none registration-div">
                                     <label for="exampleFormControlInput1" class="form-label">Registration Fee Amount ($)</label>
