@@ -11,16 +11,72 @@
         font-family: BrittanySignature;
         src: url("/fonts/BrittanySignature-MaZx.ttf");
     }
+    @font-face {
+            font-family: 'APEFNO-Arial-BoldMT';
+            src: url('fonts/APEFNO-Arial-BoldMT.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'HEEJYJ-Arial_2';
+            src: url('fonts/HEEJYJ-Arial_2.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'HEEJYJ-Arial';
+            src: url('fonts/HEEJYJ-Arial.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'KEESCU-ArialMT';
+            src: url('fonts/KEESCU-ArialMT.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ARIALBI';
+            src: url('fonts/ARIALBI.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ArialCEMTBlack';
+            src: url('fonts/ArialCEMTBlack.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ArialMdm';
+            src: url('fonts/ArialMdm.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ARIAL';
+            src: url('fonts/ARIAL.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'ARIALBD';
+            src: url('fonts/ARIALBD.ttf') format('truetype');
+        }
+
+        
         table {
             border-collapse: collapse;
             width: 100%;
-            border: 1px solid black;
+            border: 2px solid black;
+            font-size: 15px;
+            font-family:'ArialMdm';
+            font-weight: normal !important;
+        }
+
+        th{
+            background-color: #DDDDDD;
+            font-weight: normal;
+            font-size: 17px !important;
+            padding-top:18px !important;
+            height: 25px !important;
+        }
+
+        td{
+            text-align: left !important;
+            font-weight: normal !important;
+            font-family:'ArialMdm';
+            vertical-align: top;
+            padding: 10px !important;
         }
 
         th, td {
-            border: 1px solid black;
+            border: 2px solid black;
             padding: 8px;
-            font-size: 10px;
             text-align: center;
         }
 
@@ -58,8 +114,10 @@
 
         .row-container {
             display: flex;
-            gap: 20%;
             align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 60px;
         }
 
         body {
@@ -80,39 +138,36 @@
 
         .card {
             background:white;
-            width: 900px;
+            width: 1000px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 100px;
-            transition: 0.3s;
-            border-radius: 5px;
-            margin: 10px;
-            overflow: hidden;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -35%);
+            padding: 70px 110px;
+
         }
 
 
 
         .card-body {
-            padding: 2px 16px;
+            padding: 5px 0px;
         }
         @font-face {
     font-family: 'Rage Italic';
     src: url('/fonts/rage-italic.woff') format('woff');
-    font-weight: normal;
     font-style: italic;
 }
 #signature-canvas-map {
     pointer-events: none;
 }
 input{
-    background: #e9e9e9;
+    /* background: #e9e9e9; */
     border-radius: 2px;
     border: 1px solid #b2b2b2;
     font-size: 12px;
-    padding: 4px 6px;
+    height: 30px;
+    outline: none;
+    width: calc(100% - 10px);
+    margin: 0;
+    padding: 0;
+    padding-left: 10px !important;
 }
 .loader {
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -141,50 +196,134 @@ input{
 }
 
 
-@font-face {
-            font-family: 'APEFNO-Arial-BoldMT';
-            src: url('fonts/APEFNO-Arial-BoldMT.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'HEEJYJ-Arial_2';
-            src: url('fonts/HEEJYJ-Arial_2.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'HEEJYJ-Arial';
-            src: url('fonts/HEEJYJ-Arial.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'KEESCU-ArialMT';
-            src: url('fonts/KEESCU-ArialMT.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'ARIALBI';
-            src: url('fonts/ARIALBI.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'ArialCEMTBlack';
-            src: url('fonts/ArialCEMTBlack.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'ArialMdm';
-            src: url('fonts/ArialMdm.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'ARIAL';
-            src: url('fonts/ARIAL.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'ARIALBD';
-            src: url('fonts/ARIALBD.ttf') format('truetype');
-        }
 
 
     /* ................ */
     body{
         background:rgba(0, 0, 0, 0.06);
-        font-family:'ARIAL'
+        font-family:'ARIAL';
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px !important;
     }
 
+    .bold{
+        font-family:'ARIALBD';
+    }
+
+    .medium{
+        font-family:'ArialMdm';
+    }
+
+    .xs{
+        font-size: 13px;
+    }
+
+    .xxs{
+        font-size: 9px;
+    }
+
+    .sm{
+        font-size: 16px;
+    }
+
+    .md{
+        font-size: 18px;
+    }
+
+    .lg{
+        font-size: 16px;
+    }
+    .xl{
+        font-size: 17px;
+    }
+
+    input[type='date']{
+        cursor: pointer;
+    }
+
+    .para-main{
+        padding-left: 140px
+    }
+    .para-container{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap:20px;
+        justify-content: flex-start;
+        margin-top:-10px
+    }
+
+    .header-img{
+        max-width: 50%;
+        height: 95px;
+        margin-right: -5px;
+        margin-top: 10px;
+    }
+
+    @media only screen and (max-width: 520px){
+        body{
+        background:white ;
+        font-family:'ARIAL';
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px !important;
+        padding: 0px 0px;
+        margin-left: 0px;
+        width: 100vw;
+        margin-right: 0px;
+        
+        font-size: 13px !important;
+    }  
+
+    .card {
+            background:white;
+            width: 1000px;
+            padding: 10px !important; 
+            overflow-x: scroll;
+        }
+
+    .para-main{
+        padding-left: 10px;
+        width: 100%;
+    }
+
+    table {
+            border-collapse: collapse;
+            border: 2px solid black;
+            font-size: 12px;
+            font-family:'ArialMdm';
+            font-weight: normal !important;
+        }
+
+        th{
+            background-color: #DDDDDD;
+            font-weight: normal;
+            font-size: 12px !important;
+            padding-top:18px !important;
+            height: 25px !important;
+        }
+
+        .main-heading{
+            font-size: 11px;
+        }
+
+        .header-img{
+            max-width: 40%; 
+            height: 45px; 
+            margin-right: -2px;  
+        }
+
+        .row-container{
+            margin-bottom: 25px;
+        }
+  
+        
+    }
     </style>
 </head>
 <body>
@@ -194,21 +333,21 @@ input{
         <input type="hidden" id=referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
         <div class="row-container">
-            <h4>
+            <p class="bold main-heading">
                 AUTHORIZATION TO RELEASE MEDICAL INFORMATION
-            </h4>
-            <img src="/images/nyc2.png" alt="NYC" style="max-width: 50%; height: 50px;">
+            </p>
+            <img src="/images/nyc2.png" alt="NYC" class="header-img" style="">
 
 
         </div>
-        <table>
+        <table >
             <tr>
                 <th colspan="2">INFORMATION ABOUT MEDICAL OR OTHER SOURCE - PLEASE PRINT, TYPE, OR WRITE CLEARLY
                 </th>
             </tr>
             <tr>
                 <td>
-                    <label>Name and address of source(with zip code) </label><br>
+                    <label>NAME AND ADDRESS OF SOURCE (include Zip Code)</label><br>
                     <input type="text" name="name_address" style="margin-top: 5px">
                 </td>
                 <td>
@@ -217,23 +356,22 @@ input{
                 </td>
             </tr>
         </table>
-        <table>
+        <table style="margin-top:-2px">
             <tr>
                 <th colspan="3">
                     INFORMATION ABOUT DISABLED PERSON - PLEASE PRINT, TYPE, OR WRITE CLEARLY
                 </th>
             </tr>
             <tr>
-                <td>
-                    <label for="Patient Name">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON
-                        HAD CONTACT WITH SOURCE (Include Zip Code) </label><br>
+                <td style="width:45%">
+                    <label for="Patient Name">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON HAD CONTACT WITH SOURCE (Include Zip Code) </label><br>
                     <input type="text" name="source_contact_name_address" style="margin-top: 5px">
                 </td>
-                <td>
-                    <label for="Patient Name">Date Of Birth </label><br>
+                <td style="width:20%"> 
+                    <label for="Patient Name">DATE OF BIRTH</label><br><br>
                     <input type="date" name="dob" style="margin-top: 5px">
                 </td>
-                <td>
+                <td style="width:40%">
                     <label for="Patient Name">DISABLED PERSON'S I.D.
                         NUMBER (If known and if
                         different than SSN.) </label><br>
@@ -248,23 +386,32 @@ input{
                         treatment, discharges,
                         etc.)
                     </label><br>
-                    <input type="text" name="disabled_contact_time" style="width:98%;margin-top:5px">
+                    <input type="text" name="disabled_contact_time" style="margin-top:5px">
                 </td>
             </tr>
 
         </table>
         <p>I hereby authorize the above named source to release or disclose to the Medical Assistance Program for
             re-disclosure in connection with my application for public health insurance.</p>
-        <div style="padding-left: 20px">
-            <p>1) All medical records or other information regarding my treatment, hospitalization, and/or outpatient
-                care
-                of my impairment(s), including psychological or psychiatric impairment(s) drug abuse, alcoholism, sickle
-                cell anemia, acquired immunodeficiency syndrome (AIDS), or test for infection with human
-                immunodeficiency
-                virus (HIV).</p>
-            <p>2) Information about how my impairment(s) affects my ability to complete tasks and activities of daily
-                living.</p>
-            <p>3) Information about how my impairment(s) affected my ability to do work.</p>
+        <div style="" class="para-main">
+            <div class="para-container">
+                <p class="para-left">1)</p>
+                <p class="para-right"> All medical records or other information regarding my treatment, hospitalization, and/or outpatient
+                    care
+                    of my impairment(s), including psychological or psychiatric impairment(s) drug abuse, alcoholism, sickle
+                    cell anemia, acquired immunodeficiency syndrome (AIDS), or test for infection with human
+                    immunodeficiency
+                    virus (HIV).</p>
+            </div>
+            <div class="para-container">
+                <p>2)</p>
+                <p>Information about how my impairment(s) affects my ability to complete tasks and activities of daily
+                    living.</p>
+            </div>
+            <div class="para-container">
+                <p>3)</p>
+                <p>Information about how my impairment(s) affected my ability to do work.</p>
+            </div>
         </div>
         <p>I understand that this authorization, except for action already taken, may be voided by me at any time. If I
             do
@@ -274,7 +421,7 @@ input{
             benefits,
             the authorization will end when a final decision is made as to whether I can continue to receive
             benefits.</p>
-        <table style="width: 100%">
+        <table >
             <tr>
                 <td style="width: 40%;">
                     <label>
@@ -284,11 +431,10 @@ input{
                     <div class="card-body" style="justify-content: space-around">
 
                         <div id="signature-pad">
-                            <input type="text"  style="width: 96%;margin-bottom: 10px" name="map_signature" id="map_signature" oninput="generateSignature()" maxlength="18">
-                            <canvas id="signature-canvas-map"></canvas>
+                            <input type="text"  style="margin-bottom: 10px" name="map_signature" id="map_signature" oninput="generateSignature()" maxlength="18">
+                            <canvas style="width:100%" id="signature-canvas-map"></canvas>
                             <div>
-                                <div class="container-row" style="justify-content: start">
-
+                                <div class="container-row" style="justify-content: start;margin-top:3px" >
                                     <button id="clear-map" onclick="clearMapCanvas()">Clear</button>
                                 </div>
 
@@ -297,58 +443,58 @@ input{
                         </div>
                     </div>
                 </td>
-                <td style="width: 20%;">
+                <td style="width: 40%;">
                     <label>
-                        RELATION TO DISABLED PERSON
+                        RELATION TO DISABLED PERSON<br/>
                         (If other than self)
                     </label><br>
                     <input type="text" name="disabled_relation_other" style="margin-top: 5px">
                 </td>
-                <td style="width: 20%;">
+                <!-- <td style="width: 20%;">
                     <label>DISABLED PERSON'S I.D.
                         NUMBER (If known and if
                         different than SSN.) </label><br>
                     <input type="text" name="disabled_id_other" style="margin-top: 5px">
-                </td>
+                </td> -->
                 <td style="width: 20%;">
 
-                    <label>Date</label><br>
+                    <label>Date</label><br><br>
                     <input type="date" name="date_map" style="margin-top: 5px">
 
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="1">
                     <label>
                         STREET ADDRESS
                     </label><br>
-                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;width:98%">
+                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;">
                 </td>
                 <td colspan="2">
                     <label>
                         TELEPHONE NUMBER
                     </label><br>
-                    <input type="text" name="disabled_relation_street" style="margin-top: 5px" style="width:100%">
+                    <input type="text" name="disabled_relation_street" style="margin-top: 5px" style="">
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="1">
                     <label>
                         City
                     </label><br>
-                    <input type="text" name="disabled_relation_city"  style="width:98%;margin-top:5px">
+                    <input type="text" name="disabled_relation_city"  style="margin-top:5px">
                 </td>
                 <td>
                     <label>
                         STATE
                     </label><br>
-                    <input type="text" name="disabled_relation_state"  style="width:92%;margin-top:5px">
+                    <input type="text" name="disabled_relation_state"  style="margin-top:5px">
                 </td>
                 <td>
                     <label>
                         ZIP CODE
                     </label><br>
-                    <input type="text" name="disabled_relation_zip" style="width:92%;margin-top:5px">
+                    <input type="text" name="disabled_relation_zip" style="margin-top:5px">
                 </td>
             </tr>
 

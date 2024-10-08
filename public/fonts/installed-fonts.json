@@ -1,38 +1,11 @@
 {
-    "info-bold": {
-        "normal": "info_bold_normal_ae6d150abb28716ab80c102b85fe69ef"
+    "times new roman": {
+        "normal": "times_new_roman_normal_86a3241105f024875ddfcfc6839d475c"
     },
-    "info-normal": {
-        "normal": "info_normal_normal_c4bc22676922722750a2dd2e041081f4"
+    "times new roman bold": {
+        "normal": "times_new_roman_bold_normal_104a1bb3e1afab66b8d3448221b1bb69"
     },
-    "info-semibold": {
-        "normal": "info_semibold_normal_78e0de5cfa6647fb10123ab83bf66036"
-    },
-    "apefno-arial-boldmt": {
-        "normal": "apefno_arial_boldmt_normal_e93e8f31fd51dc876ec351673555d2bd"
-    },
-    "heejyj-arial_2": {
-        "normal": "heejyj_arial_2_normal_99a3f98c92f9d93c201ee93124d0292a"
-    },
-    "heejyj-arial": {
-        "normal": "heejyj_arial_normal_96ecbda5f7ccd5b74daa78e1554bb9e2"
-    },
-    "keescu-arialmt": {
-        "normal": "keescu_arialmt_normal_ef668d155d6cb6b3158ebb8ca65aede8"
-    },
-    "arialbi": {
-        "normal": "arialbi_normal_e817b6e68e4775163c1a7865bc3f6605"
-    },
-    "arialcemtblack": {
-        "normal": "arialcemtblack_normal_01e251cfa47184dfc43b7b173bba6d1e"
-    },
-    "arialmdm": {
-        "normal": "arialmdm_normal_373abb34b989a8a438dd9e618b722f65"
-    },
-    "arial": {
-        "normal": "arial_normal_68fff8b0eb79c5b1cab9c56cd6fbd98b"
-    },
-    "arialbd": {
-        "normal": "arialbd_normal_80f2bdc3f8ef1aadb395ec24599962e1"
+    "times new roman italic": {
+        "normal": "times_new_roman_italic_normal_6fa41f690d2c85f4f48b848bf74584de"
     }
 }
