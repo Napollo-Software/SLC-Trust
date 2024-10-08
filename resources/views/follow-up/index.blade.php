@@ -1,11 +1,9 @@
 @extends('nav')
-@section('title', 'Follow-up | SLC Trusts')
+@section('title', 'Notes | SLC Trusts')
 @section('wrapper')
     @include('follow-up.create')
     @include('follow-up.update')
     @include('types.update')
-
-
     <head>
         <style>
             .scrol-card {
@@ -17,7 +15,6 @@
                 right: 266px
             }
         </style>
-
     </head>
     <?php
 
@@ -29,20 +26,20 @@
     <div class="">
         <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
-           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Manage Follow ups</b> </div>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Notes</b> </div>
         </h5>
         <div class="row">
             <div class="col-lg-12 mb-12">
                 <div class="card">
                     <div class="d-flex align-items-center p-3 mb-0">
                         <div>
-                            <h5 class="mb-1">Manage Follow-up</h5>
-                            <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Overall follow-ups</p>
+                            <h5 class="mb-1">Manage Notes</h5>
+                            <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Overall Notes</p>
                         </div>
                         <div class="font-22 ms-auto">
                             <button class="btn btn-primary import-file-user-data TypeAddBtn print-btn px-2 py-1 " >
                                 <i class='bx bx-save pb-2 pt-1 px-0 mx-0' ></i>
-                                Add Follow up
+                                Add Note
                             </button>
                         </div>
 

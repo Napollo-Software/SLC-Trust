@@ -7,7 +7,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Follow Up</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Notes</h5>
                 <button type="button" class="close close-btn closeAddType" data-dismiss="modal"
                     aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -37,19 +37,19 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Follow Up Date</label>
+                            <label for="exampleFormControlInput1" class="form-label">Note Date</label>
                             <input type="date" class="form-control" name="date" />
                             <span id="nameError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Follow Up Time</label>
+                            <label for="exampleFormControlInput1" class="form-label">Note Time</label>
                             <input type="time" class="form-control" name="time" />
                             <span id="categoryError" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <label for="exampleFormControlInput1" class="form-label">Follow Up Note</label>
+                            <label for="exampleFormControlInput1" class="form-label">Note Note</label>
                             <textarea name="note" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
@@ -59,8 +59,6 @@
                     <button type="button" class="btn btn-secondary closeAddType" data-dismiss="modal">Close</button>
                 </div>
             </form>
-
-
         </div>
     </div>
 </div>
@@ -69,7 +67,6 @@
         function hideAddTypeModal() {
             $('#addType').modal('hide')
         }
-
         function showAddTypeModal() {
             $('#addType').modal('show')
         }
@@ -102,7 +99,6 @@
                 error: function(response) {
                     erroralert(response);
                 }
-
             })
         })
     })

@@ -372,7 +372,7 @@
                             @endif
                             @if ($user->hasPermissionTo('Follow ups'))
                             <li>
-                                <a class="dropdown-item {{ Route::currentRouteName() ==='follow_up.list' ? 'active' : '' }}" href="{{ route('follow_up.list') }}"><i class="bx bx-book-content"></i>Follow up</a>
+                                <a class="dropdown-item {{ Route::currentRouteName() ==='follow_up.list' ? 'active' : '' }}" href="{{ route('follow_up.list') }}"><i class="bx bx-book-content"></i>Notes</a>
                             </li>
                             @endif
                             @if ($user->hasPermissionTo('Drop Box'))
