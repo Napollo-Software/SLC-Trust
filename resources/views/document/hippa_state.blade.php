@@ -232,6 +232,9 @@ input{
     .mt-20{
         margin-top: 20px;
     }
+    .mt-25{
+        margin-top: 25px;
+    }
     .flex-col{
     display: flex;
     flex-direction: column;
@@ -309,6 +312,9 @@ hr{
 }
 .w-100{
     width: 100%;
+}
+.l-height{
+    line-height: 1.1;
 }
 /* p{
     margin: 5px;
@@ -497,24 +503,13 @@ hr{
             </div>
             
             <hr>
+        <div>
             <div style="margin-top: 14px;">
-            <p class="m-0">All sections on this form have been completed and my questions about this form have been answered.</p>
-            <p class="m-0" style="margin-top: 2px">I authorize the facility/person noted on this page to release health information of the person named on this page to the New York State Department of Health State</p>
-            <p class="m-0" style="margin-top: 2px">Disability Review Unit.</p>
-        </div>
+                <p class="m-0">All sections on this form have been completed and my questions about this form have been answered.</p>
+                <p class="m-0" style="margin-top: 2px">I authorize the facility/person noted on this page to release health information of the person named on this page to the New York State Department of Health State</p>
+                <p class="m-0" style="margin-top: 2px">Disability Review Unit.</p>
+            </div>
             <div class="flex-row justify-between align-center;" style="margin-top:15px">
-                {{-- <div id="signature-pad">
-                    <input type="text"  style="width: 57%;margin-bottom: 10px" name="hippa_state_signature" id="hippa_state_signature" oninput="generateSignature()" maxlength="18">
-                    <canvas id="signature-canvas-hippa-state" style="height: 60px;width:60%"></canvas>
-                    <div>
-                        <div class="container-row mt-5">
-
-                            <button id="clear-hippa-state" onclick="clearHippaStateCanvas()">Clear</button>
-                        </div>
-                        <label> SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW. </label>
-                        <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">
-                    </div>
-                </div> --}}
                 <div class="w-70">
                     <input type="text" name="hippa_state_signature" id="hippa_state_signature" oninput="generateSignature()" maxlength="18" style="margin-bottom:5px" class="w-100"> <br>
                     <label for="">SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW</label>
@@ -524,102 +519,155 @@ hr{
                     <labal>Date</labal>
                 </div>
             </div>
-            <div style="margin-top: 5px">
+            <div class="mt-5">
                 <canvas id="signature-canvas-hippa-state" style="height: 60px;width:30%"></canvas>
                 <div>
                     <div class="container-row mt-5">
 
                         <button id="clear-hippa-state" onclick="clearHippaStateCanvas()">Clear</button>
                     </div>
-                    <label> SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW. </label>
-                    <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">
+                   
                 </div>
             </div>
 
 
         </div>
-        <div class="content">
-            <div class="row-container">
-                <div>
-                    <h4>NEW YORK STATE DEPARTMENT OF HEALTH</h4>
-                    <h4>State Disability Review Unit</h4>
+        <hr style="margin-top: 15px;background: black;height: 4px;">
+        <span>DOH-5173 (4/16) Page 1 of 2</span>
+        <div class="mt-25 flex-col" style="gap: 0">
+                <div class="flex-row justify-between align-center">
+                    <p style="margin:0" class="sm">NEW YORK STATE DEPARTMENT OF HEALTH</p>
+                    <p style="margin:0" class="bold md">Instructions for Completing the</p>
                 </div>
+                <div class="flex-row justify-between align-center md">
+                    <p style="margin:0" class="sm">State Disability Review Unit</p>
+                    <p style="margin:0" class="bold md">Authorization for Release of Health Information Pursuant to HIPAA</p>
+                </div>
+        </div>
+        <hr style="background: black;height: 5px;">
+     <div class="mt-20" style="display: flex;flex-direction: column;gap: 25px;">
+        <div class="sm l-height" style="display: flex;flex-direction: column;gap: 15px;">
+            <p style="margin: 0">The “Authorization for Release of Health Information and Confidential HIV-Related Information” form gives permission to your healthcare providers (hospitals, doctors, therapists, etc.) to send in copies of your health records to the State Disability Review Team. These health records will help the Disability Review Team determine if you are disabled. You will need to fill out and send one of these forms to every one of your healthcare providers that needs to send in your medical records.</p>
+
+            <p style="margin: 0">
+                The box at the top of the form will be filled in. If the information is incorrect, please put a line through what is incorrect and write in the correct information.
+            </p>
+
+            <p style="margin: 0">
+                Read the information in items 1-6 found under the top box, before filling in the rest of the form. These paragraphs give you information on the type of health information that you can choose to be sent by your healthcare providers, your rights to authorize the release of your health records and how to stop the authorization, and who is allowed to see your health information.
+            </p>
+        </div>
+        <div class="sm l-height" style="display: flex;flex-direction: column;margin-inline: 25px;gap:16px">
+            <div style="margin: 0;display: flex;gap: 10px;">
                 <div>
-                    <h3>Authorization for Release of Health Information Pursuant to HIPAA</h3>
+                    <span>7)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
+                    <span>Put the name and address of the healthcare provider who is to send your health records to the State Disability Review Team. <span class="bold">Fill out one form for each of your healthcare providers</span></span>
                 </div>
             </div>
-        </div>
-        <hr class="styled-hr">
-        <p>
-            The “Authorization for Release of Health Information and Confidential HIV-Related Information” form gives permission to your healthcare providers (hospitals, doctors,
-            therapists, etc.) to send in copies of your health records to the State Disability Review Team. These health records will help the Disability Review Team determine if you
-            are disabled. You will need to fill out and send one of these forms to every one of your healthcare providers that needs to send in your medical records.
-            The box at the top of the form will be filled in. If the information is incorrect, please put a line through what is incorrect and write in the correct information.
-            Read the information in items 1-6 found under the top box, before filling in the rest of the form. These paragraphs give you information on the type of health information
-            that you can choose to be sent by your healthcare providers, your rights to authorize the release of your health records and how to stop the authorization, and who
-            is allowed to see your health information.
-        </p>
-        <p>
-            7) Put the name and address of the healthcare provider who is to send your health records to the State
-            Disability Review Team.
-            Fill out one form for each of your healthcare providers
-        </p>
-        <hr>
-        <p>8) Informs the healthcare provider to whom to send the health records. This box will be already filled in with
-            the State Disability Review Team’s information.
-        </p>
-        <hr>
-        <p>
-            9a) • If you want the healthcare provider to send your medical records for a certain period of time, put a check
-            in the first box and enter the dates for the time
-            period. To make a disability determination, at least 12 months of health records are needed for the time period
-            in which the disability is being
-            determined
-        </p>
-        <p>
-            • If you want the healthcare provider to send your entire medical record, put a check in the second box.
+            <div style="margin: 0;display: flex;gap: 10px;">
+                <div>
+                    <span>8)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
+                    <span>Informs the healthcare provider to whom to send the health records. This box will be already filled in with
+                        the State Disability Review Team’s information.</span>
+                </div>
+            </div>
+            <div style="margin: 0;display: flex;gap: 10px;">
+                <div>
+                    <span>9a)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;display:flex;flex-direction: column;gap: 16px;" class="w-100">
+                <div>
+                    <span> • If you want the healthcare provider to send your medical records for a certain period of time, put a check
+                        in the first box and enter the dates for the time
+                        period. To make a disability determination, at least 12 months of health records are needed for the time period
+                        in which the disability is being determined</span>
+                </div>
+                <div>
+                    <span> • If you want the healthcare provider to send your entire medical record, put a check in the second box.</span>
+                </div>
+                <div>
+                    <span> • If you want the healthcare provider to send in any other information, put a check in the third box (Other) and write the information that the healthcare provider is to send</span>
+                </div>
+            </div>
+            </div>
 
-        </p>
-        <p>
-            • If you want the healthcare provider to send in any other information, put a check in the third box (Other) and
-            write the information that the healthcare
-            provider is to send
-        </p>
-        <hr>
-        <p>9b) If you want to allow your healthcare provider to speak with someone on the State Disability Review Team, put
-            your initials and the name of your healthcare
-            provider on the lines provided</p>
-        <hr>
-        <p>
-            9c) Under 9(c), check the boxes for the type of medical information that your healthcare provider is not
-            permitted to send.
-        </p>
-        <hr>
-        <p>
-            10) Check the box if the individual requested the release of information, or check Other and state the reason for the request.
-        </p>
-        <hr>
-        <p>
-            10) Check the box if the individual requested the release of information, or check Other and state the reason for the request.
-        </p>
-        <hr>
-        <p>
-            10) Check the box if the individual requested the release of information, or check Other and state the reason for the request.
-        </p>
-        <hr>
-        <p>
-            13) If you are the legal representative of the patient, put the relationship you have to the patient. For example, if the patient is a child and you are the parent, put
-            parent. If you are the legal guardian of the patient, put legal guardian
-        </p>
-        <hr>
-        <p>
+            <div style="margin: 0;display: flex;gap: 10px;">
+                <div>
+                    <span>9b)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
+                    <span>If you want to allow your healthcare provider to speak with someone on the State Disability Review Team, put
+                        your initials and the name of your healthcare
+                        provider on the lines provided</span>
+                </div>
+            </div>
+
+            <div style="margin: 0;display: flex;gap: 10px;">
+                <div>
+                    <span>9c)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
+                    <span>Under 9(c), check the boxes for the type of medical information that your healthcare provider is not
+                        permitted to send.</span>
+                </div>
+            </div>
+
+            <div style="margin: 0;display: flex;gap: 10px;">
+                <div>
+                    <span>10)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
+                    <span>Check the box if the individual requested the release of information, or check Other and state the reason for the request.</span>
+                </div>
+            </div>
+
+            <div style="margin: 0;display: flex;gap: 10px;">
+                <div>
+                    <span>11)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
+                    <span>Check the box if the individual requested the release of information, or check Other and state the reason for the request.</span>
+                </div>
+            </div>
+
+            <div style="margin: 0;display: flex;gap: 10px;">
+                <div>
+                    <span>12)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
+                    <span>Check the box if the individual requested the release of information, or check Other and state the reason for the request.</span>
+                </div>
+            </div>
+
+            <div style="margin: 0;display: flex;gap: 10px;">
+                <div>
+                    <span>13)</span>
+                </div>
+                <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
+                    <span> If you are the legal representative of the patient, put the relationship you have to the patient. For example, if the patient is a child and you are the parent, put
+                        parent. If you are the legal guardian of the patient, put legal guardian</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="sm l-height" style="margin-top: 15px;">
+        <p style="margin: 0">
             If you want your healthcare provider to send your medical records, this form must be signed and dated by the patient or the patient’s legal representative.
         </p>
-        <br>
-        <button type="submit" id="submit-button" class="submit-button">
+    </div>
+    <hr style="margin-top: 200px;background: black;height: 3px;">
+    <span>DOH-5173 (4/16) Page 2 of 2</span>
+    <div class="mt-15">
+    <button type="submit" id="submit-button" class="submit-button">
             Submit
             <span class="loader" style="display: none;"></span>
-        </button>
+    </button>
+</div>
     </form>
 </div>
 
