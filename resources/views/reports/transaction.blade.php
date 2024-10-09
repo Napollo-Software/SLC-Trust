@@ -85,7 +85,7 @@ $sum_processed_amount = DB::table('claims')->where('claim_status', 'processed')-
                     <div class="dropdown ms-auto">
                         <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown"> <i class="bx bx-dots-horizontal-rounded font-22 text-option"></i>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu d-none">
                             <li>
                                 <button type="button" class="btn btn-success  dropdown-item  p-2 filter-file" data-toggle="modal" data-target="#filter-record">
                                     Filter <i class='menu-icon tf-icons bx bx-filter '></i>
