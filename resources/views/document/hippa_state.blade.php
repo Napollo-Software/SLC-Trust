@@ -13,6 +13,18 @@
         font-family: BrittanySignature;
         src: url("/fonts/BrittanySignature-MaZx.ttf");
     }
+    @font-face {
+                font-family: 'TKLCCE-Info-Normal';
+                src: url('fonts/TKLCCE-Info-Normal.ttf') format('truetype');
+    }
+    @font-face {
+                font-family: 'TKLCCE-Info-SemiBold';
+                src: url('fonts/TKLCCE-Info-SemiBold.ttf') format('truetype');
+    }
+    @font-face {
+                font-family: 'info-bold';
+                src: url('fonts/info-bold.otf') format('truetype');
+    }
     table {
         border-collapse: collapse;
         width: 50%;
@@ -69,8 +81,11 @@
     }
 
     body {
-        margin-left: 50px;
-        margin-right: 50px;
+        /* margin-left: 50px; */
+        /* margin-right: 50px; */
+        font-family:'TKLCCE-Info-Normal';
+        font-size:12px;
+        background:rgba(0, 0, 0, 0.06);
     }
 
     .styled-hr {
@@ -92,21 +107,23 @@
     }
     .card {
         width: 794px;
+        background: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
+        /* transition: 0.3s; */
         border-radius: 5px;
-        margin: 10px;
+        margin: auto;
         overflow: hidden;
-        padding: 10px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -12%);
+        padding: 70px 110px;
+        /* padding: 10px; */
+        /* position: absolute; */
+        /* top: 50%; */
+        /* left: 50%; */
+        /* transform: translate(-50%, -12%); */
     }
 
 
     .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+        /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); */
     }
 
 
@@ -155,6 +172,104 @@ input{
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+.bold{
+    font-family: 'info-bold';
+    }
+
+    .xs{
+        font-size: 13px;
+    }
+
+    .xxs{
+        font-size: 9px;
+    }
+
+    .sm{
+        font-size: 16px;
+    }
+
+    .md{
+        font-size: 18px;
+    }
+
+    .lg{
+        font-size: 16px;
+    }
+    .xl{
+        font-size: 17px;
+    }
+
+    .header_Container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+   .mt-3{
+        margin-top: 3px;
+    } 
+   .mt-5{
+        margin-top: 5px;
+    } 
+    .mt-10{
+        margin-top: 10px;
+    }
+    .mt-15{
+        margin-top: 15px;
+    }
+    .mt-20{
+        margin-top: 20px;
+    }
+    .flex-col{
+    display: flex;
+    flex-direction: column;
+    gap:5px
+  }
+ 
+  .flex-row{
+    display: flex;
+    flex-direction: row;
+  }
+  .header_right{
+    flex: 1;
+  }
+  .header_rightTop{
+    text-align: right;
+  }
+
+  .header_rightCenter{
+    text-align: left;
+  }
+
+  /* ---------------------------------------------------------- */
+
+
+
+
+
+
+
+
+/* ------------------------------------------------------------ */
+
+  /* ----------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+  /* --------------------------------------------------------- */
+
+
+
+
+
 </style>
 
 <body>
