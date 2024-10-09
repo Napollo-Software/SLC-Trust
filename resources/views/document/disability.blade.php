@@ -1336,7 +1336,7 @@
                                     <span class='nowrap'>How much did you frequently lift?</span>
                                     <input type='text' name="lift_four">
                                 </div>
-                                <div class='row gap-15 align-items-end p-0' style='width:15%'>
+                                <div class='row gap-15 align-items-end p-0 flex-1'>
                                     <span>pounds</span>
                                     <input type="text" name="lift_pounds_four" class="border-bottom">
                                 </div>
@@ -1426,7 +1426,7 @@
                                     <span class='nowrap'>How much did you frequently lift?</span>
                                     <input type='text' name="lift_five">
                                 </div>
-                                <div class='row gap-15 align-items-end p-0' style='width:15%'>
+                                <div class='row gap-15 align-items-end p-0 flex-1'>
                                     <span>pounds</span>
                                     <input type="text" name="lift_pounds_five" class="border-bottom">
                                 </div>
