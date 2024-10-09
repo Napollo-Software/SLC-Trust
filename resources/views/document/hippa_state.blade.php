@@ -47,7 +47,7 @@
         background-color: #f2f2f2;
     }
     .submit-button {
-        background-color: #134b7e; /* Dark blue background */
+        background-color: #559E99; /* Dark blue background */
         color: white; /* White text */
         padding: 8px 16px; /* Reduced padding */
         font-size: 14px; /* Smaller font size */
@@ -60,9 +60,9 @@
         align-items: center;
     }
 
-    .submit-button:hover {
-        background-color: #16b6d3; /* Light blue on hover */
-    }
+    /* .submit-button:hover {
+        background-color: #16b6d3; 
+    } */
 
     .submit-button:focus {
         outline: none; /* Removing the outline on focus for cleaner look */
@@ -270,7 +270,7 @@ input{
 /* ----------------------------------------------------------- */
 
 hr{
-    height: 3px;
+    height: 1px;
     border: none;
     background: gray;
 }
@@ -469,9 +469,9 @@ hr{
                 </label>
             </div>
             <hr>
-            <div class="flex-row justify-between align-center">
+            <div class="flex-row justify-between align-center" style="padding: 3px 0;">
                 <div>
-                    <p>10. Reason for release of information:</p>
+                    <p class="m-0">10. Reason for release of information:</p>
                 </div>
                 <div class="flex-row justify-center align-center gap-10">
                     <div>
@@ -486,19 +486,19 @@ hr{
                 </div>
             </div>
             <hr>
-            <div class="flex-row justify-between align-center">
-                <p>11. Purpose of the Use/Disclosure:</p>
-                <p class="bold w-46-5"> Disability Determination and Review</p>
+            <div class="flex-row justify-between align-center" style="padding: 3px 0;">
+                <p class="m-0">11. Purpose of the Use/Disclosure:</p>
+                <p class="bold w-46-5 m-0"> Disability Determination and Review</p>
             </div>
             <hr>
-            <div class="flex-row align-center gap-5">
-                <p>12. If not the patient, name of the person signing this form (print): </p>
+            <div class="flex-row align-center gap-5" style="padding: 3px 0;">
+                <p class="m-0">12. If not the patient, name of the person signing this form (print): </p>
                 <input type="text" name="person_signing" class="f-1 border-none">
             </div>
             
-            <hr>
-            <div class="flex-row align-center gap-5">
-                <p>13. Type of authority to sign on behalf of the patient: </p>
+            <hr style="height: 0.5px">
+            <div class="flex-row align-center gap-5" style="padding: 3px 0;">
+                <p class="m-0">13. Type of authority to sign on behalf of the patient: </p>
                 <input type="text"  name="auth_info" class="f-1 border-none">
             </div>
             
