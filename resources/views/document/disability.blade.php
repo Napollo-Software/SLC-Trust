@@ -23,7 +23,7 @@
             src: url('fonts/info-semibold.ttf') format('truetype');
         }
 
-   
+
         @font-face {
             font-family: 'info_web-italic';
             src: url('fonts/info_web-italic.ttf') format('truetype');
@@ -82,13 +82,13 @@
         .btn-size{
             width: 12%;
         }
-            
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        .submit-button:disabled {           
+        .submit-button:disabled {
             opacity: 0.6;
             cursor: not-allowed;
         }
@@ -210,7 +210,7 @@
             outline:none
         }
         input[type='checkbox'] {
-            accent-color: black; 
+            accent-color: black;
         }
         input[type='checkbox'] {
             background-color: white;
@@ -273,6 +273,7 @@
 
         textarea{
             padding:10px;
+            font-family:'info-normal'
         }
         .italic{
             font-family:'info_web-italic'
@@ -302,27 +303,27 @@
                     <label class='font-semibold text-lg'>Name</label>
                     <div class='row gap-5 align-items-end'>
                         <span>First:</span>
-                        <input type='text' name='first_name' value="{{$referral->first_name}}">    
+                        <input type='text' name='first_name' value="{{$referral->first_name}}">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span>Middle:</span>
-                        <input type='text' name='middle_name'>    
+                        <input type='text' name='middle_name'>
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span>Last:</span>
-                        <input type='text' name='last_name' value="{{$referral->last_name}}">    
+                        <input type='text' name='last_name' value="{{$referral->last_name}}">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>SSN Number (last 4 digits):</span>
-                        <input type='text' name="ssn_last_4">    
+                        <input type='text' name="ssn_last_4">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Date Of Birth:</span>
-                        <input type='text' name="date_of_birth" value="{{$referral->date_of_birth}}">    
+                        <input type='text' name="date_of_birth" value="{{$referral->date_of_birth}}">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Telephone Number:</span>
-                        <input type='text'name="telephone_number" value="{{$referral->phone_number}}">    
+                        <input type='text'name="telephone_number" value="{{$referral->phone_number}}">
                     </div>
                 </div>
                 <div class='form-cell'>
@@ -330,34 +331,34 @@
                     <div class='form-cell p-10 mt-14' style='background-color:rgba(0,0,0,0.2)'>
                         <div class='row gap-5 text-base align-items-end' style='margin-top:3px'>
                             <span class='nowrap font-semibold'>Case Number:</span>
-                            <input type='text' name="case_number">    
+                            <input type='text' name="case_number">
                         </div>
                         <div class='row gap-5 text-base align-items-end'>
                             <span class='nowrap font-semibold'> Client ID Number (CIN):</span>
-                            <input type='text' name="client_id_number">    
+                            <input type='text' name="client_id_number">
                         </div>
                         <div class='row gap-5 text-base align-items-end'>
                             <span class='nowrap font-semibold'> Disability ID Number (DIN):</span>
-                            <input type='text' name="disability_id_number">    
+                            <input type='text' name="disability_id_number">
                         </div>
                         <div class='row gap-5 text-base align-items-end'>
                             <span class='nowrap font-semibold'> Medicaid Application date:</span>
-                            <input type='text' name="medicaid_application">    
+                            <input type='text' name="medicaid_application">
                         </div>
                         <div class='row gap-5 text-base align-items-center checkbox-group '>
                             <span class='nowrap font-semibold'> Medicaid waiver?</span>
                             <div class='row p-0 align-items-center gap-5'>
                                 <input type='checkbox' name="medicaid_waiver_yes" value="yes" style='margin-left:16px' class='chb'>
                                 <label>Yes</label>
-                            </div> 
+                            </div>
                             <div class='row p-0 align-items-center gap-5'>
                                 <input type='checkbox' name="medicaid_waiver_no" value="No" style='margin-left:5px' class='chb'>
                                 <label>No</label>
-                            </div> 
+                            </div>
                         </div>
                         <div class='row gap-5 text-base align-items-end pb-10'>
                             <span class='nowrap font-semibold'>Waiver type:</span>
-                            <input type='text' name="waiver_type">    
+                            <input type='text' name="waiver_type">
                         </div>
                     </div>
                 </div>
@@ -367,11 +368,11 @@
                     <div class='row p-0 align-items-center gap-5'>
                         <input type='checkbox' name="applied_for_ssa1"  value="yes" style='margin-left:16px' class='chb'>
                         <label>Yes</label>
-                    </div> 
+                    </div>
                     <div class='row p-0 align-items-center gap-5'>
                         <input type='checkbox' name="applied_for_ssa2" value="no" style='margin-left:5px' class='chb'>
                         <label>No</label>
-                    </div> 
+                    </div>
             </div>
                 <div class='form-row gap-15 text-base'>
                     <div class='form-cell'>
@@ -389,11 +390,11 @@
                 </div>
                 <div class='row gap-5 text-base align-items-end'>
                     <span class='nowrap'>What was the decision?</span>
-                    <input type='text' name="ssa_decision">    
+                    <input type='text' name="ssa_decision">
                 </div>
                 <div class='row gap-5 text-base align-items-end'>
                     <span class='nowrap'> If denied for benefits, what was the reason (medical or non-medical)?</span>
-                    <input type='text' name="ssa_denial_reason">    
+                    <input type='text' name="ssa_denial_reason">
                 </div>
                 <div class='form-row gap-5 text-base align-items-center'>
                     <div class='form-cell'>
@@ -402,17 +403,17 @@
                             <div class='row p-0 align-items-center gap-5'>
                                 <input type='checkbox' name="appealed_decision1" value="yes" style='margin-left:16px' class='chb'>
                                 <label>Yes</label>
-                            </div> 
+                            </div>
                             <div class='row p-0 align-items-center gap-5'>
                                 <input type='checkbox' name="appealed_decision2" value="No" style='margin-left:5px' class='chb'>
                                 <label>No</label>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                     <div class='form-cell'>
                         <div class='row p-0 align-items-end'>
                             <span class='nowrap'>If “Yes”, when? (month/year) </span>
-                            <input type='text' name="appeal_date">    
+                            <input type='text' name="appeal_date">
                         </div>
                     </div>
                 </div>
@@ -465,11 +466,11 @@
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="primary_care_provider_yes" value="yes" style='margin-left:16px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="primary_care_provider_no" value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'>(If “Yes”, please provide name, address, phone number.)</p>
                             <textarea rows="10" cols="" name="care_provider_text"></textarea>
@@ -480,7 +481,7 @@
                         <td colspan='3'>
                             <div class='form-row align-items-end gap-5'>
                                 <span class='nowrap'>Date of last visit (month/year):</span>
-                                <input type='text' name="primary_care_provider_details" style='width:70%'> 
+                                <input type='text' name="primary_care_provider_details" style='width:70%'>
                             </div>
                         </td>
                     </tr>
@@ -492,11 +493,11 @@
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="medical_provider_yes" value="yes" style='margin-left:16px' class='chb'>
                                         <label>Yes</label>
-                                    </div> 
+                                    </div>
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="medical_provider_no" value="no" style='margin-left:5px' class='chb'>
                                         <label>No</label>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
                                     <p class='text-left p-0 italic' style='padding-left:0.8rem'>(If “Yes”, please complete the section below.)</p>
@@ -602,11 +603,11 @@
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="got_medicare_yes" value="yes" style='margin-left:16px' class='chb'>
                                         <label>Yes</label>
-                                    </div> 
+                                    </div>
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="got_medicare_no" value="no" style='margin-left:5px' class='chb'>
                                         <label>No</label>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
                                     <p class='text-left p-0 italic' style='padding-left:0.8rem'> (If “Yes”, please complete the section below.)</p>
@@ -710,11 +711,11 @@
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="agency_assist_yes" value="yes" style='margin-left:16px' class='chb'>
                                         <label>Yes</label>
-                                    </div> 
+                                    </div>
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="agency_assist_no" value="no" style='margin-left:5px' class='chb'>
                                         <label>No</label>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
                                     <p class='text-left p-0 italic' style='padding-left:0.8rem'> (If “Yes”, please complete the section below.)</p>
@@ -826,7 +827,7 @@
                         <td colspan='3'>
                             <div class='form-row align-items-end gap-5'>
                                 <span class='nowrap font-semibold'>A.  What is the highest grade level of schooling that you have completed?</span>
-                                <input type='text' name='schooling'> 
+                                <input type='text' name='schooling'>
                             </div>
                         </td>
                     </tr>
@@ -856,11 +857,11 @@
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="special_education_yes" value="yes" style='margin-left:16px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="special_education_no" value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                         </div>
                         </td>
                     </tr>
@@ -872,11 +873,11 @@
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="special_help_yes" value="yes" style='margin-left:16px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="special_help_no" value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                                 <span style='padding-left:1rem' class='italic'> (If “Yes”, please describe.)</span>
                             </div>
                             <textarea rows="10" cols="" name="special_help_text"></textarea>
@@ -892,11 +893,11 @@
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="vocational_training_yes" value="yes" style='margin-left:16px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="vocational_training_no"  value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'> (If “Yes”, please describe.)</p>
                             <textarea rows="10" cols="" name="vocational_training_text"></textarea>
@@ -910,11 +911,11 @@
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="simple_message_yes" value="yes" style='margin-left:16px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="simple_message_no"  value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                         </div>
                         </td>
                     </tr>
@@ -925,11 +926,11 @@
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="write_simple_message_yes" value="yes" style='margin-left:16px' class='chb'>
                                         <label>Yes</label>
-                                    </div> 
+                                    </div>
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="write_simple_message_no"  value="no" style='margin-left:5px' class='chb'>
                                         <label>No</label>
-                                    </div> 
+                                    </div>
                             </div>
                         </td>
                     </tr>
@@ -941,11 +942,11 @@
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="interpreter_yes" value="yes" style='margin-left:16px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="interpreter_no">
                                     <label>No</label>
-                                </div> 
+                                </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'>  (If “Yes”, please indicate your primary language.)</p>
                             <textarea rows="10" cols="" name="interpreter_text"></textarea>
@@ -963,11 +964,11 @@
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="worked_fifteen_yes" value="yes" style='margin-left:16px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="worked_fifteen_no"  value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                         </div>
                         <p class='p-0 pl-5 italic'>If YES, in as much detail as possible, please list jobs (up to 5) that you performed IN THE PAST 5 YEARS, starting with your most recent job.</p>
                     </div>
@@ -1459,7 +1460,7 @@
                                     Date:
                             </span>
                             <input style='padding-left:1.3rem' type="date" class="border-bottom" name="form_date">
-                        </div> 
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -1473,7 +1474,7 @@
                      Submit
                     <span class="loader" style="display: none;"></span>
                 </button>
-        </form> 
+        </form>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -1482,8 +1483,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $(".chb").change(function() {
-            const group = $(this).closest('.checkbox-group ');    
-            group.find(".chb").prop('checked', false);    
+            const group = $(this).closest('.checkbox-group ');
+            group.find(".chb").prop('checked', false);
             $(this).prop('checked', true);
         });
         //save this form using ajax
