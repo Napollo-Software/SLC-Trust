@@ -103,7 +103,7 @@
         {
             background:rgba(0, 0, 0, 0.06);
             font-family:'info-semibold';
-            font-size:14px;
+            font-size:15px;
         }
         .container{
             margin:50px
