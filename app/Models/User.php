@@ -61,7 +61,7 @@ class User extends Model
         return date('m-d-Y', strtotime($date));
     }
     public function trasactions(){
-        return Transaction::where('user_id', '1009')->where('chart_of_account', null)->get();
+        return Transaction::where('user_id', $this->id)->get();
     }
 
     public function transactions()
