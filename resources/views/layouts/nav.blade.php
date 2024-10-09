@@ -265,22 +265,22 @@
                                 <a class="dropdown-item {{ Route::currentRouteName() === 'adjustment'? 'active' : '' }}" href="{{ route('adjustment') }}"><i class="bx bx-receipt"></i>Adjustment</a>
                             </li>
                             @endif
-                            @if ($user->hasPermissionTo('Create Cheque'))
+                            {{-- @if ($user->hasPermissionTo('Create Cheque'))
                             <li class="nav-item dropend">
                                 <a class="dropdown-item  {{  Route::currentRouteName() ==='cheque' ? 'open active' : '' }}" href="{{ route('cheque') }}"><i class="bx bx-book-bookmark"></i>Create Cheque</a>
                             </li>
-                            @endif
+                            @endif --}}
                             @if ($user->hasPermissionTo('Bank Reconciliation'))
-                            <li class="nav-item dropend">
+                            {{-- <li class="nav-item dropend">
                                 <a class="dropdown-item  {{  in_array(Route::currentRouteName() ,['bank.reconciliation','bank.reconciliation.filter']) ? 'open active' : ''  }}" href="{{ route('bank.reconciliation') }}"><i class="bx bx-arch"></i>Bank
                                     Reconciliation</a>
-                            </li>
+                            </li> --}}
                             @endif
                             @if ($user->hasPermissionTo('Monthly Statement'))
-                            <li class="nav-item dropend">
+                            {{-- <li class="nav-item dropend">
                                 <a class="dropdown-item  {{ in_array(Route::currentRouteName() ,['monthly.statement','monthly.filter']) ? 'open active' : '' }}" href="{{ route('monthly.statement') }}"><i class="bx bx-book-bookmark"></i>Monthly
                                     Statement</a>
-                            </li>
+                            </li> --}}
                             @endif
                             @if ($user->hasPermissionTo('Transactions'))
                             <li class="nav-item dropend">
@@ -321,7 +321,7 @@
                         </ul>
                     </li>
                     @if ($user->hasPermissionTo('Front Office'))
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown d-none">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-grid"></i>
                             </div>
