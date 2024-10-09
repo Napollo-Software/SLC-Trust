@@ -48,7 +48,7 @@
         }
 
         .submit-button:hover {
-            background-color: #16b6d3; /* Light blue on hover */
+            background-color: #559E99; /* Light blue on hover */
         }
 
         .submit-button:focus {
