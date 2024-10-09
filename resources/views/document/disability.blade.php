@@ -957,7 +957,7 @@
                             PART IV – INFORMATION ABOUT WORK YOU DID IN THE PAST 5 YEARS
                         </p>
                         <div class='form-row gap-5 text-base px-10' style='padding:0.3rem 0.6rem checkbox-group '>
-                            <span class='nowrap text-left font-semibold' style='padding:15px 0px;'>G. Have you worked in the past 5 years?</span>
+                            <span class='nowrap text-left font-semibold' style='padding:15px 0px;font-size:15px'>G. Have you worked in the past 5 years?</span>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="worked_fifteen_yes" value="yes" style='margin-left:16px' class='chb'>
                                     <label>Yes</label>
