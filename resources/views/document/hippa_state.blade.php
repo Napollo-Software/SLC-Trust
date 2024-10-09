@@ -373,6 +373,15 @@ hr{
 
 
 
+@media only screen and (max-width: 520px){
+    body {
+        /* margin-left: 50px; */
+        /* margin-right: 50px; */
+        font-family:'TKLCCE-Info-Normal';
+        font-size: 1rem;
+        background:rgba(0, 0, 0, 0.06);
+    }
+}
 
 
 </style>
@@ -587,6 +596,7 @@ hr{
                 <div class="w-70">
                     <input type="text" name="hippa_state_signature" id="hippa_state_signature" oninput="generateSignature()" maxlength="18" style="margin-bottom:5px" class="w-100"> <br>
                     <label for="">SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW</label>
+                      <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">
                 </div>
                 <div class="w-25">
                     <input type="date" name="date_hippa_state" style="margin-bottom:5px" class="w-100"> <br>
@@ -776,6 +786,7 @@ hr{
             $('#submit-button').prop('disabled', true);
             $('.loader').show();
             saveCanvasAsImage()
+            console.log('reached')
             let formdata = new FormData(this);
             //add dd in laravel format
             $.ajax({

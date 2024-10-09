@@ -1,14 +1,11 @@
 {
-    "info-normal": {
-        "normal": "info_normal_normal_d74d8668f0ff30ab9b59edd3303a791d"
+    "tklcce-info-normal": {
+        "normal": "tklcce_info_normal_normal_1dab10edea848649561b76cbf3d38c5b"
+    },
+    "tklcce-info-semibold": {
+        "normal": "tklcce_info_semibold_normal_8bd7ffbc17fdcbc984f873f6f32b89b4"
     },
     "info-bold": {
-        "normal": "info_bold_normal_9dd3d32ef9556c2c8125abcb0cf0309d"
-    },
-    "info-semibold": {
-        "normal": "info_semibold_normal_4a6c00ef194b4cf1574bd5f7e9560ca9"
-    },
-    "info_web-italic": {
-        "normal": "info_web_italic_normal_f00c51c8b2164a9b0692ca9353405ab8"
+        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
     }
 }
