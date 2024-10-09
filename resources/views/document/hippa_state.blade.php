@@ -84,7 +84,7 @@
         /* margin-left: 50px; */
         /* margin-right: 50px; */
         font-family:'TKLCCE-Info-Normal';
-        font-size:12px;
+        font-size:14px;
         background:rgba(0, 0, 0, 0.06);
     }
 
@@ -113,7 +113,7 @@
         border-radius: 5px;
         margin: auto;
         overflow: hidden;
-        padding: 70px 110px;
+        padding: 40px 60px;
         /* padding: 10px; */
         /* position: absolute; */
         /* top: 50%; */
