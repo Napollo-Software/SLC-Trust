@@ -10,11 +10,13 @@ class BillApproved extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
+    public $user, $url, $body_message;
 
-    public function __construct($details)
+    public function __construct($user, $url, $body_message)
     {
-        $this->details = $details;
+        $this->user = $user;
+        $this->url = $url;
+        $this->body_message = $body_message;
     }
 
     public function build()

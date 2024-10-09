@@ -293,6 +293,8 @@ class claimsController extends Controller
                 $email_message = "Your bill#" . $details->id . " has been added on " . date('m-d-Y', strtotime($claim->created_at)) . ". Please use the button below to find the details of your bill:";
                 $url = "/claims/$details->id";
 
+                $bill_message = "We are pleased to inform you that Bill #{$details->id} has been successfully added to your Senior Life Care account on ".date('m-d-Y', strtotime($claim->created_at)) .". To view the details of your bill, please click the button below:";
+
                 SendBillJob::dispatch($claimUser, $url, $email_message, "bill_submitted");
 
                 $admins_notification = User::where('role', '!=', "User")->get();
@@ -320,7 +322,7 @@ class claimsController extends Controller
 
                     $url = "/claims/$details->id";
 
-                    SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
+                    // SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
 
                 }
             }
@@ -530,7 +532,9 @@ class claimsController extends Controller
                 $email_message = "Your bill#" . $claim->id . " added on " . date('m-d-Y', strtotime($claim->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
                 $url = "/claims/$claim->id";
 
-                SendEmailJob::dispatch($claimUser->email, $subject, $name, $email_message, $url);
+                $bill_message = "We are pleased to inform you that Bill #{$claim->id}, submitted on ".date('m-d-Y', strtotime($claim->created_at)).", has been approved. To view the details of your bill, please click the button below:";
+
+                SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_approved");
 
             }
             if ($request->claim_status == 'Refused') {
