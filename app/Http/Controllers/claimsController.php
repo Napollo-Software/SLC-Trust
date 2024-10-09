@@ -297,8 +297,10 @@ class claimsController extends Controller
                 $admins_notification = User::where('role', '!=', "User")->get();
                 $ignore_admin_notification = ignoreAdminEmails();
 
-                foreach ($admins_notification as $notify) {
+                foreach ($admins_notification as $notify)
+                {
                     /////////////// Admin Notification//////////
+                    
                     if (in_array($notify->email, $ignore_admin_notification))
                         continue;
 
@@ -313,7 +315,7 @@ class claimsController extends Controller
 
                     $details = $claim;
                     $subject = "Bill Submitted";
-                    $name = $notify->name . ' ' . $notify->last_name;
+                    $name = "{$notify->name} {$notify->last_name}";
                     $email_message = $claimUser->name . ' ' . $claimUser->last_name . " has submitted bill#" . $details->id . " on " . date('m-d-Y', strtotime($claim->created_at)) . " and waiting for approval. Please use the button below to find the details of the bill:";
 
                     $url = "/claims/$details->id";
@@ -335,28 +337,6 @@ class claimsController extends Controller
                     'description' => "Your Bill # " . $claim->id . " with $" . $request->claim_amount . " amount has been added on " . date('m/d/Y', strtotime(now())) . ".",
                 ]);
 
-            }
-
-            $admins_notification = User::where('role','!=',"User")->get();
-
-            $ignore_admin_notification = ignoreAdminEmails();
-
-            foreach($admins_notification as $notify)
-            {
-
-                ///////////////Admin Notification//////////
-                if(in_array($notify->email,$ignore_admin_notification))
-                continue;
-
-                Notifcation::create([
-                    'status'  => 0,
-                    'title' => 'Bill Added',
-                    'bill_id' => $claim->id,
-                    'user_id' => $notify->id,
-                    'name' => $claimUser->name,
-                    'description' => "Bill # ".$claim->id." with $".$request->claim_amount." amount has been added by ".$claimUser->name." on ".date('m/d/Y',strtotime(now())).".",
-                ]);
-    
             }
 
             DB::commit();
