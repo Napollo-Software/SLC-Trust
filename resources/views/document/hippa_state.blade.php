@@ -546,14 +546,16 @@ hr{
                     <p class="m-0">10. Reason for release of information:</p>
                 </div>
                 <div class="flex-row justify-center align-center gap-10">
-                    <div>
+                    <div style="display: flex;justify-content: center;align-items: center;">
                         <input type="checkbox" name="request_individual" value="request_individual">
-                        <label for="">At request of individual</label>
+                        <label style="position: relative;top: 1px;" for="">At request of individual</label>
                     </div>
-                    <div> 
+                    <div style="display: flex;justify-content: center;align-items: center;"> 
                         <input type="checkbox" name="other_individual" value="other_individual">
+                        <div style="position: relative;top: 1px;">
                         <label for="">Other:</label>
                         <input type="text"   id="other_indiviual_name" name="other_indiviual_name">
+                    </div>
                     </div>
                 </div>
             </div>
@@ -592,7 +594,7 @@ hr{
                 </div>
             </div>
             <div class="mt-5">
-                <canvas id="signature-canvas-hippa-state" style="height: 60px;width:30%"></canvas>
+                <canvas id="signature-canvas-hippa-state" style="height: 122px;width:270px"></canvas>
                 <div>
                     <div class="container-row mt-5">
 
@@ -604,8 +606,8 @@ hr{
 
 
         </div>
-        <hr style="margin-top: 15px;background: black;height: 4px;">
-        <span>DOH-5173 (4/16) Page 1 of 2</span>
+        {{-- <hr style="margin-top: 15px;background: black;height: 4px;">
+        <span>DOH-5173 (4/16) Page 1 of 2</span> --}}
         <div class="mt-25 flex-col" style="gap: 0">
                 <div class="flex-row justify-between align-center">
                     <p style="margin:0" class="sm">NEW YORK STATE DEPARTMENT OF HEALTH</p>
@@ -732,8 +734,8 @@ hr{
             If you want your healthcare provider to send your medical records, this form must be signed and dated by the patient or the patient’s legal representative.
         </p>
     </div>
-    <hr style="margin-top: 200px;background: black;height: 3px;">
-    <span>DOH-5173 (4/16) Page 2 of 2</span>
+    {{-- <hr style="margin-top: 200px;background: black;height: 3px;">
+    <span>DOH-5173 (4/16) Page 2 of 2</span> --}}
     <div class="mt-15">
     <button type="submit" id="submit-button" class="submit-button">
             Submit
