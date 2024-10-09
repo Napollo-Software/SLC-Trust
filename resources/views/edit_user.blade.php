@@ -357,9 +357,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
-        $(document).on('click', '.update-profile', function(e){
-            $('.update-profile').attr('disabled',true);
-        })
+
         $(document).on('change','#defaultSelect',function(e){
             e.preventDefault();
             var status = $('#defaultSelect').val();
