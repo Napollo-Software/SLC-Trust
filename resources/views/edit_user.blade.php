@@ -96,7 +96,7 @@
                     <div class="card mb-4 mb-xl-0 " style="width:95%;">
                         <div class="card-header">
                             <div class="d-flex">
-                                <h6 class="col-md-11 pt-2 text-center">
+                                <h6 class="col-md-12 pt-2 text-center">
                                     @if ($user->role == 'User')
                                         Government issued photo ID
                                     @else
