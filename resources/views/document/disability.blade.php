@@ -23,7 +23,7 @@
             src: url('fonts/info-semibold.ttf') format('truetype');
         }
 
-   
+
         @font-face {
             font-family: 'info_web-italic';
             src: url('fonts/info_web-italic.ttf') format('truetype');
@@ -34,7 +34,7 @@
             border: 1px solid black;
         }
         .submit-button {
-            background-color: #134b7e; /* Dark blue background */
+            background-color: #559E99; /* Dark blue background */
             color: white; /* White text */
             padding: 8px 16px; /* Reduced padding */
             font-size: 14px; /* Smaller font size */
@@ -48,7 +48,7 @@
         }
 
         .submit-button:hover {
-            background-color: #16b6d3; /* Light blue on hover */
+            background-color: #559E99; /* Light blue on hover */
         }
 
         .submit-button:focus {
@@ -82,13 +82,13 @@
         .btn-size{
             width: 12%;
         }
-            
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        .submit-button:disabled {           
+        .submit-button:disabled {
             opacity: 0.6;
             cursor: not-allowed;
         }
@@ -102,7 +102,7 @@
         body
         {
             background:rgba(0, 0, 0, 0.06);
-            font-family:'info-semibold';
+            font-family:'info-normal';
         }
         .container{
             margin:50px
@@ -181,7 +181,7 @@
             padding-top:3rem;
         }
         .pb-10{
-            padding-bottom:0.8rem;
+            padding-bottom:0.9rem;
         }
         .pl-5{
             padding-left:0.6rem;
@@ -210,7 +210,7 @@
             outline:none
         }
         input[type='checkbox'] {
-            accent-color: black; 
+            accent-color: black;
         }
         input[type='checkbox'] {
             background-color: white;
@@ -273,6 +273,7 @@
 
         textarea{
             padding:10px;
+            font-family:'info-normal'
         }
         .italic{
             font-family:'info_web-italic'
@@ -299,65 +300,65 @@
             <!-- name section -->
              <div class='form-row gap-15'>
                 <div class='form-cell text-base pt-10'>
-                    <label class='font-semibold text-lg'>Name</label>
-                    <div class='row gap-5 align-items-end'>
+                    <label class='font-bold text-lg'>Name</label>
+                    <div class='row gap-5 align-items-end' style='padding-top:13px'>
                         <span>First:</span>
-                        <input type='text' name='first_name' value="{{$referral->first_name}}">    
+                        <input type='text' name='first_name' value="{{$referral->first_name}}">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span>Middle:</span>
-                        <input type='text' name='middle_name'>    
+                        <input type='text' name='middle_name'>
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span>Last:</span>
-                        <input type='text' name='last_name' value="{{$referral->last_name}}">    
+                        <input type='text' name='last_name' value="{{$referral->last_name}}">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>SSN Number (last 4 digits):</span>
-                        <input type='text' name="ssn_last_4">    
+                        <input type='text' name="ssn_last_4">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Date Of Birth:</span>
-                        <input type='text' name="date_of_birth" value="{{$referral->date_of_birth}}">    
+                        <input type='text' name="date_of_birth" value="{{$referral->date_of_birth}}">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Telephone Number:</span>
-                        <input type='text'name="telephone_number" value="{{$referral->phone_number}}">    
+                        <input type='text'name="telephone_number" value="{{$referral->phone_number}}">
                     </div>
                 </div>
                 <div class='form-cell'>
                     <p style='padding-bottom:5px;padding-top:10px;font-size:16px' class='font-bold'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
                     <div class='form-cell p-10 mt-14' style='background-color:rgba(0,0,0,0.2)'>
-                        <div class='row gap-5 text-base align-items-end' style='margin-top:3px'>
-                            <span class='nowrap font-semibold'>Case Number:</span>
-                            <input type='text' name="case_number">    
+                        <div class='row gap-5 text-base align-items-end' style='margin-top:6px'>
+                            <span class='nowrap'>Case Number:</span>
+                            <input type='text' name="case_number">
                         </div>
                         <div class='row gap-5 text-base align-items-end'>
-                            <span class='nowrap font-semibold'> Client ID Number (CIN):</span>
-                            <input type='text' name="client_id_number">    
+                            <span class='nowrap'> Client ID Number (CIN):</span>
+                            <input type='text' name="client_id_number">
                         </div>
                         <div class='row gap-5 text-base align-items-end'>
-                            <span class='nowrap font-semibold'> Disability ID Number (DIN):</span>
-                            <input type='text' name="disability_id_number">    
+                            <span class='nowrap'> Disability ID Number (DIN):</span>
+                            <input type='text' name="disability_id_number">
                         </div>
                         <div class='row gap-5 text-base align-items-end'>
-                            <span class='nowrap font-semibold'> Medicaid Application date:</span>
-                            <input type='text' name="medicaid_application">    
+                            <span class='nowrap'> Medicaid Application date:</span>
+                            <input type='text' name="medicaid_application">
                         </div>
                         <div class='row gap-5 text-base align-items-center checkbox-group '>
-                            <span class='nowrap font-semibold'> Medicaid waiver?</span>
+                            <span class='nowrap'> Medicaid waiver?</span>
                             <div class='row p-0 align-items-center gap-5'>
-                                <input type='checkbox' name="medicaid_waiver_yes" value="yes" style='margin-left:16px' class='chb'>
+                                <input type='checkbox' name="medicaid_waiver_yes" value="yes" style='margin-left:13px' class='chb'>
                                 <label>Yes</label>
-                            </div> 
+                            </div>
                             <div class='row p-0 align-items-center gap-5'>
                                 <input type='checkbox' name="medicaid_waiver_no" value="No" style='margin-left:5px' class='chb'>
                                 <label>No</label>
-                            </div> 
+                            </div>
                         </div>
                         <div class='row gap-5 text-base align-items-end pb-10'>
-                            <span class='nowrap font-semibold'>Waiver type:</span>
-                            <input type='text' name="waiver_type">    
+                            <span class='nowrap'>Waiver type:</span>
+                            <input type='text' name="waiver_type">
                         </div>
                     </div>
                 </div>
@@ -365,13 +366,13 @@
             <div class='form-row gap-5 text-base align-items-center checkbox-group '>
                  <span class='nowrap'>Have you ever applied to the Social Security Administration (SSA) for disability benefits?</span>
                     <div class='row p-0 align-items-center gap-5'>
-                        <input type='checkbox' name="applied_for_ssa1"  value="yes" style='margin-left:16px' class='chb'>
+                        <input type='checkbox' name="applied_for_ssa1"  value="yes" style='margin-left:13px' class='chb'>
                         <label>Yes</label>
-                    </div> 
+                    </div>
                     <div class='row p-0 align-items-center gap-5'>
                         <input type='checkbox' name="applied_for_ssa2" value="no" style='margin-left:5px' class='chb'>
                         <label>No</label>
-                    </div> 
+                    </div>
             </div>
                 <div class='form-row gap-15 text-base'>
                     <div class='form-cell'>
@@ -389,30 +390,30 @@
                 </div>
                 <div class='row gap-5 text-base align-items-end'>
                     <span class='nowrap'>What was the decision?</span>
-                    <input type='text' name="ssa_decision">    
+                    <input type='text' name="ssa_decision">
                 </div>
                 <div class='row gap-5 text-base align-items-end'>
                     <span class='nowrap'> If denied for benefits, what was the reason (medical or non-medical)?</span>
-                    <input type='text' name="ssa_denial_reason">    
+                    <input type='text' name="ssa_denial_reason">
                 </div>
                 <div class='form-row gap-5 text-base align-items-center'>
                     <div class='form-cell'>
                         <div class='row p-0 gap-5 text-base align-items-center checkbox-group '>
                             <span class='nowrap'>Did you appeal the decision?</span>
                             <div class='row p-0 align-items-center gap-5'>
-                                <input type='checkbox' name="appealed_decision1" value="yes" style='margin-left:16px' class='chb'>
+                                <input type='checkbox' name="appealed_decision1" value="yes" style='margin-left:13px' class='chb'>
                                 <label>Yes</label>
-                            </div> 
+                            </div>
                             <div class='row p-0 align-items-center gap-5'>
                                 <input type='checkbox' name="appealed_decision2" value="No" style='margin-left:5px' class='chb'>
                                 <label>No</label>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                     <div class='form-cell'>
                         <div class='row p-0 align-items-end'>
                             <span class='nowrap'>If “Yes”, when? (month/year) </span>
-                            <input type='text' name="appeal_date">    
+                            <input type='text' name="appeal_date">
                         </div>
                     </div>
                 </div>
@@ -450,7 +451,7 @@
                         <td colspan='3' style='padding-top:2px'>
                             <div class='flex-col gap-5' style='padding-top:0px'>
                                 <p class='p-0 text-center font-bold' style='font-size:22px'>PART II — INFORMATION ABOUT YOUR MEDICAL RECORDS</p>
-                                <p class='text-left font-semibold italic' style='font-weight:700'>In order to make a disability determination, current medical evidence is needed to evaluate your physical and/or mental impairments. If you
+                                <p class='text-left font-semibold' style='font-weight:700'>In order to make a disability determination, current medical evidence is needed to evaluate your physical and/or mental impairments. If you
                                     have not seen a medical provider for your impairment(s) within the past 12 months, a consultative exam may be arranged for you by the local
                                     agency.
                                 </p>
@@ -463,13 +464,13 @@
                             <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
                                 <span class='nowrap'>A. Do you have a primary care provider? </span>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="primary_care_provider_yes" value="yes" style='margin-left:16px' class='chb'>
+                                    <input type='checkbox' name="primary_care_provider_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="primary_care_provider_no" value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'>(If “Yes”, please provide name, address, phone number.)</p>
                             <textarea rows="10" cols="" name="care_provider_text"></textarea>
@@ -478,9 +479,9 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                            <div class='form-row align-items-end gap-5'>
+                            <div class='form-row align-items-end gap-5 p-0'>
                                 <span class='nowrap'>Date of last visit (month/year):</span>
-                                <input type='text' name="primary_care_provider_details" style='width:70%'> 
+                                <input type='text' name="primary_care_provider_details" style='width:70%'>
                             </div>
                         </td>
                     </tr>
@@ -490,23 +491,23 @@
                                 <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
                                     <span class='nowrap'>B. Have you seen any other medical provider(s) within the past 12 months? </span>
                                     <div class='row p-0 align-items-center gap-5'>
-                                        <input type='checkbox' name="medical_provider_yes" value="yes" style='margin-left:16px' class='chb'>
+                                        <input type='checkbox' name="medical_provider_yes" value="yes" style='margin-left:13px' class='chb'>
                                         <label>Yes</label>
-                                    </div> 
+                                    </div>
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="medical_provider_no" value="no" style='margin-left:5px' class='chb'>
                                         <label>No</label>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
                                     <p class='text-left p-0 italic' style='padding-left:0.8rem'>(If “Yes”, please complete the section below.)</p>
-                                    <p class='text-left font-semibold italic' style='font-weight:700'>
+                                    <p class='text-left font-semibold' style='font-weight:700'>
                                         Please list the name, address, and phone number of all medical providers you have seen for the past 12 months (for example physicians, nurse
                                         practitioners/physician assistants, mental health counselors, physical/occupational/speech therapists, audiologists, etc.). (Continuation sheets
                                         are available.)
                                     </p>
                                 </div>
-                                <textarea rows="10" cols=""></textarea>
+                                <!-- <textarea rows="10" cols=""></textarea> -->
                             </div>
                         </td>
                     </tr>
@@ -600,17 +601,17 @@
                                 <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
                                     <span class='nowrap'>C. Have you received medical care in a hospital or other health care facility within the past 12 months? </span>
                                     <div class='row p-0 align-items-center gap-5'>
-                                        <input type='checkbox' name="got_medicare_yes" value="yes" style='margin-left:16px' class='chb'>
+                                        <input type='checkbox' name="got_medicare_yes" value="yes" style='margin-left:13px' class='chb'>
                                         <label>Yes</label>
-                                    </div> 
+                                    </div>
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="got_medicare_no" value="no" style='margin-left:5px' class='chb'>
                                         <label>No</label>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
                                     <p class='text-left p-0 italic' style='padding-left:0.8rem'> (If “Yes”, please complete the section below.)</p>
-                                    <p class='text-left font-semibold'>
+                                    <p class='text-left'>
                                     Please list the name and address of all hospitals and other medical facilities at which you have sought treatment in the past 12 months.<br>
                                     (Continuation sheets are available.)
                                     </p>
@@ -708,17 +709,17 @@
                                 <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
                                     <span class='nowrap'>D. Have you received services from any agencies to assist you with your impairment(s) within the past 12 months? </span>
                                     <div class='row p-0 align-items-center gap-5'>
-                                        <input type='checkbox' name="agency_assist_yes" value="yes" style='margin-left:16px' class='chb'>
+                                        <input type='checkbox' name="agency_assist_yes" value="yes" style='margin-left:13px' class='chb'>
                                         <label>Yes</label>
-                                    </div> 
+                                    </div>
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="agency_assist_no" value="no" style='margin-left:5px' class='chb'>
                                         <label>No</label>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
                                     <p class='text-left p-0 italic' style='padding-left:0.8rem'> (If “Yes”, please complete the section below.)</p>
-                                    <p class='text-left font-semibold italic' style='font-weight:700'>
+                                    <p class='text-left font-semibold' style='font-weight:700'>
                                     Please list the name and address of any other agencies that you have seen for assistance with your medical conditions in the past 12 months
                                     (for example, vocational rehabilitation agencies, supported employment or housing agencies, case management agencies, etc.).
                                     </p>
@@ -824,9 +825,9 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                            <div class='form-row align-items-end gap-5'>
+                            <div class='form-row align-items-end gap-5 p-0'>
                                 <span class='nowrap font-semibold'>A.  What is the highest grade level of schooling that you have completed?</span>
-                                <input type='text' name='schooling'> 
+                                <input type='text' name='schooling'>
                             </div>
                         </td>
                     </tr>
@@ -854,13 +855,13 @@
                         <div class='form-row gap-5 text-base align-items-center checkbox-group  p-0'>
                             <span class='nowrap'>C. Were (are) you involved in Special Education classes in school? </span>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="special_education_yes" value="yes" style='margin-left:16px' class='chb'>
+                                    <input type='checkbox' name="special_education_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="special_education_no" value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                         </div>
                         </td>
                     </tr>
@@ -870,17 +871,17 @@
                             <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
                                 <span class='nowrap'>D. Did (do) you receive any special help or accommodations in school?</span>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="special_help_yes" value="yes" style='margin-left:16px' class='chb'>
+                                    <input type='checkbox' name="special_help_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="special_help_no" value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                                 <span style='padding-left:1rem' class='italic'> (If “Yes”, please describe.)</span>
                             </div>
                             <textarea rows="10" cols="" name="special_help_text"></textarea>
-                            <p class='text-left italic'>(If you have a copy of your IEP, please include it with the returned forms.)</p>
+                            <p class='text-left italic' style='padding-left:0.8rem'>(If you have a copy of your IEP, please include it with the returned forms.)</p>
                         </div>
                         </td>
                     </tr>
@@ -890,13 +891,13 @@
                             <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
                                 <span class='nowrap'>E. Have you received any vocational training or additional education within the past 12 months?</span>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="vocational_training_yes" value="yes" style='margin-left:16px' class='chb'>
+                                    <input type='checkbox' name="vocational_training_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="vocational_training_no"  value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'> (If “Yes”, please describe.)</p>
                             <textarea rows="10" cols="" name="vocational_training_text"></textarea>
@@ -905,31 +906,31 @@
                     </tr>
                     <tr>
                         <td>
-                        <div class='form-row gap-5 text-base align-items-center checkbox-group '>
+                        <div class='form-row gap-5 text-base align-items-center checkbox-group p-0'>
                             <span class='nowrap'>F. Can you read a simple message in any language (such as simple instructions, or a list of items)?  </span>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="simple_message_yes" value="yes" style='margin-left:16px' class='chb'>
+                                    <input type='checkbox' name="simple_message_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="simple_message_no"  value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                         </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class='form-row gap-5 text-base align-items-center checkbox-group '>
+                            <div class='form-row gap-5 text-base align-items-center checkbox-group p-0'>
                                 <span class='nowrap'>G. Can you write a simple message in any language?</span>
                                     <div class='row p-0 align-items-center gap-5'>
-                                        <input type='checkbox' name="write_simple_message_yes" value="yes" style='margin-left:16px' class='chb'>
+                                        <input type='checkbox' name="write_simple_message_yes" value="yes" style='margin-left:13px' class='chb'>
                                         <label>Yes</label>
-                                    </div> 
+                                    </div>
                                     <div class='row p-0 align-items-center gap-5'>
                                         <input type='checkbox' name="write_simple_message_no"  value="no" style='margin-left:5px' class='chb'>
                                         <label>No</label>
-                                    </div> 
+                                    </div>
                             </div>
                         </td>
                     </tr>
@@ -939,13 +940,13 @@
                             <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
                                 <span class='nowrap'>H. Was assistance or an interpreter necessary to complete this application? </span>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="interpreter_yes" value="yes" style='margin-left:16px' class='chb'>
+                                    <input type='checkbox' name="interpreter_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="interpreter_no">
                                     <label>No</label>
-                                </div> 
+                                </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'>  (If “Yes”, please indicate your primary language.)</p>
                             <textarea rows="10" cols="" name="interpreter_text"></textarea>
@@ -961,13 +962,13 @@
                         <div class='form-row gap-5 text-base px-10' style='padding:0.3rem 0.6rem checkbox-group '>
                             <span class='nowrap text-left font-semibold' style='padding:15px 0px;font-size:15px'>G. Have you worked in the past 5 years?</span>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="worked_fifteen_yes" value="yes" style='margin-left:16px' class='chb'>
+                                    <input type='checkbox' name="worked_fifteen_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
-                                </div> 
+                                </div>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="worked_fifteen_no"  value="no" style='margin-left:5px' class='chb'>
                                     <label>No</label>
-                                </div> 
+                                </div>
                         </div>
                         <p class='p-0 pl-5 italic'>If YES, in as much detail as possible, please list jobs (up to 5) that you performed IN THE PAST 5 YEARS, starting with your most recent job.</p>
                     </div>
@@ -1014,11 +1015,11 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                            <div class='flex-col gap-15'>
+                            <div class='form-row gap-15'>
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea name="duties_one" rows='5'></textarea>
+                                <textarea name="duties_one" class='w-full' rows='5'></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1106,11 +1107,11 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                            <div class='flex-col gap-15'>
+                            <div class='form-row gap-15'>
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea rows='5' name="duties_two"></textarea>
+                                <textarea rows='5' class='w-full' name="duties_two"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1196,11 +1197,11 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                            <div class='flex-col gap-15'>
+                            <div class='form-row gap-15'>
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea class="pl-5" rows='5' name="duties_three"></textarea>
+                                <textarea class="pl-5 w-full" rows='5' name="duties_three"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1300,11 +1301,11 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                            <div class='flex-col gap-15'>
+                            <div class='form-row gap-15'>
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea class="pl-5" rows='5' name="duties_four"></textarea>
+                                <textarea class="pl-5 w-full" rows='5' name="duties_four"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1343,7 +1344,7 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                                <div class='row gap-15 align-items-end p-0' style='width:50%'>
+                                <div class='row gap-15 align-items-end p-0 flex-1'>
                                     <span class='nowrap' style='text-wrap:nowrap'>Reason for leaving:</span>
                                     <input style='padding-left:1.3rem' type="text" name="leaving_reason_four">
                                 </div>
@@ -1390,11 +1391,11 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                            <div class='flex-col gap-15'>
+                            <div class='form-row gap-15'>
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea class="pl-5" rows='5' name="duties_five"></textarea>
+                                <textarea class="pl-5 w-full" rows='5' name="duties_five"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1433,7 +1434,7 @@
                     </tr>
                     <tr>
                         <td colspan='3'>
-                                <div class='row gap-15 align-items-end p-0' style='width:50%'>
+                                <div class='row gap-15 align-items-end p-0 flex-1'>
                                     <span class='nowrap' style='text-wrap:nowrap'>Reason for leaving:</span>
                                     <input style='padding-left:1.3rem' type="text" name="leaving_reason_five" class="no-border">
                                 </div>
@@ -1441,7 +1442,7 @@
                     </tr>
                 </table>
                 <div class='form-row'>
-                    <textarea rows="15" name="undef" cols="" class='w-full' style='border:2px solid'></textarea>
+                    <textarea rows="15" name="undef" cols="" class='w-full' style='border:1px solid'></textarea>
                 </div>
                 <table>
                 <tr>
@@ -1459,7 +1460,7 @@
                                     Date:
                             </span>
                             <input style='padding-left:1.3rem' type="date" class="border-bottom" name="form_date">
-                        </div> 
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -1473,7 +1474,7 @@
                      Submit
                     <span class="loader" style="display: none;"></span>
                 </button>
-        </form> 
+        </form>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -1482,8 +1483,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $(".chb").change(function() {
-            const group = $(this).closest('.checkbox-group ');    
-            group.find(".chb").prop('checked', false);    
+            const group = $(this).closest('.checkbox-group ');
+            group.find(".chb").prop('checked', false);
             $(this).prop('checked', true);
         });
         //save this form using ajax
