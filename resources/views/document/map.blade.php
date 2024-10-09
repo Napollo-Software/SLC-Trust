@@ -52,7 +52,7 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            border: 2px solid black;
+            border: 1px solid black;
             font-size: 15px;
             font-family:'ArialMdm';
             font-weight: normal !important;
@@ -74,9 +74,17 @@
             padding: 10px !important;
         }
 
-        th, td {
-            border: 2px solid black;
+        th {
+            border: 1px solid black;
             padding: 8px;
+            text-align: center;
+        }
+        td {
+            border: 1px solid black;
+            padding-left: 8px;
+            padding-top: 2px;
+            padding-right: 8px;
+            padding-bottom: 8px;
             text-align: center;
         }
 
@@ -155,6 +163,18 @@
     src: url('/fonts/rage-italic.woff') format('woff');
     font-style: italic;
 }
+
+
+.clear-hippa{
+        padding: 4px 8px !important;
+        background-color: #559E99;
+        border:none;
+        outline:none;
+        cursor: pointer;
+        color: white;
+        border-radius: 2px;
+    }
+
 #signature-canvas-map {
     pointer-events: none;
 }
@@ -306,7 +326,7 @@ textarea{
 
     table {
             border-collapse: collapse;
-            border: 2px solid black;
+            border: 1px solid black;
             font-size: 12px;
             font-family:'ArialMdm';
             font-weight: normal !important;
@@ -448,7 +468,7 @@ textarea{
                             <canvas style="width:100%" id="signature-canvas-map"></canvas>
                             <div>
                                 <div class="container-row" style="justify-content: start;margin-top:3px" >
-                                    <button id="clear-map" onclick="clearMapCanvas()">Clear</button>
+                                    <button id="clear-map" class="clear-hippa" onclick="clearMapCanvas()">Clear</button>
                                 </div>
 
                                 <input type="hidden" id="map_sign" name="map_sign">
