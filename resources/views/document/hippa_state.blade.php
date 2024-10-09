@@ -133,6 +133,7 @@
         margin: 20px;
         font-size: 14px;
         line-height: 1.2;
+        margin-bottom: 0;
     }
 
     .authorization:after {
@@ -486,6 +487,8 @@ hr{
                     Section 9(b).</li>
             </ol>
         </div>
+
+        <input type="text" name="name_address2"   class="input-full">
 
         <hr style="height:0.5px">
         <div class="flex-col">

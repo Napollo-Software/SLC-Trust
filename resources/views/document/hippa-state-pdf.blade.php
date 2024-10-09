@@ -261,7 +261,7 @@
         </ol>
             </div>
             <div>
-                <input type="text" name="name_address" class="text-sm no-border" style="width: 100%;" value="{{$name_address}}">
+                <input type="text" name="name_address2" class="text-sm no-border" style="width: 100%;" value="{{$name_address2}}">
                 <hr class='line'>
                 <p style='padding:0;' class='m-0'>7. Name and address of the health provider or entity authorized to release this information:</p>
             </div>
@@ -379,7 +379,7 @@
             <span style='vertical-align:middle'>
                 <label>
                     <input type="checkbox" class='align-check'
-                    name="other_individual" {{isset($other_individual) =='other_individual'? 'checked' : ''}}>
+                    name="request_individual" {{isset($request_individual) =='request_individual'? 'checked' : ''}}>
                     <span class="text-sm">
                         At request of individual
                     </span>
