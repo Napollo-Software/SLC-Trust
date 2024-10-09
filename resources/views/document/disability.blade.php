@@ -234,7 +234,7 @@
             width:100%;
         }
         .w-15{
-            width:25%
+            width:20%
         }
         .nowrap{
             white-space:nowrap;
@@ -266,10 +266,6 @@
             }
             .margin{
                 margin:0px 10px 0px 0px;
-            }
-            .w-15{
-                padding:0px 10px;
-                width:40%
             }
         }
 
@@ -1029,15 +1025,15 @@
                             <div class='form-row gap-15 p-0'>
                                 <span class='form-row p-0'> During a typical day, how many hours did you:</span>
                                 <div class='form-row p-0 gap-15'>
-                                    <div class='row p-0 gap-5 align-items-end w-15'>
+                                    <div class='row p-0 gap-5 align-items-end' style='width:25%'>
                                         <span>Stand</span>
                                         <input type='text' name="day_stand">
                                     </div>
-                                    <div class='row p-0 gap-5 align-items-end w-15'>
+                                    <div class='row p-0 gap-5 align-items-end' style='width:25%'>
                                         <span>Walk</span>
                                         <input type='text' name="day_walk">
                                     </div>
-                                    <div class='row p-0 gap-5 align-items-end w-15'>
+                                    <div class='row p-0 gap-5 align-items-end' style='width:25%'>
                                         <span>Sit</span>
                                         <input type='text' name="day_sit">
                                     </div>
