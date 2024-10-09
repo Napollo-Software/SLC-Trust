@@ -26,7 +26,7 @@
                         <div class="row-cols-lg-12">
                             <label for="exampleFormControlInput1" class="form-label">User Role*</label>
                             <select id="defaultSelect" class="form-select" name="role" required multiple>
-                                <option value="">Select user role</option>
+                                <option value="" disabled>Select user role</option>
                                 @foreach ($roles as $role)
                                 {{-- @if ($role->name == 'admin' || $role->name == 'moderator' || $role->name == 'user') --}}
                                 <option value="{{ $role->name }}">{{ ucfirst($role->name) }}</option>

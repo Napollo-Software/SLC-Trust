@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Edit User | SLC Trusts')
+@section('title', 'View User | SLC Trusts')
 @section('wrapper')
     @php
         $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');
@@ -159,10 +159,10 @@
                                 <div class="">
                                     <select id="defaultSelect"
                                         class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif"
-                                        id="account_status" name="account_status"
-                                        data-id="{{ $user->id }}">
+                                         name="account_status"
+                                        data-id="{{ $user->id }}" required>
                                         @if($user->account_status == 'Pending')
-                                        <option class="bg-white text-black" value="Pending">Pending</option>
+                                        <option class="bg-white text-black" value="" disabled selected>Pending</option>
                                         @endif
                                         <option
                                             class="bg-white text-black"@if ($user->account_status == 'Approved') selected @endif
@@ -357,6 +357,9 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
+        $(document).on('click', '.update-profile', function(e){
+            $('.update-profile').attr('disabled',true);
+        })
         $(document).on('change','#defaultSelect',function(e){
             e.preventDefault();
             var status = $('#defaultSelect').val();

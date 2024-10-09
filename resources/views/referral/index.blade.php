@@ -256,7 +256,8 @@
                                             id: id,
                                         },
                                         success: function (data) {
-                                            $('.custom-design-' + id).text('Converted to customer').addClass('dropdown-item').removeClass('btn btn-primary');
+                                            $('.custom-design-' + id).text('Converted to customer').addClass('dropdown-item').removeClass('btn btn-primary convert-btn');
+                                            $('.custom-design-' + id).prop('disabled', true);
                                             swal.fire('success', data.success, 'success')
                                         },
                                         error: function (xhr) {

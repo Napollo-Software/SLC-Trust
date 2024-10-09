@@ -313,13 +313,18 @@ $(document).on('submit','#update_bill',function(e){
     cache : false,
     success:function(data){
           console.log(data.message);
-          swal.fire(data.header,data.message,data.type);
-          $('.claim-submit').text('Submit');
-          $('.update-bill-button').attr('disabled',false);
-          if(data.type == 'success'){
-                window.location.reload();
+          swal.fire({
+            title: data.header,
+            text: data.message,
+            icon: data.type,
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/claims';
             }
-
+        });
+          $('.claim-submit').text('Submit');
+          //$('.update-bill-button').attr('disabled',false);
       },
       error:function(xhr){
           erroralert(xhr);
