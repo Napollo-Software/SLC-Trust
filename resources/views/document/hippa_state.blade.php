@@ -141,7 +141,7 @@
         page-break-after: always;
     }
     .card {
-        width: 794px;
+        width: 894px;
         background: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         /* transition: 0.3s; */
@@ -478,17 +478,17 @@ hr{
             </ol>
         </div>
 
-        <hr class="light-hr">
+        <hr style="height:0.5px">
         <div class="flex-col">
             <p class="no-space" style="margin-bottom:2px !important">7. Name and address of the health provider or entity authorized to release this information:</p>
             <input type="text" name="name_address"   class="input-full">
         </div>
-        <hr class="light-hr" style="height:1px !important">
+        <hr/>
         <div class="flex-col">
             <p class="no-space" style="margin-top:2px;">8. Name and address of person(s) or agency to whom this information is to be sent:</p>
             <p class="no-space bold" style="margin-left:70px" >State Disability Review Unit OCP-826, State of New York, Department of Health, Albany, NY 12237</p>
         </div>
-        <hr class="light-hr">
+        <hr style="height:0.5px">
         <div class="authorization">
             9(a). Specific information to be released:
             <div style="margin-left: 25px;" class="mt-5" ><input type="checkbox" name="released_info"   value="medical_dated"> Medical records from
@@ -511,32 +511,36 @@ hr{
             
 
             <p style="margin-top:0px">9(b). Authorization to discuss Health Information:</p>
-            <div class="flex-row" style="gap:5px;margin-top:-10px">
+            <div class="flex-row" style="gap:5px;margin-top:-16px;margin-left:47px">
                 <p>By initialing here:</p>
                 <input type="text"  name="init" style="width: 100px;height: 24px;padding:0px !important" >
                 <p>I authorize</p>
                 <input type="text"  name="auth_name" style="height:24px;flex:1;padding:0px !important" placeholder="Name of indvidual/Health care provider">
             </div>
 
-            <p>to discuss my health information with the <b>State Disability Review Unit</b>
+            <p style="margin-left:47px;margin-top:-5px">to discuss my health information with the <b>State Disability Review Unit</b>
             </p>
-            <p>9(c). I do not consent to the disclosure of (Check all boxes that apply):
-            </p>
-            <div class="checkbox-container">
-                <label for="alcoholDrugTreatment">
-                    <input type="checkbox" id="alcoholDrugTreatment" name="alcoholDrugTreatment" value="alcoholDrugTreatment">
-                    Alcohol/Drug Treatment
-                </label>
-                <label for="mentalHealthInformation">
-                    <input type="checkbox" id="mentalHealthInformation" name="mentalHealthInformation" value="mentalHealthInformation">
-                    Mental Health Information
-                </label>
-                <label for="hivRelatedInformation">
-                    <input type="checkbox" id="hivRelatedInformation" name="hivRelatedInformation" value="hivRelatedInformation">
-                    HIV-Related Information
-                </label>
+
+            <div class="flex-row" style="gap:10px; align-items:center;margin-bottom:-7px">
+                <p>9(c). I do not consent to the disclosure of (Check all boxes that apply):
+                </p>
+                <div class="checkbox-container">
+                    <label for="alcoholDrugTreatment">
+                        <input type="checkbox" id="alcoholDrugTreatment" name="alcoholDrugTreatment" value="alcoholDrugTreatment">
+                        Alcohol/Drug Treatment
+                    </label>
+                    <label for="mentalHealthInformation">
+                        <input type="checkbox" id="mentalHealthInformation" name="mentalHealthInformation" value="mentalHealthInformation">
+                        Mental Health Information
+                    </label>
+                    <label for="hivRelatedInformation">
+                        <input type="checkbox" id="hivRelatedInformation" name="hivRelatedInformation" value="hivRelatedInformation">
+                        HIV-Related Information
+                    </label>
+                </div>
             </div>
-            <hr>
+           
+            <hr style="height:0.5px">
             <div class="flex-row justify-between align-center" style="padding: 3px 0;">
                 <div>
                     <p class="m-0">10. Reason for release of information:</p>
@@ -553,12 +557,12 @@ hr{
                     </div>
                 </div>
             </div>
-            <hr>
+            <hr style="height:0.5px">
             <div class="flex-row justify-between align-center" style="padding: 3px 0;">
                 <p class="m-0">11. Purpose of the Use/Disclosure:</p>
                 <p class="bold w-46-5 m-0"> Disability Determination and Review</p>
             </div>
-            <hr>
+            <hr style="height: 0.5px">
             <div class="flex-row align-center gap-5" style="padding: 3px 0;">
                 <p class="m-0">12. If not the patient, name of the person signing this form (print): </p>
                 <input type="text" name="person_signing" class="f-1 border-none">
@@ -570,7 +574,7 @@ hr{
                 <input type="text"  name="auth_info" class="f-1 border-none">
             </div>
             
-            <hr>
+            <hr style="height:1.5px">
         <div>
             <div style="margin-top: 14px;">
                 <p class="m-0">All sections on this form have been completed and my questions about this form have been answered.</p>
