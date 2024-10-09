@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use Excel;
 use Session;
-use App\Models\Claim;
 use App\Models\User;
+use App\Models\Claim;
 use App\Models\Category;
+use App\Jobs\SendBillJob;
 use App\Jobs\sendEmailJob;
 use App\Models\PayeeModel;
 use App\Models\Notifcation;
 use App\Models\Transaction;
-use Illuminate\Http\Request;
 use App\Imports\UsersImport;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Imports\ApprovePendingBills;
 use App\Imports\CustomerDepositImport;
@@ -292,15 +293,14 @@ class claimsController extends Controller
                 $email_message = "Your bill#" . $details->id . " has been added on " . date('m-d-Y', strtotime($claim->created_at)) . ". Please use the button below to find the details of your bill:";
                 $url = "/claims/$details->id";
 
-                SendEmailJob::dispatch($claimUser->email, $subject, $name, $email_message, $url);
+                SendBillJob::dispatch($claimUser, $url, $email_message, "bill_submitted");
 
                 $admins_notification = User::where('role', '!=', "User")->get();
                 $ignore_admin_notification = ignoreAdminEmails();
 
-                foreach ($admins_notification as $notify)
-                {
+                foreach ($admins_notification as $notify) {
                     /////////////// Admin Notification//////////
-                    
+
                     if (in_array($notify->email, $ignore_admin_notification))
                         continue;
 
