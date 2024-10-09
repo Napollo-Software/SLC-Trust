@@ -61,9 +61,12 @@
         th{
             background-color: #DDDDDD;
             font-weight: normal;
-            font-size: 17px !important;
-            padding-top:18px !important;
-            height: 25px !important;
+            font-size: 14px !important;
+            padding-top:16px !important;
+            padding-bottom:4px !important;
+            height: 20px !important;
+            border: 1px solid black;
+            text-align: center;
         }
 
         td{
@@ -72,20 +75,22 @@
             font-family:'ArialMdm';
             vertical-align: top;
             padding: 10px !important;
+            border: 1px solid black;
+            font-size: 13px;
         }
 
-        th {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-        td {
-            border: 1px solid black;
+        .td {
             padding-left: 8px;
-            padding-top: 2px;
+            padding-top: 2px !important;
             padding-right: 8px;
             padding-bottom: 8px;
-            text-align: center;
+            text-align: left !important;
+            font-weight: normal !important;
+            font-family:'ArialMdm';
+            vertical-align: top;
+            padding: 10px !important;
+            border: 1px solid black;
+            font-size: 13px;
         }
 
         .submit-button {
@@ -147,9 +152,9 @@
 
         .card {
             background:white;
-            width: 1000px;
+            width: 860px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 70px 110px;
+            padding: 50px 90px;
 
         }
 
@@ -234,7 +239,7 @@ textarea{
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        font-size: 18px !important;
+        font-size: 17px !important;
     }
 
     .bold{
@@ -273,7 +278,7 @@ textarea{
     }
 
     .main-heading{
-        margin-left:60px
+        margin-left:35px
     }
 
     .para-main{
@@ -456,9 +461,10 @@ textarea{
             benefits.</p>
         <table >
             <tr>
-                <td style="width: 40%;">
-                    <label>
-                        SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO
+                <td  style="width: 50%;padding-top:2px !important">
+                    <label >
+                        <span style="background-color:yellow">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span>
+                        <br/>
                         ACT IN HIS/HER BEHALF
                     </label><br>
                     <div class="card-body" style="justify-content: space-around">
@@ -476,7 +482,7 @@ textarea{
                         </div>
                     </div>
                 </td>
-                <td style="width: 40%;">
+                <td style="width: 30%;padding-top:2px !important">
                     <label>
                         RELATION TO DISABLED PERSON<br/>
                         (If other than self)
@@ -489,21 +495,21 @@ textarea{
                         different than SSN.) </label><br>
                     <input type="text" name="disabled_id_other" style="margin-top: 5px">
                 </td> -->
-                <td style="width: 20%;">
+                <td style="width: 20%;padding-top:2px !important">
 
-                    <label>Date</label><br><br>
+                    <label>DATE</label><br><br>
                     <input type="date" name="date_map" style="margin-top: 5px">
 
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td colspan="1" style="padding-top:2px !important">
                     <label>
                         STREET ADDRESS
                     </label><br>
                     <input type="text" name="disabled_relation_street" style="margin-top: 5px;" value="{{$referral->address}}">
                 </td>
-                <td colspan="2">
+                <td colspan="2" style="padding-top:2px !important">
                     <label>
                         TELEPHONE NUMBER (include area code))
                     </label><br>
@@ -511,19 +517,19 @@ textarea{
                 </td>
             </tr>
             <tr>
-                <td colspan="1">
+                <td style="padding-top:2px !important" colspan="1">
                     <label>
                         City
                     </label><br>
                     <input type="text" name="disabled_relation_city" value="{{$referral->city}}"  style="margin-top:5px">
                 </td>
-                <td>
+                <td style="padding-top:2px !important">
                     <label>
                         STATE
                     </label><br>
                     <input type="text" name="disabled_relation_state" value="{{$referral->state}}"  style="margin-top:5px">
                 </td>
-                <td>
+                <td style="padding-top:2px !important">
                     <label>
                         ZIP CODE
                     </label><br>
