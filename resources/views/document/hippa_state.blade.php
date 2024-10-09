@@ -84,7 +84,7 @@
         /* margin-left: 50px; */
         /* margin-right: 50px; */
         font-family:'TKLCCE-Info-Normal';
-        font-size:12px;
+        font-size:14px;
         background:rgba(0, 0, 0, 0.06);
     }
 
@@ -113,7 +113,7 @@
         border-radius: 5px;
         margin: auto;
         overflow: hidden;
-        padding: 70px 110px;
+        padding: 40px 60px;
         /* padding: 10px; */
         /* position: absolute; */
         /* top: 50%; */
@@ -145,7 +145,11 @@ input{
     border-radius: 2px;
     border: 1px solid #b2b2b2;
     font-size: 12px;
-    padding: 4px 6px;
+    padding: 2px 5px;
+    outline: none;
+    background-color: transparent !important;
+    height: 22px;
+    outline: none;
 }
 .loader {
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -253,7 +257,7 @@ input{
 
 /* ------------------------------------------------------------ */
 
-  /* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
 
 
 
@@ -264,7 +268,8 @@ input{
 
 
 
-  /* --------------------------------------------------------- */
+
+/* --------------------------------------------------------- */
 
 
 
