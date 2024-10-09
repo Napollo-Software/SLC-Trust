@@ -39,11 +39,18 @@
             border: none;
         }
 
-        th,
-        td {
+        th {
             border: 2px solid black;
             padding: 8px;
             /* text-align: center; */
+        }
+
+        td{
+            border: 2px solid black;
+            padding-left: 8px;
+            padding-bottom: 8px;
+            padding-right: 8px;
+            padding-top: 2px;
         }
 
 
@@ -55,6 +62,8 @@
         .row-container {
             display: flex;
             align-items: flex-end;
+            padding-left:10px;
+            gap: 65px;
         }
         .submit-button {
             background-color: #559E99; /* Dark blue background */
@@ -68,6 +77,7 @@
             position: relative;
             display: inline-flex;
             align-items: center;
+            margin-left: 10px;
         }
 
         .submit-button:hover {
@@ -152,10 +162,10 @@ input{
     border-radius: 2px;
     border: 1px solid #b2b2b2;
     font-size: 12px;
-    padding: 4px 6px;
+    padding: 2px 6px;
     outline: none;
     background-color: transparent !important;
-    height: 27px;
+    height: 28px;
     outline: none;
 }
 .inputDate{
@@ -168,7 +178,7 @@ input{
     border-radius: 2px;
     border: 1px solid #b2b2b2;
     font-size: 12px;
-    height: 30px;
+    height: 28px;
     outline: none;
     width: calc(100% - 10px);
     margin: 0;
@@ -204,7 +214,7 @@ textarea{
  } 
 
  .nine-container{
-    margin-left: 75px;
+    margin-left: 30px;
     margin-right: 75px;
     justify-content: space-between;
  }
@@ -281,6 +291,9 @@ body{
    .mt-3{
         margin-top: 3px;
     } 
+   .ml-5{
+        margin-top: 5px;
+    } 
    .mt-5{
         margin-top: 5px;
     } 
@@ -288,6 +301,9 @@ body{
         margin-top: 10px;
     }
     .mt-15{
+        margin-top: 15px;
+    }
+    .mt-13{
         margin-top: 15px;
     }
     .mt-20{
@@ -319,8 +335,9 @@ body{
   }
 
   .header_bottom{
-    margin-top: -22px;
+    margin-top: -17px;
     text-align: center;
+
   }
 
 
@@ -381,6 +398,7 @@ body{
     td{
         font-size: 16px;
     }
+
     input{
         font-size: 16px;
 
@@ -450,7 +468,7 @@ body{
         <div class="header_Container">
             <img src="{{ asset('images/logo.png') }}" alt="Logo"
                     style="display: table-cell; width: fit-content; vertical-align: top; margin: 0; padding: 0;padding-left:-6px;margin-left:-6px"
-                    height="80" width="80">
+                    height="73" width="73">
             <div class="header_right">
                 <h5 class="header_rightTop">
                     OCA Official Form No.: 960
@@ -467,7 +485,7 @@ body{
                 [This form has been approved by the New York State Department of Health]
             </h5>
         </div>
-        <table class="mt-15" style="border-collapse: collapse;" >
+        <table class="mt-13" style="border-collapse: collapse;" >
             <tr >
                 <td  style="width: 50%;">
                     <label>Patient Name</label><br>
@@ -544,14 +562,14 @@ body{
                         9(a). Specific information to be released:
                         </p>
                         
-                        <div class="row">
+                        <div style="margin-left:30px" class="row">
                         <input type="checkbox" name="info_released1" value="dated">
                         Medical Record from (insert date) <input type="date" max="9999-12-31" class="inputDate"  name="info_released_from"> to
                         (insert date) <input
                             type="date" max="9999-12-31" class="inputDate"  name="info_released_to">
 
                     </div>
-                    <div style="padding: 0;margin: 0;align-items: flex-start !important;" class="row">
+                    <div style="padding: 0;margin: 0;align-items: flex-start !important;margin-left:30px" class="row">
                         <input type="checkbox" name="info_released2" value="Entire_med">
                         <p style="margin-top:4px"> Entire Medical Record, including patient histories, office notes (except psychotherapy notes), test
                         results, radiology studies, films,
@@ -560,7 +578,7 @@ body{
                         providers.</p>
 
                     </div>
-                    <div class="row mt-10 nine-container" style="padding: 0;align-items: flex-start !important;">
+                    <div class="row nine-container" style="padding: 0;align-items: flex-start !important;margin-top:4px">
                         <div style="padding: 0;margin: 0" class="row">
                             <div class="row" >
                                 <input type="checkbox" name="info_released3" value="other">
@@ -600,7 +618,7 @@ body{
 
                     </div>
                     <div style="max-width: 100%; text-align: center;">
-                        <div style="text-align: start;margin-left:4.5%; margin-right:4.5%" class="mt-5" >
+                        <div style="text-align: start;margin-left: 2.75%; margin-right:3.78%" class="mt-5" >
                             to discuss my health information with my attorney, or a governmental agency, listed here:
                                 <input type="text" class="border-btm" name="health_information"  style="width:100%;height:30px;margin:0;height:14px">
                         </div>
@@ -618,10 +636,12 @@ body{
                         <input type="checkbox" name="request" value="request">
                         <p>At request of indvidual</p>
                     </div>
-                    <div class="row">
-                        <input type="checkbox" name="reason" value="reason">
-                        <p>Other:</p>
-                        <input type="text" name="reason_other"  >
+                    <div class="row" style="justify-content: space-between;">
+                        <div class="row">
+                            <input type="checkbox" name="reason" value="reason">
+                            <p>Other:</p>
+                        </div>
+                        <input type="text" class="" style="width:50%;height:24px" name="reason_other"  >
                     </div>
                 </td>
                 <td style="width:50%;vertical-align: top;">
@@ -653,7 +673,7 @@ body{
 
         </div>
       
-        <p class="mt-3" style="margin-bottom:3px">
+        <p class="mt-3" style="margin-bottom:3px;padding-left:10px">
             All items on this form have been completed and my questions about this form have been answered. In add111on, I
             have been provided a
             copy of the form.
@@ -680,10 +700,11 @@ body{
                 &nbsp;  <input type="date" max="9999-12-31" class="inputDate" style="width:50%" name="sign_date">
             </div>
         </div>
-        <div class="mt-15" style="max-width: 100%;font-weight: bold;">
-            * Human Immunodeficiency Virus that causes AIDS. The New York State Public Health Law protects information which
+        <div class="mt-15 flex-row" style="max-width: 100%;font-weight: bold;padding-left:10px;gap:5px">
+            <p>*</p>
+            <p>             Human Immunodeficiency Virus that causes AIDS. The New York State Public Health Law protects information which
             reasonably could
-            identify someone as having HIV symptoms or infection and information regarding a person's contacts.
+            identify someone as having HIV symptoms or infection and information regarding a person's contacts.</p>
         </div>
         <br>
         <button type="submit" id="submit-button" class="submit-button">
