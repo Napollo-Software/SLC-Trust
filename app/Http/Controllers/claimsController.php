@@ -337,6 +337,28 @@ class claimsController extends Controller
 
             }
 
+            $admins_notification = User::where('role','!=',"User")->get();
+
+            $ignore_admin_notification = ignoreAdminEmails();
+
+            foreach($admins_notification as $notify)
+            {
+
+                ///////////////Admin Notification//////////
+                if(in_array($notify->email,$ignore_admin_notification))
+                continue;
+
+                Notifcation::create([
+                    'status'  => 0,
+                    'title' => 'Bill Added',
+                    'bill_id' => $claim->id,
+                    'user_id' => $notify->id,
+                    'name' => $claimUser->name,
+                    'description' => "Bill # ".$claim->id." with $".$request->claim_amount." amount has been added by ".$claimUser->name." on ".date('m/d/Y',strtotime(now())).".",
+                ]);
+    
+            }
+
             DB::commit();
             if ($balance < $request->claim_amount) {
                 return response()->json(['header' => 'Insufficient balance!', 'type' => 'success', 'message' => " Your bill has been submitted successfully."]);
