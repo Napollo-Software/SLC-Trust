@@ -141,14 +141,15 @@
     pointer-events: none;
 }
 input{
-    background: #e9e9e9;
-    border-radius: 2px;
-    border: 1px solid #b2b2b2;
+    /* background: #e9e9e9; */
+    /* border-radius: 2px; */
+    border: none;
+    border-bottom: 1px solid black;
     font-size: 12px;
-    padding: 2px 5px;
+    /* padding: 2px 5px; */
     outline: none;
     background-color: transparent !important;
-    height: 22px;
+    /* height: 22px; */
     outline: none;
 }
 .loader {
@@ -259,7 +260,30 @@ input{
 
 /* ----------------------------------------------------------- */
 
+hr{
+    height: 3px;
+    border: none;
+    background: gray;
+}
 
+.justify-between{
+    justify-content: space-between
+}
+.justify-center{
+    justify-content: center
+}
+.align-center{
+    align-items: center
+}
+.gap-10{
+    gap: 10px;
+}
+.w-46-5{
+    width: 46.5%;
+}
+/* p{
+    margin: 5px;
+} */
 
 
 
@@ -410,15 +434,27 @@ input{
                 </label>
             </div>
             <hr>
-            <p>10. Reason for release of information: <label>
-                    <input type="checkbox" name="other_individual" value="other_individual">
-                    At request of individual</label>
-                <label> Other:
-                    <input type="text"   id="other_indiviual_name" name="other_indiviual_name">
-                </label>
-            </p>
+            <div class="flex-row justify-between align-center">
+                <div>
+                    <p>10. Reason for release of information:</p>
+                </div>
+                <div class="flex-row justify-center align-center gap-10">
+                    <div>
+                        <input type="checkbox" name="request_individual" value="request_individual">
+                        <label for="">At request of individual</label>
+                    </div>
+                    <div> 
+                        <input type="checkbox" name="other_individual" value="other_individual">
+                        <label for="">Other:</label>
+                        <input type="text"   id="other_indiviual_name" name="other_indiviual_name">
+                    </div>
+                </div>
+            </div>
             <hr>
-            <p>11. Purpose of the Use/Disclosure:<b>Disability Determination and Review</b></p>
+            <div class="flex-row justify-between align-center">
+                <p>11. Purpose of the Use/Disclosure:</p>
+                <p class="bold w-46-5"> Disability Determination and Review</p>
+            </div>
             <hr>
             <p>12. If not the patient, name of the person signing this form (print): <input type="text" name="person_signing"
                                                                                             ></p>
@@ -432,9 +468,9 @@ input{
             <div class="row-container">
                 <div id="signature-pad">
                     <input type="text"  style="width: 57%;margin-bottom: 10px" name="hippa_state_signature" id="hippa_state_signature" oninput="generateSignature()" maxlength="18">
-                    <canvas id="signature-canvas-hippa-state"></canvas>
+                    <canvas id="signature-canvas-hippa-state" style="height: 60px;width:60%"></canvas>
                     <div>
-                        <div class="container-row" style="justify-content: start">
+                        <div class="container-row mt-5">
 
                             <button id="clear-hippa-state" onclick="clearHippaStateCanvas()">Clear</button>
                         </div>
