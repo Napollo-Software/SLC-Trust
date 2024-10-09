@@ -103,7 +103,6 @@
         {
             background:rgba(0, 0, 0, 0.06);
             font-family:'info-semibold';
-            font-size:15px;
         }
         .container{
             margin:50px
@@ -122,6 +121,9 @@
         .row{
             display:flex;
             padding:5px 0px;
+        }
+        .row > span , .form-row > span{
+            font-size:15px;
         }
         .flex-1{
             flex:1
@@ -217,10 +219,10 @@
 
         /* text */
         .text-lg{
-            font-size:14px;
+            font-size:16px;
         }
         .text-base{
-            font-size:13px;
+            font-size:15px;
         }
         /* font */
         .font-semibold{
@@ -953,7 +955,7 @@
                 </table>
                 <div class='form-row mt-5' style='border:2px solid;padding-top:2px'>
                     <div class='flex-col w-full p-0'>
-                        <p class='font-bold text-center p-0 px-10' style='font-size:20px;'>
+                        <p class='font-bold text-center p-0 px-10' style='font-size:22px;'>
                             PART IV – INFORMATION ABOUT WORK YOU DID IN THE PAST 5 YEARS
                         </p>
                         <div class='form-row gap-5 text-base px-10' style='padding:0.3rem 0.6rem checkbox-group '>
