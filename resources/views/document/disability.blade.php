@@ -937,14 +937,14 @@
                     <tr>
                         <td colspan='3'>
                         <div class='flex-col gap-5'>
-                            <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
+                            <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group'>
                                 <span class='nowrap'>H. Was assistance or an interpreter necessary to complete this application? </span>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="interpreter_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
                                 </div>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="interpreter_no">
+                                    <input type='checkbox' name="interpreter_no" class='chb'>
                                     <label>No</label>
                                 </div>
                             </div>
@@ -959,7 +959,7 @@
                         <p class='font-bold text-center p-0 px-10' style='font-size:22px;'>
                             PART IV – INFORMATION ABOUT WORK YOU DID IN THE PAST 5 YEARS
                         </p>
-                        <div class='form-row gap-5 text-base px-10' style='padding:0.3rem 0.6rem checkbox-group '>
+                        <div class='form-row gap-5 text-base px-10 checkbox-group' style='padding:0.3rem 0.6rem '>
                             <span class='nowrap text-left font-semibold' style='padding:15px 0px;font-size:15px'>G. Have you worked in the past 5 years?</span>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="worked_fifteen_yes" value="yes" style='margin-left:13px' class='chb'>
@@ -1465,8 +1465,10 @@
                 </tr>
                 <tr>
                     <td colspan='3'>
-                        <span class='nowrap font-semibold '>Telephone Number:</span>
-                        <input type="text" name="person_tell" class='nowrap' class="no-border">
+                        <div class='form-row align-items-end gap-5'>
+                            <span class='nowrap font-semibold '>Telephone Number:</span>
+                            <input type="text" name="person_tell" class='nowrap' class="no-border">
+                        </div>
                     </td>
                 </tr>
                 </table>
