@@ -214,6 +214,12 @@ input{
    .mt-3{
         margin-top: 3px;
     } 
+   .mt-2{
+        margin-top: 2px;
+    } 
+   .mt-1{
+        margin-top: 1px;
+    } 
    .mt-5{
         margin-top: 5px;
     } 
@@ -278,8 +284,31 @@ hr{
 .gap-10{
     gap: 10px;
 }
+.gap-5{
+    gap: 5px;
+}
 .w-46-5{
     width: 46.5%;
+}
+.f-1{
+    flex: 1
+}
+.border-none{
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.m-0{
+    margin: 0
+}
+.w-70{
+    width: 70%;
+}
+.w-25{
+    width: 25%;
+}
+.w-100{
+    width: 100%;
 }
 /* p{
     margin: 5px;
@@ -456,17 +485,25 @@ hr{
                 <p class="bold w-46-5"> Disability Determination and Review</p>
             </div>
             <hr>
-            <p>12. If not the patient, name of the person signing this form (print): <input type="text" name="person_signing"
-                                                                                            ></p>
+            <div class="flex-row align-center gap-5">
+                <p>12. If not the patient, name of the person signing this form (print): </p>
+                <input type="text" name="person_signing" class="f-1 border-none">
+            </div>
+            
             <hr>
-            <p>13. Type of authority to sign on behalf of the patient:: <input type="text"  name="auth_info"></p>
+            <div class="flex-row align-center gap-5">
+                <p>13. Type of authority to sign on behalf of the patient: </p>
+                <input type="text"  name="auth_info" class="f-1 border-none">
+            </div>
+            
             <hr>
-            <p>All sections on this form have been completed and my questions about this form have been answered.
-                I authorize the facility/person noted on this page to release health information of the person named on this
-                page to the New York State Department of Health State
-                Disability Review Unit.</p>
-            <div class="row-container">
-                <div id="signature-pad">
+            <div style="margin-top: 14px;">
+            <p class="m-0">All sections on this form have been completed and my questions about this form have been answered.</p>
+            <p class="m-0" style="margin-top: 2px">I authorize the facility/person noted on this page to release health information of the person named on this page to the New York State Department of Health State</p>
+            <p class="m-0" style="margin-top: 2px">Disability Review Unit.</p>
+        </div>
+            <div class="flex-row justify-between align-center;" style="margin-top:15px">
+                {{-- <div id="signature-pad">
                     <input type="text"  style="width: 57%;margin-bottom: 10px" name="hippa_state_signature" id="hippa_state_signature" oninput="generateSignature()" maxlength="18">
                     <canvas id="signature-canvas-hippa-state" style="height: 60px;width:60%"></canvas>
                     <div>
@@ -477,10 +514,25 @@ hr{
                         <label> SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW. </label>
                         <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">
                     </div>
+                </div> --}}
+                <div class="w-70">
+                    <input type="text" name="hippa_state_signature" id="hippa_state_signature" oninput="generateSignature()" maxlength="18" style="margin-bottom:5px" class="w-100"> <br>
+                    <label for="">SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW</label>
                 </div>
-                <div style="margin-right: 10px;">
-                    <input type="date" name="date_hippa_state"  style="width: 100%">
+                <div class="w-25">
+                    <input type="date" name="date_hippa_state" style="margin-bottom:5px" class="w-100"> <br>
                     <labal>Date</labal>
+                </div>
+            </div>
+            <div style="margin-top: 5px">
+                <canvas id="signature-canvas-hippa-state" style="height: 60px;width:30%"></canvas>
+                <div>
+                    <div class="container-row mt-5">
+
+                        <button id="clear-hippa-state" onclick="clearHippaStateCanvas()">Clear</button>
+                    </div>
+                    <label> SIGNATURE OF THE PATIENT OR REPRESENTATIVE AUTHORIZED BY LAW. </label>
+                    <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">
                 </div>
             </div>
 
