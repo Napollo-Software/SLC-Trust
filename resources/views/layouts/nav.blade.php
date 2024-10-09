@@ -321,7 +321,7 @@
                         </ul>
                     </li>
                     @if ($user->hasPermissionTo('Front Office'))
-                    <li class="nav-item dropdown d-none">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-grid"></i>
                             </div>
