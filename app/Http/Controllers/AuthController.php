@@ -193,7 +193,8 @@ class AuthController extends Controller
             Mail::to($request->email)->send(new \App\Mail\Register($details));
 
         } else {
-            $details = $request->_token;
+
+            $details = $user;
             Mail::to($request->email)->send(new \App\Mail\registermail($details));
 
             $admins_notification = User::where('role', "admin")->get();
@@ -902,7 +903,9 @@ class AuthController extends Controller
 
             $pdf->save($pdfLink);
 
-            Mail::to($user->email)->send(new CashDepositMail($pdfLink));
+            $details = $user;
+
+            Mail::to($user->email)->send(new CashDepositMail($pdfLink, $details));
 
             /////////////User Add Balance Notification/////////////
             Notifcation::create([
