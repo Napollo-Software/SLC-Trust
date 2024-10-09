@@ -36,16 +36,43 @@
         border: none;
     }
 
-    th,
-    td {
+    th{
         border: 1px solid black;
         padding: 8px;
         /* text-align: center; */
     }
 
+    td {
+        border: 1px solid black;
+        padding-top: 2px;
+        padding-bottom: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 13px;
+
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
     th {
         background-color: #f2f2f2;
     }
+
+    .input-full{
+        border-radius: 2px;
+        border: 1px solid #b2b2b2;
+        font-size: 12px;
+        height: 28px;
+        outline: none;
+        width: calc(100% - 10px);
+        margin: 0;
+        padding: 0;
+        padding-left: 10px !important;
+        background-color: transparent !important;
+}
+
     .submit-button {
         background-color: #559E99; /* Dark blue background */
         color: white; /* White text */
@@ -80,6 +107,14 @@
         align-items: center;
     }
 
+    .headerContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: -3px;
+    }
+
     body {
         /* margin-left: 50px; */
         /* margin-right: 50px; */
@@ -90,8 +125,8 @@
 
     .styled-hr {
         border: none;
-        border-top: 05px solid #000;
-        /* Adjust the color as needed */
+        background-color: black;
+        height: 6px;
     }
 
     .authorization-text {
@@ -259,8 +294,14 @@ input{
   /* ---------------------------------------------------------- */
 
 
+  .no-space{
+    margin:0;
+    padding:0
+  }
 
-
+  .light-hr{
+    height: 1px !important;
+  }
 
 
 
@@ -343,44 +384,56 @@ hr{
         <input type="hidden" id=referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
         <div class="content">
-            <div class="row-container">
+            <div class="headerContainer">
                 <div>
-                    <h3>NEW YORK STATE DEPARTMENT OF HEALTH</h3>
-                    <h3>State Disability Review Unit</h3>
+                    <p class="xs no-space" >NEW YORK STATE DEPARTMENT OF HEALTH</p>
+                    <p class="xs no-space" >State Disability Review Unit</p>
                 </div>
-                <div>
-                    <h3>Authorization for Release of Health Information Pursuant to HIPAA</h3>
+                <div style="margin-bottom: -2px;">
+                    <p class="bold xl no-space" style="">Authorization for Release of Health Information Pursuant to HIPAA</p>
                 </div>
             </div>
         </div>
         <hr class="styled-hr">
         <table style="width: 100%">
             <tr >
-                <td >
-                    <label for="Patient Name">Patient Name</label>
-                    <input type="text"  name="patient_name" style="margin-top: 3px" value="{{$referral->first_name}} {{$referral->last_name}}">
+                <td style="border-left:none;padding-left:0px;width:44%">
+                    <div class="flex-col">
+                        <label for="Patient Name">Patient Name</label>
+                        <input type="text" class="input-full"  name="patient_name" style="" value="{{$referral->first_name}} {{$referral->last_name}}">
+                    </div>
                 </td>
-                <td>
-                    <label for="Date of Birth">Date of Birth</label> <br>
-                    <input type="date"  name="dob" style="margin-top: 3px" value="{{$referral->date_of_birth}}">
+                <td  style="width:28%">
+                    <div class="flex-col">
+                        <label for="Date of Birth">Date of Birth</label>
+                        <input type="date"  name="dob" class="input-full" value="{{$referral->date_of_birth}}">
+                    </div>
                 </td>
-                <td>
-                    <label for="SSN Number">SSN Number</label>
-                    <input type="number" name="ssn" style="margin-top: 3px">
+                <td style="width:28%;border-right:none">
+                    <div class="flex-col">
+                        <label for="SSN Number">SSN Number</label>
+                        <input type="number" name="ssn" class="input-full">
+                    </div>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <label for="Address">Address</label> <br>
-                    <input type="text"  name="address" style="margin-top: 3px" value="{{$referral->address}}">
+                <td style="border-left:none;padding-left:0px">
+                    <div class="flex-col">
+                        <label for="Address">Address</label>
+                        <input type="text"  name="address" class="input-full" value="{{$referral->address}}">
+                    </div>
                 </td>
                 <td>
-                    <label for="Client ID Number">Client ID Number</label>
-                    <input type="text"  name="client_id" style="margin-top: 3px">
+                    <div class="flex-col">
+                        <label for="Client ID Number">Client ID Number</label>
+                        <input type="text"  name="client_id" class="input-full" style="">
+                    </div>
                 </td>
-                <td>
-                    <label for="Disability Number">Disability Number</label>
-                    <input type="number" name="disablity_number" style="margin-top: 3px">
+                <td style="border-right:none">
+                    <div class="flex-col">
+                        <label for="Disability Number">Disability Number</label>
+                        <input type="number" name="disablity_number" class="input-full" style="">
+                    </div>
                 </td>
             </tr>
         </table>
@@ -425,31 +478,46 @@ hr{
             </ol>
         </div>
 
-        <hr>
-        <p>7. Name and address of the health provider or entity authorized to release this information:</p>
-        <input type="text" name="name_address"  style="width: 98%">
-        <hr>
-
-        <p>8. Name and address of person(s) or agency to whom this information is to be sent:
-        </p>
-        <b>
-            <p>State Disability Review Unit OCP-826, State of New York, Department of Health, Albany, NY 12237</p>
-        </b>
-        <hr>
+        <hr class="light-hr">
+        <div class="flex-col">
+            <p class="no-space" style="margin-bottom:2px !important">7. Name and address of the health provider or entity authorized to release this information:</p>
+            <input type="text" name="name_address"   class="input-full">
+        </div>
+        <hr class="light-hr" style="height:1px !important">
+        <div class="flex-col">
+            <p class="no-space" style="margin-top:2px;">8. Name and address of person(s) or agency to whom this information is to be sent:</p>
+            <p class="no-space bold" style="margin-left:70px" >State Disability Review Unit OCP-826, State of New York, Department of Health, Albany, NY 12237</p>
+        </div>
+        <hr class="light-hr">
         <div class="authorization">
             9(a). Specific information to be released:
-            <p><input type="checkbox" name="released_info"  value="medical_dated"> Medical records from
-                <input type="date" name="medical_record_from"> to <input type="date" name="medical_record_to">
-            </p>
-            <p><input type="checkbox" name="released_info" value="medical_entire"> Entire Medical Record, including patient histories, office notes (except
-                psychotherapy notes), test results, radiology studies, films, referrals, consults, billing records,
-                insurance records, and records sent to you by other health care providers.</p>
-            <p> <input type="checkbox" name="released_info"  value="medical_other"> Other: <input type="text"  name="other"></p>
+            <div style="margin-left: 25px;" class="mt-5" ><input type="checkbox" name="released_info"   value="medical_dated"> Medical records from
+                <input type="date" style="width:120px" name="medical_record_from">(date) to <input type="date" style="width:120px" name="medical_record_to">(date).
+            </div>
+            <div style="margin-left: 25px;" class="mt-5"><input type="checkbox" name="released_info" value="medical_entire"> 
+            Entire Medical Record, including patient histories, office notes (except
+                psychotherapy notes), test results, radiology studies, films, referrals, 
+                <br/>
+                <span style="margin-left: 25px;"> consults, billing records, insurance records, and records sent to you by other health care providers.</span>
+               </div>
+            <div class="flex-row" style="margin-left: 25px;gap:3px;margin-top:-5px">
+                 <input type="checkbox" name="released_info" style="height: 32px;" value="medical_other"> 
+                <div class="flex-row" style="flex:1;gap:5px ">
+                    <p>Other:</p>
+                    <input type="text"  style="flex:1;height: 22px;" name="other">
+                </div>
+            </div>
+               
+            
 
-            <p>9(b). Authorization to discuss Health Information:</p>
-            <label>By initialing here: <input type="text"  name="init" ></label>
-            <label>I authorize <input type="text"  name="auth_name" style="width:45%"
-                                      placeholder="Name of indvidual/Health care provider"></label>
+            <p style="margin-top:0px">9(b). Authorization to discuss Health Information:</p>
+            <div class="flex-row" style="gap:5px;margin-top:-10px">
+                <p>By initialing here:</p>
+                <input type="text"  name="init" style="width: 100px;height: 24px;padding:0px !important" >
+                <p>I authorize</p>
+                <input type="text"  name="auth_name" style="height:24px;flex:1;padding:0px !important" placeholder="Name of indvidual/Health care provider">
+            </div>
+
             <p>to discuss my health information with the <b>State Disability Review Unit</b>
             </p>
             <p>9(c). I do not consent to the disclosure of (Check all boxes that apply):
