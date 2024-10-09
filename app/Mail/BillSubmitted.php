@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class BillApproved extends Mailable
+class BillSubmitted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -21,8 +21,8 @@ class BillApproved extends Mailable
 
     public function build()
     {
-        return $this->subject('Bill Approved')
+        return $this->subject('Bill Submitted')
             ->bcc(env('MAIL_BCC_ADDRESS'))
-            ->view('emails.billapproved');
+            ->view('emails.billsubmitted');
     }
 }

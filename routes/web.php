@@ -945,3 +945,16 @@ Route::get('mapp',function(){
     return view('document.map-pdf', $data);
 
 });
+
+Route::get('email',function(){
+
+    $data  = [
+        "details" => [
+        "name" => "Alamgir",
+        "fname" => "Khan",
+        ]
+    ];
+
+    return view("emails.registered", $data);
+
+});

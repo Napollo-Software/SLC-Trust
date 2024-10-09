@@ -78,11 +78,11 @@
                             <div class="ms-auto dropy-icon"><i class="bx bx-chevron-down"></i></div>
                         </a>
                         <ul class="dropdown-menu">
-                            @if ($user->hasPermissionTo('Front Office') && $user->role != 'Admin')
+                            @if ($user->hasPermissionTo('Front Office') && $user->role != 'Admin' && $user->role != 'Employee')
                             <li class="active"><a class="dropdown-item {{ Route::currentRouteName()==='bill_reports' ? 'active' : '' }}" href="{{ url('/dashboard') }}"><i class="bx bx-credit-card-front"></i>Lead Admin</a>
                             </li>
                             @endif
-                            @if ($user->hasPermissionTo('Back Office') && $user->role != 'Admin' && $user->role != 'Vendor')
+                            @if ($user->hasPermissionTo('Back Office') && $user->role != 'Admin' && $user->role != 'Vendor' && $user->role != 'Employee')
                             <li>
                                 <a class="dropdown-item {{ Route::currentRouteName()==='bill_reports' ? 'active' : '' }}" href="{{ url('/dashboard') }}"><i class="bx bx-shield-alt-2"></i>Billing
                                     Admin</a></li>
@@ -91,6 +91,11 @@
                             <li>
                                 <a class="dropdown-item {{ Route::currentRouteName()==='bill_reports' ? 'active' : '' }}" href="{{ url('/dashboard') }}"><i class="bx bx-shield-alt-2"></i>Super
                                     Admin</a></li>
+                            @endif
+                            @if ($user->role == 'Employee')
+                            <li>
+                                <a class="dropdown-item {{ Route::currentRouteName()==='bill_reports' ? 'active' : '' }}" href="{{ url('/dashboard') }}"><i class="bx bx-shield-alt-2"></i>
+                                    Dashboard</a></li>
                             @endif
                             @if ($user->role == 'Vendor')
                             <li>
@@ -316,7 +321,7 @@
                         </ul>
                     </li>
                     @if ($user->hasPermissionTo('Front Office'))
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown d-none">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-grid"></i>
                             </div>

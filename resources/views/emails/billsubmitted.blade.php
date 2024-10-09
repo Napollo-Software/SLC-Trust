@@ -126,28 +126,33 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 0px 20px 20px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 20px; font-weight: 400; margin: 0;">Dear {{ $details->full_name() }},</p>
+                            <p style="font-size: 20px; font-weight: 400; margin: 0;">Dear {{ $user->full_name() }},</p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please find attached the receipt for your recent deposit to your Senior Life Care account.</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">{{ $body_message }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 20px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <a href="{{ url($url) }}" target="_blank" style="text-align:center;font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: white; text-decoration: none; padding: 8px 20px; border-radius: 4px; border: 1px solid #559e99; display: inline-block;background-color: #559e99 !important;outline: none !important;box-shadow: none !important;">View Bill</a>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">For any questions or assistance, feel free to reach out to our support team at <strong>{{ config('app.contact') }}.</strong></p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">If you have any questions or need assistance, feel free to reach out to our support team at <strong>{{ config('app.contact') }}.</strong></p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for choosing Senior Life Care!</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for choosing Senior Life Care. We look forward to serving you!</p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
                             <p style="font-size: 16px; font-weight: 400; margin: 0;">Warm regards,</p>
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team.</p>
                         </td>
                     </tr>
                     <tr></tr>

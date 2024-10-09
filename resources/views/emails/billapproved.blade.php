@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title></title>
+    <title>{{ config('app.professional_name') }} | Account Created</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -98,11 +97,7 @@
         div[style*="margin: 16px 0;"] {
             margin: 0 !important;
         }
-        .two {
-  border-style: solid;
-  border-width: 5px 12px; /* 20px top and bottom, 5px on the sides */
-  border-color:#ffffff
-}
+
     </style>
 </head>
 
@@ -122,74 +117,47 @@
         </tr>
         <tr>
             <td bgcolor="#559e99" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 595px;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
-                            <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" /><h1 style="font-size: 30px; font-weight: 400; margin: 2;">Hi {{App\Models\User::where('id',$details->claim_user)->pluck('name')->first();}}!</h1>
+                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 0px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
+                            <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
+                            <hr style="border: 1px solid #06778a;">
                         </td>
                     </tr>
-                </table>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 0px 20px 20px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 20px; font-weight: 400; margin: 0;">Dear {{ $user->full_name() }},</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">{{ $body_message }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 20px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <a href="{{ url($url) }}" target="_blank" style="text-align:center;font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: white; text-decoration: none; padding: 8px 20px; border-radius: 4px; border: 1px solid #559e99; display: inline-block;background-color: #559e99 !important;outline: none !important;box-shadow: none !important;">View Bill</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Should you have any questions or require further assistance, please don’t hesitate to contact our support team at <strong>{{ config('app.contact') }}.</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for choosing Senior Life Care. We look forward to serving you!</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Warm regards,</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team.</p>
+                        </td>
+                    </tr>
+                    <tr></tr>
             </td>
         </tr>
-        <tr style="text-align:center">
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;"  style="text-align:center">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" style="text-align:center">
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" >Your bill#{{$details->id}} has been approved.</p>
-                        </td>
-                    </tr>
-                    <tr  style="text-align:center" style="background-color:#ffffff">
-                        <table border="1px solid lightgray" style="text-align:center;width:100%">
-                            <tr>
-                                <th bgcolor="#ffffff" class="two"></th>
-                                <th></th>
-                                <th  bgcolor="#ffffff"  align="center"  style="color: #666666; padding: 0px 10px 0px 10px;">CID#</th>
-                                <th  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">Bill Title</th>
-                                <th  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">User</th>
-                                <th  bgcolor="#ffffff"  align="center" style="color: #666666; padding: 0px 10px 0px 10px;">Submission Date</th>
-                                <th  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">Bill Status</th>
-                                <th  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">Amount</th>
-                                <th></th>
-                                <th bgcolor="#ffffff" class="two"></th>
-                            </tr>
-                             <tr>
-                                <td bgcolor="#ffffff" class="two"></td>
-                                <td></td>
-                                <td  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">{{$details->id}}</td>
-                                <td  bgcolor="#ffffff" align="center"  style="color: #666666; padding: 0px 10px 0px 10px;">Bill-request-{{$details->id}}</td>
-                                <td  bgcolor="#ffffff"  align="center" style="color: #666666; padding: 0px 10px 0px 10px;">{{App\Models\User::where('id',$details->claim_user)->pluck('name')->first();}}</td>
-                                <td  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">{{date('m/d/Y', strtotime($details->created_at)) }}</td>
-                                <td  bgcolor="#ffffff" align="center"style="color: #666666; padding: 0px 10px 0px 10px;">Approved</td>
-                                <td  bgcolor="#ffffff" align="center" style="color: #666666; padding: 0px 10px 0px 10px;">${{$details->claim_amount}}</td>
-                                <td></td>
-                                <td bgcolor="#ffffff" class="two"></td>
-                            </tr>
-                        </table>
-
-                    </tr>
-                    <tr>
-                        <td bgcolor="#ffffff" align="left">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="#559e99"><a href="{{url('/')}}" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #559e99; display: inline-block;">View Bill</a></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr> <!-- COPY -->
-
-                </table>
-            </td>
-        </tr>
-
-
     </table>
 </body>
-
 </html>

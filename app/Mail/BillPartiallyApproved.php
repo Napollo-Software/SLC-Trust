@@ -3,10 +3,11 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class BillApproved extends Mailable
+class BillPartiallyApproved extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -21,8 +22,8 @@ class BillApproved extends Mailable
 
     public function build()
     {
-        return $this->subject('Bill Approved')
+        return $this->subject('Bill Partially Approved')
             ->bcc(env('MAIL_BCC_ADDRESS'))
-            ->view('emails.billapproved');
+            ->view('emails.billpartiallyapproved');
     }
 }
