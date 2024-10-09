@@ -240,10 +240,7 @@ if (!function_exists('createDocument')) {
         function ignoreAdminEmails()
         {
             return [
-                'devops@napollo.net',
-                'svaldivia@trustedsurplus.org',
-                'ldurzieh@trustedsurplus.org',
-                'rbauman@trustedsurplus.org'
+                // 'devops@napollo.net',
             ];
         }
     }
