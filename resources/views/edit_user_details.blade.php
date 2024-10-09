@@ -99,7 +99,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                 <div class="card mb-4 mb-xl-0 " style="width:95%;">
                     <div class="card-header">
                         <div class="d-flex">
-                            <h6 class="col-md-11 pt-2">
+                            <h6 class="col-md-12 text-center pt-2">
                                 @if ($user->role == "User")
                                 Government issued photo ID
                                 @else

@@ -96,7 +96,7 @@
                     <div class="card mb-4 mb-xl-0 " style="width:95%;">
                         <div class="card-header">
                             <div class="d-flex">
-                                <h6 class="col-md-11 pt-2">
+                                <h6 class="col-md-12 pt-2 text-center">
                                     @if ($user->role == 'User')
                                         Government issued photo ID
                                     @else
@@ -326,10 +326,10 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">State , City</h6>
+                                <h6 class="mb-0">State, City</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $user->state . ' , ' . $user->city }}
+                                {{ $user->state. " " . $user->city }}
                             </div>
                         </div>
                         <hr>

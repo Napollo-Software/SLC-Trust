@@ -487,28 +487,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                         <div class="patient-style">
                             <div>
                                 <label class="label-block" for="">Name (Last, First, Middle)</label>
-                                <input class="w138" type="text"  name="first_name">
+                                <input class="w138" type="text"  name="first_name" value="{{$referral->last_name}} {{$referral->first_name}}">
                             </div>
                             <div class="g-5" style="display: flex;flex-direction: column;">
                                 <label class="label-block" for="">Address (Street, City, State & Zip Code):</label>
-                                <input class="label-block w138" type="text"  name="address_text">
-                                <input class="label-block w138" type="text"  name="address_text2">
-                                <input style="margin-top: 2px;" class="label-block w138" type="text"  name="address_text3">
+                                <input class="label-block w138" type="text"  name="address_text" value="{{$referral->address}}">
+                                <input class="label-block w138" type="text"  name="address_text2" value="{{$referral->city}} {{$referral->state}}" >
+                                <input style="margin-top: 2px;" class="label-block w138" type="text"  name="address_text3" value="{{$referral->zip_code}}">
                             </div>
                         </div>
             </div>
                     <div class="patient-style mt-15">
                         <div>
                             <label class="label-block" for="">Date of Birth</label>
-                            <input class="w130" type="date"  name="dob" max="9999-12-31">
+                            <input class="w130" type="date"  name="dob" max="9999-12-31" value="{{$referral->date_of_birth}}">
                         </div>
                         <div style="">
                             <div class="mb-6">
                                 <label class="label-block" for="">Sex</label>
                                 <div style="display: flex;justify-content: flex-start;align-items: center;">
-                                    <input type="radio" name="sex" id="male" value="male">
+                                    <input type="radio" name="sex" id="male" {{$referral->gender == "Male"?'checked':''}} value="male">
                                     <label for="male">Male</label>
-                                    <input type="radio" name="sex" id="female" value="female">
+                                    <input type="radio" name="sex" id="female" {{$referral->gender == "Female" ? 'checked' : ''}} value="female">
+
                                     <label for="female">Female</label>
                                 </div>
                             </div>

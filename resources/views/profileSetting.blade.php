@@ -84,7 +84,7 @@ color:#69707a;
           @csrf
           <!-- Profile picture card-->
           <div class="card mb-4 mb-xl-0 " style="width:95%;">
-              <div class="card-header">
+              <div class="card-header text-center">
                 @if ($user->role == "User")
                    Government Issued Photo ID
                 @else
