@@ -300,7 +300,7 @@
             <!-- name section -->
              <div class='form-row gap-15'>
                 <div class='form-cell text-base pt-10'>
-                    <label class='font-bold text-lg'>Name</label>
+                    <label class='font-bold text-lg'>Name:</label>
                     <div class='row gap-5 align-items-end' style='padding-top:13px'>
                         <span>First:</span>
                         <input type='text' name='first_name' value="{{$referral->first_name}}">
@@ -314,7 +314,7 @@
                         <input type='text' name='last_name' value="{{$referral->last_name}}">
                     </div>
                     <div class='row gap-5 align-items-end'>
-                        <span class='nowrap'>SSN Number (last 4 digits):</span>
+                        <span class='nowrap'>Social Security Number (last 4 digits):</span>
                         <input type='text' name="ssn_last_4">
                     </div>
                     <div class='row gap-5 align-items-end'>
@@ -327,7 +327,7 @@
                     </div>
                 </div>
                 <div class='form-cell'>
-                    <p style='padding-bottom:5px;padding-top:10px;font-size:16px' class='font-bold'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
+                    <p style='padding-bottom:5px;padding-top:10px;font-size:16px'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
                     <div class='form-cell p-10 mt-14' style='background-color:rgba(0,0,0,0.2)'>
                         <div class='row gap-5 text-base align-items-end' style='margin-top:6px'>
                             <span class='nowrap'>Case Number:</span>
@@ -451,7 +451,7 @@
                         <td colspan='3' style='padding-top:2px'>
                             <div class='flex-col gap-5' style='padding-top:0px'>
                                 <p class='p-0 text-center font-bold' style='font-size:22px'>PART II — INFORMATION ABOUT YOUR MEDICAL RECORDS</p>
-                                <p class='text-left font-semibold' style='font-weight:700'>In order to make a disability determination, current medical evidence is needed to evaluate your physical and/or mental impairments. If you
+                                <p class='text-left font-semibold italic' style='font-weight:700'>In order to make a disability determination, current medical evidence is needed to evaluate your physical and/or mental impairments. If you
                                     have not seen a medical provider for your impairment(s) within the past 12 months, a consultative exam may be arranged for you by the local
                                     agency.
                                 </p>
@@ -501,7 +501,7 @@
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
                                     <p class='text-left p-0 italic' style='padding-left:0.8rem'>(If “Yes”, please complete the section below.)</p>
-                                    <p class='text-left font-semibold' style='font-weight:700'>
+                                    <p class='text-left font-semibold italic' style='font-weight:700'>
                                         Please list the name, address, and phone number of all medical providers you have seen for the past 12 months (for example physicians, nurse
                                         practitioners/physician assistants, mental health counselors, physical/occupational/speech therapists, audiologists, etc.). (Continuation sheets
                                         are available.)
@@ -719,7 +719,7 @@
                                 </div>
                                 <div class='flex-col gap-15 p-0'>
                                     <p class='text-left p-0 italic' style='padding-left:0.8rem'> (If “Yes”, please complete the section below.)</p>
-                                    <p class='text-left font-semibold' style='font-weight:700'>
+                                    <p class='text-left font-semibold italic' style='font-weight:700'>
                                     Please list the name and address of any other agencies that you have seen for assistance with your medical conditions in the past 12 months
                                     (for example, vocational rehabilitation agencies, supported employment or housing agencies, case management agencies, etc.).
                                     </p>
@@ -814,7 +814,7 @@
                 </table>
                 <table class='mt-5'>
                     <tr>
-                        <td colspan='3'>
+                        <td colspan='3' style='padding-top:2px'>
                             <div class='flex-col gap-5' style='padding-top:2px'>
                                 <p class='p-0 text-center font-bold' style='font-size:22px'>PART III — INFORMATION ABOUT YOUR MEDICAL RECORDS</p>
                                 <p class='text-left font-semibold italic' style='padding-bottom:15px'> If a disability determination cannot be made based on your medical conditions alone, the factors of education, literacy, and work history will be
@@ -835,16 +835,16 @@
                         <td style='padding-bottom:2px'>
                             <div class='flex-col'>
                                 <p class='text-left'>B. If you have a child up to the age of 21 attending school or a vocational program, please provide the school or program’s name and address.</p>
-                                <div class='form-row gap-5 align-items-end' style='margin:0px 40px'>
+                                <div class='form-row gap-5 align-items-end' style='margin:0px 0px 0px 15px'>
                                     <span class='nowrap'>School/Program Name:</span>
                                     <input type='text' name="school_name">
                                 </div>
-                                <div class='form-row gap-5 align-items-end' style='margin:0px 40px'>
+                                <div class='form-row gap-5 align-items-end' style='margin:0px 0px 0px 15px'>
                                     <span class='nowrap'> Address:</span>
-                                    <input type='text' name="school_address"> <br>
+                                    <input type='text' name="school_address">
                                 </div>
-                                <div class='form-row gap-5 align-items-end' style='margin:0px 40px 0px 90px'>
-                                    <input type='text' name="school_address">  <br>
+                                <div class='form-row gap-5 align-items-end' style='margin:0px 0px 0px 66px'>
+                                    <input type='text' name="school_address"> 
                                 </div>
                                 <p class='text-left italic' style='padding-top:1rem'>Please complete the DOH-5173, Authorization for Release of Medical Information Pursuant to HIPAA form for this school/program.</p>
                             </div>
@@ -937,14 +937,14 @@
                     <tr>
                         <td colspan='3'>
                         <div class='flex-col gap-5'>
-                            <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group '>
+                            <div class='form-row p-0 gap-5 text-base align-items-center checkbox-group'>
                                 <span class='nowrap'>H. Was assistance or an interpreter necessary to complete this application? </span>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="interpreter_yes" value="yes" style='margin-left:13px' class='chb'>
                                     <label>Yes</label>
                                 </div>
                                 <div class='row p-0 align-items-center gap-5'>
-                                    <input type='checkbox' name="interpreter_no">
+                                    <input type='checkbox' name="interpreter_no" class='chb'>
                                     <label>No</label>
                                 </div>
                             </div>
@@ -954,12 +954,12 @@
                         </td>
                     </tr>
                 </table>
-                <div class='form-row mt-5' style='border:2px solid;padding-top:2px'>
+                <div class='form-row mt-5' style='border:2px solid;padding-top:2px;'>
                     <div class='flex-col w-full p-0'>
                         <p class='font-bold text-center p-0 px-10' style='font-size:22px;'>
                             PART IV – INFORMATION ABOUT WORK YOU DID IN THE PAST 5 YEARS
                         </p>
-                        <div class='form-row gap-5 text-base px-10' style='padding:0.3rem 0.6rem checkbox-group '>
+                        <div class='form-row gap-5 text-base px-10 checkbox-group' style='padding:0.3rem 0.6rem '>
                             <span class='nowrap text-left font-semibold' style='padding:15px 0px;font-size:15px'>G. Have you worked in the past 5 years?</span>
                                 <div class='row p-0 align-items-center gap-5'>
                                     <input type='checkbox' name="worked_fifteen_yes" value="yes" style='margin-left:13px' class='chb'>
@@ -973,7 +973,7 @@
                         <p class='p-0 pl-5 italic'>If YES, in as much detail as possible, please list jobs (up to 5) that you performed IN THE PAST 5 YEARS, starting with your most recent job.</p>
                     </div>
                 </div>
-                <table class='mt-5'>
+                <table style='margin-top:0.8rem'>
                     <thead>
                         <tr class='font-bold'>
                             <th>Dates of Employment:</th>
@@ -1465,8 +1465,10 @@
                 </tr>
                 <tr>
                     <td colspan='3'>
-                        <span class='nowrap font-semibold '>Telephone Number:</span>
-                        <input type="text" name="person_tell" class='nowrap' class="no-border">
+                        <div class='form-row align-items-end gap-5'>
+                            <span class='nowrap font-semibold '>Telephone Number:</span>
+                            <input type="text" name="person_tell" class='nowrap' class="no-border">
+                        </div>
                     </td>
                 </tr>
                 </table>
