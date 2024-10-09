@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Mail\BillApproved;
+use App\Mail\BillPartiallyApproved;
 use App\Mail\BillSubmitted;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Mail;
@@ -36,6 +37,12 @@ class SendBillJob
         elseif($this->email_template == 'bill_approved')
         {
             $email = new BillApproved($this->user, $this->url, $this->email_message);
+            Mail::to($this->user->email)->send($email);
+
+        }
+        elseif($this->email_template == 'bill_partially_approved')
+        {
+            $email = new BillPartiallyApproved($this->user, $this->url, $this->email_message);
             Mail::to($this->user->email)->send($email);
 
         }
