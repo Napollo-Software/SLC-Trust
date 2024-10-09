@@ -327,7 +327,7 @@
                     </div>
                 </div>
                 <div class='form-cell'>
-                    <p style='padding-bottom:5px;padding-top:10px;font-size:16px' class='font-bold'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
+                    <p style='padding-bottom:5px;padding-top:10px;font-size:16px'>COMPLETED BY THE STATE DISABILITY REVIEW UNIT:</p>
                     <div class='form-cell p-10 mt-14' style='background-color:rgba(0,0,0,0.2)'>
                         <div class='row gap-5 text-base align-items-end' style='margin-top:6px'>
                             <span class='nowrap'>Case Number:</span>
