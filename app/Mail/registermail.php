@@ -19,9 +19,7 @@ class registermail extends Mailable
 
     public function build()
     {
-        $app_name = config('app.professional_name');
-        
-        return $this->subject('Welcome to ' . $app_name . '!')
+        return $this->subject('Your Account is being Reviewed!')
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('emails.registermail');
     }

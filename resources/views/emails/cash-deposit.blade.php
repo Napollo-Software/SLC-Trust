@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title></title>
+    <title>{{ config('app.professional_name') }} | Account Created</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -99,13 +98,6 @@
             margin: 0 !important;
         }
 
-        .two {
-            border-style: solid;
-            border-width: 5px 12px;
-            /* 20px top and bottom, 5px on the sides */
-            border-color: #ffffff
-        }
-
     </style>
 </head>
 
@@ -127,23 +119,38 @@
             <td bgcolor="#559e99" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
-                            <img src="{{ url('/assets/img/'.config('app.name').'-Logo.png') }}" style="height:110px" style="display: block; border: 0px;" />
-                            <h1 style="font-size: 30px; font-weight: 400; margin: 2;">Thank you for your recent deposit. Your deposit has been successfully received.</h1>
+                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 0px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
+                            <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
+                            <hr style="border: 1px solid #06778a;">
                         </td>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr style="text-align:center">
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;" style="text-align:center">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" style="text-align:center">
                     <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;">Please check the attachment</p>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 0px 20px 20px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 20px; font-weight: 400; margin: 0;">Dear {{ $details->full_name() }},</p>
                         </td>
                     </tr>
-                </table>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please find attached the receipt for your recent deposit to your Senior Life Care account.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">For any questions or assistance, feel free to reach out to our support team at <strong>{{ config('app.contact') }}.</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for choosing Senior Life Care!</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Warm regards,</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team</p>
+                        </td>
+                    </tr>
+                    <tr></tr>
             </td>
         </tr>
     </table>

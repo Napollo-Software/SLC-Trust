@@ -9,6 +9,7 @@ use Illuminate\Queue\SerializesModels;
 class Register extends Mailable
 {
     use Queueable, SerializesModels;
+    
     public $details, $pdfpath;
 
     public function __construct($details, $pdfpath = null)
@@ -20,7 +21,7 @@ class Register extends Mailable
     public function build()
     {
 
-        return $this->subject('Set Password')
+        return $this->subject('Welcome to Senior Life Care Account - Set your Password.')
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('emails.registered');
         // ->attach($this->pdfpath, [

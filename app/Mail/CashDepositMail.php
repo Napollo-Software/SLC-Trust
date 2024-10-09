@@ -10,16 +10,18 @@ class CashDepositMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $pdfLink;
+    public $pdfLink, $details;
 
-    public function __construct($pdfLink)
+    public function __construct($pdfLink, $details)
     {
         $this->pdfLink = $pdfLink;
+        $this->details = $details;
+
     }
 
     public function build()
     {
-        return $this->subject("Verification Of Deposits")->view('emails.cash-deposit')
+        return $this->subject("Deposit Verification Receipt")->view('emails.cash-deposit')
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->attach($this->pdfLink, [
                 'as' => 'deposit-verification.pdf',
