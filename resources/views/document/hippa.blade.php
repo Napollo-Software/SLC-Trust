@@ -646,11 +646,11 @@ body{
             <tr>
                 <td style="width:50%">
                     <p>10. Reason for release of information:</p>
-                    <div class="row" style="margin-left:32px">
+                    <div class="row" style="margin-left:34px">
                         <input type="checkbox" name="request" value="request">
                         <p>At request of indvidual</p>
                     </div>
-                    <div class="row" style="justify-content: space-between;margin-left:32px">
+                    <div class="row" style="justify-content: space-between;margin-left:34px">
                         <div class="row" style="">
                             <input type="checkbox" name="reason" value="reason">
                             <p>Other:</p>
