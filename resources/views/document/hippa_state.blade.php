@@ -25,6 +25,18 @@
                 font-family: 'info-bold';
                 src: url('fonts/info-bold.otf') format('truetype');
     }
+
+    @font-face {
+            font-family: 'Info-Bold';
+            src: url('fonts/Info-Bold.otf') format('truetype');
+        }
+
+
+        @font-face {
+            font-family: 'info-semibold';
+            src: url('fonts/info-semibold.ttf') format('truetype');
+        }
+
     table {
         border-collapse: collapse;
         width: 50%;
@@ -217,6 +229,9 @@ input{
 .bold{
     font-family: 'info-bold';
     }
+.semi-bold{
+    font-family: 'info-semibold';
+}
 
     .xs{
         font-size: 13px;
@@ -239,6 +254,9 @@ input{
     }
     .xl{
         font-size: 17px;
+    }
+    .dxl{
+        font-size: 20px;
     }
 
     .header_Container{
@@ -332,8 +350,8 @@ hr{
 .gap-5{
     gap: 5px;
 }
-.w-46-5{
-    width: 46.5%;
+.w-40-5{
+    width: 58.4%;
 }
 .f-1{
     flex: 1
@@ -396,11 +414,11 @@ hr{
         <div class="content">
             <div class="headerContainer">
                 <div>
-                    <p class="xs no-space" >NEW YORK STATE DEPARTMENT OF HEALTH</p>
-                    <p class="xs no-space" >State Disability Review Unit</p>
+                    <p class="sm semi-bold no-space" >NEW YORK STATE DEPARTMENT OF HEALTH</p>
+                    <p class="sm semi-bold no-space" style="margin-top: 5px;" >State Disability Review Unit</p>
                 </div>
                 <div style="margin-bottom: -2px;">
-                    <p class="bold xl no-space" style="">Authorization for Release of Health Information Pursuant to HIPAA</p>
+                    <p class="bold dxl no-space">Authorization for Release of Health Information Pursuant to HIPAA</p>
                 </div>
             </div>
         </div>
@@ -409,19 +427,19 @@ hr{
             <tr >
                 <td style="border-left:none;padding-left:0px;width:44%">
                     <div class="flex-col">
-                        <label for="Patient Name">Patient Name</label>
+                        <label for="Patient Name" style="margin-top: 1px;" class="semi-bold">Patient Name:</label>
                         <input type="text" class="input-full"  name="patient_name" style="" value="{{$referral->first_name}} {{$referral->last_name}}">
                     </div>
                 </td>
                 <td  style="width:28%">
                     <div class="flex-col">
-                        <label for="Date of Birth">Date of Birth</label>
-                        <input type="date"  name="dob" class="input-full" value="{{$referral->date_of_birth}}">
+                        <label for="Date of Birth" style="margin-top: 1px;" class="semi-bold">Date of Birth:</label>
+                        <input type="date"  name="dob" class="input-full" value="{{$referral->date_of_birth}}" max="9999-12-31">
                     </div>
                 </td>
                 <td style="width:28%;border-right:none">
                     <div class="flex-col">
-                        <label for="SSN Number">SSN Number</label>
+                        <label for="SSN Number" style="margin-top: 1px;" class="semi-bold">Social Security Number (Last four digits):</label>
                         <input type="number" name="ssn" class="input-full">
                     </div>
                 </td>
@@ -429,19 +447,19 @@ hr{
             <tr>
                 <td style="border-left:none;padding-left:0px">
                     <div class="flex-col">
-                        <label for="Address">Address</label>
+                        <label for="Address" style="margin-top: 1px;" class="semi-bold">Address:</label>
                         <input type="text"  name="address" class="input-full" value="{{$referral->address}}">
                     </div>
                 </td>
                 <td>
                     <div class="flex-col">
-                        <label for="Client ID Number">Client ID Number</label>
+                        <label for="Client ID Number" style="margin-top: 1px;" class="semi-bold">Client ID Number:</label>
                         <input type="text"  name="client_id" class="input-full" style="">
                     </div>
                 </td>
                 <td style="border-right:none">
                     <div class="flex-col">
-                        <label for="Disability Number">Disability Number</label>
+                        <label for="Disability Number" style="margin-top: 1px;" class="semi-bold">Disability ID Number(DIN):</label>
                         <input type="number" name="disablity_number" class="input-full" style="">
                     </div>
                 </td>
@@ -504,7 +522,7 @@ hr{
         <div class="authorization">
             9(a). Specific information to be released:
             <div style="margin-left: 25px;" class="mt-5" ><input type="checkbox" name="released_info"   value="medical_dated"> Medical records from
-                <input type="date" style="width:120px" name="medical_record_from">(date) to <input type="date" style="width:120px" name="medical_record_to">(date).
+                <input type="date" style="width:120px" name="medical_record_from" max="9999-12-31">(date) to <input type="date" style="width:120px" name="medical_record_to" max="9999-12-31">(date).
             </div>
             <div style="margin-left: 25px;" class="mt-5"><input type="checkbox" name="released_info" value="medical_entire"> 
             Entire Medical Record, including patient histories, office notes (except
@@ -530,7 +548,7 @@ hr{
                 <input type="text"  name="auth_name" style="height:24px;flex:1;padding:0px !important" placeholder="Name of indvidual/Health care provider">
             </div>
 
-            <p style="margin-left:47px;margin-top:-5px">to discuss my health information with the <b>State Disability Review Unit</b>
+            <p style="margin-left:47px;margin-top:-5px">to discuss my health information with the <span style="font-family: 'info-bold';">State Disability Review Unit</span>
             </p>
 
             <div class="flex-row" style="gap:10px; align-items:center;margin-bottom:-7px">
@@ -553,11 +571,11 @@ hr{
             </div>
            
             <hr style="height:0.5px">
-            <div class="flex-row justify-between align-center" style="padding: 3px 0;">
+            <div class="flex-row align-center" style="padding: 3px 0;gap: 172px;">
                 <div>
                     <p class="m-0">10. Reason for release of information:</p>
                 </div>
-                <div class="flex-row justify-center align-center gap-10">
+                <div class="flex-row align-center gap-10;" style="gap: 10px;width:52%">
                     <div style="display: flex;justify-content: center;align-items: center;">
                         <input type="checkbox" name="request_individual" value="request_individual">
                         <label style="position: relative;top: 1px;" for="">At request of individual</label>
@@ -566,7 +584,7 @@ hr{
                         <input type="checkbox" name="other_individual" value="other_individual">
                         <div style="position: relative;top: 1px;">
                         <label for="">Other:</label>
-                        <input type="text"   id="other_indiviual_name" name="other_indiviual_name">
+                        <input type="text"   id="other_indiviual_name" name="other_indiviual_name" style="width: 255px">
                     </div>
                     </div>
                 </div>
@@ -574,7 +592,7 @@ hr{
             <hr style="height:0.5px">
             <div class="flex-row justify-between align-center" style="padding: 3px 0;">
                 <p class="m-0">11. Purpose of the Use/Disclosure:</p>
-                <p class="bold w-46-5 m-0"> Disability Determination and Review</p>
+                <p class="bold w-40-5 m-0"> Disability Determination and Review</p>
             </div>
             <hr style="height: 0.5px">
             <div class="flex-row align-center gap-5" style="padding: 3px 0;">
@@ -602,7 +620,7 @@ hr{
                       <input type="hidden" id="hippa_state_sign" name="hippa_state_sign">
                 </div>
                 <div class="w-25">
-                    <input type="date" name="date_hippa_state" style="margin-bottom:5px" class="w-100"> <br>
+                    <input type="date" name="date_hippa_state" style="margin-bottom:5px" class="w-100" max="9999-12-31"> <br>
                     <labal>Date</labal>
                 </div>
             </div>
@@ -623,15 +641,15 @@ hr{
         <span>DOH-5173 (4/16) Page 1 of 2</span> --}}
         <div class="mt-25 flex-col" style="gap: 0">
                 <div class="flex-row justify-between align-center">
-                    <p style="margin:0" class="sm">NEW YORK STATE DEPARTMENT OF HEALTH</p>
-                    <p style="margin:0" class="bold md">Instructions for Completing the</p>
+                    <p style="margin:0" class="sm semi-bold no-space">NEW YORK STATE DEPARTMENT OF HEALTH</p>
+                    <p style="margin:0" class="bold dxl">Instructions for Completing the</p>
                 </div>
                 <div class="flex-row justify-between align-center md">
-                    <p style="margin:0" class="sm">State Disability Review Unit</p>
-                    <p style="margin:0" class="bold md">Authorization for Release of Health Information Pursuant to HIPAA</p>
+                    <p style="margin:0" class="sm semi-bold no-space">State Disability Review Unit</p>
+                    <p style="margin:0" class="bold dxl">Authorization for Release of Health Information Pursuant to HIPAA</p>
                 </div>
         </div>
-        <hr style="background: black;height: 5px;">
+        <hr style="background: black;height: 5px;margin: 0;margin-top: 3px;">
      <div class="mt-20" style="display: flex;flex-direction: column;gap: 25px;">
         <div class="sm l-height" style="display: flex;flex-direction: column;gap: 15px;">
             <p style="margin: 0">The “Authorization for Release of Health Information and Confidential HIV-Related Information” form gives permission to your healthcare providers (hospitals, doctors, therapists, etc.) to send in copies of your health records to the State Disability Review Team. These health records will help the Disability Review Team determine if you are disabled. You will need to fill out and send one of these forms to every one of your healthcare providers that needs to send in your medical records.</p>
@@ -650,7 +668,7 @@ hr{
                     <span>7)</span>
                 </div>
                 <div style="border-bottom:1px solid black;padding-bottom:12px;" class="w-100">
-                    <span>Put the name and address of the healthcare provider who is to send your health records to the State Disability Review Team. <span class="bold">Fill out one form for each of your healthcare providers</span></span>
+                    <span>Put the name and address of the healthcare provider who is to send your health records to the State Disability Review Team. <br><span class="bold">Fill out one form for each of your healthcare providers</span></span>
                 </div>
             </div>
             <div style="margin: 0;display: flex;gap: 10px;">

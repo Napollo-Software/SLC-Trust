@@ -22,7 +22,7 @@ class UserStatus extends Mailable
 
     public function build()
     {
-        return $this->subject('Account Verified')
+        return $this->subject('Welcome to SLC Trusts – Your Account Has Been Approved!')
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('emails.userstatus');
         // ->attach($this->pdfPath, [

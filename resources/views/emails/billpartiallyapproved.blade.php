@@ -141,12 +141,12 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Should you have any questions or require further assistance, please don’t hesitate to contact our support team at <strong>{{ config('app.contact') }}.</strong></p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">If you have any questions or need further assistance, please don’t hesitate to contact our support team at <strong>{{ config('app.contact') }}.</strong></p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for choosing Senior Life Care. We look forward to serving you!</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for choosing Senior Life Care. We are here to support you!</p>
                         </td>
                     </tr>
                     <tr>
