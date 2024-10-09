@@ -251,7 +251,8 @@ h3,h4{
     width: 130%;
 }
 .heading-style{
-    padding: 4px 5px
+    padding: 4px 5px;
+    font-family: 'Info-Bold';
 }
 .mt-15{
     margin-top: 15px
@@ -458,7 +459,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                 NEW YORK STATE DEPARTMENT OF HEALTH <br>
                 Disability Review Unit
             </p>
-            <h4 style="font-size:19px;margin-bottom: 4px;">
+            <h4 style="font-size:19px;margin-bottom: 4px;font-family: 'Info-Bold';">
                 Medical Report for Determination of Disability
             </h4>
         </div>
@@ -473,7 +474,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
         <div class="sec-1">
             <div>
-                <h3 class="text-sm" style="margin-bottom: 2px;">Agency</h3>
+                <h3 class="text-sm" style="margin-bottom: 2px;font-family: 'Info-Bold';">Agency</h3>
                 <div class="text-xsm" style="display: flex;flex-direction: column; gap: 2px;">
                     <p>State Disability Review Unit OCP-826</p>
                     <p>State of New York</p>
@@ -483,7 +484,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                 </div>
             </div>
             <div>
-                    <h3 class="text-sm" style="margin-bottom: 4px;">Patient</h3>
+                    <h3 class="text-sm" style="margin-bottom: 4px;font-family: 'Info-Bold';">Patient</h3>
                         <div class="patient-style">
                             <div>
                                 <label class="label-block" for="">Name (Last, First, Middle)</label>
@@ -563,7 +564,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
             individual’s
             application.
         </p>
-        <h4 class="text-sm" style="margin-top: 3px;">Please return the completed form to the agency in Section I above, along with a copy of all medical records
+        <h4 class="text-sm" style="margin-top: 3px;font-family: 'Info-Bold';">Please return the completed form to the agency in Section I above, along with a copy of all medical records
             for the past 12 months.</h4>
         <div class="diagonoseContainer">
             <div class="text-sm l-height" style="width: 85%;">
@@ -599,7 +600,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         </div>
     <div class="table-responsive">
         <table class="table-1">
-            <tr>
+            <tr style="font-family: 'Info-Bold';">
                 <th><h3 class="text-sm" style="margin-left:5px">Lifting</h3></th>
                 <th><h3 class="text-sm" style="margin-left:5px">Carrying</h3></th>
                 <th><h3 class="text-sm" style="margin-left:5px">Standing</h3></th>
@@ -610,14 +611,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
             </tr>
             <tr>
                 <td style="width: 17%;">
-                    <input type="radio" name="lifting" value="10lbs."> > 10 lbs. <br>
+                    <input type="radio" name="lifting" value="10lbs."> < 10 lbs. <br>
                     <input type="radio" name="lifting" value="Max. 10lbs.">Max. 10 lbs. <br>
                     <input type="radio" name="lifting" value="Max. 20lbs/freq. 10lbs.">Max. 20 lbs/freq. 10 lbs. <br>
                     <input type="radio" name="lifting" value="Max. 50lbs/freq. 25lbs.">Max. 50 lbs/freq. 25 lbs. <br>
                     <input type="radio" name="lifting" value=">50lbs."> > 50 lbs. <br>
                 </td>
                 <td style="width: 17%;">
-                    <input type="radio" name="carrying" value="10lbs.">> 10 lbs. <br>
+                    <input type="radio" name="carrying" value="10lbs."> < 10 lbs. <br>
                     <input type="radio" name="carrying" value="Max. 10lbs.">Max. 10lbs. <br>
                     <input type="radio" name="carrying" value="Max. 20lbs/freq. 10lbs.">Max. 20 lbs/freq. 10 lbs. <br>
                     <input type="radio" name="carrying" value="Max. 50lbs/freq. 25lbs.">Max. 50 lbs/freq. 25 lbs. <br>
@@ -659,7 +660,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         </div>
         <div class="table-responsive">
         <table class="table-1">
-            <tr>
+            <tr style="font-family: 'Info-Bold';">
                 <th><h3 class="text-sm" style="margin-left:5px">Sensory</h3></th>
                 <th><h3 class="text-sm" style="margin-left:5px">Postural</h3></th>
                 <th><h3 class="text-sm" style="margin-left:5px">Manipulative</h3></th>
@@ -752,15 +753,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                 <input type="text" name="office_address" class="w90">
             </div>
             <div class="w30">
-                <label for="">Office Phone</label>
+                <label for="">Office Phone Number</label>
                 <br>
                 <input type="text" name="office_phone" class="w90" >
             </div>
         </div>
         <div style="margin-top:2px">
             <span>DOH-5143 (8/18)</span>
-            <span class="text-sm" style="display: inline-block;text-align: center;width: 92%;">
-                PLEASE RETURN THIS FORM <span style="font-family: 'info-semibold';text-decoration: underline">ALONG WITH A COPY OF ALL MEDICAL RECORDS FOR THE PAST 12 MONTHS.</span>
+            <span class="text-sm" style="display: inline-block;text-align: center;width: 92%;text-decoration: underline;margin-top:1px">
+                PLEASE RETURN THIS FORM <span style="font-family: 'info-semibold';">ALONG WITH A COPY OF ALL MEDICAL RECORDS FOR THE PAST 12 MONTHS.</span>
             </span>
         </div>
 
