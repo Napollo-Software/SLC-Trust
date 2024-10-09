@@ -130,6 +130,10 @@
 
         }
 
+        .initiating-container{
+            margin-left: 11px;
+        }
+
 
 
         .card:hover {
@@ -214,7 +218,7 @@ textarea{
  } 
 
  .nine-container{
-    margin-left: 30px;
+    margin-left: 31px;
     margin-right: 75px;
     justify-content: space-between;
  }
@@ -242,6 +246,16 @@ body{
         align-items: center;
         justify-content: center;
         font-size: 16px !important;
+    }
+
+    .clear-hippa{
+        padding: 4px 8px !important;
+        background-color: #559E99;
+        border:none;
+        outline:none;
+        cursor: pointer;
+        color: white;
+        border-radius: 2px;
     }
 
     li{
@@ -562,14 +576,14 @@ body{
                         9(a). Specific information to be released:
                         </p>
                         
-                        <div style="margin-left:30px" class="row">
+                        <div style="margin-left:31px" class="row">
                         <input type="checkbox" name="info_released1" value="dated">
                         Medical Record from (insert date) <input type="date" max="9999-12-31" class="inputDate"  name="info_released_from"> to
                         (insert date) <input
                             type="date" max="9999-12-31" class="inputDate"  name="info_released_to">
 
                     </div>
-                    <div style="padding: 0;margin: 0;align-items: flex-start !important;margin-left:30px" class="row">
+                    <div style="padding: 0;margin: 0;align-items: flex-start !important;margin-left:31px" class="row">
                         <input type="checkbox" name="info_released2" value="Entire_med">
                         <p style="margin-top:4px"> Entire Medical Record, including patient histories, office notes (except psychotherapy notes), test
                         results, radiology studies, films,
@@ -602,7 +616,7 @@ body{
                     <p>
                         <b>Authorization to Discuss Health Information</b>
                     </p>
-                    <div class="row">
+                    <div  class="row initiating-container">
                          <p>(b)</p>
                          <input type="checkbox"  name="discuss" value="discuss">
                          <p>By initialing here</p>
@@ -632,16 +646,16 @@ body{
             <tr>
                 <td style="width:50%">
                     <p>10. Reason for release of information:</p>
-                    <div class="row">
+                    <div class="row" style="margin-left:32px">
                         <input type="checkbox" name="request" value="request">
                         <p>At request of indvidual</p>
                     </div>
-                    <div class="row" style="justify-content: space-between;">
-                        <div class="row">
+                    <div class="row" style="justify-content: space-between;margin-left:32px">
+                        <div class="row" style="">
                             <input type="checkbox" name="reason" value="reason">
                             <p>Other:</p>
                         </div>
-                        <input type="text" class="" style="width:50%;height:24px" name="reason_other"  >
+                        <input type="text" class="" style="width:56%;height:24px" name="reason_other"  >
                     </div>
                 </td>
                 <td style="width:50%;vertical-align: top;">
@@ -687,9 +701,10 @@ body{
                     <div>
                         <div class="container-row" style="justify-content: start">
 
-                            <button id="clear-hippa" onclick="clearHippaCanvas()">Clear</button>
+                            <button stype="" class="clear-hippa" id="clear-hippa" onclick="clearHippaCanvas()">Clear</button>
                         </div>
-                        <label> Signature of patient or representative authorized by law. </label>
+                        <br/>
+                        <label style=""> Signature of patient or representative authorized by law. </label>
                         <input type="hidden" id="hippa_sign" name="hippa_sign">
                     </div>
                 </div>
