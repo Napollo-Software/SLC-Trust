@@ -34,7 +34,7 @@
             border: 1px solid black;
         }
         .submit-button {
-            background-color: #134b7e; /* Dark blue background */
+            background-color: #559E99; /* Dark blue background */
             color: white; /* White text */
             padding: 8px 16px; /* Reduced padding */
             font-size: 14px; /* Smaller font size */
