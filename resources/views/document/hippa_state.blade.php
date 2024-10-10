@@ -36,6 +36,10 @@
             font-family: 'info-semibold';
             src: url('fonts/info-semibold.ttf') format('truetype');
         }
+        @font-face {
+            font-family: 'info-normal';
+            src: url('fonts/info-normal.ttf') format('truetype');
+        }
 
     table {
         border-collapse: collapse;
@@ -235,6 +239,9 @@ input{
 
     .xs{
         font-size: 13px;
+    }
+    .xs2{
+        font-size: 14px;
     }
 
     .xxs{
@@ -651,7 +658,7 @@ hr{
         </div>
         <hr style="background: black;height: 5px;margin: 0;margin-top: 3px;">
      <div class="mt-20" style="display: flex;flex-direction: column;gap: 25px;">
-        <div class="sm l-height" style="display: flex;flex-direction: column;gap: 15px;">
+        <div class="xs2 l-height" style="display: flex;flex-direction: column;gap: 15px;">
             <p style="margin: 0">The “Authorization for Release of Health Information and Confidential HIV-Related Information” form gives permission to your healthcare providers (hospitals, doctors, therapists, etc.) to send in copies of your health records to the State Disability Review Team. These health records will help the Disability Review Team determine if you are disabled. You will need to fill out and send one of these forms to every one of your healthcare providers that needs to send in your medical records.</p>
 
             <p style="margin: 0">
@@ -662,7 +669,7 @@ hr{
                 Read the information in items 1-6 found under the top box, before filling in the rest of the form. These paragraphs give you information on the type of health information that you can choose to be sent by your healthcare providers, your rights to authorize the release of your health records and how to stop the authorization, and who is allowed to see your health information.
             </p>
         </div>
-        <div class="sm l-height" style="display: flex;flex-direction: column;margin-inline: 25px;gap:16px">
+        <div class="xs2 l-height" style="display: flex;flex-direction: column;margin-inline: 25px;gap:16px">
             <div style="margin: 0;display: flex;gap: 10px;">
                 <div>
                     <span>7)</span>

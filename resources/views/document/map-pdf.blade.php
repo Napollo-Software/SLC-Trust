@@ -192,7 +192,7 @@
         <tr>
             <td class="c-tr" colspan="2">
                 <label class="label-style">
-                    <p style="margin:0;font-size:7.8px;"><span style="font-size: 7.8px;background:yellow">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> <br> ACT IN HIS/HER BEHALF</p> 
+                    <p style="margin:0;font-size:7.8px;font-family: 'ARIALBD'"><span style="font-size: 7.8px;background:yellow;font-family: 'ARIALBD'">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> <br> ACT IN HIS/HER BEHALF</p> 
                 </label>
                 <div style="position:relative;width:140px;height:60px;">
                     @if($map_sign)
@@ -204,28 +204,28 @@
             </td>
             <td class="c-tr">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;">RELATION TO DISABLED PERSON <br>
+                    <p style="margin:0;font-size:10px;font-family: 'ARIALBD'">RELATION TO DISABLED PERSON <br>
                     (If other than self)
                     </p>
                 </label>
                 <input style="position:relative;right:5px" class="inp-style" type="text" name="disabled_relation_other" value={{$disabled_relation_other}}>
             </td>
             <td class="c-tr" style="width: 15%;">
-                <label class="label-style" ><p style="margin:0;font-size:10px;">DATE</p></label>
+                <label class="label-style" ><p style="margin:0;font-size:10px;font-family: 'ARIALBD'">DATE</p></label>
                 <input style="position:relative;right:5px" class="inp-style" type="text" name="date_map" value="{{date('m/d/Y',strtotime($date_map))}}">
             </td>
         </tr>
         <tr>
             <td class="c-tr" colspan="2" style="">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;">STREET ADDRESS</p>
+                    <p style="margin:0;font-size:10px;font-family: 'ARIALBD'">STREET ADDRESS</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_street"
                        value="{{$disabled_relation_street}}" style="position:relative;right:5px">
             </td>
             <td class="c-tr" colspan="2" style="">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;">TELEPHONE NUMBER (include area code)</p>
+                    <p style="margin:0;font-size:10px;font-family: 'ARIALBD'">TELEPHONE NUMBER (include area code)</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_street"
                        value="{{$disabled_relation_street}}" style="position:relative;right:5px">
@@ -234,21 +234,21 @@
         <tr>
             <td class="c-tr"  colspan="2" style="">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;">CITY</p>
+                    <p style="margin:0;font-size:10px;font-family: 'ARIALBD'">CITY</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_city" value="{{$disabled_relation_city}}"
                 style="position:relative;right:5px">
             </td>
             <td class="c-tr">
                 <label class="label-style" style="">
-                    <p style="margin:0;font-size:10px;">STATE</p>
+                    <p style="margin:0;font-size:10px;font-family: 'ARIALBD'">STATE</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_state" value="{{$disabled_relation_state}}"
                 style="position:relative;right:5px">
             </td>
             <td class="c-tr">
                 <label class="label-style">
-                    <p style="margin:0;font-size:10px;">ZIP CODE</p>
+                    <p style="margin:0;font-size:10px;font-family: 'ARIALBD'">ZIP CODE</p>
                 </label>
                 <input class="inp-style" type="text" name="disabled_relation_zip" value="{{$disabled_relation_zip}}"
                 style="position:relative;right:5px">

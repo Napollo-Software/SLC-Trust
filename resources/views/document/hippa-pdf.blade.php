@@ -164,7 +164,7 @@
                 </td>
                 <td style='padding-top:0 !important'>
                     <label for="Date of Birth">Date of Birth</label>
-                    <input type="text" name="hippa_dob" class="border-none" value="{{$hippa_dob}}" style="width: 90%;">
+                    <input type="text" name="hippa_dob" class="border-none" value="{{date('m/d/Y',strtotime($hippa_dob))}}" style="width: 90%;">
                 </td>
                 <td style='padding-top:0 !important'>
                     <label for="SSN Number">Social Security Number</label>
@@ -274,7 +274,7 @@
                     class="no-border"
                     style="margin-bottom:0px !important;width:15%"
                     name="info_released_from"
-                    value="{{$info_released_from}}"
+                    value="{{date('m/d/Y',strtotime($info_released_from))}}"
                     >
                     <span>
                         to (insert date)
@@ -285,7 +285,7 @@
                     class="no-border"
                     name="info_released_to"
                     style="margin-bottom:0px !important;width:14%"
-                    value="{{$info_released_to}}"
+                    value="{{date('m/d/Y',strtotime($info_released_to))}}"
                     >
                     <p style="display: table; width: 100%; margin: 0; margin-bottom: 3px;padding-left:18px">
                         <input
