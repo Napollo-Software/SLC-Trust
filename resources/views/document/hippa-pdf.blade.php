@@ -443,7 +443,8 @@
                         <input
                         type="checkbox" 
                         name="request"
-                        class='m-0 align-bottom'  
+                        class='m-0 align-bottom'
+                        value="request"  
                         {{isset($request) && $request =='request'? 'checked' :''}}
                         > 
                         <span style="margin:0;padding: 0">At request of individual</span>
@@ -452,8 +453,9 @@
                         <input
                         type="checkbox" 
                         name="reason_other"  
-                        class='m-0 align-bottom' 
-                        {{isset($reason) && $reason =='reason'? 'checked' :''}}
+                        class='m-0 align-bottom'
+                        value="reason" 
+                        {{isset($request) && $request =='reason'? 'checked' :''}}
                         style="">
                         <span>
                             Other:

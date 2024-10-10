@@ -376,6 +376,38 @@ body{
     border-right: none;
     border-top: none;
   }
+  input[type="radio"]{
+    appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border: 1px solid #777;
+  border-radius: 2px; 
+  position: relative;
+  cursor: pointer;
+  
+}
+input[type="radio"]:checked{
+    background-color: #0075ff;
+    box-shadow: 1px 1px 2px lightgray;
+}
+input[type="radio"]:checked:before {
+  content: "\2713";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 9px;
+  font-weight: bold;
+  color: white;
+  background-color: #0075ff; 
+}
 
   @media only screen and (max-width: 520px){
     .card {
@@ -647,12 +679,12 @@ body{
                 <td style="width:50%">
                     <p>10. Reason for release of information:</p>
                     <div class="row" style="margin-left:34px">
-                        <input type="checkbox" name="request" value="request">
+                        <input type="radio" name="request" value="request">
                         <p>At request of indvidual</p>
                     </div>
                     <div class="row" style="justify-content: space-between;margin-left:34px">
                         <div class="row" style="">
-                            <input type="checkbox" name="reason" value="reason">
+                            <input type="radio" name="request" value="reason">
                             <p>Other:</p>
                         </div>
                         <input type="text" class="" style="width:56%;height:24px" name="reason_other"  >
