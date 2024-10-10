@@ -949,12 +949,17 @@ Route::get('mapp',function(){
 Route::get('email',function(){
 
     $data  = [
-        "details" => [
+        "user" => [
         "name" => "Alamgir",
         "fname" => "Khan",
+        ],
+        "urls" => [
+            0 => "http://localhost:8000/documents/pdf.pdf",
+            1 => "http://localhost:8000/documents/deposit-verification.pdf",
+            2 => "http://localhost:8000/documents/approval_letter.pdf",
         ]
     ];
 
-    return view("emails.userstatus", $data);
+    return view("emails.manual-upload-document-mail", $data);
 
 });

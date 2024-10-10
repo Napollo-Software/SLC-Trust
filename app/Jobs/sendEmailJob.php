@@ -14,7 +14,7 @@ class sendEmailJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $subject,$name,$email_message,$urls;
-    
+
     protected $send_mail;
 
     public function __construct($send_mail,$subject,$name,$email_message,$urls)

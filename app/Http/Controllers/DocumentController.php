@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Jobs\SendManualApploadDocumentJob;
 
 class DocumentController extends Controller
 {
@@ -499,7 +500,7 @@ class DocumentController extends Controller
         }
 
         $data = $request->all();
-        
+
         $pdf = PDF::loadView('document.hippa-pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),
@@ -624,9 +625,9 @@ class DocumentController extends Controller
     {
         $request->validate(['uploadedfile.*' => 'required|mimes:pdf']);
 
-        $app_name = config('app.professional_name');
-
         if ($request->uploadedfile != null) {
+
+            $urls = [];
 
             foreach ($request->uploadedfile as $item) {
 
@@ -644,13 +645,11 @@ class DocumentController extends Controller
             }
 
             $referral = Referral::find($request->referral_id);
-            $recipientEmail = $referral->email;
-            $subject = "Document By " . config('app.professional_name');
+
             $name = "{$referral->first_name} {$referral->last_name}";
-            $email_message = "{$app_name} has sent the following documents to sign:";
 
             try {
-                SendEmailJob::dispatch($recipientEmail, $subject, $name, $email_message, $urls);
+                SendManualApploadDocumentJob::dispatch($referral, $urls);
             } catch (\Exception $e) {
                 $message = "Emails could not be sent. Error: " . $e->getMessage();
                 Alert::error('Error', $message);
