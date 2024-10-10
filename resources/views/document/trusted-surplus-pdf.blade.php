@@ -132,10 +132,10 @@
                         <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Status: {{ $user->account_status }}</p>
                     </div>
                     <div style="margin-left:15px">
-                        <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">5014-16th Ave,</p>
-                        <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Suite 489 Brooklyn,</p>
-                        <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">NY 11204</p>
-                        {{-- <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Queens, NY, 11434</p> --}}
+                        <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Erica McLeod</p>
+                        <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">126-02 Locust Manor Lane</p>
+                        <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Apartment #2A</p>
+                        <p style="line-height: 0.8;margin:0;font-family: 'Poppins-SemiBold'">Queens, NY, 11434</p>
                     </div>
                 </div>
                 <div style="text-align: center">
