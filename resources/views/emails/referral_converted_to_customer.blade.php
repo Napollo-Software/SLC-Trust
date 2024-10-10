@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ config('app.professional_name') }} | Account Created</title>
+    <title>Account Created</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -126,7 +126,7 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 0px 20px 20px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 20px; font-weight: 400; margin: 0;">Dear {{ $details->full_name() }},</p>
+                            <p style="font-size: 20px; font-weight: 400; margin: 0;">Dear {{ $user->full_name() }},</p>
                         </td>
                     </tr>
                     <tr>
@@ -136,7 +136,7 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 20px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <a href="{{ url('/setpassword/'.$details->token) }}" target="_blank" style="text-align:center;font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: white; text-decoration: none; padding: 8px 20px; border-radius: 4px; border: 1px solid #559e99; display: inline-block;background-color: #559e99 !important;outline: none !important;box-shadow: none !important;">Set Password</a>
+                            <a href="{{ url('/setpassword/'.$user->token) }}" target="_blank" style="text-align:center;font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: white; text-decoration: none; padding: 8px 20px; border-radius: 4px; border: 1px solid #559e99; display: inline-block;background-color: #559e99 !important;outline: none !important;box-shadow: none !important;">Set Password</a>
                         </td>
                     </tr>
                     <tr>
