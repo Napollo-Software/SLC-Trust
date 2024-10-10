@@ -137,18 +137,25 @@
 
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 20px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <div style="display: flex; flex-wrap: wrap !important; justify-content: center !important; gap: 10px; margin-top: 10px;">
-                                @foreach($urls as $url)
-                                <a href="{{ $url }}" target="_blank" class="cta-button" style="text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-flex; padding: 10px 15px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 180px; height: 120px; flex-direction: column; align-items: center; justify-content: flex-start; margin-top: 10px;
-                                display: flex !important; flex-direction: column; align-items: center !important;
-                                ">
-                                    <img style="width: 50px; height: 50px;" src="{{ url('img/form_icon.png') }}" alt="document">
-                                    <p style="color:black; font-size:14px; margin: 5px 0 0 0; text-align: center;">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</p>
-                                </a>
-                                @endforeach
-                            </div>
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" style="max-width: 600px;">
+                                <tr>
+                                    @foreach($urls as $url)
+                                    <td align="center" valign="top" style="padding: 10px;">
+                                        <a href="{{ $url }}" target="_blank" class="cta-button" style="text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: block; width: 180px; height: 120px; border-radius: 4px; border: 1px solid #cccccc; padding: 10px 15px; text-align: center;">
+                                            <img src="{{ url('img/form_icon.png') }}" alt="document" style="width: 50px; height: 50px; display: block; margin: 0 auto 10px;">
+                                            <p style="color:black; font-size:14px; margin: 0;">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</p>
+                                        </a>
+                                    </td>
+                                    @if($loop->iteration % 2 == 0)
+                                </tr>
+                                <tr>
+                                    @endif
+                                    @endforeach
+                                </tr>
+                            </table>
                         </td>
                     </tr>
+
 
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
