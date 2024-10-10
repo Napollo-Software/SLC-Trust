@@ -12,8 +12,8 @@ if (!class_exists('Company')) {
     class Company
     {
         const Account_id = 7;
-        const Account_name = 'SLC TRUST';
-        const Account_name_income = 'SLC INCOME';
+        const Account_name = 'SLC Trusts';
+        const Account_name_income = 'SLC Income';
     }
 }
 
