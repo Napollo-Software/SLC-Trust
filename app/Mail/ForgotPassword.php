@@ -10,17 +10,17 @@ class ForgotPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details, $name;
+    public $details, $user;
 
-    public function __construct($details, $name)
+    public function __construct($details, $user)
     {
         $this->details = $details;
-        $this->name = $name;
+        $this->user = $user;
     }
 
     public function build()
     {
-        return $this->subject('Reset your password ')
+        return $this->subject('Senior Life Care - Reset your SLC Account Password')
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('forgotPassword.forgotPassword');
     }

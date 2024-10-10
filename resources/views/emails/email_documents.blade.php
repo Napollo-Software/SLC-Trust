@@ -131,7 +131,7 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please click on each of the documents listed below, complete the required information, and submit them. The forms will be automatically sent to our team for processing.</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please click on the document(s) listed below, complete the required information, and submit. Once submitted, the forms will be automatically sent to our team for processing.</p>
                         </td>
                     </tr>
 

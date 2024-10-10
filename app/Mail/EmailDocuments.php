@@ -24,7 +24,7 @@ class EmailDocuments extends Mailable
 
     public function build()
     {
-        return $this->subject('Action Required: Complete and Submit Your Documents')
+        return $this->subject('Action Required: Complete and Submit Your Document(s)')
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('emails.email_documents');
     }
