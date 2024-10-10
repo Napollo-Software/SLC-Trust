@@ -118,7 +118,7 @@
                     </li>
                     @endif
                     @if ($user->hasPermissionTo('Follow ups'))
-                    <li class="nav-item dropdown dropdown-large">
+                    <li class="nav-item dropdown dropdown-large d-none">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">{{ $followup->count() }}</span>
                             <i class="bx bx-archive"></i>
                         </a>
