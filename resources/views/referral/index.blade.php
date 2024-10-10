@@ -48,7 +48,8 @@
                                     <th>Actions</th>
                                     <!--th>ID</th-->
                                     <th>Full name</th>
-                                    <th>Convert to Customer</th>
+                                    <th>Email</th>
+                                    <!--th>Convert to Customer</th-->
                                     <!-- TODO:/NEED TO BE DONE -->
                                     <!-- <th>Intake status</th> -->
                                     <!--th>Intake coordinator</th-->
@@ -56,7 +57,7 @@
                                     <!--th>Follow up Date</th-->
 
                                     <!-- <th>Open services</th> -->
-                                    <th>Modified Date</th>
+                                    <!--th>Modified Date</th-->
                                     <th>Lead source</th>
                                     <th>Patient status</th>
                                     <th>Marketer</th>
@@ -109,7 +110,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <!--td>
                                             <button type="button" data-id="{{ $u['id'] }}"
                                                     class=" @if ($u->convert_to_customer == null) btn btn-primary p-1 convert-btn custom-design-{{ $u['id'] }} @else dropdown-item @endif ">
                                                 @if ($u->convert_to_customer == null)
@@ -118,7 +119,7 @@
                                                     Converted to customer
                                                 @endif
                                             </button>
-                                        </td>
+                                        </td-->
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">OPEN</td> -->
                                         <!--td>{{ $u->intake }}</td-->
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">{{ $u['date_of_birth'] }}</td> -->
@@ -128,9 +129,7 @@
                                         <!--td>{{ $u->referralFollowup->note }}</td-->
 
                                         <!-- <td class="row-{{ $u['id'] }}" onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';" style="cursor: pointer;">{{ $u['medicaid_number'] }}</td> -->
-                                        <td class="row-{{ $u['id'] }}"
-                                            onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';"
-                                            style="cursor: pointer;">{{ $u['updated_at'] }}</td>
+                                        <td class="row-{{ $u['id'] }}">{{ $u['email'] }}</td>
                                         <td class="row-{{ $u['id'] }}"
                                             onclick="window.location.href = '{{ route('view.referral', $u['id']) }}';"
                                             style="cursor: pointer;">
