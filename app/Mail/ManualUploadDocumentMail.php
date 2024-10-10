@@ -20,7 +20,7 @@ class ManualUploadDocumentMail extends Mailable
 
     public function build()
     {
-        return $this->subject("Action Required: Complete and Submit Your Document")
+        return $this->subject("Action Required: Review and Share Signed Document(s)")
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('emails.manual-upload-document-mail');
     }

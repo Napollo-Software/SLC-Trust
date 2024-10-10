@@ -19,6 +19,7 @@ class ForgotController extends Controller
     public function usersendemail(Request $request)
     {
         $user = User::where('email', $request->email)->first();
+
         if ($user) {
             $user->token = $request->_token;
             $details = $request->_token;
@@ -33,7 +34,7 @@ class ForgotController extends Controller
                 $notifcation->status = 0;
                 //$notifcation->save();
 
-                Mail::to($request->email)->send(new \App\Mail\ForgotPassword($details, $name));
+                Mail::to($request->email)->send(new \App\Mail\ForgotPassword($details, $user));
                 Alert::success('Congrats', 'You have requested to change your password,
             Soon, you will receive an email to reset your password on your registered email address');
             } else {
