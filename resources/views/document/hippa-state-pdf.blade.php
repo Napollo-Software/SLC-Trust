@@ -192,7 +192,7 @@
             </td>
             <td style="border-width: 0.5px;margin:0;width:170px">
                 <label style="font-size: 12px;" for="Date of Birth">Date of Birth:</label>
-                <input type="text" name="dob" class="no-border text-sm" value="{{$dob}}" style="width: 95%">
+                <input type="text" name="dob" class="no-border text-sm" value="{{date('m/d/Y',strtotime($dob))}}" style="width: 95%">
             </td>
             <td style="border-width: 0.5px;margin:0;width:170px">
                 <label style="font-size: 12px;" for="SSN Number">Social Security Number (Last four digits):</label>
@@ -293,11 +293,11 @@
             type="text"
             name="medical_record_from"
             class="border-bottom text-sm"
-            value="{{$medical_record_from}}"
+            value="{{date('m/d/Y',strtotime($medical_record_from))}}"
             >
                 (date) to
             <input
-                type="text" name="medical_record_to" class="border-bottom text-sm" value="{{$medical_record_to}}">(date).
+                type="text" name="medical_record_to" class="border-bottom text-sm" value="{{date('m/d/Y',strtotime($medical_record_to))}}" >(date).
          </div>
         <p class='m-0 pl-20'>
             <input type="checkbox" name="released_info" style='vertical-align:bottom;margin-bottom:3px'
@@ -451,7 +451,7 @@
                 @endif
             </div>
             <div style="display: table-cell; vertical-align: bottom;padding-left:15px;margin-top:15px;width:30%">
-                <input type="text" class="border-bottom text-sm" style="width:90%" name="date_hippa_state" value="{{$date_hippa_state}}">
+                <input type="text" class="border-bottom text-sm" style="width:90%" name="date_hippa_state" value="{{date('m/d/Y',strtotime($date_hippa_state))}}">
                 <p style="display: block; text-align: start;vertical-align: bottom; white-space: no-wrap;" class='m-0 text-sm'>
                     DATE
                 </p>
