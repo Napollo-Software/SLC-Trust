@@ -179,15 +179,6 @@ class DocumentController extends Controller
         $referral = Referral::find($request->referral_id);
         $referralId = Crypt::encryptString($referral->id);
 
-        // $documentMappings = [
-        //     '1-Joinder Agreement.pdf' => 'joinder',
-        //     '2-DOH-960 Hipaa.pdf' => 'hippa',
-        //     '3-MAP-751e - Authorization to Release Medical Information.pdf' => 'map',
-        //     '4-DOH 5173-Hipaa State.pdf' => 'hippa_state',
-        //     '5- DOH -5139 Disability FILLABLE Questionnaire.pdf' => 'disability',
-        //     '6-DOH-5143.pdf' => 'doh',
-        // ];
-
         $documentMappings = [
             '1 Joinder Agreement.pdf' => 'joinder',
             '2 DOH-960 – HIPAA.pdf' => 'hippa',

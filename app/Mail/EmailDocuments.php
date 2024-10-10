@@ -19,11 +19,12 @@ class EmailDocuments extends Mailable
         $this->filtered_links = $filtered_links;
         $this->filtered_names = $filtered_names;
         $this->referralId = $referralId;
+
     }
 
     public function build()
     {
-        return $this->subject('Documents')
+        return $this->subject('Action Required: Complete and Submit Your Documents')
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('emails.email_documents');
     }

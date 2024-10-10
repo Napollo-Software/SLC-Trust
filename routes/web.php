@@ -949,17 +949,27 @@ Route::get('mapp',function(){
 Route::get('email',function(){
 
     $data  = [
-        "user" => [
-        "name" => "Alamgir",
-        "fname" => "Khan",
+        "name" => "afasf asdf",
+        "email_message" => "Please click on the document, complete the required information, and submit it. These forms will be automatically sent to the admin for processing. For immediate assistance, please call 718-500-3235",
+        "filtered_links" => [
+          0 => "http://localhost:8000/joinder?referralId=eyJpdiI6Ijh6WFc4TlcrK2FwT0dvUU5yc1pUR2c9PSIsInZhbHVlIjoiTytlT05sUnlqcThqckFpUFlCWk5ldz09IiwibWFjIjoiNmUzYzEwMzZmYjg5YzUyYTM3YWUxZjExYmQ0YmVlOWRhNmY4OGI5MGQ5NGM3YWJkZTRhNzU2ZTQwYjMyYTM0ZCIsInRhZyI6IiJ9",
+          1 => "http://localhost:8000/hippa?referralId=eyJpdiI6Ijh6WFc4TlcrK2FwT0dvUU5yc1pUR2c9PSIsInZhbHVlIjoiTytlT05sUnlqcThqckFpUFlCWk5ldz09IiwibWFjIjoiNmUzYzEwMzZmYjg5YzUyYTM3YWUxZjExYmQ0YmVlOWRhNmY4OGI5MGQ5NGM3YWJkZTRhNzU2ZTQwYjMyYTM0ZCIsInRhZyI6IiJ9",
+          2 => "http://localhost:8000/map?referralId=eyJpdiI6Ijh6WFc4TlcrK2FwT0dvUU5yc1pUR2c9PSIsInZhbHVlIjoiTytlT05sUnlqcThqckFpUFlCWk5ldz09IiwibWFjIjoiNmUzYzEwMzZmYjg5YzUyYTM3YWUxZjExYmQ0YmVlOWRhNmY4OGI5MGQ5NGM3YWJkZTRhNzU2ZTQwYjMyYTM0ZCIsInRhZyI6IiJ9",
+          3 => "http://localhost:8000/hippa_state?referralId=eyJpdiI6Ijh6WFc4TlcrK2FwT0dvUU5yc1pUR2c9PSIsInZhbHVlIjoiTytlT05sUnlqcThqckFpUFlCWk5ldz09IiwibWFjIjoiNmUzYzEwMzZmYjg5YzUyYTM3YWUxZjExYmQ0YmVlOWRhNmY4OGI5MGQ5NGM3YWJkZTRhNzU2ZTQwYjMyYTM0ZCIsInRhZyI6IiJ9",
+          4 => "http://localhost:8000/disability?referralId=eyJpdiI6Ijh6WFc4TlcrK2FwT0dvUU5yc1pUR2c9PSIsInZhbHVlIjoiTytlT05sUnlqcThqckFpUFlCWk5ldz09IiwibWFjIjoiNmUzYzEwMzZmYjg5YzUyYTM3YWUxZjExYmQ0YmVlOWRhNmY4OGI5MGQ5NGM3YWJkZTRhNzU2ZTQwYjMyYTM0ZCIsInRhZyI6IiJ9",
+          5 => "http://localhost:8000/doh?referralId=eyJpdiI6Ijh6WFc4TlcrK2FwT0dvUU5yc1pUR2c9PSIsInZhbHVlIjoiTytlT05sUnlqcThqckFpUFlCWk5ldz09IiwibWFjIjoiNmUzYzEwMzZmYjg5YzUyYTM3YWUxZjExYmQ0YmVlOWRhNmY4OGI5MGQ5NGM3YWJkZTRhNzU2ZTQwYjMyYTM0ZCIsInRhZyI6IiJ9",
         ],
-        "urls" => [
-            0 => "http://localhost:8000/documents/pdf.pdf",
-            1 => "http://localhost:8000/documents/deposit-verification.pdf",
-            2 => "http://localhost:8000/documents/approval_letter.pdf",
-        ]
-    ];
+        "filtered_names" => [
+          0 => "Joinder Agreement",
+          1 => "DOH-960 – HIPAA",
+          2 => "MAP-751E – Authorization to Release Medical Info",
+          3 => "DOH-5173 – HIPAA",
+          4 => "DOH-5139 – Disability Questionnaire",
+          5 => "DOH-5143 – Medical",
+        ],
+        "referralId" => "eyJpdiI6Ijh6WFc4TlcrK2FwT0dvUU5yc1pUR2c9PSIsInZhbHVlIjoiTytlT05sUnlqcThqckFpUFlCWk5ldz09IiwibWFjIjoiNmUzYzEwMzZmYjg5YzUyYTM3YWUxZjExYmQ0YmVlOWRhNmY4OGI5MGQ5NGM3YWJkZTRhNzU2ZTQwYjMyYTM0ZCIsInRhZyI6IiJ9",
+        ];
 
-    return view("emails.manual-upload-document-mail", $data);
+    return view("emails.email_documents", $data);
 
 });
