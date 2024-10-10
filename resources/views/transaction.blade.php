@@ -474,7 +474,7 @@
                                                         @elseif ($data->user_id == \Company::Account_id)
                                                             {{ \Company::Account_name }}
                                                         @else
-                                                            {{ $data->user->name }}
+                                                            {{ $data->user->full_name() }}
                                                         @endif
                                                     </td>
 

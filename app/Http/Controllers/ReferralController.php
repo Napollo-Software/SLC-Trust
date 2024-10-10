@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\DocumentESign;
 use App\Models\EmergencyContacts;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ReferralConvertToCustomer;
 use Illuminate\Support\Facades\Session;
 
 class ReferralController extends Controller
@@ -474,7 +475,7 @@ class ReferralController extends Controller
 
         // $pdf->save($savePath);
 
-        Mail::to($referral->email)->send(new Register($user));
+        Mail::to($referral->email)->send(new ReferralConvertToCustomer($user));
 
         return response()->json(['success' => 'Customer created successfully!', "user" => $user]);
     }
