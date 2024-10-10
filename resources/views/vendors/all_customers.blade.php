@@ -6,13 +6,13 @@
             height: 100% !important;
         }
     </style>
-    <div class="col-md-12">
+    <div class="">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Customers</b> </div>
+        </h5>
         <div class="card">
             <div class="d-flex align-items-center p-3">
-                <div>
-                    <h5 class="mb-1">Customer List</h5>
-                    <p class="mb-0 font-13 text-secondary"><i class="bx bxs-calendar"></i>All Customers</p>
-                </div>
                 <div class="dropdown ms-auto">
                     <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">	<i class="bx bx-dots-horizontal-rounded font-22 text-option"></i>
                     </a>

@@ -955,6 +955,6 @@ Route::get('email',function(){
         ]
     ];
 
-    return view("emails.registered", $data);
+    return view("emails.userstatus", $data);
 
 });

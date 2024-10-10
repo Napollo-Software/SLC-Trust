@@ -6,10 +6,11 @@
         height: 100% !important;
     }
 </style>
-    <div class="col-md-12">
-        <div class="">
-            <h5 class="fw-bold mb-2">Account Dashboard</h5>
-        </div>
+    <div class="">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
+            <b></b>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Overview</b> </div>
+        </h5>
         <div class="">
             <div class="row">
                 <div class="col">
@@ -18,7 +19,19 @@
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0">Pool Balance</p>
-                                    <h5 class="mb-0">{{ $referrals->pluck('customer')->sum('user_balance') }}</h5>
+                                    @php
+                                        $totalBalance = 0; // Initialize total balance
+                                    @endphp
+
+                                    @foreach ($referrals as $k => $item)
+                                    @if ($item->customer != null)
+                                        @php
+                                            // Assuming userBalance() gets the balance based on the transaction data or the customer
+                                            $totalBalance += userBalance($item->customer->id); // or however you define the balance logic
+                                        @endphp
+                                    @endif
+                                    @endforeach
+                                    <h5 class="mb-0">${{ number_format((float) userBalance($totalBalance), 2, '.', ',') }}</h5>
                                 </div>
                                 <div class="ms-auto">	<i class='bx bx-wallet font-30'></i>
                                 </div>
@@ -118,13 +131,13 @@
                                                             </a></td>
                                                     @endif
                                                     <td style="text-align:left !important;">
-                                                        @if ($data->statusamount == 'credit')
-                                                            +
+                                                        @if ($data->credit != '0.00')
+                                                            + ${{ number_format((float) $data->credit, 2, '.', ',') }}
                                                         @endif
-                                                        @if ($data->statusamount == 'debit')
-                                                            -
+                                                        @if ($data->debit != '0.00')
+                                                            -  ${{ number_format((float) $data->debit, 2, '.', ',') }}
                                                         @endif
-                                                        ${{ number_format((float) $data->deduction, 2, '.', ',') }}
+
                                                     </td>
                                                     <td>
                                                         @if ($data->status == 1)
@@ -132,8 +145,8 @@
                                                                 Processed
                                                             </div>
                                                         @else
-                                                            <div class="badge rounded-pill bg-warning w-100">
-                                                                Failed
+                                                            <div class="badge rounded-pill bg-primary w-100">
+                                                                Processed
                                                             </div>
                                                         @endif
                                                     </td>
@@ -154,7 +167,7 @@
                             <div class="d-flex align-items-center">
                                 <div>
                                     <h5 class="mb-1">Customers</h5>
-                                    <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Latest 8 customers</p>
+                                    <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Latest customers</p>
                                 </div>
                                 <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
                                 </div>
@@ -185,11 +198,12 @@
                                 <div class="d-flex align-items-center">
                                     <div class="col-sm">
                                         <p class="mb-0">Balance</p>
-                                        <h6 class="mb-1">$ {{ $item->customer->user_balance }}</h6>
+
+                                        <h6 class="mb-1">${{ number_format((float) userBalance($item->customer->id), 2, '.', ',') }}</h6>
                                     </div>
                                     <div class="col-sm">
                                         <p class="mb-0">Transactions</p>
-                                        <h6 class="mb-1">$ {{ $item->customer->trasactions()->count() }}</h6>
+                                        <h6 class="mb-1"> {{ $item->customer->trasactions()->count() }}</h6>
                                     </div>
                                  </div>
                                 </div>

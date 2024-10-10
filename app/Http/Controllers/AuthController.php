@@ -621,13 +621,8 @@ class AuthController extends Controller
 
                 // $pdf->save($savePath);
 
-                $details = [
-                    'title' => "Mail from {$app_name}",
-                    'body' => "Your {$app_name} account has been verified successfully."
-                ];
-
                 // Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name, $savePath));
-                Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name));
+                Mail::to($user->email)->send(new \App\Mail\UserStatus($user));
 
             } elseif ($request->account_status == "Not Approved") {
                 $status = "Not Approved";
@@ -651,7 +646,7 @@ class AuthController extends Controller
 
             }
             alert()->success('Account ' . $status . '!', 'Customer account has been updated successfully!');
-            return redirect("show_user/" . $id);
+            return redirect("all_users");
         }
 
         $dt = new Carbon();
