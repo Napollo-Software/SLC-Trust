@@ -135,6 +135,11 @@
                         </td>
                     </tr>
                     <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">To get started, please log in using the link below:</p>
+                        </td>
+                    </tr>
+                    <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 20px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
                             <a href="{{ url('/') }}" target="_blank" style="text-align:center;font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: white; text-decoration: none; padding: 8px 20px; border-radius: 4px; border: 1px solid #559e99; display: inline-block;background-color: #559e99 !important;outline: none !important;box-shadow: none !important;">Login</a>
                         </td>
