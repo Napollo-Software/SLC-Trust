@@ -572,7 +572,7 @@ class DocumentController extends Controller
             ->setOption([
                 'fontDir' => public_path('/fonts'),
                 'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'TKLCCE-Info-Normal'
+                'defaultFont' => 'Nominee-Black'
             ])
             ->setPaper('A4', 'portrait');
 
