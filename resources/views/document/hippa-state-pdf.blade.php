@@ -9,26 +9,27 @@
 </head>
 <style>
             @font-face {
-                font-family: 'TKLCCE-Info-Normal';
-                src: url('fonts/TKLCCE-Info-Normal.ttf') format('truetype');
+                font-family: 'info-normal';
+                src: url('fonts/info-normal.ttf') format('truetype');
             }
             @font-face {
-                font-family: 'TKLCCE-Info-SemiBold';
-                src: url('fonts/TKLCCE-Info-SemiBold.ttf') format('truetype');
-            }
-            @font-face {
-                font-family: 'info-bold';
-                src: url('fonts/info-bold.otf') format('truetype');
-            }
-            body{
-                font-family:'TKLCCE-Info-Normal';
+            font-family: 'info-semibold';
+            src: url('fonts/info-semibold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Info-Bold';
+            src: url('fonts/Info-Bold.otf') format('truetype');
+        }
+
+            body{                                                                          
+                font-family:'info-normal';
                 font-size:12px
             }
             .font-bold{
-                font-family:'info-bold';
+                font-family:'Info-Bold';
             }
             .font-semibold{
-                font-family:'TKLCCE-Info-SemiBold';
+                font-family:'info-semibold';
             }
             table {
                 border-collapse: collapse;

@@ -7,5 +7,14 @@
     },
     "info-semibold": {
         "normal": "info_semibold_normal_78e0de5cfa6647fb10123ab83bf66036"
+    },
+    "info-normal": {
+        "normal": "info_normal_normal_8e9bee386a7e2af567dabf06015647b3"
+    },
+    "info-semibold": {
+        "normal": "info_semibold_normal_3461e18117e484083763c0fd75d810d8"
+    },
+    "info-bold": {
+        "normal": "info_bold_normal_7bca77038935ace83084c2c9812e02d0"
     }
 }
