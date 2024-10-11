@@ -201,7 +201,7 @@
             </div>
         </div>
     </div>
-    <div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:30px">
+    <div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:15px">
         <div style="width: 100%;">
             <div style="width: 25%; float: left;text-align:center">
                 {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Tel:</span> --}}
@@ -210,8 +210,8 @@
             </div>
             <div style="width: 45%; float: left;text-align: center">
                 {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Address:</span> --}}
-                <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/address.png') }}" alt="int" width="20px" height="20px">
-                <span style="font-family:Poppins-Regular">5014-16th Ave, Suite 489 Brooklyn, NY 11204</span>
+                <img style="position: relative;right: 1%;top: 5px;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
+                <span style="font-family:Poppins-Regular">www.seniorlifecaretrusts.org</span>
             </div>
             <div style="width: 25%; float: right; text-align:left;">
                 {{-- <span style="color: rgb(52 159 153);font-family:Poppins-Regular">Email:</span> --}}
@@ -220,12 +220,12 @@
             </div>
     
         </div>
-        <div>
+        {{-- <div>
             <img style="position: relative;top: 40px;right: 36%;"  src="{{ public_path('images/website.png') }}" alt="int" width="20px" height="20px">
             <p style="width: 100%;text-align: center;font-family:Poppins-Regular;position:relative;bottom:2.6px">
                 www.seniorlifecaretrusts.org
             </p>
-       </div>
+       </div> --}}
     </div>
 </body>
 </html>
