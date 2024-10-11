@@ -35,7 +35,8 @@
         }
         input{
             padding:0;
-            font-size:10px
+            font-size:10px;
+            height: 10px;
         }
 
         .no-border {

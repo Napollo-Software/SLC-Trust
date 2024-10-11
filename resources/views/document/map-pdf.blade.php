@@ -90,6 +90,7 @@
         }
         input{
             border: none;
+            height: 10px;
         }
         td.c-tr{
             

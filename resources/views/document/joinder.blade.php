@@ -4783,7 +4783,15 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 </div>
                                 <div style="display: flex; margin-top: 20px;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Date of Monthly Debit:</p>
-                                    <input class="mad1" type="date" max="9999-12-31" name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <select name="office_use_monthly_debit_date" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="mad1 f-75">
+                                        <option value="1">1</option>
+                                        <option value="3">3</option>
+                                        <option value="7">7</option>
+                                        <option value="14">14</option>
+                                        <option value="21">21</option>
+                                        <option value="28">28</option>
+                                    </select>
+
                                 </div>
                                 <div class="w-50 db-month" style="margin-top: 20px">
                                     <p>First Debit Month:</p>
@@ -4837,6 +4845,10 @@ generateSignature(1)
 generateSignature(2)
 generateSignature(3)
 generateSignature(4)
+
+
+
+
     $(document).ready(function () {
 
         //save this form using ajax
@@ -4926,6 +4938,8 @@ function saveCanvasAsImage() {
 }
 
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     for (const el of document.querySelectorAll("[placeholder][data-slots]")) {
         const pattern = el.getAttribute("placeholder"),
@@ -4962,6 +4976,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </script>
+
+
+
+
 
 </body>
 

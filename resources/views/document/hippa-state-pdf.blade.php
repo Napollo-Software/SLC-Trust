@@ -38,6 +38,7 @@
 
                 position: relative;
                 top: 2px;
+                height: 10px;
             }
             .no-border {
                 border: none;

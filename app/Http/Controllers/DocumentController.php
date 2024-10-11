@@ -358,9 +358,7 @@ class DocumentController extends Controller
     {
 
         $formattedDates = [];
-        if ($request->has('office_use_monthly_debit_date') && $request->office_use_monthly_debit_date) {
-            $formattedDates['office_use_monthly_debit_date'] = Carbon::parse($request->office_use_monthly_debit_date)->format('m/d/Y');
-        }
+       
 
         if ($request->has('office_use_date_approved') && $request->office_use_date_approved) {
             $formattedDates['office_use_date_approved'] = Carbon::parse($request->office_use_date_approved)->format('m/d/Y');

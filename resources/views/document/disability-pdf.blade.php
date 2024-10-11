@@ -188,6 +188,9 @@
         .inputLabel{
             margin-top:-3px !important;
         }
+        input[type="text"]{
+            height: 12px;
+        }
     </style>
 </head>
 

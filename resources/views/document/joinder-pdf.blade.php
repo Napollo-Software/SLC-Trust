@@ -81,6 +81,7 @@
         }
         input{
             vertical-align:middle;
+            /* height: 10px; */
         }
 
         .container-row {
@@ -127,6 +128,7 @@
         input[type="text"] {
             border: none;
             border-bottom: 1px solid black;
+            height: 10px;
         }
         thead tr td {
             border: 2px solid rgb(184 221 219);

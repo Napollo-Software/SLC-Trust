@@ -193,6 +193,7 @@
         }
         input{
             font-size: 10px;
+            height: 10px;
         }
         /* table tr:nth-child(2){
             position: relative;
@@ -258,7 +259,7 @@
                       style="box-sizing: border-box;width: 90%">{{$address_text}}</textarea> --}}
             <input type="text" value="{{$address_text}}" name="address_text"style="border:none;border-bottom:1px solid black;width: 90%;">
             <input type="text" value="{{$address_text2}}" name="address_text2"style="border:none;border-bottom:1px solid black;width: 90%;">
-            <input type="text" value="{{$address_text3}}" name="address_text3"style="border:none;border-bottom:1px solid black;width: 90%;position: relative;bottom: 2px;">
+            <input type="text" value="{{$address_text3}}" name="address_text3"style="border:none;border-bottom:1px solid black;width: 90%;position: relative;bottom: 2px;height:12px">
         </p>
         <p style="display: table-cell; width: 20%;margin-top: 5px;">
             <label style="font-size:11px">Date of Birth</label> <br>
@@ -281,7 +282,7 @@
 
             <label style="display:block;font-size:10px;margin-top: 10px;" for="">Case Number</label>
             <input type="text" name="case_number" class="no-border" value="{{$case_number}}"
-                   style="border:none;border-bottom:1px solid black;width: 85%; margin: 1px 0;">
+                   style="border:none;border-bottom:1px solid black;width: 85%; margin: 1px 0;height:8px">
         </p>
 
         <p style="display: table-cell; width: 20%;margin-top: 5px;">
