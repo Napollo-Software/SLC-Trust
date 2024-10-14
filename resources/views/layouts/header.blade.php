@@ -49,16 +49,13 @@
                                         <div class="user-online">
                                             <img src="{{ $item->user_details->avatar }}" class="msg-avatar" alt="user avatar">
                                         </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="msg-name">{{ $item->title }}<span class="msg-time float-end">{{ us_date_format($item->created_at) }}</span></h6>
-                                            <p class="msg-info">
-                                                @php
-                                                $itemDescription = $item->description;
-                                                $lineBreakAfter = 8;
-                                                $words = explode(' ', $itemDescription);
-
-                                                for ($i = 0, $count = count($words); $i < $count; $i++) { echo $words[$i] . ' ' . ($i % $lineBreakAfter===($lineBreakAfter - 1) ? '<br>' : '' ); } @endphp </div>
+                                        <div class="">
+                                            <h6 class="msg-name"><span class="msg-time float-end">{{ us_date_format($item->created_at) }}</span></h6>
+                                            <br>
+                                            <h6 class="msg-name">{{ $item->title }}</h6>
+                                            <p class="msg-info" style="text-wrap:wrap">{{ $item->description }}</p>
                                         </div>
+                                    </div>
                                 </a>
                                 @endforeach
                                 <div class="ps__rail-x" style="left: 0px; bottom: 0px;">

@@ -54,7 +54,7 @@ class claimsController extends Controller
 
             if ($role != 'User') {
 
-                $claims = Claim::with(['payee_details', 'user_details'])->orderBy('id', 'desc')->get();
+                $claims = Claim::with(['payee_details', 'user_details', 'transaction_details'])->orderBy('id', 'desc')->get();
                 $claim_details = Claim::with(['payee_details', 'user_details'])->orderBy('id', 'desc')->where('archived', null)->take(200)->get();
                 $all_users = User::all();
                 $total_users = DB::table('users')->count('id');
@@ -85,12 +85,12 @@ class claimsController extends Controller
                 $sum_pending_amount = DB::table('claims')->where('claim_user', Session::get('loginId'))->where('claim_status', 'pending')->sum('claim_amount');
                 $sum_claims = DB::table('claims')->where('claim_user', Session::get('loginId'))->count('id');
                 $sum_claims_amount = DB::table('claims')->where('claim_user', Session::get('loginId'))->sum('claim_amount');
-                $claims = Claim::orderBy('id', 'desc')->where('claim_user', Session::get('loginId'))->where('archived', null)->get();
+                $claims = Claim::with('transaction_details')->orderBy('id', 'desc')->where('claim_user', Session::get('loginId'))->where('archived', null)->get();
                 $claim_details = '';
 
             } else if ($role == 'Moderator') {
 
-                $claims = Claim::with(['payee_details', 'user_details'])->orderBy('id', 'desc')->where('archived', null)->get();
+                $claims = Claim::with(['payee_details', 'user_details', 'transaction_details'])->orderBy('id', 'desc')->where('archived', null)->get();
                 $all_users = User::all();
                 $total_users = DB::table('users')->count('id');
                 $user_balance = DB::table('users')->sum('user_balance');
@@ -116,9 +116,7 @@ class claimsController extends Controller
                 $transaction = $transaction->where('user_id', $userid->id)->where('chart_of_account', '');
             }
 
-            $data = compact('claims', 'search', 'claim_details', 'sum_processed', 'sum_claims', 'sum_claims_amount', 'sum_processed_amount', 'sum_pending', 'sum_processed_amount', 'sum_pending_amount', 'sum_approved', 'sum_approved_amount', 'sum_refused', 'sum_refused_amount', 'total_users', 'user_balance', 'all_users', 'transaction');
-
-            return view('dashboard')->with($data);
+            return view('dashboard', compact('claims', 'search', 'claim_details', 'sum_processed', 'sum_claims', 'sum_claims_amount', 'sum_processed_amount', 'sum_pending', 'sum_processed_amount', 'sum_pending_amount', 'sum_approved', 'sum_approved_amount', 'sum_refused', 'sum_refused_amount', 'total_users', 'user_balance', 'all_users', 'transaction'));
         }
 
     }

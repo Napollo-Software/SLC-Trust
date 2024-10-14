@@ -15,15 +15,7 @@ class Transaction extends Model
     const RenewalFee = "renewal_fee";
     const Adjustment = "adjustment";
 
-    protected $fillable = [
-        "type",
-        "credit",
-        "debit",
-        "status",
-        "user_id",
-        "reference_id",
-        "description",
-    ];
+    protected $guarded = [];
 
     public function user()
     {

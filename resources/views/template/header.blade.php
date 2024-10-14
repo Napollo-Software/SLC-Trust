@@ -2297,9 +2297,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
-                    <div class="col-md-12 col-sm-12 text-center">
-                        Copyright © 2022 <a href="#">Noa</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="https://napollo.net"> Napollo </a> All Rights Reserved
-                    </div>
+                    <div class="col-md-12 col-sm-12 text-center">SLC © {{ date('Y') }}</div>
                 </div>
             </div>
         </footer>
@@ -2310,7 +2308,7 @@
 
     <!-- SCRIPTS -->
     <!-- DEBUG-VIEW START 6 APPPATH\Views\layouts\components\scripts.php -->
-    
+
     <!-- BACK-TO-TOP -->
     <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
@@ -2330,16 +2328,16 @@
 
     <!-- STICKY JS -->
     <script src="http://localhost/Noa/assets/js/sticky.js"></script>
-    
+
     <!-- APEXCHART JS -->
     <script src="http://localhost/Noa/assets/js/apexcharts.js"></script>
-    
+
     <!-- INTERNAL SELECT2 JS -->
     <script src="http://localhost/Noa/assets/plugins/select2/select2.full.min.js"></script>
-    
+
     <!-- CHART-CIRCLE JS-->
     <script src="http://localhost/Noa/assets/js/circle-progress.min.js"></script>
-    
+
     <!-- INTERNAL DATA-TABLES JS-->
     <script src="http://localhost/Noa/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="http://localhost/Noa/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
@@ -2347,18 +2345,18 @@
 
     <!-- INDEX JS -->
     <script src="http://localhost/Noa/assets/js/index1.js"></script>
-    
+
     <!-- REPLY JS-->
     <script src="http://localhost/Noa/assets/js/reply.js"></script>
-    
+
     <!-- COLOR THEME JS -->
     <script src="http://localhost/Noa/assets/js/themeColors.js"></script>
 
-        
+
     <!-- CUSTOM JS -->
     <script src="http://localhost/Noa/assets/js/custom.js"></script>
-       
-    
+
+
 
 
 
