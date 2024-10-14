@@ -756,7 +756,8 @@ class AuthController extends Controller
         $user->email = $request->email;
         $res = $user->save();
         alert()->success('Profile updated!', 'Profile has been updated successfully!');
-        return Redirect::back();
+
+        return redirect("all_users");
     }
 
     public function add_user_balance(Request $request, $id)
@@ -854,7 +855,7 @@ class AuthController extends Controller
                 ]);
 
             }
-            
+
             // Handle registration fee if applicable
             if ($request->registration_fee) {
 
