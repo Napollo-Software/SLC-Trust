@@ -155,7 +155,6 @@
                             <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team.</p>
                         </td>
                     </tr>
-                    <tr></tr>
             </td>
         </tr>
     </table>

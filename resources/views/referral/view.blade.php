@@ -644,7 +644,7 @@ return $colors[$randomIndex];
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="surplus_amount" class="form-label">Surpus Amount</label>
+                                    <label for="surplus_amount" class="form-label">Surplus Amount</label>
                                     <input type="number" value="{{ $referral->bankAccount->surplus_amount }}" class="form-control" name="surplus_amount" id="surplus_amount" placeholder="Surplus amount">
                                 </div>
                             </div>

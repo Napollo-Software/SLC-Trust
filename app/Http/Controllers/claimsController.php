@@ -294,7 +294,7 @@ class claimsController extends Controller
 
                 $bill_message = "We are pleased to inform you that Bill #{$details->id} has been successfully added to your Senior Life Care account on " . date('m-d-Y', strtotime($claim->created_at)) . ". To view the details of your bill, please click the button below:";
 
-                SendBillJob::dispatch($claimUser, $url, $email_message, "bill_submitted");
+                SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_submitted");
 
                 $admins_notification = User::where('role', '!=', "User")->get();
                 $ignore_admin_notification = ignoreAdminEmails();

@@ -566,7 +566,7 @@ class AuthController extends Controller
 
         $user = User::find($id);
 
-        return view("add_balance",compact('user'));
+        return view("add_balance", compact('user'));
 
     }
 
@@ -575,7 +575,7 @@ class AuthController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view("edit_user",compact('user'));
+        return view("edit_user", compact('user'));
 
     }
 
@@ -835,22 +835,26 @@ class AuthController extends Controller
             // Deduct maintenance fee and record it as a debit
             $reference_id = generateTransactionId();
 
-            $maintenance_transaction = $user->transactions()->create([
-                "reference_id" => $reference_id,
-                "debit" => $maintenance_fee_amount,
-                "type" => Transaction::MaintenanceFee,
-                "description" => $customer_platform_fee_description,
-                "transaction_type" => \TransactionType::Operational
-            ]);
+            if ($maintenance_fee_amount > 0) {
 
-            $admin->transactions()->create([
-                "reference_id" => $reference_id,
-                "credit" => $maintenance_fee_amount,
-                "type" => Transaction::MaintenanceFee,
-                "description" => $platform_fee_description,
-                "transaction_type" => \TransactionType::Operational
-            ]);
+                $maintenance_transaction = $user->transactions()->create([
+                    "reference_id" => $reference_id,
+                    "debit" => $maintenance_fee_amount,
+                    "type" => Transaction::MaintenanceFee,
+                    "description" => $customer_platform_fee_description,
+                    "transaction_type" => \TransactionType::Operational
+                ]);
 
+                $admin->transactions()->create([
+                    "reference_id" => $reference_id,
+                    "credit" => $maintenance_fee_amount,
+                    "type" => Transaction::MaintenanceFee,
+                    "description" => $platform_fee_description,
+                    "transaction_type" => \TransactionType::Operational
+                ]);
+
+            }
+            
             // Handle registration fee if applicable
             if ($request->registration_fee) {
 
@@ -888,10 +892,10 @@ class AuthController extends Controller
                 "maintenance_transaction" => $maintenance_transaction,
             ])
                 ->setOption([
-                    'fontDir' => public_path('/fonts'),
-                    'fontCache' => public_path('/fonts'),
-                    'defaultFont' => 'Nominee-Black'
-                ])
+                        'fontDir' => public_path('/fonts'),
+                        'fontCache' => public_path('/fonts'),
+                        'defaultFont' => 'Nominee-Black'
+                    ])
                 ->setPaper('A4', 'portrait');
 
             $pdfLink = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
@@ -1017,10 +1021,10 @@ class AuthController extends Controller
 
         $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
             ->setOption([
-                'fontDir' => public_path('/fonts'),
-                'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Nominee-Black'
-            ])
+                    'fontDir' => public_path('/fonts'),
+                    'fontCache' => public_path('/fonts'),
+                    'defaultFont' => 'Nominee-Black'
+                ])
             ->setPaper('A4', 'portrait');
 
 

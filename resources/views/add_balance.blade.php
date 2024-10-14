@@ -9,7 +9,7 @@
     #hidden_div2 {
         display: none;
     }
-
+    
     .search-nav {
         padding-bottom: 5%;
     }
