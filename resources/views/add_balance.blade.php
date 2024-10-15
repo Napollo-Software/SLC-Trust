@@ -9,7 +9,7 @@
     #hidden_div2 {
         display: none;
     }
-    
+
     .search-nav {
         padding-bottom: 5%;
     }
@@ -18,7 +18,7 @@
 <div class="">
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
-       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>Add Balance</b> </div>
+        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>Add Balance</b> </div>
     </h5>
     <div class="row">
         <div class="col-lg-12 mb-10">
@@ -70,9 +70,12 @@
                                     <span class="text-danger"> {{$message}} </span>
                                     @enderror
                                 </div>
-                                <div class="col-lg-6 pt-2 ">
-                                    <input class="manual-check-ctrl" name="registration_fee" type="checkbox" @if ($user['registration_fee']=='1' ) disabled @endif id="charg-one-time-registration-checkbox">
-                                    <label for="exampleFormControlInput1" class="form-label">Charge one-time Registration Fee </label>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="registration_fee" class="form-label">Charge one-time Registration Fee</label>
+                                    <select class="form-control form-select" id="registration_fee" name="registration_fee" required>
+                                        <option selected value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
                                 </div>
                                 <div class="col-lg-6 pt-2 pb-2 d-none registration-div">
                                     <label for="exampleFormControlInput1" class="form-label">Registration Fee Amount ($)</label>
@@ -123,17 +126,17 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).on('click', '.manual-check-ctrl', function() {
-        if ($('.manual-check-ctrl').is(':checked')) {
+    $(document).on('change', '#registration_fee', function() {
+        var selectedValue = $(this).val();
+        if (selectedValue == "1") {
             $('.registration-div').removeClass('d-none');
             $('.registration_fee_amount').prop('required', true);
-            $('#charg-one-time-registration-checkbox').val(1);
         } else {
             $('.registration-div').addClass('d-none');
             $('.registration_fee_amount').prop('required', false);
-            $('#charg-one-time-registration-checkbox').val("");
         }
-    })
+    });
+
 
     function showDiv2(divId, element) {
         if (element.value == 'ACH') {
@@ -163,4 +166,5 @@
     }
 
 </script>
+
 @endsection
