@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Mail\Register;
 use App\Models\contacts;
 use App\Models\Referral;
+use Barryvdh\DomPDF\PDF;
 use App\Models\CheckList;
 use App\Models\Documents;
 use Illuminate\Http\Request;
@@ -464,18 +465,18 @@ class ReferralController extends Controller
         $referral->convert_to_customer = $user->id;
         $referral->save();
 
-        // $directory = storage_path('app/public/' . $user->email);
-        // if (!is_dir($directory)) {
-        //     mkdir($directory, 0777, true);
-        // }
+        $directory = storage_path('app/public/' . $user->email);
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
 
-        // $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
+        $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
-        // $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
 
-        // $pdf->save($savePath);
+        $pdf->save($savePath);
 
-        Mail::to($referral->email)->send(new ReferralConvertToCustomer($user));
+        Mail::to($referral->email)->send(new ReferralConvertToCustomer($user, $savePath));
 
         return response()->json(['success' => 'Customer created successfully!', "user" => $user]);
     }

@@ -20,7 +20,8 @@ class User extends Model
     {
         return $this->hasMany(Claim::class, 'claim_user');
     }
-    public function full_name(){
+    public function full_name()
+    {
         return "{$this->name} {$this->last_name}";
     }
     public function getAvatarAttribute($value)
@@ -56,11 +57,16 @@ class User extends Model
     {
         return date('m-d-Y', strtotime($date));
     }
+    public function getFormattedCreatedAtAttribute()
+    {
+        return date('Y-m-d H:i:s', strtotime($this->attributes['created_at']));
+    }
     public function getUpdatedAtAttribute($date)
     {
         return date('m-d-Y', strtotime($date));
     }
-    public function trasactions(){
+    public function trasactions()
+    {
         return Transaction::where('user_id', $this->id)->get();
     }
 

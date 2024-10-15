@@ -252,6 +252,7 @@ color:#69707a;
                             <span class="text-danger">@error('gender'){{$message}} @enderror</span>
                           </div>
                           <!-- Form Group (location)-->
+                          @if($role == 'User')
                           <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">Balance</label>
                             <input
@@ -263,6 +264,7 @@ color:#69707a;
                               disabled
                             />
                           </div>
+                          @endif
                       </div>
                       <div class="row gx-3">
                         <!-- Form Group (organization name)-->

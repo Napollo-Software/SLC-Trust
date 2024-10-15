@@ -109,7 +109,7 @@
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-collection"></i>
                             </div>
-                            <div class="menu-title d-flex align-items-center">Vendor</div>
+                            <div class="menu-title d-flex align-items-center">Vendors</div>
                             <div class="ms-auto dropy-icon"><i class="bx bx-chevron-down"></i></div>
                         </a>
                         <ul class="dropdown-menu">
@@ -120,11 +120,10 @@
                             @endif
                             @if ($user->hasPermissionTo('View Account'))
                             <li>
-                                <a class="dropdown-item {{in_array(Route::currentRouteName(),['vendors.list','view.vendors','edit.vendors'])? 'active' : '' }}" href="{{ route('vendors.list') }}"><i class="bx bx-user-pin"></i>All
-                                    Vendors</a></li>
+                                <a class="dropdown-item {{in_array(Route::currentRouteName(),['vendors.list','view.vendors','edit.vendors'])? 'active' : '' }}" href="{{ route('vendors.list') }}"><i class="bx bx-user-pin"></i>Vendors</a></li>
                             @if ($user->hasPermissionTo('View Contact'))
                             <li>
-                                <a class="dropdown-item {{Route::currentRouteName()==='contact.list' ? 'active' : '' }}" href="{{ route('contact.list') }}"><i class="bx bx-user-check"></i>List Contacts</a></li>
+                                <a class="dropdown-item {{Route::currentRouteName()==='contact.list' ? 'active' : '' }}" href="{{ route('contact.list') }}"><i class="bx bx-user-check"></i>Contacts</a></li>
                             @endif
                             @endif
                         </ul>
@@ -135,7 +134,7 @@
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-left-indent"></i>
                             </div>
-                            <div class="menu-title d-flex align-items-center">Lead</div>
+                            <div class="menu-title d-flex align-items-center">Leads</div>
                             <div class="ms-auto dropy-icon"><i class="bx bx-chevron-down"></i></div>
                         </a>
                         <ul class="dropdown-menu">
@@ -157,7 +156,7 @@
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-building"></i>
                             </div>
-                            <div class="menu-title d-flex align-items-center">Referral</div>
+                            <div class="menu-title d-flex align-items-center">Referrals</div>
                             <div class="ms-auto dropy-icon"><i class="bx bx-chevron-down"></i></div>
                         </a>
                         <ul class="dropdown-menu">

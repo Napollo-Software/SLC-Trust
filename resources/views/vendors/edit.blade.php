@@ -8,7 +8,7 @@
     <div class="">
         <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
-           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a>/ <a href="{{url('/vendors')}}" class="text-muted fw-light pointer"><b>All Vendors</b></a> / <b>Edit Vendor</b> </div>
+           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a>/ <a href="{{url('/vendors')}}" class="text-muted fw-light pointer"><b>Vendors</b></a> / <b>Edit Vendor</b> </div>
         </h5>
         <div class="row">
             <div class="col-xl-4">
