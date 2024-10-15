@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -13,7 +12,7 @@ class UserStatus extends Mailable
 
     public $user, $pdfPath;
 
-    public function __construct($user, $pdfPath = null)
+    public function __construct($user, $pdfPath)
     {
         $this->user = $user;
         $this->pdfPath = $pdfPath;
@@ -21,12 +20,12 @@ class UserStatus extends Mailable
 
     public function build()
     {
-        return $this->subject('Welcome to '.config('app.professional_name').' – Your Account Has Been Approved!')
+        return $this->subject('Welcome to ' . config('app.professional_name') . ' – Your Account Has Been Approved!')
             ->bcc(env('MAIL_BCC_ADDRESS'))
-            ->view('emails.userstatus');
-        // ->attach($this->pdfPath, [
-        //     'as' => 'approval_letter.pdf',
-        //     'mime' => 'application/pdf',
-        // ]);
+            ->view('emails.userstatus')
+            ->attach($this->pdfPath, [
+                'as' => 'approval_letter.pdf',
+                'mime' => 'application/pdf',
+            ]);
     }
 }

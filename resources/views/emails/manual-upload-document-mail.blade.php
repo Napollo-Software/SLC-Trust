@@ -155,20 +155,14 @@
                             </table>
                         </td>
                     </tr>
-
-
-
-
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please review and sign the document(s). Once the document(s) has been signed, please attach the scanned copy of the document(s) and send it at intake@slctrusts.com.</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please review and sign the document(s). Once the document(s) has been signed, please attach the scanned copy of the document(s) and send it at intake@slctrusts.com.</strong></p>
                         </td>
                     </tr>
-
-
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">For immediate assistance, please contact our support team at <strong>{{ config('app.contact') }}.</strong></p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">For immediate assistance, please contact our support team at <br> {{ config('app.contact') }}.</p>
                         </td>
                     </tr>
                     <tr>
@@ -182,6 +176,7 @@
                             <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team.</p>
                         </td>
                     </tr>
+                </table>
             </td>
         </tr>
     </table>

@@ -180,6 +180,7 @@
                                             @if ($u->status == 'Pending')
                                                 <div class="dropdown">
                                                     <button
+
                                                         class="btn pt-1 pb-1
                                                             @if ($u->status == 'Admitted') btn-primary
                                                             @elseif ($u->status == 'Pending') btn-primary
@@ -193,8 +194,6 @@
                                                     <div class="dropdown-menu"
                                                          aria-labelledby="statusDropdown{{ $u->id }}">
                                                         <a class="dropdown-item status-option" href="#"
-                                                           data-value="Pending">Pending</a>
-                                                        <a class="dropdown-item status-option" href="#"
                                                            data-value="Admitted">Admitted</a>
                                                         <a class="dropdown-item status-option" href="#"
                                                            data-value="Rejected">Rejected</a>
@@ -202,6 +201,7 @@
                                                 </div>
                                             @else
                                                 <button
+                                                 style="font-size:14px"
                                                     class="btn
                                                         @if ($u->status == 'Admitted') btn-secondary
                                                         @elseif ($u->status == 'Rejected') btn-warning @endif pt-1 pb-1">

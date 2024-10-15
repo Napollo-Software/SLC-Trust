@@ -136,18 +136,13 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">In the meantime, if you need any assistance, please don’t hesitate to contact us at <strong>{{ config('app.contact') }}</strong></p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">In the meantime, if you need any assistance, please don’t hesitate to contact us at {{ config('app.contact') }}</p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for choosing Senior Life Care. We look forward to serving you!</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Warm regards,</p>
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team.</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Best regards,</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The SLC Trusts Team</p>
                         </td>
                     </tr>
                     <tr></tr>

@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\EmergencyContacts;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\SMSController;
@@ -47,6 +46,9 @@ use App\Http\Controllers\ReleaseNotesController;
 //     return new Game();
 // });
 // dd(app()->make('Game'));
+
+
+Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::group(['prefix' => 'artisan'], function () {
     Route::get('/clear', function () {

@@ -170,27 +170,24 @@ class AuthController extends Controller
 
             $details = $user;
 
-            //     $directory = storage_path('app/public/' . $user->email);
-            //     if (!is_dir($directory)) {
-            //         mkdir($directory, 0777, true);
-            //     }
-            //     $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
-            // ->setOption([
-            //     'fontDir' => public_path('/fonts'),
-            //     'fontCache' => public_path('/fonts'),
-            //     'defaultFont' => 'Nominee-Black'
-            // ])
-            // ->setPaper('A4', 'portrait');
-            // $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
+            $directory = storage_path("app/public/$user->id");
+            if (!is_dir($directory)) {
+                mkdir($directory, 0777, true);
+            }
+            $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+                ->setOption([
+                    'fontDir' => public_path('/fonts'),
+                    'fontCache' => public_path('/fonts'),
+                    'defaultFont' => 'Nominee-Black'
+                ])
+                ->setPaper('A4', 'portrait');
 
 
-            // $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+            $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
 
-            // $pdf->save($savePath);
+            $pdf->save($savePath);
 
-            // Mail::to($request->email)->send(new \App\Mail\Register($details, $savePath));
-
-            Mail::to($request->email)->send(new \App\Mail\Register($details));
+            Mail::to($request->email)->send(new \App\Mail\Register($details, $savePath));
 
         } else {
 
@@ -566,7 +563,7 @@ class AuthController extends Controller
 
         $user = User::find($id);
 
-        return view("add_balance",compact('user'));
+        return view("add_balance", compact('user'));
 
     }
 
@@ -575,7 +572,7 @@ class AuthController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view("edit_user",compact('user'));
+        return view("edit_user", compact('user'));
 
     }
 
@@ -609,20 +606,28 @@ class AuthController extends Controller
 
                 $status = "Approved";
 
-                // $directory = storage_path("app/public/$user->email");
+                $details = $user;
 
-                // if (!is_dir($directory)) {
-                //     mkdir($directory, 0777, true);
-                // }
+                $directory = storage_path("app/public/$user->id");
 
-                // $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
+                if (!is_dir($directory)) {
+                    mkdir($directory, 0777, true);
+                }
 
-                // $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+                $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+                    ->setOption([
+                        'fontDir' => public_path('/fonts'),
+                        'fontCache' => public_path('/fonts'),
+                        'defaultFont' => 'Nominee-Black'
+                    ])
+                    ->setPaper('A4', 'portrait');
 
-                // $pdf->save($savePath);
+                $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
 
-                // Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $user->name, $savePath));
-                Mail::to($user->email)->send(new \App\Mail\UserStatus($user));
+                $pdf->save($savePath);
+
+                Mail::to($user->email)->send(new \App\Mail\UserStatus($details, $savePath));
+
 
             } elseif ($request->account_status == "Not Approved") {
                 $status = "Not Approved";
@@ -709,6 +714,7 @@ class AuthController extends Controller
             'email' => 'required|email',
             'billing_cycle' => 'required',
             'surplus_amount' => 'nullable|numeric|lt:10000|gt:0',
+            'password' => 'nullable|min:6|max:20',
             // 'dob' => 'date|before:'.$before,
         ], [
             'profile_pic.required' => 'Photo ID is required',
@@ -756,7 +762,8 @@ class AuthController extends Controller
         $user->email = $request->email;
         $res = $user->save();
         alert()->success('Profile updated!', 'Profile has been updated successfully!');
-        return Redirect::back();
+
+        return redirect("all_users");
     }
 
     public function add_user_balance(Request $request, $id)
@@ -835,21 +842,25 @@ class AuthController extends Controller
             // Deduct maintenance fee and record it as a debit
             $reference_id = generateTransactionId();
 
-            $maintenance_transaction = $user->transactions()->create([
-                "reference_id" => $reference_id,
-                "debit" => $maintenance_fee_amount,
-                "type" => Transaction::MaintenanceFee,
-                "description" => $customer_platform_fee_description,
-                "transaction_type" => \TransactionType::Operational
-            ]);
+            if ($maintenance_fee_amount > 0) {
 
-            $admin->transactions()->create([
-                "reference_id" => $reference_id,
-                "credit" => $maintenance_fee_amount,
-                "type" => Transaction::MaintenanceFee,
-                "description" => $platform_fee_description,
-                "transaction_type" => \TransactionType::Operational
-            ]);
+                $maintenance_transaction = $user->transactions()->create([
+                    "reference_id" => $reference_id,
+                    "debit" => $maintenance_fee_amount,
+                    "type" => Transaction::MaintenanceFee,
+                    "description" => $customer_platform_fee_description,
+                    "transaction_type" => \TransactionType::Operational
+                ]);
+
+                $admin->transactions()->create([
+                    "reference_id" => $reference_id,
+                    "credit" => $maintenance_fee_amount,
+                    "type" => Transaction::MaintenanceFee,
+                    "description" => $platform_fee_description,
+                    "transaction_type" => \TransactionType::Operational
+                ]);
+
+            }
 
             // Handle registration fee if applicable
             if ($request->registration_fee) {

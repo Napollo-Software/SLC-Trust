@@ -122,12 +122,12 @@ return $colors[$randomIndex];
                                 SMS
                             </a>
                         </li> --}}
-                        <li class="nav-item1 esign-tab">
+                        {{-- <li class="nav-item1 esign-tab">
                             <a class="nav-link  thumb" onclick="showTab('esign-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-file "></i>
                                 E-Sign / Document
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item1 attachment-tab">
                             <a class="nav-link  thumb" onclick="showTab('attachment-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-spreadsheet"></i>
@@ -613,7 +613,7 @@ return $colors[$randomIndex];
                                     <input type="date" class="form-control" id="debitDate">
                                 </div>
                             </div> -->
-                            <h2>Bank Info</h2>
+                            <p>Bank Info</p>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="account_type" class="form-label">Account Type</label>
@@ -644,7 +644,7 @@ return $colors[$randomIndex];
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="surplus_amount" class="form-label">Surpus Amount</label>
+                                    <label for="surplus_amount" class="form-label">Surplus Amount</label>
                                     <input type="number" value="{{ $referral->bankAccount->surplus_amount }}" class="form-control" name="surplus_amount" id="surplus_amount" placeholder="Surplus amount">
                                 </div>
                             </div>
@@ -2290,12 +2290,18 @@ enctype="multipart/form-data">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <script>
-     $('.convert-btn').on('click', function (e) {
+        $('.convert-btn').on('click', function (e) {
         e.preventDefault();
-        var id = $(this).attr('data-id');
+
+        var button = $(this);
+        var id = button.attr('data-id');
+
+        $('.convert-btn').attr('disabled', true);
+        button.text('Converting to customer...');
+
         Swal.fire({
             title: 'Need Approval!',
-            text: "Are you sure ,You want to convert this account to customer account",
+            text: "Are you sure you want to convert this account to a customer account?",
             icon: 'info',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -2303,7 +2309,6 @@ enctype="multipart/form-data">
             confirmButtonText: 'Yes, convert it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                $(this).text('Converting to customer...');
                 $.ajax({
                     type: "POST",
                     url: "{{ route('convert.to.referral') }}",
@@ -2312,20 +2317,25 @@ enctype="multipart/form-data">
                         id: id,
                     },
                     success: function (data) {
-                        swal.fire('success', data.success, 'success')
-                        $('.convert-btn').text('Converted to Customer');
-                        $('.convert-btn').attr('disabled',true);
-
-                        window.location.href="/show_user/"+data.user.id;
-
+                        Swal.fire('Success!', data.success, 'success');
+                        button.text('Converted to Customer');
+                        button.attr('disabled', true);
+                        window.location.href = "/show_user/" + data.user.id;
                     },
                     error: function (xhr) {
+
+                        button.text('Convert to Customer');
+                        $('.convert-btn').attr('disabled', false);
                         erroralert(xhr);
                     }
                 });
+            } else {
+                button.text('Convert to Customer');
+                $('.convert-btn').attr('disabled', false);
             }
-        })
-    })
+        });
+    });
+
 
     function showTab(tabName) {
         $("#alwaysShow").removeClass('d-none');

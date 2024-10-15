@@ -131,10 +131,9 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please click on the document(s) listed below, complete the required information, and submit. Once submitted, the forms will be automatically sent to our team for processing.</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please click the link below to access your document(s). Kindly complete the required information and submit it. Once submitted, the form(s) will be automatically sent to our team for processing.</p>
                         </td>
                     </tr>
-
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 20px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
                             <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" style="max-width: 600px;">
@@ -161,16 +160,14 @@
                             </table>
                         </td>
                     </tr>
-
-
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">For immediate assistance, please contact our support team at <strong>{{ config('app.contact') }}.</strong></p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">For immediate assistance, please contact our support team at <br> {{ config('app.contact') }}.</p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for your prompt attention to these documents!</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Thank you for your prompt attention to these document(s)!</p>
                         </td>
                     </tr>
                     <tr>
@@ -179,6 +176,7 @@
                             <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team.</p>
                         </td>
                     </tr>
+                </table>
             </td>
         </tr>
     </table>

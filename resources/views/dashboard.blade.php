@@ -34,9 +34,10 @@
     use App\Models\User;
     use Carbon\Carbon;
     use App\Models\PayeeModel;
-    $role = User::where('id', '=', Session::get('loginId'))->value('role');
-    $billing_method = User::where('id', '=', Session::get('loginId'))->value('billing_method');
-    $current_user_name = User::where('id', '=', Session::get('loginId'))->value('name');
+    $loggedInUser = User::where('id',Session::get('loginId'))->first();
+    $role = $loggedInUser->role;
+    $billing_method = $loggedInUser->billing_method;
+    $current_user_name = $loggedInUser->name;
     $current_user_balance = userBalance(Session::get('loginId'));
     $users = User::where('role', 'User')->get();
     ?>
@@ -177,9 +178,7 @@
                         </form>
                     </div>
                 </div>
-
                 <div class="card-body pt-1" style="margin-top: -35px">
-
                     <a class="btn btn-primary print-btn d-none" href="{{ route('printpage') }}" target="blank">Export<i class='bx bx-printer'></i></a>
                     <div class="dropdown download-btn">
                     </div>
@@ -275,10 +274,12 @@
                                                     @endif
                                                 </small> {{ $claim->card_number }}
                                                 <br>
+                                                @if($claim->transaction_details)
                                                 <small>Payment Date#
                                                     @if ($claim->claim_status == 'Partially approved' || $claim->claim_status == 'Approved')
                                                     {{ isset($claim->transaction_details->created_at) ? date('m/d/Y h:i A', strtotime($claim->transaction_details->created_at)) : '' }}
                                                     @endif
+                                                @endif
                                             </div>
                                         </div>
                                     </td>
@@ -297,7 +298,6 @@
                                         </a>
 
                                     </td>
-
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -341,9 +341,6 @@
                             ' has been deleted successfully!', 'success');
                         $('.row-' + id).addClass('d-none');
                         // window.location.reload();
-                    },
-                    error: function() {
-
                     }
                 })
             }
