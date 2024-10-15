@@ -131,7 +131,7 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Your registration request for SLC Trusts account has been received. Our team will be reviewing your profile. Once approved, you will receive a confirmation email within the next <strong>24 to 48 hours.</strong></p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Your registration request for SLC Trusts account has been received. Our team will be reviewing your profile. Once approved, you will receive a confirmation email within the next 24 to 48 hours.</p>
                         </td>
                     </tr>
                     <tr>
