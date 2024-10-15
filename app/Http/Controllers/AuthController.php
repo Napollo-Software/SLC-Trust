@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Hash;
 use Cookie;
 use Session;
-use Redirect;
 use Carbon\Carbon;
 use App\Models\City;
 use App\Models\Lead;

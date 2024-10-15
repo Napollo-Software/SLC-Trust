@@ -8,15 +8,16 @@ use App\Models\User;
 use App\Mail\Register;
 use App\Models\contacts;
 use App\Models\Referral;
-use Barryvdh\DomPDF\PDF;
 use App\Models\CheckList;
 use App\Models\Documents;
 use Illuminate\Http\Request;
 use App\Models\DocumentESign;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\EmergencyContacts;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReferralConvertToCustomer;
 use Illuminate\Support\Facades\Session;
+
 
 class ReferralController extends Controller
 {
@@ -465,12 +466,18 @@ class ReferralController extends Controller
         $referral->convert_to_customer = $user->id;
         $referral->save();
 
-        $directory = storage_path('app/public/' . $user->email);
+        $directory = storage_path("app/public/$user->id");
         if (!is_dir($directory)) {
             mkdir($directory, 0777, true);
         }
+        $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+            ->setOption([
+                'fontDir' => public_path('/fonts'),
+                'fontCache' => public_path('/fonts'),
+                'defaultFont' => 'Nominee-Black'
+            ])
+            ->setPaper('A4', 'portrait');
 
-        $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user]);
 
         $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
 
