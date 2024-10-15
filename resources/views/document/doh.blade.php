@@ -492,9 +492,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                             </div>
                             <div class="g-5" style="display: flex;flex-direction: column;">
                                 <label class="label-block" for="">Address (Street, City, State & Zip Code):</label>
-                                <input class="label-block w138" type="text"  name="address_text" value="{{$referral->address}}">
-                                <input class="label-block w138" type="text"  name="address_text2" value="{{$referral->city}} {{$referral->state}}" >
-                                <input style="margin-top: 2px;" class="label-block w138" type="text"  name="address_text3" value="{{$referral->zip_code}}">
+                                <input class="label-block w138" type="text"  name="address_text" value="{{$referral->address}}" maxlength="40">
+                                <input class="label-block w138" type="text"  name="address_text2" value="{{$referral->city}} {{$referral->state}}" maxlength="40">
+                                <input style="margin-top: 2px;" class="label-block w138" type="text"  name="address_text3" value="{{$referral->zip_code}}" maxlength="40">
                             </div>
                         </div>
             </div>
@@ -571,12 +571,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                 <label class="text-sm" for="">Diagnosis(es)</label>
                 {{-- <br> --}}
                 {{-- <textarea  rows="3" name="diagnosis" cols="50"></textarea> --}}
-                <input type="text" name="diagnosis" class="w87">
+                <input type="text" name="diagnosis" class="w87" maxlength="105">
                 <div>
-                    <input  class="w96" type="text" name="diagnosis2">
+                    <input  class="w96" type="text" name="diagnosis2" maxlength="120">
                 </div>
                 <div>
-                    <input  class="w96" type="text" name="diagnosis3">
+                    <input  class="w96" type="text" name="diagnosis3" maxlength="120">
                 </div>
                 {{-- <input type="text" name="diagnosis"> --}}
             </div>
@@ -750,7 +750,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
             <div class="w30">
                 <label for="">Office Address</label>
                 <br>
-                <input type="text" name="office_address" class="w90">
+                <input type="text" name="office_address" class="w90" maxlength="40">
             </div>
             <div class="w30">
                 <label for="">Office Phone Number</label>

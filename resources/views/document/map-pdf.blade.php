@@ -158,7 +158,7 @@
             <td style="font-family: 'ARIAL';font-size:11px;" colspan="4"><span style="position:relative;top:2px;font-size:11px">INFORMATION ABOUT DISABLED PERSON - PLEASE PRINT, TYPE, OR WRITE CLEARLY</span></td>
         </tr>
         <tr>
-            <td class="c-tr" colspan="2" >
+            <td class="c-tr" colspan="2" style="height: 90px" >
                 <label class="label-style" style="font-size: 10px;bottom:7px" for="Patient Name"><p style="margin:0;font-size:8.6px;line-height:1;margin-top:5px">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON HAD CONTACT WITH SOURCE (Include Zip Code)</p></label>
                 <input style="position: relative;right:5px" class="inp-style" type="text" name="source_contact_name_address" value="{{$source_contact_name_address}}">
             </td>
@@ -172,7 +172,7 @@
             </td>
         </tr>
         <tr>
-            <td class="c-tr" colspan="4">
+            <td class="c-tr" colspan="4" style="height: 80px">
                 <label class="label-style" style="bottom:7px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">APPROXIMATE DATES OF DISABLED PERSON'S CONTACT WITH SOURCE <span style="font-size: 12px">(e.g., dates of hospital admission, treatment, discharges, etc.)</span></p></label><br>
                 <input class="inp-style" type="text" name="disabled_contact_time" value="{{$disabled_contact_time}}" style="position: relative;right:5px;bottom:18px" >
             </td>
@@ -189,7 +189,7 @@
         not void this authorization, it will automatically end at the conclusion of any proceedings, administrative or
         judicial, in connection with my Medicaid application, including any appeals. If I am already receiving benefits,
         the authorization will end when a final decision is made as to whether I can continue to receive benefits.</p>
-    <table style="margin-top: 50px;">
+    <table style="margin-top: 15px;position:relative;top:10px">
         <tr>
             <td class="c-tr" colspan="2">
                 <label class="label-style">
@@ -209,7 +209,9 @@
                     (If other than self)
                     </p>
                 </label>
-                <input style="position:relative;right:5px" class="inp-style" type="text" name="disabled_relation_other" value={{$disabled_relation_other}}>
+                {{-- <input style="position:relative;right:5px" class="inp-style" type="text" name="disabled_relation_other" value={{$disabled_relation_other}}> --}}
+                <input class="inp-style" type="text" name="disabled_relation_other" value="{{$disabled_relation_other}}"
+                style="position:relative;right:5px">
             </td>
             <td class="c-tr" style="width: 15%;">
                 <label class="label-style" ><p style="margin:0;font-size:10px;font-family: 'ARIALBD'">DATE</p></label>
@@ -217,7 +219,7 @@
             </td>
         </tr>
         <tr>
-            <td class="c-tr" colspan="2" style="">
+            <td class="c-tr" colspan="2" style="height:60px">
                 <label class="label-style">
                     <p style="margin:0;font-size:10px;font-family: 'ARIALBD'">STREET ADDRESS</p>
                 </label>
@@ -228,8 +230,8 @@
                 <label class="label-style">
                     <p style="margin:0;font-size:10px;font-family: 'ARIALBD'">TELEPHONE NUMBER (include area code)</p>
                 </label>
-                <input class="inp-style" type="text" name="disabled_relation_street"
-                       value="{{$disabled_relation_street}}" style="position:relative;right:5px">
+                <input class="inp-style" type="text" name="disabled_relation_number"
+                       value="{{$disabled_relation_number}}" style="position:relative;right:5px">
             </td>
         </tr>
         <tr>

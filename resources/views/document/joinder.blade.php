@@ -2323,23 +2323,23 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                              <label style="font-style: normal;font-size:16px" class="label-name">Address:</label>
                              <div class="address-form-container">
                                  <div class="address-form">
-                                     <input type="text" name="sponsor_address"  value="{{$referral->address}}" id="address" class="address"> <br>
+                                     <input type="text" name="sponsor_address"  value="{{$referral->address}}" id="address" class="address" maxlength="35"> <br>
                                      <span>Address</span>
                                  </div>
                                  <div class="apt-form">
-                                     <input type="text" name="sponsor_apt" value="{{$referral->apt_suite}}" id="apt" class="apt"> <br>
+                                     <input type="text" name="sponsor_apt" value="{{$referral->apt_suite}}" id="apt" class="apt" maxlength="10"> <br>
                                      <span>Apt #</span>
                                  </div>
                                  <div class="city-form">
-                                     <input type="text" name="sponsor_city" value="{{$referral->city}}" id="city" class="city"> <br>
+                                     <input type="text" name="sponsor_city" value="{{$referral->city}}" id="city" class="city" maxlength="20"> <br>
                                      <span>City</span>
                                  </div>
                                  <div class="state-form">
-                                     <input type="text"  name="sponsor_state" value="{{$referral->state}}" id="state" class="state"> <br>
+                                     <input type="text"  name="sponsor_state" value="{{$referral->state}}" id="state" class="state" maxlength="15"> <br>
                                      <span>State</span>
                                  </div>
                                  <div class="zip-form">
-                                     <input type="text" name="sponsor_zip" value="{{$referral->zip_code}}" id="zip" class="zip"> <br>
+                                     <input type="text" name="sponsor_zip" value="{{$referral->zip_code}}" id="zip" class="zip" maxlength="6"> <br>
                                      <span>Zip</span>
                                  </div>
                              </div>
@@ -2350,15 +2350,15 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                              <div class="disabilities">
                                  <div class="d1-form">
                                      <span style="font-size: 16px;font-style: normal;font-weight: 600;">1.</span>
-                                     <input type="text" name="d1" id="d1" class="d1">
+                                     <input type="text" name="d1" id="d1" class="d1" maxlength="35">
                                  </div>
                                  <div class="d2-form">
                                      <span style="font-size: 16px;font-style: normal;font-weight: 600;">2.</span>
-                                     <input type="text" name="d2" id="d2" class="d2">
+                                     <input type="text" name="d2" id="d2" class="d2" maxlength="35">
                                  </div>
                                  <div class="d3-form">
                                      <span style="font-size: 16px;font-style: normal;font-weight: 600;">3.</span>
-                                     <input type="text" name="d3" id="d3" class="d3">
+                                     <input type="text" name="d3" id="d3" class="d3" maxlength="35">
                                  </div>
                              </div>
                          </div>
@@ -2503,31 +2503,31 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                               <input type="text"
                                                  class="inp-last"
                                                   id="authorized-contact-form-2-relationship"
-                                                  name="auth_rep_one_relation_beneficiary">
+                                                  name="auth_rep_one_relation_beneficiary" maxlength="35">
                                           </div>
                                       </div>
                                       <div class="authorized-address-form">
                                           <label style="font-style: normal" class="label-name">Address</label>
                                           <div class="address-form-container">
                                               <div class="address-form">
-                                                  <input type="text" name="auth_rep_one_address" id="address" class="address"> <br>
+                                                  <input type="text" name="auth_rep_one_address" id="address" class="address" maxlength="35"> <br>
                                                   <span >Address</span>
                                               </div>
                                               <div class="apt-form">
-                                                  <input type="text" name="auth_rep_one_apt" id="apt" class="apt"> <br>
+                                                  <input type="text" name="auth_rep_one_apt" id="apt" class="apt" maxlength="10"> <br>
                                                   <span>Apt #</span>
                                               </div>
                                               <div class="city-form">
-                                                  <input type="text" name="auth_rep_one_city" id="city" class="city"> <br>
+                                                  <input type="text" name="auth_rep_one_city" id="city" class="city" maxlength="20"> <br>
                                                   <span>City</span>
                                               </div>
                                               <div class="state-form">
-                                                  <input type="text" name="auth_rep_one_state" id="state" class="state"> <br>
+                                                  <input type="text" name="auth_rep_one_state" id="state" class="state" maxlength="15"> <br>
                                                   <span>State</span>
                                               </div>
                                               <div class="zip-form">
                                                   <input type="text"
-                                                  name="auth_rep_one_zip" id="zip" class="zip"> <br>
+                                                  name="auth_rep_one_zip" id="zip" class="zip" maxlength="6"> <br>
                                                   <span>Zip</span>
                                               </div>
                                           </div>
@@ -2612,30 +2612,30 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                   to Beneficiary</label>
                                               <input type="text" name="auth_rep_two_relation_beneficiary"
                                                   id="authorized-contact-form-2-relationship"
-                                                  class="authorized-contact-form-2-relationship">
+                                                  class="authorized-contact-form-2-relationship" maxlength="35">
                                           </div>
                                       </div>
                                       <div class="authorized-address-form">
                                           <label style="font-style: normal" class="label-name">Address</label>
                                           <div class="address-form-container">
                                               <div class="address-form">
-                                                  <input type="text" name="auth_rep_two_address" id="address" class="address"> <br>
+                                                  <input type="text" name="auth_rep_two_address" id="address" class="address" maxlength="35"> <br>
                                                   <span>Address</span>
                                               </div>
                                               <div class="apt-form">
-                                                  <input type="text" name="auth_rep_two_apt" id="apt" class="apt"> <br>
+                                                  <input type="text" name="auth_rep_two_apt" id="apt" class="apt" maxlength="10"> <br>
                                                   <span>Apt #</span>
                                               </div>
                                               <div class="city-form">
-                                                  <input type="text" name="auth_rep_two_city" id="city" class="city"> <br>
+                                                  <input type="text" name="auth_rep_two_city" id="city" class="city" maxlength="20"> <br>
                                                   <span>City</span>
                                               </div>
                                               <div class="state-form">
-                                                  <input type="text" name="auth_rep_two_state" id="state" class="state"> <br>
+                                                  <input type="text" name="auth_rep_two_state" id="state" class="state" maxlength="15"> <br>
                                                   <span>State</span>
                                               </div>
                                               <div class="zip-form">
-                                                  <input type="text" name="auth_rep_two_zip" id="zip" class="zip"> <br>
+                                                  <input type="text" name="auth_rep_two_zip" id="zip" class="zip" maxlength="6"> <br>
                                                   <span>Zip</span>
                                               </div>
                                           </div>
@@ -2676,23 +2676,23 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                               <span>Email</span>
                           </div>
                           <div class="address-form">
-                              <input type="text" name="referring_address" class="address"> <br>
+                              <input type="text" name="referring_address" class="address" maxlength="35"> <br>
                               <span>Address</span>
                           </div>
                           <div class="apt-form">
-                              <input type="text" name="referring_apt" class="apt"> <br>
+                              <input type="text" name="referring_apt" class="apt" maxlength="10"> <br>
                               <span>Apt #</span>
                           </div>
                           <div class="city-form">
-                              <input type="text" name="referring_city" id="city" class="city"> <br>
+                              <input type="text" name="referring_city" id="city" class="city" maxlength="20"> <br>
                               <span>City</span>
                           </div>
                           <div class="state-form">
-                              <input type="text" name="referring_state" id="state" class="state"> <br>
+                              <input type="text" name="referring_state" id="state" class="state" maxlength="15"> <br>
                               <span>State</span>
                           </div>
                           <div class="zip-form">
-                              <input type="text" name="referring_zip" id="zip" class="zip"> <br>
+                              <input type="text" name="referring_zip" id="zip" class="zip" maxlength="6"> <br>
                               <span>Zip</span>
                           </div>
 
@@ -2864,7 +2864,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                       <p>If the Beneficiary receives other benefits, such as
                           Food Stamps, HUD Section 8, etc. list these benefits <br>and monthly amounts
                           <input type="text" name="beneficiary_benefits"
-                              class="medicaid-information-footer-inp" id="medicaid-information-footer-inp">
+                              class="medicaid-information-footer-inp" id="medicaid-information-footer-inp" maxlength="95">
                       </p>
                   </div>
                 </div>
@@ -2965,7 +2965,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_ssi">
+                                                    <input style="border: none;" type="text"  name="applicant_ssi" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -2975,7 +2975,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_ssi">
+                                                    <input style="border: none;" type="text"  name="spouse_ssi" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -2988,7 +2988,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_ssdi">
+                                                    <input style="border: none;" type="text"  name="applicant_ssdi" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -2998,7 +2998,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_ssdi">
+                                                    <input style="border: none;" type="text"  name="spouse_ssdi" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3011,7 +3011,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_ssa">
+                                                    <input style="border: none;" type="text"  name="applicant_ssa" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3021,7 +3021,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_ssa">
+                                                    <input style="border: none;" type="text"  name="spouse_ssa" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3034,7 +3034,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_va_ben">
+                                                    <input style="border: none;" type="text"  name="applicant_va_ben" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3044,7 +3044,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_va_ben">
+                                                    <input style="border: none;" type="text"  name="spouse_va_ben" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3057,7 +3057,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_employee_ben">
+                                                    <input style="border: none;" type="text"  name="applicant_employee_ben" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3067,7 +3067,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_employee_ben">
+                                                    <input style="border: none;" type="text"  name="spouse_employee_ben" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3080,7 +3080,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_survivor_ben">
+                                                    <input style="border: none;" type="text"  name="applicant_survivor_ben" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3090,7 +3090,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_survivor_ben">
+                                                    <input style="border: none;" type="text"  name="spouse_survivor_ben" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3103,7 +3103,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_ira_dist">
+                                                    <input style="border: none;" type="text"  name="applicant_ira_dist" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3113,7 +3113,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_ira_dist">
+                                                    <input style="border: none;" type="text"  name="spouse_ira_dist" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3126,7 +3126,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_pension_annuities">
+                                                    <input style="border: none;" type="text"  name="applicant_pension_annuities" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3136,7 +3136,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_pension_annuities">
+                                                    <input style="border: none;" type="text"  name="spouse_pension_annuities" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3149,7 +3149,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_interest_dividends">
+                                                    <input style="border: none;" type="text"  name="applicant_interest_dividends" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3159,7 +3159,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_interest_dividends">
+                                                    <input style="border: none;" type="text"  name="spouse_interest_dividends" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3172,7 +3172,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_reparations">
+                                                    <input style="border: none;" type="text"  name="applicant_reparations" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3182,7 +3182,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_reparations">
+                                                    <input style="border: none;" type="text"  name="spouse_reparations" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3195,7 +3195,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="applicant_other">
+                                                    <input style="border: none;" type="text"  name="applicant_other" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3205,7 +3205,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                                     <span style="font-style: normal;font-family: math;font-size:16px">$</span>
                                                 </div>
                                                 <div>
-                                                    <input style="border: none;" type="text"  name="spouse_other">
+                                                    <input style="border: none;" type="text"  name="spouse_other" maxlength="20">
                                                 </div>
                                             </div>
                                           </td>
@@ -3304,12 +3304,12 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                             <!-- <div> -->
                                 <span style="min-width: fit-content;font-style:normal;font-size:16px">If yes, what is the monthly premium? $</span>
                                 <input type="text" name="healthcare_partb_premium" id="healthcare-pre"
-                                    style="border: none; border-bottom: 1px solid black; ">
+                                    style="border: none; border-bottom: 1px solid black;" maxlength="25">
                             <!-- </div> -->
                             <!-- <div style="width: 50%;"> -->
                                 <span style="min-width: fit-content;font-style:normal;font-size:16px"> Plan Name?</span>
                                 <input type="text" name="healthcare_partb_plan" id="healthcare-plan"
-                                    style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                    style="border: none; border-bottom: 1px solid black; flex: 1;" maxlength="25">
                             <!-- </div> -->
                         </div>
                     </div>
@@ -3401,12 +3401,12 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 >
                                     <p style="min-width: fit-content">Name of Insured</p>
                                     <input type="text" name="insured_name" id="healthcare-pre"
-                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;" maxlength="25">
                                 </div>
                                 <div  class="life-insurance-information-body-style">
                                     <p style="min-width: fit-content">Name of Owner</p>
                                     <input type="text" name="insured_owner" id="healthcare-plan"
-                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;" maxlength="25">
                                 </div>
                             </div>
                             <div style="display: flex;
@@ -3416,12 +3416,12 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 <div class="life-insurance-information-body-style">
                                     <p style="min-width: fit-content">Name of Insurance Company</p>
                                     <input type="text" name="insurance_company" id="healthcare-plan"
-                                        style="border: none; border-bottom: 1px solid black; width:100%">
+                                        style="border: none; border-bottom: 1px solid black; width:100%" maxlength="20">
                                 </div>
                                 <div class="life-insurance-information-body-style">
                                     <p style="min-width: fit-content">Policy #</p>
                                     <input type="text" name="insurance_policy_number" id="healthcare-plan"
-                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;" maxlength="20">
                                 </div>
                             </div>
                             <div class="life-insurance-type">
@@ -3439,13 +3439,13 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                         <input type="radio" name="type_of_policy1" value="Life" id="life-insurance-life">
                                         <label style="font-style: normal;font-size:16px" for="life-insurance-life">Life</label>
                                         <input type="text" name="healthcare_plan2" id="healthcare-plan"
-                                            style="border: none; border-bottom: 1px solid black; flex:1" maxlength="9">
+                                            style="border: none; border-bottom: 1px solid black; flex:1" maxlength="10">
                                     </div>
                                 </div>
                                 <div class="cs-value">
                                     <p style="min-width: fit-content">Cash Surrender Value $ </p>
                                     <input type="text" name="cash_surrender_value" id="healthcare-plan"
-                                        style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                        style="border: none; border-bottom: 1px solid black; flex: 1;" maxlength="20">
                                 </div>
                             </div>
 
@@ -3514,7 +3514,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                         
                         <div style="flex: 1;">
                             <input type="text" name="living_arrangement_other" id="healthcare-plan"
-                                style="border: none; border-bottom: 1px solid black; width: 100%;">
+                                style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="75">
                         </div>
                     </div>
 
@@ -3685,27 +3685,27 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 </div>
                                 <div class="w-35">
                                     <input type="text" name="power_address" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="35"> <br>
                                     <label for="">Address</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="number" name="power_apt" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <input type="text" name="power_apt" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="10"> <br>
                                     <label for="">Apt #</label>
                                 </div>
                                 <div class="w-25">
                                     <input type="text" name="power_city" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="20"> <br>
                                     <label for="">City</label>
                                 </div>
                                 <div class="w-10">
                                     <input type="text" name="power_state" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="15"> <br>
                                     <label for="">State</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="number" name="power_zip" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <input type="text" name="power_zip" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="6"> <br>
                                     <label for="">Zip</label>
                                 </div>
                             </div>
@@ -3791,27 +3791,27 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 </div>
                                 <div class="w-35">
                                     <input type="text" name="power_address2" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="35"> <br>
                                     <label for="">Address</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="number" name="power_apt2" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <input type="text" name="power_apt2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="10"> <br>
                                     <label for="">Apt #</label>
                                 </div>
                                 <div class="w-25">
                                     <input type="text" name="power_city2" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="20"> <br>
                                     <label for="">City</label>
                                 </div>
                                 <div class="w-10">
                                     <input type="text" name="power_state2" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="15"> <br>
                                     <label for="">State</label>
                                 </div>
                                 <div class="w-10">
-                                    <input type="number" name="power_zip2" id=""
-                                        style="width: 100%; border: none; border-bottom: 1px solid black;"> <br>
+                                    <input type="text" name="power_zip2" id=""
+                                        style="width: 100%; border: none; border-bottom: 1px solid black;" maxlength="6"> <br>
                                     <label for="">Zip</label>
                                 </div>
                             </div>
@@ -4012,11 +4012,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     gap: 10px;
                                     width: 100%;">
                                     <input type="text" name="beneficiary_service_one" id=""
-                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;" maxlength="35">
                                     <input type="text" name="beneficiary_service_two" id=""
-                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;" maxlength="35">
                                     <input type="text" name="beneficiary_service_three" id=""
-                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;" maxlength="35">
                                 </div>
 
 
@@ -4030,11 +4030,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     gap: 10px;
                                     width: 90%;">
                                     <input type="text" name="beneficiary_provider_one" id=""
-                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;" maxlength="35">
                                     <input type="text" name="beneficiary_provider_two" id=""
-                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;" maxlength="35">
                                     <input type="text" name="beneficiary_provider_three" id=""
-                                    style="width: 90%; border: none; border-bottom: 1px solid black;">
+                                    style="width: 90%; border: none; border-bottom: 1px solid black;" maxlength="35">
                                 </div>
 
 
@@ -4444,11 +4444,11 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     <div class="signature-of-notary-body">
                         <div style="display: flex; gap: 3px;">
                             <p>STATE OF</p>
-                            <input type="text" name="notary_state_of_ny" id="" style="border: none; border-bottom: 1px solid black;">
+                            <input type="text" name="notary_state_of_ny" id="" style="border: none; border-bottom: 1px solid black;" maxlength="22">
                         </div>
                         <div style="display: flex; gap: 3px;">
                             <p>COUNTY OF</p>
-                            <input type="text" name="notary_county_of" id="" style="border: none; border-bottom: 1px solid black;">
+                            <input type="text" name="notary_county_of" id="" style="border: none; border-bottom: 1px solid black;" maxlength="25">
                         </div>
                         <div class="sig-para">
                             <div style="display: flex;gap:5px">
@@ -4457,7 +4457,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                         </div>
                             <div style="display: flex;gap:5px">
                                 <p> , 20</p>
-                            <input type="number" name="notary_year" id="" style="border: none; border-bottom: 1px solid black;">
+                            <input type="text" name="notary_year" id="" style="border: none; border-bottom: 1px solid black;" maxlength="6">
                             <p> before me, the</p>
                             </div>
                         </div>
@@ -4468,7 +4468,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                             <p style="font-size: 16px;">personally appeared,</p>
                         </div>
                         <div style="width: 30%;">
-                            <input type="text" name="notary_appeared" id="" style="border: none; border-bottom: 1px solid black; width: 97%;">
+                            <input type="text" name="notary_appeared" id="" style="border: none; border-bottom: 1px solid black; width: 97%;" maxlength="35">
                             <span>,</span>
                         </div>
                         <div>
@@ -4484,7 +4484,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     </div>
                                         <div style="width: 40%;">
                                             <input type="text" name="notary_public" id=""
-                                                style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                                style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="45"> <br>
                                             <p style="font-size: 13px; margin-top: 5px;">NOTARY PUBLIC</p>
                                         </div>
                                 </div>
@@ -4534,7 +4534,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 </div>
                                 <div class="w-80">
                                     <input type="text" name="notary_witness_one_full_address" id=""
-                                        style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                        style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="50"> <br>
                                     <label for="">Full Address</label>
                                 </div>
 
@@ -4567,7 +4567,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     </div>
                                     <div style="width: 100%;">
                                         <input type="text" name="notary_witness_two_full_address" id=""
-                                            style="border: none; border-bottom: 1px solid black; width: 100%;"> <br>
+                                            style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="50"> <br>
                                         <label for="">Full Address</label>
                                     </div>
                                 </div>
@@ -4635,7 +4635,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                         <div class="for-office-use-only-2-body">
                             <div class="for-office-use-only-2-body-style">
                                 <label  style="font-size: 0.9rem;  min-width: fit-content; font-style:normal " for="">Member ID#:</label>
-                                <input type="text" name="office_use_member_id_above" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;">
+                                <input type="text" name="office_use_member_id_above" id="" style="border: none; border-bottom: 1px solid black; background-color: hsl(185.45deg 40.74% 94.71%); width: 70%;" maxlength="15">
                             </div>
                             <div class="for-office-use-only-2-body-style">
                                 <label style="font-size: 0.9rem;  min-width: fit-content; font-style:normal" for="">Effective Date:</label>
@@ -4654,33 +4654,33 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                         <div style="display: flex; justify-content: center; align-items: center;gap:5px">
                             <label style="font-style: normal" for="">Donor/Beneficiary</label>
                             <div style="flex: 1;">
-                                <input type="text" name="direct_debit_donor_beneficiary" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                                <input type="text" name="direct_debit_donor_beneficiary" id="" style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="80">
                             </div>
                         </div>
 
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px">
                         <label style="font-style: normal" for="">Representative</label>
                         <div style="flex: 1;">
-                            <input type="text" name="direct_debit_representative" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            <input type="text" name="direct_debit_representative" id="" style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="80">
                         </div>
                     </div>
                     <div class="direct-debit-bank">
                     <div style="display: flex; justify-content: center; align-items: center; gap:5px" class="w-50">
                         <label style="font-style: normal" for="">Bank Name</label>
                         <div style="flex: 1;">
-                            <input type="text" name="direct_debit_bank_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            <input type="text" name="direct_debit_bank_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="25">
                         </div>
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-25">
                         <label style="font-style: normal" for="">City</label>
                         <div style="flex: 1;">
-                            <input type="text" name="direct_debit_city" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            <input type="text" name="direct_debit_city" id="" style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="20">
                         </div>
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-25">
                         <label style="font-style: normal" for="">State</label>
                         <div style="flex: 1;">
-                            <input type="text" name="direct_debit_state" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            <input type="text" name="direct_debit_state" id="" style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="25">
                         </div>
                     </div>
                 </div>
@@ -4688,13 +4688,13 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-48">
                         <label style="font-style: normal" for="">Bank Routing Number </label>
                         <div style="flex: 1;">
-                            <input type="text" name="direct_debit_bank_routing" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            <input type="text" name="direct_debit_bank_routing" id="" style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="20">
                         </div>
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-48">
                         <label style="font-style: normal" for="">Account Number</label>
                         <div style="flex: 1;">
-                            <input type="text" name="direct_debit_account_number" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            <input type="text" name="direct_debit_account_number" id="" style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="20">
                         </div>
                     </div>
                 </div>
@@ -4702,7 +4702,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     <div style="display: flex; justify-content: center; align-items: center;gap:5px" class="w-70">
                         <label style="font-style: normal" for="">Account Name</label>
                         <div style="flex: 1;">
-                            <input type="text" name="direct_debit_account_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;">
+                            <input type="text" name="direct_debit_account_name" id="" style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="40">
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; gap: 8px;flex-wrap:wrap">
@@ -4764,19 +4764,19 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     <div class="for-office-use-3-body">
                                 <div style="display: flex; align-items: center;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Account #:</p>
-                                    <input class="mad1" type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input class="mad1" type="text" name="office_use_account_number" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75" maxlength="25">
                                 </div>
                                 <div style="display: flex; align-items: center;gap:5px;flex-wrap:wrap" class="w-50">
                                     <p>Member #:</p>
-                                    <input class="mad1" type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input class="mad1" type="text" name="office_use_member_id_below" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75" maxlength="15">
                                 </div>
                                 <div style="display: flex;align-items: center; margin-top: 20px;gap:5px;flex-wrap:wrap " class="w-50 pro-bt">
                                     <p>Processed By:</p>
-                                    <input class="mad1"  type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;">
+                                    <input class="mad1"  type="text" name="office_use_processed_by" id="healthcare-pre" style="border: none; border-bottom: 1px solid black; flex: 1;" maxlength="30">
                                 </div>
                                 <div  class="w-50 mda" style="gap:5px;margin-top: 20px">
                                     <p>Monthly Debit Amount: $</p>
-                                    <input type="text" name="office_use_monthly_debit_amount" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input type="text" name="office_use_monthly_debit_amount" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75" maxlength="15">
                                 </div>
                                 <div style="margin-top: 20px;">
                                     <p>Monthly dates for direct debit are as follows: 1, 3, 7, 14, 21, 28 (debit will occur on or around the date selected)</p>
@@ -4795,7 +4795,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 </div>
                                 <div class="w-50 db-month" style="margin-top: 20px">
                                     <p>First Debit Month:</p>
-                                    <input class="mad1" type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75">
+                                    <input class="mad1" type="text" name="office_use_monthly_debit_first_month" id="healthcare-pre" style="border: none; border-bottom: 1px solid black;" class="f-75" maxlength="15">
                                 </div>
                     </div>
                     <div style="width: 80%; margin: auto;">

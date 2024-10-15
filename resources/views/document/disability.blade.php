@@ -275,6 +275,7 @@
             padding:10px;
             font-family:'info-normal'
         }
+        
         .italic{
             font-family:'info_web-italic'
         }
@@ -424,7 +425,7 @@
                                 <div class='p-0 text-center font-bold' style='font-size:22px'>PART I – INFORMATION ABOUT YOUR MEDICAL CONDITIONS</div>
                                 <div class='flex-col gap-15'>
                                     <p class='text-left'>A. Please list all of your medical conditions (diagnoses):</p>
-                                    <textarea name="medical_conditions" rows="10" cols=""></textarea>
+                                    <textarea name="medical_conditions" rows="10" cols="" maxlength="800"></textarea>
                                 </div>
                             </div>
                         </td>
@@ -433,7 +434,7 @@
                         <td>
                             <div class='flex-col gap-15'>
                                 <p class='text-left'>B. How do your medical conditions affect your ability to function? (Please include any limitations in your ability to perform activities of daily living and work-related activities.)</p>
-                                <textarea rows="10" cols="" name="medical_condition_impact"></textarea>
+                                <textarea rows="10" cols="" name="medical_condition_impact" maxlength="800"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -441,7 +442,7 @@
                         <td>
                             <div class='flex-col gap-15'>
                                 <p class='text-left'>C. Please list your medications (or attach a list)</p>
-                                <textarea rows="10" cols="" name="medications"></textarea>
+                                <textarea rows="10" cols="" name="medications" maxlength="800"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -473,7 +474,7 @@
                                 </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'>(If “Yes”, please provide name, address, phone number.)</p>
-                            <textarea rows="10" cols="" name="care_provider_text"></textarea>
+                            <textarea rows="10" cols="" name="care_provider_text" maxlength="900"></textarea>
                         </div>
                         </td>
                     </tr>
@@ -524,10 +525,10 @@
                                 <input type='text'class='border-none' name="medical_provider_1_phone">
                             </div>
                         </td>
-                        <td rowspan='2' style='vertical-align:top'>
+                        <td rowspan='2' style='vertical-align:top;'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="medical_provider_1_address">
+                                <textarea rows="2" class='border-none' name="medical_provider_1_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -552,10 +553,10 @@
                                 <input type='text'class='border-none' name="medical_provider_2_phone">
                             </div>
                         </td>
-                        <td rowspan='2' style='vertical-align:top'>
+                        <td rowspan='2' style='vertical-align:top;'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="medical_provider_2_address">
+                                <textarea rows="2" class='border-none' name="medical_provider_2_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -580,10 +581,10 @@
                                 <input type='text'class='border-none' name="medical_provider_3_phone">
                             </div>
                         </td>
-                        <td rowspan='2' style='vertical-align:top'>
+                        <td rowspan='2' style='vertical-align:top;'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="medical_provider_3_address">
+                                <textarea rows="2" class='border-none' name="medical_provider_3_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -635,7 +636,7 @@
                         <td rowspan='2' style='vertical-align:top'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="medicare_rec_1_address">
+                                <textarea rows="2" class='border-none' name="medicare_rec_1_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -663,7 +664,7 @@
                         <td rowspan='2' style='vertical-align:top'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="medicare_rec_2_address">
+                                <textarea rows="2" class='border-none' name="medicare_rec_2_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -691,7 +692,7 @@
                         <td rowspan='2' style='vertical-align:top'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="medicare_rec_3_address">
+                                <textarea rows="2" class='border-none' name="medicare_rec_3_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -743,7 +744,7 @@
                         <td rowspan='2' style='vertical-align:top'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="agency_1_address">
+                                <textarea rows="2" class='border-none' name="agency_1_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -771,7 +772,7 @@
                         <td rowspan='2' style='vertical-align:top'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="agency_2_address">
+                                <textarea rows="2" class='border-none' name="agency_2_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -799,7 +800,7 @@
                         <td rowspan='2' style='vertical-align:top'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Address:</p>
-                                <input type='text'class='border-none' name="agency_3_address">
+                                <textarea rows="2" class='border-none' name="agency_3_address" maxlength="120"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -880,7 +881,7 @@
                                 </div>
                                 <span style='padding-left:1rem' class='italic'> (If “Yes”, please describe.)</span>
                             </div>
-                            <textarea rows="10" cols="" name="special_help_text"></textarea>
+                            <textarea rows="10" cols="" name="special_help_text" maxlength="600"></textarea>
                             <p class='text-left italic' style='padding-left:0.8rem'>(If you have a copy of your IEP, please include it with the returned forms.)</p>
                         </div>
                         </td>
@@ -900,7 +901,7 @@
                                 </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'> (If “Yes”, please describe.)</p>
-                            <textarea rows="10" cols="" name="vocational_training_text"></textarea>
+                            <textarea rows="10" cols="" name="vocational_training_text" maxlength="600"></textarea>
                         </div>
                         </td>
                     </tr>
@@ -949,7 +950,7 @@
                                 </div>
                             </div>
                             <p class='text-left italic' style='padding-left:0.8rem'>  (If “Yes”, please indicate your primary language.)</p>
-                            <textarea rows="10" cols="" name="interpreter_text"></textarea>
+                            <textarea rows="10" cols="" name="interpreter_text" maxlength="600"></textarea>
                         </div>
                         </td>
                     </tr>
@@ -1003,7 +1004,7 @@
                         <td data-label='Job Title'>
                             <div class='form-row gap-5 align-items-end'>
                                 <span class='nowrap font-bold'>Number of hours/week:</span>
-                                <input type='text' name="hours_one" style='width:45%'>
+                                <input type='number' name="hours_one" style='width:45%'>
                             </div>
                         </td>
                         <td data-label='Type of business'>
@@ -1019,7 +1020,7 @@
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea name="duties_one" class='w-full' rows='5'></textarea>
+                                <textarea name="duties_one" class='w-full' rows='5' maxlength="600"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1095,7 +1096,7 @@
                         <td>
                             <div class='form-row gap-5 align-items-end'>
                                 <span class='nowrap font-semibold'>Number of hours/week:</span>
-                                <input type='text' style='width:45%' name="hours_two">
+                                <input type='number' style='width:45%' name="hours_two">
                             </div>
                         </td>
                         <td>
@@ -1111,7 +1112,7 @@
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea rows='5' class='w-full' name="duties_two"></textarea>
+                                <textarea rows='5' class='w-full' name="duties_two" maxlength="600"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1185,7 +1186,7 @@
                         <td>
                             <div class='form-row gap-5 align-items-end'>
                                 <span class='nowrap font-bold'>Number of hours/week:</span>
-                                <input type='text' style='width:45%' name="hours_three">
+                                <input type='number' style='width:45%' name="hours_three">
                             </div>
                         </td>
                         <td>
@@ -1201,7 +1202,7 @@
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea class="pl-5 w-full" rows='5' name="duties_three"></textarea>
+                                <textarea class="pl-5 w-full" rows='5' name="duties_three" maxlength="600"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1289,7 +1290,7 @@
                         <td>
                             <div class='form-row gap-5 align-items-end'>
                                 <span class='nowrap font-semibold'>Number of hours/week:</span>
-                                <input type='text' style='width:45%' name="hours_four">
+                                <input type='number' style='width:45%' name="hours_four">
                             </div>
                         </td>
                         <td>
@@ -1305,7 +1306,7 @@
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea class="pl-5 w-full" rows='5' name="duties_four"></textarea>
+                                <textarea class="pl-5 w-full" rows='5' name="duties_four" maxlength="600"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1395,7 +1396,7 @@
                                 <span class='nowrap'>
                                     Describe your basic duties:
                                 </span>
-                                <textarea class="pl-5 w-full" rows='5' name="duties_five"></textarea>
+                                <textarea class="pl-5 w-full" rows='5' name="duties_five" maxlength="600"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -1442,7 +1443,8 @@
                     </tr>
                 </table>
                 <div class='form-row'>
-                    <textarea rows="15" name="undef" cols="" class='w-full' style='border:1px solid'></textarea>
+                    {{-- <textarea rows="15" name="undef" cols="" class='w-full' style='border:1px solid' maxlength="1200"></textarea> --}}
+                    <textarea rows="15" cols="" class="w-full" name="undef" maxlength="1000"></textarea>
                 </div>
                 <table>
                 <tr>

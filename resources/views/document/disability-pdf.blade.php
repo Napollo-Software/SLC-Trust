@@ -413,7 +413,7 @@
                 <p class="sm">
                     A. Please list all of your medical conditions (diagnoses):
                 </p>
-                <textarea class="noborder" style="width: 100%;  height: 132px;"
+                <textarea class="noborder" style="width: 100%;  height: 140px;"
                           name="medical_conditions">{{$medical_conditions}}</textarea>
             </td>
         </tr>
@@ -426,7 +426,7 @@
                     <span style="margin-left:6px;padding-left:6px"> living and work-related activities.)</span>
                   
                 </p>
-                <textarea class="noborder" style="width: 100%; height: 132px;"
+                <textarea class="noborder" style="width: 100%; height: 140px;"
                           name="medical_condition_impact">{{$medical_condition_impact}}</textarea>
             </td>
         </tr>
@@ -435,13 +435,13 @@
                 <p class="sm mt-0">
                     C. Please list your medications (or attach a list).
                 </p>
-                <textarea class="noborder" style="width: 100%; height: 132px;"
+                <textarea class="noborder" style="width: 100%; height: 140px;"
                           name="medications">{{$medications}}</textarea>
             </td>
         </tr>
     </table>
     <hr>
-    <p style="font-size: 10px;">DOH-5139 06/24 Page 1 of 5 </p>
+    <p style="font-size: 10px;margin:0">DOH-5139 06/24 Page 1 of 5 </p>
 
     <br>
     <table style="text-align: start !important;">
@@ -477,7 +477,7 @@
                 </p>
                 <p class="sm italic" style="margin-left:6px;padding-left:6px; margin-top:-3px">(If “Yes”, please provide name, address, phone number.)</p>
                 <textarea
-                    style="  border-bottom: 1px solid black;border-top: none;border-left: none;border-right: none; height: 65px;width:100%">{{$care_provider_text}}</textarea>
+                    style="  border-bottom: 1px solid black;border-top: none;border-left: none;border-right: none; height: 125px;width:100%">{{$care_provider_text}}</textarea>
             </td>
         </tr>
         <tr>
@@ -537,7 +537,7 @@
             <td style="height: 15px !important;padding:0 3px !important" colspan="2">
                 <p style="margin: 0;padding: 0 0px;">Reason for seeing:</p>
                 <input type="text" value="{{$medical_provider_1_reason}}" class="noborder"
-                       style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="medical_provider_1_reason">
             </td>
         </tr>
@@ -556,7 +556,7 @@
             <td style="height: 15px !important;padding:0 3px !important;vertical-align: top;" rowspan="2">
                 <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medical_provider_2_address}}" class="noborder"
-                       style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%"
                        name="medical_provider_2_address">
             </td>
         </tr>
@@ -651,7 +651,7 @@
             <td style="height: 15px !important;padding:0 3px !important;vertical-align: top;" rowspan="2">
                 <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medicare_rec_2_address}}" class="noborder"
-                       style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%"
                        name="medicare_rec_2_address">
             </td>
         </tr>
@@ -743,7 +743,7 @@ case management agencies, etc.).
             <td style="height: 15px !important;padding:0 3px !important;vertical-align: top;" rowspan="2">
                 <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$agency_2_address}}" class="noborder"
-                       style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%"
                        name="agency_2_address">
             </td>
         </tr>
@@ -852,7 +852,7 @@ case management agencies, etc.).
                     No   &nbsp; &nbsp; <span class="italic">(If “Yes”, please describe.)</span> 
                     <p style="margin-top:-15px !important;padding-top:-15px !important" ></p>
                 <textarea class=""
-                          name="special_help_text" style="height: 100px;">{{$special_help_text}} </textarea>
+                          name="special_help_text" style="height: 145px;">{{$special_help_text}} </textarea>
                 <p style="margin-left:10px;margin-bottom:3px;" class="italic">(If you have a copy of your IEP, please include it with the returned forms.)
                 </p>
             </td>
@@ -876,7 +876,7 @@ case management agencies, etc.).
                 </p>
 
                 <textarea class="noborder"
-                          name="vocational_training_text" style="height: 155px;">{{$vocational_training_text}}</textarea>
+                          name="vocational_training_text" style="height: 145px;">{{$vocational_training_text}}</textarea>
 
             </td>
         </tr>
@@ -927,7 +927,7 @@ case management agencies, etc.).
                 </p>
 
                 <textarea class="noborder"
-                          name="interpreter_text" style="height: 165px;">{{$interpreter_text}}</textarea>
+                          name="interpreter_text" style="height: 145px;">{{$interpreter_text}}</textarea>
             </td>
         </tr>
     </table>
@@ -990,7 +990,7 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_one}}" name="job_title_one"
                 style=" height:34px;width:100%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" style="width:140px" name="hours_one"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" style="width:35px;" name="hours_one"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
@@ -1109,7 +1109,7 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_two}}" name="job_title_two"
                 style=" height:34px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_two}}" name="hours_two" style="width:140px"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_two}}" name="hours_two" style="width:35px;"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
@@ -1229,7 +1229,7 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_three}}" name="job_title_three"
                 style=" height:34px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" name="hours_one" style="width:140px"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_one}}" name="hours_one" style="width:35px;"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
@@ -1355,7 +1355,7 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_four}}" name="job_title_four"
                 style=" height:34px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_four}}" name="hours_four" style="width:140px"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_four}}" name="hours_four" style="width:35px;"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
@@ -1474,7 +1474,7 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:0">
                 <input type="text" value="{{$job_title_five}}" name="job_title_five"
                 style=" height:34px;width:101%;" class="border-btm xs">
-                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_five}}" name="hours_five" style="width:140px"
+                <p style=" margin-top: 4px;margin-bottom:2px;margin-left:3px;padding:0;height:25px;vertical-align:middle;" class="sm semiBold" >Number of hours/week:  <input type="text" value="{{$hours_five}}" name="hours_five" style="width:35px;"
                 class="border-btm xs"> </p>
             </td>
             <td style="margin: 0;padding:0">
@@ -1573,7 +1573,7 @@ case management agencies, etc.).
     <br>
 
     <div style="border:1px solid black; height:200px;padding-top:13px">
-        <Textarea style="width: 100%;padding-top:10px;padding-top:10px;padding-left:5px" name="undef" class="noborder">{{$undef}}</Textarea>
+        <textarea style="width: 100%;padding-top:10px;padding-top:10px;padding-left:5px;height:170px" name="undef" class="noborder">{{$undef}}</textarea>
     </div>
     <br>
     <table>

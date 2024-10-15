@@ -202,7 +202,7 @@
             </td>
         </tr>
         <tr style="border-width: 0.5px;margin:0;padding: 0;">
-            <td style="border-width: 0.5px;margin:0;width:240px">
+            <td style="border-width: 0.5px;margin:0;width:240px;height:60px">
                 <label style="font-size: 12px;" for="Address">Address:</label>
                 <input type="text" name="address" class="no-border text-sm" value="{{$address}}" style="width: 95%">
             </td>
@@ -268,7 +268,7 @@
                 <p style='padding:0;' class='m-0'>7. Name and address of the health provider or entity authorized to release this information:</p>
             </div>
             <div>
-                <input type="text" name="name_address" class="no-border text-sm" style="width: 100%" value="{{$name_address}}">
+                <input type="text" name="name_address" class="no-border text-sm" style="width: 100%;" value="{{$name_address}}">
                 <hr class='line'>
                 <p style='padding:0;margin:0px' class=''>8. Name and address of person(s) or agency to whom this information is to be sent:</p>
             </div>

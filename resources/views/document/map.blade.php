@@ -403,7 +403,7 @@ textarea{
             <tr>
                 <td style="width:50%">
                     <label for="Patient Name">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON HAD CONTACT WITH SOURCE (Include Zip Code) </label><br>
-                    <textarea name="source_contact_name_address" style="margin-top: 5px" rows="4" id=""></textarea>
+                    <textarea name="source_contact_name_address" style="margin-top: 5px" rows="4" id="" maxlength="150"></textarea>
                 </td>
                 <td style="width:23%"> 
                     <label for="Patient Name">DATE OF BIRTH</label><br><br>
@@ -424,7 +424,7 @@ textarea{
                         treatment, discharges,
                         etc.)
                     </label><br>
-                    <input type="text" name="disabled_contact_time" style="margin-top:5px">
+                    <textarea rows="3" name="disabled_contact_time" style="margin-top:5px" maxlength="300"></textarea>
                 </td>
             </tr>
 
@@ -487,7 +487,7 @@ textarea{
                         RELATION TO DISABLED PERSON<br/>
                         (If other than self)
                     </label><br>
-                    <input type="text" name="disabled_relation_other" style="margin-top: 5px">
+                    <textarea rows="3" name="disabled_relation_other" style="margin-top: 5px" maxlength="100"></textarea>
                 </td>
                 <!-- <td style="width: 20%;">
                     <label>DISABLED PERSON'S I.D.
@@ -503,17 +503,17 @@ textarea{
                 </td>
             </tr>
             <tr>
-                <td colspan="1" style="padding-top:2px !important">
+                <td colspan="1" style="padding-top:2px !important;">
                     <label>
                         STREET ADDRESS
                     </label><br>
-                    <input type="text" name="disabled_relation_street" style="margin-top: 5px;" value="{{$referral->address}}">
+                    <textarea rows="2" name="disabled_relation_street" style="margin-top: 5px;" maxlength="100"></textarea>
                 </td>
                 <td colspan="2" style="padding-top:2px !important">
                     <label>
-                        TELEPHONE NUMBER (include area code))
+                        TELEPHONE NUMBER (include area code)
                     </label><br>
-                    <input type="text" name="disabled_relation_street" style="margin-top: 5px" style="">
+                    <input type="text" name="disabled_relation_number" style="margin-top: 5px" style="">
                 </td>
             </tr>
             <tr>

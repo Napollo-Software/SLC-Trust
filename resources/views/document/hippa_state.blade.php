@@ -455,7 +455,7 @@ hr{
                 <td style="border-left:none;padding-left:0px">
                     <div class="flex-col">
                         <label for="Address" style="margin-top: 1px;" class="semi-bold">Address:</label>
-                        <input type="text"  name="address" class="input-full" value="{{$referral->address}}">
+                        <textarea rows="2"  name="address" class="input-full" maxlength="100">{{$referral->address}}</textarea>
                     </div>
                 </td>
                 <td>
@@ -513,12 +513,12 @@ hr{
             </ol>
         </div>
 
-        <input type="text" name="name_address2"   class="input-full">
+        <input type="text" name="name_address2" class="input-full" maxlength="160">
 
         <hr style="height:0.5px">
         <div class="flex-col">
             <p class="no-space" style="margin-bottom:2px !important">7. Name and address of the health provider or entity authorized to release this information:</p>
-            <input type="text" name="name_address"   class="input-full">
+            <input type="text" name="name_address" class="input-full" maxlength="160">
         </div>
         <hr/>
         <div class="flex-col">

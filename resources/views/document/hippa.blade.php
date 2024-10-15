@@ -551,7 +551,7 @@ input[type="radio"]:checked:before {
                 <td colspan="3" >
                     <label for="Address">Patient Address</label><br>
                     <input type="text" name="hippa_address" class="new_input input-full mt-5" style="margin-top: 3px;"
-                           value="{{$referral->address}},{{$referral->city}},{{$referral->state}},{{$referral->country}},{{$referral->zip_code}}">
+                           value="{{$referral->address}},{{$referral->city}},{{$referral->state}},{{$referral->country}},{{$referral->zip_code}}" maxlength="130">
                 </td>
             </tr>
         </table>
@@ -593,13 +593,13 @@ input[type="radio"]:checked:before {
             <tr >
                 <td colspan="2">
                     <label>7. Name and address of health provider or entity to release this information:</label>
-                    <input type="text" class="input-full mt-5" name="health_provider">
+                    <input type="text" class="input-full mt-5" name="health_provider" maxlength="135">
                 </td>
             </tr>
             <tr >
                 <td colspan="2">
                     <label>8. Name and address of person(s) or category of person to whom this information will be sent:</label>
-                    <input type="text" class="input-full mt-5" name="name_and_address">
+                    <input type="text" class="input-full mt-5" name="name_and_address" maxlength="135">
                 </td>
             </tr>
             <tr>

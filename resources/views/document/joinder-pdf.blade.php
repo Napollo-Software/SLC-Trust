@@ -573,19 +573,19 @@
                 <div style="display: table-cell">
                     <label style="margin: 0;">
                         <label>1.</label>
-                        <input type="text" value="{{ $d1 }}"  name="d1">
+                        <input type="text" value="{{ $d1 }}"  name="d1" style="width: 85%">
                     </label>
                 </div>
                 <div style="display: table-cell">
                     <label style="margin: 0;">
                         <label>2.</label>
-                        <input type="text" value="{{ $d2 }}"  name="d2">
+                        <input type="text" value="{{ $d2 }}" name="d2" style="width: 85%">
                     </label>
                 </div>
                 <div style="display: table-cell">
                     <label style="margin: 0;">
                         <label>3.</label>
-                        <input type="text" value="{{ $d3 }}"   name="d3">
+                        <input type="text" value="{{ $d3 }}" name="d3" style="width: 85%">
                     </label>
                 </div>
                </div>
@@ -890,7 +890,7 @@
                             <label class="italic">Address</label>
                         </div>
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 95%">
+                            <input type="text" value="{{ $auth_rep_one_apt }}" name="auth_rep_one_apt" style="width: 90%">
                             <label class="italic">Apt #</label>
                         </div>
                         <div style="display: table-cell">
@@ -997,7 +997,7 @@
                             <label class="italic">Address</label>
                         </div>
                         <div style="display: table-cell">
-                            <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 95%">
+                            <input type="text" value="{{ $auth_rep_two_apt }}" name="auth_rep_two_apt" style="width: 90%">
                             <label class="italic">Apt #</label>
                         </div>
                         <div style="display: table-cell">
@@ -1112,7 +1112,7 @@
                         <label class="italic">Address</label>
                     </div>
                     <div style="display: table-cell;margin-top:6px;padding-top:7px">
-                        <input type="text" value="{{ $referring_apt }}" name="referring_apt" style="width:95%">
+                        <input type="text" value="{{ $referring_apt }}" name="referring_apt" style="width:90%">
                         <label class="italic">Apt #</label>
                     </div>
                     <div style="display: table-cell;margin-top:6px;padding-top:7px">
@@ -1321,7 +1321,7 @@
                 <input
                  type="text" class="no-border"
                  name="beneficiary_benefits"
-                 value="{{ $beneficiary_benefits }}" style="width: 73%"
+                 value="{{ $beneficiary_benefits }}" style="width: 80%"
                  >
             </div>
         </div>
@@ -1691,7 +1691,7 @@
                             <label>Name of Insured</label>
                             <input type="text" value="{{ $insured_name }}" name="insured_name" />
                             <label>Name of Owner</label>
-                            <input type="text" value="{{ $insured_name }}" name="insured_name" />
+                            <input type="text" value="{{ $insured_owner }}" name="insured_owner" />
                         </div>
                 </div>
                 <div style="display: table-row;">
@@ -1717,7 +1717,7 @@
                                 {{ isset($type_of_policy1) && $type_of_policy1 === 'Life' ? 'checked' : '' }}>
                             Life
                         </label>
-                        <input type="text" value="name{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;width:83px">
+                        <input type="text" value="{{ $healthcare_plan2 }}" class="no-border" name="healthcare_plan2" style="margin-left: 5px;width:83px">
                         <span style='padding-top:5px;margin-top:5px'>
                             <label>Cash Surrender Value $</label>
                             <input type="text" value="{{ $cash_surrender_value }}" name="cash_surrender_value" style="margin-left: 5px;vertical-align: middle">
@@ -2163,20 +2163,20 @@
             <p class="sm" style="display: table-cell; vertical-align: top; padding-right: 20px;float:left;">
                 Service
                 <input type="text" value="{{ $beneficiary_service_one }}" class="no-border xs"
-                    name="beneficiary_service_one"><br>
+                    name="beneficiary_service_one" style="width: 75%"><br>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" value="{{ $beneficiary_service_two }}" class="no-border xs"
-                    name="beneficiary_service_two" style="margin-top: 8px"><br>
+                    name="beneficiary_service_two" style="margin-top: 8px;width: 75%"><br>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" value="{{ $beneficiary_service_three }}" class="no-border"
-                    name="beneficiary_service_three" style="margin-top: 8px" class="xs">
+                    name="beneficiary_service_three" style="margin-top: 8px;width: 75%" class="xs">
             </p>
             <p class="md" style="display: table-cell; vertical-align: top; text-align: left;float:right;">
                 Name of Provider
                 <input type="text" value="{{ $beneficiary_provider_one }}" class="no-border xs"
-                    name="beneficiary_provider_one"><br>
+                    name="beneficiary_provider_one" style="width: 55%"><br>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="text" value="{{ $beneficiary_provider_two }}" class="no-border xs"
-                    name="beneficiary_provider_two" style="margin-top: 8px"><br>
+                    name="beneficiary_provider_two" style="margin-top: 8px;width: 55%"><br>
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" value="{{ $beneficiary_provider_three }}" class="no-border"
-                    name="beneficiary_provider_three" style="margin-top: 8px" class="xs">
+                    name="beneficiary_provider_three" style="margin-top: 8px;width: 55%" class="xs">
             </p>
         </div>
     </div>
