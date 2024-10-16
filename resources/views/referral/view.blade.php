@@ -227,6 +227,30 @@ return $colors[$randomIndex];
                         </div>
                     </div>
                 </div>
+                <div class="border-top patient-card" id="second-tab" style="display:none">
+                    <div class="wideget-user-tab">
+                        <div class="tab-menu-heading d-flex justify-content-between align-items-center flex-md-row flex-column px-md-3">
+                            <div class="tabs-menu1 order-md-1 order-2 ">
+                                <ul class="nav py-0 px-0">
+                                    <div>
+                                        <li>
+                                        <a href="#referral_detail" data-bs-toggle="tab" class="active pb-3 px-0 mx-2  mb-sm-0 mb-3">Account</a>
+                                        </li>
+                                    </div>
+                                    <div>
+                                        <li>
+                                            <a href="#emergency_detail" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Emergency Details</a>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                            <div class="order-md-2 order-1 pt-md-0 pt-3 pl-3 status-field mx-2" style=" ">
+
+                                <span class="fw-bold">Status: </span>{{ $referral->status }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="tab-content p-0">
                 <div class="tab-pane show" id="profileMain">
@@ -976,21 +1000,10 @@ return $colors[$randomIndex];
             </div>
         </div>
         <div class="card patient-card d-none" id="patientCard">
+        <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
+            <h4 class="px-3">Patient</h4>
+        </div>
             <div class="card-body px-0">
-                <div class="row align-items-center px-5">
-                    <div class="wideget-user-tab" style="margin-left:-10px !important; margin-top:-10px !important;">
-                        <div class="tab-menu-heading">
-                            <div class="tabs-menu1">
-                                <ul class="nav pb-4">
-                                    <li><a href="#referral_detail" data-bs-toggle="tab" class="active py-0 px-0 mr-3">Account</a>
-                                    </li>
-                                    <li><a href="#emergency_detail" data-bs-toggle="tab" class="py-0 px-0">Emergency Details</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="tab-content">
                     <div class="col-md-12 px-0 tab-pane active" id="referral_detail">
                         <div class="form-group px-3">
@@ -2338,6 +2351,15 @@ enctype="multipart/form-data">
 
 
     function showTab(tabName) {
+
+        if(tabName == 'patient-card')
+        {
+            $("#second-tab").show();
+        }
+        else {
+            $("#second-tab").hide();
+        }
+
         $("#alwaysShow").removeClass('d-none');
         $(".services-card").addClass('d-none');
         $(".patient-card").addClass('d-none');
