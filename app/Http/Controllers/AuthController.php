@@ -571,7 +571,13 @@ class AuthController extends Controller
 
         $user = User::findOrFail($id);
 
-        return view("edit_user", compact('user'));
+        $vod_document_links = $user->transactions()
+            ->select('vod_link')
+            ->whereNotNull('vod_link')
+            // ->distinct()
+            ->pluck('vod_link');
+
+        return view("edit_user", compact('user', 'vod_document_links'));
 
     }
 
@@ -886,7 +892,7 @@ class AuthController extends Controller
                 ]);
             }
 
-            $directory = storage_path("app/public/$user->id");
+            $directory = public_path("storage/{$user->id}/vod_letters");
             if (!is_dir($directory)) {
                 mkdir($directory, 0777, true);
             }
@@ -904,9 +910,19 @@ class AuthController extends Controller
                 ])
                 ->setPaper('A4', 'portrait');
 
-            $pdfLink = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
+            $file_name = 'trusted_' . date('Ymd_His') . ".pdf";
+
+            $pdfLink = "$directory/$file_name";
 
             $pdf->save($pdfLink);
+
+            $deposit_transaction->update(["vod_link" => $file_name]);
+            if ($maintenance_transaction) {
+                $maintenance_transaction->update(["vod_link" => $file_name]);
+            }
+            if ($registration_transaction) {
+                $registration_transaction->update(["vod_link" => $file_name]);
+            }
 
             $details = $user;
 
