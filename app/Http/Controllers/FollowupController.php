@@ -47,26 +47,37 @@ class FollowupController extends Controller
 
     public function noteStore(Request $request)
     {
-
         $this->validate($request, [
-            'to' => 'required',
-            'from' => 'required',
-            'note' => 'required',
-        ]);
-        $followup = new Followup();
-        $followup->from = $request->input('from');
-        $followup->to = $request->input('to');
-        $followup->date = date('Y-m-d');
-        $followup->time = date('H:i:s');
-        $followup->note = $request->input('note');
-        $followup->save();
-        $type = new Type();
-        $type->category = $request->type === "other" ? "Designation" : $request->type;
-        $type->name = $request->type === "other" ? "Designation" : $request->type;
+            'note_id' => 'nullable|numeric|exists:followups,id',
+            'to' => 'required|integer',
+            'from' => 'required|integer',
+            'note' => 'required|string|max:255',
+            'type' => 'nullable|string'
+        ], ['note_id.exists' => 'Note not found to be edited']);
 
-        $type->save();
-        return response()->json(['success' => true, 'note' => $followup]);
+        $followup = Followup::updateOrCreate(
+            ['id' => $request->note_id],
+            [
+                'from' => $request->from,
+                'to' => $request->to,
+                'date' => date('Y-m-d'),
+                'time' => date('H:i:s'),
+                'note' => $request->note,
+            ]
+        );
+
+        if ($request->has('type')) {
+            Type::create([
+                'category' => $request->type === 'other' ? 'Designation' : $request->type,
+                'name' => $request->type === 'other' ? 'Designation' : $request->type,
+            ]);
+        }
+
+        $message = $request->note_id ? 'Note updated successfully.' : 'Note created successfully.';
+
+        return response()->json(['success' => true, 'message' => $message, 'note' => $followup]);
     }
+
 
     public function edit($id)
     {
