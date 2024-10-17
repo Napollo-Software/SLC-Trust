@@ -163,7 +163,7 @@
 }
 input{
     background: #e9e9e9;
-    border-radius: 2px;
+    /* border-radius: 2px; */
     border: 1px solid #b2b2b2;
     font-size: 12px;
     padding: 2px 6px;
@@ -609,14 +609,14 @@ input[type="radio"]:checked:before {
                         </p>
                         
                         <div style="margin-left:31px" class="row">
-                        <input type="checkbox" name="info_released1" value="dated">
+                        <input type="radio" name="info_released1" value="dated">
                         Medical Record from (insert date) <input type="date" max="9999-12-31" class="inputDate"  name="info_released_from"> to
                         (insert date) <input
                             type="date" max="9999-12-31" class="inputDate"  name="info_released_to">
 
                     </div>
                     <div style="padding: 0;margin: 0;align-items: flex-start !important;margin-left:31px" class="row">
-                        <input type="checkbox" name="info_released2" value="Entire_med">
+                        <input style="margin-top: 6px" type="radio" name="info_released1" value="Entire_med">
                         <p style="margin-top:4px"> Entire Medical Record, including patient histories, office notes (except psychotherapy notes), test
                         results, radiology studies, films,
                            lass   referrals, consults, billing records, insurance records, and records sent to you by other health
@@ -627,10 +627,10 @@ input[type="radio"]:checked:before {
                     <div class="row nine-container" style="padding: 0;align-items: flex-start !important;margin-top:4px">
                         <div style="padding: 0;margin: 0" class="row">
                             <div class="row" >
-                                <input type="checkbox" name="info_released3" value="other">
+                                <input type="radio" name="info_released1" value="other">
                                 <p>Other:</p>
                             </div>
-                            <input type="text"class="border-btm" style="" name="info_other">
+                            <input type="text"class="border-btm" name="info_other" style="position: relative;top:8px;height:12px" maxlength="20">
                         </div>
                         <div style="padding: 0;margin: 0;">
                             <p>Include: (Indicate by Initialing) </p>
@@ -653,12 +653,12 @@ input[type="radio"]:checked:before {
                          <input type="checkbox"  name="discuss" value="discuss">
                          <p>By initialing here</p>
                          <div>
-                             <input type="text" class="border-btm" name="authorised_person" style="height:30px;margin:0;height:14px" >
+                             <input type="text" class="border-btm" name="authorised_person" style="height:30px;margin:0;height:14px" maxlength="20" >
                              <p class="sm" style="text-align:center">Initials</p>
                          </div>
                          <p>I authorize</p>
                          <div style="width:55%">
-                             <input type="text" class="border-btm" name="authorize"  style="width:100%;height:30px;margin:0;height:14px">
+                             <input type="text" class="border-btm" name="authorize"  style="width:100%;height:30px;margin:0;height:14px" maxlength="70">
                              <p class="sm" style="text-align:center">Name of individual healath care provider</p>
                          </div>
 
@@ -666,7 +666,7 @@ input[type="radio"]:checked:before {
                     <div style="max-width: 100%; text-align: center;">
                         <div style="text-align: start;margin-left: 2.75%; margin-right:3.78%" class="mt-5" >
                             to discuss my health information with my attorney, or a governmental agency, listed here:
-                                <input type="text" class="border-btm" name="health_information"  style="width:100%;height:30px;margin:0;height:14px">
+                                <input type="text" class="border-btm" name="health_information"  style="width:100%;height:30px;margin:0;height:14px" maxlength="125">
                         </div>
                        
                     </div>
@@ -687,7 +687,7 @@ input[type="radio"]:checked:before {
                             <input type="radio" name="request" value="reason">
                             <p>Other:</p>
                         </div>
-                        <input type="text" class="" style="width:56%;height:24px" name="reason_other"  >
+                        <input type="text" class="" style="width:56%;height:24px" name="reason_other" maxlength="40"  >
                     </div>
                 </td>
                 <td style="width:50%;vertical-align: top;">
@@ -695,7 +695,7 @@ input[type="radio"]:checked:before {
                         <p>
                             11. Date or event on which this authorization will expire:
                         </p>
-                        <input type="text" class="input-full mt-5" name="date_or_event">
+                        <input type="text" class="input-full mt-5" name="date_or_event" maxlength="65">
 
                     </div>
                 </td>
@@ -704,14 +704,14 @@ input[type="radio"]:checked:before {
                 <td>
                     <div class="flex-col">
                         <p>12. If not the patient, name of person signing form:</p>
-                        <input type="text" class="input-full" name="person_signing">
+                        <input type="text" class="input-full" name="person_signing" maxlength="55">
 
                     </div>
                 </td>
                 <td>
                     <div>
                         <p>13. Authority to sign on behalf of patient:</p>
-                        <input class="input-full mt-5" type="text" name="authority_sign">
+                        <input class="input-full mt-5" type="text" name="authority_sign" maxlength="55">
                     </div>
                 </td>
             </tr>

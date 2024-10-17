@@ -563,8 +563,11 @@
         <tr style="height: 15px !important;padding:0 3px!important;">
             <td style="height: 15px !important;padding:0 3px !important;" colspan="2">
                 <p style="margin: 0;padding: 0 0px;">Reason for seeing:</p>
-                <input type="text" value="{{$medical_provider_2_reason}}" class="noborder"
+                {{-- <input type="text" value="{{$medical_provider_2_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       name="medical_provider_2_reason"> --}}
+                <input type="text" value="{{$medical_provider_2_reason}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="medical_provider_2_reason">
             </td>
         </tr>
@@ -590,8 +593,11 @@
         <tr style="height: 15px !important;">
             <td style="height: 15px !important;padding:0 3px!important;" colspan="2">
                 <p style="margin: 0;padding: 0 0px;">Reason for seeing:</p>
-                <input type="text" value="{{$medical_provider_3_reason}}" class="noborder"
+                {{-- <input type="text" value="{{$medical_provider_3_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       name="medical_provider_3_reason"> --}}
+                <input type="text" value="{{$medical_provider_3_reason}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="medical_provider_3_reason">
             </td>
         </tr>
@@ -636,8 +642,11 @@
         <tr style="height: 15px !important;padding:0px !important">
             <td style="height: 15px !important;padding:0px 3px !important" colspan="2">
                 <p style="margin: 0;padding: 0;">Reason:</p>
-                <input type="text" value="{{$medicare_rec_1_reason}}" class="noborder"
+                {{-- <input type="text" value="{{$medicare_rec_1_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       name="medicare_rec_1_reason"> --}}
+                <input type="text" value="{{$medicare_rec_1_reason}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="medicare_rec_1_reason">
             </td>
         </tr>
@@ -658,8 +667,11 @@
         <tr style="height: 15px !important;padding:0 3px!important;">
             <td style="height: 15px !important;padding:0 3px !important;" colspan="2">
                 <p style="margin: 0;padding: 0 0px;">Reason:</p>
-                <input type="text" value="{{$medicare_rec_2_reason}}" class="noborder"
+                {{-- <input type="text" value="{{$medicare_rec_2_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       name="medicare_rec_2_reason"> --}}
+                <input type="text" value="{{$medicare_rec_2_reason}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="medicare_rec_2_reason">
             </td>
         </tr>
@@ -679,9 +691,12 @@
         </tr>
         <tr style="height: 15px !important;">
             <td style="height: 15px !important;padding:0 3px!important;" colspan="2">
-                <p style="margin: 0;padding: 0 0px;">Reason for seeing:</p>
-                <input type="text" value="{{$medicare_rec_3_reason}}" class="noborder"
+                <p style="margin: 0;padding: 0 0px;">Reason:</p>
+                {{-- <input type="text" value="{{$medicare_rec_3_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       name="medicare_rec_3_reason"> --}}
+                <input type="text" value="{{$medicare_rec_3_reason}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="medicare_rec_3_reason">
             </td>
         </tr>
@@ -728,8 +743,11 @@ case management agencies, etc.).
         <tr style="height: 15px !important;padding:0px !important">
             <td style="height: 15px !important;padding:0px 3px !important" colspan="2">
                 <p style="margin: 0;padding: 0;">Reason:</p>
-                <input type="text" value="{{$agency_1_reason}}" class="noborder"
+                {{-- <input type="text" value="{{$agency_1_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       name="agency_1_reason"> --}}
+                <input type="text" value="{{$agency_1_reason}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="agency_1_reason">
             </td>
         </tr>
@@ -750,9 +768,14 @@ case management agencies, etc.).
         <tr style="height: 15px !important;padding:0 3px!important;">
             <td style="height: 15px !important;padding:0 3px !important;" colspan="2">
                 <p style="margin: 0;padding: 0 0px;">Reason:</p>
-                <input type="text" value="{{$agency_2_reason}}" class="noborder"
+                {{-- <input type="text" value="{{$agency_2_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       name="agency_2_reason"> --}}
+                <input type="text" value="{{$agency_2_reason}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="agency_2_reason">
+                
+                
             </td>
         </tr>
         <tr style="height: 15px !important;">
@@ -764,17 +787,24 @@ case management agencies, etc.).
             </td>
             <td style="height: 15px !important;padding:0 3px!important;vertical-align: top;" rowspan="2">
                 <p style="margin: 0;padding: 0 0px;">Address:</p>
-                <input type="text" value="{{$agency_3_address}}" class="noborder"
+                {{-- <input type="text" value="{{$agency_3_address}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%"
+                       name="agency_3_address"> --}}
+                <input type="text" value="{{$agency_3_address}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="agency_3_address">
             </td>
         </tr>
         <tr style="height: 15px !important;">
             <td style="height: 15px !important;padding:0 3px!important;" colspan="2">
                 <p style="margin: 0;padding: 0 0px;">Reason:</p>
-                <input type="text" value="{{$agency_3_reason}}" class="noborder"
+                {{-- <input type="text" value="{{$agency_3_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important"
+                       name="agency_3_reason"> --}}
+                <input type="text" value="{{$agency_3_reason}}" class="noborder"
+                       style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="agency_3_reason">
+                
             </td>
         </tr>
 
@@ -820,7 +850,7 @@ case management agencies, etc.).
                 <p class="sm "style="margin-left:5%" ><span class="sm" style="vertical-align: middle;">Address:</span>  <input type="text" value="{{$school_address}}" name="school_address"
                                    class="border-btm" style="width:88%"></p>
                 <p class="sm "style="margin-left:5%" > <input type="text" 
-                                   class="border-btm" style="width:88%; margin-left:45px"></p>
+                                   class="border-btm" style="width:88%; margin-left:45px" value="{{$school_address2}}" name="school_address2"></p>
                 <p class="sm  italic" style="margin-bottom:6px !important">Please complete the DOH-5173, Authorization for Release of Medical
                     Information Pursuant to HIPAA
                     form for this school/program.

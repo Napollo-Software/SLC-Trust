@@ -390,7 +390,7 @@ textarea{
                 </td>
                 <td>
                     <label>RELATIONSHIP TO DISABLED PERSON </label><br>
-                    <input type="text" name="relationship_disabled" style="margin-top: 5px">
+                    <input type="text" name="relationship_disabled" style="margin-top: 5px" maxlength="">
                 </td>
             </tr>
         </table>

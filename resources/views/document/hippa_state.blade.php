@@ -68,6 +68,39 @@
 
     }
 
+    input[type="radio"]{
+    appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border: 1px solid #777;
+  border-radius: 2px; 
+  position: relative;
+  cursor: pointer;
+  
+}
+input[type="radio"]:checked{
+    background-color: #0075ff;
+    box-shadow: 1px 1px 2px lightgray;
+}
+input[type="radio"]:checked:before {
+  content: "\2713";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 9px;
+  font-weight: bold;
+  color: white;
+  background-color: #0075ff; 
+}
+
     input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
@@ -513,12 +546,12 @@ hr{
             </ol>
         </div>
 
-        <input type="text" name="name_address2" class="input-full" maxlength="160">
+        <input type="text" name="name_address2" class="input-full" maxlength="150">
 
         <hr style="height:0.5px">
         <div class="flex-col">
             <p class="no-space" style="margin-bottom:2px !important">7. Name and address of the health provider or entity authorized to release this information:</p>
-            <input type="text" name="name_address" class="input-full" maxlength="160">
+            <input type="text" name="name_address" class="input-full" maxlength="150">
         </div>
         <hr/>
         <div class="flex-col">
@@ -528,20 +561,20 @@ hr{
         <hr style="height:0.5px">
         <div class="authorization">
             9(a). Specific information to be released:
-            <div style="margin-left: 25px;" class="mt-5" ><input type="checkbox" name="released_info"   value="medical_dated"> Medical records from
+            <div style="margin-left: 25px;" class="mt-5" ><input type="radio" name="released_info"   value="medical_dated"> Medical records from
                 <input type="date" style="width:120px" name="medical_record_from" max="9999-12-31">(date) to <input type="date" style="width:120px" name="medical_record_to" max="9999-12-31">(date).
             </div>
-            <div style="margin-left: 25px;" class="mt-5"><input type="checkbox" name="released_info" value="medical_entire"> 
+            <div style="margin-left: 25px;" class="mt-5"><input type="radio" name="released_info" value="medical_entire"> 
             Entire Medical Record, including patient histories, office notes (except
                 psychotherapy notes), test results, radiology studies, films, referrals, 
                 <br/>
                 <span style="margin-left: 25px;"> consults, billing records, insurance records, and records sent to you by other health care providers.</span>
                </div>
             <div class="flex-row" style="margin-left: 25px;gap:3px;margin-top:-5px">
-                 <input type="checkbox" name="released_info" style="height: 32px;" value="medical_other"> 
+                 <input type="radio" name="released_info" style="margin-top:13px" value="medical_other"> 
                 <div class="flex-row" style="flex:1;gap:5px ">
                     <p>Other:</p>
-                    <input type="text"  style="flex:1;height: 22px;" name="other">
+                    <input type="text"  style="flex:1;height: 12px;position: relative;top: 11px;" name="other" maxlength="120">
                 </div>
             </div>
                
@@ -550,9 +583,9 @@ hr{
             <p style="margin-top:0px">9(b). Authorization to discuss Health Information:</p>
             <div class="flex-row" style="gap:5px;margin-top:-16px;margin-left:47px">
                 <p>By initialing here:</p>
-                <input type="text"  name="init" style="width: 100px;height: 24px;padding:0px !important" >
+                <input type="text"  name="init" style="width: 100px;height: 16px;position: relative;top:8px;padding:0px !important" maxlength="15" >
                 <p>I authorize</p>
-                <input type="text"  name="auth_name" style="height:24px;flex:1;padding:0px !important" placeholder="Name of indvidual/Health care provider">
+                <input type="text"  name="auth_name" style="height:24px;flex:1;height: 16px;position: relative;top:8px;padding:0px !important" placeholder="Name of indvidual/Health care provider" maxlength="90">
             </div>
 
             <p style="margin-left:47px;margin-top:-5px">to discuss my health information with the <span style="font-family: 'info-bold';">State Disability Review Unit</span>
@@ -584,14 +617,14 @@ hr{
                 </div>
                 <div class="flex-row align-center gap-10;" style="gap: 10px;width:52%">
                     <div style="display: flex;justify-content: center;align-items: center;">
-                        <input type="checkbox" name="request_individual" value="request_individual">
-                        <label style="position: relative;top: 1px;" for="">At request of individual</label>
+                        <input type="radio" name="request_individual" value="request_individual" style="margin-top: 0;">
+                        <label style="position: relative;top: 1px;left:2px" for="">At request of individual</label>
                     </div>
                     <div style="display: flex;justify-content: center;align-items: center;"> 
-                        <input type="checkbox" name="other_individual" value="other_individual">
-                        <div style="position: relative;top: 1px;">
+                        <input type="radio" name="request_individual" value="other_individual" style="margin-top: 0;">
+                        <div style="position: relative;top: 1px;left:2px">
                         <label for="">Other:</label>
-                        <input type="text"   id="other_indiviual_name" name="other_indiviual_name" style="width: 255px">
+                        <input type="text"   id="other_indiviual_name" name="other_indiviual_name" style="width: 255px;" maxlength="36">
                     </div>
                     </div>
                 </div>

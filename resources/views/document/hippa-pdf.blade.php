@@ -262,8 +262,9 @@
                     <!-- input -->
                     <input
                     type="checkbox"
-                    name="info_released"
+                    name="info_released1"
                     class='m-0 align-bottom'
+                    value="dated"
                     style="margin-top:-5px;padding-top:-5px;padding-left:18px"
                     value="dated" {{isset($info_released1) && $info_released1 == 'dated' ? 'checked' : '' }}
                     >
@@ -292,8 +293,9 @@
                         <input
                         type="checkbox"
                         class='m-0 align-bottom'
-                        name="info_released"
-                        value="Entire_med" {{isset($info_released2) && $info_released2 == 'Entire_med' ? 'checked' : '' }}
+                        name="info_released1"
+                        value="Entire_med"
+                        {{isset($info_released1) && $info_released1 == 'Entire_med' ? 'checked' : '' }}
                         >
                         <span>
                                 Entire Medical Record, including patient histories, office notes (except psychotherapy notes),
@@ -312,8 +314,9 @@
                              type="checkbox"
                              class='m-0 align-bottom'
                              style='padding-left:19px;' 
-                             name="info_released3" 
-                             value="other"{{isset($info_released3) && $info_released3 == 'other' ? 'checked' : '' }}
+                             name="info_released1" 
+                             value="other"
+                             {{isset($info_released1) && $info_released1 == 'other' ? 'checked' : '' }}
                              >
                             <span>
                                  Other: 
@@ -461,7 +464,7 @@
                         <span>
                             Other:
                         </span>
-                        <input type="text" name="reason_other" class="border-none" value="{{$reason_other}}" style="padding-left:4px;vertical-align: bottom;">
+                        <input type="text" name="reason_other" class="border-none" value="{{$reason_other}}" style="padding-left:4px;vertical-align: bottom;position: relative;bottom:2.5px;width:80%">
 
                     </div>
                 </td>

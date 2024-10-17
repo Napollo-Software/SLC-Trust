@@ -391,11 +391,11 @@
                 </div>
                 <div class='row gap-5 text-base align-items-end'>
                     <span class='nowrap'>What was the decision?</span>
-                    <input type='text' name="ssa_decision">
+                    <input type='text' name="ssa_decision" maxlength="100">
                 </div>
                 <div class='row gap-5 text-base align-items-end'>
                     <span class='nowrap'> If denied for benefits, what was the reason (medical or non-medical)?</span>
-                    <input type='text' name="ssa_denial_reason">
+                    <input type='text' name="ssa_denial_reason" maxlength="60">
                 </div>
                 <div class='form-row gap-5 text-base align-items-center'>
                     <div class='form-cell'>
@@ -536,7 +536,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'> Reason for seeing:</p>
-                                <input type='text'class='border-none' name="medical_provider_1_reason">
+                                <input type='text'class='border-none' name="medical_provider_1_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -564,7 +564,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'> Reason for seeing:</p>
-                                <input type='text'class='border-none' name="medical_provider_2_reason">
+                                <input type='text'class='border-none' name="medical_provider_2_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -592,7 +592,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'> Reason for seeing:</p>
-                                <input type='text'class='border-none' name="medical_provider_3_reason">
+                                <input type='text'class='border-none' name="medical_provider_3_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -644,7 +644,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'> Reason:</p>
-                                <input type='text'class='border-none' name="medicare_rec_1_reason">
+                                <input type='text'class='border-none' name="medicare_rec_1_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -672,7 +672,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'> Reason:</p>
-                                <input type='text'class='border-none' name="medicare_rec_2_reason">
+                                <input type='text'class='border-none' name="medicare_rec_2_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -700,7 +700,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'> Reason:</p>
-                                <input type='text'class='border-none' name="medicare_rec_3_reason">
+                                <input type='text'class='border-none' name="medicare_rec_3_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -752,7 +752,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'> Reason:</p>
-                                <input type='text'class='border-none' name="agency_1_reason">
+                                <input type='text'class='border-none' name="agency_1_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -780,7 +780,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'> Reason:</p>
-                                <input type='text'class='border-none' name="agency_2_reason">
+                                <input type='text'class='border-none' name="agency_2_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -808,7 +808,7 @@
                         <td colspan='2'>
                             <div class='flex-col p-0'>
                                 <p class='text-left'>Reason:</p>
-                                <input type='text'class='border-none' name="agency_3_reason">
+                                <input type='text'class='border-none' name="agency_3_reason" maxlength="85">
                             </div>
                         </td>
                     </tr>
@@ -842,10 +842,10 @@
                                 </div>
                                 <div class='form-row gap-5 align-items-end' style='margin:0px 0px 0px 15px'>
                                     <span class='nowrap'> Address:</span>
-                                    <input type='text' name="school_address">
+                                    <input type='text' name="school_address" maxlength="110">
                                 </div>
                                 <div class='form-row gap-5 align-items-end' style='margin:0px 0px 0px 66px'>
-                                    <input type='text' name="school_address"> 
+                                    <input type='text' name="school_address2" maxlength="110"> 
                                 </div>
                                 <p class='text-left italic' style='padding-top:1rem'>Please complete the DOH-5173, Authorization for Release of Medical Information Pursuant to HIPAA form for this school/program.</p>
                             </div>

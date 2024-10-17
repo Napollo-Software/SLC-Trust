@@ -193,11 +193,11 @@
         <tr>
             <td class="c-tr" colspan="2">
                 <label class="label-style">
-                    <p style="margin:0;font-size:7.8px;font-family: 'ARIALBD'"><span style="font-size: 7.8px;background:yellow;font-family: 'ARIALBD'">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> <br> ACT IN HIS/HER BEHALF</p> 
+                    <p style="margin:0;font-size:7.7px;font-family: 'ARIALBD'"><span style="font-size: 7.7px;background:yellow;font-family: 'ARIALBD'">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> <br> ACT IN HIS/HER BEHALF</p> 
                 </label>
                 <div style="position:relative;width:140px;height:60px;">
                     @if($map_sign)
-                        <img src="{{ $map_sign }}" alt="map_sign" width="100%"  height="100%" style="position:absolute;left:90%;bottom:10%" >
+                        <img src="{{ $map_sign }}" alt="map_sign" width="100%"  height="100%" style="position:absolute;left:80%;bottom:10%" >
                     @else
                         No Signature Provided
                     @endif

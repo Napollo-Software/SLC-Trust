@@ -286,7 +286,7 @@
             name="released_info"
             style='vertical-align:bottom;margin-bottom:3px'
             value="medical_dated"
-            {{isset($released_info) == 'medical_dated' ? 'checked' : '' }}
+            {{isset($released_info) && $released_info == 'medical_dated' ? 'checked' : '' }}
             >
             <span>
                 Medical records from
@@ -303,7 +303,7 @@
          </div>
         <p class='m-0 pl-20'>
             <input type="checkbox" name="released_info" style='vertical-align:bottom;margin-bottom:3px'
-                  value="medical_entire" {{isset($released_info) == 'medical_entire' ? 'checked' : '' }}> Entire Medical
+                  value="medical_entire" {{isset($released_info) && $released_info == 'medical_entire' ? 'checked' : '' }}> Entire Medical
             Record, including patient histories, office notes (except
             psychotherapy notes), test results, radiology studies, films, referrals, consults,
             <span style='padding-left:30px'>
@@ -312,7 +312,7 @@
             </span>
                 <p class='m-0 pl-20'>
             <input type="checkbox" name="released_info" style='vertical-align:bottom;margin-bottom:3px'
-            value="medical_other" {{isset($released_info) == 'medical_other' ? 'checked' : '' }}>
+            value="medical_other" {{isset($released_info) && $released_info == 'medical_other' ? 'checked' : '' }}>
                 <span>
                       Other:
                 </span>
@@ -380,20 +380,22 @@
             </span>
             <span style='vertical-align:middle'>
                 <label>
-                    <input type="checkbox" class='align-check'
-                    name="request_individual" {{isset($request_individual) =='request_individual'? 'checked' : ''}}>
+                    <input type="checkbox" class='align-check' value="request_individual"
+                    name="request_individual" {{isset($request_individual) && $request_individual == 'request_individual' ? 'checked' : '' }}
+                     >
                     <span class="text-sm">
                         At request of individual
                     </span>
                 </label>
                 <label>
-                    <input type="checkbox" class='align-check'
-                    name="other_individual" {{isset($other_individual) =='other_individual'? 'checked' : ''}}>
+                    <input type="checkbox" class='align-check' value="other_individual"
+                    name="request_individual" {{isset($request_individual) && $request_individual == 'other_individual' ? 'checked' : '' }}
+                    >
                     <span>
                 Other:
                 </span>
                 <input type="text" id="other_indiviual_name" class="border-bottom text-sm" value="{{$other_indiviual_name}}"
-                name="other_indiviual_name" style="vertical-align: baseline">
+                name="other_indiviual_name" style="vertical-align: baseline;width:50%">
             </label>
         </span>
                 </div>
