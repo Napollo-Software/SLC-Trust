@@ -152,7 +152,7 @@
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
                             <p style="font-size: 16px; font-weight: 400; margin: 0;">Warm regards,</p>
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team.</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team</p>
                         </td>
                     </tr>
                     <tr></tr>

@@ -7,5 +7,21 @@
     },
     "info-semibold": {
         "normal": "info_semibold_normal_78e0de5cfa6647fb10123ab83bf66036"
+    },
+    "poppins-semibold": {
+        "normal": "poppins_semibold_normal_8b3165189ede54a5fec9b33361d564d2"
+    },
+    "poppins-bold": {
+        "normal": "poppins_bold_normal_a23439bbfc7f94a36c733a3dfc0bb6a6"
+    },
+    "poppins-italic": {
+        "normal": "poppins_italic_normal_fc0167a5e6efe61b54a2bd5bcfab5429"
+    },
+    "poppins-extrabold": {
+        "normal": "poppins_extrabold_normal_bd25a78da585f0ebbf97caf10a35c72f",
+        "normal": "poppins_extrabold_normal_c441836c68343d41d36ecf9bb0a5db0f"
+    },
+    "brittanysignature-mazx": {
+        "normal": "brittanysignature_mazx_normal_d3954fe6dce194a3f8d0f58db1932ef1"
     }
 }
