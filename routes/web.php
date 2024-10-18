@@ -115,11 +115,14 @@ Route::group(['prefix' => 'contact', 'middleware' => ['isLoggedIn']], function (
 });
 
 Route::group(['prefix' => 'follow-up', 'middleware' => ['isLoggedIn']], function () {
-    Route::get('list', [FollowupController::class, 'index'])->name('follow_up.list');
     Route::post('store', [FollowupController::class, 'store'])->name('follow_up.store');
     Route::get('edit/{id}', [FollowupController::class, 'edit'])->name('follow_up.edit');
     Route::post('update', [FollowupController::class, 'update'])->name('follow_up.update');
     Route::post('delete/{id}', [FollowupController::class, 'delete'])->name('follow_up.delete');
+});
+
+Route::group(['prefix' => 'notes', 'middleware' => ['isLoggedIn']], function () {
+    Route::get('list', [FollowupController::class, 'index'])->name('follow_up.list');
 });
 
 Route::post('note', [FollowupController::class, 'noteStore'])->name('note.store');
