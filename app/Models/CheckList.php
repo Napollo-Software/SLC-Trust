@@ -9,17 +9,6 @@ class CheckList extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'disability',
-        'doh',
-        'hipaa_state',
-        'hipaa',
-        'joinder',
-        'map',
-        'home',
-        'mltc',
-        'source',
-        'tform',
-    ];
+    protected $guarded = [];
 
 }

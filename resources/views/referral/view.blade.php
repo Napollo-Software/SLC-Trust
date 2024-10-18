@@ -14,6 +14,7 @@ $randomIndex = array_rand($colors);
 return $colors[$randomIndex];
 }
 @endphp
+
 <style>
     .btn-primary {
         color: white !important;
@@ -1834,17 +1835,6 @@ return $colors[$randomIndex];
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group px-3">
-                                            <div class="row row-sm">
-                                                <hr>
-                                                <div class="col-md-3">
-                                                    <label for="medicaidPlan" class="form-label">Medicaid Plan</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="medicaidPlan" name="medicaidPlan" class="form-control" value="{{ $referral->referral_medcaid->medicaid_plan }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="form-group px-3" data-select2-id="108">
                                             <div class="row" data-select2-id="107">
                                                 <hr>
@@ -2088,19 +2078,6 @@ return $colors[$randomIndex];
                     <hr>
                     <h6 class="fw-bold mb-1 ">Intake Coordinator</h6>
                     {{ $referral->intake }}
-                    <hr>
-                    <h6 class="fw-bold mb-1">Admission Date</h6>
-                    {{ \Carbon\Carbon::parse($referral->admission_date)->format('M d, Y ') }}
-                    <hr>
-                    <h6 class="fw-bold mb-1">Admitted</h6>
-                    @if ($referral->status == 'Admitted')
-                    <h6 class=" ">Yes</h6>
-                    @else
-                    <h6 class=" ">No</h6>
-                    @endif
-                    <hr>
-                    <h6 class="fw-bold mb-1">Admission Date</h6>
-                    {{ \Carbon\Carbon::parse($referral->admission_date)->format('M d, Y ') }}
                     <hr>
                     <h6 class="fw-bold mb-1">Admitted</h6>
                     @if ($referral->status == 'Admitted')

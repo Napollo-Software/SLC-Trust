@@ -7,6 +7,7 @@ use App\Models\Type;
 use App\Models\User;
 use App\Mail\Register;
 use App\Models\contacts;
+use App\Models\Medicaid;
 use App\Models\Referral;
 use App\Models\CheckList;
 use App\Models\Documents;
@@ -71,7 +72,7 @@ class ReferralController extends Controller
                     } elseif ($emailExistsInUsers) {
                         $fail("The $attribute has already been taken in users.");
                     }
-                },
+                }
             ],
             'date_of_birth' => 'nullable|date',
             'country' => 'nullable|max:250',
@@ -99,69 +100,82 @@ class ReferralController extends Controller
             'account' => $request->input('source_type') === 'account' ? 'required' : 'nullable',
             'source' => $request->input('source_type') === 'FnF' ? 'required' : 'nullable',
             'admission_date' => 'nullable|date',
-
         ]);
-        $referral = new Referral();
-        $referral->first_name = $request->first_name;
-        $referral->last_name = $request->last_name;
-        $referral->age = $request->age;
-        $referral->status = 'Pending';
-        $referral->email_status = 'Pending';
-        $referral->phone_number = $request->phone;
-        $referral->gender = $request->gender;
-        $referral->date_of_birth = $request->date_of_birth;
-        $referral->email = $request->email;
-        $referral->country = $request->country;
-        $referral->city = $request->city;
-        $referral->state = $request->state;
-        $referral->address = $request->address;
-        $referral->zip_code = $request->zip;
-        $referral->apt_suite = $request->apt;
-        $referral->patient_ssn = $request->ssn;
-        $referral->patient_language = $request->patient_language;
-        $referral->medicaid_number = $request->medicaid_phone;
-        $referral->medicaid_plan = $request->medicaid_plan;
-        $referral->medicare_number = $request->medicare_phone;
-        $referral->source_type = $request->source_type;
-        $referral->source = ($request->source_type === 'contact' ? $request->contact : ($request->source_type === 'account' ? $request->account : ($request->source_type === 'FnF' ? $request->source : null)));
-        $referral->admission_date = $request->admission_date;
-        $referral->intake = $request->intake;
-        $referral->marketer = $request->marketer;
-        $referral->case_type = $request->type;
-        $referral->created_by = $userId;
-        $referral->save();
-        $ref_id = $referral->id;
-        createDocument($ref_id);
-        $data = new EmergencyContacts();
-        $data->referral_id = $referral->id;
-        $data->emergency_first_name = $request->emergency_first_name;
-        $data->emergency_last_name = $request->emergency_last_name;
-        $data->emergency_ext_number = $request->emergency_ext;
-        $data->emergency_phone_number = $request->emergency_phone;
-        $data->emergency_state = $request->emergency_state;
-        $data->emergency_email = $request->emergency_email;
-        $data->emergency_relationship = $request->emegency_relationship;
-        $data->emergency_city = $request->emergency_city;
-        $data->emergency_zip_code = $request->emergency_zip;
-        $data->emergency_apt_suite = $request->emergency_apt;
-        $data->have_keys = $request->have_keys;
-        $data->live_with_parents = $request->have_keys;
-        $data->emergency_address = $request->emergency_address;
-        $data->save();
 
-        $checklist = new CheckList();
-        $checklist->referral_id = $ref_id;
-        $checklist->disability = $request->input('document_checkboxes1');
-        $checklist->doh = $request->input('document_checkboxes2');
-        $checklist->hipaa_state = $request->input('document_checkboxes3');
-        $checklist->hipaa = $request->input('document_checkboxes4');
-        $checklist->joinder = $request->input('document_checkboxes5');
-        $checklist->map = $request->input('document_checkboxes6');
-        $checklist->home = $request->input('document_checkboxes7');
-        $checklist->mltc = $request->input('document_checkboxes8');
-        $checklist->source = $request->input('document_checkboxes9');
-        $checklist->tform = $request->input('document_checkboxes10');
-        $checklist->save();
+        $referral = Referral::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'age' => $request->age,
+            'status' => 'Pending',
+            'email_status' => 'Pending',
+            'phone_number' => $request->phone,
+            'gender' => $request->gender,
+            'date_of_birth' => $request->date_of_birth,
+            'email' => $request->email,
+            'country' => $request->country,
+            'city' => $request->city,
+            'state' => $request->state,
+            'address' => $request->address,
+            'zip_code' => $request->zip,
+            'apt_suite' => $request->apt,
+            'patient_ssn' => $request->ssn,
+            'patient_language' => $request->patient_language,
+            'medicaid_number' => $request->medicaid_phone,
+            'medicaid_plan' => $request->medicaid_plan,
+            'medicare_number' => $request->medicare_phone,
+            'source_type' => $request->source_type,
+            'source' => ($request->source_type === 'contact' ? $request->contact : ($request->source_type === 'account' ? $request->account : ($request->source_type === 'FnF' ? $request->source : null))),
+            'admission_date' => $request->admission_date,
+            'intake' => $request->intake,
+            'marketer' => $request->marketer,
+            'case_type' => $request->type,
+            'created_by' => $userId,
+        ]);
+
+        $ref_id = $referral->id;
+
+        createDocument($ref_id);
+
+        EmergencyContacts::create([
+            'referral_id' => $referral->id,
+            'emergency_relationship' => $request->emegency_relationship,
+            'emergency_first_name' => $request->emergency_first_name,
+            'emergency_last_name' => $request->emergency_last_name,
+            'emergency_phone_number' => $request->emergency_phone,
+            'emergency_address' => $request->emergency_address,
+            'emergency_ext_number' => $request->emergency_ext,
+            'emergency_apt_suite' => $request->emergency_apt,
+            'emergency_zip_code' => $request->emergency_zip,
+            'emergency_state' => $request->emergency_state,
+            'emergency_email' => $request->emergency_email,
+            'emergency_city' => $request->emergency_city,
+            'live_with_parents' => $request->have_keys,
+            'have_keys' => $request->have_keys,
+        ]);
+
+        CheckList::create([
+            'referral_id' => $ref_id,
+            'hipaa_state' => $request->document_checkboxes3,
+            'disability' => $request->document_checkboxes1,
+            'joinder' => $request->document_checkboxes5,
+            'source' => $request->document_checkboxes9,
+            'tform' => $request->document_checkboxes10,
+            'hipaa' => $request->document_checkboxes4,
+            'mltc' => $request->document_checkboxes8,
+            'home' => $request->document_checkboxes7,
+            'doh' => $request->document_checkboxes2,
+            'map' => $request->document_checkboxes6,
+        ]);
+
+        Medicaid::create([
+            'referral_name' => $ref_id,
+            'medicaid_number' => $request->medicaid_phone,
+            'type' => $request->type,
+            'phone_number' => $request->phone,
+            'active_medicaid' => $request->activeMedicaid,
+            'code' => $request->zip,
+        ]);
+
         return response()->json(['success' => 'Referral has been stored successfully']);
     }
     public function edit($id)

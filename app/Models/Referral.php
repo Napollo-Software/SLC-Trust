@@ -9,43 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Referral extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'email',
-        'gender',
-        'age',
-        'phone_number',
-        'date_of_birth',
-        'address',
-        'city',
-        'state',
-        'zip_code',
-        'fax',
-        'ext_number',
-        'country',
-        'designation',
-        'medicaid_plan',
-        'patient_ssn',
-        'apt_suite',
-        'account',
-        'name_of_practice',
-        'emergency_apt_suite',
-        'patient_language',
-        'referral_id',
-        'status',
-        'source',
-        'source_type',
-        'admission_date',
-        'medicaid_number',
-        'medicare_number',
-        'marketer',
-        'intake',
-        'case_type',
-        'created_by',
-        'created_at',
-        'updated_at',
-    ];
+    protected $guarded = [];
     protected $appends = ['case_type'];
     public function getCreatedAtAttribute($date)
     {

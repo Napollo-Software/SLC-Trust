@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmergencyContacts extends Model
 {
-    protected $fillable = ["emergency_apt_suite"];
+    protected $guarded = [];
     use HasFactory;
 }

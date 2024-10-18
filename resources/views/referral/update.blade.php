@@ -99,7 +99,8 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                     @foreach ($contacts as $index => $contact)
                                     <option value="{{ $contact->id }}">{{ $contact->fname . ' ' . $contact->lname }} </option>
                                     @endforeach
-                                </select></div>
+                                </select>
+                            </div>
                             <div class="col-md-6 p-2" id="account_id">
                                 <label for="form-label"> Account</label>
                                 <select name="account" id="AccountField" class="form-control">
@@ -248,22 +249,12 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 p-2">
-                                <label for="form-label">Medicare Number</label>
-                                <input type="text" class="form-control phone" placeholder="(___) ___-___" value="{{ $Referral->medicare_number }}" id="medicare_number" name="medicare_phone">
-                            </div>
-                            <div class="col-md-6 p-2">
                                 <label for="form-label">Medicaid Number</label>
                                 <input type="text" class="form-control phone" placeholder="(___) ___-___" value="{{ $Referral->medicaid_number }}" id="medicaid_phone" name="medicaid_phone">
-
                             </div>
-                            <div class="col-md-6 ">
-                                <label for="medicaid_plan">Medicaid Plan</label>
-                                <input class="form-control" id="medicaid_plan" name="medicaid_plan" value="{{ $Referral->medicaid_plan }}">
-                            </div>
-
                             <div class="col-md-6 p-2">
-                                <label for="form-label">Admission Date</label>
-                                <input type="date" class="form-control" value="{{ $Referral->admission_date }}" name="admission_date">
+                                <label for="form-label">Medicare Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Medicare Number" value="{{ $Referral->medicare_number }}" id="medicare_number" name="medicare_phone">
                             </div>
                         </div>
                     </div>
@@ -296,43 +287,7 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="text-secondary">
-                                                        <label class="form-label mb-1">Referral Marketer<span class="text-danger">*</span></label>
-                                                        <select id="marketer" class="form-control select-2" name="marketer">
-                                                            <option disabled selected hidden>Referral Marketer
-                                                            </option>
-                                                            @foreach ($intakeCordinator as $coordinator)
-                                                            <option value="{{ $coordinator->id }}">{{ $coordinator->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="text-danger">
-                                                            @error('marketer')
-                                                            {{ $message }}
-                                                            @enderror
-                                                        </span>
-                                                    </div>
-                                                </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6 pt-2">
-                                                    <div class="text-secondary">
-                                                        <label class="form-label mb-1 pt-1 ml-0">Case Type<span class="text-danger">*</span></label>
-                                                        <select name="type" class="form-control">
-                                                            <option value="{{$Referral->case_type}}">{{$Referral->case_type}}</option>
-                                                            @foreach ($typeData as $key => $value)
-                                                            <option value="{{ $value->id }}">{{ $value->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <span class="text-danger">
-                                                            @error('type')
-                                                            {{ $message }}
-                                                            @enderror
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>

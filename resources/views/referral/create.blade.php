@@ -162,16 +162,8 @@
                                 <input type="text" class="form-control phone" placeholder="(___) ___-___" id="medicaid_phone" name="medicaid_phone">
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="form-label">Medicaid Plan</label>
-                                <input type="text" class="form-control" id="medicaid_plan" name="medicaid_plan" placeholder="Enter Medicaid Plan">
-                            </div>
-                            <div class="col-md-6 p-2">
                                 <label for="form-label">Medicare Number</label>
                                 <input type="text" class="form-control" placeholder="Enter Medicare Number" id="medicare_phone" name="medicare_phone">
-                            </div>
-                            <div class="col-md-6 p-2">
-                                <label for="form-label">Admission Date</label>
-                                <input type="date" class="form-control" id="admission_date" name="admission_date">
                             </div>
                         </div>
                     </div>
