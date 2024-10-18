@@ -167,8 +167,7 @@
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Medicare Number</label>
-
-                                <input type="text" class="form-control phone" placeholder="(___) ___-___" id="medicare_phone" name="medicare_phone">
+                                <input type="text" class="form-control" placeholder="Enter Medicare Number" id="medicare_phone" name="medicare_phone">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Admission Date</label>
