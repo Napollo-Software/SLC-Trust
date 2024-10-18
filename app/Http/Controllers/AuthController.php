@@ -574,7 +574,7 @@ class AuthController extends Controller
         $vod_document_links = $user->transactions()
             ->select('vod_link')
             ->whereNotNull('vod_link')
-            // ->distinct()
+            ->distinct()
             ->pluck('vod_link');
 
         return view("edit_user", compact('user', 'vod_document_links'));

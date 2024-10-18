@@ -149,13 +149,15 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     </div>
                     <div class="card-body text-center mb-3">
                         <div class="row justify-content-center">
-                            @foreach ($vod_document_links as $link)
-                            <div class="col-md-6 mt-3 {{ $loop->first ? 'mt-0' : '' }}">
-                                <a href="{{ url('storage/'.$user->id.'/vod_letters/'.$link) }}" target="_blank">
+                            @forelse ($vod_document_links as $link)
+                            <div class="col-md-4 mt-3 {{ $loop->first ? 'mt-0' : '' }}">
+                                <a href="{{ $link }}" target="_blank">
                                     <img style="width:80px; background: #69b4ac; width: 80px; padding: 20px; border-radius: 10px;" src="{{ url('img/download_icon.png') }}" alt="VOD letter">
                                 </a>
                             </div>
-                            @endforeach
+                            @empty
+                            <div class="col-md-12">No VOD Letter found</div>
+                            @endforelse
                         </div>
                     </div>
                 </div>
