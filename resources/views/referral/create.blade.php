@@ -2,9 +2,6 @@
 @section('title', 'Add Referral | SLC Trusts')
 @section('wrapper')
 <style>
-    .card {
-        box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
-    }
 
     .card .card-header {
         font-weight: 500;
@@ -36,13 +33,13 @@
 <div class="">
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
-       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
+       <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
     </h5>
     <form id="referralStoreForm">
         @csrf
         <div class="row">
             <div class="col-md-8">
-                <div class="card mb-3">
+                <div class="card shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Patient Contact Information</h5>
                     </div>
@@ -67,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3">
+                <div class="card shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Patient Demographics</h5>
                     </div>
@@ -100,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3">
+                <div class="card shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Patient Address</h5>
                     </div>
@@ -124,20 +121,16 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="col-md-6 text-secondary  p-0 ">
-                                <div class="row  p-0 ">
-                                    <div class="col-md-12 mr-md-3">
-                                        <label class=" form-label mb-1">State / Province</label>
-                                        <select id="SelectState" class="form-control select-2" name="state">
-                                            <option disabled selected hidden>--Select State</option>
-                                        </select>
-                                        <span class="text-danger">
-                                            @error('state')
-                                            {{ $message }}
-                                            @enderror
-                                        </span>
-                                    </div>
-                                </div>
+                            <div class="col-md-6 p-2">
+                                <label class=" form-label mb-1">State / Province</label>
+                                <select id="SelectState" class="form-control select-2" name="state">
+                                    <option disabled selected hidden>--Select State</option>
+                                </select>
+                                <span class="text-danger">
+                                    @error('state')
+                                    {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">City</label>
@@ -147,7 +140,6 @@
                                 <label for="form-label">Address</label>
                                 <input type="text" class="form-control" id="Address" name="address" placeholder="house# 03 street 07/ new york city">
                             </div>
-
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Zip Code/Postal Code</label>
                                 <input type="text" class="form-control" id="zip" name="zip" placeholder="51000">
@@ -159,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3">
+                <div class="card shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Patient Medicaid</h5>
                     </div>
@@ -182,15 +174,14 @@
                                 <label for="form-label">Admission Date</label>
                                 <input type="date" class="form-control" id="admission_date" name="admission_date">
                             </div>
-
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3">
+                <div class="card shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Additional Information</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body mb-4">
                         <div class="row">
                             <div class="col-md-12 ">
                                 <div class="row">
@@ -210,41 +201,6 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="text-secondary">
-                                            <label class="form-label mb-1">Referral Marketer<span class="text-danger"></span></label>
-                                            <select id="marketer" class="form-control select-2" name="marketer">
-                                                <option disabled selected hidden>Referral Marketer</option>
-                                                @foreach ($intakeCordinator as $coordinator)
-                                                <option value="{{ $coordinator->id }}">{{ $coordinator->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            <span class="text-danger">
-                                                @error('marketer')
-                                                {{ $message }}
-                                                @enderror
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 pt-2">
-                                        <div class="text-secondary">
-                                            <label class="form-label mb-1 mt-2">Case Type</label>
-                                            <select name="type" class="form-control">
-                                                <option value="">Select Case Type</option>
-
-                                                @foreach ($typeData as $key => $value)
-                                                <option value="{{ $value->id }}">{{ $value->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            <span class="text-danger">
-                                                @error('type')
-                                                {{ $message }}
-                                                @enderror
-                                            </span>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -252,7 +208,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card mb-3">
+                <div class="card shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Source Information</h5>
                     </div>
@@ -297,8 +253,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="card mb-3">
+               <div class="card shadow-lg mb-3">
                         <div class="card-header d-flex pl-0 pb-1 pl-2">
                             <h5>Emergency Contact</h5>
                         </div>
@@ -379,7 +334,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary"><i class="bx bx-save pb-1"></i>Submit</button>

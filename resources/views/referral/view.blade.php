@@ -86,7 +86,7 @@ return $colors[$randomIndex];
 
     <!-- ROW -->
 
-    <div class="row p-2">
+    <div class="row p-2" style="margin-bottom:100px !important;">
         <div class="col-lg-4 col-xl-2">
             <div class="card mb-4">
                 {{-- <div class="card-header border-bottom">
@@ -954,7 +954,7 @@ return $colors[$randomIndex];
                         @csrf
                         <input type="hidden" value="{{ $referral->id }} " name="referral_id">
                         <div class="card">
-                            <div class="card-body col-md-12 py-3">
+                            <div class="card-body col-md-12 pt-3 pb-5">
                                 <div class="overflow-auto">
                                     <div class="d-flex align-items-center mb-3">
                                         <input class="trustEsign" type="checkbox" name="esign" {{ $referral->trustEsign ? 'checked' : '' }}>
@@ -2080,24 +2080,25 @@ return $colors[$randomIndex];
         <div class="col-md-2">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="fw-bold mb-1">Created Date</h6>
+                <h6 class="fw-bold mb-1">Created Date</h6>
                     {{ $referral->created_at }}
                     <hr>
                     <h6 class="fw-bold mb-1">Updated Date</h6>
                     {{ $referral->updated_at }}
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
+                    <hr>
                     <h6 class="fw-bold mb-1 ">Intake Coordinator</h6>
                     {{ $referral->intake }}
                     <hr>
-                    <h6 class="fw-bold mb-1">Referral Marketer</h6>
-                    {{ $referral->marketer }}
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
+                    <h6 class="fw-bold mb-1">Admission Date</h6>
+                    {{ \Carbon\Carbon::parse($referral->admission_date)->format('M d, Y ') }}
+                    <hr>
+                    <h6 class="fw-bold mb-1">Admitted</h6>
+                    @if ($referral->status == 'Admitted')
+                    <h6 class=" ">Yes</h6>
+                    @else
+                    <h6 class=" ">No</h6>
+                    @endif
+                    <hr>
                     <h6 class="fw-bold mb-1">Admission Date</h6>
                     {{ \Carbon\Carbon::parse($referral->admission_date)->format('M d, Y ') }}
                     <hr>
