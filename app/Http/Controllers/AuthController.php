@@ -568,17 +568,15 @@ class AuthController extends Controller
 
     public function show_user(Request $request, $id)
     {
-
         $user = User::findOrFail($id);
 
-        $vod_document_links = $user->transactions()
-            ->select('vod_link')
+        $vod_documents = $user->transactions()
+            ->select('user_id', 'vod_link')
             ->whereNotNull('vod_link')
             ->distinct()
-            ->pluck('vod_link');
+            ->get();
 
-        return view("edit_user", compact('user', 'vod_document_links'));
-
+        return view("edit_user", compact('user', 'vod_documents'));
     }
 
     public function edit_user_details(Request $request, $id)

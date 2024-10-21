@@ -22,13 +22,4 @@ class Transaction extends Model
         return $this->belongsTo(User::class, 'user_id')->withDefault();
     }
 
-    public function getVodLinkAttribute($value) {
-
-        if ($value) {
-            return url("storage/{$this->user_id}/vod_letters/{$value}");
-        } else {
-            return null;
-        }
-    }
-
 }
