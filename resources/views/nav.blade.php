@@ -338,7 +338,8 @@
             } else {
                 country = '';
                 americanStates.forEach(element => {
-                    country += '<option value="' + element + '">' + element + '</option>';
+                    const selectedState = element === 'New York' ? 'selected' : '';
+                    country += `<option value="${element}" ${selectedState}>${element}</option>`;
                 });
                 $('#SelectState').html(country);
             }

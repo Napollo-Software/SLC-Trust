@@ -109,16 +109,19 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6 text-secondary ">
-                                <label for="form-label" class="form-label">Country</label>
-
+                        <div class="col-md-6 p-2">
+                                <label for="form-label">Address</label>
+                                <input type="text" class="form-control" id="Address" name="address" placeholder="house# 03 street 07/ new york city">
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="form-label">City</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="eg: New York City">
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="form-label">Country</label>
                                 <div class="col-md-12 text-secondary p-0">
-                                    <select id="defaultSelect" onchange="getCountry(this)" class="form-control select-2 " name="country">
-                                        <option value="" disabled selected hidden>--Select an option</option>
-                                        <option @if (old('country')=='United States of America' ) {{ 'selected' }} @endif value="United States of America">United States of America
-                                        </option>
-                                        <option @if (old('country')=='canada' ) {{ 'selected' }} @endif value="canada">Canada
-                                        </option>
+                                    <select id="defaultSelectCountry" onchange="getCountry(this)" class="form-control default-country form-select" name="country">
+                                        <option selected value="United States of America">United States of America</option>
                                     </select>
                                     <span class="text-danger">
                                         @error('country')
@@ -137,14 +140,6 @@
                                     {{ $message }}
                                     @enderror
                                 </span>
-                            </div>
-                            <div class="col-md-6 p-2">
-                                <label for="form-label">City</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="eg: New York City">
-                            </div>
-                            <div class="col-md-6 p-2">
-                                <label for="form-label">Address</label>
-                                <input type="text" class="form-control" id="Address" name="address" placeholder="house# 03 street 07/ new york city">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Zip Code/Postal Code</label>
@@ -286,11 +281,19 @@
                                     </select>
                                 </div>
                                 <div class="col-md-12 p-2">
+                                    <label for="form-label">Address</label>
+                                    <input type="text" class="form-control" placeholder="Enter address" id="emergency_address" name="emergency_address">
+                                </div>
+                                <div class="col-md-12 p-2">
+                                    <label for="form-label">City</label>
+                                    <input type="text" class="form-control" id="emergency_city" placeholder="Enter City" name="emergency_city">
+                                </div>
+                                <div class="col-md-12 p-2">
                                     <label for="form-label">State/Province</label>
                                     <select id="defaultSelect" class="form-control select-2" name="emergency_state">
                                         <option value="">Choose One</option>
                                         @foreach (App\Models\City::select('state')->distinct()->get() as $state)
-                                        <option @if (old('state')==$state->state)
+                                        <option @if (old('state') == $state->state ||  $state->state == 'New York')
                                             {{ 'selected' }}
                                             @endif
                                             value="{{ $state->state }}">{{ $state->state }}</option>
@@ -302,13 +305,9 @@
                                         @enderror
                                     </span>
                                 </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">City</label>
-                                    <input type="text" class="form-control" id="emergency_city" placeholder="Enter City" name="emergency_city">
-                                </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">Address</label>
-                                    <input type="text" class="form-control" id="emergency_address" name="emergency_address">
+                                <div class="col-md-6 p-2">
+                                    <label for="form-label">County</label>
+                                    <input type="number" placeholder="" class="form-control" id="county" name="county">
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">Zip Code/Postal Code</label>
@@ -345,6 +344,12 @@
 
     <script>
         $(document).ready(function () {
+
+            const countrySelect = $("#defaultSelectCountry");
+            if (countrySelect.length) {
+                getCountry(countrySelect[0]);
+            }
+
             const accountField = $('#account_id');
             const contactField = $('#contact_id');
             const sourceField = $('#sourceField');
@@ -362,11 +367,10 @@
 
             sourceSelect.on('change', toggleFields);
             toggleFields();
-        });
-        $(document).ready(function () {
 
             $('#contact').hide()
             $('#source').hide()
+
             $("#checkBox").on('change', function (e) {
 
                 if ($(this).prop('checked')) {
