@@ -1098,6 +1098,24 @@ return $colors[$randomIndex];
                             <div class="form-group px-3 " data-select2-id="10">
                                 <div class="row" data-select2-id="9">
                                     <div class="col-md-3">
+                                        <label class="form-label">Patient Language</label>
+                                    </div>
+                                    <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                        <p class="m-0"> {{ $referral->patient_language }}</p>
+                                         {{-- <select class="form-control" id="patient_language" name="patient_language" required>
+                                            <option value="">Select Patient Language</option>
+                                            <option {{ $referral->patient_language == 'English' ? 'selected' : '' }} value="English">English</option>
+                                            <option {{ $referral->patient_language == 'Russian' ? 'selected' : '' }} value="Russian">Russian</option>
+                                            <option {{ $referral->patient_language == 'Chinese' ? 'selected' : '' }} value="Chinese">Chinese</option>
+                                            <option {{ $referral->patient_language == 'Hebrew' ? 'selected' : '' }} value="Hebrew">Hebrew</option>
+                                        </select> --}}
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group px-3 " data-select2-id="10">
+                                <div class="row" data-select2-id="9">
+                                    <div class="col-md-3">
                                         <label for="timeZone" class="form-label">Country</label>
                                     </div>
                                     <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
@@ -1820,7 +1838,7 @@ return $colors[$randomIndex];
                                                         Number</label>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <input type="text" id="medicaidNumber" name="medicaidNumber" class="form-control" value="{{ $referral->referral_medcaid->medicaid_number }}" readonly>
+                                                    <input placeholder="e.g., AB12345C" pattern="[A-Za-z]{2}\d{5}[A-Za-z]" title="Format: Two letters, five digits, one letter (e.g., AB12345C)" type="text" id="medicaidNumber" name="medicaidNumber" class="form-control" value="{{ $referral->referral_medcaid->medicaid_number }}" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -2201,9 +2219,8 @@ return $colors[$randomIndex];
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12 p-2">
-                            <label for="form-label">Note</label>
+                            <label for="form-label">Note <span class="text-danger">*</span></label>
                             <textarea name="note" id="note_text" rows="5" maxlength="255" placeholder="Type note here" class="form-control address" required></textarea>
-                            <small class="text-danger">Allowed characters is 255</small>
                         </div>
                     </div>
                 </div>

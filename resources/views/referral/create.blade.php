@@ -92,7 +92,13 @@
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient Language</label>
-                                <input type="text" class="form-control" id="patient_language" name="patient_language" placeholder="Patient Language">
+                                 <select class="form-control form-select" id="patient_language" name="patient_language" required>
+                                    <option value="" selected>Select Patient Language</option>
+                                    <option value="English">English</option>
+                                    <option value="Russian">Russian</option>
+                                    <option value="Chinese">Chinese</option>
+                                    <option value="Hebrew">Hebrew</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -159,7 +165,7 @@
                         <div class="row">
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Medicaid Number</label>
-                                <input type="text" class="form-control phone" placeholder="(___) ___-___" id="medicaid_phone" name="medicaid_phone">
+                                <input placeholder="e.g., AB12345C" pattern="[A-Za-z]{2}\d{5}[A-Za-z]" title="Format: Two letters, five digits, one letter (e.g., AB12345C)"  type="text" class="form-control" id="medicaid_phone" name="medicaid_phone">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Medicare Number</label>
