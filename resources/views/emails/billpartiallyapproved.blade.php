@@ -121,7 +121,7 @@
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 0px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
                             <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
-                            <hr style="border: 1px solid #06778a;">
+                            <hr style="border: .5px solid #06778a;">
                         </td>
                     </tr>
                     <tr>
@@ -150,11 +150,21 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                        <td bgcolor="#ffffff" align="left" valign="top" style="border-radius: 0px 0px 4px 4px; padding: 20px 20px 50px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
                             <p style="font-size: 16px; font-weight: 400; margin: 0;">Warm regards,</p>
                             <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team</p>
                         </td>
                     </tr>
+                    <tr>
+                        <td bgcolor="#559e99" align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                                <tr>
+                                    <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>

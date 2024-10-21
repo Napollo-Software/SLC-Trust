@@ -136,8 +136,8 @@
                                 We are pleased to announce the launch of our brand new client portal! <br><br>
                                 Our goal with this new portal is to provide our clients with an easier way to access and manage their Trust account, such as submitting bills, check on bill-pay status, and find their account balance. <br><br>
                                 Your username is: <b>{{ $email_message }}</b> <br><br>
-                                <a href="https://billing.intrustpit.org/reset/password/{{$url}}">Click here</a> to create your password and access your portal. <br><br>
-                                For any questions, feedback, or comments, please contact us today! You can email us at info@trustedsurplus.org
+                                <a href="https://billing.slctrusts.org/reset/password/{{$url}}">Click here</a> to create your password and access your portal. <br><br>
+                                For any questions, feedback, or comments, please contact us today! You can email us at info@slctrusts.org
                                 <br>
                                 Thank you for being a Trusted member!
                             </p>

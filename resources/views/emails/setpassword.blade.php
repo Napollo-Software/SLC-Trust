@@ -131,7 +131,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" >You have successfully registered with Intrustpit. Your profile is under review and we will get back in 24/48hours.</p>
+                            <p style="margin: 0;text-align:center;" >You have successfully registered with {{ config('app.professional_name') }}. Your profile is under review and we will get back in 24/48hours.</p>
                         </td>
                     </tr>
                     <tr>

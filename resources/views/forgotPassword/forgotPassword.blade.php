@@ -121,7 +121,7 @@
                     <tr>
                         <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 0px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
                             <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
-                            <hr style="border: 1px solid #06778a;">
+                            <hr style="border: .5px solid #06778a;">
                         </td>
                     </tr>
                     <tr>

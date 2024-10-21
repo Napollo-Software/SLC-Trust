@@ -136,7 +136,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" style="text-align:center">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" > Your intrustpit account has been topped up successfully with amount ${{$balace}}.</p>
+                            <p style="margin: 0;text-align:center;" > Your {{ config('app.professional_name') }} account has been topped up successfully with amount ${{$balace}}.</p>
                         </td>
                     </tr>
                     @php
@@ -173,7 +173,7 @@
                     </tr>
                      <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" >Now you can add bills using your Intrustpit account! Please use the button below to login.</p>
+                            <p style="margin: 0;text-align:center;" >Now you can add bills using your {{ config('app.professional_name') }} account! Please use the button below to login.</p>
                         </td>
                     </tr>
                     <tr>
