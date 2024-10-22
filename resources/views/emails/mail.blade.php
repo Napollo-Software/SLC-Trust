@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Documents</title>
+    <title>{{ config('app.professional_name') }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <style type="text/css">
         @media screen {
             @font-face {
-                a font-family: 'Lato';
+                font-family: 'Lato';
                 font-style: normal;
                 font-weight: 400;
                 src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
@@ -102,7 +102,10 @@
 </head>
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
+    <!-- HIDDEN PREHEADER TEXT -->
+
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <!-- LOGO -->
         <tr>
             <td bgcolor="#559e99" align="center">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
@@ -116,43 +119,69 @@
             <td bgcolor="#559e99" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
+                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 0px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
                             <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
-                            <h1 style="font-size: 30px; font-weight: 400;">Hi {{$name}}!</h1>
+                            <hr style="border: .5px solid #06778a;">
                         </td>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;">{{ $email_message }}</p>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 0px 20px 20px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 20px; font-weight: 400; margin: 0;">Dear {{ $name }},</p>
                         </td>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#ffffff" align="center" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            @if(!empty($urls) && is_array($urls))
-                            @foreach($urls as $url)
-                            <a href="{{ $url }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column;">
-                                <img style="width: 50px; height: 50px;" src="{{ url('img/form_icon.png') }}" alt="document">
-                                <p style="color:black; font-size:14px; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; height: 100%;">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</p>
-                            </a>
-                            @endforeach
-                            @elseif(!empty($urls))
-                            <a href="{{ url($urls) }}" target="_blank" class="cta-button" style="margin-bottom: 5px; text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: inline-block; padding: 10px 20px; border-radius: 4px; text-align: center; word-wrap: break-word; width: 200px; height: 150px; vertical-align: top; flex-direction:column;">
-                                <img style="width: 50px; height: 50px;" src="{{ url('img/form_icon.png') }}" alt="document">
-                                <p style="color:black; font-size:14px; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; height: 100%;">Click here</p>
-                            </a>
-                            @endif
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Please click on each of the document(s) listed below, complete the required information, and submit them. The form(s) will be automatically sent to our team for processing.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 20px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" style="max-width: 600px;">
+                                <tr>
+                                    <td align="center" style="padding: 0; margin: 0;">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                @if(!empty($urls) && is_array($urls))
+                                                @foreach($urls as $url)
+                                                    <td align="center" valign="top" style="padding: 10px;">
+                                                        <a href="{{ $url }}" target="_blank" style="text-decoration: none; display: block; width: 180px; height: 120px; border-radius: 4px; border: 1px solid #cccccc; padding: 10px 15px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight: 700; text-align: center;">
+                                                            <img src="{{ url('img/form_icon.png') }}" alt="document" style="width: 50px; height: 50px; display: block; margin: 0 auto 10px;">
+                                                            <p style="color:black; font-size:14px; margin: 0; text-align: center;">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</p>
+                                                        </a>
+                                                    </td>
+                                                @if($loop->iteration % 2 == 0)
+                                            </tr>
+                                            <tr>
+                                                @endif
+                                                @endforeach
+                                                 @elseif(!empty($urls))
+                                                 <td align="center" valign="top" style="padding: 10px;">
+                                                        <a href="{{ $urls }}" target="_blank" style="text-decoration: none; display: block; width: 180px; height: 120px; border-radius: 4px; border: 1px solid #cccccc; padding: 10px 15px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight: 700; text-align: center;">
+                                                            <img src="{{ url('img/form_icon.png') }}" alt="document" style="width: 50px; height: 50px; display: block; margin: 0 auto 10px;">
+                                                            <p style="color:black; font-size:14px; margin: 0; text-align: center;">Click here</p>
+                                                        </a>
+                                                    </td>
+                                                @endif
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="border-radius: 0px 0px 4px 4px; padding: 20px 20px 50px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Warm regards,</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#559e99" align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                                <tr>
+                                    <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </table>
@@ -161,3 +190,4 @@
     </table>
 </body>
 </html>
+
