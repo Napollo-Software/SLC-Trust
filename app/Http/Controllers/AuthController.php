@@ -571,7 +571,7 @@ class AuthController extends Controller
         $user = User::findOrFail($id);
 
         $vod_documents = $user->transactions()
-            ->select('user_id', 'vod_link')
+            ->select('user_id', 'vod_link', 'created_at')
             ->whereNotNull('vod_link')
             ->distinct()
             ->get();

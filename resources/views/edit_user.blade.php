@@ -11,18 +11,6 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
         color: #69707a;
     }
 
-    .search-nav {
-        padding-bottom: 6%;
-    }
-
-    .img-account-profile {
-        height: 10rem;
-    }
-
-    .rounded-circle {
-        border-radius: 50% !important;
-    }
-
     .card {
         box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
     }
@@ -103,7 +91,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                             </h6>
                             @if ($user->profile_pic != null)
                             <a href="{{ url('img/' . $user->profile_pic) }}" download>
-                                <i class="menu-icon tf-icons bx bx-download"></i>
+                                <i class="bx bx-download"></i>
                             </a>
                             @endif
                         </div>
@@ -133,64 +121,36 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         </div>
                     </div>
                 </div>
-
-                <div class="card my-4 mb-xl-0 " style="width:95%;">
-                    <div class="card-header">
-                        <div class="d-flex">
-                            <h6 class="col-md-12 pt-2 text-center">
-                                VOD Letters
-                            </h6>
-                            @if ($user->profile_pic != null)
-                            <a href="{{ url('img/' . $user->profile_pic) }}" download>
-                                <i class="menu-icon tf-icons bx bx-download"></i>
-                            </a>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="card-body text-center mb-3">
-                        <div class="row justify-content-center">
-                            @forelse ($vod_documents as $document)
-                            <div class="col-md-4 mt-3 {{ $loop->first ? 'mt-0' : '' }}">
-                                <a href="{{ url("storage/{$user->id}/vod_letters/{$document->vod_link}") }}" target="_blank">
-                                    <img style="width:80px; background: #69b4ac; width: 80px; padding: 20px; border-radius: 10px;" src="{{ url('img/download_icon.png') }}" alt="VOD letter">
-                                </a>
-                            </div>
-                            @empty
-                            <div class="col-md-12">No VOD Letter found</div>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
         </div>
 
         <div class="col-md-8">
             <div class="card mb-3">
                 <div class="card-body">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center justify-content-between">
                         <h4>Profile Details</h4>
-                        <span class="d-flex">
-                            <a href="{{ route('approval-letter', $user->id) }}" class="btn btn-success ml-1 mr-1" style="color: white;">
+                        <span class="d-flex gap-1">
+                            <button type="button" class="btn d-flex align-items-center btn-primary" data-bs-toggle="modal" data-bs-target="#vodModal">
+                                <i class='bx bx-show-alt me-1'></i>VOD</button>
+                            <a href="{{ route('approval-letter', $user->id) }}" class="btn btn-success" style="color: white;">
                                 <i class="bx bxs-download me-1"></i>Approval Letter</a>
                             @if($user->role == "User")
                             <a href="{{ route('view_user', $user->id) }}" class="btn btn-secondary" style="color: white;">
                                 <i class="bx bx-dollar-circle pb-1"></i>Add Balance</a>
                             @endif
-                            <a href="{{ route('edit_user', $user->id) }}" class="btn btn-primary ml-1 mr-1" style="color: white;">
+                            <a href="{{ route('edit_user', $user->id) }}" class="btn btn-primary" style="color: white;">
                                 <i class="bx bx-edit-alt pb-1"></i>Edit User </a>
                             @if ($user->id != \Company::Account_id)
-                            <div class="">
-                                <select id="defaultSelect" class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif" name="account_status" data-id="{{ $user->id }}" required>
-                                    @if($user->account_status == 'Pending')
-                                    <option class="bg-white text-black" value="" disabled selected>Pending</option>
-                                    @endif
-                                    <option class="bg-white text-black" @if ($user->account_status == 'Approved') selected @endif
-                                        value="Approved">Approved</option>
-                                    <option class="bg-white text-black" @if ($user->account_status == 'Not Approved') selected @endif
-                                        value="Not Approved">Not Approved</option>
-                                    <option class="bg-white text-black" @if ($user->account_status == 'Disable') selected @endif
-                                        value="Disable">Deactivate</option>
-                                </select>
-                            </div>
+                            <select id="defaultSelect" class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif" name="account_status" data-id="{{ $user->id }}" required>
+                                @if($user->account_status == 'Pending')
+                                <option class="bg-white text-black" value="" disabled selected>Pending</option>
+                                @endif
+                                <option class="bg-white text-black" @if ($user->account_status == 'Approved') selected @endif
+                                    value="Approved">Approved</option>
+                                <option class="bg-white text-black" @if ($user->account_status == 'Not Approved') selected @endif
+                                    value="Not Approved">Not Approved</option>
+                                <option class="bg-white text-black" @if ($user->account_status == 'Disable') selected @endif
+                                    value="Disable">Deactivate</option>
+                            </select>
                             @endif
                         </span>
                     </div>
@@ -370,6 +330,46 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
         </div>
     </div>
 </div>
+<div class="modal fade" id="vodModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNoteModalLabel">VOD Letters</h5>
+                <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <th>SNO</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                    <tbody>
+                        @forelse ($vod_documents as $index => $document)
+                        <tr>
+                            <td>{{ ++$index }}</td>
+                            <td>{{ basename($document->vod_link) }}</td>
+                            <td>{{ date('m-d-Y', strtotime($document->created_at)) }}</td>
+                            <td class="text-center">
+                                <a title="Click here to download the file" href="{{ url("storage/{$user->id}/vod_letters/{$document->vod_link}") }}" target="_blank">
+                                    <i class="menu-icon tf-icons bx bx-download"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="4" class="text-center">No vod letter found</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
  <script>
