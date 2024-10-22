@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ config('app.professional_name') }} | Account Deactivated</title>
+    <title>{{ config('app.professional_name') }} | Account Created</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -102,6 +102,8 @@
 </head>
 
 <body style="background-color: #559e99; margin: 0 !important; padding: 0 !important;">
+    <!-- HIDDEN PREHEADER TEXT -->
+
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <!-- LOGO -->
         <tr>
@@ -117,20 +119,39 @@
             <td bgcolor="#559e99" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
+                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 0px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 1px; line-height: 48px;">
                             <img src="https://billing.slctrusts.org/assets/img/slc_trust.png" style="height:110px" style="display: block; border: 0px;" />
-                            <h1 style="font-size: 30px; font-weight: 400;">Hi {{$name}}!</h1>
+                            <hr style="border: .5px solid #06778a;">
                         </td>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;"> Your profile has been deactivated by {{ config('app.professional_name') }},For immediate assistance please call {{ config('app.contact') }}.</p>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 0px 20px 20px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 20px; font-weight: 400; margin: 0;">Dear {{ $name }},</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Your profile has been deactivated by {{ config('app.professional_name') }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">For immediate assistance, please contact our support team at <br> {{ config('app.contact') }}.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" valign="top" style="border-radius: 0px 0px 4px 4px; padding: 20px 20px 50px 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">Warm regards,</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">The Senior Life Care Team</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#559e99" align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                                <tr>
+                                    <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </table>
