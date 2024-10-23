@@ -29,8 +29,9 @@
                             <label for="exampleFormControlInput1" class="form-label">To</label>
                             <select id="defaultSelect" class="form-control" name="to">
                                 <option value="">Choose One</option>
+
                                 @foreach ($to as $item)
-                                    <option value="{{ $item->id }}">{{ $item->first_name }} {{ $item->last_name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }} {{ $item->last_name }}</option>
                                 @endforeach
                             </select>
                             <span id="categoryError" class="text-danger"></span>

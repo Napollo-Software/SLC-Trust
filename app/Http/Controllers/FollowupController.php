@@ -18,13 +18,17 @@ class FollowupController extends Controller
         $routeName = Route::currentRouteName();
 
         $from = User::where('id', '=', Session::get('loginId'))->first();
-        $to = Referral::all();
+
 
         if ($routeName === 'follow_up.list') {
             $data = Followup::where('type','note')->get();
+            $to = Referral::all();
             return view('follow-up.index', compact('data', 'from', 'to'));
         }else if ($routeName === 'follow_up.index') {
             $data = Followup::where('type','followup')->get();
+            $to = User::whereHas('roles', function ($query) {
+                $query->where('role', 'employee'); // Filter users with role 'employee'
+            })->get();
             return view('follow-up-new.index', compact('data', 'from', 'to'));
         }
     }
