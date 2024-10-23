@@ -8,16 +8,25 @@ use App\Models\User;
 use App\Models\lead;
 use App\Models\Referral;
 use App\Models\Type;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
 class FollowupController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Followup::all();
+        $routeName = Route::currentRouteName();
+
         $from = User::where('id', '=', Session::get('loginId'))->first();
         $to = Referral::all();
-        return view('follow-up.index', compact('data', 'from', 'to'));
+
+        if ($routeName === 'follow_up.list') {
+            $data = Followup::where('type','note')->get();
+            return view('follow-up.index', compact('data', 'from', 'to'));
+        }else if ($routeName === 'follow_up.index') {
+            $data = Followup::where('type','followup')->get();
+            return view('follow-up-new.index', compact('data', 'from', 'to'));
+        }
     }
 
 
@@ -29,6 +38,7 @@ class FollowupController extends Controller
             'from' => 'required',
             'date' => 'required',
             'note' => 'required',
+            'type' => 'required',
         ]);
         $followup = new Followup();
         $followup->from = $request->input('from');
@@ -36,6 +46,7 @@ class FollowupController extends Controller
         $followup->date = $request->input('date');
         $followup->time = $request->input('time');
         $followup->note = $request->input('note');
+        $followup->type = $request->input('type');
         $followup->save();
         $type = new Type();
         $type->category = $request->type === "other" ? "Designation" : $request->type;
@@ -84,12 +95,14 @@ class FollowupController extends Controller
         $followup = Followup::find($id);
         return view('follow-up.update', compact('followup'));
     }
+
     public function update(Request $request)
     {
         $this->validate($request, [
             'date' => 'required',
             'time' => 'required',
             'note' => 'required',
+            'type' => 'required',
         ]);
 
         $followup = Followup::find($request->id);
@@ -103,11 +116,11 @@ class FollowupController extends Controller
         $followup->date = $request->input('date');
         $followup->time = $request->input('time');
         $followup->note = $request->input('note');
+        $followup->type = $request->input('type');
         $followup->save();
 
         return response()->json(['message' => 'Follow-up updated successfully']);
     }
-
 
 
     public function delete(Request $request, $id)

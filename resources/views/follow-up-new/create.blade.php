@@ -7,9 +7,9 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Notes</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Follow Ups</h5>
                 <button type="button" class="close close-btn closeAddType" data-dismiss="modal"
-                    aria-label="Close">
+                        aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -20,9 +20,9 @@
                         <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">From</label>
                             <input type="text" class="form-control" placeholder="Name"
-                                value="{{ $from->name . ' ' . $from->last_name }}" disabled />
+                                   value="{{ $from->name . ' ' . $from->last_name }}" disabled />
                             <input type="hidden" name="from" value="{{ $from->id }}">
-                            <input type="hidden" name="type" value="note">
+                            <input type="hidden" name="type" value="followup">
                             <span id="nameError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
@@ -38,19 +38,19 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Note Date</label>
+                            <label for="exampleFormControlInput1" class="form-label">Follow Up Date</label>
                             <input type="date" class="form-control" name="date" />
                             <span id="nameError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Note Time</label>
+                            <label for="exampleFormControlInput1" class="form-label">Follow Up Time</label>
                             <input type="time" class="form-control" name="time" />
                             <span id="categoryError" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <label for="exampleFormControlInput1" class="form-label">Note Note</label>
+                            <label for="exampleFormControlInput1" class="form-label">Follow Up</label>
                             <textarea name="note" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
