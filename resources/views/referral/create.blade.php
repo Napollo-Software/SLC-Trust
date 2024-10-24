@@ -178,7 +178,7 @@
                             <div class="col-md-12 ">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="text-secondary">
+                                        <div class="">
                                             <label class="form-label mb-1">Intake Coordinator<span class="text-danger"></span></label>
                                             <select id="intake" class="form-control select-2" name="intake">
                                                 <option disabled selected hidden>Intake Coordinator</option>
