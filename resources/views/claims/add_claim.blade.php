@@ -45,7 +45,7 @@
                             <div class="col-lg-3">
                                 <label for="exampleFormControlInput1" class="form-label">Bill Amount <span class="text-danger">*</span></label>
                                 <input type="number" name="claim_amount" class="form-control" placeholder="$"
-                                    step="any" value="{{ old('claim_amount') }}" maxlength="100000" />
+                                    step="any" value="{{ old('claim_amount') }}" max="10000000" title="Please enter an amount less than or equal to 10 million." />
                                 <span class="text-danger">
                                     @error('claim_amount')
                                         {{ $message }}

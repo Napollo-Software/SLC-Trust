@@ -228,7 +228,13 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                             </div>
                             <div class="col-md-6 pt-3">
                                 <label>Patient Language</label>
-                                <input type="text" class="form-control" id="patient_language" value="{{ $Referral->patient_language }}" name="patient_language">
+                                <select class="form-control form-select" id="patient_language" name="patient_language" required>
+                                    <option value="" selected>Select Patient Language</option>
+                                    <option value="English" @if($Referral->patient_language == 'English') selected @endif>English</option>
+                                    <option value="Russian" @if($Referral->patient_language == 'Russian') selected @endif>Russian</option>
+                                    <option value="Chinese" @if($Referral->patient_language == 'Chinese') selected @endif>Chinese</option>
+                                    <option value="Hebrew"  @if($Referral->patient_language == 'Hebrew') selected @endif>Hebrew</option>
+                                </select>
                             </div>
                             <div class="col-md-6 pt-3">
                                 <label>Zip</label>
@@ -250,11 +256,11 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                         <div class="row">
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Medicaid Number</label>
-                                <input type="text" class="form-control phone" placeholder="(___) ___-___" value="{{ $Referral->medicaid_number }}" id="medicaid_phone" name="medicaid_phone">
+                                <input type="text" value="{{ $Referral->medicaid_number }}" placeholder="e.g., AB12345C" pattern="[A-Za-z]{2}\d{5}[A-Za-z]" title="Format: Two letters, five digits, one letter (e.g., AB12345C)"  type="text" class="form-control" id="medicaid_phone" name="medicaid_phone">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Medicare Number</label>
-                                <input type="text" class="form-control" placeholder="Enter Medicare Number" value="{{ $Referral->medicare_number }}" id="medicare_number" name="medicare_phone">
+                                <input type="text" class="form-control" placeholder="Enter Medicare Number" id="medicare_phone" name="medicare_phone" value="{{ $Referral->medicare_number }}">
                             </div>
                         </div>
                     </div>
@@ -267,11 +273,7 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                         <div class="row">
                             <div class="col-md-12" style=" margin-bottom: 20px">
                                 <div class="row" style="display: flex; justify-content: space-evenly">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="text-secondary">
+                                                    <div class="">
                                                         <label class="form-label mb-1">Intake Coordinator<span class="text-danger">*</span></label>
                                                         <select id="intake" class="form-control select-2" name="intake">
                                                             <option disabled selected hidden>Intake Coordinator
@@ -288,11 +290,7 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 px-4">
+                            <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary"><i class="bx bx-save pb-1"></i>Submit
                                 </button>
                             </div>

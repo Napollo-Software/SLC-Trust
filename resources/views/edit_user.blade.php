@@ -34,7 +34,6 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
     .dataTable-input {
         display: block;
         width: 100%;
-        padding: 0.875rem 1.125rem;
         font-size: 0.875rem;
         font-weight: 400;
         line-height: 1;
@@ -129,6 +128,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <div class="d-flex align-items-center justify-content-between">
                         <h4>Profile Details</h4>
                         <span class="d-flex gap-1">
+                            @if($user->account_status == 'Approved')
                             <button type="button" class="btn d-flex align-items-center btn-primary" data-bs-toggle="modal" data-bs-target="#vodModal">
                                 <i class='bx bx-show-alt me-1'></i>VOD</button>
                             <a href="{{ route('approval-letter', $user->id) }}" class="btn btn-success" style="color: white;">
@@ -136,6 +136,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                             @if($user->role == "User")
                             <a href="{{ route('view_user', $user->id) }}" class="btn btn-secondary" style="color: white;">
                                 <i class="bx bx-dollar-circle pb-1"></i>Add Balance</a>
+                            @endif
                             @endif
                             <a href="{{ route('edit_user', $user->id) }}" class="btn btn-primary" style="color: white;">
                                 <i class="bx bx-edit-alt pb-1"></i>Edit User </a>
@@ -338,13 +339,15 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                 <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table class="table">
+                <table class="table align-middle mb-0 table-hover dataTable ">
+                    <thead class="table-light">
                     <tr>
                         <th>SNO</th>
                         <th>Name</th>
                         <th>Date</th>
                         <th class="text-center">Action</th>
                     </tr>
+                    </thead>
                     <tbody>
                         @forelse ($vod_documents as $index => $document)
                         <tr>
@@ -371,7 +374,18 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.table').DataTable({
+            aLengthMenu: [
+                [25, 50, 100, -1],
+                [25, 50, 100, "All"]
+            ],
+             "order": false // "0" means First column and "desc" is order type;
+        });
+    });
+</script>
  <script>
     $(document).on('change','#defaultSelect',function(e){
         e.preventDefault();
