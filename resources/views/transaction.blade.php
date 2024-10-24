@@ -44,8 +44,14 @@
             $completedCases[] = $referralForMonth ? $referralForMonth->where('status', 'Approved')->count() : 0;
             $pendingCases[] = $referralForMonth ? $referralForMonth->where('status', 'Pending')->count() : 0;
 
+
             // Move to the previous month for the next iteration
             $endDate = $startDate;
+        }
+        if($role == 'Admin'){
+        $followup = \App\Models\Followup::where('type','followup')->get();
+        }else{
+            $followup = \App\Models\Followup::where('type','followup')->where('to',Session::get('loginId'))->get();
         }
         $totalCasesJson = json_encode($totalCases);
         $completedCasesJson = json_encode($completedCases);
@@ -59,6 +65,16 @@
 
     </head>
     <style>
+        .fc-daygrid-event-harness {
+            max-width: 240px !important;
+        }
+        .fc-event-title.fc-sticky {
+            text-overflow: ellipsis !important;
+            overflow: hidden !important;
+            white-space: nowrap !important;
+            width: 100% !important;
+        }
+
         /* .apexcharts-toolbar{
                 display: none;
             }
@@ -154,21 +170,21 @@
                 </div>
             </div>
 
-            <div class="modal" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+            <div class="modal" id="eventModal" tabindex="-1" role="dialog" style="z-index:999999;" aria-labelledby="eventModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <h5 class="modal-title" id="eventModalLabel" style="font-weight: 600 !important;">Event Details</h5>
+                            <button type="button" id="closeModalIcon" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <div id="eventDetails"></div>
+                        <div class="modal-body pt-4">
+                            <div id="eventDetails" style="max-height: 240px !important;overflow: auto !important;"></div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div class="modal-footer border-top-0">
+                            <button type="button" id="closeModalButton" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
@@ -1054,6 +1070,13 @@
         });
     </script>
     <script>
+
+        document.getElementById('closeModalButton').addEventListener('click', function() {
+            $('#eventModal').modal('hide');
+        });
+        document.getElementById('closeModalIcon').addEventListener('click', function() {
+            $('#eventModal').modal('hide');
+        });
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar22');
             var followupEvents = @json($followup);
@@ -1073,29 +1096,40 @@
                 // themeSystem: 'bootstrap', // Use the Bootstrap theme
                 themeColor: '#559e99', // Set the primary color to #559e99
                 dayMaxEvents: true, // allow "more" link when too many events
-                // events: events,
                 events: followupEvents.map(function(event) {
                     return {
                         title: event.note + ' - ' + event.date,
                         start: event.date,
                     };
                 }),
-                dayRender: function(info) {
-                    var cellDate = info.date;
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault();
+                    var clickedDate = new Date(info.event.start) // Format as YYYY-MM-DD
+                    const year = clickedDate.getFullYear();
+                    const month = String(clickedDate.getMonth() + 1).padStart(2, '0'); // Months are 0-based, so add 1
+                    const day = String(clickedDate.getDate()).padStart(2, '0');
+
+                    const formattedDate = `${year}-${month}-${day}`;
+                    // Filter all events occurring on the same date
                     var eventsForDate = followupEvents.filter(function(event) {
-                        return event.date === cellDate.toISOString().substr(0, 10);
+                        return event.date === formattedDate;
                     });
 
+                    var content = '<h5 class="pb-2">'+new Date(info.event.start).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    })+'</h5>'
                     var eventDetails = eventsForDate.map(function(event) {
-                        return '<h5>' + event.note + '</h5>';
+                        return '<h5 class="border-bottom py-2 pt-3 text-7 m-0" style="font-size: 13px !important;">' + event.note + '</h5>';
                     }).join('');
 
-                    info.el.innerHTML = eventDetails;
-                    info.el.addEventListener('click', function() {
-                        $('#eventModal').modal('show');
-                    });
-                }
+                    var join = content+eventDetails
+                    $('#eventDetails').html(join);
 
+                    // Show the modal
+                    $('#eventModal').modal('show');
+                }
             });
             calendar.render();
         });

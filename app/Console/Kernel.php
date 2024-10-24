@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\FollowUpReminder;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -18,6 +19,7 @@ class Kernel extends ConsoleKernel
         Commands\Notify::class,
         Commands\ProcessMaintenanceFee::class,
         Commands\MonthlyMassReports::class,
+        FollowUpReminder::class,
     ];
     protected function schedule(Schedule $schedule)
     {
@@ -31,6 +33,7 @@ class Kernel extends ConsoleKernel
         //       ->daily()->withoutOverlapping();
 
         $schedule->command('renewal:charge')->daily();
+        $schedule->command('followup:reminder')->daily();
     }
 
     /**

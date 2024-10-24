@@ -1,23 +1,23 @@
 {
-    "info-bold": {
-        "normal": "info_bold_normal_ae6d150abb28716ab80c102b85fe69ef"
+    "poppins-regular": {
+        "normal": "poppins_regular_normal_4fc9ed2e2dbc1e8790dbc69b77df0fb7"
     },
-    "info-normal": {
-        "normal": "info_normal_normal_c4bc22676922722750a2dd2e041081f4"
-    },
-    "info-semibold": {
-        "normal": "info_semibold_normal_78e0de5cfa6647fb10123ab83bf66036"
+    "poppins-medium": {
+        "normal": "poppins_medium_normal_aa5580f87ae20d4093cafd9c71c77c9f"
     },
     "poppins-semibold": {
-        "normal": "poppins_semibold_normal_8b3165189ede54a5fec9b33361d564d2"
+        "normal": "poppins_semibold_normal_442a0756de77dbcbe7b8f3c68a2ddbd4"
     },
     "poppins-bold": {
-        "normal": "poppins_bold_normal_a23439bbfc7f94a36c733a3dfc0bb6a6"
+        "normal": "poppins_bold_normal_eec0ecdcd885096701f5e4c88980d56a"
     },
     "poppins-italic": {
-        "normal": "poppins_italic_normal_fc0167a5e6efe61b54a2bd5bcfab5429"
+        "normal": "poppins_italic_normal_a37e15f73cd7cc6f2eafc2c7da59e802"
     },
     "poppins-extrabold": {
-        "normal": "poppins_extrabold_normal_c441836c68343d41d36ecf9bb0a5db0f"
+        "normal": "poppins_extrabold_normal_a96ff364620c922a1975426acb1e9ab4"
+    },
+    "brittanysignature-mazx": {
+        "normal": "brittanysignature_mazx_normal_b16ee1b560af8eb84ef9cce7a2636b15"
     }
 }
