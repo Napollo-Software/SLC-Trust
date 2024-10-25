@@ -143,7 +143,7 @@
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Zip Code/Postal Code</label>
-                                <input type="text" class="form-control" id="zip" name="zip" placeholder="51000">
+                                <input type="number" class="form-control" id="zip" name="zip" placeholder="51000">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">APT/SUITE </label>
@@ -246,9 +246,13 @@
                     </div>
                 </div>
                <div class="card shadow-lg mb-3">
-                        <div class="card-header d-flex pl-0 pb-1 pl-2">
-                            <h5>Emergency Contact</h5>
-                        </div>
+                   <div class="card-header d-flex justify-content-between pl-0 pb-1 pl-2">
+                       <h5>Emergency Contact</h5>
+                       <div class="print-btn p-0">
+                           <label for="checkBox">Same as Patient</label>
+                           <input type="checkbox" class="m-1 cursor-pointer" id="checkBox">
+                       </div>
+                   </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6 p-2">
@@ -372,21 +376,32 @@
             $('#source').hide()
 
             $("#checkBox").on('change', function (e) {
-
                 if ($(this).prop('checked')) {
-                    let fname = $('#contact_first_name').val();
-                    let lname = $('#contact_last_name').val();
-                    let phone = $('#contact_phone').val();
-                    let email = $('#contact_email').val();
-                    $('#patient_first_name').val(fname)
-                    $('#patient_last_name').val(lname)
-                    $('#patient_phone').val(phone)
-                    $('#patient_email').val(email)
+                    let fname = $('#first_name').val();
+                    let lname = $('#last_name').val();
+                    let phone = $('#phone').val();
+                    let email = $('#email').val();
+                    let address = $('#email').val();
+                    let city = $('#email').val();
+                    let zip = $('#zip').val();
+                    let apt = $('#apt').val();
+                    $('#emergency__first_name').val(fname)
+                    $('#emergency_last_name').val(lname)
+                    $('#emergency_phone').val(phone)
+                    $('#emergency_email').val(email)
+                    $('#emergency_address').val(address)
+                    $('#emergency_city').val(city)
+                    $('#emergency_zip').val(zip)
+                    $('#emergency_apt').val(apt)
                 } else {
-                    $('#patient_first_name').val("")
-                    $('#patient_last_name').val("")
-                    $('#patient_phone').val("")
-                    $('#patient_email').val("")
+                    $('#emergency__first_name').val("")
+                    $('#emergency_last_name').val("")
+                    $('#emergency_phone').val("")
+                    $('#emergency_email').val("")
+                    $('#emergency_address').val("")
+                    $('#emergency_city').val("")
+                    $('#emergency_zip').val("")
+                    $('#emergency_apt').val("")
                 }
             })
             $('#source_type').on('change', function (e) {
