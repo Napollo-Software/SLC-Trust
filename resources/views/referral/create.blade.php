@@ -381,8 +381,8 @@
                     let lname = $('#last_name').val();
                     let phone = $('#phone').val();
                     let email = $('#email').val();
-                    let address = $('#email').val();
-                    let city = $('#email').val();
+                    let address = $('#Address').val();
+                    let city = $('#city').val();
                     let zip = $('#zip').val();
                     let apt = $('#apt').val();
                     $('#emergency__first_name').val(fname)
