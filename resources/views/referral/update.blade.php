@@ -223,6 +223,10 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                 <input type="text" class="form-control" id="city" value="{{ $Referral->city }}" name="city">
                             </div>
                             <div class="col-md-6 pt-3">
+                                <label>County</label>
+                                <input type="text" class="form-control" id="county" value="{{ $Referral->county }}" name="county">
+                            </div>
+                            <div class="col-md-6 pt-3">
                                 <label>Address</label>
                                 <input type="text" class="form-control" id="address" value="{{ $Referral->address }}" name="address">
                             </div>
@@ -341,7 +345,30 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                 $('#source').hide();
             }
         });
+        $('#zip').on('input', function() {
+            var zip = $(this).val();
 
+            console.log(zip.length)
+            if (zip.length === 5) { // Assuming ZIP is 5 characters
+                $.ajax({
+                    url: 'http://api.geonames.org/postalCodeLookupJSON?postalcode='+zip+'&country=US&username=sheikhinam0795',
+                    type: 'GET',
+                    success: function(response) {
+                        console.log(response)
+                        if (response.postalcodes[0].adminName2 && response.postalcodes[0].placeName) {
+                            $('#city').val(response.postalcodes[0].placeName);
+                            $('#county').val(response.postalcodes[0].adminName2);
+                        } else {
+                            $('#city').val('');
+                            $('#county').val('');
+                        }
+                    },
+                    error: function() {
+                        console.error("Failed to fetch location data.");
+                    }
+                });
+            }
+        });
         $(document).on('submit', '#referralUpdateForm', function (e) {
             e.preventDefault();
             $('.form-control').removeClass('is-invalid');

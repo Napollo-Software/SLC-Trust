@@ -113,9 +113,13 @@
                                 <label for="form-label">Address</label>
                                 <input type="text" class="form-control" id="Address" name="address" placeholder="house# 03 street 07/ new york city">
                             </div>
-                            <div class="col-md-6 p-2">
+                            <div class="col-md-3 p-2">
                                 <label for="form-label">City</label>
                                 <input type="text" class="form-control" id="city" name="city" placeholder="eg: New York City">
+                            </div>
+                            <div class="col-md-3 p-2">
+                                <label for="form-label">County</label>
+                                <input type="text" class="form-control" id="county" name="county" placeholder="eg: Los Angeles">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Country</label>
@@ -311,7 +315,7 @@
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">County</label>
-                                    <input type="number" placeholder="" class="form-control" id="county" name="county">
+                                    <input type="text" placeholder="" class="form-control" id="emergency_county" name="emergency_county">
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">Zip Code/Postal Code</label>
@@ -383,6 +387,7 @@
                     let email = $('#email').val();
                     let address = $('#Address').val();
                     let city = $('#city').val();
+                    let county = $('#county').val();
                     let zip = $('#zip').val();
                     let apt = $('#apt').val();
                     $('#emergency__first_name').val(fname)
@@ -391,6 +396,7 @@
                     $('#emergency_email').val(email)
                     $('#emergency_address').val(address)
                     $('#emergency_city').val(city)
+                    $('#emergency_county').val(county)
                     $('#emergency_zip').val(zip)
                     $('#emergency_apt').val(apt)
                 } else {
@@ -400,6 +406,7 @@
                     $('#emergency_email').val("")
                     $('#emergency_address').val("")
                     $('#emergency_city').val("")
+                    $('#emergency_county').val("")
                     $('#emergency_zip').val("")
                     $('#emergency_apt').val("")
                 }
@@ -422,6 +429,30 @@
                     $('#sourceField').val("")
                 }
             })
+        });
+        $('#zip').on('input', function() {
+            var zip = $(this).val();
+
+            console.log(zip.length)
+            if (zip.length === 5) { // Assuming ZIP is 5 characters
+                $.ajax({
+                    url: 'http://api.geonames.org/postalCodeLookupJSON?postalcode='+zip+'&country=US&username=sheikhinam0795',
+                    type: 'GET',
+                    success: function(response) {
+                        console.log(response)
+                        if (response.postalcodes[0].adminName2 && response.postalcodes[0].placeName) {
+                            $('#city').val(response.postalcodes[0].placeName);
+                            $('#county').val(response.postalcodes[0].adminName2);
+                        } else {
+                            $('#city').val('');
+                            $('#county').val('');
+                        }
+                    },
+                    error: function() {
+                        console.error("Failed to fetch location data.");
+                    }
+                });
+            }
         });
         $(document).on('submit', '#referralStoreForm', function (e) {
             e.preventDefault();
