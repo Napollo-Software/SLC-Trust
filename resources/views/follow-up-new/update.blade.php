@@ -21,8 +21,8 @@
                         <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">From</label>
                             <input type="text" class="form-control" placeholder="Name"
-                                   value="{{ $from->name . ' ' . $from->last_name }}" disabled />
-                            <input type="hidden" name="from" value="{{ $from->id }}">
+                                   value="{{ $followupFrom->name . ' ' . $followupFrom->last_name }}" disabled />
+                            <input type="hidden" name="from" value="{{ $followupFrom->id }}">
                             <input type="hidden" name="type" value="followup">
                             <span id="nameError" class="text-danger"></span>
                         </div>
@@ -30,7 +30,7 @@
                             <label for="exampleFormControlInput1" class="form-label">To</label>
                             <select id="edit_to" class="form-control" name="to">
                                 <option value="">Choose One</option>
-                                @foreach ($to as $item)
+                                @foreach ($toEmployees as $item)
                                     <option value="{{ $item->id }}">{{ $item->full_name() }}</option>
                                 @endforeach
                             </select>

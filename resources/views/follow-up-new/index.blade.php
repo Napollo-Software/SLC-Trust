@@ -45,10 +45,10 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($data as $followup)
+                                @foreach ($followupData as $followup)
                                     <tr class="row-{{ $followup['id'] }}">
                                         <td>{{ $followup->id }}</td>
-                                        <td>{{ $from->name }} {{ $from->last_name }}</td>
+                                        <td>{{ $followupFrom->name }} {{ $followupFrom->last_name }}</td>
                                         <td>{{ $followup->lead->full_name() }}
                                             {{ $followup->lead->contact_last_name }}</td>
                                         <td>{{ $followup->time }}</td>
@@ -129,7 +129,8 @@
                                 [25, 50, 100, -1],
                                 [25, 50, 100, "All"]
                             ],
-                            "order": false
+                            // "order": true,
+                            "order": [[0, "desc"]],
                         });
                     });
                 </script>

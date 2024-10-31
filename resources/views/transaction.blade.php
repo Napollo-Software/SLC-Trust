@@ -1,6 +1,8 @@
 @extends('nav')
 @section('title', 'Dashboard | SLC Trusts')
 @section('wrapper')
+    @include('follow-up-new.create')
+    @include('follow-up-new.update')
     @php
         use App\Models\User;
         use App\Models\Claim;
@@ -347,45 +349,70 @@
         @if ($login_user->hasPermissionTo('Front Office'))
             <div class="row row-cols-1 row-cols-xl-2">
                 <div class="col d-flex">
-                    <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <h5 class="mb-1">
-                                        Referral Report</h5>
-                                    <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>in last 30 days
-                                    </p>
-                                </div>
-                                <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
-                                </div>
+                    <div class="card w-100">
+                        <div class="d-flex align-items-center p-3 mb-0">
+                            <div>
+                                <h5 class="mb-1">Manage Follow Ups</h5>
+                                <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Overall Follow Ups</p>
                             </div>
-                            <div class="row row-cols-1 row-cols-sm-3 mt-4">
-                                <div class="col">
-                                    <div>
-                                        <p class="mb-0 text-secondary">Total Cases</p>
-                                        <h4 class="my-1">{{ $referrals->count() }}</h4>
-                                        <p class="mb-0 font-13 text-success"><i
-                                                class='bx bxs-up-arrow align-middle'></i>10 Since last month</p>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div>
-                                        <p class="mb-0 text-secondary">Pending Cases</p>
-                                        <h4 class="my-1">{{ $referrals->where('status', 'Pending')->count() }}</h4>
-                                        <p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>5
-                                            Since last month</p>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div>
-                                        <p class="mb-0 text-secondary">Completed Cases</p>
-                                        <h4 class="my-1">{{ $referrals->where('status', 'Approved')->count() }}</h4>
-                                        <p class="mb-0 font-13 text-danger"><i
-                                                class='bx bxs-up-arrow align-middle'></i>1 Since last month</p>
-                                    </div>
-                                </div>
+                            <div class="font-22 ms-auto">
+                                <a href="/follow-up/list">
+                                <button class="btn btn-primary import-file-user-data print-btn px-2 py-1 ">
+                                    <i class='bx bx-save pb-2 pt-1 px-0 mx-0'></i>
+                                    Show More
+                                </button>
+                                </a>
+                                <button class="btn btn-primary import-file-user-data TypeAddBtn print-btn px-2 py-1 ">
+                                    <i class='bx bx-save pb-2 pt-1 px-0 mx-0'></i>
+                                    Add Follow Up
+                                </button>
                             </div>
-                            <div id="chart4"></div>
+                        </div>
+                        <div class="card-body p-3" style="margin-top: -15px">
+                            <div class="table-responsive text-nowrap overflow-auto pb-2 mt-2">
+                                <table class="table align-middle mb-0 table-hover dataTable" id="followUpTable">
+                                    <thead class="table-light">
+                                    <tr>
+                                        <th>UID#</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Time</th>
+                                        <th>Follow Up</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($followupData as $followups)
+                                        <tr class="row-{{ $followups['id'] }}">
+                                            <td>{{ $followups->id }}</td>
+                                            <td>{{ $followupFrom->name }} {{ $followupFrom->last_name }}</td>
+                                            <td>{{ $followups->lead->full_name() }}
+                                                {{ $followups->lead->contact_last_name }}</td>
+                                            <td>{{ $followups->time }}</td>
+                                            <td>
+                                                <div class="text-break" style="max-width:800px; overflow:auto; white-spaces:normal;">
+                                                    {{ $followups->note }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                        <i class="menu-icon tf-icons bx bx-cog"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <button class="dropdown-item TypeEditBtn pb-2" id="" data-to="{{ $followups->to }}" data-note="{{ $followups->note }}" data-id="{{ $followups->id }}" data-from="{{ $followups->from }}" data-date="{{ $followups->date }}" data-time="{{ $followups->time }}">
+                                                            <i class='bx bx-edit-alt me-1'></i> Edit</button>
+                                                        <button type="button" data-id="{{ $followups['id'] }}" class="dropdown-item deleteBtn">
+                                                            <i class="bx bx-trash-alt me-1"></i> Delete
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1047,6 +1074,53 @@
             new ApexCharts(document.querySelector("#chart21"), e).render()
 
             $(document).ready(function() {
+
+                $('.deleteBtn').on('click', function(e) {
+                    e.preventDefault()
+                    var id = $(this).attr('data-id');
+                    Swal.fire({
+                        title: 'Warning!',
+                        text: "Are you sure ,You want to delete it",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: 'info',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
+                            $.ajax({
+                                url: '/follow-up/delete/' + id,
+                                type: 'post',
+                                success: function() {
+                                    swal.fire('success', 'Type deleted successfully!',
+                                        'success');
+                                    $('.row-' + id).addClass('d-none');
+                                    location.reload()
+                                }
+                            })
+                        }
+                    })
+                })
+
+                if ($.fn.DataTable.isDataTable('#followUpTable')) {
+                    $('#followUpTable').DataTable().destroy();
+                }
+
+                // Initialize DataTable with your custom options
+                $('#followUpTable').DataTable({
+                    "pageLength": 5,
+                    "lengthMenu": [5],
+                    "pagingType": "simple_numbers",
+                    "ordering": true,
+                    "info": true,
+                    "searching": true,
+                    "order": [[0, "desc"]],
+                });
                 $('#Transaction-History').DataTable({
                     lengthMenu: [
                         [6, 10, 20, -1],

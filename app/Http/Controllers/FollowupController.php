@@ -25,11 +25,12 @@ class FollowupController extends Controller
             $to = Referral::all();
             return view('follow-up.index', compact('data', 'from', 'to'));
         }else if ($routeName === 'follow_up.index') {
-            $data = Followup::where('type','followup')->get();
-            $to = User::whereHas('roles', function ($query) {
+            $followupFrom = User::where('id', '=', Session::get('loginId'))->first();
+            $followupData = Followup::where('type','followup')->get();
+            $toEmployees = User::whereHas('roles', function ($query) {
                 $query->where('role', 'employee'); // Filter users with role 'employee'
             })->get();
-            return view('follow-up-new.index', compact('data', 'from', 'to'));
+            return view('follow-up-new.index', compact('followupData', 'followupFrom', 'toEmployees'));
         }
     }
 
