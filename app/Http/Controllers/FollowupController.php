@@ -25,12 +25,13 @@ class FollowupController extends Controller
             $to = Referral::all();
             return view('follow-up.index', compact('data', 'from', 'to'));
         }else if ($routeName === 'follow_up.index') {
-            $followupFrom = User::where('id', '=', Session::get('loginId'))->first();
-            $followupData = Followup::where('type','followup')->get();
-            $toEmployees = User::whereHas('roles', function ($query) {
+
+            $data = Followup::where('type','followup')->get();
+            $to = User::whereHas('roles', function ($query) {
                 $query->where('role', 'employee'); // Filter users with role 'employee'
             })->get();
-            return view('follow-up-new.index', compact('followupData', 'followupFrom', 'toEmployees'));
+            $referrals = Referral::all();
+            return view('follow-up-new.index', compact('data', 'from', 'to','referrals'));
         }
     }
 
@@ -45,6 +46,8 @@ class FollowupController extends Controller
             'note' => 'required',
             'type' => 'required',
         ]);
+        $data = $request->all();
+
         $followup = new Followup();
         $followup->from = $request->input('from');
         $followup->to = $request->input('to');
@@ -52,6 +55,7 @@ class FollowupController extends Controller
         $followup->time = $request->input('time');
         $followup->note = $request->input('note');
         $followup->type = $request->input('type');
+        $followup->referral_id = (!empty($data['referral']))?$request->input('referral'):null;
         $followup->save();
         $type = new Type();
         $type->category = $request->type === "other" ? "Designation" : $request->type;
@@ -117,11 +121,13 @@ class FollowupController extends Controller
             return response()->json(['message' => 'Follow-up not found'], 404);
         }
 
+        $data = $request->all();
         $followup->to = $request->input('to');
         $followup->date = $request->input('date');
         $followup->time = $request->input('time');
         $followup->note = $request->input('note');
         $followup->type = $request->input('type');
+        $followup->referral_id = (!empty($data['referral']))?$request->input('referral'):null;
         $followup->save();
 
         return response()->json(['message' => 'Follow-up updated successfully']);

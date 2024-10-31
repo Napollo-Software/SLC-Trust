@@ -530,11 +530,6 @@ class AuthController extends Controller
             ->get();
 
         $user_balance = userBalance($loggedInUser->id);
-        $followupData = Followup::where('type','followup')->get();
-        $followupFrom = User::where('id', '=', \Illuminate\Support\Facades\Session::get('loginId'))->first();
-        $toEmployees = User::whereHas('roles', function ($query) {
-            $query->where('role', 'employee'); // Filter users with role 'employee'
-        })->get();
 
         return view(
             "transaction",
@@ -557,9 +552,6 @@ class AuthController extends Controller
                 'customer',
                 'from',
                 'to',
-                'followupData',
-                'followupFrom',
-                'toEmployees'
             )
         );
     }

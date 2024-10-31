@@ -67,6 +67,7 @@
 
     </head>
     <style>
+
         .fc-daygrid-event-harness {
             max-width: 240px !important;
         }
@@ -301,14 +302,33 @@
                             </div>
                         </a>
                     </div>
+                        <div class="col">
+                            <a href="{{ url('referral') }}">
+                                <div class="card radius-10 overflow-hidden">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div>
+                                                <p class="mb-0">Referrals</p>
+                                                <h5 class="mb-0">{{ $total_referrals }}</h5>
+                                            </div>
+                                            <div class="ms-auto"> <i class="bx bx-user-check font-30"></i>
+                                            </div>
+                                        </div>
+                                        <div class="progress radius-10 mt-4" style="height:4.5px;">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 66%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     <div class="col">
-                    <a href="{{ url('leads') }}">
+                    <a href="{{ url('follow-up/list') }}">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <p class="mb-0">Leads</p>
-                                        <h5 class="mb-0">{{ $total_leads }}</h5>
+                                        <p class="mb-0">Manage Follow Ups</p>
+{{--                                        <h5 class="mb-0">{{ $total_leads }}</h5>--}}
                                     </div>
                                     <div class="ms-auto"> <i class="bx bx-user-circle font-30"></i>
                                     </div>
@@ -320,25 +340,7 @@
                         </div>
                     </a>
                     </div>
-                    <div class="col">
-                    <a href="{{ url('referral') }}">
-                        <div class="card radius-10 overflow-hidden">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <p class="mb-0">Referrals</p>
-                                        <h5 class="mb-0">{{ $total_referrals }}</h5>
-                                    </div>
-                                    <div class="ms-auto"> <i class="bx bx-user-check font-30"></i>
-                                    </div>
-                                </div>
-                                <div class="progress radius-10 mt-4" style="height:4.5px;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 66%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
+
                 @endif
             </div>
             @endif
@@ -346,85 +348,7 @@
                 $balance = User::where('role', 'User')->sum('user_balance');
             @endphp
         </div>
-        @if ($login_user->hasPermissionTo('Front Office'))
-            <div class="row row-cols-1 row-cols-xl-2">
-                <div class="col d-flex">
-                    <div class="card w-100">
-                        <div class="d-flex align-items-center p-3 mb-0">
-                            <div>
-                                <h5 class="mb-1">Manage Follow Ups</h5>
-                                <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Overall Follow Ups</p>
-                            </div>
-                            <div class="font-22 ms-auto">
-                                <a href="/follow-up/list">
-                                <button class="btn btn-primary import-file-user-data print-btn px-2 py-1 ">
-                                    <i class='bx bx-save pb-2 pt-1 px-0 mx-0'></i>
-                                    Show More
-                                </button>
-                                </a>
-                                <button class="btn btn-primary import-file-user-data TypeAddBtn print-btn px-2 py-1 ">
-                                    <i class='bx bx-save pb-2 pt-1 px-0 mx-0'></i>
-                                    Add Follow Up
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body p-3" style="margin-top: -15px">
-                            <div class="table-responsive text-nowrap overflow-auto pb-2 mt-2">
-                                <table class="table align-middle mb-0 table-hover dataTable" id="followUpTable">
-                                    <thead class="table-light">
-                                    <tr>
-                                        <th>UID#</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                        <th>Time</th>
-                                        <th>Follow Up</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach ($followupData as $followups)
-                                        <tr class="row-{{ $followups['id'] }}">
-                                            <td>{{ $followups->id }}</td>
-                                            <td>{{ $followupFrom->name }} {{ $followupFrom->last_name }}</td>
-                                            <td>{{ $followups->lead->full_name() }}
-                                                {{ $followups->lead->contact_last_name }}</td>
-                                            <td>{{ $followups->time }}</td>
-                                            <td>
-                                                <div class="text-break" style="max-width:800px; overflow:auto; white-spaces:normal;">
-                                                    {{ $followups->note }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                        <i class="menu-icon tf-icons bx bx-cog"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <button class="dropdown-item TypeEditBtn pb-2" id="" data-to="{{ $followups->to }}" data-note="{{ $followups->note }}" data-id="{{ $followups->id }}" data-from="{{ $followups->from }}" data-date="{{ $followups->date }}" data-time="{{ $followups->time }}">
-                                                            <i class='bx bx-edit-alt me-1'></i> Edit</button>
-                                                        <button type="button" data-id="{{ $followups['id'] }}" class="dropdown-item deleteBtn">
-                                                            <i class="bx bx-trash-alt me-1"></i> Delete
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-flex">
-                    <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <div id="calendar22" class="col-md-12"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
+
         @if ($login_user->hasPermissionTo('Back Office'))
             <div class="row">
                 <div class="col-xl-12 d-flex">
@@ -555,6 +479,20 @@
                                         </tbody>
                                     </table>
                                 </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if ($login_user->hasPermissionTo('Front Office'))
+            <div class="row row-cols-1 row-cols-xl-2">
+                <div class="col d-flex">
+
+                </div>
+                <div class="col d-flex">
+                    <div class="card radius-10 w-100">
+                        <div class="card-body">
+                            <div id="calendar22" class="col-md-12"></div>
                         </div>
                     </div>
                 </div>

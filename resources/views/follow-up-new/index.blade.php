@@ -45,10 +45,10 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($followupData as $followup)
+                                @foreach ($data as $followup)
                                     <tr class="row-{{ $followup['id'] }}">
                                         <td>{{ $followup->id }}</td>
-                                        <td>{{ $followupFrom->name }} {{ $followupFrom->last_name }}</td>
+                                        <td>{{ $from->name }} {{ $from->last_name }}</td>
                                         <td>{{ $followup->lead->full_name() }}
                                             {{ $followup->lead->contact_last_name }}</td>
                                         <td>{{ $followup->time }}</td>
@@ -63,7 +63,7 @@
                                                     <i class="menu-icon tf-icons bx bx-cog"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <button class="dropdown-item TypeEditBtn pb-2" id="" data-to="{{ $followup->to }}" data-note="{{ $followup->note }}" data-id="{{ $followup->id }}" data-from="{{ $followup->from }}" data-date="{{ $followup->date }}" data-time="{{ $followup->time }}">
+                                                    <button class="dropdown-item TypeEditBtn pb-2" id="" data-to="{{ $followup->to }}" data-referral="{{ $followup->referral_id }}" data-note="{{ $followup->note }}" data-id="{{ $followup->id }}" data-from="{{ $followup->from }}" data-date="{{ $followup->date }}" data-time="{{ $followup->time }}">
                                                         <i class='bx bx-edit-alt me-1'></i> Edit</button>
                                                     <button type="button" data-id="{{ $followup['id'] }}" class="dropdown-item deleteBtn">
                                                         <i class="bx bx-trash-alt me-1"></i> Delete

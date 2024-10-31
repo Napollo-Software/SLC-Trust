@@ -18,20 +18,31 @@
                 <input type="hidden" name="id" value="" id="edit_id">
                 <div class="modal-body">
                     <div class="row mb-3">
-                        <div class="col-md-6">
+{{--                        <div class="col-md-6">--}}
                             <label for="exampleFormControlInput1" class="form-label">From</label>
-                            <input type="text" class="form-control" placeholder="Name"
-                                   value="{{ $followupFrom->name . ' ' . $followupFrom->last_name }}" disabled />
-                            <input type="hidden" name="from" value="{{ $followupFrom->id }}">
+                            <input type="hidden" class="form-control" placeholder="Name"
+                                   value="{{ $from->name . ' ' . $from->last_name }}" disabled />
+                            <input type="hidden" name="from" value="{{ $from->id }}">
                             <input type="hidden" name="type" value="followup">
                             <span id="nameError" class="text-danger"></span>
-                        </div>
+{{--                        </div>--}}
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">To</label>
+                            <label for="exampleFormControlInput1" class="form-label">Assignee</label>
                             <select id="edit_to" class="form-control" name="to">
                                 <option value="">Choose One</option>
-                                @foreach ($toEmployees as $item)
+                                @foreach ($to as $item)
                                     <option value="{{ $item->id }}">{{ $item->full_name() }}</option>
+                                @endforeach
+                            </select>
+                            <span id="categoryError" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="exampleFormControlInput1" class="form-label">Referrals</label>
+                            <select id="edit_referral" class="form-control" name="referral">
+                                <option value="">Choose One</option>
+
+                                @foreach ($referrals as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }} {{ $item->last_name }}</option>
                                 @endforeach
                             </select>
                             <span id="categoryError" class="text-danger"></span>
@@ -84,11 +95,13 @@
             var previousTime=$(this).attr('data-time');
             var previousNote=$(this).attr('data-note');
             var previousTo=$(this).attr('data-to');
+            var previousReferral=$(this).attr('data-referral');
 
             $('#edit_note').val(previousNote);
             $('#edit_date').val(previousDate);
             $('#edit_time').val(previousTime);
             $('#edit_to').val(previousTo);
+            $('#edit_referral').val(previousReferral);
             $('#edit_id').val(previousId);
 
 

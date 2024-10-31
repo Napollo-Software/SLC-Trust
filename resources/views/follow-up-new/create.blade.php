@@ -7,7 +7,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Follow Ups</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Follow Up</h5>
                 <button type="button" class="close close-btn closeAddType" data-dismiss="modal"
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -17,20 +17,31 @@
                 @csrf
                 <div class="modal-body">
                     <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">From</label>
-                            <input type="text" class="form-control" placeholder="Name"
-                                   value="{{ $followupFrom->name . ' ' . $followupFrom->last_name }}" disabled />
-                            <input type="hidden" name="from" value="{{ $followupFrom->id }}">
+{{--                        <div class="col-md-6">--}}
+{{--                            <label for="exampleFormControlInput1" class="form-label">From</label>--}}
+                            <input type="hidden"  class="form-control"
+                                   value="{{ $from->name . ' ' . $from->last_name }}" disabled />
+                            <input type="hidden" name="from" value="{{ $from->id }}">
                             <input type="hidden" name="type" value="followup">
                             <span id="nameError" class="text-danger"></span>
-                        </div>
+{{--                        </div>--}}
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">To</label>
+                            <label for="exampleFormControlInput1" class="form-label">Assignee</label>
                             <select id="defaultSelect" class="form-control" name="to">
                                 <option value="">Choose One</option>
 
-                                @foreach ($toEmployees as $item)
+                                @foreach ($to as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }} {{ $item->last_name }}</option>
+                                @endforeach
+                            </select>
+                            <span id="categoryError" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="exampleFormControlInput1" class="form-label">Referrals</label>
+                            <select id="defaultSelect" class="form-control" name="referral">
+                                <option value="">Choose One</option>
+
+                                @foreach ($referrals as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }} {{ $item->last_name }}</option>
                                 @endforeach
                             </select>
@@ -51,7 +62,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <label for="exampleFormControlInput1" class="form-label">Follow Up</label>
+                            <label for="exampleFormControlInput1" class="form-label">Description</label>
                             <textarea name="note" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
