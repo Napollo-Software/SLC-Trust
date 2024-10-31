@@ -1,8 +1,6 @@
 @extends('nav')
 @section('title', 'Dashboard | SLC Trusts')
 @section('wrapper')
-    @include('follow-up-new.create')
-    @include('follow-up-new.update')
     @php
         use App\Models\User;
         use App\Models\Claim;
