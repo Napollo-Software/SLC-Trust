@@ -81,6 +81,8 @@
         })
         $('#addFollowupForm').on('submit', function(e) {
             e.preventDefault()
+            $('.form-control').removeClass('is-invalid');
+            $('.invalid-feedback.is-invalid').remove();
             $.ajax({
                 url: '{{ route('follow_up.store') }}',
                 type: 'post',

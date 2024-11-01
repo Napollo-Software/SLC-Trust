@@ -374,6 +374,11 @@
                             <li>
                                 <a class="dropdown-item {{ Route::currentRouteName() ==='payee.list' ? 'active' : '' }}" href="{{ route('payee.list') }}"><i class="bx bx-book"></i>Payee List</a></li>
                             @endif
+                            @if ($user->hasPermissionTo('Drop Box'))
+                            <li>
+                                <a class="dropdown-item {{ Route::currentRouteName() ==='dropbox' ? 'active' : '' }}" href="{{ route('dropbox') }}"><i class="bx bx-border-bottom"></i>Drop Box</a>
+                            </li>
+                            @endif
                             @if ($user->hasPermissionTo('Follow ups'))
                             <li>
                                 <a class="dropdown-item {{ Route::currentRouteName() ==='follow_up.list' ? 'active' : '' }}" href="{{ route('follow_up.list') }}"><i class="bx bx-book-content"></i>Notes</a>
@@ -381,11 +386,6 @@
 {{--                                    <li>--}}
 {{--                                        <a class="dropdown-item {{ Route::currentRouteName() ==='follow_up.index' ? 'active' : '' }}" href="{{ route('follow_up.index') }}"><i class="bx bx-book-content"></i>Follow Up</a>--}}
 {{--                                    </li>--}}
-                            @endif
-                            @if ($user->hasPermissionTo('Drop Box'))
-                            <li>
-                                <a class="dropdown-item {{ Route::currentRouteName() ==='dropbox' ? 'active' : '' }}" href="{{ route('dropbox') }}"><i class="bx bx-border-bottom"></i>Drop Box</a>
-                            </li>
                             @endif
                             @if ($user->hasPermissionTo('Logs'))
                             <li>

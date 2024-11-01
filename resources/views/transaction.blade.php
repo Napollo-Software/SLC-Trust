@@ -49,7 +49,7 @@
             $endDate = $startDate;
         }
         if($role == 'Admin'){
-        $followup = \App\Models\Followup::where('type','followup')->get();
+            $followup = \App\Models\Followup::where('type','followup')->get();
         }else{
             $followup = \App\Models\Followup::where('type','followup')->where('to',Session::get('loginId'))->get();
         }
@@ -326,9 +326,9 @@
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <p class="mb-0">Manage Follow Ups</p>
-{{--                                        <h5 class="mb-0">{{ $total_leads }}</h5>--}}
+                                      <h5 class="mb-0">{{ $followup->count() }}</h5>
                                     </div>
-                                    <div class="ms-auto"> <i class="bx bx-user-circle font-30"></i>
+                                    <div class="ms-auto"> <i class="bx bx-book font-30"></i>
                                     </div>
                                 </div>
                                 <div class="progress radius-10 mt-4" style="height:4.5px;">
@@ -484,9 +484,9 @@
         @endif
         @if ($login_user->hasPermissionTo('Front Office'))
             <div class="row row-cols-1 row-cols-xl-2">
-                <div class="col d-flex">
+                <!--div class="col d-flex">
 
-                </div>
+                </div-->
                 <div class="col d-flex">
                     <div class="card radius-10 w-100">
                         <div class="card-body">

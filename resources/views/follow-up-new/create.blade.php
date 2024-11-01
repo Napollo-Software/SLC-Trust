@@ -26,8 +26,8 @@
                             <span id="nameError" class="text-danger"></span>
 {{--                        </div>--}}
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Assignee</label>
-                            <select id="defaultSelect" class="form-control" name="to">
+                            <label for="exampleFormControlInput1" class="form-label">Assignee*</label>
+                            <select id="defaultSelect" class="form-control" name="to" required>
                                 <option value="">Choose One</option>
 
                                 @foreach ($to as $item)
@@ -42,7 +42,7 @@
                                 <option value="">Choose One</option>
 
                                 @foreach ($referrals as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} {{ $item->last_name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->first_name }} {{ $item->last_name }}</option>
                                 @endforeach
                             </select>
                             <span id="categoryError" class="text-danger"></span>
@@ -50,20 +50,20 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Follow Up Date</label>
-                            <input type="date" class="form-control" name="date" />
+                            <label for="exampleFormControlInput1" class="form-label">Follow Up Date*</label>
+                            <input type="date" class="form-control" name="date" required />
                             <span id="nameError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Follow Up Time</label>
-                            <input type="time" class="form-control" name="time" />
+                            <label for="exampleFormControlInput1" class="form-label">Follow Up Time*</label>
+                            <input type="time" class="form-control" name="time" required />
                             <span id="categoryError" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <label for="exampleFormControlInput1" class="form-label">Description</label>
-                            <textarea name="note" class="form-control" rows="3"></textarea>
+                            <label for="exampleFormControlInput1" class="form-label">Description*</label>
+                            <textarea name="note" class="form-control" rows="3" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,9 @@
             showAddTypeModal()
         })
         $('#addFollowupForm').on('submit', function(e) {
-            e.preventDefault()
+            e.preventDefault();
+            $('.form-control').removeClass('is-invalid');
+            $('.invalid-feedback.is-invalid').remove();
             $.ajax({
                 url: '{{ route('follow_up.store') }}',
                 type: 'post',
