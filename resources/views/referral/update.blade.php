@@ -183,6 +183,15 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                     </div>
                     <div class="card-body">
                         <div class="row pb-4">
+                            <div class="col-md-6 pt-3">
+                                <label>APT/SUITE</label>
+                                <input type="text" class="form-control" value="{{ $Referral->apt_suite }}" id="apt_suite" name="apt_suite"
+                                       placeholder="Enter APT/SUITE">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <label>Address</label>
+                                <input type="text" class="form-control" id="address" value="{{ $Referral->address }}" name="address">
+                            </div>
                             <div class="col-md-6">
                                 <label>Country</label>
                                 <select id="defaultSelect" class="form-select select-2" onchange="getCountry(this)" name="country">
@@ -218,18 +227,8 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                     </span>
                                     @enderror
                             </div>
-                            <div class="col-md-6 pt-3">
-                                <label>City</label>
-                                <input type="text" class="form-control" id="city" value="{{ $Referral->city }}" name="city">
-                            </div>
-                            <div class="col-md-6 pt-3">
-                                <label>County</label>
-                                <input type="text" class="form-control" id="county" value="{{ $Referral->county }}" name="county">
-                            </div>
-                            <div class="col-md-6 pt-3">
-                                <label>Address</label>
-                                <input type="text" class="form-control" id="address" value="{{ $Referral->address }}" name="address">
-                            </div>
+
+
                             <div class="col-md-6 pt-3">
                                 <label>Patient Language</label>
                                 <select class="form-control form-select" id="patient_language" name="patient_language" required>
@@ -241,14 +240,18 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                 </select>
                             </div>
                             <div class="col-md-6 pt-3">
+                                <label>City</label>
+                                <input type="text" class="form-control" id="city" value="{{ $Referral->city }}" name="city">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <label>County</label>
+                                <input type="text" class="form-control" id="county" value="{{ $Referral->county }}" name="county">
+                            </div>
+                            <div class="col-md-6 pt-3">
                                 <label>Zip</label>
                                 <input type="text" class="form-control" id="zip" value="{{ $Referral->zip_code }}" name="zip">
                             </div>
-                            <div class="col-md-6 pt-3">
-                                <label>APT/SUITE</label>
-                                <input type="text" class="form-control" value="{{ $Referral->apt_suite }}" id="apt_suite" name="apt_suite"
-                                           placeholder="Enter APT/SUITE">
-                            </div>
+
                         </div>
                     </div>
                 </div>

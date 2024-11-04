@@ -109,18 +109,15 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+                            <div class="col-md-6 p-2">
+                                <label for="form-label">APT/SUITE </label>
+                                <input type="text" class="form-control" id="apt" name="apt" placeholder="Enter APT/SUITE">
+                            </div>
                         <div class="col-md-6 p-2">
                                 <label for="form-label">Address</label>
                                 <input type="text" class="form-control" id="Address" name="address" placeholder="house# 03 street 07/ new york city">
                             </div>
-                            <div class="col-md-3 p-2">
-                                <label for="form-label">City</label>
-                                <input type="text" class="form-control" id="city" name="city" placeholder="eg: New York City">
-                            </div>
-                            <div class="col-md-3 p-2">
-                                <label for="form-label">County</label>
-                                <input type="text" class="form-control" id="county" name="county" placeholder="eg: Los Angeles">
-                            </div>
+
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Country</label>
                                 <div class="col-md-12 text-secondary p-0">
@@ -145,14 +142,19 @@
                                     @enderror
                                 </span>
                             </div>
+                            <div class="col-md-3 p-2">
+                                <label for="form-label">City</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="eg: New York City">
+                            </div>
+                            <div class="col-md-3 p-2">
+                                <label for="form-label">County</label>
+                                <input type="text" class="form-control" id="county" name="county" placeholder="eg: Los Angeles">
+                            </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Zip Code/Postal Code</label>
                                 <input type="number" class="form-control" id="zip" name="zip" placeholder="51000">
                             </div>
-                            <div class="col-md-6 p-2">
-                                <label for="form-label">APT/SUITE </label>
-                                <input type="text" class="form-control" id="apt" name="apt" placeholder="Enter APT/SUITE">
-                            </div>
+
                         </div>
                     </div>
                 </div>

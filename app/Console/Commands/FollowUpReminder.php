@@ -44,7 +44,14 @@ class FollowUpReminder extends Command
     public function handle()
     {
 
-        $followups = Followup::where('type','followup')->where('date',Carbon::today()->format('Y-m-d'))->get();
+        Log::info(Carbon::now()."This is current server time");
+        $followups = Followup::where('type', 'followup')
+            ->where('date', Carbon::today()->format('Y-m-d'))
+            ->whereTime('time', '>=', Carbon::now()->format('H:i:s'))
+            ->whereTime('time', '<=', Carbon::now()->addHour()->format('H:i:s'))
+            ->get();
+
+
         foreach ($followups as $followup){
             $user = User::find($followup->to);
 
@@ -53,7 +60,7 @@ class FollowUpReminder extends Command
                 $notifcation = new Notifcation();
                 $notifcation->user_id = $admin->id;
                 $notifcation->name = $admin->name;
-                $notifcation->description = 'Today Follow up for '.$user->email.': '.$followup->note;
+                $notifcation->description = 'Follow-up Reminder for '.$user->email.' "'.$followup->note.'" scheduled for today at '.$followup->time;
                 $notifcation->title = 'Followup';
                 $notifcation->status = 0;
                 $notifcation->save();

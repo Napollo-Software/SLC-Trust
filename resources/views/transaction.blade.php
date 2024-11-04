@@ -1087,6 +1087,13 @@
         document.getElementById('closeModalIcon').addEventListener('click', function() {
             $('#eventModal').modal('hide');
         });
+        function convertTo12Hour(time) {
+            const [hours, minutes] = time.split(':').map(Number);
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const hours12 = hours % 12 || 12; // Convert 0 to 12 for midnight, and use modulus for other conversions
+            return `${hours12}:${String(minutes).padStart(2, '0')} ${ampm}`;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar22');
             var followupEvents = @json($followup);
@@ -1131,7 +1138,7 @@
                         day: '2-digit'
                     })+'</h5>'
                     var eventDetails = eventsForDate.map(function(event) {
-                        return '<h5 class="border-bottom py-2 pt-3 text-7 m-0" style="font-size: 13px !important;">' + event.note + '</h5>';
+                        return '<li class="border-bottom py-2 pt-3 text-7 m-0" style="font-size: 13px !important;"><span>'+event.note+'</span><span class="float-end"> ' + convertTo12Hour(event.time) + '</span></li>';
                     }).join('');
 
                     var join = content+eventDetails
