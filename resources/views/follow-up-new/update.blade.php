@@ -42,7 +42,7 @@
                                 <option value="">Choose One</option>
 
                                 @foreach ($referrals as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} {{ $item->last_name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->first_name }} {{ $item->last_name }}</option>
                                 @endforeach
                             </select>
                             <span id="categoryError" class="text-danger"></span>

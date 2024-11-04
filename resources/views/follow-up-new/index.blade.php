@@ -49,8 +49,7 @@
                                     <tr class="row-{{ $followup['id'] }}">
                                         <td>{{ $followup->id }}</td>
                                         <td>{{ $from->name }} {{ $from->last_name }}</td>
-                                        <td>{{ $followup->lead->full_name() }}
-                                            {{ $followup->lead->contact_last_name }}</td>
+                                        <td>{{ $followup->employee->full_name() }}</td>
                                         <td>{{ $followup->time }}</td>
                                         <td>
                                             <div class="text-break" style="max-width:800px; overflow:auto; white-spaces:normal;">

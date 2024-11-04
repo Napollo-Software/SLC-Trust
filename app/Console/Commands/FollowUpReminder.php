@@ -44,17 +44,14 @@ class FollowUpReminder extends Command
     public function handle()
     {
 
-        Log::info(Carbon::now()."This is current server time");
+        $currentDate = Carbon::today()->format('Y-m-d');
+        $currentHour = Carbon::now()->format('H');
         $followups = Followup::where('type', 'followup')
-            ->where('date', Carbon::today()->format('Y-m-d'))
-            ->whereTime('time', '>=', Carbon::now()->format('H:i:s'))
-            ->whereTime('time', '<=', Carbon::now()->addHour()->format('H:i:s'))
-            ->get();
-
-
+        ->whereDate('date', $currentDate)
+        ->whereTime('time', 'like', $currentHour . ':%')
+        ->get();
         foreach ($followups as $followup){
             $user = User::find($followup->to);
-
             $admins = User::where('role', "admin")->get();
             foreach ($admins as $admin){
                 $notifcation = new Notifcation();
@@ -74,7 +71,7 @@ class FollowUpReminder extends Command
             $notifcation->save();
 //            Log::info($user->email);
         }
-        \Log::info("Followup Job is completed successfully on ".date('d-m-y',strtotime(now())));
+        \Log::info("Followup Job is completed successfully on ".date('d-m-y',strtotime(now())).' '.$currentHour);
         return 0;
     }
 }

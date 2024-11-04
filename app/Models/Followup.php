@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Followup extends Model
 {
-   
+
     use HasFactory;
    protected $fillable = [
         'id',
@@ -24,9 +24,13 @@ class Followup extends Model
     {
         return $this->belongsTo(Referral::class,'to','id')->withDefault();
     }
+    public function employee()
+    {
+        return $this->belongsTo(User::class,'to','id')->withDefault();
+    }
     public function user()
-    { 
+    {
         return $this->belongsTo(User::class, 'from', 'id')->withDefault();
     }
-   
+
 }
