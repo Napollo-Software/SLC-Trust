@@ -333,13 +333,35 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 </div>
 <div class="modal fade" id="vodModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content card">
+            <div class="modal-header card-header">
                 <h5 class="modal-title" id="addNoteModalLabel">VOD Letters</h5>
                 <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <table class="table align-middle mb-0 table-hover dataTable ">
+            <div class="modal-body" style="max-height: 550px;overflow:auto">
+                <form id="filter_vod_form" method="POST">
+                    @csrf
+                    <input type="hidden" id="vod_form_user_id" name="user_id" value="{{ $user->id }}">
+                    <div class="row my-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Start Date</label>
+                            <input class="form-control text-center" type="date" id="startDate"
+                                name="startDate" onchange="validateDate()"
+                                required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">End Date</label>
+                            <input class="form-control text-center " type="date" id="endDate"
+                                name="endDate" onblur="validateDate()"
+                                required>
+                        </div>
+                        <div class="col-md-4 pt-4">
+                            <button type="submit" class="btn w-100 btn-primary" style="margin-top:2px">Generate Report</button>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <table id="vod_table" class="table align-middle mb-0 table-hover dataTable ">
                     <thead class="table-light">
                     <tr>
                         <th>SNO</th>
@@ -377,16 +399,52 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('.table').DataTable({
+        $('#vod_table').DataTable({
             aLengthMenu: [
                 [25, 50, 100, -1],
                 [25, 50, 100, "All"]
             ],
-             "order": false // "0" means First column and "desc" is order type;
+             "order": false,
+             searching: false
         });
+
+        $('#filter_vod_form').on('submit', function(e) {
+            e.preventDefault();
+
+            $('.form-control').removeClass('is-invalid');
+            $('.invalid-feedback.is-invalid').remove();
+
+            const startDate = $('#startDate').val();
+            const endDate = $('#endDate').val();
+
+            $.ajax({
+                url: '/get-filter-vod-report',
+                type: 'POST',
+                data: new FormData(this),
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(blob) {
+                    const downloadUrl = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = downloadUrl;
+                    a.download = `transactions_${startDate}_to_${endDate}.pdf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    URL.revokeObjectURL(downloadUrl);
+                    a.remove();
+                },
+                error: function(xhr) {
+                    erroralert(xhr);
+                }
+            });
+        });
+
     });
-</script>
- <script>
+
     $(document).on('change','#defaultSelect',function(e){
         e.preventDefault();
         var status = $('#defaultSelect').val();
@@ -432,6 +490,18 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
         var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
         e.target.value = !x[2] ? x[1] : '+1(' + x[1] + ')' + x[2] + (x[3] ? '-' + x[3] : '');
     });
+
+    function validateDate() {
+        var startDate = new Date(document.getElementById("startDate").value);
+        var endDate = new Date(document.getElementById("endDate").value);
+
+        if (startDate > endDate) {
+            swal.fire("Warning!", "Start date must not be greater than end date", "warning");
+            document.getElementById("endDate").value = "";
+        }
+    }
+
 </script>
+
 
 @endsection

@@ -392,6 +392,7 @@ Route::post('/print/bank-reconciliation/pdf', [PrintController::class, 'reconcil
 Route::get('/export/user', [PrintController::class, 'export_user'])->name('export.user.file');
 Route::get('/drop-box', [DropboxController::class, 'index'])->name('dropbox');
 Route::post('/upload-bills', [DropboxController::class, 'uploadBills'])->name('upload.bills');
+Route::post('/get-filter-vod-report', [AuthController::class, 'getFilterVodReport']);
 
 Route::get('export-pending-bills', [PrintController::class, 'export_pending_bills'])->name('export.pending.bills');
 Route::post('update-bill-status', [claimsController::class, 'update_bills_status'])->name('update.bills.status');
@@ -980,5 +981,11 @@ Route::get('email',function(){
         ];
 
     return view("emails.email_documents", $data);
+
+});
+
+Route::get('/okkk',function(){
+
+   return view('document.trusted-surplus-pdf');
 
 });

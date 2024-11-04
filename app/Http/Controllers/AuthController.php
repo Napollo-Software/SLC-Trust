@@ -1051,6 +1051,39 @@ class AuthController extends Controller
         return $pdf->download("approval-letter-{$user->id}.pdf");
     }
 
+    public function getFilterVodReport(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'startDate' => 'required|date',
+            'endDate' => 'required|date'
+        ]);
+
+        $user = User::find($request->user_id);
+
+        $transactions = Transaction::where('user_id', $user->id)
+            ->where('type', '!=', Transaction::MaintenanceFee)
+            ->whereBetween('created_at', [$request->startDate, $request->endDate])
+            ->get();
+
+        $pdf = PDF::loadView('document.trusted-surplus-report-pdf', [
+            'user' => $user,
+            'startDate' => $request->startDate,
+            'endDate' => $request->endDate,
+            'transactions' => $transactions
+        ])
+            ->setOption([
+                'fontDir' => public_path('/fonts'),
+                'fontCache' => public_path('/fonts'),
+                'defaultFont' => 'Nominee-Black'
+            ])
+            ->setPaper('A4', 'portrait');
+
+        $file_name = 'trusted_' . date('Ymd_His') . ".pdf";
+
+        return $pdf->download($file_name);
+    }
+
 
 }
 
