@@ -74,7 +74,7 @@ color:#69707a;
 <div class="">
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
-       <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Profile Setting</b> </div>
+       <div> @if ($user->role != 'Vendor') <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a>@else <a href="{{url('/vendor-dashboard')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> @endif / <b>Profile Setting</b> </div>
     </h5>
   <!-- Account page navigation-->
   <div class="row">

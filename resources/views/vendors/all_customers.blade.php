@@ -9,7 +9,7 @@
     <div class="">
         <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
-           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Customers</b> </div>
+           <div> <a href="{{url('/vendor-dashboard')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Customers</b> </div>
         </h5>
         <div class="card">
             <div class="d-flex align-items-center p-3">
@@ -27,7 +27,7 @@
                             <th>UID#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <!--th>Role</th-->
                             <th>Account Status</th>
                             <th>Balance</th>
                             <th>Avatar</th>
@@ -47,7 +47,7 @@
                                     {{ $u['name'] }} {{ $u['last_name'] }}
                                 @endif
                                 <td>{{ $u['email'] }}</td>
-                                <td>{{ $u['role'] }}</td>
+                                <!--td>{{ $u['role'] }}</td-->
                                 <th>
                             <span
                                 class="badge
@@ -73,7 +73,7 @@
                                 </th>
                                 <td>
                                     @if ($u['role'] == 'User')
-                                        ${{ number_format((float) $u['user_balance'], 2, '.', ',') }}
+                                        ${{ number_format((float) userBalance($u['id']), 2, '.', ',') }}
                                 </td>
                                 @else
                                     N/A
@@ -95,6 +95,8 @@
                                             <i class="bx bx-cog"></i>
                                         </button>
                                         <div class="dropdown-menu">
+                                            <a class="dropdown-item pt-1 pb-1" href="{{ route('show_user', $u['id']) }}"><i
+                                                                                                     class='bx bxs-show'></i> View</a>
 {{--                                            @if ($role != 'Moderator')--}}
 {{--                                                <a class="dropdown-item pb-2" href="{{ route('show_user', $u['id']) }}"><i--}}
 {{--                                                        class='bx bxs-show'></i> View</a>--}}

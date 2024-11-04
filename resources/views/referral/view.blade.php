@@ -1742,11 +1742,11 @@ return $colors[$randomIndex];
                                     <h6 class="text-break">{{ $item->note }}</h6>
                                     <p class="text-muted fs-12">{{ $item->date }} {{$item->time}}</p>
                                 </div>
-                                <div>
+                                <!--div>
                                     <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
                                         <i class="bx bx-edit pb-1"></i>
                                     </button>
-                                </div>
+                                </div-->
                             </div>
                         </li>
                         @endforeach

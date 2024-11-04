@@ -70,7 +70,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 <div class="">
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
-        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>View User</b> </div>
+        <div> @if ($user->role == 'Admin' || $user->role == 'Employee') <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a>@else Dashboard @endif  @if ($user->role == 'Admin' || $user->role == 'Employee')/<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> @endif/ <b>View User</b> </div>
     </h5>
     <div class="row">
         <div class="col-xl-4">
@@ -127,6 +127,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between">
                         <h4>Profile Details</h4>
+                        @if ($user->role == 'Admin' || $user->role == 'Employee')
                         <span class="d-flex gap-1">
                             @if($user->account_status == 'Approved')
                             <button type="button" class="btn d-flex align-items-center btn-primary" data-bs-toggle="modal" data-bs-target="#vodModal">
@@ -154,6 +155,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                             </select>
                             @endif
                         </span>
+                        @endif
                     </div>
                     <hr>
                     <div class="row">
@@ -318,6 +320,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                             {{ $user->zipcode }}
                         </div>
                     </div>
+                    @if ($user->role == 'Admin' || $user->role == 'Employee')
                     <hr>
                     <input type="hidden" name="approval_action" class="approval_action" value="1">
                     <div class="row">
@@ -326,6 +329,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         </div>
                         </form>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

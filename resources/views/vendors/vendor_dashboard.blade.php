@@ -9,7 +9,7 @@
     <div class="">
         <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
-           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Overview</b> </div>
+           <div> <a href="{{url('/vendor-dashboard')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Overview</b> </div>
         </h5>
         <div class="">
             <div class="row">
@@ -31,7 +31,7 @@
                                         @endphp
                                     @endif
                                     @endforeach
-                                    <h5 class="mb-0">${{ number_format((float) userBalance($totalBalance), 2, '.', ',') }}</h5>
+                                    <h5 class="mb-0">${{ number_format((float) $totalBalance, 2, '.', ',') }}</h5>
                                 </div>
                                 <div class="ms-auto">	<i class='bx bx-wallet font-30'></i>
                                 </div>
@@ -55,7 +55,7 @@
                         <div class="" id="w-chart6"></div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col d-none">
                     <div class="card radius-10 overflow-hidden">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -182,8 +182,8 @@
                             @php
                                 $i++;
                             @endphp
-                             <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-                                <div class="col-sm-6">
+                             <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer" onclick="window.location='{{ route('show_user', $item->customer->id) }}'">
+                                <div class="col-sm-6" >
                                     <div class="d-flex align-items-center">
                                         <div class="product-img">
                                             <img src="{{ file_exists(public_path('/user/' . $item->customer->avatar)) ? asset('/user/' . $item->customer->avatar) : url('/user/images93561655300919_avatar.png') }}" class="user-img" alt="user avatar">

@@ -17,6 +17,7 @@ class Followup extends Model
         'date',
         'time',
         'note',
+        'type',
         'created_at',
         'updated_at',
     ];

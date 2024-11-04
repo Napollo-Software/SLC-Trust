@@ -72,7 +72,7 @@ class FollowupController extends Controller
             'to' => 'required|integer',
             'from' => 'required|integer',
             'note' => 'required|string|max:255',
-            'type' => 'nullable|string'
+           // 'type' => 'nullable|string'
         ], ['note_id.exists' => 'Note not found to be edited']);
 
         $followup = Followup::updateOrCreate(
@@ -83,6 +83,7 @@ class FollowupController extends Controller
                 'date' => date('Y-m-d'),
                 'time' => date('H:i:s'),
                 'note' => $request->note,
+                'type' => 'note'
             ]
         );
 

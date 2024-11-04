@@ -90,9 +90,9 @@
                                 <label for="form-label">Patient SSN</label>
                                 <input type="text" class="form-control" id="ssn" placeholder="Patient SSN" name="ssn">
                             </div>
-                            <div class="col-md-6 p-2">
+                            <div class="col-md-6 d-none p-2">
                                 <label for="form-label">Patient Language</label>
-                                 <select class="form-control form-select" id="patient_language" name="patient_language" required>
+                                 <select class="form-control form-select" id="patient_language" name="patient_language" >
                                     <option value="" selected>Select Patient Language</option>
                                     <option value="English">English</option>
                                     <option value="Russian">Russian</option>

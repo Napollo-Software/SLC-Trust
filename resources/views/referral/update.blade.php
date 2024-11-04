@@ -227,11 +227,21 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                     </span>
                                     @enderror
                             </div>
-
-
                             <div class="col-md-6 pt-3">
+                                <label>City</label>
+                                <input type="text" class="form-control" id="city" value="{{ $Referral->city }}" name="city">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <label>County</label>
+                                <input type="text" class="form-control" id="county" value="{{ $Referral->county }}" name="county">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <label>Address</label>
+                                <input type="text" class="form-control" id="address" value="{{ $Referral->address }}" name="address">
+                            </div>
+                            <div class="col-md-6 d-none pt-3">
                                 <label>Patient Language</label>
-                                <select class="form-control form-select" id="patient_language" name="patient_language" required>
+                                <select class="form-control form-select" id="patient_language" name="patient_language" >
                                     <option value="" selected>Select Patient Language</option>
                                     <option value="English" @if($Referral->patient_language == 'English') selected @endif>English</option>
                                     <option value="Russian" @if($Referral->patient_language == 'Russian') selected @endif>Russian</option>
