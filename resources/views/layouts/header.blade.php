@@ -187,8 +187,10 @@
                     <li><a class="dropdown-item d-flex align-items-center" href="{{ route('roles.list') }}"><i class="bx bx-cog fs-5"></i><span>Permissions</span></a>
                     </li>
                     @endif
+                    @if ($user->role != 'Vendor')
                     <li><a class="dropdown-item d-flex align-items-center" href="{{ route('bill_reports') }}"><i class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
                     </li>
+                    @endif
                     {{-- <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-dollar-circle fs-5"></i><span>Earnings</span></a>
                     </li>
                     <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-download fs-5"></i><span>Downloads</span></a>
