@@ -18,8 +18,10 @@ class Followup extends Model
         'time',
         'note',
         'type',
+        'completed',
         'created_at',
         'updated_at',
+        'completed_by'
     ];
     public function lead()
     {

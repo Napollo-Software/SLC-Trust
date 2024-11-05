@@ -21,17 +21,17 @@ class FollowupController extends Controller
 
 
         if ($routeName === 'follow_up.list') {
-            $data = Followup::where('type','note')->get();
+            $data = Followup::where('type', 'note')->get();
             $to = Referral::all();
             return view('follow-up.index', compact('data', 'from', 'to'));
-        }else if ($routeName === 'follow_up.index') {
+        } else if ($routeName === 'follow_up.index') {
 
-            $data = Followup::where('type','followup')->get();
+            $data = Followup::where('type', 'followup')->get();
             $to = User::whereHas('roles', function ($query) {
                 $query->where('role', 'employee'); // Filter users with role 'employee'
             })->get();
             $referrals = Referral::all();
-            return view('follow-up-new.index', compact('data', 'from', 'to','referrals'));
+            return view('follow-up-new.index', compact('data', 'from', 'to', 'referrals'));
         }
     }
 
@@ -55,7 +55,7 @@ class FollowupController extends Controller
         $followup->time = $request->input('time');
         $followup->note = $request->input('note');
         $followup->type = $request->input('type');
-        $followup->referral_id = (!empty($data['referral']))?$request->input('referral'):null;
+        $followup->referral_id = (!empty($data['referral'])) ? $request->input('referral') : null;
         $followup->save();
         $type = new Type();
         $type->category = $request->type === "other" ? "Designation" : $request->type;
@@ -72,7 +72,7 @@ class FollowupController extends Controller
             'to' => 'required|integer',
             'from' => 'required|integer',
             'note' => 'required|string|max:255',
-           // 'type' => 'nullable|string'
+            // 'type' => 'nullable|string'
         ], ['note_id.exists' => 'Note not found to be edited']);
 
         $followup = Followup::updateOrCreate(
@@ -128,7 +128,7 @@ class FollowupController extends Controller
         $followup->time = $request->input('time');
         $followup->note = $request->input('note');
         $followup->type = $request->input('type');
-        $followup->referral_id = (!empty($data['referral']))?$request->input('referral'):null;
+        $followup->referral_id = (!empty($data['referral'])) ? $request->input('referral') : null;
         $followup->save();
 
         return response()->json(['message' => 'Follow-up updated successfully']);
@@ -144,4 +144,20 @@ class FollowupController extends Controller
         }
         return redirect()->route('follow_up.list')->with('error', 'Follow-up record not found.');
     }
+
+    public function toggleCompleted(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:followups,id',
+            'completed' => 'required|in:true,false',
+        ]);
+
+        $followup = Followup::find($request->id);
+        $followup->completed = !$followup->completed;
+        $followup->completed_by = $request->completed == 'true' ? User::where('id', Session::get('loginId'))->value('id') : null;
+        $followup->save();
+
+        return response()->json(['success' => true]);
+    }
+
 }

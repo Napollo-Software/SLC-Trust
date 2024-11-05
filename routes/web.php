@@ -119,6 +119,7 @@ Route::group(['prefix' => 'follow-up', 'middleware' => ['isLoggedIn']], function
     Route::get('edit/{id}', [FollowupController::class, 'edit'])->name('follow_up.edit');
     Route::post('update', [FollowupController::class, 'update'])->name('follow_up.update');
     Route::post('delete/{id}', [FollowupController::class, 'delete'])->name('follow_up.delete');
+    Route::post('/toggle-completed', [FollowupController::class, 'toggleCompleted'])->name('followup.toggleCompleted');
 });
 
 Route::group(['prefix' => 'follow-up', 'middleware' => ['isLoggedIn']], function () {

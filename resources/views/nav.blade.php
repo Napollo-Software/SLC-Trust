@@ -38,7 +38,7 @@
     @php
         $user = App\Models\User::find(Session::get('loginId'));
         $followup = App\Models\Followup::select('note', 'date')->orderBy('id','desc')->get();
-        $notifications = App\Models\Notifcation::where('user_id', $user->id)->get();
+        $notifications = App\Models\Notifcation::where('user_id', $user->id)->latest()->get();
         $messages = App\Models\smsChat::latest()->take(5)->get();
     @endphp
 	<!--wrapper-->

@@ -22,6 +22,8 @@ class CreateFollowupsTable extends Migration
             $table->string('date');
             $table->string('time');
             $table->string('note')->nullable();
+            $table->boolean('completed')->default(false);
+            $table->string('completed_by')->nullable();
             $table->timestamps();
         });
     }
