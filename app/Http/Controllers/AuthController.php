@@ -908,7 +908,7 @@ class AuthController extends Controller
                 ])
                 ->setPaper('A4', 'portrait');
 
-            $file_name = 'trusted_' . date('Ymd_His') . ".pdf";
+            $file_name = 'vod_' .$user->full_name()."_".date('F_Y_His') . ".pdf";
 
             $pdfLink = "$directory/$file_name";
 
