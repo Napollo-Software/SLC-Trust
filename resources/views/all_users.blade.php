@@ -418,7 +418,7 @@
                             row['Payee'] = row['Payee'] || '';
                             row['Account'] = row['Account'] || '';
                             row['Paid Amount ($)'] = row['Paid Amount ($)'] || '';
-                            row['Payment method (ACH,Card,Cheque Payment)'] = row['Payment method (ACH,Card,Cheque Payment)'] ||
+                            row['Payment method (ACH,Card,Check Payment)'] = row['Payment method (ACH,Card,Check Payment)'] ||
                                 '';
                             row['Payment Number'] = row['Payment Number'] || '';
 

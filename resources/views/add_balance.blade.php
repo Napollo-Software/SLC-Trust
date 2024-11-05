@@ -87,7 +87,7 @@
                                         <option value="">Select Type</option>
                                         <option value="ACH">ACH</option>
                                         <option value="Card">Card</option>
-                                        <option value="Cheque Payment">Cheque Payment</option>
+                                        <option value="Check Payment">Check Payment</option>
                                     </select>
                                     @error('payment_type')
                                     <span class="text-danger"> {{$message}} </span>
@@ -105,8 +105,8 @@
                                     <input type="text" class="form-control mb-3 trans-no" placeholder="Transaction No." name="trans_no" required />
                                 </div>
                                 <div class="col-lg-6" id="hidden_div2">
-                                    <label for="exampleFormControlInput1" class="form-label">Cheque No.#</label>
-                                    <input type="text" class="form-control mb-3 cheque-no" placeholder="Cheque No." name="cheque_no" />
+                                    <label for="exampleFormControlInput1" class="form-label">Check No.#</label>
+                                    <input type="text" class="form-control mb-3 check-no" placeholder="Check No." name="check_no" />
                                 </div>
                                 <div class="col-lg-6" id="hidden_div3">
                                     <label for="exampleFormControlInput1" class="form-label">Card No.#</label>
@@ -141,26 +141,26 @@
     function showDiv2(divId, element) {
         if (element.value == 'ACH') {
             $('.trans-no').attr('required', true);
-            $('.cheque-no').attr('required', false);
+            $('.check-no').attr('required', false);
             $('.card-no').attr('required', false);
             document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-            document.getElementById("hidden_div2").style.display = element.value == 'Cheque Payment' ? 'block' : 'none';
+            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
             document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
         }
-        if (element.value == 'Cheque Payment') {
+        if (element.value == 'Check Payment') {
             $('.trans-no').attr('required', false);
-            $('.cheque-no').attr('required', true);
+            $('.check-no').attr('required', true);
             $('.card-no').attr('required', false);
             document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-            document.getElementById("hidden_div2").style.display = element.value == 'Cheque Payment' ? 'block' : 'none';
+            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
             document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
         }
         if (element.value == 'Card') {
             $('.trans-no').attr('required', false);
-            $('.cheque-no').attr('required', false);
+            $('.check-no').attr('required', false);
             $('.card-no').attr('required', true);
             document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-            document.getElementById("hidden_div2").style.display = element.value == 'Cheque Payment' ? 'block' : 'none';
+            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
             document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
         }
     }

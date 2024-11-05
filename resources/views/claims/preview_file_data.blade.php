@@ -400,7 +400,7 @@
             row['Payee'] = row['Payee'] || '';
             row['Account'] = row['Account'] || '';
             row['Paid Amount ($)'] = row['Paid Amount ($)'] || '';
-            row['Payment method (ACH,Card,Cheque Payment)'] = row['Payment method (ACH,Card,Cheque Payment)'] ||
+            row['Payment method (ACH,Card,Check Payment)'] = row['Payment method (ACH,Card,Check Payment)'] ||
                 '';
             row['Payment Number'] = row['Payment Number'] || '';
             var uniqueKey = row['Bill Id'];
@@ -486,7 +486,7 @@
             rowHTML += '<td>' + row['Bill Amount ($)'] + '</td>';
             rowHTML += '<td>' + user_balance + '</td>'; // Use the pre-defined variable here
             rowHTML += '<td>' + row['Paid Amount ($)'] + '</td>';
-            rowHTML += '<td>' + row['Payment method (ACH,Card,Cheque Payment)'] + '</td>';
+            rowHTML += '<td>' + row['Payment method (ACH,Card,Check Payment)'] + '</td>';
             rowHTML += '<td>' + row['Payment Number'] + '</td>';
             rowHTML += '</tr>';
 

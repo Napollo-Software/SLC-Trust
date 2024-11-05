@@ -28,7 +28,7 @@
                 /* Add any other print-specific styles */
             }
 
-            /* .print-cheque {
+            /* .print-check {
                                                                                                                                                                                                                                                                                               display: block !important;
                                                                                                                                                                                                                                                                                             } */
             .no-print {
@@ -182,25 +182,25 @@
         }
     </style>
     <div class="">
-        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Create Cheque</b> </span></h5>
+        <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Create Check</b> </span></h5>
         <div class="d-flex justify-content-between no-print">
             <div id="content">
                 <form method="get" action="{{ route('submit.forms') }}">
                     <div class="card">
                         <div class="card-header pb-0 pl-0">
-                            <h5 class="card-title pl-2">Cheque Details</h5>
+                            <h5 class="card-title pl-2">Check Details</h5>
                         </div>
                         <div class="card-body">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 p-2">
-                                    <label for="cheque-number">Cheque Number</label>
-                                    <input type="number" id="cheque-number" class="form-control cheque-number-details"
-                                        name="number[]" placeholder="Cheque number" min="0">
+                                    <label for="check-number">Check Number</label>
+                                    <input type="number" id="check-number" class="form-control check-number-details"
+                                        name="number[]" placeholder="Check number" min="0">
                                 </div>
                                 <div class="col-md-6 p-2">
-                                    <label for="cheque-date">Cheque Date</label>
-                                    <input type="date" id="cheque-date" class="form-control cheque-date-details"
+                                    <label for="check-date">Check Date</label>
+                                    <input type="date" id="check-date" class="form-control check-date-details"
                                         name="date[]" value="<?php echo date('Y-m-d'); ?>">
                                 </div>
                                 <div class="col-md-6 p-2">
@@ -263,13 +263,13 @@
 
         </div>
         {{-- <div class="row d-flex justify-content-center">
-                <div class="check print-cheque">
+                <div class="check print-check">
                     <div class="row">
                         <div class="col-md-6"><b>Trusted surplus Solutions</b><br> 59 Merrall Dr <br>Lawrence, NY 11559-1518
                         </div>
-                        <div class="col-md-6 number cheque-number-text">1025</div>
+                        <div class="col-md-6 number check-number-text">1025</div>
                     </div>
-                    <div class="date cheque-date-text" style="margin-top: -40px">6/20/2023</div>
+                    <div class="date check-date-text" style="margin-top: -40px">6/20/2023</div>
                     <div class="info">
                         <div class="orderof payee-text">Customer</div>
                         <div class="num amount-in-number-text">75.00</div>
@@ -295,7 +295,7 @@
         @endforeach
     </div>
     <div id="checkContent" class="printable d-none">
-        <p style="padding-left: 80%;"><span class="cheque-date-text">5/23/2013</span></p>
+        <p style="padding-left: 80%;"><span class="check-date-text">5/23/2013</span></p>
         <p style="padding-left: 12%"><span class="payee-text">Usama Fiaz</span><span style="padding-left: 70%"><span
                     class="amount-in-number-text">$566</span></span></p>
         <p style="padding-left: 11%"><span class="amount-in-word-text">Seventy-five and 00/100</span></p>
@@ -317,8 +317,8 @@
         var formDataArray = [];
         $('.card-body').each(function() {
             var formData = {
-                chequeNumber: $(this).find('.cheque-number-details').val(),
-                chequeDate: $(this).find('.cheque-date-details').val(),
+                checkNumber: $(this).find('.check-number-details').val(),
+                checkDate: $(this).find('.check-date-details').val(),
                 user: $(this).find('.select-2[name="user"]').val(),
                 payee: $(this).find('.select-2[name="payee"]').val(),
                 amountInNumber: $(this).find('.amount-in-number-details').val(),
@@ -368,18 +368,18 @@
 
     function add_more() {
         var newModalBody = $('.card-body:first').clone(true);
-        var chequeNumberFields = $('.card-body').find('.cheque-number-details');
-        var maxChequeNumber = 0;
-        chequeNumberFields.each(function() {
-            var chequeNumber = parseInt($(this).val());
-            if (!isNaN(chequeNumber) && chequeNumber > maxChequeNumber) {
-                maxChequeNumber = chequeNumber;
+        var checkNumberFields = $('.card-body').find('.check-number-details');
+        var maxCheckNumber = 0;
+        checkNumberFields.each(function() {
+            var checkNumber = parseInt($(this).val());
+            if (!isNaN(checkNumber) && checkNumber > maxCheckNumber) {
+                maxCheckNumber = checkNumber;
             }
         });
         var modalBodyCount = $('.card-body').length + 1;
-        var newChequeNumber = maxChequeNumber + 1;
-        newModalBody.find('.cheque-number-details').val(newChequeNumber);
-        newModalBody.find('input, select').not('.cheque-number-details, .cheque-date-details').val('');
+        var newCheckNumber = maxCheckNumber + 1;
+        newModalBody.find('.check-number-details').val(newCheckNumber);
+        newModalBody.find('input, select').not('.check-number-details, .check-date-details').val('');
         newModalBody.find('textarea.memo-details').val('');
         newModalBody.find('input, select').each(function() {
             if ($(this).attr('name') == 'user' || $(this).attr('name') == 'payee') {

@@ -217,11 +217,11 @@ class ReportController extends Controller
         return view('reports.bank-reconciliation', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'opening_balance', 'payments', 'deposits', 'this_month', ));
     }
 
-    public function cheque(Request $request)
+    public function check(Request $request)
     {
         $users = User::where('role', 'User')->get();
         $payees = PayeeModel::get();
-        return view('reports.cheque', compact('users', 'payees'));
+        return view('reports.check', compact('users', 'payees'));
     }
 
     public function filter_user(Request $request)
@@ -282,9 +282,9 @@ class ReportController extends Controller
         return view('reports.monthly-mass-statement', compact('user', 'transactions'));
     }
 
-    public function exportCheque(Request $request)
+    public function exportCheck(Request $request)
     {
-        return view('reports.export-cheque');
+        return view('reports.export-check');
     }
     // public function storeClosingBalance(Request $request)
     // {

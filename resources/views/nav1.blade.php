@@ -440,16 +440,16 @@
                 @endif
                 <!-- Recycle Bin -->
                 @if ($user->hasRole('admin'))
-                    <li class="menu-item  {{  Route::currentRouteName() ==='cheque' ? 'open active' : '' }}">
-                        <a href="/cheque" class="menu-link">
+                    <li class="menu-item  {{  Route::currentRouteName() ==='check' ? 'open active' : '' }}">
+                        <a href="/check" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-book"></i>
-                            <div data-i18n="Without menu">Create cheques</div>
+                            <div data-i18n="Without menu">Create checks</div>
                         </a>
                     </li>
                 @endif
                 @if ($user->hasRole('admin'))
 
-                    <li class="menu-item {{ in_array(Route::currentRouteName(), ['transaction.report', 'monthly.statement', 'bank.reconciliation', 'cheque']) ? 'open active' : '' }}">
+                    <li class="menu-item {{ in_array(Route::currentRouteName(), ['transaction.report', 'monthly.statement', 'bank.reconciliation', 'check']) ? 'open active' : '' }}">
 
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-chart"></i>
@@ -472,9 +472,9 @@
                                     <div data-i18n="Without menu">Transactions</div>
                                 </a>
                             </li>
-                            <li class="menu-item {{  Route::currentRouteName() === 'cheque' ? 'open active' : '' }}">
-                                <a href="/cheque" class="menu-link">
-                                    <div data-i18n="Without menu">Create cheques</div>
+                            <li class="menu-item {{  Route::currentRouteName() === 'check' ? 'open active' : '' }}">
+                                <a href="/check" class="menu-link">
+                                    <div data-i18n="Without menu">Create checks</div>
                                 </a>
                             </li>
                         </ul>

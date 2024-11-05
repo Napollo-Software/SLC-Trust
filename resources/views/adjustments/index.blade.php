@@ -66,7 +66,7 @@
                     <option value="">Select payment type</option>
                     <option value="ACH" >ACH</option>
                     <option value="Card" >Card</option>
-                    <option value="Cheque Payment" >Cheque Payment</option>
+                    <option value="Check Payment" >Check Payment</option>
 
                 </select>
                 <span class="text-danger">@error('payment_method'){{$message}} @enderror</span>

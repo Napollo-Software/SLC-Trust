@@ -264,9 +264,9 @@
                                 <a class="dropdown-item {{ Route::currentRouteName() === 'adjustment'? 'active' : '' }}" href="{{ route('adjustment') }}"><i class="bx bx-receipt"></i>Adjustment</a>
                             </li>
                             @endif
-                            {{-- @if ($user->hasPermissionTo('Create Cheque'))
+                            {{-- @if ($user->hasPermissionTo('Create Check'))
                             <li class="nav-item dropend">
-                                <a class="dropdown-item  {{  Route::currentRouteName() ==='cheque' ? 'open active' : '' }}" href="{{ route('cheque') }}"><i class="bx bx-book-bookmark"></i>Create Cheque</a>
+                                <a class="dropdown-item  {{  Route::currentRouteName() ==='check' ? 'open active' : '' }}" href="{{ route('check') }}"><i class="bx bx-book-bookmark"></i>Create Check</a>
                             </li>
                             @endif --}}
                             @if ($user->hasPermissionTo('Bank Reconciliation'))

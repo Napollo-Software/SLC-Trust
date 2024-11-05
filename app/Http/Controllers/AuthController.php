@@ -776,7 +776,7 @@ class AuthController extends Controller
             'balance' => 'required|numeric',
             'date_of_trans' => 'required|date',
             'trans_no' => 'nullable|string',
-            'cheque_no' => 'nullable|string',
+            'check_no' => 'nullable|string',
             'card_no' => 'nullable|string',
             'maintenance_fee' => 'nullable|numeric',
             'registration_fee' => 'nullable|numeric',
@@ -817,7 +817,7 @@ class AuthController extends Controller
         try {
 
             // Generate the transaction ID and descriptions
-            $transactionId = $request->trans_no ?? $request->cheque_no ?? $request->card_no;
+            $transactionId = $request->trans_no ?? $request->check_no ?? $request->card_no;
             $reference_id = generateTransactionId();
 
             // Description for the deposit

@@ -3,7 +3,7 @@
   @import url(https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield);
 
   @media print {
-      /* .print-cheque {
+      /* .print-check {
         display: block !important;
       } */
       .no-print{
@@ -155,9 +155,9 @@
 <div class="check ">
     <div class="row">
     <div class="col-md-6"><b>Trusted surplus Solutions</b><br> 59 Merrall Dr <br>Lawrence, NY 11559-1518</div>
-    <div class="col-md-6 number cheque-number-text">1025</div>
+    <div class="col-md-6 number check-number-text">1025</div>
     </div>
-    <div class="date cheque-date-text" style="margin-top: -40px">Oct 29, 2013</div>
+    <div class="date check-date-text" style="margin-top: -40px">Oct 29, 2013</div>
     <div class="info">
       <div class="orderof payee-text">Customer</div>
       <div class="num amount-in-number-text">75.00</div>

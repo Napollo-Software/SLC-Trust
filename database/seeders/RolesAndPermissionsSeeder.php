@@ -31,7 +31,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $billPermissions = ['Add Bill','View Bills', 'Update Bill Status','Recurring Bills','Recycle'];
         // $recurringPermissions = ['Recurring Bills', 'Recurring Edit', 'Recurring Remove'];
         // $dropboxPermissions = ['Dropbox'];
-        $financePermissions = ['Adjustments','Create Cheque','Bank Reconciliation','Monthly Statement','Transactions'];
+        $financePermissions = ['Adjustments','Create Check','Bank Reconciliation','Monthly Statement','Transactions'];
         $userPermissions = ['Add User','View Users','Deposit'];
         // $categoryPermissions = ['Manage Categories'];
         $notificationsPermissions = ['Notification View'];
@@ -84,7 +84,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $role5->givePermissionTo(['Front Office', 'Add Account','View Account','Add Contact','View Contact','Edit Contact','Delete Contact','Add Lead','View Lead','Edit Lead','Delete Lead',
         'Add Referral','View Referral','Edit Referral','Delete Referral','Add Report','View Report','Edit Report','Delete Report','Profile Setting','Manage Types']);
         $role6->givePermissionTo(['Back Office','Archives','Profile Setting','Add Bill','View Bills', 'Update Bill Status','Recurring Bills','Recycle'
-        ,'Adjustments','Create Cheque','Bank Reconciliation','Monthly Statement','Transactions','Add User','View Users','Deposit','Manage Categories','Payee List','Drop Box','Logs']);
+        ,'Adjustments','Create Check','Bank Reconciliation','Monthly Statement','Transactions','Add User','View Users','Deposit','Manage Categories','Payee List','Drop Box','Logs']);
 
         $users = User::all();
         foreach ($users as $user) {

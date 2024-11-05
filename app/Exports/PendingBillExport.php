@@ -8,7 +8,7 @@ use App\Models\PayeeModel;
 use App\Models\Category;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
-use Maatwebsite\Excel\Concerns\ShouldAutoSize; 
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
 
@@ -36,7 +36,7 @@ class PendingBillExport implements FromCollection,WithHeadings, WithEvents, Shou
             if($user){
                 $user_name = $user->name.' '.$user->last_name;
                 $user_balance = $user->user_balance;
-            
+
             $category = Category::find($claim->claim_category);
             $result[] = array(
                 'Bill Id' => $claim->id,
@@ -66,7 +66,7 @@ class PendingBillExport implements FromCollection,WithHeadings, WithEvents, Shou
             'Bill Amount ($)',
             'User Balance ($)',
             'Paid Amount ($)',
-            'Payment method (ACH,Card,Cheque Payment)',
+            'Payment method (ACH,Card,Check Payment)',
             'Payment Number'
 
         ];

@@ -30,7 +30,7 @@
                             <option value="">Select payment type</option>
                             <option value="ACH" @if ($claim->payment_method=='ACH') selected @endif>ACH</option>
                             <option value="Card" @if ($claim->payment_method=='Card') selected @endif>Card</option>
-                            <option value="Cheque Payment" @if ($claim->payment_method=="Cheque Payment") selected @endif>Cheque Payment</option>
+                            <option value="Check Payment" @if ($claim->payment_method=="Check Payment") selected @endif>Check Payment</option>
                         </select>
                         <span class="text-danger">@error('payment_method'){{$message}} @enderror</span>
                         <!-- Profile picture help block-->

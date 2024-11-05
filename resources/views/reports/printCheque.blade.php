@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Print Cheque</title>
+    <title>Print Check</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .card {
@@ -16,7 +16,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-text" style="float: right; margin: 10px">{{ $formData['chequeNumber'] ?? 'N/A' }}{{ $formData['chequeDate'] ?? 'N/A' }}</p>
+                        <p class="card-text" style="float: right; margin: 10px">{{ $formData['checkNumber'] ?? 'N/A' }}{{ $formData['checkDate'] ?? 'N/A' }}</p>
                         <br>
                         <p class="card-text">{{ $formData['amountInWord'] ?? 'N/A' }}{{ $formData['amountInNumber'] ?? 'N/A' }}</p>
                         <p class="card-text">User: {{ $formData['user'] ?? 'N/A' }}</p>

@@ -39,7 +39,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
             if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] != "Pending") {
                 $claim = Claim::find($item['bill_id']);
                 if ($claim && $claim->claim_user != null) {
-                    $claim->payment_method = $item['payment_method_achcardcheque_payment'];
+                    $claim->payment_method = $item['payment_method_achcardcheck_payment'];
                     $claim->card_number = $item['payment_number'];
                     $user = User::find($claim->claim_user);
                     if ($claim->claim_status == "Pending") {

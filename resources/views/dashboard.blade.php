@@ -263,8 +263,8 @@
                                                 <small>Payment Method# </small> {{ $claim->payment_method }}
                                                 <br>
                                                 <small>
-                                                    @if ($claim->payment_method == 'Cheque Payment')
-                                                    Cheque No#
+                                                    @if ($claim->payment_method == 'Check Payment')
+                                                    Check No#
                                                     @endif @if ($claim->payment_method == 'ACH')
                                                     Confirmation#
                                                     @endif @if ($claim->payment_method == 'Card')
@@ -485,8 +485,8 @@
                                                 <small>Payment Method:</small> {{ $claim->payment_method }}
                                                 <br>
                                                 <small>
-                                                    @if ($claim->payment_method == 'Cheque Payment')
-                                                    Cheque No#
+                                                    @if ($claim->payment_method == 'Check Payment')
+                                                    Check No#
                                                     @endif @if ($claim->payment_method == 'ACH')
                                                     Confirmation#
                                                     @endif @if ($claim->payment_method == 'Card')
