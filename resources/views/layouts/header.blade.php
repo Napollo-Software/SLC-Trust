@@ -27,8 +27,9 @@
                         </a>
                     </li> --}}
                     <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding position-relative" href="#" data-bs-toggle="dropdown"><span class="alert-count">{{ $notifications->where('status', 0)->count() }}</span>
-                            <i class="bx bx-bell"></i>
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding position-relative" href="#" data-bs-toggle="dropdown"  onmouseover="this.style.backgroundColor='#69B4AC';" 
+                        onmouseout="this.style.backgroundColor=''; "><span class="alert-count">{{ $notifications->where('status', 0)->count() }}</span>
+                            <i class="bx bx-bell"  style="color: black !important"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a href="javascript:;">
@@ -45,9 +46,11 @@
                                 @endif
                                 @foreach ($notifications as $item)
                                 <a class="dropdown-item" href="{{ url('notifications/'.$item->id) }}">
-                                    <div class="d-flex align-items-center">
-                                        <div class="user-online">
-                                            <img src="{{ $item->user_details->avatar }}" class="msg-avatar" alt="user avatar">
+                                    <div class="d-flex align-items-center gap-3" >
+                                      <div >  
+                                            <div class="user-online" style="width: 45px; height: 45px;">
+                                                <img src="{{ $item->user_details->avatar }}" class=" " alt="user avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%">
+                                            </div>
                                         </div>
                                         <div class="">
                                             <h6 class="msg-name"><span class="msg-time float-end">{{ us_date_format($item->created_at) }}</span></h6>
