@@ -583,118 +583,140 @@ $role = $login_user->role;
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar22');
-    var followupEvents = @json($followup);
+        var calendarEl = document.getElementById('calendar22');
+        var followupEvents = @json($followup);
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        headerToolbar: {
-            right: 'dayGridMonth prev next'
-        },
-        initialView: 'dayGridMonth',
-        navLinks: true,
-        businessHours: true,
-        editable: true,
-        selectable: true,
-        selectMirror: true,
-        droppable: true,
-        themeColor: '#559e99',
-        dayMaxEvents: true,
-        events: followupEvents.map(function(event) {
-            return {
-                id: event.id, // Ensure each event has a unique ID
-                title: event.completed > 0 ? `<s>${event.note} - ${event.date}</s>` : `${event.note} - ${event.date}`,
-                start: event.date,
-                extendedProps: {
-                    completed: event.completed
-                }
-            };
-        }),
-        eventClick: function(info) {
-            info.jsEvent.preventDefault();
-
-            var clickedDate = new Date(info.event.start);
-            const year = clickedDate.getFullYear();
-            const month = String(clickedDate.getMonth() + 1).padStart(2, '0');
-            const day = String(clickedDate.getDate()).padStart(2, '0');
-            const formattedDate = `${year}-${month}-${day}`;
-
-            var eventsForDate = followupEvents.filter(function(event) {
-                return event.date === formattedDate;
-            });
-
-            var content = '<h5 class="pb-2">' + clickedDate.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit'
-            }) + '</h5>';
-
-            var eventDetails = eventsForDate.map(function(event) {
-                const checked = event.completed ? 'checked' : '';
-                const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
-
-                return `<li class="border-bottom py-2 pt-3 text-7 m-0" style="font-size: 13px !important; list-style:none;">
-                            <input type="checkbox" class="toggle-completed" data-id="${event.id}" ${checked}>
-                            <span ${strikeThrough}>${event.note}</span>
-                            <span class="float-end">${convertTo12Hour(event.time)}</span>
-                        </li>`;
-            }).join('');
-
-            $('#eventDetails').html(content + eventDetails);
-            $('#eventModal').modal('show');
-
-            $('.toggle-completed').on('change', function() {
-                const followupId = $(this).data('id');
-                const isCompleted = $(this).is(':checked');
-
-                toggleCompleted(followupId, isCompleted, $(this).next('span'));
-            });
-        }
-    });
-    calendar.render();
-
-    function toggleCompleted(followupId, isCompleted, noteElement) {
-        $.ajax({
-            url: '/follow-up/toggle-completed',
-            type: 'POST',
-            data: {
-                _token: '{{ csrf_token() }}',
-                id: followupId,
-                completed: isCompleted
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            headerToolbar: {
+                right: 'dayGridMonth prev next'
             },
-            success: function(response) {
-                if (response.success) {
-                    // Update the UI inside the modal
-                    if (isCompleted) {
-                        noteElement.css('text-decoration', 'line-through');
-                    } else {
-                        noteElement.css('text-decoration', 'none');
+            initialView: 'dayGridMonth',
+            navLinks: true,
+            businessHours: true,
+            editable: true,
+            selectable: true,
+            selectMirror: true,
+            droppable: true,
+            themeColor: '#559e99',
+            dayMaxEvents: true,
+            events: followupEvents.map(function(event) {
+                return {
+                    id: event.id,
+                    start: event.date,
+                    extendedProps: {
+                        note: event.note,
+                        completed: event.completed,
+                        date: event.date
                     }
+                };
+            }),
+            eventContent: function(info) {
 
-                    // Find and update the event in FullCalendar
-                    const event = calendar.getEventById(followupId);
-                    if (event) {
-                        // Update the completed status in followupEvents array
-                        const updatedEvent = followupEvents.find(e => e.id === followupId);
-                        if (updatedEvent) {
-                            updatedEvent.completed = isCompleted;
-                        }
+                const id = info.event.id;
+                const note = info.event.extendedProps.note;
+                const date = info.event.extendedProps.date;
+                const completed = info.event.extendedProps.completed;
 
-                        // Update the event title in the calendar to reflect the change
-                        event.setProp('title', isCompleted ? `<s>${event.extendedProps.note} - ${event.startStr}</s>` : `${event.extendedProps.note} - ${event.startStr}`);
-                        event.setExtendedProp('completed', isCompleted);
-                    }
-                } else {
-                    alert('An error occurred while updating the follow-up status.');
-                }
+                const content = document.createElement('div');
+                content.id=`calender_follow_up_${id}`;
+                content.innerHTML = completed > 0
+                    ? `<s>${note} - ${date}</s>`
+                    : `${note} - ${date}`;
+
+                return { domNodes: [content] };
             },
-            error: function(xhr) {
-                alert('An error occurred while updating the follow-up status.');
+            eventClick: function(info) {
+                info.jsEvent.preventDefault();
+
+                var clickedDate = new Date(info.event.start);
+                const year = clickedDate.getFullYear();
+                const month = String(clickedDate.getMonth() + 1).padStart(2, '0');
+                const day = String(clickedDate.getDate()).padStart(2, '0');
+                const formattedDate = `${year}-${month}-${day}`;
+
+                var eventsForDate = followupEvents.filter(function(event) {
+                    return event.date === formattedDate;
+                });
+
+                var content = '<h5 class="pb-2">' + clickedDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                }) + '</h5>';
+
+                var eventDetails = eventsForDate.map(function(event) {
+                    const checked = event.completed ? 'checked' : '';
+                    const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
+
+                    return `<li class="border-bottom py-2 pt-3 text-7 m-0" style="font-size: 13px !important; list-style:none;">
+                                <input type="checkbox" class="toggle-completed" data-id="${event.id}" ${checked}>
+                                <span ${strikeThrough}>${event.note}</span>
+                                <span class="float-end">${convertTo12Hour(event.time)}</span>
+                            </li>`;
+                }).join('');
+
+                $('#eventDetails').html(content + eventDetails);
+                $('#eventModal').modal('show');
+
+                $('.toggle-completed').on('change', function() {
+                    const followupId = $(this).data('id');
+                    const isCompleted = $(this).is(':checked');
+
+                    toggleCompleted(followupId, isCompleted, $(this).next('span'));
+                });
             }
         });
-    }
-});
+        calendar.render();
 
+        function toggleCompleted(followupId, isCompleted, noteElement) {
+            $.ajax({
+                url: '/follow-up/toggle-completed',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: followupId,
+                    completed: isCompleted
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Update the UI inside the modal
+                        if (isCompleted) {
+                            noteElement.css('text-decoration', 'line-through');
+                        } else {
+                            noteElement.css('text-decoration', 'none');
+                        }
 
+                        // Find and update the event in FullCalendar
+                        const event = calendar.getEventById(followupId);
+                        if (event) {
+                            // Update the completed status in followupEvents array
+                            const updatedEvent = followupEvents.find(e => e.id === followupId);
+                            if (updatedEvent) {
+                                updatedEvent.completed = isCompleted;
+                            }
+
+                            // Update the content directly in the calendar using the assigned ID
+                            const calendarElement = document.getElementById(`calender_follow_up_${followupId}`);
+                            if (calendarElement) {
+                                calendarElement.innerHTML = isCompleted
+                                    ? `<s>${event.extendedProps.note} - ${event.extendedProps.date}</s>`
+                                    : `${event.extendedProps.note} - ${event.extendedProps.date}`;
+                            }
+
+                            // Update the event properties in the calendar to reflect the change
+                            event.setExtendedProp('completed', isCompleted);
+                        }
+                    } else {
+                        alert('An error occurred while updating the follow-up status.');
+                    }
+                },
+                error: function(xhr) {
+                    alert('An error occurred while updating the follow-up status.');
+                }
+            });
+        }
+
+        });
         function validateDate() {
             var startDate = new Date(document.getElementById("startDate").value);
             var endDate = new Date(document.getElementById("endDate").value);

@@ -364,7 +364,6 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                 <table id="vod_table" class="table align-middle mb-0 table-hover dataTable ">
                     <thead class="table-light">
                     <tr>
-                        <th>SNO</th>
                         <th>Name</th>
                         <th>Date</th>
                         <th class="text-center">Action</th>
@@ -373,7 +372,6 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <tbody>
                         @forelse ($vod_documents as $index => $document)
                         <tr>
-                            <td>{{ ++$index }}</td>
                             <td>{{ basename($document->vod_link) }}</td>
                             <td>{{ date('m-d-Y', strtotime($document->created_at)) }}</td>
                             <td class="text-center">
