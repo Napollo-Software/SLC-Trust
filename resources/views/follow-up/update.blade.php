@@ -7,7 +7,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title " id="exampleModalLabel">Update Follow Up</h5>
+                <h5 class="modal-title " id="exampleModalLabel">Update Note</h5>
                 <button type="button" class="close close-btn closeeditType" data-dismiss="modal"
                     aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -39,12 +39,12 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Follow Up Date</label>
+                            <label for="exampleFormControlInput1" class="form-label">Note Date</label>
                             <input type="date" id="edit_date" class="form-control" name="date" />
                             <span id="nameError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Follow Up Time</label>
+                            <label for="exampleFormControlInput1" class="form-label">Note Time</label>
                             <input type="time" id="edit_time"class="form-control" name="time" />
                             <span id="categoryError" class="text-danger"></span>
                         </div>
@@ -107,7 +107,7 @@
                 success: function(response) {
                     $("#updateFollowupForm").removeClass("in");
                     hideeditTypeModal();
-                    swal.fire('Success', 'Follow up has been updated successfully', 'success')
+                    swal.fire('Success', 'Note has been updated successfully', 'success')
                         .then(function() {
                             location.reload();
                         });

@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Notes | SLC Trusts')
+@section('title', 'Followups | SLC Trusts')
 @section('wrapper')
     @include('follow-up-new.create')
     @include('follow-up-new.update')
