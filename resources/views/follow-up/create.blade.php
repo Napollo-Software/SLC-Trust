@@ -94,7 +94,7 @@
                 success: function(response) {
                     $("#addFollowupForm").removeClass("in");
                     hideAddTypeModal();
-                    swal.fire('Success', 'Follow up has been created successfully', 'success')
+                    swal.fire('Success', 'Note has been created successfully', 'success')
                         .then(function() {
                             location.reload();
                         });
