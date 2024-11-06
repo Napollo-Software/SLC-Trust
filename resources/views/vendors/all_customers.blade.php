@@ -29,7 +29,7 @@
                             <th>Email</th>
                             <!--th>Role</th-->
                             <th>Account Status</th>
-                            <th>Balance</th>
+                            <!--th>Balance</th-->
                             <th>Avatar</th>
                             <th>Actions</th>
                         </tr>
@@ -71,10 +71,10 @@
                                 @endif
                             </span>
                                 </th>
-                                <td>
+                                <!--td>
                                     @if ($u['role'] == 'User')
                                         ${{ number_format((float) userBalance($u['id']), 2, '.', ',') }}
-                                </td>
+                                </td-->
                                 @else
                                     N/A
                                 @endif
@@ -95,8 +95,8 @@
                                             <i class="bx bx-cog"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item pt-1 pb-1" href="{{ route('show_user', $u['id']) }}"><i
-                                                                                                     class='bx bxs-show'></i> View</a>
+                                            <!--a class="dropdown-item pt-1 pb-1" href="{{ route('show_user', $u['id']) }}"><i
+                                                                                                     class='bx bxs-show'></i> View</a-->
 {{--                                            @if ($role != 'Moderator')--}}
 {{--                                                <a class="dropdown-item pb-2" href="{{ route('show_user', $u['id']) }}"><i--}}
 {{--                                                        class='bx bxs-show'></i> View</a>--}}
