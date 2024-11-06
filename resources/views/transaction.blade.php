@@ -12,10 +12,17 @@ $login_user = User::find(Session::get('loginId'));
 $role = $login_user->role;
 
         if($role == 'Admin'){
-        $followup = \App\Models\Followup::where('type','followup')->get();
-        }else{
-        $followup = \App\Models\Followup::where('type','followup')->where('to',Session::get('loginId'))->get();
+            $followup = \App\Models\Followup::with(['employee' => function($query){
+                $query->select('id', 'name', 'last_name');
+            }])->where('type', 'followup')->get();
+        } else {
+            $followup = \App\Models\Followup::with(['employee' => function($query){
+                $query->select('id', 'name', 'last_name');
+            }])->where('type', 'followup')
+            ->where('to', Session::get('loginId'))
+            ->get();
         }
+
         @endphp
 
         <head>
@@ -606,22 +613,22 @@ $role = $login_user->role;
                     extendedProps: {
                         note: event.note,
                         completed: event.completed,
-                        date: event.date
+                        date: event.date,
+                        user: event.employee
                     }
                 };
             }),
             eventContent: function(info) {
-
                 const id = info.event.id;
                 const note = info.event.extendedProps.note;
                 const date = info.event.extendedProps.date;
                 const completed = info.event.extendedProps.completed;
 
                 const content = document.createElement('div');
-                content.id=`calender_follow_up_${id}`;
+                content.id = `calender_follow_up_${id}`;
                 content.innerHTML = completed > 0
-                    ? `<s>${note} - ${date}</s>`
-                    : `${note} - ${date}`;
+                    ? `<s>${note.length > 10 ? note.substring(0, 10) + '...' : note}</s>`
+                    : `${note.length > 10 ? note.substring(0, 10) + '...' : note}`;
 
                 return { domNodes: [content] };
             },
@@ -647,10 +654,13 @@ $role = $login_user->role;
                 var eventDetails = eventsForDate.map(function(event) {
                     const checked = event.completed ? 'checked' : '';
                     const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
+                    const userName = `${event.employee.name || ''} ${event.employee.last_name || ''}`.trim();
 
-                    return `<li class="border-bottom py-2 pt-3 text-7 m-0" style="font-size: 13px !important; list-style:none;">
-                                <input type="checkbox" class="toggle-completed" data-id="${event.id}" ${checked}>
-                                <span ${strikeThrough}>${event.note}</span>
+                    return `<li class="border-bottom d-flex justify-content-between py-2 pt-3 text-7 m-0" style="font-size: 13px !important; list-style:none;">
+                                <div class="d-flex justify-content-start align-items-start gap-1">
+                                    <input type="checkbox" class="mt-1 toggle-completed" data-id="${event.id}" ${checked}>
+                                    <p ${strikeThrough}>${userName}: "${event.note}"</p>
+                                </div>
                                 <span class="float-end">${convertTo12Hour(event.time)}</span>
                             </li>`;
                 }).join('');
