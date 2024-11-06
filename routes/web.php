@@ -432,6 +432,7 @@ Route::get('/search-user-transaction', [AuthController::class, 'search_transacti
 Route::get('/report', [ReportController::class, 'reports_list'])->name('report.list');
 Route::get('/report/new', [ReportController::class, 'create_new_report'])->name('report.new');
 Route::post('/report/save-fields', [ReportController::class, 'save_fields'])->name('report.save.fields');
+Route::get('zip-details', [ReferralController::class, 'getZipDetails']);
 
 Route::get('join',function(){
     $data = [

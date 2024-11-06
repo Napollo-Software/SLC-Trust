@@ -432,30 +432,31 @@
                 }
             })
         });
-        $('#zip').on('input', function() {
+        $('#zip').on('input', function () {
             var zip = $(this).val();
 
-            console.log(zip.length)
-            if (zip.length === 5) { // Assuming ZIP is 5 characters
+            if (zip.length === 5) { // ZIP codes are typically 5 digits
                 $.ajax({
-                    url: 'http://api.geonames.org/postalCodeLookupJSON?postalcode='+zip+'&country=US&username=sheikhinam0795',
+                    url: '/zip-details',
                     type: 'GET',
-                    success: function(response) {
-                        console.log(response)
-                        if (response.postalcodes[0].adminName2 && response.postalcodes[0].placeName) {
-                            $('#city').val(response.postalcodes[0].placeName);
-                            $('#county').val(response.postalcodes[0].adminName2);
+                    data: { postalcode: zip },
+                    success: function (response) {
+                        if (response.postalcodes && response.postalcodes.length > 0) {
+                            var location = response.postalcodes[0];
+                            $('#city').val(location.placeName);
+                            $('#county').val(location.adminName2); // County
                         } else {
                             $('#city').val('');
                             $('#county').val('');
                         }
                     },
-                    error: function() {
-                        console.error("Failed to fetch location data.");
+                    error: function (xhr) {
+                        console.error("Failed to fetch location data.", xhr.responseJSON);
                     }
                 });
             }
         });
+
         $(document).on('submit', '#referralStoreForm', function (e) {
             e.preventDefault();
             $('.form-control').removeClass('is-invalid');

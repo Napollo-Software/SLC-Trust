@@ -505,4 +505,30 @@ class ReferralController extends Controller
 
         return response()->json(['success' => 'Customer created successfully!', "user" => $user]);
     }
+
+    public function getZipDetails(Request $request)
+    {
+        $zip = $request->postalcode;
+
+        if (!$zip) {
+            return response()->json(['error' => 'Postal code is required'], 400);
+        }
+
+        $url = "http://api.geonames.org/postalCodeLookupJSON?postalcode=$zip&country=US&username=alamgir000009";
+
+        try {
+
+            $response = file_get_contents($url);
+
+            if (!$response) {
+                return response()->json(['error' => 'Failed to fetch data from Geonames API'], 500);
+            }
+
+            $data = json_decode($response, true);
+            return response()->json($data);
+
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }
