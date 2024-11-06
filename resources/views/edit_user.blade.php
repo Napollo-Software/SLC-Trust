@@ -130,7 +130,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         <span class="d-flex gap-1">
                             @if($user->account_status == 'Approved')
                             <button type="button" class="btn d-flex align-items-center btn-primary" data-bs-toggle="modal" data-bs-target="#vodModal">
-                                <i class='bx bx-show-alt me-1'></i>VOD</button>
+                                <i style="font-size:18px" class='bx bx-file me-1 px-2'></i>VOD</button>
                             <a href="{{ route('approval-letter', $user->id) }}" class="btn btn-success" style="color: white;">
                                 <i class="bx bxs-download me-1"></i>Approval Letter</a>
                             @if($user->role == "User")
