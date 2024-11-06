@@ -73,7 +73,7 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                 <label for="form-label">Source Type</label>
                                 <select name="source_type" id="source_type" class="form-control">
                                     <option {{ $Referral->source_type == 'account' ? 'selected' : '' }} value="account">
-                                        Account
+                                        Vendor
                                     </option>
                                     <option {{ $Referral->source_type=='contact' ? 'selected' : '' }} value="contact">
                                         Contact
@@ -102,7 +102,7 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                 </select>
                             </div>
                             <div class="col-md-6 p-2" id="account_id">
-                                <label for="form-label"> Account</label>
+                                <label for="form-label"> Vendor</label>
                                 <select name="account" id="AccountField" class="form-control">
                                     @if ($Referral->source_type == 'account')
                                     <option value="{{$Referral->source}}" selected>

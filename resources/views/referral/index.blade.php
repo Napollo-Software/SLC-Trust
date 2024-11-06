@@ -126,7 +126,7 @@ $user = App\Models\User::find(Session::get('loginId'));
                                         @endphp
                                         @if ($account)
                                         {{ $account->name }}
-                                        <b>(account)</b>
+                                        <b>(vendor)</b>
                                         @else
                                         Account not found
                                         @endif

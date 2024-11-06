@@ -218,7 +218,7 @@
                                     <select name="source_type" id="source_type" class="form-control">
                                         <option value="">Choose One</option>
                                         <option value="manual">Manual</option>
-                                        <option value="account">Account</option>
+                                        <option value="account">Vendor</option>
                                         <option value="contact">Contact</option>
                                         <option value="FnF">Family / Friend</option>
                                         <option value="walk_in">Walk-in</option>
@@ -235,7 +235,7 @@
                                     </select>
                                 </div>
                                 <div id="account_id">
-                                    <label for="form-label" class="mt-2"> Account*</label>
+                                    <label for="form-label" class="mt-2"> Vendor*</label>
                                     <select name="account" id="AccountField" class="form-control ">
                                         <option value="">Choose One</option>
                                         @foreach ($vendors as $vendor)

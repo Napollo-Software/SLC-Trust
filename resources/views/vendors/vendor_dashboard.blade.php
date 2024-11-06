@@ -18,9 +18,10 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <p class="mb-0">Pool Balance</p>
+                                    <p class="mb-0">Total Customers</p>
                                     @php
                                         $totalBalance = 0; // Initialize total balance
+                                        $totalCustomers = 0;
                                     @endphp
 
                                     @foreach ($referrals as $k => $item)
@@ -28,10 +29,12 @@
                                         @php
                                             // Assuming userBalance() gets the balance based on the transaction data or the customer
                                             $totalBalance += userBalance($item->customer->id); // or however you define the balance logic
+                                            $totalCustomers += 1;
                                         @endphp
                                     @endif
                                     @endforeach
-                                    <h5 class="mb-0">${{ number_format((float) $totalBalance, 2, '.', ',') }}</h5>
+                                    <!--h5 class="mb-0">${{ number_format((float) $totalBalance, 2, '.', ',') }}</h5-->
+                                    <h5 class="mb-0">{{ $totalCustomers }}</h5>
                                 </div>
                                 <div class="ms-auto">	<i class='bx bx-wallet font-30'></i>
                                 </div>
@@ -87,7 +90,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-8 d-flex">
+                <div class="col-xl-8 d-flex d-none">
                     <div class="card radius-10 w-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -161,7 +164,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col d-flex">
+                <div class="col-xl-4 d-flex">
                     <div class="card radius-10 w-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -182,19 +185,19 @@
                             @php
                                 $i++;
                             @endphp
-                             <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer" onclick="window.location='{{ route('show_user', $item->customer->id) }}'">
+                             <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
                                 <div class="col-sm-6" >
                                     <div class="d-flex align-items-center">
                                         <div class="product-img">
                                             <img src="{{ file_exists(public_path('/user/' . $item->customer->avatar)) ? asset('/user/' . $item->customer->avatar) : url('/user/images93561655300919_avatar.png') }}" class="user-img" alt="user avatar">
                                         </div>
                                         <div class="ms-2">
-                                            <p class="mb-0">Customer</p>
                                             <h6 class="mb-1">{{ $item->customer->full_name() }}</h6>
+                                            <p class="mb-0">{{ $item->customer->email }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <!--div class="col-sm-4">
                                 <div class="d-flex align-items-center">
                                     <div class="col-sm">
                                         <p class="mb-0">Balance</p>
@@ -206,7 +209,7 @@
                                         <h6 class="mb-1"> {{ $item->customer->trasactions()->count() }}</h6>
                                     </div>
                                  </div>
-                                </div>
+                                </div-->
                             </div>
                             @endif
                             @endforeach
