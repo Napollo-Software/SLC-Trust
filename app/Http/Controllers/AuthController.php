@@ -922,9 +922,7 @@ class AuthController extends Controller
                 $registration_transaction->update(["vod_link" => $file_name]);
             }
 
-            $details = $user;
-
-            Mail::to($user->email)->send(new CashDepositMail($pdfLink, $details));
+            // Mail::to($user->email)->send(new CashDepositMail($pdfLink, $user));
 
             /////////////User Add Balance Notification/////////////
             Notifcation::create([
