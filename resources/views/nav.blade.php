@@ -38,7 +38,7 @@
     @php
         $user = App\Models\User::find(Session::get('loginId'));
         $followup = App\Models\Followup::select('note', 'date')->orderBy('id','desc')->get();
-        $notifications = App\Models\Notifcation::where('user_id', $user->id)->latest()->get();
+        $notifications = App\Models\Notifcation::where('user_id', $user->id)->latest()->take(6)->get();
         $messages = App\Models\smsChat::latest()->take(5)->get();
     @endphp
 	<!--wrapper-->
@@ -224,6 +224,26 @@
     border-color: #467f7b !important;
     color: white !important;
     }
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(177, 175, 175);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+  }
 
     </style>
     <!--end switcher-->

@@ -27,7 +27,7 @@
                         </a>
                     </li> --}}
                     <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding position-relative" href="#" data-bs-toggle="dropdown"  onmouseover="this.style.backgroundColor='#69B4AC';" 
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding position-relative" href="#" data-bs-toggle="dropdown"  onmouseover="this.style.backgroundColor='#69B4AC';"
                         onmouseout="this.style.backgroundColor=''; "><span class="alert-count">{{ $notifications->where('status', 0)->count() }}</span>
                             <i class="bx bx-bell"  style="color: black !important"></i>
                         </a>
@@ -38,7 +38,7 @@
                                     <p class="msg-header-badge">{{ $notifications->count() }}</p>
                                 </div>
                             </a>
-                            <div class="header-notifications-list ps">
+                            <div class="header-notifications-list ps" style="overflow:auto !important;">
                                 @if ($notifications->count() == 0)
                                 <a class="dropdown-item" href="javascript:;">
                                     Notifications are not found!
@@ -47,7 +47,7 @@
                                 @foreach ($notifications as $item)
                                 <a class="dropdown-item" href="{{ url('notifications/'.$item->id) }}">
                                     <div class="d-flex align-items-center gap-3" >
-                                      <div >  
+                                      <div>
                                             <div class="user-online" style="width: 45px; height: 45px;">
                                                 <img src="{{ $item->user_details->avatar }}" class=" " alt="user avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%">
                                             </div>
