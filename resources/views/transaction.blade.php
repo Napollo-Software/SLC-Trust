@@ -659,7 +659,7 @@ $role = $login_user->role;
                     return `<li class="border-bottom d-flex justify-content-between py-2 pt-3 text-7 m-0" style="font-size: 13px !important; list-style:none;">
                                 <div class="d-flex justify-content-start align-items-start gap-1">
                                     <input type="checkbox" class="mt-1 toggle-completed" data-id="${event.id}" ${checked}>
-                                    <p ${strikeThrough}>${userName}: "${event.note}"</p>
+                                    <p id="change_strike_${event.id}" ${strikeThrough}>${userName}: "${event.note}"</p>
                                 </div>
                                 <span class="float-end">${convertTo12Hour(event.time)}</span>
                             </li>`;
@@ -692,8 +692,9 @@ $role = $login_user->role;
                         // Update the UI inside the modal
                         if (isCompleted) {
                             noteElement.css('text-decoration', 'line-through');
+                            $("#change_strike_"+followupId).css('text-decoration', 'line-through')
                         } else {
-                            noteElement.css('text-decoration', 'none');
+                            $("#change_strike_"+followupId).css('text-decoration', 'none')
                         }
 
                         // Find and update the event in FullCalendar
