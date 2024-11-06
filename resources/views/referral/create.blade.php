@@ -35,7 +35,7 @@
         <b></b>
        <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
     </h5>
-    <form id="referralStoreForm">
+    <form id="referralStoreForm" noValidate>
         @csrf
         <div class="row">
             <div class="col-md-8">
@@ -342,7 +342,7 @@
                     </div>
             </div>
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary"><i class="bx bx-save pb-1"></i>Submit</button>
+                <button type="submit" class="btn contact-button btn-primary"><i class="bx bx-save pb-1"></i>Submit</button>
             </div>
     </form>
 </div>
@@ -460,7 +460,7 @@
             e.preventDefault();
             $('.form-control').removeClass('is-invalid');
             $('.invalid-feedback.is-invalid').remove();
-            $('.contact-button').attr('disabled', true);
+            $('.contact-button').attr('disabled', true).text('Submitting...');
             var formData = new FormData(this);
             $('input[type="checkbox"]').each(function (index, checkbox) {
                 formData.append($(checkbox).attr('name'), $(checkbox).is(':checked') ? 1 : 0);
@@ -479,7 +479,13 @@
                 },
                 error: function (xhr) {
                     erroralert(xhr);
-                    $('.contact-button').attr('disabled', false);
+                    $('.contact-button').attr('disabled', false).text('Submit');
+
+                    var firstInvalid = $('.is-invalid:first');
+                    if (firstInvalid.length) {
+                        $(window).scrollTop(firstInvalid.offset().top - 300);
+                        firstInvalid.focus();
+                    }
                 }
             });
         });
