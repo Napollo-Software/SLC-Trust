@@ -53,23 +53,25 @@ class FollowUpReminder extends Command
         foreach ($followups as $followup){
             $user = User::find($followup->to);
             $admins = User::where('role', "admin")->get();
-            foreach ($admins as $admin){
-                $notifcation = new Notifcation();
-                $notifcation->user_id = $admin->id;
-                $notifcation->name = $admin->name;
-                $notifcation->description = 'Follow-up Reminder for '.$user->email.' "'.$followup->note.'" scheduled for today at '.$followup->time;
-                $notifcation->title = 'Followup';
-                $notifcation->status = 0;
-                $notifcation->save();
+
+            foreach ($admins as $admin)
+            {
+                Notifcation::create([
+                    'user_id' => $admin->id,
+                    'name' => $admin->name,
+                    'description' => 'Follow-up Reminder for '.$user->full_name().' "'.$followup->note.'" scheduled for today at '.$followup->time,
+                    'title' => 'Followup',
+                    'status' => 0,
+                ]);
             }
-            $notifcation = new Notifcation();
-            $notifcation->user_id = $user->id;
-            $notifcation->name = $user->name;
-            $notifcation->description = $followup->note;
-            $notifcation->title = 'Followup';
-            $notifcation->status = 0;
-            $notifcation->save();
-//            Log::info($user->email);
+
+            Notifcation::create([
+                'user_id' => $user->id,
+                'name' => $user->name,
+                'description' => $followup->note,
+                'title' => 'Followup',
+                'status' => 0,
+            ]);
         }
         \Log::info("Followup Job is completed successfully on ".date('d-m-y',strtotime(now())).' '.$currentHour);
         return 0;
