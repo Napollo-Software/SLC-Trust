@@ -152,7 +152,7 @@
 
                 </div>
                 <div style="text-align: center">
-                    <p style="font-family: 'Poppins-SemiBold';font-size:14px;margin:0;margin-top:15px;margin-bottom:2px">{{ date('m/d/Y') }}</p>
+                    <p style="font-family: 'Poppins-SemiBold';font-size:14px;margin:0;margin-top:15px;margin-bottom:2px">&nbsp;</p>
                 </div>
                 <table style="width: 100%;">
                     <tr style="background-color:#999;vertical-align:middle">
