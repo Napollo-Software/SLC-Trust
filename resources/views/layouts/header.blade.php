@@ -186,7 +186,7 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item d-flex align-items-center" href="{{ route('profile.setting') }}"><i class="bx bx-user fs-5"></i><span>Profile</span></a>
                     </li>
-                    @if ($user->hasPermissionTo('Roles&Permissions'))
+                    @if ($user->hasPermissionTo('Roles&Permissions') && $user->role != 'Vendor')
                     <li><a class="dropdown-item d-flex align-items-center" href="{{ route('roles.list') }}"><i class="bx bx-cog fs-5"></i><span>Permissions</span></a>
                     </li>
                     @endif

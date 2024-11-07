@@ -78,7 +78,7 @@
                             <div class="ms-auto dropy-icon"><i class="bx bx-chevron-down"></i></div>
                         </a>
                         <ul class="dropdown-menu">
-                            @if ($user->hasPermissionTo('Front Office') && $user->role != 'Admin' && $user->role != 'Employee')
+                            @if ($user->hasPermissionTo('Front Office') && $user->role != 'Admin' && $user->role != 'Employee' && $user->role != 'Vendor')
                             <li class="active"><a class="dropdown-item {{ Route::currentRouteName()==='bill_reports' ? 'active' : '' }}" href="{{ url('/dashboard') }}"><i class="bx bx-credit-card-front"></i>Lead Admin</a>
                             </li>
                             @endif
@@ -104,7 +104,7 @@
                             @endif
                         </ul>
                     </li>
-                    @if ($user->hasPermissionTo('Front Office'))
+                    @if ($user->hasPermissionTo('Front Office') && $user->role != 'Vendor')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-collection"></i>
@@ -151,7 +151,7 @@
                         </ul>
                     </li>
                     @endif --}}
-                    @if ($user->hasPermissionTo('Front Office'))
+                    @if ($user->hasPermissionTo('Front Office') && $user->role != 'Vendor')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-building"></i>
@@ -173,7 +173,7 @@
                         </ul>
                     </li>
                     @endif
-                    @if ($user->hasPermissionTo('Back Office') && ( $user->hasPermissionTo('Add User') || $user->hasPermissionTo('View Users') || $user->hasPermissionTo('Deposit')))
+                    @if ($user->hasPermissionTo('Back Office') && $user->role != 'Vendor' && ( $user->hasPermissionTo('Add User') || $user->hasPermissionTo('View Users') || $user->hasPermissionTo('Deposit')))
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-user"></i>
@@ -354,6 +354,7 @@
                                 <a class="dropdown-item {{ Route::currentRouteName() ==='profile.setting' ? 'active' : '' }}" href="{{ route('profile.setting') }}"><i class="bx bx-user-pin"></i>Profile
                                     Setting</a></li>
                             @endif
+                            @if($user->role != 'Vendor')
                             @if ($user->hasPermissionTo('Roles&Permissions'))
                             <li>
                                 <a class="dropdown-item {{ Route::currentRouteName() ==='roles.list' ? 'active' : '' }}" href="{{ route('roles.list') }}"><i class="bx bx-abacus"></i>Manage Roles</a>
@@ -390,6 +391,7 @@
                             @if ($user->hasPermissionTo('Logs'))
                             <li>
                                 <a class="dropdown-item {{ Route::currentRouteName() ==='log.list' ? 'active' : '' }}" href="{{ route('log.list') }}"><i class="bx bx-book-reader"></i>Logs</a></li>
+                            @endif
                             @endif
                         </ul>
                     </li>

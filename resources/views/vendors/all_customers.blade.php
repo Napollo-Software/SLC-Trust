@@ -27,11 +27,11 @@
                             <th>UID#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <!--th>Role</th-->
+                            <th>Role</th>
                             <th>Account Status</th>
-                            <!--th>Balance</th-->
+                            <th>Balance</th>
                             <th>Avatar</th>
-                            <th>Actions</th>
+                            <!--th>Actions</th-->
                         </tr>
                         </thead>
                         <tbody>
@@ -47,7 +47,7 @@
                                     {{ $u['name'] }} {{ $u['last_name'] }}
                                 @endif
                                 <td>{{ $u['email'] }}</td>
-                                <!--td>{{ $u['role'] }}</td-->
+                                <td>{{ $u['role'] }}</td>
                                 <th>
                             <span
                                 class="badge
@@ -71,10 +71,10 @@
                                 @endif
                             </span>
                                 </th>
-                                <!--td>
+                                <td>
                                     @if ($u['role'] == 'User')
                                         ${{ number_format((float) userBalance($u['id']), 2, '.', ',') }}
-                                </td-->
+                                </td>
                                 @else
                                     N/A
                                 @endif
@@ -88,7 +88,7 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td>
+                                <!--td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                 data-bs-toggle="dropdown">
@@ -110,9 +110,9 @@
 {{--                                                <a class="dropdown-item" href="{{ route('view_user', $u['id']) }}"><i--}}
 {{--                                                        class="bx bx-dollar-circle me-1"></i> Add Balance</a>--}}
 {{--                                            @endif--}}
-                                        </div>
+                                        <!--/div>
                                     </div>
-                                </td>
+                                </td-->
                             </tr>
                         @endforeach
                         </tbody>
