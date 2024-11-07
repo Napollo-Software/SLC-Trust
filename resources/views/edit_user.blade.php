@@ -339,7 +339,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                 <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="max-height: 550px;overflow:auto">
-                <form id="filter_vod_form" method="POST">
+                <form id="filter_vod_form" method="POST" data-user-name="{{ $user->full_name() }}">
                     @csrf
                     <input type="hidden" id="vod_form_user_id" name="user_id" value="{{ $user->id }}">
                     <div class="row my-3">
@@ -356,7 +356,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 required>
                         </div>
                         <div class="col-md-4 pt-4">
-                            <button type="submit" class="btn w-100 btn-primary" style="margin-top:2px">Generate Report</button>
+                            <button id="generate-report-btn" type="submit" class="btn w-100 btn-primary" style="margin-top:2px">Generate Report</button>
                         </div>
                     </div>
                 </form>
@@ -411,6 +411,8 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 
             $('.form-control').removeClass('is-invalid');
             $('.invalid-feedback.is-invalid').remove();
+            $('#generate-report-btn').attr('disabled', true).text('Generating Report...');
+            const userName = $(this).data('user-name').replace(/\s+/g, '_');
 
             const startDate = $('#startDate').val();
             const endDate = $('#endDate').val();
@@ -426,17 +428,23 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                 contentType: false,
                 cache: false,
                 success: function(blob) {
+                    $('#generate-report-btn').attr('disabled', false).text('Generate Report');
                     const downloadUrl = URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = downloadUrl;
-                    a.download = `transactions_${startDate}_to_${endDate}.pdf`;
+                    a.download = `VOD_Report_${userName}_${startDate}_to_${endDate}.pdf`;
                     document.body.appendChild(a);
                     a.click();
                     URL.revokeObjectURL(downloadUrl);
                     a.remove();
                 },
                 error: function(xhr) {
-                    erroralert(xhr);
+                    $('#generate-report-btn').attr('disabled', false).text('Generate Report');
+                    if (xhr.status == 404) {
+                        swal.fire('No VOD Records Found', 'No transactions were found for the selected date range', 'error')
+                    } else {
+                        erroralert(xhr);
+                    }
                 }
             });
         });

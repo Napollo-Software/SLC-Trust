@@ -103,7 +103,7 @@ $role = $login_user->role;
             </div>
 
             <div class="modal" id="eventModal" tabindex="-1" role="dialog" style="z-index:999999;" aria-labelledby="eventModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="eventModalLabel" style="font-weight: 600 !important;">Event Details</h5>
@@ -661,7 +661,7 @@ $role = $login_user->role;
                                     <input type="checkbox" class="mt-1 toggle-completed" data-id="${event.id}" ${checked}>
                                     <p id="change_strike_${event.id}" ${strikeThrough}>${userName}: "${event.note}"</p>
                                 </div>
-                                <span class="float-end">${convertTo12Hour(event.time)}</span>
+                                <span ${strikeThrough} class="text-nowrap" id="date_change_strike_${event.id}" class="float-end">${convertTo12Hour(event.time)}</span>
                             </li>`;
                 }).join('');
 
@@ -691,10 +691,11 @@ $role = $login_user->role;
                     if (response.success) {
                         // Update the UI inside the modal
                         if (isCompleted) {
-                            noteElement.css('text-decoration', 'line-through');
                             $("#change_strike_"+followupId).css('text-decoration', 'line-through')
+                            $("#date_change_strike_"+followupId).css('text-decoration', 'line-through')
                         } else {
                             $("#change_strike_"+followupId).css('text-decoration', 'none')
+                            $("#date_change_strike_"+followupId).css('text-decoration', 'none')
                         }
 
                         // Find and update the event in FullCalendar

@@ -908,7 +908,7 @@ class AuthController extends Controller
                 ])
                 ->setPaper('A4', 'portrait');
 
-            $file_name = 'vod_' .$user->full_name()."_".date('F_Y_His') . ".pdf";
+            $file_name = 'VOD_' . $user->full_name() . "_" . date('F_Y_His') . ".pdf";
 
             $pdfLink = "$directory/$file_name";
 
@@ -1059,15 +1059,23 @@ class AuthController extends Controller
 
         $user = User::find($request->user_id);
 
+        $startDate = Carbon::parse($request->startDate)->startOfDay();
+        $endDate = Carbon::parse($request->endDate)->endOfDay();
+
         $transactions = Transaction::where('user_id', $user->id)
             ->where('type', '!=', Transaction::MaintenanceFee)
-            ->whereBetween('created_at', [$request->startDate, $request->endDate])
+            ->whereBetween('created_at', [$startDate, $endDate])
             ->get();
+
+            if ($transactions->isEmpty()) {
+                // Return a 404 status code with a message if no transactions are found
+                return response()->json(['error' => 'No transactions found for the selected date range.'], 404);
+            }
 
         $pdf = PDF::loadView('document.trusted-surplus-report-pdf', [
             'user' => $user,
-            'startDate' => $request->startDate,
-            'endDate' => $request->endDate,
+            'startDate' => $startDate,
+            'endDate' => $endDate,
             'transactions' => $transactions
         ])
             ->setOption([
