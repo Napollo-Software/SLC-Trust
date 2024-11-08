@@ -29,7 +29,7 @@
                             <th>Email</th>
                             <th>Role</th>
                             <th>Account Status</th>
-                            <th>Balance</th>
+                            <!--th>Balance</th-->
                             <th>Avatar</th>
                             <!--th>Actions</th-->
                         </tr>
@@ -71,13 +71,13 @@
                                 @endif
                             </span>
                                 </th>
-                                <td>
+                                <!--td>
                                     @if ($u['role'] == 'User')
                                         ${{ number_format((float) userBalance($u['id']), 2, '.', ',') }}
-                                </td>
                                 @else
                                     N/A
                                 @endif
+                                </td-->
                                 <td class="text-center">
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom"

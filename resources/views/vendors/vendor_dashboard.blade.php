@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <p class="mb-0">Total Balance</p>
+                                    <p class="mb-0">Customers</p>
                                     @php
                                         $totalBalance = 0; // Initialize total balance
                                         $totalCustomers = 0;
@@ -33,8 +33,8 @@
                                         @endphp
                                     @endif
                                     @endforeach
-                                    <h5 class="mb-0">${{ number_format((float) $totalBalance, 2, '.', ',') }}</h5>
-                                    <!--h5 class="mb-0">{{ $totalCustomers }}</h5-->
+                                    <!--h5 class="mb-0">${{ number_format((float) $totalBalance, 2, '.', ',') }}</h5-->
+                                    <h5 class="mb-0">{{ $totalCustomers }}</h5>
                                 </div>
                                 <div class="ms-auto">	<i class='bx bx-wallet font-30'></i>
                                 </div>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-8 d-flex ">
+                <div class="col-xl-8 d-flex d-none">
                     <div class="card radius-10 w-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -197,7 +197,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <!--div class="col-sm-4">
                                 <div class="d-flex align-items-center">
                                     <div class="col-sm">
                                         <p class="mb-0">Balance</p>
@@ -209,7 +209,7 @@
                                         <h6 class="mb-1"> {{ $item->customer->trasactions()->count() }}</h6>
                                     </div>
                                  </div>
-                                </div>
+                                </div-->
                             </div>
                             @endif
                             @endforeach
