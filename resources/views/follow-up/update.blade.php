@@ -85,6 +85,10 @@
             var previousNote=$(this).attr('data-note');
             var previousTo=$(this).attr('data-to');
 
+            if (previousTime) {
+                previousTime = previousTime.split(':').slice(0, 2).join(':');
+            }
+
             $('#edit_note').val(previousNote);
             $('#edit_date').val(previousDate);
             $('#edit_time').val(previousTime);
