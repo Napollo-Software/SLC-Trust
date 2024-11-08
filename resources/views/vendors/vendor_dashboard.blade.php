@@ -18,36 +18,6 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
-                                    <p class="mb-0">Customers</p>
-                                    @php
-                                        $totalBalance = 0; // Initialize total balance
-                                        $totalCustomers = 0;
-                                    @endphp
-
-                                    @foreach ($referrals as $k => $item)
-                                    @if ($item->customer != null)
-                                        @php
-                                            // Assuming userBalance() gets the balance based on the transaction data or the customer
-                                            $totalBalance += userBalance($item->customer->id); // or however you define the balance logic
-                                            $totalCustomers += 1;
-                                        @endphp
-                                    @endif
-                                    @endforeach
-                                    <!--h5 class="mb-0">${{ number_format((float) $totalBalance, 2, '.', ',') }}</h5-->
-                                    <h5 class="mb-0">{{ $totalCustomers }}</h5>
-                                </div>
-                                <div class="ms-auto">	<i class='bx bx-wallet font-30'></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="" id="w-chart5"></div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card radius-10 overflow-hidden">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
                                     <p class="mb-0">Contacts</p>
                                     <h5 class="mb-0">{{$vendor->contacts->count()}}</h5>
                                 </div>
@@ -86,6 +56,36 @@
                             </div>
                         </div>
                         <div class="" id="w-chart8"></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 overflow-hidden">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <p class="mb-0">Customers</p>
+                                    @php
+                                        $totalBalance = 0; // Initialize total balance
+                                        $totalCustomers = 0;
+                                    @endphp
+
+                                    @foreach ($referrals as $k => $item)
+                                    @if ($item->customer != null)
+                                        @php
+                                            // Assuming userBalance() gets the balance based on the transaction data or the customer
+                                            $totalBalance += userBalance($item->customer->id); // or however you define the balance logic
+                                            $totalCustomers += 1;
+                                        @endphp
+                                    @endif
+                                    @endforeach
+                                    <!--h5 class="mb-0">${{ number_format((float) $totalBalance, 2, '.', ',') }}</h5-->
+                                    <h5 class="mb-0">{{ $totalCustomers }}</h5>
+                                </div>
+                                <div class="ms-auto">	<i class='bx bx-wallet font-30'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" id="w-chart5"></div>
                     </div>
                 </div>
             </div>
@@ -169,8 +169,108 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
+                                    <h5 class="mb-1">Contacts</h5>
+                                    <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Latest Contacts</p>
+                                </div>
+                                <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-list p-3 mb-3">
+                            @php
+                                $i = 0;
+                            @endphp
+                            @foreach ($contacts as $k => $item)
+                            @php
+                                $i++;
+                            @endphp
+                             <div class="row border mx-0 mb-3 py-2 radius-10">
+                                <div class="col-sm-6" >
+                                    <div class="d-flex align-items-center">
+                                        <div class="product-img">
+                                            <img src="{{ url('/user/images93561655300919_avatar.png') }}" class="user-img" alt="user avatar">
+                                        </div>
+                                        <div class="ms-2">
+                                            <h6 class="mb-1">{{ $item->fname.' '.$item->lname }}</h6>
+                                            <p class="mb-0">{{ $item->email }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--div class="col-sm-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-sm">
+                                        <p class="mb-0">Balance</p>
+
+                                        <h6 class="mb-1">$</h6>
+                                    </div>
+                                    <div class="col-sm">
+                                        <p class="mb-0">Transactions</p>
+                                        <h6 class="mb-1"> </h6>
+                                    </div>
+                                 </div>
+                                </div-->
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 d-flex">
+                    <div class="card radius-10 w-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h5 class="mb-1">Referrals</h5>
+                                    <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Latest Referrals</p>
+                                </div>
+                                <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-list p-3 mb-3">
+                            @php
+                                $i = 0;
+                            @endphp
+                            @foreach ($referrals as $k => $item)
+                            @php
+                                $i++;
+                            @endphp
+                             <div class="row border mx-0 mb-3 py-2 radius-10">
+                                <div class="col-sm-6" >
+                                    <div class="d-flex align-items-center">
+                                        <div class="product-img">
+                                            <img src="{{ url('/user/images93561655300919_avatar.png') }}" class="user-img" alt="user avatar">
+                                        </div>
+                                        <div class="ms-2">
+                                            <h6 class="mb-1">{{ $item->first_name.' '.$item->last_name }}</h6>
+                                            <p class="mb-0">{{ $item->email }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--div class="col-sm-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-sm">
+                                        <p class="mb-0">Balance</p>
+
+                                        <h6 class="mb-1"></h6>
+                                    </div>
+                                    <div class="col-sm">
+                                        <p class="mb-0">Transactions</p>
+                                        <h6 class="mb-1"> </h6>
+                                    </div>
+                                 </div>
+                                </div-->
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 d-flex">
+                    <div class="card radius-10 w-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
                                     <h5 class="mb-1">Customers</h5>
-                                    <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Latest customers</p>
+                                    <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>Latest Customers</p>
                                 </div>
                                 <div class="font-22 ms-auto"><i class='bx bx-dots-horizontal-rounded'></i>
                                 </div>
@@ -185,7 +285,7 @@
                             @php
                                 $i++;
                             @endphp
-                             <div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
+                             <div class="row border mx-0 mb-3 py-2 radius-10 ">
                                 <div class="col-sm-6" >
                                     <div class="d-flex align-items-center">
                                         <div class="product-img">

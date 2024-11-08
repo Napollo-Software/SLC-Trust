@@ -1024,7 +1024,7 @@ class AuthController extends Controller
         });
         $referrals = $referralsOfVendor->merge($referralsOfContacts)->sortByDesc('id');
 
-        return view('vendors.vendor_dashboard', compact('vendor', 'referrals'));
+        return view('vendors.vendor_dashboard', compact('vendor', 'referrals', 'contacts'));
     }
 
     public function approvalLetter($id)
