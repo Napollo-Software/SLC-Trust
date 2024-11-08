@@ -37,9 +37,9 @@
     </h5>
     <form id="referralStoreForm" noValidate>
         @csrf
-        <div class="row">
+        <div class="row mb-4 flex align-items-stretch">
             <div class="col-md-8">
-                <div class="card shadow-lg mb-3">
+                <div class="card h-100 shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Patient Contact Information</h5>
                     </div>
@@ -64,6 +64,57 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-lg h-100 mb-3">
+                    <div class="card-header d-flex pl-0 pb-1 pl-2">
+                        <h5>Source Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 p-2">
+                                <div>
+                                    <label for="form-label">Source Type</label>
+                                    <select name="source_type" id="source_type" class="form-control">
+                                        <option value="">Choose One</option>
+                                        <option value="manual">Manual</option>
+                                        <option value="account">Vendor</option>
+                                        <option value="contact">Contact</option>
+                                        <option value="FnF">Family / Friend</option>
+                                        <option value="walk_in">Walk-in</option>
+                                    </select>
+                                </div>
+                                <div id="contact_id">
+                                    <label for="form-label" class="mt-2"> Contact*</label>
+                                    <select name="contact" id="contactField" class="form-control ">
+                                        <option value="">Choose One</option>
+                                        @foreach ($contacts as $contact)
+                                        <option value="{{ $contact->id }}">
+                                            {{ $contact->fname . ' ' . $contact->lname }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div id="account_id">
+                                    <label for="form-label" class="mt-2"> Vendor*</label>
+                                    <select name="account" id="AccountField" class="form-control ">
+                                        <option value="">Choose One</option>
+                                        @foreach ($vendors as $vendor)
+                                        <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div id="source">
+                                    <label for="form-label">Family / Friend*</label>
+                                    <input type="text" class="form-control" id="sourceField" name="source">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
                 <div class="card shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Patient Demographics</h5>
@@ -175,7 +226,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card shadow-lg mb-3">
+                <div style="padding-bottom: 20px;" class="card shadow-lg mb-3">
                     <div class="card-header d-flex pl-0 pb-1 pl-2">
                         <h5>Additional Information</h5>
                     </div>
@@ -206,51 +257,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card shadow-lg mb-3">
-                    <div class="card-header d-flex pl-0 pb-1 pl-2">
-                        <h5>Source Information</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12 p-2">
-                                <div>
-                                    <label for="form-label">Source Type</label>
-                                    <select name="source_type" id="source_type" class="form-control">
-                                        <option value="">Choose One</option>
-                                        <option value="manual">Manual</option>
-                                        <option value="account">Vendor</option>
-                                        <option value="contact">Contact</option>
-                                        <option value="FnF">Family / Friend</option>
-                                        <option value="walk_in">Walk-in</option>
-                                    </select>
-                                </div>
-                                <div id="contact_id">
-                                    <label for="form-label" class="mt-2"> Contact*</label>
-                                    <select name="contact" id="contactField" class="form-control ">
-                                        <option value="">Choose One</option>
-                                        @foreach ($contacts as $contact)
-                                        <option value="{{ $contact->id }}">
-                                            {{ $contact->fname . ' ' . $contact->lname }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div id="account_id">
-                                    <label for="form-label" class="mt-2"> Vendor*</label>
-                                    <select name="account" id="AccountField" class="form-control ">
-                                        <option value="">Choose One</option>
-                                        @foreach ($vendors as $vendor)
-                                        <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div id="source">
-                                    <label for="form-label">Family / Friend*</label>
-                                    <input type="text" class="form-control" id="sourceField" name="source">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                <div class="card shadow-lg mb-3">
                    <div class="card-header d-flex justify-content-between pl-0 pb-1 pl-2">
                        <h5>Emergency Contact</h5>

@@ -47,6 +47,7 @@ class FollowUpReminder extends Command
         $currentDate = Carbon::today()->format('Y-m-d');
         $currentHour = Carbon::now()->format('H');
         $followups = Followup::where('type', 'followup')
+        ->where('completed', '!=', true)
         ->whereDate('date', $currentDate)
         ->whereTime('time', 'like', $currentHour . ':%')
         ->get();
@@ -59,8 +60,8 @@ class FollowUpReminder extends Command
                 Notifcation::create([
                     'user_id' => $admin->id,
                     'name' => $admin->name,
-                    'description' => 'Follow-up Reminder for '.$user->full_name().' "'.$followup->note.'" scheduled for today at '.$followup->time,
-                    'title' => 'Followup',
+                    'description' => 'Reminder for '.$user->full_name().' "'.$followup->note.'" scheduled for today at '.$followup->time,
+                    'title' => 'Follow up',
                     'status' => 0,
                 ]);
             }
