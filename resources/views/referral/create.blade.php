@@ -35,7 +35,7 @@
         <b></b>
        <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
     </h5>
-    <form id="referralStoreForm" noValidate>
+    <form id="referralStoreForm">
         @csrf
         <div class="row mb-4 flex align-items-stretch">
             <div class="col-md-8">
@@ -47,19 +47,19 @@
                         <div class="row">
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient First Name*</label>
-                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="eg: John" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_first_name : "" }}" required>
+                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="eg: John" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_first_name : "" }}">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient Last Name*</label>
-                                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_last_name : "" }}" placeholder="eg: Smith" required>
+                                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_last_name : "" }}" placeholder="eg: Smith">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient Phone Number*</label>
-                                <input type="text" class="form-control phone" placeholder="(___) ___-___" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_phone : "" }}" id="phone" name="phone" required>
+                                <input type="text" class="form-control phone" placeholder="(___) ___-___" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_phone : "" }}" id="phone" name="phone">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient Email*</label>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="example@email.com" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_email : "" }}" required>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="example@email.com" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_email : "" }}">
                             </div>
                         </div>
                     </div>
@@ -270,11 +270,11 @@
                             <div class="row">
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">First Name*</label>
-                                    <input type="text" class="form-control" id="emergency__first_name" placeholder="Enter First Name" name="emergency_first_name" required>
+                                    <input type="text" class="form-control" id="emergency__first_name" placeholder="Enter First Name" name="emergency_first_name">
                                 </div>
                                 <div class="col-md-6 p-2">
                                     <label for="form-label">Last Name*</label>
-                                    <input type="text" class="form-control" id="emergency_last_name" placeholder="Enter Last Name" name="emergency_last_name" required>
+                                    <input type="text" class="form-control" id="emergency_last_name" placeholder="Enter Last Name" name="emergency_last_name">
                                 </div>
                                 <div class="col-md-12 p-2">
                                     <label for="form-label">Phone Number</label>
@@ -286,7 +286,7 @@
                                 </div>
                                 <div class="col-md-12 p-2">
                                     <label for="form-label">Email*</label>
-                                    <input type="text" class="form-control" id="emergency_email" placeholder="Enter Emergency Email" name="emergency_email" required>
+                                    <input type="text" class="form-control" id="emergency_email" placeholder="Enter Emergency Email" name="emergency_email">
                                 </div>
                                 <div class="col-md-12 p-2">
                                     <label for="form-label">Relationship to Patient</label>
@@ -482,8 +482,9 @@
                 cache: false,
                 success: function (data) {
                     $("form").trigger("reset");
-                    swal.fire('Success', 'Referral has been created successfully', 'success');
+                    swal.fire('Success', 'Referral has been created successfully', 'success').then(()=>{
                     window.location.href = '{{ route('referral.list') }}';
+                    });
                 },
                 error: function (xhr) {
                     erroralert(xhr);
