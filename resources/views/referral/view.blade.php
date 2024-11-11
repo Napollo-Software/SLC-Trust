@@ -1740,7 +1740,7 @@ return $colors[$randomIndex];
                             <div class="row-container d-flex justify-content-between">
                                 <div><i class="task-icon bg-{{ randomColor() }}"></i>
                                     <h6 class="text-break">{{ $item->note }}</h6>
-                                    <p class="text-muted fs-12">{{ $item->date }} {{$item->time}}</p>
+                                    <p class="text-muted fs-12">{{ $item->date }} {{ \Carbon\Carbon::parse($item->time)->format('H:i') }}</p>
                                 </div>
                                 <!--div>
                                     <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
@@ -2616,7 +2616,6 @@ return $colors[$randomIndex];
                         swal.fire('Failed', 'Unexpected Error', 'error');
                         $('#uploadMoredocument').modal('hide');
                     }
-
                 }
             });
         });
@@ -2911,6 +2910,10 @@ return $colors[$randomIndex];
 
                 let existing_note = $(`#note-${note_id}`);
 
+                let time = new Date(`1970-01-01T${data.note.time}Z`);
+                let formattedTime = time.toTimeString().slice(0, 5);
+
+
                 if (existing_note.length > 0) {
                     // Update the existing note's content
                     existing_note.html(`
@@ -2918,11 +2921,11 @@ return $colors[$randomIndex];
                             <div>
                                 <i class="task-icon bg-${randomColor()}"></i>
                                 <h6>${data.note.note}</h6>
-                                <p class="text-muted fs-12">${data.note.date} ${data.note.time}</p>
+                                <p class="text-muted fs-12">${data.note.date} ${formattedTime}</p>
                             </div>
                             <div>
                                 <button
-                                    class="NoteEditBtn btn pb-1 pt-1"
+                                    class="NoteEditBtn1 btn pb-1 pt-1"
                                     data-data='${JSON.stringify(data.note)}'
                                     title="Click to edit note">
                                 </button>
@@ -2937,11 +2940,11 @@ return $colors[$randomIndex];
                                 <div>
                                     <i class="task-icon bg-${randomColor()}"></i>
                                     <h6>${data.note.note}</h6>
-                                    <p class="text-muted fs-12">${data.note.date} ${data.note.time}</p>
+                                    <p class="text-muted fs-12">${data.note.date} ${formattedTime}</p>
                                 </div>
                                 <div>
                                     <button
-                                        class="NoteEditBtn btn pb-1 pt-1"
+                                        class="NoteEditBtn1 btn pb-1 pt-1"
                                         data-data='${JSON.stringify(data.note)}'
                                         title="Click to edit note">
                                     </button>

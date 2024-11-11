@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="exampleFormControlInput1" class="form-label">Date of Transaction</label>
-                                    <input type="date" class="form-control" placeholder="Date of Transaction" name="date_of_trans" required />
+                                    <input value="{{ date('Y-m-d') }}" type="date" class="form-control" placeholder="Date of Transaction" name="date_of_trans" required />
                                     @error('date_of_trans')
                                     <span class="text-danger"> {{$message}} </span>
                                     @enderror
