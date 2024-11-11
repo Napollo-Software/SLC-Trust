@@ -1740,7 +1740,7 @@ return $colors[$randomIndex];
                             <div class="row-container d-flex justify-content-between">
                                 <div><i class="task-icon bg-{{ randomColor() }}"></i>
                                     <h6 class="text-break">{{ $item->note }}</h6>
-                                    <p class="text-muted fs-12">{{ $item->date }} {{ \Carbon\Carbon::parse($item->time)->format('H:i') }}</p>
+                                    <p class="text-muted fs-12">{{ $item->date }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}</p>
                                 </div>
                                 <!--div>
                                     <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
@@ -2910,9 +2910,14 @@ return $colors[$randomIndex];
 
                 let existing_note = $(`#note-${note_id}`);
 
-                let time = new Date(`1970-01-01T${data.note.time}Z`);
-                let formattedTime = time.toTimeString().slice(0, 5);
+                let noteTime = new Date(`1970-01-01T${data.note.time}`);
 
+                // Format the time for display
+                let formattedTime = noteTime.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                });
 
                 if (existing_note.length > 0) {
                     // Update the existing note's content
