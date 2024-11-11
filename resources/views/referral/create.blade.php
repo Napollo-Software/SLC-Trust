@@ -262,7 +262,7 @@
                    <div class="card-header d-flex justify-content-between pl-0 pb-1 pl-2">
                        <h5>Emergency Contact</h5>
                        <div class="print-btn p-0">
-                           <label for="checkBox">Same as Patient</label>
+                           <label for="checkBox">Same as applicant</label>
                            <input type="checkbox" class="m-1 cursor-pointer" id="checkBox">
                        </div>
                    </div>
