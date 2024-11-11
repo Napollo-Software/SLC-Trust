@@ -2925,7 +2925,6 @@ return $colors[$randomIndex];
                                     class="NoteEditBtn btn pb-1 pt-1"
                                     data-data='${JSON.stringify(data.note)}'
                                     title="Click to edit note">
-                                    <i class="bx bx-edit pb-1"></i>
                                 </button>
                             </div>
                         </div>
@@ -2945,7 +2944,6 @@ return $colors[$randomIndex];
                                         class="NoteEditBtn btn pb-1 pt-1"
                                         data-data='${JSON.stringify(data.note)}'
                                         title="Click to edit note">
-                                        <i class="bx bx-edit pb-1"></i>
                                     </button>
                                 </div>
                             </div>
