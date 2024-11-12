@@ -27,11 +27,14 @@
                             <span id="nameError" class="text-danger"></span>
 {{--                        </div>--}}
                         <div class="col-md-6">
+                        @php $current_user_role = App\Models\User::find(Session::get('loginId'))->role; @endphp
                             <label for="exampleFormControlInput1" class="form-label">Assignee</label>
-                            <select id="edit_to" class="form-control" name="to">
+                            <select {{ $current_user_role == 'Employee' ? 'disabled' : '' }} id="edit_to" class="form-control" name="to">
                                 <option value="">Choose One</option>
                                 @foreach ($to as $item)
-                                    <option value="{{ $item->id }}">{{ $item->full_name() }}</option>
+                                    <option
+                                    {{ $current_user_role == 'Employee' && $item->id == Session::get('loginId') ? 'selected' : '' }}
+                                    value="{{ $item->id }}">{{ $item->full_name() }}</option>
                                 @endforeach
                             </select>
                             <span id="categoryError" class="text-danger"></span>
