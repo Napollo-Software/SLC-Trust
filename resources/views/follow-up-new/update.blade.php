@@ -27,31 +27,29 @@
                             <span id="nameError" class="text-danger"></span>
 {{--                        </div>--}}
                         <div class="col-md-6">
-                        @php $current_user_role = App\Models\User::find(Session::get('loginId'))->role; @endphp
-                            <label for="exampleFormControlInput1" class="form-label">Assignee</label>
-                            <select {{ $current_user_role == 'Employee' ? 'disabled' : '' }} id="edit_to" class="form-control" name="to">
-                                <option value="">Choose One</option>
-                                @foreach ($to as $item)
-                                    <option
-                                    {{ $current_user_role == 'Employee' && $item->id == Session::get('loginId') ? 'selected' : '' }}
-                                    value="{{ $item->id }}">{{ $item->full_name() }}</option>
-                                @endforeach
-                            </select>
-                            <span id="categoryError" class="text-danger"></span>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="exampleFormControlInput1" class="form-label">Referrals</label>
-                            <select id="edit_referral" class="form-control" name="referral">
-                                <option value="">Choose One</option>
+                            @php $current_user_role = App\Models\User::find(Session::get('loginId'))->role; @endphp
+                                <label for="exampleFormControlInput1" class="form-label">Assignee</label>
+                                <select id="edit_to" class="form-control" name="to">
+                                    <option value="">Choose One</option>
+                                    @foreach ($to as $item)
+                                        <option value="{{ $item->id }}">{{ $item->full_name() }}</option>
+                                    @endforeach
+                                </select>
+                                <span id="categoryError" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="exampleFormControlInput1" class="form-label">Referrals</label>
+                                <select id="edit_referral" class="form-control" name="referral">
+                                    <option value="">Choose One</option>
 
-                                @foreach ($referrals as $item)
-                                    <option value="{{ $item->id }}">{{ $item->first_name }} {{ $item->last_name }}</option>
-                                @endforeach
-                            </select>
-                            <span id="categoryError" class="text-danger"></span>
+                                    @foreach ($referrals as $item)
+                                        <option value="{{ $item->id }}">{{ $item->first_name }} {{ $item->last_name }}</option>
+                                    @endforeach
+                                </select>
+                                <span id="categoryError" class="text-danger"></span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mb-3">
+                        <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">Follow Up Date</label>
                             <input type="date" id="edit_date" class="form-control" name="date" />
@@ -79,6 +77,8 @@
     </div>
 </div>
 <script>
+    var currentUserRole = "{{ $current_user_role }}";
+
     $(document).ready(function() {
         function hideeditTypeModal() {
             $('#editType').modal('hide')
@@ -103,7 +103,12 @@
             $('#edit_note').val(previousNote);
             $('#edit_date').val(previousDate);
             $('#edit_time').val(previousTime);
-            $('#edit_to').val(previousTo);
+            if (currentUserRole === 'Employee') {
+                $('#edit_to').attr('disabled', true);
+            } else {
+                $('#edit_to').removeAttr('disabled');
+            }
+
             $('#edit_referral').val(previousReferral);
             $('#edit_id').val(previousId);
 

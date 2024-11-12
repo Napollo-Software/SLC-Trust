@@ -123,7 +123,7 @@ class FollowupController extends Controller
         }
 
         $data = $request->all();
-        $followup->to = $request->input('to');
+        $followup->to = $request->input('to') ?? $followup->to;
         $followup->date = $request->input('date');
         $followup->time = $request->input('time');
         $followup->note = $request->input('note');

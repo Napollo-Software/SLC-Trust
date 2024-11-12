@@ -26,24 +26,32 @@
                             <span id="nameError" class="text-danger"></span>
 {{--                        </div>--}}
                         <div class="col-md-6">
-                        @php $current_user_role = App\Models\User::find(Session::get('loginId'))->role; @endphp
-                            <label for="exampleFormControlInput1" class="form-label">Assignee*</label>
-                            <select {{ $current_user_role == 'Employee' ? 'disabled' : '' }} id="defaultSelect" class="form-control" name="to" required>
-                            @if($current_user_role != 'Employee')
-                                <option value="">Choose One</option>
+                            @php $current_user_role = App\Models\User::find(Session::get('loginId'))->role; @endphp
+                            <label for="assigneeInput" class="form-label">Assignee*</label>
+
+                            @if ($current_user_role == 'Employee')
+                                <!-- Display a readonly input if the user is an Employee -->
+                                <input type="text" id="assigneeInput" class="form-control" value="{{ $to->firstWhere('id', Session::get('loginId'))->name }} {{ $to->firstWhere('id', Session::get('loginId'))->last_name }}" readonly>
+                                <!-- Hidden input to keep the selected value for form submission -->
+                                <input type="hidden" name="to" value="{{ Session::get('loginId') }}">
+                            @else
+                                <!-- Display the select dropdown if the user is not an Employee -->
+                                <select id="defaultSelect" class="form-control" name="to" required>
+                                    <option value="">Choose One</option>
+                                    @foreach ($to as $item)
+                                        <option
+                                            value="{{ $item->id }}"
+                                            {{ $item->id == old('to') ? 'selected' : '' }}
+                                        >
+                                            {{ $item->name }} {{ $item->last_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             @endif
-                                @foreach ($to as $item)
-                                    <option
-                                        value="{{ $item->id }}"
-                                        {{ $current_user_role == 'Employee' && $item->id == Session::get('loginId') ? 'selected' : '' }}
-                                        {{ $current_user_role == 'Employee' && $item->id != Session::get('loginId') ? 'disabled' : '' }}
-                                    >
-                                        {{ $item->name }} {{ $item->last_name }}
-                                    </option>
-                                @endforeach
-                            </select>
+
                             <span id="categoryError" class="text-danger"></span>
                         </div>
+
                         <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">Referrals</label>
                             <select id="defaultSelect" class="form-control" name="referral">
