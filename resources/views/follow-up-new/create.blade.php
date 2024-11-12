@@ -26,12 +26,20 @@
                             <span id="nameError" class="text-danger"></span>
 {{--                        </div>--}}
                         <div class="col-md-6">
+                        @php $current_user_role = App\Models\User::find(Session::get('loginId'))->role; @endphp
                             <label for="exampleFormControlInput1" class="form-label">Assignee*</label>
                             <select id="defaultSelect" class="form-control" name="to" required>
+                            @if($current_user_role != 'Employee')
                                 <option value="">Choose One</option>
-
+                            @endif
                                 @foreach ($to as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} {{ $item->last_name }}</option>
+                                    <option
+                                        value="{{ $item->id }}"
+                                        {{ $current_user_role == 'Employee' && $item->id == Session::get('loginId') ? 'selected' : '' }}
+                                        {{ $current_user_role == 'Employee' && $item->id != Session::get('loginId') ? 'disabled' : '' }}
+                                    >
+                                        {{ $item->name }} {{ $item->last_name }}
+                                    </option>
                                 @endforeach
                             </select>
                             <span id="categoryError" class="text-danger"></span>

@@ -6,25 +6,38 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Claim;
 use App\Models\Referral;
+use App\Models\Followup;
 use App\Models\Transaction;
 
 $login_user = User::find(Session::get('loginId'));
+
 $role = $login_user->role;
 
-        if($role == 'Admin'){
-            $followup = \App\Models\Followup::with(['employee' => function($query){
+        if($role == 'Admin')
+        {
+            $followup = Followup::with(['employee' => function($query){
                 $query->select('id', 'name', 'last_name');
             }])->where('type', 'followup')->get();
-        } else {
-            $followup = \App\Models\Followup::with(['employee' => function($query){
+
+        } elseif ($role == 'Employee')
+        {
+            $followup = Followup::with(['employee' => function($query) {
                 $query->select('id', 'name', 'last_name');
             }])->where('type', 'followup')
-            ->where('to', Session::get('loginId'))
-            ->get();
+            ->where(function($query) {
+                $query->where('to', Session::get('loginId'))
+                    ->orWhere('from', Session::get('loginId'));
+            })->get();
+
+        } else {
+
+            $followup = Followup::with(['employee' => function($query){
+                $query->select('id', 'name', 'last_name');
+            }])->where('type', 'followup')->where('to', Session::get('loginId'))->get();
+
         }
 
         @endphp
-
         <head>
             <style>
                 .fc-daygrid-event-harness {
@@ -120,9 +133,8 @@ $role = $login_user->role;
                     </div>
                 </div>
             </div>
-            @if ($login_user->hasPermissionTo('Business Statistics'))
             <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-                @if ($login_user->hasPermissionTo('Back Office'))
+                @if ($login_user->hasPermissionTo('Back Office') && $login_user->hasPermissionTo('Business Statistics'))
                 <div class="col">
                     <div class="card radius-10 overflow-hidden">
                         <div class="card-body">
@@ -191,7 +203,7 @@ $role = $login_user->role;
                     </div>
                 </div>
                 @endif
-                @if ($login_user->hasPermissionTo('Front Office'))
+                @if ($login_user->hasPermissionTo('Front Office') && $login_user->hasPermissionTo('Business Statistics'))
                 <div class="col">
                     <a href="{{ url("vendors") }}">
                         <div class="card radius-10 overflow-hidden">
@@ -249,7 +261,9 @@ $role = $login_user->role;
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                @endif
+                @if ($login_user->hasPermissionTo('Front Office') || $login_user->hasPermissionTo('Business Statistics'))
+                <div class="{{ $login_user->hasPermissionTo('Business Statistics') ? 'col' : 'col-md-8' }}">
                     <a href="{{ url('follow-up/list') }}">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
@@ -270,10 +284,6 @@ $role = $login_user->role;
                 </div>
                 @endif
             </div>
-            @endif
-            @php
-            $balance = User::where('role', 'User')->sum('user_balance');
-            @endphp
         </div>
 
         @if ($login_user->hasPermissionTo('Back Office'))
