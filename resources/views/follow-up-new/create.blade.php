@@ -28,7 +28,7 @@
                         <div class="col-md-6">
                         @php $current_user_role = App\Models\User::find(Session::get('loginId'))->role; @endphp
                             <label for="exampleFormControlInput1" class="form-label">Assignee*</label>
-                            <select id="defaultSelect" class="form-control" name="to" required>
+                            <select {{ $current_user_role == 'Employee' ? 'disabled' : '' }} id="defaultSelect" class="form-control" name="to" required>
                             @if($current_user_role != 'Employee')
                                 <option value="">Choose One</option>
                             @endif
