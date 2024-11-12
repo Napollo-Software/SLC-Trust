@@ -689,7 +689,6 @@ $role = $login_user->role;
                 },
                 success: function(response) {
                     if (response.success) {
-                        // Update the UI inside the modal
                         if (isCompleted) {
                             $("#change_strike_"+followupId).css('text-decoration', 'line-through')
                             $("#date_change_strike_"+followupId).css('text-decoration', 'line-through')
@@ -698,16 +697,13 @@ $role = $login_user->role;
                             $("#date_change_strike_"+followupId).css('text-decoration', 'none')
                         }
 
-                        // Find and update the event in FullCalendar
                         const event = calendar.getEventById(followupId);
                         if (event) {
-                            // Update the completed status in followupEvents array
                             const updatedEvent = followupEvents.find(e => e.id === followupId);
                             if (updatedEvent) {
                                 updatedEvent.completed = isCompleted;
                             }
 
-                            // Update the content directly in the calendar using the assigned ID
                             const calendarElement = document.getElementById(`calender_follow_up_${followupId}`);
                             if (calendarElement) {
                                 calendarElement.innerHTML = isCompleted
@@ -715,7 +711,6 @@ $role = $login_user->role;
                                     : `${event.extendedProps.note} - ${event.extendedProps.date}`;
                             }
 
-                            // Update the event properties in the calendar to reflect the change
                             event.setExtendedProp('completed', isCompleted);
                         }
                     } else {
