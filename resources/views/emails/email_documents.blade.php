@@ -144,7 +144,7 @@
                                                 @foreach($filtered_links as $link)
                                                 <td align="center" valign="top" style="padding: 10px;">
                                                     <a href="{{ $link }}" target="_blank" style="text-decoration: none; display: block; width: 180px; height: 120px; border-radius: 4px; border: 1px solid #cccccc; padding: 10px 15px; font-family: 'Lato', Helvetica, Arial, sans-serif; font-weight: 700; text-align: center;">
-                                                        <img src="{{ url('img/form_icon.png') }}" alt="document" style="width: 50px; height: 50px; display: block; margin: 0 auto 10px;">
+                                                        <img src="https://billing.slctrusts.org/img/form_icon.png" alt="document" style="width: 50px; height: 50px; display: block; margin: 0 auto 10px;">
                                                         <p style="color:black; font-size:14px; margin: 0; text-align: center;">{{ $filtered_names[$loop->index] }}</p>
                                                     </a>
                                                 </td>

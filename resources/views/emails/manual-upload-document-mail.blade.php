@@ -142,7 +142,7 @@
                                     @foreach($urls as $url)
                                     <td align="center" valign="top" style="padding: 10px;">
                                         <a href="{{ $url }}" target="_blank" class="cta-button" style="text-decoration: none; font-weight: 700; font-family: 'Lato', Helvetica, Arial, sans-serif; display: block; width: 180px; height: 120px; border-radius: 4px; border: 1px solid #cccccc; padding: 10px 15px; text-align: center;">
-                                            <img src="{{ url('img/form_icon.png') }}" alt="document" style="width: 50px; height: 50px; display: block; margin: 0 auto 10px;">
+                                            <img src="https://billing.slctrusts.org/img/form_icon.png" alt="document" style="width: 50px; height: 50px; display: block; margin: 0 auto 10px;">
                                             <p style="color:black; font-size:14px; margin: 0;">{{ ucwords(str_replace(['-', '_'], ' ', basename($url))) }}</p>
                                         </a>
                                     </td>
