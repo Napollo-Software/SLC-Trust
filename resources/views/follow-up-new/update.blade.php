@@ -19,7 +19,6 @@
                 <div class="modal-body">
                     <div class="row mb-3">
 {{--                        <div class="col-md-6">--}}
-                            <label for="exampleFormControlInput1" class="form-label">From</label>
                             <input type="hidden" class="form-control" placeholder="Name"
                                    value="{{ $from->name . ' ' . $from->last_name }}" disabled />
                             <input type="hidden" name="from" value="{{ $from->id }}">
@@ -78,6 +77,7 @@
 </div>
 <script>
     var currentUserRole = "{{ $current_user_role }}";
+    var currentUserId = "{{ Session::get('loginId') }}";
 
     $(document).ready(function() {
         function hideeditTypeModal() {
@@ -103,11 +103,13 @@
             $('#edit_note').val(previousNote);
             $('#edit_date').val(previousDate);
             $('#edit_time').val(previousTime);
-            if (currentUserRole === 'Employee') {
-                $('#edit_to').attr('disabled', true);
+
+           if (currentUserRole === 'Employee') {
+                $('#edit_to').val(previousTo).attr('selected', true).attr('disabled', true);
             } else {
-                $('#edit_to').removeAttr('disabled');
+                $('#edit_to').val(previousTo);
             }
+
 
             $('#edit_referral').val(previousReferral);
             $('#edit_id').val(previousId);
