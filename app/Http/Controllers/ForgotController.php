@@ -83,8 +83,9 @@ class ForgotController extends Controller
                 //$notifcation->save();
 
                 $details = [
+                    'user' => $user->full_name(),
                     'title' => 'Mail from '.$app_name,
-                    'body' => ' Password Generated Succeussfully'
+                    'body' => ' Password generated succeussfully'
                 ];
                 $user = User::find(Session::get('loginId'));
                 Mail::to($request->email)->send(new \App\Mail\PasswordGenerate($details));
@@ -104,6 +105,7 @@ class ForgotController extends Controller
                 //$notifcation->save();
 
                 $details = [
+                    'user' => $user->full_name(),
                     'title' => 'Mail from '.$app_name,
                     'body' => ' Password Not Generated'
                 ];
