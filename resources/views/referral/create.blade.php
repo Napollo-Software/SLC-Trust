@@ -161,14 +161,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 p-2">
-                                <label for="form-label">APT/SUITE </label>
-                                <input type="text" class="form-control" id="apt" name="apt" placeholder="Enter APT/SUITE">
-                            </div>
-                        <div class="col-md-6 p-2">
                                 <label for="form-label">Address</label>
                                 <input type="text" class="form-control" id="Address" name="address" placeholder="house# 03 street 07/ new york city">
                             </div>
-
+                             <div class="col-md-6 p-2">
+                                <label for="form-label">APT/SUITE </label>
+                                <input type="text" class="form-control" id="apt" name="apt" placeholder="Enter APT/SUITE">
+                            </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Country</label>
                                 <div class="col-md-12 text-secondary p-0">
