@@ -36,9 +36,8 @@ class FollowupController extends Controller
                         $q2->where('from', $user->id)
                            ->where('to', $user->id);
                     })
-                    ->where(function ($q3) use ($user) {
-                        $q3->where('from', $user->id)
-                           ->orWhere('to', $user->id);
+                    ->orWhere(function ($q3) use ($user) {
+                        $q3->where('to', $user->id);
                     });
                 });
             }

@@ -8,7 +8,8 @@
 
     use App\Models\User;
 
-    $role = User::where('id', Session::get('loginId'))->value('role');
+    $login_user = User::find(Session::get('loginId'));
+    $role = $login_user->role;
 
     ?>
     <div class="">
@@ -49,10 +50,10 @@
                                 @foreach ($data as $followup)
                                     <tr class="row-{{ $followup['id'] }}">
                                         <td>{{ $followup->id }}</td>
-                                        <td>{{ $from->name }} {{ $from->last_name }}</td>
+                                        <td>{{ $followup->sender->full_name() }}</td>
                                         <td>{{ $followup->employee->full_name() }}</td>
                                         <td>{{ $followup->referral->first_name.' '.$followup->referral->first_name }}</td>
-                                        <td>{{ $followup->time }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($followup->time)->format('h:i A') }}</td>
                                         <td>
                                             <div class="text-break" style="max-width:800px; overflow:auto; white-spaces:normal;">
                                                 {{ $followup->note }}
@@ -64,8 +65,10 @@
                                                     <i class="menu-icon tf-icons bx bx-cog"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
+                                                @if($login_user->role != 'Employee' || ($followup->from == $login_user->id && $followup->to == $login_user->id))
                                                     <button class="dropdown-item TypeEditBtn pb-2" id="" data-to="{{ $followup->to }}" data-referral="{{ $followup->referral_id }}" data-note="{{ $followup->note }}" data-id="{{ $followup->id }}" data-from="{{ $followup->from }}" data-date="{{ $followup->date }}" data-time="{{ $followup->time }}">
                                                         <i class='bx bx-edit-alt me-1'></i> Edit</button>
+                                                    @endif
                                                     <button type="button" data-id="{{ $followup['id'] }}" class="dropdown-item deleteBtn">
                                                         <i class="bx bx-trash-alt me-1"></i> Delete
                                                     </button>
@@ -83,6 +86,7 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
                 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
                 <script>
+                
                     $(document).ready(function($) {
                         $('#dataTable').DataTable({
                             aLengthMenu: [

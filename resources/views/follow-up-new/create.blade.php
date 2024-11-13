@@ -67,7 +67,7 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">Follow Up Date*</label>
-                            <input type="date" class="form-control" name="date" required />
+                            <input type="date" id="createFollowUpDate" class="form-control" name="date" required />
                             <span id="nameError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
@@ -92,7 +92,11 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
+
+        const createToday = new Date().toISOString().split('T')[0];
+        document.getElementById('createFollowUpDate').setAttribute('min', createToday);
+
+        $(document).ready(function() {
         function hideAddTypeModal() {
             $('#addType').modal('hide')
         }

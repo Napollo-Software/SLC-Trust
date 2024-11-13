@@ -14,6 +14,10 @@ class Followup extends Model
     {
         return $this->belongsTo(Referral::class,'to','id')->withDefault();
     }
+    public function sender()
+    {
+        return $this->belongsTo(User::class,'from','id')->withDefault();
+    }
     public function employee()
     {
         return $this->belongsTo(User::class,'to','id')->withDefault();

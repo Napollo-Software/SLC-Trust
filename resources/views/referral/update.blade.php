@@ -323,8 +323,11 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
     <script>
+
+        
+
+
         $(document).ready(function () {
             // Function to handle the visibility of elements based on source_type
             function handleSourceVisibility(val) {

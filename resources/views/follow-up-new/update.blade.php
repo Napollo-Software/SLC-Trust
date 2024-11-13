@@ -51,7 +51,7 @@
                         <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="exampleFormControlInput1" class="form-label">Follow Up Date</label>
-                            <input type="date" id="edit_date" class="form-control" name="date" />
+                            <input type="date" id="followUpDate" id="edit_date" class="form-control" name="date" />
                             <span id="nameError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
@@ -78,6 +78,9 @@
 <script>
     var currentUserRole = "{{ $current_user_role }}";
     var currentUserId = "{{ Session::get('loginId') }}";
+
+    const today = new Date().toISOString().split('T')[0];
+        document.getElementById('followUpDate').setAttribute('min', today);
 
     $(document).ready(function() {
         function hideeditTypeModal() {
