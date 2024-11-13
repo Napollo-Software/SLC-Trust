@@ -9,7 +9,7 @@ class Followup extends Model
 {
 
     use HasFactory;
-   protected $fillable = [];
+   protected $guarded = [];
     public function lead()
     {
         return $this->belongsTo(Referral::class,'to','id')->withDefault();
