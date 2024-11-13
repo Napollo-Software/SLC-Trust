@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
         //       ->daily()->withoutOverlapping();
 
         //$schedule->command('renewal:charge')->daily();
-        //$schedule->command('followup:reminder')->everyMinute();
+        //$schedule->command('followup:reminder')->hourly();
     }
 
     /**
