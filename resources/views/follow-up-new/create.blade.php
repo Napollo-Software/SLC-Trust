@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="addFollowupButton" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-secondary closeAddType" data-dismiss="modal">Close</button>
                 </div>
             </form>
@@ -113,6 +113,9 @@
         })
         $('#addFollowupForm').on('submit', function(e) {
             e.preventDefault();
+
+            $("#addFollowupButton").attr('disabled', true).text('Submitting...');
+
             $('.form-control').removeClass('is-invalid');
             $('.invalid-feedback.is-invalid').remove();
             $.ajax({
@@ -124,14 +127,17 @@
                 contentType: false,
                 cache: false,
                 success: function(response) {
+
                     $("#addFollowupForm").removeClass("in");
                     hideAddTypeModal();
+                    $("#addFollowupButton").attr('disabled', false).text('Submit');
                     swal.fire('Success', 'Follow up has been created successfully', 'success')
                         .then(function() {
                             location.reload();
                         });
                 },
                 error: function(response) {
+                    $("#addFollowupButton").attr('disabled', false).text('Submit');
                     erroralert(response);
                 }
             })
