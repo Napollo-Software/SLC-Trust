@@ -9,20 +9,7 @@ class Followup extends Model
 {
 
     use HasFactory;
-   protected $fillable = [
-        'id',
-        'leadId',
-        'from',
-        'to',
-        'date',
-        'time',
-        'note',
-        'type',
-        'completed',
-        'created_at',
-        'updated_at',
-        'completed_by'
-    ];
+   protected $fillable = [];
     public function lead()
     {
         return $this->belongsTo(Referral::class,'to','id')->withDefault();
@@ -30,6 +17,11 @@ class Followup extends Model
     public function employee()
     {
         return $this->belongsTo(User::class,'to','id')->withDefault();
+    }
+
+    public function referral()
+    {
+        return $this->belongsTo(Referral::class,'referral_id','id')->withDefault();
     }
     public function user()
     {

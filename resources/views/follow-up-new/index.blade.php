@@ -39,6 +39,7 @@
                                     <th>UID#</th>
                                     <th>From</th>
                                     <th>To</th>
+                                    <th>Linked Referral</th>
                                     <th>Time</th>
                                     <th>Follow Up</th>
                                     <th>Action</th>
@@ -50,6 +51,7 @@
                                         <td>{{ $followup->id }}</td>
                                         <td>{{ $from->name }} {{ $from->last_name }}</td>
                                         <td>{{ $followup->employee->full_name() }}</td>
+                                        <td>{{ $followup->referral->first_name.' '.$followup->referral->first_name }}</td>
                                         <td>{{ $followup->time }}</td>
                                         <td>
                                             <div class="text-break" style="max-width:800px; overflow:auto; white-spaces:normal;">
