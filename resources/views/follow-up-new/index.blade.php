@@ -52,7 +52,7 @@
                                         <td>{{ $followup->id }}</td>
                                         <td>{{ $followup->sender->full_name() }}</td>
                                         <td>{{ $followup->employee->full_name() }}</td>
-                                        <td>{{ $followup->referral->first_name.' '.$followup->referral->first_name }}</td>
+                                        <td>{{ $followup->referral->first_name.' '.$followup->referral->last_name }}</td>
                                         <td>{{ \Carbon\Carbon::parse($followup->time)->format('h:i A') }}</td>
                                         <td>
                                             <div class="text-break" style="max-width:800px; overflow:auto; white-spaces:normal;">
@@ -86,7 +86,7 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
                 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
                 <script>
-                
+
                     $(document).ready(function($) {
                         $('#dataTable').DataTable({
                             aLengthMenu: [
