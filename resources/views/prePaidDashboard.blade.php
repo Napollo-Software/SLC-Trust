@@ -1,4 +1,4 @@
 @extends("nav")
-@section('title', 'Dashboard | SLC Trusts')
+@section('title', 'Dashboard Senior Life Care Trusts')
 @section("wrapper")
 @endsection

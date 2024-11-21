@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Dropbox | SLC Trusts')
+@section('title', 'Dropbox Senior Life Care Trusts')
 @section("wrapper")
 <style>
    /* .paginate_button  {

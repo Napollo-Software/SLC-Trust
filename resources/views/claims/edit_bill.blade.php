@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Edit Bill | SLC Trusts')
+@section('title', 'Edit Bill Senior Life Care Trusts')
 @section("wrapper")
 <?php
     use App\Models\User;

@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Release Note | SLC Trusts')
+@section('title', 'Release Note Senior Life Care Trusts')
 @section('wrapper')
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 

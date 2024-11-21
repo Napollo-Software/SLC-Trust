@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Archive | SLC Trusts')
+@section('title', 'Archive Senior Life Care Trusts')
 @section("wrapper")
           <div class="">
             <div class="">

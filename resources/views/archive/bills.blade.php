@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Archived Bills | SLC Trusts')
+@section('title', 'Archived Bills Senior Life Care Trusts')
 @section('wrapper')
     <?php
     use App\Models\Claim;

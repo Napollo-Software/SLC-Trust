@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Add Category | SLC Trusts')
+@section('title', 'Add Category Senior Life Care Trusts')
 @section("wrapper")
           <div class="">
             <h5 class=" d-flex justify-content-start pt-3 pb-2">

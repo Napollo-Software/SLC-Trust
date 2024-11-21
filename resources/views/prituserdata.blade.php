@@ -1,6 +1,6 @@
 @extends('myprint')
 
-@section('title', 'Print User Details | SLC Trusts')
+@section('title', 'Print User Details Senior Life Care Trusts')
 @section('content')
 <style>
   @media print {

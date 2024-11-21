@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Search Results | SLC Trusts')
+@section('title', 'Search Results Senior Life Care Trusts')
 @section("wrapper")
 @php
 

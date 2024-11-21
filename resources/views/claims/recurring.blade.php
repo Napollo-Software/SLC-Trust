@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Recurring bills | SLC Trusts')
+@section('title', 'Recurring bills Senior Life Care Trusts')
 @section('wrapper')
     <style>
         /* .custom-row {

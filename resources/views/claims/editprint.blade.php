@@ -1,6 +1,6 @@
 @extends('myprint')
 
-@section('title', 'Print Bill Details | SLC Trusts')
+@section('title', 'Print Bill Details Senior Life Care Trusts')
 @section('content')
    <?php
     use App\Models\User;

@@ -20,7 +20,7 @@ class ForgotPassword extends Mailable
 
     public function build()
     {
-        return $this->subject('Senior Life Care - Reset your SLC Account Password')
+        return $this->subject('Senior Life Care - Reset your Senior Life Care Account Password')
             ->bcc(env('MAIL_BCC_ADDRESS'))
             ->view('forgotPassword.forgotPassword');
     }

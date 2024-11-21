@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Logs List | SLC Trusts')
+@section('title', 'Logs List Senior Life Care Trusts')
 <style>
 .word-wrap {
   width: 400px;

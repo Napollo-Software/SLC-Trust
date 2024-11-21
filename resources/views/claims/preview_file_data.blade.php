@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Update Bill Status | SLC Trusts')
+@section('title', 'Update Bill Status Senior Life Care Trusts')
 @section('wrapper')
     <style>
         #content {

@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Vendors | SLC Trusts')
+@section('title', 'Vendors Senior Life Care Trusts')
 @section('wrapper')
 @php
     $user = App\Models\User::find(Session::get('loginId'));

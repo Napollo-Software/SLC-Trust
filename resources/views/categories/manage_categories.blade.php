@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Manage Categories | SLC Trusts')
+@section('title', 'Manage Categories Senior Life Care Trusts')
 @section("wrapper")
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>

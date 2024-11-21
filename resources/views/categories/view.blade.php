@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Add Category | SLC Trusts')
+@section('title', 'Add Category Senior Life Care Trusts')
 @section("wrapper")
           <div class="container-xxl flex-grow-1 container-p-y">
             <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / View Category #{{ $category->id}}</h5>

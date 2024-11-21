@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Add Vendor | SLC Trusts')
+@section('title', 'Add Vendor Senior Life Care Trusts')
 @section('wrapper')
     @include('types.create')
     <div class="">

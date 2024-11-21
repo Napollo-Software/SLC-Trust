@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Trace Recurring | SLC Trusts')
+@section('title', 'Trace Recurring Senior Life Care Trusts')
 @section("wrapper")
 <style>
 

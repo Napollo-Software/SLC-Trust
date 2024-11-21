@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Reports | SLC Trusts')
+@section('title', 'Reports Senior Life Care Trusts')
 @section('wrapper')
 
     <head>

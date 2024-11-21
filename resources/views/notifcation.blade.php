@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Notifcations | SLC Trusts')
+@section('title', 'Notifcations Senior Life Care Trusts')
 @section("wrapper")
 <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap);

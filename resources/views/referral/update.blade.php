@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Update Referral | SLC Trusts')
+@section('title', 'Update Referral Senior Life Care Trusts')
 @section('wrapper')
 @php
 $canada = [ 'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest
@@ -325,7 +325,7 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script>
 
-        
+
 
 
         $(document).ready(function () {

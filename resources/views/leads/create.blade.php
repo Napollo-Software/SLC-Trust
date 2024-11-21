@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Add Lead | SLC Trusts')
+@section('title', 'Add Lead Senior Life Care Trusts')
 @section('wrapper')
 <style> .card { box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); } .card .card-header { font-weight: 500; }
     .card-header:first-child { border-radius: 0.35rem 0.35rem 0 0; } .card-header { padding: 1rem 1.35rem;

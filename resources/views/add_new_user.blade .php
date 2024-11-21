@@ -1,6 +1,6 @@
 
-@section('title', 'Add User | SLC Trust') 
-@section("wrapper")          
+@section('title', 'Add User | Senior Life Care Trusts')
+@section("wrapper")
           <div class="container-xxl flex-grow-1 container-p-y">
             <h5 class="fw-bold mb-4"><span class="text-muted fw-light"><b>Dashboard</b></span> / Add User</h5>
             <div class="row">
@@ -30,8 +30,8 @@
                             placeholder="User Email"
                             name="email"
                           />
-                          <span class="text-danger">@error('email'){{$message}} @enderror</span>                           
-                        </div>                                                      
+                          <span class="text-danger">@error('email'){{$message}} @enderror</span>
+                        </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col-lg-6">
@@ -41,8 +41,8 @@
                             class="form-control"
                             placeholder="Password"
                             name="password"
-                          /> 
-                            <span class="text-danger">@error('password'){{$message}} @enderror</span>                        
+                          />
+                            <span class="text-danger">@error('password'){{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-6">
                           <label for="exampleFormControlInput1" class="form-label">User Role</label>
@@ -50,8 +50,8 @@
                             <option>--</option>
                             <option>Admin</option>
                             <option>User</option>
-                          </select>                          
-                        </div>                                                      
+                          </select>
+                        </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col-lg-6">
@@ -60,7 +60,7 @@
                             <option>--</option>
                             <option>Active</option>
                             <option>Archived</option>
-                          </select>                          
+                          </select>
                         </div>
                         <div class="col-lg-6">
                           <label for="exampleFormControlInput1" class="form-label">Balance</label>
@@ -68,18 +68,18 @@
                             type="number"
                             class="form-control"
                             placeholder="$"
-                          />                           
-                        </div>                                                                                                       
-                      </div>                                                                
+                          />
+                        </div>
+                      </div>
                       <div class="row mb-3">
                         <div class="col-lg-3">
                           <button class="btn btn-primary">Add User</button>
                         </div>
-                      </div>                                            
+                      </div>
                     </div>
-                  </form>                    
-                </div>              
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-@endsection 
+@endsection

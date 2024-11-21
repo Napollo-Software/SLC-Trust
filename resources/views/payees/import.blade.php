@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Add Balance | SLC Trusts')
+@section('title', 'Add Balance Senior Life Care Trusts')
 @section("wrapper")
 <style type="text/css">
 #hidden_div {

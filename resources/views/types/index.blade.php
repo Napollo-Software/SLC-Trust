@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Types | SLC Trusts')
+@section('title', 'Types Senior Life Care Trusts')
 @section('wrapper')
     @include('types.create')
     @include('types.update')
