@@ -41,7 +41,7 @@
             font-family: 'Poppins-Bold';
             src: url('fonts/Poppins-Bold.ttf') format('truetype');
         }
-     
+
         @font-face {
             font-family: 'Poppins-Italic';
             src: url('fonts/Poppins-Italic.ttf') format('truetype');
@@ -81,9 +81,9 @@ header{
     margin: auto;
     position: relative;
     background-image: url('{{ asset('assets/images/jbg2.png') }}');
-    background-size: contain; 
-    background-repeat: no-repeat; 
-    height: 1500px; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 1500px;
     background-position: bottom;
     /* height: 670px; */
     /* height: 75vh; */
@@ -111,13 +111,13 @@ input[type="radio"]:checked:before {
   font-size: 10px;
   font-weight: bold;
   color: white;
-  background-color: #0075ff; 
+  background-color: #0075ff;
 }
 label{
     cursor: pointer;
     font-size: 14px;
     font-style: italic
-    
+
 }
 p{
     font-size: 16px
@@ -242,7 +242,7 @@ main{
     padding: 30px 10px;
 }
 .cs-value{
-    display: flex; 
+    display: flex;
     flex: 1;
     gap:5px;
     /* flex-wrap:wrap */
@@ -323,8 +323,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
 }
 .db-month{
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     margin-top: 15px;
     gap:5px;
     flex-wrap:wrap
@@ -1809,7 +1809,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
   .life-insurance-type{
     font-size: 0.8rem;
   }
-  
+
 
   /* Healthcare Premiums */
 
@@ -1884,7 +1884,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
     .for-office-use-only-2-body-style{
         width: 100%;
     }
-    
+
     .direct-debit-bank{
         gap: 20px
     }
@@ -2125,7 +2125,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
   }
 }
 
-    
+
     </style>
 </head>
 
@@ -2183,7 +2183,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
          <section style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 50px;">
              <div class="supplemental-header">
                  <p class="supplemental-header-heading">
-                     SLC SUPPLEMENTAL NEEDS TRUST
+                     Senior Life Care SUPPLEMENTAL NEEDS TRUST
                  </p>
                  <p class="supplemental-header-title">
                      Joinder Agreement / Beneficiary Profile Sheet
@@ -2200,7 +2200,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                      advice before signing this agreement. The undersigned
                      hereby adopts,
                      enrolls in and establishes a sub-trust account under the
-                     SLC
+                     Senior Life Care
                      Supplemental Needs Trust, dated December 24, 2017.
                  </p>
                  <p>
@@ -2263,7 +2263,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                              <div class="name-form-container">
                                  <div class="security-form">
                                  <input type="text" id="ssn" class="inp-last" name="sponsor_ssn" value="{{$referral->patient_ssn}}">
-                                 
+
                                     <br>
                                      <span>Social Security Number</span>
                                  </div>
@@ -2365,7 +2365,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                          <div class="mail-trust">
                              <p>Please mail all trust documents to:</p>
                              <div class="mail-trust-des">
-                                 <p>SLC Supplemental Needs Trust</p>
+                                 <p>Senior Life Care Supplemental Needs Trust</p>
                                  <p>5014-16th Ave, Suite 489</p>
                                  <p>Brooklyn, NY 11204</p>
                              </div>
@@ -2375,7 +2375,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                  </div>
                  <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -2427,7 +2427,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                           <div class="authorized-representative-body-content-1">
                               <div class="authorized-representative-body-content-1-des">
                                   <p>The following individual will be
-                                      authorized to communicate with SLC
+                                      authorized to communicate with Senior Life Care
                                       Supplemental Needs Trust. I authorize
                                       this individual to: Make Deposits,
                                       Request Statements and Request
@@ -2538,7 +2538,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                           <div class="authorized-representative-body-content-2">
                               <div class="authorized-representative-body-content-1-des">
                                   <p>The following individual will be
-                                      authorized to communicate with SLC
+                                      authorized to communicate with Senior Life Care
                                       Supplemental Needs Trust. I authorize
                                       this individual to: Make Deposits,
                                       Request Statements and Request
@@ -2711,7 +2711,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                   </div>
                   <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -2905,7 +2905,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                           <input type="radio" name="applying_together1" value="Yes" id="app-yes" class="app-yes">
                                           <label class="box-label" style="font-style: normal" for="app-yes"> Yes</label>
                                       </div>
-                                      <div> 
+                                      <div>
                                           <input type="radio" name="applying_together1" value="No" id="app-no" class="app-no">
                                           <label class="box-label" style="font-style: normal" for="app-no"> No</label>
                                       </div>
@@ -3222,7 +3222,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
 </div>
                   <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -3511,7 +3511,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 <input type="radio" name="living_arrangement1" value="Other" id="other">
                                 <label style="font-style: normal;font-size:16px" for="other"> Other -</label>
                             </div>
-                        
+
                         <div style="flex: 1;">
                             <input type="text" name="living_arrangement_other" id="healthcare-plan"
                                 style="border: none; border-bottom: 1px solid black; width: 100%;" maxlength="75">
@@ -3628,7 +3628,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-living-arrangements">
                         <div class="footer-left">
-                            <p class="footer-left-dis">SLC SUPPLEMENTAL
+                            <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">
@@ -4045,7 +4045,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     <div>
                         <div class="footer-living-arrangements">
                             <div class="footer-left">
-                                <p class="footer-left-dis">SLC SUPPLEMENTAL
+                                <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                                     NEEDS TRUST</p>
                             </div>
                             <div class="footer-mid">
@@ -4086,7 +4086,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     account, such funds shall be deemed to be property
                                     of the Trust and all funds that are remaining in the
                                     Beneficiary’s separate sub-trust account shall
-                                    be retained by SLC Supplemental Needs Trust to
+                                    be retained by Senior Life Care Supplemental Needs Trust to
                                     further the purposes of that Trust. However, to the
                                     extent that amounts remaining in the individual’s
                                     subtrust account upon the death of the individual
@@ -4114,7 +4114,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 gap: 10px;line-height:1.4">
                                 <p style="text-align:justify">All contributions made to the sub-trust account
                                     will be held and administered pursuant to the
-                                    provisions of the SLC Supplemental Needs Trust
+                                    provisions of the Senior Life Care Supplemental Needs Trust
                                     which are incorporated by reference herein.
                                     The Trustees shall have the sole and absolute right
                                     to accept or refuse additional deposits to the subtrust account.</p>
@@ -4170,7 +4170,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     that administrative fees shall be incurred while the
                                     determination of disability is being made.</p>
                                 <p style="text-align:justify">The Donor acknowledges that contributions to
-                                    the SLC Supplemental Needs Trust are not tax
+                                    the Senior Life Care Supplemental Needs Trust are not tax
                                     deductible as charitable gifts, or otherwise.</p>
                                 <p style="text-align:justify">Sub-trust account income may be taxable to the
                                     Beneficiary.
@@ -4189,7 +4189,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     in the Trust may be used to pay for ancillary and/
                                     or supplemental services for Beneficiaries and
                                     potential Beneficiaries for which services may be
-                                    rendered by SLC Supplemental Needs Trust.</p>
+                                    rendered by Senior Life Care Supplemental Needs Trust.</p>
                                 <p style="text-align:justify">The Donor executing this Joinder Agreement is
                                     aware of the potential conflicts of interest that exist
                                     in the Trustee’s</p>
@@ -4205,7 +4205,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-living-arrangements">
                         <div class="footer-left">
-                            <p class="footer-left-dis">SLC SUPPLEMENTAL
+                            <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">
@@ -4274,10 +4274,10 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     document are true and accurate to the best of my
                                     knowledge.
                                 </p>
-                                <p style="text-align:justify">The SLC Supplemental Needs Trust is authorized to
+                                <p style="text-align:justify">The Senior Life Care Supplemental Needs Trust is authorized to
                                     be used by individuals with disabilities pursuant to
                                     federal and state law. By agreeing to accept a donor’s
-                                    property pursuant to this Joinder Agreement, SLC
+                                    property pursuant to this Joinder Agreement, Senior Life Care
                                     Supplemental Needs Trust agrees only to manage
                                     the trust funds in accordance with the terms of the
                                     Master Trust Agreement and in compliance with
@@ -4296,14 +4296,14 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 federal law, to determine whether they have the
                                 legal authority to transfer property to fund the
                                 trust, and the impact that a transfer of property to
-                                the SLC Supplemental Needs Trust will have on the
+                                the Senior Life Care Supplemental Needs Trust will have on the
                                 donor’s continuing eligibility for government benefit
                                 programs
                             </p>
                             <p style="text-align:justify">Senior Lifecare Corp is not assuming any
                                 responsibility as counsel for the donor or Beneficiary,
                                 or providing any legal advice as it relates to the
-                                consequences of a transfer of property to the SLC
+                                consequences of a transfer of property to the Senior Life Care
                                 Supplemental Needs Trust.
                             </p>
                             <p style="text-align:justify">The Trustees in their discretion may require an
@@ -4312,7 +4312,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 may be charged to the sub-trust account.
                             </p>
                             <p style="text-align:justify">The party authorized to speak with us on your behalf
-                                or the intermediary must notify SLC Supplemental
+                                or the intermediary must notify Senior Life Care Supplemental
                                 Needs Trust. immediately upon your death and
                                 will be required to provide us with a certified death
                                 certificate. An individual requesting and/or receiving
@@ -4321,7 +4321,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 required to repay the amount disbursed.
                             </p>
                             <p style="text-align:justify">This Joinder Agreement and the participation of the
-                                Beneficiary in the SLC Supplemental Needs Trust is an
+                                Beneficiary in the Senior Life Care Supplemental Needs Trust is an
                                 important legal decision that may have significant
                                 and lasting consequences for the Beneficiary and as
                                 a result you may want to consider obtaining advice
@@ -4334,9 +4334,9 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 Beneficiary, if di erent from the person signing this
                                 Agreement) with any legal advice in connection
                                 with this Joinder Agreement, the participation by
-                                the Beneficiary in the SLC Supplemental Needs
+                                the Beneficiary in the Senior Life Care Supplemental Needs
                                 Trust or the suitability of such participation by the
-                                Beneficiary in the SLC Supplemental Needs Trust
+                                Beneficiary in the Senior Life Care Supplemental Needs Trust
                                 based upon the particular circumstances of the
                                 Beneficiary.
                             </p>
@@ -4345,7 +4345,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                 </div>
                 <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -4584,7 +4584,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="for-office-use-only-body">
                         <div style="font-size: 20px; text-align: center;">
-                            <p>Accepted by Trustee or Designated Representative of the Trustees, SLC Supplemental Needs Trust.</p>
+                            <p>Accepted by Trustee or Designated Representative of the Trustees, Senior Life Care Supplemental Needs Trust.</p>
                         </div>
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                             <div class="w-40">
@@ -4603,13 +4603,13 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                             </div>
 
                         </div>
-                        
+
                         <input type="hidden" id="joinder_signature_4" name="joinder_signature_4">
                     </div>
                   </div>
                   <div class="for-office-use-only-footer">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC SUPPLEMENTAL
+                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -4731,10 +4731,10 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                 <div style="display: flex; flex-direction: column; justify-content: center; gap: 20px;">
                     <div style="display: flex; flex-direction: column; gap: 10px;">
                         <h4>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</h4>
-                        <p>I authorize and request SLC Supplemental Needs Trust, dated December 24, 2017 to initiate debit entries
+                        <p>I authorize and request Senior Life Care Supplemental Needs Trust, dated December 24, 2017 to initiate debit entries
                             to my account at the depository financial institution indicated above. This authorization is to remain in full
-                            force and affect until SLC Supplemental Needs Trust has written notification from me of its termination in
-                            such time and manner as to afford SLC Supplemental Needs Trust and depository financial institution a
+                            force and affect until Senior Life Care Supplemental Needs Trust has written notification from me of its termination in
+                            such time and manner as to afford Senior Life Care Supplemental Needs Trust and depository financial institution a
                             reasonable opportunity to act on it. </p>
                     </div>
                     <div>
@@ -4812,7 +4812,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-for-office-use-3">
                         <div class="footer-left">
-                            <p class="footer-left-dis">SLC SUPPLEMENTAL
+                            <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">
@@ -4900,7 +4900,7 @@ generateSignature(4)
     });
 
 var phoneInput = document.getElementById('ssn');
-  var mask = new Inputmask("999-999-9999"); 
+  var mask = new Inputmask("999-999-9999");
   mask.mask(phoneInput);
 
 

@@ -23,7 +23,7 @@
             font-family: 'Poppins-Bold';
             src: url('fonts/Poppins-Bold.ttf') format('truetype');
         }
-     
+
         @font-face {
             font-family: 'Poppins-Italic';
             src: url('fonts/Poppins-Italic.ttf') format('truetype');
@@ -32,7 +32,7 @@
             font-family: 'Poppins-ExtraBold';
             src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');
         }
-   
+
 
         table {
             border-collapse: collapse;
@@ -332,7 +332,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
@@ -340,14 +340,14 @@
 
         <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;width:120%;margin-left:-10%">
-                <p style="text-align:center;" class="strong lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                <p style="text-align:center;" class="strong lg">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                 <p style="text-align:center;color:rgb(52 159 153);margin-top:-11px" class="lg">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
             </div>
             <div  class="xs">
-                <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created pursuant to 42 United States 
-                    Code §1396p(d)(4). You are encouraged to seek independent, professional advice before signing this agreement. The 
-                    undersigned hereby adopts, enrolls in and establishes a sub-trust account under the SLC Supplemental Needs Trust, dated 
+                <p>This is a legal document. It is an agreement pertaining to a supplemental needs trust created pursuant to 42 United States
+                    Code §1396p(d)(4). You are encouraged to seek independent, professional advice before signing this agreement. The
+                    undersigned hereby adopts, enrolls in and establishes a sub-trust account under the Senior Life Care Supplemental Needs Trust, dated
                     December 24, 2017.</p>
                 <p class="" style="margin">NOTE: All questions must be answered or your application will be delayed.</p>
             </div class="md">
@@ -472,7 +472,7 @@
                 <div style="display: table-row;" class="xs">
 
                     <div style="display: table-cell;width:50%;padding-right:20px">
-                        <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home" style="width: 100%"> 
+                        <input type="text" value="{{ $sponsor_tel_home }}" name="sponsor_tel_home" style="width: 100%">
                         <label class="italic">Home Phone</label>
                     </div>
                    &nbsp;
@@ -480,7 +480,7 @@
                     <div style="display: table-cell;width:50%">
 
                         <input type="text" value="{{ $sponsor_tel_cell }}" class="no-border" style="width: 100%"
-                            name="sponsor_tel_cell"> 
+                            name="sponsor_tel_cell">
                         <label class="italic">Cell Phone</label>
                     </div>
                 </div>
@@ -610,7 +610,7 @@
                 <div style="margin: 20px 0"></div>
                 <div style="display: table-row">
                     <div style="display: table-cell;visibility:hidden">
-                        <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
+                        <span style="font-size:12px">Senior Life Care SUPPLEMENTAL NEEDS TRUST</span>
                     </div>
                     <div style="display: table-cell;text-align: center;">
                         <span >1</span>
@@ -631,7 +631,7 @@
 
             <div style="width: 100%;display: table;">
                 <p style="margin-top:20px" class="text-center xs">Please mail all trust documents to:</p>
-                <p style="margin-top:-5px" class="text-center xs strong"> SLC Supplemental Needs Trust</p>
+                <p style="margin-top:-5px" class="text-center xs strong"> Senior Life Care Supplemental Needs Trust</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> 5014-16th Ave, Suite 489</p>
                 <p style="margin-top:-10px" class="text-center xs strong"> Brooklyn, NY 11204</p>
         </div>
@@ -639,7 +639,7 @@
         <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -810,7 +810,7 @@
 
             <div class="border-container">
             <p style="padding:0;margin: 0;" class="xs">
-            The following individual will be authorized to communicate with SLC Supplemental Needs Trust. I authorize
+            The following individual will be authorized to communicate with Senior Life Care Supplemental Needs Trust. I authorize
             this individual to: Make Deposits, Request Statements and Request Disbursements.
             </p>
             <p class="strong sm" style="margin-top:5px;margin-bottom:10px">Authorized Representative #1</p>
@@ -902,7 +902,7 @@
                             <input type="text" value="{{ $auth_rep_one_state }}" name="auth_rep_one_state" style="width: 95%" />
                             <label class="italic">State</label>
                         </div>
-                    
+
                         <div style="display: table-cell">
                             <input type="text" value="{{ $auth_rep_one_zip }}"name="auth_rep_one_zip" style="width: 95%" />
                             <label class="italic">Zip</label>
@@ -913,11 +913,11 @@
 
             <div class="border-container" style="margin-top: 5px;">
             <p style="padding:0;margin: 0;" class="xs">
-            The following individual will be authorized to communicate with SLC Supplemental Needs Trust. I authorize
+            The following individual will be authorized to communicate with Senior Life Care Supplemental Needs Trust. I authorize
             this individual to: Make Deposits, Request Statements and Request Disbursements.
             </p>
             <p class="strong sm" style="margin-top:5px">Authorized Representative #2</p>
-       
+
             <div style="display: table;width:100%;margin-top:10px" class="xs">
                 <div style="display: table-row;">
                     <div style="display: table-cell;">
@@ -944,7 +944,7 @@
                         <label class="italic">Home Phone</label>
                     </div>
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_two_cell }} " name="auth_rep_two_cell" style="width: 95%"> 
+                        <input type="text" value="{{ $auth_rep_two_cell }} " name="auth_rep_two_cell" style="width: 95%">
                         <label class="italic">Cell Phone</label>
                     </div>
                     <p style="margin-left:10px;margin-top:0px">Preferred Phone
@@ -1095,7 +1095,7 @@
 
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
-                        <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
+                        <span style="font-size:12px">Senior Life Care SUPPLEMENTAL NEEDS TRUST</span>
                     </div>
                     <div style="display: table-cell;text-align: center;">
                         <span style="border: 1px solid rgb(52 159 153);width: 2%;padding: 5px;font-size:12px">1</span>
@@ -1180,7 +1180,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -1198,7 +1198,7 @@
 
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
-                        <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
+                        <span style="font-size:12px">Senior Life Care SUPPLEMENTAL NEEDS TRUST</span>
                     </div>
                     <div style="display: table-cell;text-align: center;">
                         <span style="border: 1px solid rgb(52 159 153);width: 2%;padding: 5px;font-size:12px">1</span>
@@ -1272,12 +1272,12 @@
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" class="checkboxissue" value="Yes"
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
-                            
+
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse1" class="checkboxissue" value="No"
 
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
-                            
+
                             <input type="checkbox" name="beneficiary_receive_medicaid_spouse3" class="checkboxissue" value="Pending"
 
                                 {{ isset($beneficiary_receive_medicaid_spouse1) && $beneficiary_receive_medicaid_spouse1 === 'Pending' ? 'checked' : '' }}>
@@ -1328,7 +1328,7 @@
             <br>
             <p class='md section-heading'
                 style="width:22%;background-color:rgb(184 221 219);color:rgb(52 159 153);">
-                HOUSEHOLD INCOME 
+                HOUSEHOLD INCOME
             </p>
             <div class='xs' style='padding-top:2px'>
                 <span style='' class='sm strong'>
@@ -1394,7 +1394,7 @@
                     <label>
                         Spouse Applied for Medicaid with beneficiary?
                     </label>
-                   
+
                     <input type="checkbox" class="checkboxissue" name="spouse_applied_for_medicaid_with_beneficiary1" value="Yes"
                         {{ isset($spouse_applied_for_medicaid_with_beneficiary1) && $spouse_applied_for_medicaid_with_beneficiary1 === 'Yes' ? 'checked' : '' }} >
                     <label>Yes</label>
@@ -1579,7 +1579,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -1626,7 +1626,7 @@
                             <input type="checkbox" class="checkboxissue" name="supplemental_yes" value="Yes"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'Yes' ? 'checked' : '' }}>
                             <label>Yes</label>
-                           
+
                             <input type="checkbox" class="checkboxissue" name="supplemental_yes" value="No"
                             {{ isset($supplemental_yes) && $supplemental_yes === 'No' ? 'checked' : '' }}>
                             <label>No</label>
@@ -1658,7 +1658,7 @@
                             <input type="checkbox" class="checkboxissue" name="funeral_information_body_yes" value="Yes"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'Yes' ? 'checked' : '' }}>
                                 <label>Yes</label>
-                            
+
                             <input type="checkbox" class="checkboxissue"  name="funeral_information_body_yes" value="No"
                                 {{ isset($funeral_information_body_yes) && $funeral_information_body_yes === 'No' ? 'checked' : '' }}>
                                 <label>No</label>
@@ -1679,7 +1679,7 @@
                     <input type="checkbox" class="checkboxissue" name="life_insurance_information_body_yes" value="Yes"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'Yes' ? 'checked' : '' }}>
                         <label>Yes</label>
-                    
+
                     <input type="checkbox" class="checkboxissue" name="life_insurance_information_body_yes" value="No"
                         {{ isset($life_insurance_information_body_yes) && $life_insurance_information_body_yes === 'No' ? 'checked' : '' }}>
                         <label>No</label>
@@ -1727,8 +1727,8 @@
 
                 <div style="display: table-row;">
                     <div style="display: table-cell;" class='xs'>
-                    Upon the death of the Beneficiary, amounts remaining in the Beneficiary’s sub-account shall be 
-                        retained in the Trust solely for the benefit of individuals who are disabled as defined in Soc. Sec. Law 
+                    Upon the death of the Beneficiary, amounts remaining in the Beneficiary’s sub-account shall be
+                        retained in the Trust solely for the benefit of individuals who are disabled as defined in Soc. Sec. Law
                         Section 1614(a) (3) [42 USC 1382c(a) (3)] and any subsequent definitions that are enacted into law.
                     </div>
                 </div>
@@ -1839,7 +1839,7 @@
                         <input type="text" value="{{ $living_arrangement_first }}" name="living_arrangement_first" style="width: 95%" /> <br>
                         <label class="italic">First</label>
                     </div>
-                
+
                     <div style="display: table-cell;width:50%" class='xs'>
                         <input type="text" value="{{ $living_arrangement_last }}" name="living_arrangement_last" style="width: 95%" /> <br>
                         <label class="italic">Last</label>
@@ -1872,7 +1872,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -1915,7 +1915,7 @@
                     <label class="italic">Last</label>
                 </div>
             </div>
-        
+
         </div>
         {{-- <br> --}}
         <div style="display: table; width: 100%; margin-top:6px" class="xs">
@@ -1930,7 +1930,7 @@
                     <label class="italic">Email</label>
                 </div>
             </div>
-    
+
         </div>
         {{-- <br> --}}
 
@@ -1976,7 +1976,7 @@
                 {{ isset($act_seprately1) && $act_seprately1 === 'No' ? 'checked' : '' }}>
                 <label>No</label>
         </p>
-  
+
 </div>
 
 
@@ -2096,24 +2096,24 @@
         <input type="checkbox" style="margin-left:6px" name="guardian_information_yes" value="Yes" class="checkboxissue"
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'Yes' ? 'checked' : '' }}>
             <label>Yes</label>
-        
+
         <input type="checkbox" name="guardian_information_yes" value="No" class="checkboxissue"
             {{ isset($guardian_information_yes) && $guardian_information_yes === 'No' ? 'checked' : '' }}>
             <label>No</label>
 
         <div style="font-family: Poppins-Italic;margin-top:-10px;padding-top:-10px" class="sm"> If you answered yes, continue to fill out below:</div>
         <br/>
-       
+
     </p>
     <p class="sm" style="margin: 0;padding: 0;margin-top:-2px;padding-top:-2px">
         Guardian of the:<input style="margin-left:5px" type="checkbox" name="guardian_appointed_for1" value="Person" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Person' ? 'checked' : '' }}>
         <label>Person </label>
-           
+
         <input type="checkbox" name="guardian_appointed_for1" value="Property" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Property' ? 'checked' : '' }}>
             <label>Property</label>
-        
+
         <input type="checkbox" name="guardian_appointed_for3" value="Both" class="checkboxissue"
             {{ isset($guardian_appointed_for1) && $guardian_appointed_for1 === 'Both' ? 'checked' : '' }}>
             <label>Both</label>
@@ -2184,7 +2184,7 @@
     <div style="display: table; width: 100%;" class="footer">
         <div style="display:table-row;width:100%">
         <div style="display: table-cell; text-align: left; width: 33%;">
-            <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+            <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
         </div>
         <div style="display: table-cell; text-align: center; width: 33%;">
             <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2217,7 +2217,7 @@
                     account, such funds shall be deemed to be property
                     of the Trust and all funds that are remaining in the
                     Beneficiary’s separate sub-trust account shall
-                    be retained by SLC Supplemental Needs Trust to
+                    be retained by Senior Life Care Supplemental Needs Trust to
                     further the purposes of that Trust. However, to the
                     extent that amounts remaining in the individual’s
                     subtrust account upon the death of the individual
@@ -2237,7 +2237,7 @@
                     death. Funeral expenses will not be paid after the
                     Beneficiary’s death. <br/>
                     <div class="semi-bold">Contributions/Deposits:</div>
-                    All contributions made to the sub-trust account will be held and administered pursuant to the provisions of the SLC Supplemental Needs Trust which are incorporated by reference herein.<br/> The Trustees shall have the sole and absolute right to accept or refuse additional deposits to the subtrust account.<br/>
+                    All contributions made to the sub-trust account will be held and administered pursuant to the provisions of the Senior Life Care Supplemental Needs Trust which are incorporated by reference herein.<br/> The Trustees shall have the sole and absolute right to accept or refuse additional deposits to the subtrust account.<br/>
                     In the event that a Beneficiary has a zero ($0)
                     sub-trust account balance for sixty (60) or more
                     consecutive days, the Trustee shall retain the right
@@ -2274,7 +2274,7 @@
                     required for Medicaid purposes, please be advised
                     that administrative fees shall be incurred while the
                     determination of disability is being made. <br/>The Donor acknowledges that contributions to
-                    the SLC Supplemental Needs Trust are not tax
+                    the Senior Life Care Supplemental Needs Trust are not tax
                     deductible as charitable gifts, or otherwise.
                     Sub-trust account income may be taxable to the
                     Beneficiary. <br/><br/>
@@ -2286,7 +2286,7 @@
                     in the Trust may be used to pay for ancillary and/
                     or supplemental services for Beneficiaries and
                     potential Beneficiaries for which services may be
-                    rendered by SLC Supplemental Needs Trust.<br/>
+                    rendered by Senior Life Care Supplemental Needs Trust.<br/>
                     The Donor executing this Joinder Agreement is
                     aware of the potential conflicts of interest that exist
                     in the Trustee’s<br/>administration of the Trust. The Trustee shall not
@@ -2301,7 +2301,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                     <div style="display: table-cell; text-align: left; width: 33%;">
-                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                        <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                     </div>
                     <div style="display: table-cell; text-align: center; width: 33%;">
                         <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2318,7 +2318,7 @@
         <div class="page-break"></div>
 
         <div class="page-7 sm" style="position: relative;">
-            <div class="semi-bold">Situs:</div> 
+            <div class="semi-bold">Situs:</div>
             <div class="column-left" style="float: left; width: 49%; padding-right: 1%; box-sizing: border-box;text-align:justify;">
                 <p style="margin-top: 0px; padding-top: 0;text-align:justify;line-height:0.9 !important;">The sub-trust account created by this Agreement
                     has been accepted by the Trustee in the State of
@@ -2332,7 +2332,7 @@
                     majority of meetings concerning establishment of
                     the Trust occurred.
                     <br/>
-                    <div class="semi-bold">Invalidity of any Provision:</div> 
+                    <div class="semi-bold">Invalidity of any Provision:</div>
                     Should any provision of this Agreement be or
                     become invalid or unenforceable, the remaining
                     provisions of this Agreement shall be and continue
@@ -2350,10 +2350,10 @@
                     disabled as defined in Social Security Law Section
                     1614(a)(3) [42 USC 1382c(a) (3)].<br/>Under penalty of perjury, all statements made in this
                     document are true and accurate to the best of my
-                    knowledge.<br/>The SLC Supplemental Needs Trust is authorized to
+                    knowledge.<br/>The Senior Life Care Supplemental Needs Trust is authorized to
                     be used by individuals with disabilities pursuant to
                     federal and state law. By agreeing to accept a donor’s
-                    property pursuant to this Joinder Agreement, SLC
+                    property pursuant to this Joinder Agreement, Senior Life Care
                     Supplemental Needs Trust agrees only to manage
                     the trust funds in accordance with the terms of the
                     Master Trust Agreement and in compliance with
@@ -2368,25 +2368,25 @@
                     federal law, to determine whether they have the
                     legal authority to transfer property to fund the
                     trust, and the impact that a transfer of property to
-                    the SLC Supplemental Needs Trust will have on the
+                    the Senior Life Care Supplemental Needs Trust will have on the
                     donor’s continuing eligibility for government benefit
                     programs.<br/>
                     Senior Lifecare Corp is not assuming any
                     responsibility as counsel for the donor or Beneficiary,
                     or providing any legal advice as it relates to the
-                    consequences of a transfer of property to the SLC
+                    consequences of a transfer of property to the Senior Life Care
                     Supplemental Needs Trust. <br/>The Trustees in their discretion may require an
                     intermediary to assist in the administration of the
                     Beneficiary’s sub-trust account. The cost of which
                     may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf
-                    or the intermediary must notify SLC Supplemental
+                    or the intermediary must notify Senior Life Care Supplemental
                     Needs Trust. immediately upon your death and
                     will be required to provide us with a certified death
                     certificate. An individual requesting and/or receiving
                     disbursements in contravention of the Master Trust
                     Agreement and the Joinder Agreement will be
                     required to repay the amount disbursed. <br/>This Joinder Agreement and the participation of the
-                    Beneficiary in the SLC Supplemental Needs Trust is an
+                    Beneficiary in the Senior Life Care Supplemental Needs Trust is an
                     important legal decision that may have significant
                     and lasting consequences for the Beneficiary and as
                     a result you may want to consider obtaining advice
@@ -2399,9 +2399,9 @@
                     Beneficiary, if different from the person signing this
                     Agreement) with any legal advice in connection
                     with this Joinder Agreement, the participation by
-                    the Beneficiary in the SLC Supplemental Needs
+                    the Beneficiary in the Senior Life Care Supplemental Needs
                     Trust or the suitability of such participation by the
-                    Beneficiary in the SLC Supplemental Needs Trust
+                    Beneficiary in the Senior Life Care Supplemental Needs Trust
                     based upon the particular circumstances of the Beneficiary.
                 </p>
             </div>
@@ -2409,7 +2409,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                     <div style="display: table-cell; text-align: left; width: 33%;">
-                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                        <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                     </div>
                     <div style="display: table-cell; text-align: center; width: 33%;">
                         <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2428,7 +2428,7 @@
             <p class='section-heading md' style="width:26%;background-color:rgb(184 221 219);color:rgb(52 159 153);">AGREEMENT SIGNATURE</p>
             <p class='xs' style="padding:0;margin: 0;padding-bottom:2px">
                 Who is signing this Joinder Agreement?
-               
+
                 <input type="checkbox" name="agreement_signature_beneficiary" class="checkboxissue" value="Beneficiary"
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Beneficiary' ? 'checked' : '' }}> Beneficiary
                 <input type="checkbox" name="agreement_signature_beneficiary" class="checkboxissue" value="Power of Attorney"
@@ -2438,7 +2438,7 @@
                     {{ isset($agreement_signature_beneficiary) && $agreement_signature_beneficiary === 'Guardian' ? 'checked' : '' }}>
                 Guardian
             </p>
-            
+
             <p class='xs' style='margin:0;padding-bottom:12px;padding-top:10px;margin-top:10px;padding-bottom:14px;margin-bottom:14px'>I certify that the above information is accurate and the completed to the best of my knowledge.</p>
             <div style="display: table; width: 100%; margin: 0; text-align: center;">
             <div style="display: table-row;">
@@ -2544,7 +2544,7 @@
                 </div>
                 <div style="display: table-row;" class='xs'>
                     <div style="display: table-cell;width:50%">
-                        <input type="text" style="width: 90%; text-align: center;" class="no-border" 
+                        <input type="text" style="width: 90%; text-align: center;" class="no-border"
                             name="sig_date1" value="{{ $sig_date1 }}" maxlength="70">
                         <br><label class='italic'>Date</label>
                     </div>
@@ -2658,7 +2658,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2706,7 +2706,7 @@
 
 
 
-        
+
             <p class="strong md section-heading" style="background-color:rgb(184 221 219); color:rgb(52 159 153);width:31%">DIRECT DEBIT REQUEST FORM</p>
 
                     <div style="display: table; width: 100%;" class="xs">
@@ -2714,7 +2714,7 @@
                             <div style="display: table-cell;">
 
                                 <label class="sm">Donor/Beneficiary</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_donor_beneficiary }}" name="direct_debit_donor_beneficiary" style="width: 80%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_donor_beneficiary }}" name="direct_debit_donor_beneficiary" style="width: 80%" />
                             </div>
 
 
@@ -2724,7 +2724,7 @@
                             <div style="display: table-cell;margin-top:8px">
 
                                 <label class="md">Representative</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" />
                             </div>
                         </div> --}}
 
@@ -2736,7 +2736,7 @@
                             <div style="display: table-cell;margin-top:10px">
 
                                 <label class="sm">Representative</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_representative }}" name="direct_debit_representative" style="width: 82%" />
                             </div>
                         </div>
 
@@ -2745,19 +2745,19 @@
                     <div style="display: table; width: 100%; margin-top:10px" class="xs">
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;margin-top:10px">
-        
+
                                 <label class="sm">Bank Name</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 62%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_bank_name }}" name="direct_debit_bank_name" style="width: 62%" />
                             </div>
                             <div style="display: table-cell;margin-top:10px">
-        
+
                                 <label class="sm">City</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" style="width: 70%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_city }}" name="direct_debit_city" style="width: 70%" />
                             </div>
                             <div style="display: table-cell;margin-top:10px">
-        
+
                                 <label class="sm">State</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" style="width: 72%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_state }}" name="direct_debit_state" style="width: 72%" />
                             </div>
 
                         </div>
@@ -2766,14 +2766,14 @@
                     <div style="display: table; width: 100%; margin-top:10px" class="xs">
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;margin-top:10px">
-        
+
                                 <label class="sm">Bank Routing Number</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" style="width: 50%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_bank_routing }}" name="direct_debit_bank_routing" style="width: 50%" />
                             </div>
                             <div style="display: table-cell;margin-top:10px">
-        
+
                                 <label class="sm">Account Number</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" style="width: 56%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_account_number }}" name="direct_debit_account_number" style="width: 56%" />
                             </div>
 
                         </div>
@@ -2784,9 +2784,9 @@
                     <div style="display: table; width: 100%; margin-top:10px" class="xs">
                         <div style="display: table-row;" class="md">
                             <div style="display: table-cell;width:60%;margin-top:10px">
-        
+
                                 <label class="sm">Account Name</label> &nbsp;
-                                <input class="xs" type="text" value="{{ $direct_debit_account_name }}" name="direct_debit_account_name" style="width:70%" /> 
+                                <input class="xs" type="text" value="{{ $direct_debit_account_name }}" name="direct_debit_account_name" style="width:70%" />
                             </div>
                             {{-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
                             <div class="sm" style="display: table-cell;vertical-align:middle;text-align:right;margin-top:10px">
@@ -2800,18 +2800,18 @@
                     </div>
 
 
-                
+
                 {{-- <br> --}}
 
                 <p>
                     <div class='sm semiBold'>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</div>
                 </p>
                 <p class="xs">
-                I authorize and request SLC Supplemental Needs Trust, dated December 24, 2017 to initiate debit entries 
-                    to my account at the depository financial institution indicated above. This authorization is to remain in full 
-                    force and affect until SLC Supplemental Needs Trust has written notification from me of its termination in 
-                    such time and manner as to afford SLC Supplemental Needs Trust and depository financial institution a 
-                    reasonable opportunity to act on it. 
+                I authorize and request Senior Life Care Supplemental Needs Trust, dated December 24, 2017 to initiate debit entries
+                    to my account at the depository financial institution indicated above. This authorization is to remain in full
+                    force and affect until Senior Life Care Supplemental Needs Trust has written notification from me of its termination in
+                    such time and manner as to afford Senior Life Care Supplemental Needs Trust and depository financial institution a
+                    reasonable opportunity to act on it.
                 </p>
                 <div style="display: table; width: 100%; margin-top: 20px;">
                     <!-- Label for signature -->
@@ -2835,7 +2835,7 @@
                         </div>
 
                     </div>
-                    
+
                 </div>
                 <br>
                 <br>
@@ -2855,7 +2855,7 @@
                             <label class="xs">Account #:</label>
                             <input class="xs"  type="text" value="{{ $office_use_account_number }}" name="office_use_account_number" style="width:65%" />
                         </div>
-                       
+
                         <div style="display: table-cell;">
                             <label class="xs">Member #:</label>
                             <input class="xs" type="text" value="{{ $office_use_member_id_below }}" name="office_use_member_id_below" style="width:37%" />
@@ -2919,7 +2919,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                     <div style="display: table-cell; text-align: left; width: 33%;">
-                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
+                        <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
                     </div>
                     <div style="display: table-cell; text-align: center; width: 33%;">
                         <div style=" padding: 7px; display: inline-block; position: relative;">

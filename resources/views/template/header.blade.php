@@ -2297,7 +2297,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
-                    <div class="col-md-12 col-sm-12 text-center">SLC © {{ date('Y') }}</div>
+                    <div class="col-md-12 col-sm-12 text-center">Senior Life Care © {{ date('Y') }}</div>
                 </div>
             </div>
         </footer>
