@@ -211,7 +211,7 @@ class AuthController extends Controller
                 $notifcation->save();
                 $subject = "New user!";
                 $name = "{$notify->name} {$notify->last_name}";
-                $email_message = $request->name . ' ' . $request->last_name . " has registered with {$app_name} and waiting for approval. Please preview the profile in order to approve it:";
+                $email_message = $request->name . ' ' . $request->last_name . " has registered with Senior Life Care Trusts and waiting for approval. Please preview the profile in order to approve it:";
                 $url = "/show_user/$user->id";
                 if ($notify->notify_by == "email") {
                     SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
