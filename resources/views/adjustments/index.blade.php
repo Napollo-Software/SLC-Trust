@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Adjustment Senior Life Care Trusts')
+@section('title', 'Adjustment | Senior Life Care Trusts')
 @section('wrapper')
     <style>
         /* .nav-item {

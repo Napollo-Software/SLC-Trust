@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'All Bills Senior Life Care Trusts')
+@section('title', 'All Bills | Senior Life Care Trusts')
 @section("wrapper")
 <style>
   .paginate_button  {

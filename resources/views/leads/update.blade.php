@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Edit Lead Senior Life Care Trusts')
+@section('title', 'Edit Lead | Senior Life Care Trusts')
 @section('wrapper')
     <style>
         .card {

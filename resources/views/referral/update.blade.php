@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Update Referral Senior Life Care Trusts')
+@section('title', 'Update Referral | Senior Life Care Trusts')
 @section('wrapper')
 @php
 $canada = [ 'Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest

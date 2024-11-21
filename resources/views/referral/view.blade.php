@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'View Referrals Senior Life Care Trusts')
+@section('title', 'View Referrals | Senior Life Care Trusts')
 @section('wrapper')
 <link href="{{ url('/assets/custom/style.css') }}" rel="stylesheet" />
 @php

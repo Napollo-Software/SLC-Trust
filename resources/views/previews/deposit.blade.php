@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Deposit Senior Life Care Trusts')
+@section('title', 'Deposit | Senior Life Care Trusts')
 @section('wrapper')
 <style>
 #content {

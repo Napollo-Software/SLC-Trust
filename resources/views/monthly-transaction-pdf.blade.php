@@ -1,6 +1,6 @@
 
 @extends('myprint')
-@section('title', 'Transactions download Senior Life Care Trusts')
+@section('title', 'Transactions download | Senior Life Care Trusts')
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Transaction Ledger</title>
 <meta name="robots" content="noindex,nofollow" />
@@ -456,7 +456,7 @@
   </tr>
 </table>
 {{-- @extends('myprint')
-@section('title', 'Transactions download Senior Life Care Trusts')
+@section('title', 'Transactions download | Senior Life Care Trusts')
 @section('content')
 @php
  $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');

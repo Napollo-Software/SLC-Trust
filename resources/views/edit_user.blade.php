@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'View User Senior Life Care Trusts')
+@section('title', 'View User | Senior Life Care Trusts')
 @section('wrapper')
 @php
 $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');

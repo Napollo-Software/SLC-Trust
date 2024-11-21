@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Add Report Senior Life Care Trusts')
+@section('title', 'Add Report | Senior Life Care Trusts')
 @section('wrapper')
     <style>
         .data-table {

@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'View Account Senior Life Care Trusts')
+@section('title', 'View Account | Senior Life Care Trusts')
 @section('wrapper')
 <style>
     .product-list {

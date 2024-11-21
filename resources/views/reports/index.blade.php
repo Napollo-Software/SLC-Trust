@@ -1,5 +1,5 @@
 @extends('nav')
-@section('title', 'Referral Senior Life Care Trusts')
+@section('title', 'Referral | Senior Life Care Trusts')
 @section('wrapper')
 <style>
      td{

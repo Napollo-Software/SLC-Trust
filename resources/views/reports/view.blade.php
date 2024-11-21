@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Lead Senior Life Care Trusts')
+@section('title', 'Lead | Senior Life Care Trusts')
 @section("wrapper")
 @php
 $referralColumnMappings = [
