@@ -167,7 +167,7 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" valign="top" style="padding: 20px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0.5px; line-height: 24px;">
-                            <p style="font-size: 16px; font-weight: 400; margin: 0;">If you have any questions or need assistance, feel free to reach out—we're here to help contact our support team at {{ config('app.contact') }}.</p>
+                            <p style="font-size: 16px; font-weight: 400; margin: 0;">If you have any questions or need assistance, feel free to reach out we're here to help contact our support team at {{ config('app.contact') }}.</p>
                         </td>
                     </tr>
                     <tr>
