@@ -64,8 +64,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class="card mb-3">
+            <div class="col-md-9 pb-5">
+                <div class="card">
                   <div class="card-body">
                     <div style="display: flex">
                         <h4>Edit Bill Information</h4>

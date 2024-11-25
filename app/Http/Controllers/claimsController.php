@@ -540,16 +540,20 @@ class claimsController extends Controller
 
                 /////////////User Bill Refused Notification/////////////
 
+                $bill_message = "Your Bill # {$claim->id} with \${$request->claim_amount} amount added on " . date('m/d/Y', strtotime(now())) . " has been refused. Reason: " . $request->refusal_reason;
+
                 Notifcation::create([
-                    'user_id' => $claimUser->id,
-                    'name' => $claimUser->name,
-                    'bill_id' => $claim->id,
-                    'description' => "Your Bill # " . $claim->id . " with $" . $request->claim_amount . " amount added on " . date('m/d/Y', strtotime(now())) . " has been refused.",
-                    'title' => 'Bill Refused',
                     'status' => 0,
+                    'bill_id' => $claim->id,
+                    'title' => 'Bill Refused',
+                    'name' => $claimUser->name,
+                    'user_id' => $claimUser->id,
+                    'description' => $bill_message,
                 ]);
 
-                $name = $claimUser->name . ' ' . $claimUser->last_name;
+                $url = "/claims/$claim->id";
+
+                SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_rejected");
 
             }
             if ($request->claim_status == "Partial") {

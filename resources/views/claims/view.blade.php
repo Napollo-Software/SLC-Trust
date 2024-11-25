@@ -85,8 +85,8 @@
                 </div>
         </div>
 
-        <div class="col-md-9">
-            <div class="card mb-3">
+        <div class="col-md-9 pb-5">
+            <div class="card">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <h4>Bill Info</h4>

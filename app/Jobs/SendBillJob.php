@@ -3,16 +3,17 @@
 namespace App\Jobs;
 
 use App\Mail\BillApproved;
-use App\Mail\BillPartiallyApproved;
+use App\Mail\BillRejected;
 use App\Mail\BillSubmitted;
 use Illuminate\Bus\Queueable;
+use App\Mail\BillPartiallyApproved;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-class SendBillJob
+class SendBillJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -43,6 +44,12 @@ class SendBillJob
         elseif($this->email_template == 'bill_partially_approved')
         {
             $email = new BillPartiallyApproved($this->user, $this->url, $this->email_message);
+            Mail::to($this->user->email)->send($email);
+
+        }
+        elseif($this->email_template == 'bill_rejected')
+        {
+            $email = new BillRejected($this->user, $this->url, $this->email_message);
             Mail::to($this->user->email)->send($email);
 
         }
