@@ -973,7 +973,6 @@ return $colors[$randomIndex];
                                             <tr>
                                                 <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
                                                     <div class="align-self-center">
-
                                                         <input name="selected_documents[{{ $actualDocument->name }}]" class="document-list m-0 mt-2" value="{{ $actualDocument->name }}" type="checkbox">
                                                     </div>
                                                 </td>
@@ -2559,8 +2558,8 @@ return $colors[$randomIndex];
         });
     });
 
-    $('.document-list').on('click', function() {
-        if (this.checked) {
+    $(document).on('click', '.document-list', function() {
+        if ($('.document-list:checked').length > 0) {
             $('.email-btn').removeClass('disabled');
         } else {
             $('.email-btn').addClass('disabled');
