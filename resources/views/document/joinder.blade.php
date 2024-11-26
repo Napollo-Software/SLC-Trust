@@ -2375,7 +2375,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                  </div>
                  <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                        <p class="footer-left-dis">SLC supplemental
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -2711,7 +2711,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                   </div>
                   <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                        <p class="footer-left-dis">SLC supplemental
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -3222,7 +3222,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
 </div>
                   <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                        <p class="footer-left-dis">SLC supplemental
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -3628,7 +3628,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-living-arrangements">
                         <div class="footer-left">
-                            <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                            <p class="footer-left-dis">SLC supplemental
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">
@@ -4045,7 +4045,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     <div>
                         <div class="footer-living-arrangements">
                             <div class="footer-left">
-                                <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                                <p class="footer-left-dis">SLC supplemental
                                     NEEDS TRUST</p>
                             </div>
                             <div class="footer-mid">
@@ -4205,7 +4205,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-living-arrangements">
                         <div class="footer-left">
-                            <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                            <p class="footer-left-dis">SLC supplemental
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">
@@ -4312,7 +4312,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 may be charged to the sub-trust account.
                             </p>
                             <p style="text-align:justify">The party authorized to speak with us on your behalf
-                                or the intermediary must notify Senior Life Care Supplemental
+                                or the intermediary must notify SLC supplemental
                                 Needs Trust. immediately upon your death and
                                 will be required to provide us with a certified death
                                 certificate. An individual requesting and/or receiving
@@ -4334,7 +4334,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 Beneficiary, if di erent from the person signing this
                                 Agreement) with any legal advice in connection
                                 with this Joinder Agreement, the participation by
-                                the Beneficiary in the Senior Life Care Supplemental Needs
+                                the Beneficiary in the SLC supplemental Needs
                                 Trust or the suitability of such participation by the
                                 Beneficiary in the SLC Supplemental Needs Trust
                                 based upon the particular circumstances of the
@@ -4345,7 +4345,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                 </div>
                 <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                        <p class="footer-left-dis">SLC supplemental
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -4609,7 +4609,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                   </div>
                   <div class="for-office-use-only-footer">
                     <div class="footer-left">
-                        <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                        <p class="footer-left-dis">SLC supplemental
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -4812,7 +4812,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-for-office-use-3">
                         <div class="footer-left">
-                            <p class="footer-left-dis">Senior Life Care SUPPLEMENTAL
+                            <p class="footer-left-dis">SLC supplemental
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">

@@ -2374,12 +2374,12 @@
                     Senior Lifecare Corp is not assuming any
                     responsibility as counsel for the donor or Beneficiary,
                     or providing any legal advice as it relates to the
-                    consequences of a transfer of property to the Senior Life Care
+                    consequences of a transfer of property to the SLC
                     Supplemental Needs Trust. <br/>The Trustees in their discretion may require an
                     intermediary to assist in the administration of the
                     Beneficiary’s sub-trust account. The cost of which
                     may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf
-                    or the intermediary must notify Senior Life Care Supplemental
+                    or the intermediary must notify SLC supplemental
                     Needs Trust. immediately upon your death and
                     will be required to provide us with a certified death
                     certificate. An individual requesting and/or receiving
@@ -2399,7 +2399,7 @@
                     Beneficiary, if different from the person signing this
                     Agreement) with any legal advice in connection
                     with this Joinder Agreement, the participation by
-                    the Beneficiary in the Senior Life Care Supplemental Needs
+                    the Beneficiary in the SLC supplemental Needs
                     Trust or the suitability of such participation by the
                     Beneficiary in the SLC Supplemental Needs Trust
                     based upon the particular circumstances of the Beneficiary.
