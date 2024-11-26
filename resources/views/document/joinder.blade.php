@@ -2183,7 +2183,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
          <section style="border-bottom: 1px solid rgb(52 159 153);padding-bottom: 50px;">
              <div class="supplemental-header">
                  <p class="supplemental-header-heading">
-                     Senior Life Care SUPPLEMENTAL NEEDS TRUST
+                     SLC SUPPLEMENTAL NEEDS TRUST
                  </p>
                  <p class="supplemental-header-title">
                      Joinder Agreement / Beneficiary Profile Sheet

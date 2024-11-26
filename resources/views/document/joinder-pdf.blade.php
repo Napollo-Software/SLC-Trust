@@ -340,7 +340,7 @@
 
         <div class="page-1">
             <div class="center-text" style="background-color: rgb(184 221 219);padding-top: 7px;padding-bottom: 7px;padding-left:10px;padding-right:10px;width:120%;margin-left:-10%">
-                <p style="text-align:center;" class="strong lg">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                <p style="text-align:center;" class="strong lg">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 <p style="text-align:center;color:rgb(52 159 153);margin-top:-11px" class="lg">Joinder Agreement / Beneficiary
                     Profile Sheet</p>
             </div>
@@ -610,7 +610,7 @@
                 <div style="margin: 20px 0"></div>
                 <div style="display: table-row">
                     <div style="display: table-cell;visibility:hidden">
-                        <span style="font-size:12px">Senior Life Care SUPPLEMENTAL NEEDS TRUST</span>
+                        <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
                     </div>
                     <div style="display: table-cell;text-align: center;">
                         <span >1</span>
@@ -639,7 +639,7 @@
         <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -1095,7 +1095,7 @@
 
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
-                        <span style="font-size:12px">Senior Life Care SUPPLEMENTAL NEEDS TRUST</span>
+                        <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
                     </div>
                     <div style="display: table-cell;text-align: center;">
                         <span style="border: 1px solid rgb(52 159 153);width: 2%;padding: 5px;font-size:12px">1</span>
@@ -1180,7 +1180,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -1198,7 +1198,7 @@
 
                 {{-- <div style="display: table-row">
                     <div style="display: table-cell;">
-                        <span style="font-size:12px">Senior Life Care SUPPLEMENTAL NEEDS TRUST</span>
+                        <span style="font-size:12px">SLC SUPPLEMENTAL NEEDS TRUST</span>
                     </div>
                     <div style="display: table-cell;text-align: center;">
                         <span style="border: 1px solid rgb(52 159 153);width: 2%;padding: 5px;font-size:12px">1</span>
@@ -1579,7 +1579,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -1872,7 +1872,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2184,7 +2184,7 @@
     <div style="display: table; width: 100%;" class="footer">
         <div style="display:table-row;width:100%">
         <div style="display: table-cell; text-align: left; width: 33%;">
-            <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+            <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
         </div>
         <div style="display: table-cell; text-align: center; width: 33%;">
             <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2301,7 +2301,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                     <div style="display: table-cell; text-align: left; width: 33%;">
-                        <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
                     </div>
                     <div style="display: table-cell; text-align: center; width: 33%;">
                         <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2409,7 +2409,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                     <div style="display: table-cell; text-align: left; width: 33%;">
-                        <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
                     </div>
                     <div style="display: table-cell; text-align: center; width: 33%;">
                         <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2658,7 +2658,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                 <div style="display: table-cell; text-align: left; width: 33%;">
-                    <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                    <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
                 </div>
                 <div style="display: table-cell; text-align: center; width: 33%;">
                     <div style=" padding: 7px; display: inline-block; position: relative;">
@@ -2919,7 +2919,7 @@
             <div style="display: table; width: 100%;" class="footer">
                 <div style="display:table-row;width:100%">
                     <div style="display: table-cell; text-align: left; width: 33%;">
-                        <p class="xxs">Senior Life Care SUPPLEMENTAL NEEDS TRUST</p>
+                        <p class="xxs">SLC SUPPLEMENTAL NEEDS TRUST</p>
                     </div>
                     <div style="display: table-cell; text-align: center; width: 33%;">
                         <div style=" padding: 7px; display: inline-block; position: relative;">
