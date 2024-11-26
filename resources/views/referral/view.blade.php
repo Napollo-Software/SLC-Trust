@@ -498,7 +498,7 @@ return $colors[$randomIndex];
                                                                     Upload Signed
                                                                 </button>
                                                                 @else
-                                                                <button type="button" data-id="{{ $item['id'] }}" data-referral="{{ $item['referral_id'] }}" data-filename="{{ $item['uploaded_url'] }}" class="dropdown-item uploadBtn previewBtn">
+                                                                <button type="button" data-id="{{ $item['id'] }}" data-referral="{{ $item['referral_id'] }}" data-filename="{{ url('/storage/'.$item['uploaded_url']) }}" class="dropdown-item uploadBtn previewBtn">
                                                                     <i class="fe fe-eye me-2"></i>
                                                                     Preview Upload
                                                                 </button>

@@ -2365,7 +2365,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                          <div class="mail-trust">
                              <p>Please mail all trust documents to:</p>
                              <div class="mail-trust-des">
-                                 <p>Senior Life Care Supplemental Needs Trust</p>
+                                 <p>SLC Supplemental Needs Trust</p>
                                  <p>5014-16th Ave, Suite 489</p>
                                  <p>Brooklyn, NY 11204</p>
                              </div>
@@ -4086,7 +4086,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     account, such funds shall be deemed to be property
                                     of the Trust and all funds that are remaining in the
                                     Beneficiary’s separate sub-trust account shall
-                                    be retained by Senior Life Care Supplemental Needs Trust to
+                                    be retained by SLC Supplemental Needs Trust to
                                     further the purposes of that Trust. However, to the
                                     extent that amounts remaining in the individual’s
                                     subtrust account upon the death of the individual
@@ -4114,7 +4114,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 gap: 10px;line-height:1.4">
                                 <p style="text-align:justify">All contributions made to the sub-trust account
                                     will be held and administered pursuant to the
-                                    provisions of the Senior Life Care Supplemental Needs Trust
+                                    provisions of the SLC Supplemental Needs Trust
                                     which are incorporated by reference herein.
                                     The Trustees shall have the sole and absolute right
                                     to accept or refuse additional deposits to the subtrust account.</p>
@@ -4170,7 +4170,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     that administrative fees shall be incurred while the
                                     determination of disability is being made.</p>
                                 <p style="text-align:justify">The Donor acknowledges that contributions to
-                                    the Senior Life Care Supplemental Needs Trust are not tax
+                                    the SLC Supplemental Needs Trust are not tax
                                     deductible as charitable gifts, or otherwise.</p>
                                 <p style="text-align:justify">Sub-trust account income may be taxable to the
                                     Beneficiary.
@@ -4189,7 +4189,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     in the Trust may be used to pay for ancillary and/
                                     or supplemental services for Beneficiaries and
                                     potential Beneficiaries for which services may be
-                                    rendered by Senior Life Care Supplemental Needs Trust.</p>
+                                    rendered by SLC Supplemental Needs Trust.</p>
                                 <p style="text-align:justify">The Donor executing this Joinder Agreement is
                                     aware of the potential conflicts of interest that exist
                                     in the Trustee’s</p>
@@ -4274,7 +4274,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                     document are true and accurate to the best of my
                                     knowledge.
                                 </p>
-                                <p style="text-align:justify">The Senior Life Care Supplemental Needs Trust is authorized to
+                                <p style="text-align:justify">The SLC Supplemental Needs Trust is authorized to
                                     be used by individuals with disabilities pursuant to
                                     federal and state law. By agreeing to accept a donor’s
                                     property pursuant to this Joinder Agreement, Senior Life Care
@@ -4296,7 +4296,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 federal law, to determine whether they have the
                                 legal authority to transfer property to fund the
                                 trust, and the impact that a transfer of property to
-                                the Senior Life Care Supplemental Needs Trust will have on the
+                                the SLC Supplemental Needs Trust will have on the
                                 donor’s continuing eligibility for government benefit
                                 programs
                             </p>
@@ -4321,7 +4321,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 required to repay the amount disbursed.
                             </p>
                             <p style="text-align:justify">This Joinder Agreement and the participation of the
-                                Beneficiary in the Senior Life Care Supplemental Needs Trust is an
+                                Beneficiary in the SLC Supplemental Needs Trust is an
                                 important legal decision that may have significant
                                 and lasting consequences for the Beneficiary and as
                                 a result you may want to consider obtaining advice
@@ -4336,7 +4336,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 with this Joinder Agreement, the participation by
                                 the Beneficiary in the Senior Life Care Supplemental Needs
                                 Trust or the suitability of such participation by the
-                                Beneficiary in the Senior Life Care Supplemental Needs Trust
+                                Beneficiary in the SLC Supplemental Needs Trust
                                 based upon the particular circumstances of the
                                 Beneficiary.
                             </p>
@@ -4584,7 +4584,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="for-office-use-only-body">
                         <div style="font-size: 20px; text-align: center;">
-                            <p>Accepted by Trustee or Designated Representative of the Trustees, Senior Life Care Supplemental Needs Trust.</p>
+                            <p>Accepted by Trustee or Designated Representative of the Trustees, SLC Supplemental Needs Trust.</p>
                         </div>
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                             <div class="w-40">
@@ -4731,10 +4731,10 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                 <div style="display: flex; flex-direction: column; justify-content: center; gap: 20px;">
                     <div style="display: flex; flex-direction: column; gap: 10px;">
                         <h4>PLEASE SUBMIT A VOID CHECK ALONG WITH YOUR FORM.</h4>
-                        <p>I authorize and request Senior Life Care Supplemental Needs Trust, dated December 24, 2017 to initiate debit entries
+                        <p>I authorize and request SLC Supplemental Needs Trust, dated December 24, 2017 to initiate debit entries
                             to my account at the depository financial institution indicated above. This authorization is to remain in full
-                            force and affect until Senior Life Care Supplemental Needs Trust has written notification from me of its termination in
-                            such time and manner as to afford Senior Life Care Supplemental Needs Trust and depository financial institution a
+                            force and affect until SLC Supplemental Needs Trust has written notification from me of its termination in
+                            such time and manner as to afford SLC Supplemental Needs Trust and depository financial institution a
                             reasonable opportunity to act on it. </p>
                     </div>
                     <div>
