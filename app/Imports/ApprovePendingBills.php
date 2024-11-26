@@ -90,7 +90,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             $subject = "Bill Approved";
                             $name = $user->name . ' ' . $user->last_name;
                             $email_message = "Your bill#" . $user->id . " added on " . date('m-d-Y', strtotime($user->created_at)) . " has been Approved. Please use the button below to find the details of your bill:";
-                            $url = '/claims/' . $claim->id;
+                            $url = ("/claims/{$claim->id}");
                             if ($user->notify_by == "email") {
                                 SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
                             }
@@ -142,11 +142,9 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             $subject = "Bill Partially Approved";
                             $name = $user->name . ' ' . $user->last_name;
                             $email_message = "Your bill#" . $user->id . " added on " . date('m-d-Y', strtotime($user->created_at)) . " has been Partially Approved. Please use the button below to find the details of your bill:";
-                            $url = '/claims/' . $claim->id;
+                            $url = url("/claims/{$claim->id}");
                             if ($user->notify_by == "email") {
                                 SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
-                            } else {
-
                             }
                         }
                         if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] == 'Reject') {
@@ -164,11 +162,9 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                             $subject = "Bill Refused";
                             $name = $user->name . ' ' . $user->last_name;
                             $email_message = "Your bill#" . $user->id . " added on " . date('m-d-Y', strtotime($user->created_at)) . " has been Refused. Please use the button below to find the details of your bill:";
-                            $url = '/claims/' . $claim->id;
+                            $url = url("/claims/{$claim->id}");
                             if ($user->notify_by == "email") {
                                 SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
-                            } else {
-
                             }
                         }
                     }

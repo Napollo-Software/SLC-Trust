@@ -188,11 +188,9 @@ class RecurringBill extends Command
                 $subject = "Bill Created";
                 $name = $notify->name.' '.$notify->last_name;
                 $email_message = $claimUser->name.' '.$claimUser->last_name."'s recurring bill#".$new_claim->id." has been created and waiting for approval. Please use the button below to find the details of the bill:";
-                $url = '/claims/'.$new_claim->id;
+                $url = url("/claims/{$new_claim->id}");
                 if($notify->notify_by == "email"){
                      SendEmailJob::dispatch($notify->email,$subject,$name,$email_message,$url);
-                }else{
-
                 }
             }
           }

@@ -105,7 +105,7 @@ class DocumentController extends Controller
             $subject = "Document By {$app_name}";
             $name = $referral->first_name . ' ' . $referral->last_name;
             $email_message = "{$app_name} has sent a document to sign. Please use the button below to find the details of your document:";
-            $url = $pdfUrl;
+            $url = url($pdfUrl);
             try {
                 SendEmailJob::dispatch($recipientEmail, $subject, $name, $email_message, $url);
             } catch (\Exception $e) {
@@ -160,7 +160,7 @@ class DocumentController extends Controller
             $subject = "Document";
             $name = $referral->first_name . ' ' . $referral->last_name;
             $email_message = "Your document has been approved. Please use the button below to find the details of your document:";
-            $url = $pdfUrl;
+            $url = url($pdfUrl);
             try {
                 SendEmailJob::dispatch($recipientEmail, $subject, $name, $email_message, $url);
             } catch (\Exception $e) {
@@ -358,7 +358,7 @@ class DocumentController extends Controller
     {
 
         $formattedDates = [];
-       
+
 
         if ($request->has('office_use_date_approved') && $request->office_use_date_approved) {
             $formattedDates['office_use_date_approved'] = Carbon::parse($request->office_use_date_approved)->format('m/d/Y');

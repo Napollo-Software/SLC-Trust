@@ -314,7 +314,7 @@ class claimsController extends Controller
                     $name = "{$notify->name} {$notify->last_name}";
                     $email_message = $claimUser->name . ' ' . $claimUser->last_name . " has submitted bill#" . $details->id . " on " . date('m-d-Y', strtotime($claim->created_at)) . " and waiting for approval. Please use the button below to find the details of the bill:";
 
-                    $url = "/claims/$details->id";
+                    $url = url("/claims/{$details->id}");
 
                     // SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
 

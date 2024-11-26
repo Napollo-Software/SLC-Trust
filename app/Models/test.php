@@ -194,11 +194,9 @@
          $subject = "Partically approved";
          $name = $claimUser->name . ' ' . $claimUser->last_name;
          $email_message = 'Your bill#' . $details->id . ' added on ' . date('m-d-Y', strtotime($details->created_at)) . ' has been partially approved with amount $' . $claim_amount . ', Please use the button below to find the details of your bill:';
-         $url = '/claims/' . $details->id;
+         $url = url("/claims/{$details->id}");
          if ($claimUser->notify_by == "email") {
              // SendEmailJob::dispatch($claimUser->email,$subject,$name,$email_message,$url);
-         } else {
-
          }
          return response()->json(['header' => 'Partially approved!', 'type' => 'success', 'message' => "Bill#" . $request->id . " has been Partial approved successfully."]);
      }
