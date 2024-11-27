@@ -835,10 +835,9 @@
                 </div>
                 <div style="display: table-row;" class="xs">
                     <div style="display: table-cell">
-                        <input type="text" value="{{ $auth_rep_one_tel }}" name="auth_rep_one_tel" style="width: 95%"> <br>
+                        <input type="text" value="{{ $auth_rep_one_tel }}" name="auth_rep_one_tel" style="width: 90%"> <br>
                         <label class="italic">Home Phone</label>
                     </div>
-                    <div style="display: table-cell">
                         <input type="text" value="{{ $auth_rep_one_cell }} " name="auth_rep_one_cell" style="width: 95%"> <br>
                         <label class="italic">Cell Phone</label>
                     </div>

@@ -373,7 +373,8 @@ class DocumentController extends Controller
         }
 
         if ($request->has('sponsor_dob') && $request->sponsor_dob) {
-            $formattedDates['sponsor_dob'] = Carbon::parse($request->sponsor_dob)->format('m/d/Y');
+            // $formattedDates['sponsor_dob'] = Carbon::parse($request->sponsor_dob)->format('m/d/Y');
+            $formattedDates['sponsor_dob'] = $request->sponsor_dob;
         }
 
         if ($request->has('notary_on_date') && $request->notary_on_date) {

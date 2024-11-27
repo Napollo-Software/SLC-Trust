@@ -3359,13 +3359,13 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="life-insurance-information-body">
                         <div class="life-insurance-information-body-info">
-                            <div style="display: flex;
+                            {{-- <div style="display: flex;
                             justify-content: flex-start;
                             align-items: center;
                             gap: 10px; flex-wrap:wrap">
                                 <p>Is there a life insurance policy in place for the Beneficiary?</p>
                                 <div style="display: flex;
-                                justify-content: center;
+                            justify-content: center;
                                 align-items: center;
                                 gap: 10px;">
                                     <div>
@@ -3384,9 +3384,9 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                         <label style="font-style: normal;font-size:16px" for="life-insurance-information-body-no">No</label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div>
-                                <p style="font-style: italic">If you answered yes, please attach funeral provision documents</p>
+                                <p style="font-style: italic">Please attach a copy</p>
                             </div>
                         </div>
                         <div class="life-insurance-information-body-form">
