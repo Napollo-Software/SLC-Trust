@@ -2268,7 +2268,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                      <span>Social Security Number</span>
                                  </div>
                                  <div class="dob-form">
-                                 <input type="date" class="inp-last" name="sponsor_dob" value="{{$referral->date_of_birth}}" max="9999-12-31">
+                                 <input type="date" class="inp-last" name="sponsor_dob" value="{{$referral->date_of_birth}}" max="12-31-9999">
                                       <br>
                                      <span>Date of Birth</span>
                                  </div>
@@ -4900,7 +4900,7 @@ generateSignature(4)
     });
 
 var phoneInput = document.getElementById('ssn');
-  var mask = new Inputmask("999-999-9999");
+  var mask = new Inputmask("999-99-9999");
   mask.mask(phoneInput);
 
 

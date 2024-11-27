@@ -24,13 +24,13 @@
             src: url('fonts/info-semibold.ttf') format('truetype');
         }
 
-   
+
         @font-face {
             font-family: 'info_web-italic';
             src: url('fonts/info_web-italic.ttf') format('truetype');
         }
 
-   
+
 
         body{
             font-family:  'info-normal' ;
@@ -63,7 +63,7 @@
         .xl{
             font-size: 17px;
         }
-        
+
         .mt-0{
             margin-top:0px
         }
@@ -76,7 +76,7 @@
             font-family: "Info-Bold" !important;
         }
 
-      
+
 
         .gap1{
             margin-top:10px;
@@ -227,7 +227,7 @@
         <div style="display: table-row; width: 100%;background-color: peru;padding:0;margin: 0">
             <div style="display: table-cell; width: 50%;padding-top:5px;margin-top:5px !important;padding-right:12px !important">
                 <p style=" width: 50%;margin-bottom:0px !important;" class="md semiBold" >Name:</p>
-                
+
                 <div style="display: table; width: 100%;padding-top:7px">
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
                          First:
@@ -264,7 +264,7 @@
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
                      Date Of Birth:
                     </p>
-                    <input type="text" value="{{date('m/d/Y',strtotime($date_of_birth))}}"   class="border-btm" name="date_of_birth"
+                    <input type="text" value="{{$date_of_birth}}"   class="border-btm" name="date_of_birth"
                         style="display: table-cell; vertical-align: bottom; width: 88%;">
                 </div>
 
@@ -290,7 +290,7 @@
                 </div>
                 <div style="display: table; width: 100%;padding-top:9px">
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
-                     Client ID Number (CIN): 
+                     Client ID Number (CIN):
                     </p>
                     <input type="text" value="{{$client_id_number}}" class="border-btm" name="client_id_number"
                         style="display: table-cell; vertical-align: bottom; width: 86%; ">
@@ -306,7 +306,7 @@
                     <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px; margin: 0;">
                     Medicaid Application date:
                     </p>
-                    <input type="text" value="{{date('m/d/Y',strtotime($medicaid_application))}}"  class="border-btm" name="medicaid_application"
+                    <input type="text" value="{{$medicaid_application}}"  class="border-btm" name="medicaid_application"
                         style="display: table-cell; vertical-align: bottom; width: 87%; ">
                 </div>
                 <div style="display: table; width: 100%;padding-top:9px">
@@ -316,7 +316,7 @@
                     <div style="display: table-cell; vertical-align: bottom; width: 87%;">
                             <input type="checkbox"
                                    name="medicaid_waiver_yes" {{isset($medicaid_waiver_yes) && $medicaid_waiver_yes == 'yes' ? 'checked' : ''}} style="vertical-align: bottom;">
-                                   &nbsp;Yes 
+                                   &nbsp;Yes
                             <input type="checkbox"
                                    name="medicaid_waiver_no" {{isset($medicaid_waiver_no) && $medicaid_waiver_no == 'no' ? 'checked' : ''}} style="vertical-align: bottom;margin-left:6px"> &nbsp;
                             No
@@ -421,10 +421,10 @@
             <td style="padding-left:9px">
                 <p class="sm mt-0" >
                     B. How do your medical conditions affect your ability to function? (Please include any limitations
-                    in your ability to perform activities of daily 
+                    in your ability to perform activities of daily
                     <br/>
                     <span style="margin-left:6px;padding-left:6px"> living and work-related activities.)</span>
-                  
+
                 </p>
                 <textarea class="noborder" style="width: 100%; height: 140px;"
                           name="medical_condition_impact">{{$medical_condition_impact}}</textarea>
@@ -469,7 +469,7 @@
                     A. Do you have a primary care provider? &nbsp;&nbsp; <input type="checkbox"
                                                                    name="primary_care_provider_yes"
                                                                    {{isset($primary_care_provider_yes) && $primary_care_provider_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom;">
-                                                                   &nbsp;Yes 
+                                                                   &nbsp;Yes
                     <input type="checkbox"
                            name="primary_care_provider_no"
                            {{isset($primary_care_provider_no) && $primary_care_provider_no == 'no' ? 'checked':''}} style="vertical-align: bottom; margin-left:6px"> &nbsp;
@@ -495,7 +495,7 @@
                 B. Have you seen any other medical provider(s) within the past 12 months? &nbsp;&nbsp; <input
                     type="checkbox"
                     {{isset($medical_provider_yes) && $medical_provider_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom">
-                    &nbsp;Yes 
+                    &nbsp;Yes
                 <input
                     type="checkbox"
                     {{isset($medical_provider_no) && $medical_provider_no == 'no' ? 'checked':''}} style="vertical-align: bottom;margin-left:6px"> &nbsp;No
@@ -601,14 +601,14 @@
                        name="medical_provider_3_reason">
             </td>
         </tr>
-       
+
         <!-- Second................. -->
         <tr style="height: 15px !important;padding:2px !important;" class="sm">
             <td style="height: 15px !important;padding:0 5px!important;padding-top:6px !important" class="sm" colspan="3">
                 C. Have you received medical care in a hospital or other health care facility within the past 12 months?&nbsp;  &nbsp;  <input
                     type="checkbox"
-                    {{isset($got_medicare_yes) && $got_medicare_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom"> 
-                    &nbsp;  Yes 
+                    {{isset($got_medicare_yes) && $got_medicare_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom">
+                    &nbsp;  Yes
                 <input
                     type="checkbox"
                     {{isset($got_medicare_no) && $got_medicare_no == 'no' ? 'checked':''}} style="vertical-align: bottom; margin-left:6px"> &nbsp;  No
@@ -631,7 +631,7 @@
                        style="margin: 0;padding: 0 0px; font-size:10px !important"
                        name="medicare_rec_1_name">
             </td>
-         
+
             <td style="height: 15px !important;padding:0 3px !important; vertical-align: top; " rowspan="2">
                 <p style="margin: 0;padding: 0 0px;">Address:</p>
                 <input type="text" value="{{$medicare_rec_1_address}}" class="noborder"
@@ -710,7 +710,7 @@
                     type="checkbox"
                      name="agency_assist_yes"
                     {{isset($agency_assist_yes) && $agency_assist_yes == 'yes' ? 'checked':''}} style="vertical-align: bottom">
-                    &nbsp; Yes 
+                    &nbsp; Yes
                 <input
                     type="checkbox"
                      name="agency_assist_no"
@@ -720,8 +720,8 @@
                 <p style="padding: 0 ;margin: 0;margin-left:10px;margin-top:-3px" class="sm italic">(If “Yes”, please complete the section below.)</p><br>
 
                 <p style="padding: 0 ;margin: 0;padding-bottom:2px !important;margin-top:-10px"class="sm semiBold"  >
-                Please list the name and address of any other agencies that you have seen for assistance with your medical conditions 
-in the past 12 months (for example, vocational rehabilitation agencies, supported employment or housing agencies, 
+                Please list the name and address of any other agencies that you have seen for assistance with your medical conditions
+in the past 12 months (for example, vocational rehabilitation agencies, supported employment or housing agencies,
 case management agencies, etc.).
                 </p>
             </td>
@@ -774,8 +774,8 @@ case management agencies, etc.).
                 <input type="text" value="{{$agency_2_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="agency_2_reason">
-                
-                
+
+
             </td>
         </tr>
         <tr style="height: 15px !important;">
@@ -804,7 +804,7 @@ case management agencies, etc.).
                 <input type="text" value="{{$agency_3_reason}}" class="noborder"
                        style="margin: 0;padding: 0 0px;font-size:10px !important;width:95%;"
                        name="agency_3_reason">
-                
+
             </td>
         </tr>
 
@@ -849,7 +849,7 @@ case management agencies, etc.).
                                                class="border-btm"></p>
                 <p class="sm "style="margin-left:5%" ><span class="sm" style="vertical-align: middle;">Address:</span>  <input type="text" value="{{$school_address}}" name="school_address"
                                    class="border-btm" style="width:88%"></p>
-                <p class="sm "style="margin-left:5%" > <input type="text" 
+                <p class="sm "style="margin-left:5%" > <input type="text"
                                    class="border-btm" style="width:88%; margin-left:45px" value="{{$school_address2}}" name="school_address2"></p>
                 <p class="sm  italic" style="margin-bottom:6px !important">Please complete the DOH-5173, Authorization for Release of Medical
                     Information Pursuant to HIPAA
@@ -863,7 +863,7 @@ case management agencies, etc.).
                 <input  class="sm"  type="checkbox"
                        name="special_education_yes"
                        {{isset($special_education_yes) && $special_education_yes == 'yes' ? 'checked':''}}   style="vertical-align: bottom">
-                       &nbsp;Yes 
+                       &nbsp;Yes
                 <input class="sm" type="checkbox"
                        name="special_education_no"
                        {{isset($special_education_no) && $special_education_no == 'no' ? 'checked':''}}   style="vertical-align: bottom;margin-left:6px"> &nbsp;
@@ -879,7 +879,7 @@ case management agencies, etc.).
                         &nbsp;Yes  <input type="checkbox"
                                name="special_help_no"
                                {{isset($special_help_no) && $special_help_no == 'no' ? 'checked':''}}  style="vertical-align: bottom; margin-left:6px"> &nbsp;
-                    No   &nbsp; &nbsp; <span class="italic">(If “Yes”, please describe.)</span> 
+                    No   &nbsp; &nbsp; <span class="italic">(If “Yes”, please describe.)</span>
                     <p style="margin-top:-15px !important;padding-top:-15px !important" ></p>
                 <textarea class=""
                           name="special_help_text" style="height: 145px;">{{$special_help_text}} </textarea>
@@ -898,7 +898,7 @@ case management agencies, etc.).
                     &nbsp; Yes <input type="checkbox"
                                name="vocational_training_no"
                                {{isset($vocational_training_no) && $vocational_training_no == 'no' ? 'checked':''}}  style="vertical-align: bottom; margin-left:6px">
-                    &nbsp; No 
+                    &nbsp; No
                     <br>
                     <p style="margin-left:10px; margin-top:-4px !important" class="italic">
                         (If “Yes”, please describe.)
@@ -943,7 +943,7 @@ case management agencies, etc.).
             <td colspan="3" class="sm">
                 <p style="margin-top:3px !important;margin-bottom:3px !important">
                     H. Was assistance or an interpreter necessary to complete this application?  &nbsp; &nbsp;
-                    <input type="checkbox" 
+                    <input type="checkbox"
                            name="interpreter_yes"
                            {{isset($interpreter_yes) && $interpreter_yes == 'yes' ? 'checked':''}}  style="vertical-align: bottom">
                            &nbsp; &nbsp; Yes <input type="checkbox"
@@ -952,7 +952,7 @@ case management agencies, etc.).
                                &nbsp; &nbsp; No
                     <br>
                     <p style="margin-left:10px ;margin-top:-3px !important;" class="italic" >(If “Yes”, please indicate your primary language.)</p>
-                    
+
 
                 </p>
 
@@ -1235,7 +1235,7 @@ case management agencies, etc.).
             </td>
         </tr>
     </table>
-  
+
     <br>
     <!-- 4th page section 3 -->
     <table style=" margin: 0;padding:0">
@@ -1614,7 +1614,7 @@ case management agencies, etc.).
                        class="noborder">
             </td>
             <td style=" margin: 0; padding: 0; padding-left:5px;padding-bottom:5px">
-                <span class="sm semiBold">Date:</span> 
+                <span class="sm semiBold">Date:</span>
                 <input type="text" class="noborder" name="form_date"  value="{{date('m/d/Y',strtotime($form_date))}}"   style=" vertical-align: bottom;">
             </td>
         </tr>

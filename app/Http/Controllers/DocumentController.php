@@ -372,6 +372,10 @@ class DocumentController extends Controller
             $formattedDates['joinder_date'] = Carbon::parse($request->joinder_date)->format('m/d/Y');
         }
 
+        if ($request->has('sponsor_dob') && $request->sponsor_dob) {
+            $formattedDates['sponsor_dob'] = Carbon::parse($request->sponsor_dob)->format('m/d/Y');
+        }
+
         if ($request->has('notary_on_date') && $request->notary_on_date) {
             $formattedDates['notary_on_date'] = Carbon::parse($request->notary_on_date)->format('m/d/Y');
         }
@@ -800,10 +804,7 @@ class DocumentController extends Controller
 
     }
 
-    public
-        function saveDisability(
-        Request $request
-    ) {
+    public function saveDisability(Request $request) {
         set_time_limit(200);
 
         $referralId = $request->referral_id;
@@ -811,6 +812,7 @@ class DocumentController extends Controller
         if (!$referral) {
             return response()->json(['message' => 'Referral not found'], 404);
         }
+
         $directory = storage_path('app/public/' . $referral->email);
         if (!is_dir($directory)) {
             mkdir($directory, 0777, true);
@@ -818,6 +820,7 @@ class DocumentController extends Controller
 
 
         $data = $request->all();
+
         $pdf = PDF::loadView('document.disability-pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),

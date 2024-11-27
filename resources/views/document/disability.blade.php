@@ -275,7 +275,7 @@
             padding:10px;
             font-family:'info-normal'
         }
-        
+
         .italic{
             font-family:'info_web-italic'
         }
@@ -320,7 +320,7 @@
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Date Of Birth:</span>
-                        <input type='text' name="date_of_birth" value="{{$referral->date_of_birth}}">
+                        <input type='text' name="date_of_birth" class="dobMask" value="{{ \Carbon\Carbon::parse($referral->date_of_birth)->format('m/d/Y') }}" placeholder="mm-dd-yyyy">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Telephone Number:</span>
@@ -344,7 +344,7 @@
                         </div>
                         <div class='row gap-5 text-base align-items-end'>
                             <span class='nowrap'> Medicaid Application date:</span>
-                            <input type='text' name="medicaid_application">
+                            <input type='text' class="dobMask" name="medicaid_application">
                         </div>
                         <div class='row gap-5 text-base align-items-center checkbox-group '>
                             <span class='nowrap'> Medicaid waiver?</span>
@@ -845,7 +845,7 @@
                                     <input type='text' name="school_address" maxlength="110">
                                 </div>
                                 <div class='form-row gap-5 align-items-end' style='margin:0px 0px 0px 66px'>
-                                    <input type='text' name="school_address2" maxlength="110"> 
+                                    <input type='text' name="school_address2" maxlength="110">
                                 </div>
                                 <p class='text-left italic' style='padding-top:1rem'>Please complete the DOH-5173, Authorization for Release of Medical Information Pursuant to HIPAA form for this school/program.</p>
                             </div>
@@ -1483,9 +1483,15 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+
+        $('.dobMask').mask('00-00-0000', {
+            placeholder: "mm-dd-yyyy"
+        });
+
         $(".chb").change(function() {
             const group = $(this).closest('.checkbox-group ');
             group.find(".chb").prop('checked', false);
