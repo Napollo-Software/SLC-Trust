@@ -2200,7 +2200,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                      advice before signing this agreement. The undersigned
                      hereby adopts,
                      enrolls in and establishes a sub-trust account under the
-                     Senior Life Care
+                     SLC
                      Supplemental Needs Trust, dated December 24, 2017.
                  </p>
                  <p>
@@ -2427,7 +2427,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                           <div class="authorized-representative-body-content-1">
                               <div class="authorized-representative-body-content-1-des">
                                   <p>The following individual will be
-                                      authorized to communicate with Senior Life Care
+                                      authorized to communicate with SLC
                                       Supplemental Needs Trust. I authorize
                                       this individual to: Make Deposits,
                                       Request Statements and Request
@@ -2538,7 +2538,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                           <div class="authorized-representative-body-content-2">
                               <div class="authorized-representative-body-content-1-des">
                                   <p>The following individual will be
-                                      authorized to communicate with Senior Life Care
+                                      authorized to communicate with SLC
                                       Supplemental Needs Trust. I authorize
                                       this individual to: Make Deposits,
                                       Request Statements and Request
@@ -4277,7 +4277,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 <p style="text-align:justify">The SLC Supplemental Needs Trust is authorized to
                                     be used by individuals with disabilities pursuant to
                                     federal and state law. By agreeing to accept a donor’s
-                                    property pursuant to this Joinder Agreement, Senior Life Care
+                                    property pursuant to this Joinder Agreement, SLC
                                     Supplemental Needs Trust agrees only to manage
                                     the trust funds in accordance with the terms of the
                                     Master Trust Agreement and in compliance with
@@ -4303,7 +4303,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                             <p style="text-align:justify">Senior Lifecare Corp is not assuming any
                                 responsibility as counsel for the donor or Beneficiary,
                                 or providing any legal advice as it relates to the
-                                consequences of a transfer of property to the Senior Life Care
+                                consequences of a transfer of property to the SLC
                                 Supplemental Needs Trust.
                             </p>
                             <p style="text-align:justify">The Trustees in their discretion may require an

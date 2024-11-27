@@ -2353,7 +2353,7 @@
                     knowledge.<br/>The SLC Supplemental Needs Trust is authorized to
                     be used by individuals with disabilities pursuant to
                     federal and state law. By agreeing to accept a donor’s
-                    property pursuant to this Joinder Agreement, Senior Life Care
+                    property pursuant to this Joinder Agreement, SLC
                     Supplemental Needs Trust agrees only to manage
                     the trust funds in accordance with the terms of the
                     Master Trust Agreement and in compliance with
