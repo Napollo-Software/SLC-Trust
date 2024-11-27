@@ -2268,7 +2268,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                      <span>Social Security Number</span>
                                  </div>
                                  <div class="dob-form">
-                                 <input type="date" class="inp-last" name="sponsor_dob" value="{{$referral->date_of_birth}}" max="12-31-9999">
+                                 <input type="date" class="inp-last" name="sponsor_dob" value="{{ \Carbon\Carbon::parse($referral->date_of_birth)->format('m/d/Y') }}" max="12-31-9999">
                                       <br>
                                      <span>Date of Birth</span>
                                  </div>
@@ -4312,7 +4312,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                 may be charged to the sub-trust account.
                             </p>
                             <p style="text-align:justify">The party authorized to speak with us on your behalf
-                                or the intermediary must notify SLC supplemental
+                                or the intermediary must notify SLC Supplemental
                                 Needs Trust. immediately upon your death and
                                 will be required to provide us with a certified death
                                 certificate. An individual requesting and/or receiving
