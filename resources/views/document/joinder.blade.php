@@ -2268,7 +2268,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                      <span>Social Security Number</span>
                                  </div>
                                  <div class="dob-form">
-                                 <input type="date" class="inp-last" name="sponsor_dob" value="{{ \Carbon\Carbon::parse($referral->date_of_birth)->format('m/d/Y') }}" max="12-31-9999">
+                                 <input type="text" class="inp-last" placeholder="mm/dd/yyyy" name="sponsor_dob" value="{{ \Carbon\Carbon::parse($referral->date_of_birth)->format('m/d/Y') }}" max="12-31-9999">
                                       <br>
                                      <span>Date of Birth</span>
                                  </div>
@@ -3359,7 +3359,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="life-insurance-information-body">
                         <div class="life-insurance-information-body-info">
-                            {{-- <div style="display: flex;
+                            <div style="display: flex;
                             justify-content: flex-start;
                             align-items: center;
                             gap: 10px; flex-wrap:wrap">
@@ -3384,7 +3384,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                                         <label style="font-style: normal;font-size:16px" for="life-insurance-information-body-no">No</label>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div>
                                 <p style="font-style: italic">Please attach a copy</p>
                             </div>
@@ -4840,7 +4840,9 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/inputmask.min.js"></script>
 
+
 <script type="text/javascript">
+
 generateSignature(1)
 generateSignature(2)
 generateSignature(3)
@@ -4902,6 +4904,10 @@ generateSignature(4)
 var phoneInput = document.getElementById('ssn');
   var mask = new Inputmask("999-99-9999");
   mask.mask(phoneInput);
+
+var dateInput1 = document.getElementById('maskDate');
+  var mask2 = new Inputmask("00/00/0000");
+  mask2.mask(dateInput1);
 
 
 

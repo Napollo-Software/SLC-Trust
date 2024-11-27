@@ -2456,7 +2456,7 @@
                         </div>
                     </div>
                     <div style="display: table-cell; width: 30%;">
-                        <p style="margin: 0;" class='xs'>
+                        <p style="margin: 0; {{ $joinder_signature_1 ? 'margin-top: 58px;' : '' }}" class='xs'>
                             <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
                             <br>
                             <div style='text-align: left;margin-left:80px'>
@@ -2465,7 +2465,7 @@
                         </p>
                     </div>
                     <div style="display: table-cell; width: 30%;" class='xs'>
-                        <p style="margin: 0;">
+                        <p style="margin: 0; {{ $joinder_signature_1 ? 'margin-top: 58px;' : '' }}">
                             <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
                             <br> <label class='italic'>Date</label>
                         </p>
@@ -2798,8 +2798,6 @@
 
                     </div>
 
-
-
                 {{-- <br> --}}
 
                 <p>
@@ -2832,13 +2830,10 @@
                             </div>
                         @endif
                         </div>
-
                     </div>
-
                 </div>
                 <br>
                 <br>
-
             <div>
                 <div
                 class="strong md"
@@ -2903,8 +2898,6 @@
                     </div>
                 </div>
             </div>
-
-
                 {{-- <br> --}}
                 <p style="margin-top:25px" class="xs italic">
                     If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
@@ -2934,12 +2927,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
     </form>
 </body>
 

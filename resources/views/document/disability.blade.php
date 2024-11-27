@@ -320,7 +320,7 @@
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Date Of Birth:</span>
-                        <input type='text' name="date_of_birth" class="dobMask" value="{{ \Carbon\Carbon::parse($referral->date_of_birth)->format('m/d/Y') }}" placeholder="mm-dd-yyyy">
+                        <input type='text' name="date_of_birth" class="dobMask" value="{{ \Carbon\Carbon::parse($referral->date_of_birth)->format('m/d/Y') }}" placeholder="mm/dd/yyyy">
                     </div>
                     <div class='row gap-5 align-items-end'>
                         <span class='nowrap'>Telephone Number:</span>
@@ -1488,8 +1488,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $('.dobMask').mask('00-00-0000', {
-            placeholder: "mm-dd-yyyy"
+        $('.dobMask').mask('00/00/0000', {
+            placeholder: "mm/dd/yyyy"
         });
 
         $(".chb").change(function() {
