@@ -2822,18 +2822,18 @@
                     <!-- Signature Input and Canvas Preview Container -->
 
                     <div style="display: table-row;" class="md">
-                        <div style="display: table-cell;width:40%">
-                            <label>Beneficiary/ Representative Sign Here </label>
+                        <div style="display: table-cell; width:40%; padding-top:90px;">
+                            <label>Beneficiary/ Representative Sign Here</label>
                         </div>
-                        <div style="display: table-cell;border-bottom:1px solid;text-align:center">
+                        <div style="display: table-cell; border-bottom:1px solid; text-align:center">
                             @if ($joinder_signature_5)
                             <img src="{{ $joinder_signature_5 }}" alt="Signature 5"
                                 style="max-width: 300px; height: 90px;">
-                        @else
-                            <div style="width: 200px; height: 50px; text-align: center;">
-                                No Signature Provided
-                            </div>
-                        @endif
+                            @else
+                                <div style="width: 200px; height: 50px; text-align: center;">
+                                    No Signature Provided
+                                </div>
+                            @endif
                         </div>
 
                     </div>

@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use App\Models\Lead;
-use App\Models\User;
-use App\Models\Referral;
 use App\Jobs\DocumentJob;
-use App\Models\Documents;
 use App\Jobs\sendEmailJob;
-use Illuminate\Http\Request;
-use App\Models\DocumentESign;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Session;
-use RealRashid\SweetAlert\Facades\Alert;
 use App\Jobs\SendManualApploadDocumentJob;
+use App\Models\DocumentESign;
+use App\Models\Documents;
+use App\Models\Lead;
+use App\Models\Referral;
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DocumentController extends Controller
 {
@@ -35,23 +35,45 @@ class DocumentController extends Controller
 
     public function uploadDocument(Request $request)
     {
-        $request->validate(['pdf_file' => 'required|mimes:pdf|max:2048']);
+        // Validate the uploaded file
+        $request->validate([
+            'pdf_file' => 'required|mimes:pdf|max:2048',
+            'getRefId' => 'required|exists:referrals,id',
+            'getDocId' => 'required|exists:documents,id',
+        ]);
 
+        // Find the referral
+        $referral = Referral::findOrFail($request->getRefId);
+
+        // Handle file upload
         $uploadedPdf = $request->file('pdf_file');
         $filename = uniqid() . '.' . $uploadedPdf->getClientOriginalExtension();
-        $request->pdf_file->move(public_path('/recievedDocuments'), $filename);
+        $storagePath = $referral->email . '/' . $filename;
 
-        $approved = Session::get("loginId");
-        $document = Documents::where('referral_id', $request->getRefId)->where('id', $request->getDocId)->first();
+        // Store the file in the 'public' disk
+        $filePath = $uploadedPdf->storeAs($referral->email, $filename, 'public');
 
-        $document->status = "Recieved";
-        $document->uploaded_url = "/recievedDocuments/$filename";
-        $document->approved_by = $approved;
+        // Find the associated document
+        $document = Documents::where('referral_id', $request->getRefId)
+            ->where('id', $request->getDocId)
+            ->firstOrFail();
+
+        // Update document details
+        $document->status = "Received";
+        $document->uploaded_url = "$filePath";
+        $document->approved_by = Session::get("loginId");
         $document->save();
-        $newDocument = url("/recievedDocuments/$filename");
 
+        // Generate the full URL for the uploaded file
+        $newDocumentUrl = asset("storage/$filePath");
 
-        return response()->json(['id' => $request->getDocId, 'url' => $newDocument, 'success' => 'Document was successfully uploaded', 'docId' => $request->getDocId]);
+        // Return success response
+        return response()->json([
+            'id' => $request->getDocId,
+            'url' => $newDocumentUrl,
+            'success' => 'Document was successfully uploaded',
+            'docId' => $request->getDocId,
+        ]);
     }
 
     public function previewDocument($filename)
@@ -84,7 +106,6 @@ class DocumentController extends Controller
         }
         return response()->json('File added successfully');
     }
-
 
     public function generatePDF()
     {
@@ -224,7 +245,6 @@ class DocumentController extends Controller
         return view('document.signature', compact('user', 'signatureData'));
     }
 
-
     public function generateSignature(Request $request)
     {
 
@@ -265,7 +285,6 @@ class DocumentController extends Controller
             ->where('referral_id', $referral->id)
             ->value('id');
 
-
         return view('document.hippa_state', compact('referral', 'documentId'));
 
     }
@@ -282,7 +301,6 @@ class DocumentController extends Controller
             ->where('referral_id', $referral->id)
             ->value('id');
 
-
         return view('document.hippa', compact('referral', 'documentId'));
     }
 
@@ -298,7 +316,6 @@ class DocumentController extends Controller
         $documentId = Documents::where('name', '3 MAP-751E – Authorization to Release Medical Info.pdf')
             ->where('referral_id', $referral->id)
             ->value('id');
-
 
         return view('document.map', compact('referral', 'documentId'));
 
@@ -333,7 +350,6 @@ class DocumentController extends Controller
 
         return view('document.doh', compact('referral', 'documentId'));
 
-
     }
     //JOINDER
     //DOH
@@ -350,7 +366,6 @@ class DocumentController extends Controller
             ->where('referral_id', $referralID)
             ->value('id');
 
-
         return view('document.joinder', compact('referral', 'documentId'));
     }
 
@@ -358,7 +373,6 @@ class DocumentController extends Controller
     {
 
         $formattedDates = [];
-
 
         if ($request->has('office_use_date_approved') && $request->office_use_date_approved) {
             $formattedDates['office_use_date_approved'] = Carbon::parse($request->office_use_date_approved)->format('m/d/Y');
@@ -418,16 +432,14 @@ class DocumentController extends Controller
             }
         }
 
-
         $data = $request->all();
         $pdf = PDF::loadView('document.joinder-pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),
                 'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Nominee-Black'
+                'defaultFont' => 'Nominee-Black',
             ])
             ->setPaper('A4', 'portrait');
-
 
         $savePath = $directory . '/joinder_' . date('Ymd_His') . '.pdf';
 
@@ -498,7 +510,7 @@ class DocumentController extends Controller
             ->setOption([
                 'fontDir' => public_path('/fonts'),
                 'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Courier'
+                'defaultFont' => 'Courier',
             ])
             ->setPaper('A4', 'portrait');
 
@@ -537,7 +549,6 @@ class DocumentController extends Controller
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
     }
 
-
     public function saveHippaState(Request $request)
     {
 
@@ -574,10 +585,9 @@ class DocumentController extends Controller
             ->setOption([
                 'fontDir' => public_path('/fonts'),
                 'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Nominee-Black'
+                'defaultFont' => 'Nominee-Black',
             ])
             ->setPaper('A4', 'portrait');
-
 
         $savePath = $directory . '/hippa_state_' . date('Ymd_His') . '.pdf';
 
@@ -655,12 +665,9 @@ class DocumentController extends Controller
         }
         return response()->json(['message' => "Document(s) sent to {$name} successfully."], 200);
 
-
     }
 
-
-    public
-        function saveDoh(
+    public function saveDoh(
         Request $request
     ) {
         $referralId = $request->referral_id;
@@ -679,7 +686,6 @@ class DocumentController extends Controller
             $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
             $filename = $hippa_state_sign_fieldname . date('Ymd_His') . '.png';
 
-
             $imagePath = $directory . '/' . $filename;
             file_put_contents($imagePath, $imageData);
             $request->merge([$hippa_state_sign_fieldname => $imagePath]);
@@ -690,10 +696,9 @@ class DocumentController extends Controller
             ->setOption([
                 'fontDir' => public_path('/fonts'),
                 'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'info-normal'
+                'defaultFont' => 'info-normal',
             ])
             ->setPaper('A4', 'portrait');
-
 
         $savePath = $directory . '/doh_' . date('Ymd_His') . '.pdf';
         $pdf->save($savePath);
@@ -726,17 +731,14 @@ class DocumentController extends Controller
             $document->save();
         }
 
-
         // Return the URL of the saved PDF file
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
     }
 
-    public
-        function saveMap(
+    public function saveMap(
         Request $request
     ) {
         set_time_limit(200);
-
 
         $referralId = $request->referral_id;
         $referral = Referral::find($referralId);
@@ -762,11 +764,9 @@ class DocumentController extends Controller
             ->setOption([
                 'fontDir' => public_path('/fonts'),
                 'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Nominee-Black'
+                'defaultFont' => 'Nominee-Black',
             ])
             ->setPaper('A4', 'portrait');
-
-
 
         $savePath = $directory . '/map_' . date('Ymd_His') . '.pdf';
         // Save the PDF file to the specified location
@@ -804,7 +804,8 @@ class DocumentController extends Controller
 
     }
 
-    public function saveDisability(Request $request) {
+    public function saveDisability(Request $request)
+    {
         set_time_limit(200);
 
         $referralId = $request->referral_id;
@@ -818,14 +819,13 @@ class DocumentController extends Controller
             mkdir($directory, 0777, true);
         }
 
-
         $data = $request->all();
 
         $pdf = PDF::loadView('document.disability-pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),
                 'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Nominee-Black'
+                'defaultFont' => 'Nominee-Black',
             ])
             ->setPaper('A4', 'portrait');
 
@@ -846,15 +846,11 @@ class DocumentController extends Controller
             $document->save();
         }
 
-
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
-
 
     }
 
-
-    public
-        function approval(
+    public function approval(
         Request $request
     ) {
         return view('document.approval-letter-pdf');
@@ -864,16 +860,14 @@ class DocumentController extends Controller
             mkdir($directory, 0777, true);
         }
 
-
         $data = $request->all();
         $pdf = PDF::loadView('document.approval-letter-pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),
                 'fontCache' => public_path('/fonts'),
-                'defaultFont' => 'Nominee-Black'
+                'defaultFont' => 'Nominee-Black',
             ])
             ->setPaper('A4', 'portrait');
-
 
         $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
         // Save the PDF file to the specified location
@@ -891,10 +885,8 @@ class DocumentController extends Controller
             mkdir($directory, 0777, true);
         }
 
-
         $data = $request->all();
         $pdf = PDF::loadView('document.trusted-surplus-pdf', $data);
-
 
         $savePath = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
         // Save the PDF file to the specified location

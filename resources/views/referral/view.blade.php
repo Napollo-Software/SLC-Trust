@@ -500,7 +500,7 @@ return $colors[$randomIndex];
                                                                 @else
                                                                 <button type="button" data-id="{{ $item['id'] }}" data-referral="{{ $item['referral_id'] }}" data-filename="{{ url('/storage/'.$item['uploaded_url']) }}" class="dropdown-item uploadBtn previewBtn">
                                                                     <i class="fe fe-eye me-2"></i>
-                                                                    Preview Upload
+                                                                    Preview file
                                                                 </button>
                                                                 @endif
                                                             </div>
@@ -2396,10 +2396,9 @@ return $colors[$randomIndex];
             cache: false,
             success: function(response) {
                 var docId = response.docId;
-                var $button = "<a href='" + response.url +
-                    "' class='btn '><i class='fe fe-eye me-2'></i> Preview Upload</a>";
-                $(".document-" + docId).html($button);
-                $(".document-" + docId).html($button);
+                var $button = "<a id='latest-upload' href='" + response.url +
+                    "' class='btn' target='_blank'><i class='fe fe-eye me-2'></i> Preview file</a>";
+                $(".document-" + docId).replaceWith($button);
                 $("#uploadModal").modal("hide");
                 $("#uploadModal").find("input").val("");
                 $('.changeStatus' + response.id).removeClass('bg-dark');
@@ -2408,8 +2407,8 @@ return $colors[$randomIndex];
                 $('.changeStatus' + response.id).removeClass('bg-success');
                 $('.changeStatus' + response.id).addClass('bg-info');
                 $('.changeStatus' + response.id).text('Received');
-
                 swal.fire('Success', 'Document added successfully', 'success');
+
             },
             error: function(response) {
                 erroralert(response);
