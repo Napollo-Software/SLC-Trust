@@ -32,8 +32,8 @@ class Kernel extends ConsoleKernel
         // $schedule->command('monthly_mass_report:cron')
         //       ->daily()->withoutOverlapping();
 
-        //$schedule->command('renewal:charge')->daily();
-        //$schedule->command('followup:reminder')->hourly();
+        $schedule->command('renewal:charge')->daily();
+        $schedule->command('followup:reminder')->hourly();
     }
 
     /**
