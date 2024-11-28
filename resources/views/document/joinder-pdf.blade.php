@@ -838,20 +838,23 @@
                         <input type="text" value="{{ $auth_rep_one_tel }}" name="auth_rep_one_tel" style="width: 90%"> <br>
                         <label class="italic">Home Phone</label>
                     </div>
-                        <input type="text" value="{{ $auth_rep_one_cell }} " name="auth_rep_one_cell" style="width: 95%"> <br>
+                    <div style="display: table-cell">
+                        <div><input type="text" value="{{ $auth_rep_one_cell }} " name="auth_rep_one_cell" style="width: 170%"></div>
                         <label class="italic">Cell Phone</label>
                     </div>
-                    <p style="margin-left:10px;margin-top:0px">Preferred Phone
-                    <label style="margin: 0;">
-                        <input type="checkbox" name="authorized_preferred_cell_form_inp" class="checkboxissue" value="Authorized_1_cell"
-                            {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
-                        <label>Cell</label>
-                    </label>
-                    <label style="margin: 0;">
-                        <input type="checkbox" name="authorized_preferred_cell_form_inp" class="checkboxissue" value="Authorized_1_home"
-                            {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_home' ? 'checked' : '' }}>
-                        <label>Home</label>
-                    </label>
+                    <div style="display: table-cell">
+                        <p style="margin-left:80px;margin-top:0px">Preferred Phone
+                        <label style="margin: 0;">
+                            <input type="checkbox" name="authorized_preferred_cell_form_inp" class="checkboxissue" value="Authorized_1_cell"
+                                {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_cell' ? 'checked' : '' }}>
+                            <label>Cell</label>
+                        </label>
+                        <label style="margin: 0;">
+                            <input type="checkbox" name="authorized_preferred_cell_form_inp" class="checkboxissue" value="Authorized_1_home"
+                                {{ isset($authorized_preferred_cell_form_inp) && $authorized_preferred_cell_form_inp === 'Authorized_1_home' ? 'checked' : '' }}>
+                            <label>Home</label>
+                        </label>
+                    </div>
                 </p>
 
                 </div>
@@ -1663,7 +1666,7 @@
                                 <label>No</label>
 
                         </p>
-                        <p class='italic' style="font-size:12px">If you answered yes, please attach funeral provision documents.</p>
+                        <p class='italic' style="font-size:12px">Please attach a copy</p>
                     </div>
                 </div>
             </div>
@@ -2378,7 +2381,7 @@
                     intermediary to assist in the administration of the
                     Beneficiary’s sub-trust account. The cost of which
                     may be charged to the sub-trust account. <br/> The party authorized to speak with us on your behalf
-                    or the intermediary must notify SLC supplemental
+                    or the intermediary must notify SLC Supplemental
                     Needs Trust. immediately upon your death and
                     will be required to provide us with a certified death
                     certificate. An individual requesting and/or receiving
@@ -2398,7 +2401,7 @@
                     Beneficiary, if different from the person signing this
                     Agreement) with any legal advice in connection
                     with this Joinder Agreement, the participation by
-                    the Beneficiary in the SLC supplemental Needs
+                    the Beneficiary in the SLC Supplemental Needs
                     Trust or the suitability of such participation by the
                     Beneficiary in the SLC Supplemental Needs Trust
                     based upon the particular circumstances of the Beneficiary.
@@ -2456,7 +2459,7 @@
                         </div>
                     </div>
                     <div style="display: table-cell; width: 30%;">
-                        <p style="margin: 0; {{ $joinder_signature_1 ? 'margin-top: 58px;' : '' }}" class='xs'>
+                        <p style="margin: 0;" class='xs'>
                             <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
                             <br>
                             <div style='text-align: left;margin-left:80px'>
@@ -2465,7 +2468,7 @@
                         </p>
                     </div>
                     <div style="display: table-cell; width: 30%;" class='xs'>
-                        <p style="margin: 0; {{ $joinder_signature_1 ? 'margin-top: 58px;' : '' }}">
+                        <p style="margin: 0;">
                             <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
                             <br> <label class='italic'>Date</label>
                         </p>
@@ -2798,6 +2801,8 @@
 
                     </div>
 
+
+
                 {{-- <br> --}}
 
                 <p>
@@ -2830,10 +2835,13 @@
                             </div>
                         @endif
                         </div>
+
                     </div>
+
                 </div>
                 <br>
                 <br>
+
             <div>
                 <div
                 class="strong md"
@@ -2898,6 +2906,8 @@
                     </div>
                 </div>
             </div>
+
+
                 {{-- <br> --}}
                 <p style="margin-top:25px" class="xs italic">
                     If any direct debits are returned for insufficient funds, a $53 charge will apply<br>
@@ -2927,6 +2937,12 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
     </form>
 </body>
 
