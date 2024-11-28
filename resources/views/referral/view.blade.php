@@ -1739,7 +1739,10 @@ return $colors[$randomIndex];
                             <div class="row-container d-flex justify-content-between">
                                 <div><i class="task-icon bg-{{ randomColor() }}"></i>
                                     <h6 class="text-break">{{ $item->note }}</h6>
-                                    <p class="text-muted fs-12">{{ $item->date }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}</p>
+                                    <p class="text-muted fs-12">
+    {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}
+</p>
+
                                 </div>
                                 <!--div>
                                     <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
@@ -2904,6 +2907,15 @@ return $colors[$randomIndex];
                 $("#add_note_form").trigger("reset");
                 swal.fire('Success', data.message, 'success');
 
+                let noteDateTime1 = new Date(`${data.note.date}T${data.note.time}`);
+
+        // Format the date and time as m/d/Y h:i A
+        let formattedDate1 = noteDateTime1.toLocaleDateString('en-US', {
+            month: '2-digit',
+            day: '2-digit',
+            year: 'numeric'
+        });
+
                 let notes_list = $("#notes-list");
                 let note_id = data.note.id;
 
@@ -2925,7 +2937,7 @@ return $colors[$randomIndex];
                             <div>
                                 <i class="task-icon bg-${randomColor()}"></i>
                                 <h6>${data.note.note}</h6>
-                                <p class="text-muted fs-12">${data.note.date} ${formattedTime}</p>
+                                <p class="text-muted fs-12">${formattedDate1} ${formattedTime}</p>
                             </div>
                             <div>
                                 <button
@@ -2944,7 +2956,7 @@ return $colors[$randomIndex];
                                 <div>
                                     <i class="task-icon bg-${randomColor()}"></i>
                                     <h6>${data.note.note}</h6>
-                                    <p class="text-muted fs-12">${data.note.date} ${formattedTime}</p>
+                                    <p class="text-muted fs-12">${formattedDate1} ${formattedTime}</p>
                                 </div>
                                 <div>
                                     <button
