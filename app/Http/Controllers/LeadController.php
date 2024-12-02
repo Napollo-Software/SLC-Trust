@@ -115,7 +115,6 @@ class LeadController extends Controller
             'converted_to_referral' => $converted_to_referral
         ]);
 
-        dd($lead);
         // $follow_up = new Followup();
         // $follow_up->leadId = $leadId;
         // $follow_up->from = Session::get('loginId');
