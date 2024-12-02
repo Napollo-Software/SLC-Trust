@@ -358,8 +358,14 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/inputmask.min.js"></script>
+
     <script>
         $(document).ready(function () {
+
+            var snn_input = document.getElementById('ssn');
+            var mask = new Inputmask("999-99-9999");
+            mask.mask(snn_input);
 
             const countrySelect = $("#defaultSelectCountry");
             if (countrySelect.length) {
