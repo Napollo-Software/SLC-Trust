@@ -129,7 +129,7 @@
                         </ul>
                     </li>
                     @endif
-                    {{-- @if ($user->hasPermissionTo('Front Office'))
+                    @if ($user->hasPermissionTo('Front Office'))
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-left-indent"></i>
@@ -150,7 +150,7 @@
                             @endif
                         </ul>
                     </li>
-                    @endif --}}
+                    @endif
                     @if ($user->hasPermissionTo('Front Office') && $user->role != 'Vendor')
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">

@@ -16,7 +16,7 @@ class LeadController extends Controller
 {
     public function index()
     {
-        $leads = Lead::with('vendor:id,name', 'contact:id,fname,lname')->get();
+        $leads = Lead::with('assigne', 'contact:id,fname,lname')->get();
         return view('leads.index', compact('leads'));
     }
 
@@ -42,11 +42,12 @@ class LeadController extends Controller
         $vendors = User::select('id', 'name')->whereHas('roles', function ($query) {
             $query->where('name', 'vendor');
         })->get();
-        $assignees = User::select('id', 'name')
-            ->whereDoesntHave('roles', function ($query) {
-                $query->whereIn('name', ['vendor', 'user']);
-            })
-            ->get();
+        // $assignees = User::select('id', 'name')
+        //     ->whereDoesntHave('roles', function ($query) {
+        //         $query->whereIn('name', ['vendor', 'user']);
+        //     })
+        //     ->get();
+        $assignees = User::where('role','Employee')->get();
         $contacts = contacts::select('id', 'fname', 'lname')->get();
         return view('leads.create', compact('vendors', 'contacts','assignees'));
     }
@@ -65,8 +66,8 @@ class LeadController extends Controller
             'contact_email' => 'required|email|',
             'language'=> 'nullable|max:250',
             'relationship' => 'nullable',
-            'patient_first_name' => 'nullable|max:250',
-            'patient_last_name' => 'nullable|max:250',
+            'patient_first_name' => 'required|max:250',
+            'patient_last_name' => 'required|max:250',
             'patient_phone' => 'required',
             'patient_email' => 'required|email',
             'interested' => 'nullable|max:250',
@@ -78,17 +79,18 @@ class LeadController extends Controller
             'contact' => $request->input('source_type') === 'contact' ? 'required' : 'nullable',
             'account' => $request->input('source_type') === 'account' ? 'required' : 'nullable',
             'source' => $request->input('source_type') === 'FnF' ? 'required' : 'nullable',
-            'follow_up_date' => 'required',
-            'follow_up_time' => 'required',
-            'follow_up_note' => 'nullable|max:1000',
+            // 'follow_up_date' => 'required',
+            // 'follow_up_time' => 'required',
+            // 'follow_up_note' => 'nullable|max:1000',
             'other_case'=>Rule::requiredIf($request->case_type === 'other'),
         ]);
-        $type = new Type();
+        $newTypeId = null;
         if ($request->case_type === "other") {
-            $type->category = "Case Type";
-            $type->name = $request->other_case;
-            $type->save();
-            $new_type = $type->id;
+            $type = Type::create([
+                'category' => 'Case Type',
+                'name' => $request->other_case,
+            ]);
+            $newTypeId = $type->id;
         }
         $sourceType = $request->input('source_type');
         $lead = Lead::create([
@@ -106,22 +108,22 @@ class LeadController extends Controller
             'sub_status' => $request->sub_status,
             'vendor_id' => $request->assign_to,
             'case_type' => $request->case_type === 'other' ? null : $request->case_type,
-            'case_type_id' => $new_type === 0 ? null : $new_type,
+            'case_type_id' => $newTypeId,
             'note' => $request->note,
             'source_type' => $request->source_type,
             'source' => ($sourceType === 'contact' ? $request->contact : ($sourceType === 'account' ? $request->account : ($sourceType === 'FnF' ? $request->source : null))),
             'converted_to_referral' => $converted_to_referral
         ]);
-        $lead->save();
-        $leadId = $lead->id;
-        $follow_up = new Followup();
-        $follow_up->leadId = $leadId;
-        $follow_up->from = Session::get('loginId');
-        $follow_up->to = $lead->id;
-        $follow_up->date = $request->follow_up_date;
-        $follow_up->time = $request->follow_up_time;
-        $follow_up->note = $request->follow_up_note;
-        $follow_up->save();
+
+        dd($lead);
+        // $follow_up = new Followup();
+        // $follow_up->leadId = $leadId;
+        // $follow_up->from = Session::get('loginId');
+        // $follow_up->to = $lead->id;
+        // $follow_up->date = $request->follow_up_date;
+        // $follow_up->time = $request->follow_up_time;
+        // $follow_up->note = $request->follow_up_note;
+        // $follow_up->save();
         return response()->json($lead->id);
     }
 

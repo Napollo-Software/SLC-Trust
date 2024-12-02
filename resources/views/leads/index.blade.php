@@ -5,52 +5,12 @@
     $user = App\Models\User::find(Session::get('loginId'));
 @endphp
     <head>
-        <style>
-            .scrol-card {
-                overflow: scroll;
-                /* Alowing the card to scroll */
-                padding: 5% 0;
-                /*For shifting your card at the top of the page */
-            }
-            th{
-            font-size:14px !important;
-            }
-            /* .paginate_button {
-                display: inline-block;
-            }
-
-            .paginate_button {
-                color: black;
-                float: left;
-                padding: 8px 16px;
-                text-decoration: none;
-                transition: background-color .3s;
-                border: 1px solid #ddd;
-            }
-
-            .dataTables_paginate a.current {
-                background-color: #559e99;
-                color: white;
-                border: 1px solid #559e99;
-            }
-
-            .dataTables_paginate a:hover:not(.current) {
-                background-color: #ddd;
-            } */
-
-        .export-file2 {
-            right: 266px
-        }
-        td{
-                vertical-align: middle !important;
-            }
-    </style>
 
 </head>
-   <div class="">
+   <div>
         <h5 class=" d-flex justify-content-start pt-3 pb-2">
             <b></b>
-           <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Lead</b> </div>
+           <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>All Lead</b></div>
         </h5>
         <div class="row">
             <div class="col-lg-12 mb-12">
@@ -117,10 +77,9 @@
                             <td>{{ $u->patient_first_name }}</td>
                             <td>{{ $u->patient_last_name }}</td>
                             <td>{{ $u->patient_email }}</td>
-                            <td>{{ $u->name }}</td>
+                            <td>{{ $u->vendor_id }}</td>
                             <td> {{ $u->type_id->name ?? $u->case_type }}</td>
                             <td>{{ us_date_format($u->created_at) }}</td>
-
                         </tr>
                         @endif
                         @endforeach
@@ -130,12 +89,6 @@
         </div>
         @endsection
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-
-            });
-        </script>
-
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
         <script>
             $(document).ready(function() {
@@ -143,10 +96,7 @@
                     aLengthMenu: [
                         [25, 50, 100, -1],
                         [25, 50, 100, "All"]
-                    ],
-
-
-                    // "order": false // "0" means First column and "desc" is order type;
+                    ]
                 });
             });
         </script>
