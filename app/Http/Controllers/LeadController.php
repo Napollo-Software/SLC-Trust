@@ -16,7 +16,7 @@ class LeadController extends Controller
 {
     public function index()
     {
-        $leads = Lead::with('assigne', 'contact:id,fname,lname')->get();
+        $leads = Lead::with('vendor:id,name', 'contact:id,fname,lname')->get();
         return view('leads.index', compact('leads'));
     }
 
