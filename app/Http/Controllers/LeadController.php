@@ -136,11 +136,7 @@ class LeadController extends Controller
 
         $lead = Lead::find($id);
 
-        $assignees = User::select('id', 'name')
-            ->whereDoesntHave('roles', function ($query) {
-                $query->whereIn('name', ['vendor', 'user']);
-            })
-            ->get();
+        $assignees = User::where('role', 'Employee')->select('id', 'name')->get();
 
         if ($lead) {
             return view('leads.update', compact('lead', 'vendors', 'contacts','assignees','sourceContact'));
@@ -152,8 +148,6 @@ class LeadController extends Controller
 
     public function update(Request $request, $id)
     {
-
-
         $request->validate([
             'contact_first_name' => 'required|max:250',
             'contact_last_name' => 'required|max:250',
@@ -174,7 +168,6 @@ class LeadController extends Controller
             'contact' => $request->input('source_type') === 'contact' ? 'required' : 'nullable',
             'account' => $request->input('source_type') === 'account' ? 'required' : 'nullable',
             'source' => $request->input('source_type') === 'FnF' ? 'required' : 'nullable',
-
         ]);
 
         $lead = Lead::find($id);
@@ -200,8 +193,6 @@ class LeadController extends Controller
             'source' => ($sourceType === 'contact' ? $request->contact : ($sourceType === 'account' ? $request->account : ($sourceType === 'FnF' ? $request->source : null))),
 
         ]);
-
-
     }
 
 }
