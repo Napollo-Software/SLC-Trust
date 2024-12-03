@@ -180,13 +180,13 @@
                     <div class="col-md-6 p-2" id="contact_id">
                         <label for="form-label"> Contact*</label>
                         <select name="contact" id="contactField" class="form-control">
-                            @if ($lead->source_type == 'contact')
-                            <option value="{{$lead->source->id}}" selected>
+                            {{-- @if ($lead->source_type == 'contact') --}}
+                            {{-- <option value="{{$lead->source->id}}" selected>
                                 {{ $lead->source->fname }}
-                            </option>
-                            @endif
+                            </option> --}}
+                            {{-- @endif --}}
                             @foreach ($contacts as $index => $contact)
-                            <option value="{{ $contact->id }}">{{ $contact->fname . ' ' . $contact->lname }}
+                            <option {{$lead->source->id==$contact->id? 'selected': ''}} value="{{ $contact->id }}">{{ $contact->fname . ' ' . $contact->lname }}
                             </option>
                             @endforeach
                         </select>
@@ -194,11 +194,11 @@
                     <div class="col-md-6 p-2" id="account_id">
                         <label for="form-label"> Vendor<span class="text-danger"> *</span></label>
                         <select name="account" id="AccountField" class="form-control">
-                            @if ($lead->source_type == 'account')
+                            {{-- @if ($lead->source_type == 'account') --}}
                             @foreach ($vendors as $vendor)
                             <option {{$lead->source->id == $vendor->id ? 'selected' : '' }} value="{{ $vendor->id }}">{{ $vendor->name}}</option>
                             @endforeach
-                            @endif
+                            {{-- @endif --}}
                         </select>
                     </div>
                     <div class="col-md-6 p-2" id="source">
