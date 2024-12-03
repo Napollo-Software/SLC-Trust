@@ -38,9 +38,17 @@ class ReferralController extends Controller
         return response()->json(['message' => 'Status updated successfully']);
     }
 
-    public function create()
+    public function create($lead_id = null)
     {
-        $lead = Lead::latest('id')->first();
+        if($lead_id)
+        {
+            $lead = Lead::findOrFail($lead_id);
+            $lead->converted_to_referral = 1;
+            $lead->save();
+        }
+        else{
+            $lead = Lead::latest('id')->first();
+        }
         $typeData = Type::where('category', 'Case Type')->get();
         $referal = Referral::get();
         $contacts = contacts::select('id', 'fname', 'lname')->get();

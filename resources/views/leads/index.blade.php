@@ -59,6 +59,7 @@
                                         <a class="dropdown-item pb-2" href="{{ route('view.lead', $u['id']) }}"><i class='bx bxs-show'></i>
                                             View</a>
                                         <a class="dropdown-item" href="{{ route('edit.lead', $u['id']) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                        <a class="dropdown-item" href="{{ route('create.referral', ['lead_id' => $u['id']]) }}"><i class="bx bx-shekel me-1"></i> Convert To Referral</a>
                                     </div>
                                 </div>
                             </td>

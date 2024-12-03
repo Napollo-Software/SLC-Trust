@@ -143,7 +143,7 @@ Route::group(['prefix' => 'leads', 'middleware' => ['isLoggedIn']], function () 
 
 Route::group(['prefix' => 'referral', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [ReferralController::class, 'index'])->name('referral.list');
-    Route::get('/create', [ReferralController::class, 'create'])->name('create.referral');
+    Route::get('/create/{lead_id?}', [ReferralController::class, 'create'])->name('create.referral');
     Route::post('/store', [ReferralController::class, 'store'])->name('store.referral');
     Route::get('/edit/{id}', [ReferralController::class, 'edit'])->name('edit.referral');
     Route::post('/editEmergency', [EmergencyController::class, 'emergencyEdit'])->name('edit.emergency');
