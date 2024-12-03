@@ -180,29 +180,31 @@
                     <div class="col-md-6 p-2" id="contact_id">
                         <label for="form-label"> Contact*</label>
                         <select name="contact" id="contactField" class="form-control">
-    @foreach ($contacts as $index => $contact)
+    @foreach ($contacts as $contact)
         <option
-            {{ isset($lead->source) && $lead->source->id == $contact->id ? 'selected' : '' }}
+            {{
+                (is_object($lead->source) && $lead->source->id == $contact->id) ||
+                (is_string($lead->source) && $lead->source == $contact->id) ? 'selected' : ''
+            }}
             value="{{ $contact->id }}">
             {{ $contact->fname . ' ' . $contact->lname }}
         </option>
     @endforeach
 </select>
+
                     </div>
                     <div class="col-md-6 p-2" id="account_id">
                         <label for="form-label"> Vendor<span class="text-danger"> *</span></label>
                         <select name="account" id="AccountField" class="form-control">
-                            {{-- @if ($lead->source_type == 'account') --}}
-                          @foreach ($vendors as $vendor)
-    <option
-        {{ isset($lead->source) && $lead->source->id == $vendor->id ? 'selected' : '' }}
-        value="{{ $vendor->id }}">
-        {{ $vendor->name }}
-    </option>
-@endforeach
+    @foreach ($vendors as $vendor)
+        <option
+            {{ isset($lead->source) && is_object($lead->source) && $lead->source->id == $vendor->id ? 'selected' : '' }}
+            value="{{ $vendor->id }}">
+            {{ $vendor->name }}
+        </option>
+    @endforeach
+</select>
 
-                            {{-- @endif --}}
-                        </select>
                     </div>
                     <div class="col-md-6 p-2" id="source">
                         <label for="form-label">Family / Friend<span class="text-danger"> *</span></label>
