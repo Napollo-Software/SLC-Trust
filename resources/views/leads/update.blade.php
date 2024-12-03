@@ -195,13 +195,10 @@
                         <label for="form-label"> Vendor<span class="text-danger"> *</span></label>
                         <select name="account" id="AccountField" class="form-control">
                             @if ($lead->source_type == 'account')
-                            <option value="{{$lead->source->id}}" selected>
-                                {{ $lead->source->name }}
-                            </option>
-                            @endif
                             @foreach ($vendors as $vendor)
-                            <option value="{{ $vendor->id }}">{{ $vendor->name}}</option>
+                            <option {{$lead->source->id == $vendor->id ? 'selected' : '' }} value="{{ $vendor->id }}">{{ $vendor->name}}</option>
                             @endforeach
+                            @endif
                         </select>
                     </div>
                     <div class="col-md-6 p-2" id="source">
