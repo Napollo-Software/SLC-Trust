@@ -2459,18 +2459,18 @@
                         </div>
                     </div>
                     <div style="display: table-cell; width: 30%;">
-                        <p style="margin: 0;" class='xs'>
+                        <p style="margin: 0; position: relative;top:5.6%" class='xs'>
                             <input type="text" value="{{ $joinder_print }}" class="no-border" style="width: 80%; margin: 0 auto;">
                             <br>
-                            <div style='text-align: left;margin-left:80px'>
+                            <div style='text-align: left;margin-left:80px;position: relative;top:5.1%'>
                                 <label class='italic'>Print</label>
                             </div>
                         </p>
                     </div>
                     <div style="display: table-cell; width: 30%;" class='xs'>
                         <p style="margin: 0;">
-                            <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;">
-                            <br> <label class='italic'>Date</label>
+                            <input type="text" class="no-border" value="{{ $joinder_date }}" style="width: 80%; margin: 0 auto;position: relative;top:5.6%">
+                            <br> <label class='italic' style='position: relative;top:5.4%'>Date</label>
                         </p>
                     </div>
                 </div>
