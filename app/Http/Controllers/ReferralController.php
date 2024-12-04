@@ -96,7 +96,7 @@ class ReferralController extends Controller
             'medicare_phone' => 'nullable|string',
             'emergency_first_name' => 'required|string|max:250',
             'emergency_last_name' => 'required|string|max:250',
-            'emergency_ext' => 'nullable|numeric|min:2|max:10',
+            'emergency_ext' => 'nullable|numeric|digits_between:2,10',
             'emergency_state' => 'nullable|string',
             'emergency_email' => 'required|email',
             'emegency_relationship' => 'nullable|string',
