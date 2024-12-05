@@ -2375,7 +2375,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                  </div>
                  <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC supplemental
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -2711,7 +2711,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                   </div>
                   <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC supplemental
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -3222,7 +3222,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
 </div>
                   <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC supplemental
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -3628,7 +3628,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-living-arrangements">
                         <div class="footer-left">
-                            <p class="footer-left-dis">SLC supplemental
+                            <p class="footer-left-dis">SLC SUPPLEMENTAL
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">
@@ -4045,7 +4045,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     <div>
                         <div class="footer-living-arrangements">
                             <div class="footer-left">
-                                <p class="footer-left-dis">SLC supplemental
+                                <p class="footer-left-dis">SLC SUPPLEMENTAL
                                     NEEDS TRUST</p>
                             </div>
                             <div class="footer-mid">
@@ -4205,7 +4205,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-living-arrangements">
                         <div class="footer-left">
-                            <p class="footer-left-dis">SLC supplemental
+                            <p class="footer-left-dis">SLC SUPPLEMENTAL
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">
@@ -4345,7 +4345,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                 </div>
                 <div class="footer-living-arrangements">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC supplemental
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -4609,7 +4609,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                   </div>
                   <div class="for-office-use-only-footer">
                     <div class="footer-left">
-                        <p class="footer-left-dis">SLC supplemental
+                        <p class="footer-left-dis">SLC SUPPLEMENTAL
                             NEEDS TRUST</p>
                     </div>
                     <div class="footer-mid">
@@ -4812,7 +4812,7 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long] {
                     </div>
                     <div class="footer-for-office-use-3">
                         <div class="footer-left">
-                            <p class="footer-left-dis">SLC supplemental
+                            <p class="footer-left-dis">SLC SUPPLEMENTAL
                                 NEEDS TRUST</p>
                         </div>
                         <div class="footer-mid">
