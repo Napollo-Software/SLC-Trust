@@ -165,6 +165,7 @@ class LeadController extends Controller
             'case_type' => 'required',
             'note' => 'nullable|max:250',
             'source_type' => 'required',
+            'closing_reason' => 'nullable|max:500',
             'contact' => $request->input('source_type') === 'contact' ? 'required' : 'nullable',
             'account' => $request->input('source_type') === 'account' ? 'required' : 'nullable',
             'source' => $request->input('source_type') === 'FnF' ? 'required' : 'nullable',
@@ -189,6 +190,7 @@ class LeadController extends Controller
             'case_type' => $request->case_type,
             'note' => $request->note,
             'source_type' => $request->source_type,
+            'closing_reason' => $request->closing_reason,
             //'source_id' => $request->contact,
             'source' => ($sourceType === 'contact' ? $request->contact : ($sourceType === 'account' ? $request->account : ($sourceType === 'FnF' ? $request->source : null))),
 

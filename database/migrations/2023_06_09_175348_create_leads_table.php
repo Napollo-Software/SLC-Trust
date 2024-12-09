@@ -44,6 +44,7 @@ class CreateLeadsTable extends Migration
             $table->date('follow_up_date')->nullable();
             $table->time('follow_up_time')->nullable();
             $table->string('follow_up_note')->nullable();
+            $table->text('closing_reason')->nullable();
 
             $table->timestamps();
         });
