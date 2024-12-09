@@ -62,7 +62,7 @@
             <div class="offcanvas-header border-bottom">
                 <div class="d-flex align-items-center">
                     <div class="">
-                        <img src="{{ asset('assets/new_theme/images/intrustpit-new-Logo.png') }}" class="logo-text" alt="logo icon" style="width: 200px;">
+                        <img src="{{ asset('assets/new_theme/images/slc_trust.png') }}" class="logo-text" alt="logo icon" style="width: 140px;">
                     </div>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
