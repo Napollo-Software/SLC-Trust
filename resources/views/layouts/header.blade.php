@@ -14,10 +14,10 @@
             </div>
             <div class="top-menu ms-auto">
                 <ul class="navbar-nav align-items-center gap-1">
-                    <li class="nav-item mobile-search-icon d-flex d-lg-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
+                    {{-- <li class="nav-item mobile-search-icon d-flex d-lg-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
                         <a class="nav-link" href="avascript:;"><i class="bx bx-search"></i>
                         </a>
-                    </li>
+                    </li> --}}
                     {{-- <li class="nav-item dropdown dropdown-laungauge d-none d-sm-flex">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret dropdown-padding" href="avascript:;"><img src="{{ asset('assets/new_theme/images/02.png')}}" width="22" alt="">
                     </a>
