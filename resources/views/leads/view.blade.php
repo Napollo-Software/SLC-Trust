@@ -189,6 +189,17 @@
                             </div>
                         </div>
                         <hr>
+                        @if($lead->sub_status == 'closed')
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Closing Reason</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{$lead->closing_reason}}
+                            </div>
+                        </div>
+                        <hr>
+                        @endif
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Vendo ID</h6>
