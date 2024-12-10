@@ -46,7 +46,6 @@ return $colors[$randomIndex];
         text-decoration: none;
         display: inline-block;
         font-size: 14px;
-        /* margin: 4px 2px; */
         cursor: pointer;
         border-radius: 4px;
         | transition: transform 0.3s, background-color 0.3s;
@@ -90,10 +89,6 @@ return $colors[$randomIndex];
     <div class="row p-2" style="margin-bottom:100px !important;">
         <div class="col-lg-4 col-xl-2">
             <div class="card mb-4">
-                {{-- <div class="card-header border-bottom">
-                        <a class="btn btn-outline-primary btn-block py-2" href="http://localhost/Noa/file-manager-1">Add
-                            Referral</a>
-                    </div> --}}
                 <div class="card-body p-2">
                     <div class="border-bottom mt-3  ">
                         <h4 class=" ">Referral ID: {{ $referral->id }}</h4>
@@ -117,18 +112,12 @@ return $colors[$randomIndex];
                                 Notes
                             </a>
                         </li>
-                        {{-- <li class="nav-item1 sms-tab">
-                            <a class="nav-link  thumb" onclick="showTab('sms-card')">
-                                <i class="menu-icon mr-2 tf-icons bx bx-message "></i>
-                                SMS
+                        <li class="nav-item1 follows-tab">
+                            <a class="nav-link  thumb" onclick="showTab('follows-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-task "></i>
+                                Followups
                             </a>
-                        </li> --}}
-                        {{-- <li class="nav-item1 esign-tab">
-                            <a class="nav-link  thumb" onclick="showTab('esign-card')">
-                                <i class="menu-icon mr-2 tf-icons bx bx-file "></i>
-                                E-Sign / Document
-                            </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item1 attachment-tab">
                             <a class="nav-link  thumb" onclick="showTab('attachment-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-spreadsheet"></i>
@@ -153,18 +142,12 @@ return $colors[$randomIndex];
                                 Physician
                             </a>
                         </li>
-                        <li class="nav-item1 related-records-tab d-none">
-                            <a class="nav-link  thumb" onclick="showTab('records-card')">
-                                <i class="menu-icon mr-2 tf-icons bx bx-food-menu"></i>
-                                Related Records
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-xl-8 col-lg-8 ">
-            <div class="card " id="alwaysShow">
+            <div class="card" id="alwaysShow">
                 <div class="card-body p-4">
                     <div class="row align-items-center">
                         <div class="col-md-9 ">
@@ -175,9 +158,6 @@ return $colors[$randomIndex];
                                 <div class="ms-4">
                                     <h4 class="m-0">{{ $referral->full_name() }}</h4>
                                     <p class="text-muted mt-1 mb-0">{{ $referral->email }}</p>
-                                    <!--span class="mx-1">
-                                        {{ $referral->created_at }}</span-->
-
                                 </div>
                             </div>
                         </div>
@@ -209,11 +189,6 @@ return $colors[$randomIndex];
                                             <a href="#documentCard" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Documents</a>
                                         </li>
                                     </div>
-                                    {{-- <div>
-                                        <li>
-                                            <a href="#checkList" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3">Checklist</a>
-                                        </li>
-                                    </div> --}}
                                     <div>
                                         <li class="mb-0">
                                             <a href="#financeCard" data-bs-toggle="tab" class="pb-3 px-0 mx-2  mb-sm-0 mb-3 ">Finance</a>
@@ -222,7 +197,6 @@ return $colors[$randomIndex];
                                 </ul>
                             </div>
                             <div class="order-md-2 order-1 pt-md-0 pt-3 pl-3 status-field mx-2" style=" ">
-
                                 <span class="fw-bold">Status: </span>{{ $referral->status }}
                             </div>
                         </div>
@@ -245,8 +219,7 @@ return $colors[$randomIndex];
                                     </div>
                                 </ul>
                             </div>
-                            <div class="order-md-2 order-1 pt-md-0 pt-3 pl-3 status-field mx-2" style=" ">
-
+                            <div class="order-md-2 order-1 pt-md-0 pt-3 pl-3 status-field mx-2">
                                 <span class="fw-bold">Status: </span>{{ $referral->status }}
                             </div>
                         </div>
@@ -254,177 +227,6 @@ return $colors[$randomIndex];
                 </div>
             </div>
             <div class="tab-content p-0">
-                <div class="tab-pane show" id="profileMain">
-                    <div class="card">
-                        <div class="card-body p-0">
-                            <div class="p-5">
-                                <h3 class="card-title">Biodata</h3>
-                                <p class="text-dark-light">Hi I'm Teri Dactyl,has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley of type. Donec
-                                    pede
-                                    justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
-                                    ut,
-                                    imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-                                    Integer tincidunt.Cras dapibus asdkj. Vivamus elementum semper nisi. Aenean
-                                    vulputate
-                                    eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
-                                    enim.</p>
-                                <div>
-                                    <div>
-                                        <h5 class="text-dark text-14 mb-0">Lead designer / Developer</h5>
-                                        <a href="javascript:void(0)" class="text-primary">websitenamename.com</a>
-                                        <p class="mb-2 mt-3"><b>2010-2015</b></p>
-                                        <p class="text-muted text-14">Lorem Ipsum is simply dummy text of the
-                                            printing
-                                            and typesetting industry. Lorem Ipsum has been the industry's standard
-                                            dummy
-                                            text ever since the 1500s, when an unknown printer took a galley of type
-                                            and
-                                            scrambled it to make a type specimen book.</p>
-                                    </div>
-                                    <div>
-                                        <h5 class="text-dark text-14 mb-0">Senior Graphic Designer</h5>
-                                        <a href="javascript:void(0)" class="text-primary">samplewebsite.com</a>
-                                        <p class="mb-2 mt-3"><b>2007-2009</b></p>
-                                        <p class="text-muted text-14 mb-0">Lorem Ipsum is simply dummy text of the
-                                            printing and typesetting industry. Lorem Ipsum has been the industry's
-                                            standard dummy text ever since the 1500s, when an unknown printer took a
-                                            galley of type and scrambled it to make a type specimen book.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="border-top"></div>
-                            <div class="table-responsive p-5">
-                                <h3 class="card-title">Personal Info</h3>
-                                <table class="table row table-borderless">
-                                    <tbody class="col-lg-12 col-xl-6 p-0">
-                                        <tr>
-                                            <td><strong>Full Name :</strong> Elena Gilbert</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Location :</strong> USA</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Languages :</strong> English, German, Spanish</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody class="col-lg-12 col-xl-6 p-0 border-top-0">
-                                        <tr>
-                                            <td><strong>Website :</strong> websitename.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Email :</strong> elenagilbert@websitename.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Phone :</strong> +125 254 3562</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="border-top"></div>
-                            <div class="p-5">
-                                <h3 class="card-title">Statistics</h3>
-                                <div class="profile-cover__info ms-4 ms-auto p-0">
-                                    <ul class="nav p-0 border-bottom-0 mb-0">
-                                        <li class="border p-2 br-5 bg-light-lightest wpx-100 hpx-70 text-center my-1">
-                                            <span class="border-0 mb-0 pb-0 fs-21">113</span>
-                                            Projects
-                                        </li>
-                                        <li class="border p-2 br-5 bg-light-lightest wpx-100 hpx-70 text-center mx-2 my-1">
-                                            <span class="border-0 mb-0 pb-0 fs-21">245</span>
-                                            Followers
-                                        </li>
-                                        <li class="border p-2 br-5 bg-light-lightest wpx-100 hpx-70 text-center my-1">
-                                            <span class="border-0 mb-0 pb-0 fs-21">128</span>
-                                            Following
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="border-top"></div>
-                            <div class="p-5">
-                                <h3 class="card-title">Contact</h3>
-                                <div class="d-sm-flex">
-                                    <div>
-                                        <div class="main-profile-contact-list">
-                                            <div class="media mx-2">
-                                                <div class="media-icon bg-primary-transparent text-primary"><i class="fe fe-phone fs-21"></i></div>
-                                                <div class="media-body ms-2">
-                                                    <span class="text-muted">Mobile</span>
-                                                    <p class="mb-0"> +245 354 654 </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="main-profile-contact-list">
-                                            <div class="media mx-2">
-                                                <div class="media-icon bg-success-transparent text-success"><i class="fe fe-slack fs-21"></i></div>
-                                                <div class="media-body ms-2">
-                                                    <span class="text-muted">Slack</span>
-                                                    <p class="mb-0"> @spruko.w </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="main-profile-contact-list">
-                                            <div class="media mx-2">
-                                                <div class="media-icon bg-info-transparent text-info"><i class="fe fe-map-pin fs-21"></i></div>
-                                                <div class="media-body ms-2">
-                                                    <span class="text-muted">Current Address</span>
-                                                    <p class="mb-0"> San Francisco, CA </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="border-top"></div>
-                            <div class="p-5">
-                                <h3 class="card-title">Social</h3>
-                                <div class="d-md-flex">
-                                    <div>
-                                        <div class="main-profile-contact-list">
-                                            <div class="media mx-2">
-                                                <div class="media-icon bg-primary-transparent text-primary"><i class="fe fe-github fs-21"></i></div>
-                                                <div class="media-body ms-2">
-                                                    <span class="text-muted">Github</span>
-                                                    <p class="mb-0"><a href="javascript:void(0)" class="text-default">github.com/spruko</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="main-profile-contact-list">
-                                            <div class="media mx-2">
-                                                <div class="media-icon bg-success-transparent text-success"><i class="fe fe-twitter fs-21"></i></div>
-                                                <div class="media-body ms-2">
-                                                    <span class="text-muted">Twitter</span>
-                                                    <p class="mb-0"><a href="javascript:void(0)" class="text-default">twitter.com/spruko.me</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="main-profile-contact-list">
-                                            <div class="media mx-2">
-                                                <div class="media-icon bg-info-transparent text-info"><i class="fe fe-linkedin fs-21"></i></div>
-                                                <div class="media-body ms-2">
-                                                    <span class="text-muted">Linkedin</span>
-                                                    <p class="mb-0"><a href="javascript:void(0)" class="text-default">linkedin.com/in/spruko</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="tab-pane" id="documentCard">
                     <div class="card services-card">
                         <div class="row">
@@ -516,74 +318,6 @@ return $colors[$randomIndex];
                         </div>
                     </div>
                 </div>
-
-
-                <div class="tab-pane" id="checkList">
-                    <div class="card services-card py-3 px-3">
-
-                        <form id="referralUpdateForm">
-                            @csrf
-                            <input type="hidden" name="referral_id" id="referral_id" value="{{ $referral->id }}">
-                            <div class="row " style="display: flex; justify-content: space-around;  ">
-                                <div class="d-flex  align-items-center">
-                                    <input class="trustCheckList" type="checkbox" name="checkList" {{ $referral->trustCheckList ? 'checked' : '' }}>
-                                    <label class="m-0">Mark As Complete</label>
-                                </div>
-
-                                <div class="px-3 pt-3">
-                                    <table class="table table-bordered align-middle ">
-                                        <tbody>
-                                            <tr>
-                                                <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                                    <div class="align-self-center">
-                                                        <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->disability == 1 ? 'checked' : '' }} name="document_checkboxes1">
-                                                    </div>
-                                                </td>
-                                                <td class="align-middle">DOH -5139 Disability FILLABLE Questionnaire</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                                    <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->doh == 1 ? 'checked' : '' }} name="document_checkboxes2">
-                                                </td>
-                                                <td class="align-middle">DOH</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                                    <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->hipaa_state == 1 ? 'checked' : '' }} name="document_checkboxes3">
-                                                </td>
-                                                <td class="align-middle">DOH 5173-Hipaa State</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                                    <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->joinder == 1 ? 'checked' : '' }} name="document_checkboxes5">
-                                                </td>
-                                                <td class="align-middle">Joinder Agreement</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                                    <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->hipaa == 1 ? 'checked' : '' }} name="document_checkboxes4">
-                                                </td>
-                                                <td class="align-middle">DOH-960 Hipaa</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border-top text-center align-middle" style="border-left: none !important; border-right: none !important; border-bottom: none !important; vertical-align: middle;">
-                                                    <input type="checkbox" class="document-list m-0 mt-2" {{ $checks->map == 1 ? 'checked' : '' }} name="document_checkboxes6">
-                                                </td>
-                                                <td class="align-middle">MAP-751e - Authorization to Release Medical Information</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-primary mx-2 mb-1 custom-hover fs-6" style="text-align: center; float: right;">
-                                    Save <i class="bx bx-save custom-hover"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 <div class="tab-pane" id="financeCard">
                     <div class="card services-card">
                         <div style="margin:20px">
@@ -594,50 +328,6 @@ return $colors[$randomIndex];
                                     <label class="m-0">Mark As Complete</label>
                                 </div>
                                 <hr>
-
-                                <!-- <div class="row">
-                                <div style="padding-left: 15px">
-                                    <input class="trustFinance" type="checkbox" name="finance" {{ $referral->trustFinance ? 'checked' : '' }}>
-                                    <label>Mark As Complete</label>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="enrollmentDate" class="form-label">Enrollment Date</label>
-                                    <input type="date" class="form-control" id="enrollmentDate" value="">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="enrollmentFee" class="form-label">Enrollment Fee</label>
-                                    <input type="text" class="form-control" id="enrollmentFee" maxlength="6" placeholder="$250.00">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="surplusAmount" class="form-label">Surplus Amount</label>
-                                    <input type="text" class="form-control" id="surplusAmount" maxlength="6" placeholder="$250.00">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="monthlyMaintenanceFee" class="form-label">Monthly Maintenance
-                                        Fee</label>
-                                    <input type="text" class="form-control" id="monthlyMaintenanceFee" maxlength="6" placeholder="$250.00">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="fundsAvailable" class="form-label">Funds Available for Bill
-                                        Payments</label>
-                                    <input type="text" class="form-control" id="fundsAvailable" maxlength="6" placeholder="$250.00">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="enrollmentFeeStatus" class="form-label">Enrollment Fee
-                                        Status</label>
-                                    <input type="text" class="form-control" id="enrollmentFeeStatus" placeholder="Paid">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="debitDate" class="form-label">Debit Date</label>
-                                    <input type="date" class="form-control" id="debitDate">
-                                </div>
-                            </div> -->
                                 <p>Bank Info</p>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
@@ -676,277 +366,6 @@ return $colors[$randomIndex];
                                 <button class="btn btn-primary mt-2 fs-6" type="submit" style="float: right; margin-bottom:10px">Save <i class="bx bx-save"></i></button>
                                 <button class="btn btn-primary mr-2 mt-2 fs-6 convert-btn @if($referral->convert_to_customer!=null)  disabled @else ts @endif" id="submitBtn" data-id="{{ $referral->id }}" type="submit" style="float: right; margin-bottom:10px">@if(!$referral->convert_to_customer)Convert to Customer @else Converted to Customer @endif<i class="bx bx-file"></i></button>
                             </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="friends">
-                    <div class="row row-sm">
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-                            <div class="card custom-card border">
-                                <div class="card-body user-lock text-center">
-                                    <div class="dropdown text-end">
-                                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical text-muted"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow"><a class="dropdown-item" href="#"><i class="fe fe-message-square me-2"></i> Message</a> <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i>
-                                                Edit</a> <a class="dropdown-item" href="#"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="#"><i class="fe fe-trash-2 me-2"></i> Delete</a></div>
-                                    </div>
-                                    <a href="#">
-                                        <img alt="avatar" class="avatar avatar-xl rounded" src="http://localhost/Noa/assets/images/faces/1.jpg">
-                                        <h4 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Lisbon Taylor</h4>
-                                        <span class="text-muted">Web designer</span>
-                                    </a>
-                                    <div class="footer-container-main border-0 my-2">
-                                        <div class="footer p-0 icons-bg border-0">
-                                            <div class="social">
-                                                <ul class="text-center">
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-                            <div class="card custom-card border">
-                                <div class="card-body  user-lock text-center">
-                                    <div class="dropdown text-end">
-                                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical text-muted"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow"><a class="dropdown-item" href="#"><i class="fe fe-message-square me-2"></i> Message</a> <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i>
-                                                Edit</a> <a class="dropdown-item" href="#"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="#"><i class="fe fe-trash-2 me-2"></i> Delete</a></div>
-                                    </div>
-                                    <a href="#">
-                                        <img alt="avatar" class="avatar avatar-xl rounded" src="http://localhost/Noa/assets/images/faces/11.jpg">
-                                        <h4 class="fs-16 mb-0 mt-3 text-dark fw-semibold">jordan Ramsay</h4>
-                                        <span class="text-muted">Web designer</span>
-                                    </a>
-                                    <div class="footer-container-main border-0 my-2">
-                                        <div class="footer p-0 icons-bg border-0">
-                                            <div class="social">
-                                                <ul class="text-center">
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-                            <div class="card custom-card border">
-                                <div class="card-body  user-lock text-center">
-                                    <div class="dropdown text-end">
-                                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical text-muted"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow"><a class="dropdown-item" href="#"><i class="fe fe-message-square me-2"></i> Message</a> <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i>
-                                                Edit</a> <a class="dropdown-item" href="#"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="#"><i class="fe fe-trash-2 me-2"></i> Delete</a></div>
-                                    </div>
-                                    <a href="#">
-                                        <img alt="avatar" class="avatar avatar-xl rounded" src="http://localhost/Noa/assets/images/faces/12.jpg">
-                                        <h4 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Corey Richard</h4>
-                                        <span class="text-muted">Web designer</span>
-                                    </a>
-                                    <div class="footer-container-main border-0 my-2">
-                                        <div class="footer p-0 icons-bg border-0">
-                                            <div class="social">
-                                                <ul class="text-center">
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-                            <div class="card custom-card border">
-                                <div class="card-body  user-lock text-center">
-                                    <div class="dropdown text-end">
-                                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical text-muted"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow"><a class="dropdown-item" href="#"><i class="fe fe-message-square me-2"></i> Message</a> <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i>
-                                                Edit</a> <a class="dropdown-item" href="#"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="#"><i class="fe fe-trash-2 me-2"></i> Delete</a></div>
-                                    </div>
-                                    <a href="#">
-                                        <img alt="avatar" class="avatar avatar-xl rounded" src="http://localhost/Noa/assets/images/faces/5.jpg">
-                                        <h4 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Lana Del Rey</h4>
-                                        <span class="text-muted">Web designer</span>
-                                    </a>
-                                    <div class="footer-container-main border-0 my-2">
-                                        <div class="footer p-0 icons-bg border-0">
-                                            <div class="social">
-                                                <ul class="text-center">
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-                            <div class="card custom-card border">
-                                <div class="card-body user-lock text-center">
-                                    <div class="dropdown text-end">
-                                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical text-muted"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow"><a class="dropdown-item" href="#"><i class="fe fe-message-square me-2"></i> Message</a> <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i>
-                                                Edit</a> <a class="dropdown-item" href="#"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="#"><i class="fe fe-trash-2 me-2"></i>
-                                                Delete</a></div>
-                                    </div>
-                                    <a href="#">
-                                        <img alt="avatar" class="avatar avatar-xl rounded" src="http://localhost/Noa/assets/images/faces/7.jpg">
-                                        <h4 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Mariana Gold</h4>
-                                        <span class="text-muted">Web designer</span>
-                                    </a>
-                                    <div class="footer-container-main border-0 my-2">
-                                        <div class="footer p-0 icons-bg border-0">
-                                            <div class="social">
-                                                <ul class="text-center">
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-                            <div class="card custom-card border">
-                                <div class="card-body  user-lock text-center">
-                                    <div class="dropdown text-end">
-                                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical text-muted"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow"><a class="dropdown-item" href="#"><i class="fe fe-message-square me-2"></i> Message</a> <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i>
-                                                Edit</a> <a class="dropdown-item" href="#"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="#"><i class="fe fe-trash-2 me-2"></i> Delete</a></div>
-                                    </div>
-                                    <a href="#">
-                                        <img alt="avatar" class="avatar avatar-xl rounded" src="http://localhost/Noa/assets/images/faces/13.jpg">
-                                        <h4 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Travis Bickle</h4>
-                                        <span class="text-muted">Web designer</span>
-                                    </a>
-                                    <div class="footer-container-main border-0 my-2">
-                                        <div class="footer p-0 icons-bg border-0">
-                                            <div class="social">
-                                                <ul class="text-center">
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-                            <div class="card custom-card border">
-                                <div class="card-body  user-lock text-center">
-                                    <div class="dropdown text-end">
-                                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical text-muted"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow"><a class="dropdown-item" href="#"><i class="fe fe-message-square me-2"></i> Message</a> <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i>
-                                                Edit</a> <a class="dropdown-item" href="#"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="#"><i class="fe fe-trash-2 me-2"></i> Delete</a></div>
-                                    </div>
-                                    <a href="#">
-                                        <img alt="avatar" class="avatar avatar-xl rounded" src="http://localhost/Noa/assets/images/faces/8.jpg">
-                                        <h4 class="fs-16 mb-0 mt-3 text-dark fw-semibold">Emilie Benett</h4>
-                                        <span class="text-muted">Web designer</span>
-                                    </a>
-                                    <div class="footer-container-main border-0 my-2">
-                                        <div class="footer p-0 icons-bg border-0">
-                                            <div class="social">
-                                                <ul class="text-center">
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-                            <div class="card custom-card border">
-                                <div class="card-body  user-lock text-center">
-                                    <div class="dropdown text-end">
-                                        <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fe fe-more-vertical text-muted"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow"><a class="dropdown-item" href="#"><i class="fe fe-message-square me-2"></i> Message</a> <a class="dropdown-item" href="#"><i class="fe fe-edit-2 me-2"></i>
-                                                Edit</a> <a class="dropdown-item" href="#"><i class="fe fe-eye me-2"></i> View</a> <a class="dropdown-item" href="#"><i class="fe fe-trash-2 me-2"></i> Delete</a></div>
-                                    </div>
-                                    <a href="#">
-                                        <img alt="avatar" class="avatar avatar-xl rounded" src="http://localhost/Noa/assets/images/faces/4.jpg">
-                                        <h4 class="fs-16 mb-0 mt-3 text-dark fw-semibold">James Thomas</h4>
-                                        <span class="text-muted">Web designer</span>
-                                    </a>
-                                    <div class="footer-container-main border-0 my-2">
-                                        <div class="footer p-0 icons-bg border-0">
-                                            <div class="social">
-                                                <ul class="text-center">
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="social-icon" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Linkedin" aria-label="Linkedin"><i class="fa fa-linkedin"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1101,13 +520,6 @@ return $colors[$randomIndex];
                                     </div>
                                     <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
                                         <p class="m-0"> {{ $referral->patient_language }}</p>
-                                         {{-- <select class="form-control" id="patient_language" name="patient_language" required>
-                                            <option value="">Select Patient Language</option>
-                                            <option {{ $referral->patient_language == 'English' ? 'selected' : '' }} value="English">English</option>
-                                            <option {{ $referral->patient_language == 'Russian' ? 'selected' : '' }} value="Russian">Russian</option>
-                                            <option {{ $referral->patient_language == 'Chinese' ? 'selected' : '' }} value="Chinese">Chinese</option>
-                                            <option {{ $referral->patient_language == 'Hebrew' ? 'selected' : '' }} value="Hebrew">Hebrew</option>
-                                        </select> --}}
                                     </div>
                                 </div>
                             </div>
@@ -1177,11 +589,6 @@ return $colors[$randomIndex];
                                     </div>
                                 </div>
                             </div>
-                            {{-- <hr>
-                        <div class="d-flex align-items-center pt-2 px-3">
-                            <input type="checkbox">
-                            <label class="m-0">Mark As Main Contact</label>
-                        </div> --}}
                         </div>
                         <div class="col-md-12 tab-pane" id="emergency_detail">
                             <form id="EmergencyForm">
@@ -1272,7 +679,6 @@ return $colors[$randomIndex];
                                         </div>
                                         <div class="col-md-9" data-select2-id="8">
                                             <input type="number" id="timeZone" name="emergency_zip" class="form-control " value="{{ $referral->emergency_details->emergency_zip_code }}" readonly>
-
                                         </div>
                                     </div>
                                 </div>
@@ -1320,409 +726,7 @@ return $colors[$randomIndex];
                     </div>
                 </div>
             </div>
-            <div class="tab-content p-0">
-                <div class="tab-pane show" id="profileMain">
-                    <div class="card">
-                        <div class="card-body p-0">
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="documentCard">
-                    <div class="card">
-                        <div class="card-body border-0">
-                            <div class="row mb-4">
-                                <div class="col-md-12 col-lg-12 col-xl-6">
-                                    <div class="form-group">
-                                        <label for="username" class="form-label">User Name</label>
-                                        <input type="text" class="form-control" id="username" value="Elena Gilbert">
-                                    </div>
-                                </div>
 
-                                <div class="col-md-12 col-lg-12 col-xl-6">
-                                    <div class="form-group">
-                                        <label for="firstname" class="form-label ">First Name</label>
-                                        <input type="text" class="form-control" id="firstname" placeholder="First Name" value="Elena">
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 col-xl-6">
-                                    <div class="form-group">
-                                        <label for="lastname" class="form-label">last Name</label>
-                                        <input type="text" class="form-control" id="lastname" placeholder="Last Name" value="Gilbert">
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 col-xl-6">
-                                    <div class="form-group">
-                                        <label for="nickname" class="form-label">Nick Name</label>
-                                        <input type="text" class="form-control" id="nickname" placeholder="Nick Name" value="Noa">
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 col-xl-6">
-                                    <div class="form-group">
-                                        <label for="designation" class="form-label">Designation</label>
-                                        <input type="text" class="form-control" id="designation" placeholder="Designation" value="Web Designer">
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mb-4 text-17">Contact Info</p>
-                            <div class="form-group">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="email" class="form-label">Email</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="email" placeholder="Email" value="info@noa.in">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="website" class="form-label">Website</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="website" placeholder="Website" value="@spruko.w">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="phoneNumber" class="form-label">Phone</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="phoneNumber" placeholder="phone number" value="+145 541 773">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="address" class="form-label">Address</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <textarea class="form-control" id="address" name="example-textarea-input" rows="2" placeholder="Address">San Francisco, CA</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mb-4 text-17">Social Info</p>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="twitter" class="form-label">Twitter</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="twitter" placeholder="twitter" value="twitter.com/spruko.me">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="facebook" class="form-label">Facebook</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="facebook" placeholder="facebook" value="https://www.facebook.com/Noa">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="googlePlus" class="form-label">Google+</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="googlePlus" placeholder="google" value="spruko.com">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="linkedin" class="form-label">Linkedin</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="linkedin" placeholder="linkedin" value="linkedin.com/in/spruko">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="github" class="form-label">Github</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" id="github" placeholder="github" value="github.com/sprukos">
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mb-4 text-17">About Yourself</p>
-                            <div class="form-group ">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label for="biographicalInfo" class="form-label">Biographical
-                                            Info</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <textarea class="form-control" name="example-textarea-input" id="biographicalInfo" rows="4" placeholder="">pleasure rationally encounter but because pursue consequences that are extremely painful.occur in which toil and pain can procure him some great pleasure..</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="mb-4 text-17">Email Preferences</p>
-                            <div class="form-group mb-0">
-                                <div class="row row-sm">
-                                    <div class="col-md-3">
-                                        <label class="form-label">Verified User</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="custom-controls-stacked">
-                                            <label class="ckbox"><input type="checkbox" checked=""><span>
-                                                    Accept to receive post or page notification
-                                                    emails</span></label>
-                                            <label class="ckbox"><input type="checkbox" checked=""><span>
-                                                    Accept to receive email sent to multiple
-                                                    recipients</span></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="checkList">
-                    <div class="row row-sm">
-                        <div class="col-12">
-                            <div class="card border">
-                                <div class="card-header border-bottom d-block p-4">
-                                    <div class="media overflow-visible">
-                                        <div class="media-user me-2">
-                                            <div class="main-img-user"><img alt="" class="rounded-circle avatar-md" src="http://localhost/Noa/assets/images/faces/6.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 ms-2">Mintrona Pechon Pechon</h6><span class="text-primary ms-2">just now</span>
-                                        </div>
-                                        <div class="ms-auto">
-                                            <div class="dropdown show main-contact-star">
-                                                <a class="new option-dots2" data-bs-toggle="dropdown" href="JavaScript:void(0);"><i class="fe fe-more-vertical  tx-18"></i></a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="#">Edit Post</a>
-                                                    <a class="dropdown-item" href="#">Delete Post</a>
-                                                    <a class="dropdown-item" href="#">Personal Settings</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form, by injected humour, or randomised words
-                                        which don't look even slightly believable.</p>
-                                    <div class="row row-sm">
-                                        <div class="col">
-                                            <img alt="img" class="h-200 mb-2 mt-2 me-4 br-5" src="http://localhost/Noa/assets/images/media/checkList1.jpg">
-                                            <img alt="img" class="h-200 br-5" src="http://localhost/Noa/assets/images/media/checkList2.jpg">
-                                        </div>
-                                    </div>
-                                    <div class="media mt-4 profile-footer align-items-center">
-                                        <div class="avatar-list avatar-list-stacked me-4">
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/8.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/8.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/7.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/7.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/9.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/9.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/14.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/14.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/11.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/11.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius bg-primary">+8</span>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 text-bold text-dark-light">28 people like your photo</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card border">
-                                <div class="card-header border-bottom d-block p-4">
-                                    <div class="media overflow-visible">
-                                        <div class="media-user me-2">
-                                            <div class="main-img-user"><img alt="" class="rounded-circle avatar-md" src="http://localhost/Noa/assets/images/faces/6.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 ms-2">Mintrona Pechon Pechon</h6><span class="text-primary ms-2">just now</span>
-                                        </div>
-                                        <div class="ms-auto">
-                                            <div class="dropdown show main-contact-star">
-                                                <a class="new option-dots2" data-bs-toggle="dropdown" href="JavaScript:void(0);"><i class="fe fe-more-vertical  tx-18"></i></a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="#">Edit Post</a>
-                                                    <a class="dropdown-item" href="#">Delete Post</a>
-                                                    <a class="dropdown-item" href="#">Personal Settings</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form, by injected humour, or randomised words
-                                        which don't look even slightly believable.</p>
-                                    <div class="row row-sm">
-                                        <div class="col">
-                                            <img alt="img" class="h-200 mb-2 mt-2 me-4 br-5" src="http://localhost/Noa/assets/images/media/checkList3.jpg">
-                                            <img alt="img" class="h-200 br-5" src="http://localhost/Noa/assets/images/media/checkList4.jpg">
-                                        </div>
-                                    </div>
-                                    <div class="media mt-4 profile-footer align-items-center">
-                                        <div class="avatar-list avatar-list-stacked me-4">
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/8.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/8.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/7.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/7.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/9.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/9.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/14.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/14.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/11.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/11.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius bg-primary">+8</span>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 text-bold text-dark-light">28 people like your photo</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card border">
-                                <div class="card-header border-bottom d-block p-4">
-                                    <div class="media overflow-visible">
-                                        <div class="media-user me-2">
-                                            <div class="main-img-user"><img alt="" class="rounded-circle avatar-md" src="http://localhost/Noa/assets/images/faces/6.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 ms-2">Mintrona Pechon Pechon</h6><span class="text-primary ms-2">just now</span>
-                                        </div>
-                                        <div class="ms-auto">
-                                            <div class="dropdown show main-contact-star">
-                                                <a class="new option-dots2" data-bs-toggle="dropdown" href="JavaScript:void(0);"><i class="fe fe-more-vertical  tx-18"></i></a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="#">Edit Post</a>
-                                                    <a class="dropdown-item" href="#">Delete Post</a>
-                                                    <a class="dropdown-item" href="#">Personal Settings</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form, by injected humour, or randomised words
-                                        which don't look even slightly believable.</p>
-                                    <div class="row row-sm">
-                                        <div class="col">
-                                            <img alt="img" class="h-200 mb-2 mt-2 me-4 br-5" src="http://localhost/Noa/assets/images/media/checkList5.jpg">
-                                            <img alt="img" class="h-200 br-5" src="http://localhost/Noa/assets/images/media/checkList6.jpg">
-                                        </div>
-                                    </div>
-                                    <div class="media mt-4 profile-footer align-items-center">
-                                        <div class="avatar-list avatar-list-stacked me-4">
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/8.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/8.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/7.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/7.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/9.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/9.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/14.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/14.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/11.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/11.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius bg-primary">+8</span>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 text-bold text-dark-light">28 people like your photo</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header border-bottom d-block p-4">
-                                    <div class="media overflow-visible">
-                                        <div class="media-user me-2">
-                                            <div class="main-img-user"><img alt="" class="rounded-circle avatar-md" src="http://localhost/Noa/assets/images/faces/6.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 ms-2">Mintrona Pechon Pechon</h6><span class="text-primary ms-2">just now</span>
-                                        </div>
-                                        <div class="ms-auto">
-                                            <div class="dropdown show main-contact-star">
-                                                <a class="new option-dots2" data-bs-toggle="dropdown" href="JavaScript:void(0);"><i class="fe fe-more-vertical  tx-18"></i></a>
-                                                <div class="dropdown-menu shadow">
-                                                    <a class="dropdown-item" href="#">Edit Post</a>
-                                                    <a class="dropdown-item" href="#">Delete Post</a>
-                                                    <a class="dropdown-item" href="#">Personal Settings</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form, by injected humour, or randomised words
-                                        which don't look even slightly believable.</p>
-                                    <div class="row row-sm">
-                                        <div class="col">
-                                            <img alt="img" class="h-200 mb-2 mt-2 me-4 br-5" src="http://localhost/Noa/assets/images/media/checkList7.jpg">
-                                            <img alt="img" class="h-200 br-5" src="http://localhost/Noa/assets/images/media/checkList9.jpg">
-                                        </div>
-                                    </div>
-                                    <div class="media mt-4 profile-footer align-items-center">
-                                        <div class="avatar-list avatar-list-stacked me-4">
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/8.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/8.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/7.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/7.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/9.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/9.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/14.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/14.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius cover-image" data-bs-image-src="http://localhost/Noa/assets/images/users/11.jpg" style="background: url(&quot;http://localhost/Noa/assets/images/users/11.jpg&quot;) center center;"></span>
-                                            <span class="avatar avatar-md rounded-circle bradius bg-primary">+8</span>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 text-bold text-dark-light">28 people like your photo</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane" id="financeCard">
-                    <div class="row  mb-5 img-financeCard" id="lightfinanceCard" lg-uid="lg0">
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/8.jpg" data-src="http://localhost/Noa/assets/images/media/8.jpg" lg-event-uid="&amp;1">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/8.jpg" alt="banner image"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/10.jpg" data-src="http://localhost/Noa/assets/images/media/10.jpg" lg-event-uid="&amp;2">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/10.jpg" alt="banner image "></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/11.jpg" data-src="http://localhost/Noa/assets/images/media/11.jpg" lg-event-uid="&amp;3">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/11.jpg" alt="banner image "></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/12.jpg" data-src="http://localhost/Noa/assets/images/media/12.jpg" lg-event-uid="&amp;4">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/12.jpg" alt="banner image "></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/13.jpg" data-src="http://localhost/Noa/assets/images/media/13.jpg" lg-event-uid="&amp;5">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/13.jpg" alt="banner image"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/14.jpg" data-src="http://localhost/Noa/assets/images/media/14.jpg" lg-event-uid="&amp;6">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/14.jpg" alt="banner image"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/15.jpg" data-src="http://localhost/Noa/assets/images/media/15.jpg" lg-event-uid="&amp;7">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/15.jpg" alt="banner image"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/16.jpg" data-src="http://localhost/Noa/assets/images/media/16.jpg" lg-event-uid="&amp;8">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/16.jpg" alt="banner image"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/17.jpg" data-src="http://localhost/Noa/assets/images/media/17.jpg" lg-event-uid="&amp;9">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/17.jpg" alt="banner image"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/18.jpg" data-src="http://localhost/Noa/assets/images/media/18.jpg" lg-event-uid="&amp;10">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/18.jpg" alt="banner image"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/19.jpg" data-src="http://localhost/Noa/assets/images/media/19.jpg" lg-event-uid="&amp;11">
-                            <a href="#"><img class="img-fluid wp-100 mb-2 br-5" src="http://localhost/Noa/assets/images/media/19.jpg" alt="banner image"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-6" data-responsive="http://localhost/Noa/assets/images/media/20.jpg" data-src="http://localhost/Noa/assets/images/media/20.jpg" lg-event-uid="&amp;12">
-                            <a href="#"><img class="img-fluid wp-100 br-5" src="http://localhost/Noa/assets/images/media/20.jpg" alt="banner image"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="card tasks-card d-none">
                 <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
                     <h4 class="px-3">Notes</h4>
@@ -1740,9 +744,7 @@ return $colors[$randomIndex];
                                 <div><i class="task-icon bg-{{ randomColor() }}"></i>
                                     <h6 class="text-break">{{ $item->note }}</h6>
                                     <p class="text-muted fs-12">
-    {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}
-</p>
-
+                                        {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}</p>
                                 </div>
                                 <!--div>
                                     <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
@@ -1755,9 +757,35 @@ return $colors[$randomIndex];
                     </ul>
                 </div>
             </div>
-            <div class="card sms-card d-none pb-3">
-                <div class="main-content-app pt-0" style="display: flex; justify-content: center; align-items: center; height: 100%;">
-                    <h1 style="padding: 50px">Coming Soon</h1>
+
+            <div class="card follows-card d-none">
+                <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
+                    <h4 class="px-3">Followups</h4>
+                    @if ($user->hasPermissionTo('Add Contact'))
+                    <div>
+                        <a class="btn btn-primary NoteAddBtn print-btn pb-1 pt-1 " style="color: white;">
+                            <i class="bx bx-save pb-1"></i>Add Note</a></div>
+                    @endif
+                </div>
+                <div class="card-body p-3">
+                    <ul class="task-list" id="notes-list">
+                        @foreach ($referral->get_followup as $item)
+                        <li id="note-{{$item->id}}">
+                            <div class="row-container d-flex justify-content-between">
+                                <div><i class="task-icon bg-{{ randomColor() }}"></i>
+                                    <h6 class="text-break">{{ $item->note }}</h6>
+                                    <p class="text-muted fs-12">
+                                        {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}</p>
+                                </div>
+                                <!--div>
+                                    <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
+                                        <i class="bx bx-edit pb-1"></i>
+                                    </button>
+                                </div-->
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
 
@@ -1796,6 +824,7 @@ return $colors[$randomIndex];
                     </div>
                 </form>
             </div>
+
             <div class="card attachment-card d-none">
                 <div class="border-bottom p-2 mt-2">
                     <h4 class="px-3">Attachments</h4>
@@ -1822,9 +851,9 @@ return $colors[$randomIndex];
                     @endif
                 </div>
             </div>
+
             <div class="row medicaid-card">
-                <div class="">
-                    <div class="card medicaid-card d-none ">
+                 <div class="card medicaid-card d-none ">
                         <h4 class="px-3 py-3 border-bottom " style=" ">Medicaid Details</h4>
                         <div class="card-body px-0" style="padding-top:10px ">
                             <div class="row align-items-center">
@@ -1900,13 +929,8 @@ return $colors[$randomIndex];
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
-            <div class="card submission-card d-none">
-                <div class="main-content-app pt-0" style="display: flex; justify-content: center; align-items: center; height: 100%;">
-                    <h1 style="padding: 50px">Coming Soon</h1>
-                </div>
-            </div>
+
             <div class="card physician-card d-none">
                 <div class="card-body px-0" style="padding-top:10px ">
                     <div class="row align-items-center">
@@ -2004,93 +1028,11 @@ return $colors[$randomIndex];
                     </div>
                 </div>
             </div>
-            <div class="card records-card d-none">
-                <div class="card-header border-bottom d-block">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h4 class="mb-1">Related Records Card</h4>
-                            <div class="d-sm-flex d-block">
-                                <div class="text-muted pe-2 project-date">11 Jan 21</div>
-                                <div class="text-muted ms-3 project-status">In Progress</div>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="d-flex align-items-center">
-                                <i class="fa fa-star active stars-main ms-4" id="star"></i>
-                                <div class="ms-3">
-                                    <a href="#" class="text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-vertical"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-start">
-                                        <a class="dropdown-item" href="#"><i class="fe fe-edit me-2"></i>
-                                            Edit</a>
-                                        <a class="dropdown-item" href="#"><i class="fe fe-share me-2"></i>
-                                            Share</a>
-                                        <a class="dropdown-item" href="#"><i class="fe fe-download me-2"></i>
-                                            Clone</a>
-                                        <a class="dropdown-item" href="#"><i class="fe fe-info me-2"></i>
-                                            Report Issue</a>
-                                        <a class="dropdown-item" href="#"><i class="fe fe-trash me-2"></i>
-                                            Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h5 class="mb-2">Project Details:</h5>
-                    <p class="line-height-5 m-0 text-muted">Eirmod voluptua no at at sit dolor voluptua nonumy. Et
-                        Et
-                        ut rebum est aliquyam dolor clita. Amet ipsum et dolor ipsum. Dolor clita rebum. aliquyam
-                        gubergren est gubergren. Sit stet sit ipsum est sea clita sed gubergren. Sea duo dolores
-                        elitr
-                        et ipsum sadipscing et dolores, sanctus et vero sea diam duo no, amet.</p>
-                    <ul class="mt-2">
-                        <li class="text-muted">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn list-indicator" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
-                                <path d="M14.8534546,11.6465454l-4.5-4.5c-0.1937256-0.1871948-0.5009155-0.1871948-0.6947021,0C9.460144,7.3383789,9.4546509,7.6549072,9.6464844,7.8535156L13.7930298,12l-4.1465454,4.1464844c-0.09375,0.09375-0.1464233,0.2208862-0.1464233,0.3534546C9.5,16.776062,9.723877,16.999939,10,17c0.1326294,0.0001221,0.2598267-0.0525513,0.3534546-0.1464844l4.5-4.5c0.000061-0.000061,0.0001221-0.000061,0.0001831-0.0001221C15.0487671,12.1581421,15.0487061,11.8416748,14.8534546,11.6465454z">
-                                </path>
-                            </svg>
-                            Ea eos nonumy diam duo elitr. Takimata vero sit eirmod sit. Sea diam vero ipsum.
-                        </li>
-                        <li class="text-muted mt-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn list-indicator" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
-                                <path d="M14.8534546,11.6465454l-4.5-4.5c-0.1937256-0.1871948-0.5009155-0.1871948-0.6947021,0C9.460144,7.3383789,9.4546509,7.6549072,9.6464844,7.8535156L13.7930298,12l-4.1465454,4.1464844c-0.09375,0.09375-0.1464233,0.2208862-0.1464233,0.3534546C9.5,16.776062,9.723877,16.999939,10,17c0.1326294,0.0001221,0.2598267-0.0525513,0.3534546-0.1464844l4.5-4.5c0.000061-0.000061,0.0001221-0.000061,0.0001831-0.0001221C15.0487671,12.1581421,15.0487061,11.8416748,14.8534546,11.6465454z">
-                                </path>
-                            </svg>
-                            Accusam ipsum labore dolor amet ea, accusam dolore dolor dolore.
-                        </li>
-                        <li class="text-muted mt-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn list-indicator" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
-                                <path d="M14.8534546,11.6465454l-4.5-4.5c-0.1937256-0.1871948-0.5009155-0.1871948-0.6947021,0C9.460144,7.3383789,9.4546509,7.6549072,9.6464844,7.8535156L13.7930298,12l-4.1465454,4.1464844c-0.09375,0.09375-0.1464233,0.2208862-0.1464233,0.3534546C9.5,16.776062,9.723877,16.999939,10,17c0.1326294,0.0001221,0.2598267-0.0525513,0.3534546-0.1464844l4.5-4.5c0.000061-0.000061,0.0001221-0.000061,0.0001831-0.0001221C15.0487671,12.1581421,15.0487061,11.8416748,14.8534546,11.6465454z">
-                                </path>
-                            </svg>
-                            Nonumy gubergren gubergren lorem dolore nonumy lorem kasd, labore sit eirmod sed.
-                        </li>
-                        <li class="text-muted mt-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-inner-icn list-indicator" enable-background="new 0 0 24 24" viewBox="0 0 24 24">
-                                <path d="M14.8534546,11.6465454l-4.5-4.5c-0.1937256-0.1871948-0.5009155-0.1871948-0.6947021,0C9.460144,7.3383789,9.4546509,7.6549072,9.6464844,7.8535156L13.7930298,12l-4.1465454,4.1464844c-0.09375,0.09375-0.1464233,0.2208862-0.1464233,0.3534546C9.5,16.776062,9.723877,16.999939,10,17c0.1326294,0.0001221,0.2598267-0.0525513,0.3534546-0.1464844l4.5-4.5c0.000061-0.000061,0.0001221-0.000061,0.0001831-0.0001221C15.0487671,12.1581421,15.0487061,11.8416748,14.8534546,11.6465454z">
-                                </path>
-                            </svg>
-                            Ipsum elitr no sed takimata dolore.
-                        </li>
-                    </ul>
-                    <div class="d-flex justify-content-end">
-                        <span class="d-f-ai-c" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-original-title="View Count">
-                            <i class="fe fe-eye text-16 me-1"></i>
-                            15K
-                        </span>
-                        <span class="d-f-ai-c ms-4" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-original-title="Comments">
-                            <i class="fe fe-message-circle text-16 me-1"></i>
-                            5.3K
-                        </span>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="col-md-2">
             <div class="card">
                 <div class="card-body">
-                <h6 class="fw-bold mb-1">Created Date</h6>
+                    <h6 class="fw-bold mb-1">Created Date</h6>
                     {{ $referral->created_at }}
                     <hr>
                     <h6 class="fw-bold mb-1">Updated Date</h6>
@@ -2235,11 +1177,9 @@ return $colors[$randomIndex];
     </div>
 </div>
 
-
 <script src="{{ url('/assets/custom/jquery.min.js') }}"></script>
 <script src="{{ url('/assets/custom/custom.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
 
 <script>
 
@@ -2309,7 +1249,6 @@ return $colors[$randomIndex];
         $(".attachment-card").addClass('d-none');
         $(".medicaid-card").addClass('d-none');
         $(".submission-card").addClass('d-none');
-        $(".records-card").addClass('d-none');
         $("." + tabName).removeClass('d-none');
     }
 
@@ -2335,7 +1274,6 @@ return $colors[$randomIndex];
         })
     })
 
-
     $('#bank-info-form').on('submit', function(e) {
 
         e.preventDefault();
@@ -2358,7 +1296,6 @@ return $colors[$randomIndex];
             }
         })
     });
-
 
     $('#MedicaidForm').on('submit', function(e) {
         e.preventDefault();
@@ -2636,7 +1573,6 @@ return $colors[$randomIndex];
             $(".cancelButton").show();
         });
 
-
         $(document).on("click", ".cancelButton", function() {
 
             $(".hiddenFields").prop("readonly", true);
@@ -2697,7 +1633,6 @@ return $colors[$randomIndex];
         });
     });
 
-
     $(document).on('submit', '#emailForm', function(e) {
         e.preventDefault();
         var i;
@@ -2717,10 +1652,8 @@ return $colors[$randomIndex];
                 const keys = Object.keys(documentObject);
                 for (let i = 0; i < keys.length; i++) {
                     const fileName = keys[i];
-                    console.log(fileName);
                     $('button.' + fileName).text('Doc Sent');
                 }
-                // swal.fire('success', response.success, 'success');
             },
             error: function(error) {
                 $('.email-btn').addClass('disabled');
@@ -2852,7 +1785,6 @@ return $colors[$randomIndex];
             $('#addNoteModalHeader').text('Add Note');
         });
 
-
     });
 
     function showAddNoteModal() {
@@ -2908,12 +1840,11 @@ return $colors[$randomIndex];
 
                 let noteDateTime1 = new Date(`${data.note.date}T${data.note.time}`);
 
-        // Format the date and time as m/d/Y h:i A
-        let formattedDate1 = noteDateTime1.toLocaleDateString('en-US', {
-            month: '2-digit',
-            day: '2-digit',
-            year: 'numeric'
-        });
+                let formattedDate1 = noteDateTime1.toLocaleDateString('en-US', {
+                    month: '2-digit',
+                    day: '2-digit',
+                    year: 'numeric'
+                });
 
                 let notes_list = $("#notes-list");
                 let note_id = data.note.id;
@@ -2922,7 +1853,6 @@ return $colors[$randomIndex];
 
                 let noteTime = new Date(`1970-01-01T${data.note.time}`);
 
-                // Format the time for display
                 let formattedTime = noteTime.toLocaleTimeString('en-US', {
                     hour: '2-digit',
                     minute: '2-digit',
@@ -2930,7 +1860,7 @@ return $colors[$randomIndex];
                 });
 
                 if (existing_note.length > 0) {
-                    // Update the existing note's content
+
                     existing_note.html(`
                         <div class="row-container d-flex justify-content-between">
                             <div>
@@ -2948,7 +1878,6 @@ return $colors[$randomIndex];
                         </div>
                     `);
                 } else {
-                    // Prepend a new note if it doesn't exist
                     notes_list.prepend(`
                         <li id="note-${note_id}">
                             <div class="row-container d-flex justify-content-between">
@@ -2983,5 +1912,4 @@ return $colors[$randomIndex];
     }
 
 </script>
-
 @endsection
