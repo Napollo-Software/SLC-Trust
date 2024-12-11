@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ asset('assets/img/favicon/favicon.png')}}" type="image/x-icon" />
     <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <title>HIPPA</title>
     <style>
@@ -121,7 +122,7 @@
         .oca {
             float: right;
         }
-      
+
         .card {
             background:white;
             width: 1000px;
@@ -215,7 +216,7 @@ textarea{
     flex-direction: row;
     align-items: center;
     gap: 5px;
- } 
+ }
 
  .nine-container{
     margin-left: 31px;
@@ -304,13 +305,13 @@ body{
 
    .mt-3{
         margin-top: 3px;
-    } 
+    }
    .ml-5{
         margin-top: 5px;
-    } 
+    }
    .mt-5{
         margin-top: 5px;
-    } 
+    }
     .mt-10{
         margin-top: 10px;
     }
@@ -364,7 +365,7 @@ body{
     flex-direction: column;
     gap:5px
   }
- 
+
   .flex-row{
     display: flex;
     flex-direction: row;
@@ -384,10 +385,10 @@ body{
   height: 12px;
   background-color: white;
   border: 1px solid #777;
-  border-radius: 2px; 
+  border-radius: 2px;
   position: relative;
   cursor: pointer;
-  
+
 }
 input[type="radio"]:checked{
     background-color: #0075ff;
@@ -406,7 +407,7 @@ input[type="radio"]:checked:before {
   font-size: 9px;
   font-weight: bold;
   color: white;
-  background-color: #0075ff; 
+  background-color: #0075ff;
 }
 
   @media only screen and (max-width: 520px){
@@ -458,7 +459,7 @@ input[type="radio"]:checked:before {
     text-align: left;
     font-size: 14px !important;
     padding-left:15px;
-    padding-right:15px 
+    padding-right:15px
   }
 
   .header_right{
@@ -487,7 +488,7 @@ input[type="radio"]:checked:before {
     flex-direction: column;
     gap:5px
   }
- 
+
   .flex-row{
     display: flex;
     flex-direction: row;
@@ -525,7 +526,7 @@ input[type="radio"]:checked:before {
 
             </div>
         </div>
-   
+
         <div class="header_bottom">
             <h5>
                 [This form has been approved by the New York State Department of Health]
@@ -607,7 +608,7 @@ input[type="radio"]:checked:before {
                     <p>
                         9(a). Specific information to be released:
                         </p>
-                        
+
                         <div style="margin-left:31px" class="row">
                         <input type="radio" name="info_released1" value="dated">
                         Medical Record from (insert date) <input type="date" max="9999-12-31" class="inputDate"  name="info_released_from"> to
@@ -668,7 +669,7 @@ input[type="radio"]:checked:before {
                             to discuss my health information with my attorney, or a governmental agency, listed here:
                                 <input type="text" class="border-btm" name="health_information"  style="width:100%;height:30px;margin:0;height:14px" maxlength="125">
                         </div>
-                       
+
                     </div>
                     <p style="text-align: center;margin-bottom:-6px;margin-top:2px" class="sm">
                         (Attorney/Finn Name or Governmental Agency Name)
@@ -718,7 +719,7 @@ input[type="radio"]:checked:before {
         </table>
 
         </div>
-      
+
         <p class="mt-3" style="margin-bottom:3px;padding-left:10px">
             All items on this form have been completed and my questions about this form have been answered. In add111on, I
             have been provided a

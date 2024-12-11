@@ -40,7 +40,7 @@
             vertical-align: top;
         }
 
-        
+
         .xs{
             font-size: 12px;
         }
@@ -63,7 +63,7 @@
         .xl{
             font-size: 17px;
         }
-        
+
         .mt-0{
             margin-top:0px
         }
@@ -82,7 +82,7 @@
             /* vertical-align: top; */
             vertical-align: middle;
             /* transform: scale(2); */
-            
+
         }
 
         tr:first-child th {
@@ -169,7 +169,7 @@
          .pt-20{
             padding-top:16px
          }
-         
+
          .pt-12{
             padding-top:12px
          }
@@ -233,7 +233,7 @@
             </span>
              <br>
              <span style="font-size: 11px">
-                 State of New York 
+                 State of New York
             </span>
             <br>
             <span style="font-size: 11px">
@@ -263,7 +263,7 @@
         </p>
         <p style="display: table-cell; width: 20%;margin-top: 5px;">
             <label style="font-size:11px">Date of Birth</label> <br>
-            <input type="text" value="{{date('m/d/Y',strtotime($dob))}}"
+            <input type="text" value="{{ formatDateForPdf($dob) }}"
             style="border:none;border-bottom:1px solid black;width: 85%; margin: 5px 0;"> <br>
             <label style="margin: 5px 0;display:block;margin-bottom: 7px;margin-top: 0;font-size:10px">Sex</label>
             <label  style="vertical-align:middle;position: relative;bottom: 4px;">
@@ -325,12 +325,12 @@
         <div style="display: table-cell; vertical-align: bottom; width: 25%; padding-left:10px;">
             <p style="margin: 0">
                 <span style="display: inline-block; font-size: 12px;">Date of last Exam</span>
-                <input type="text" value="{{date('m/d/Y',strtotime($last_exam_date))}}" name="last_exam_date"
+                <input type="text" value="{{ formatDateForPdf($last_exam_date) }}" name="last_exam_date"
                        style="border: none;border-bottom:1px solid black ;display: inline-block;width: 77px;position: relative;top: 2px;">
             </p>
 
             <p style="margin: 0">Height <input type="text" value="{{$height_ft}}" name="height_ft"
-            style="border: none;border-bottom:1px solid black ;width: 55px;vertical-align:middle;position: relative;top: 2px;"> ft. 
+            style="border: none;border-bottom:1px solid black ;width: 55px;vertical-align:middle;position: relative;top: 2px;"> ft.
             <input type="text" value="{{$height_in}}" name="height_in" style="border: none;border-bottom:1px solid black;width: 35px;vertical-align:middle;position: relative;top: 2px;"> in.</p>
             <p style="margin: 0">Weight <input type="text" name="weight" value="{{$weight}}" style="border: none;border-bottom:1px solid black;width: 50px;vertical-align:middle"> lbs.</p>
         </div>
@@ -527,7 +527,7 @@
                 <label style="position: relative;bottom:4px;white-space:nowrap">
                     <input type="checkbox" name="mental"
                        value="Making simple work-related decisions" {{isset($mental) && $mental == 'Making simple work-related decisions' ? 'checked':''}}>
-                Making simple work-related decisions 
+                Making simple work-related decisions
             </label><br>
                 <label style="position: relative;bottom:4px"><input type="checkbox" name="mental"
                        value="Responding appropriately to supervision, co-workers, work situations"{{isset($mental) && $mental == 'Responding appropriately to supervision, co-workers, work situations' ? 'checked':''}}>
@@ -567,20 +567,16 @@
             </div>
         </div>
 
-
         <div style="display: table-cell; vertical-align: middle; width: 25%;">
             <p style="margin:0;margin-bottom:5px">
                 Date Signed
             </p>
             <div>
-                <input type="text" name="date_signed" class="no-border" value="{{date('m/d/Y',strtotime($date_signed))}}"
+                <input type="text" name="date_signed" class="no-border" value="{{ formatDateForPdf($date_signed) }}"
                        style="border: none;border-bottom:1px solid black;width: 98%;">
             </div>
         </div>
-
-
     </div>
-
 
     <div style="display: table;width: 100%">
         <div style="display: table-cell; vertical-align: middle; width: 25%;">
@@ -613,13 +609,12 @@
             </div>
         </div>
     </div>
-    
+
     <p style="margin:0;font-size:11px;vertical-align: middle;">
         <span style="text-align: left;vertical-align: middle;">DOH-5143 (8/18)</span>
         <span style="text-decoration:underline;text-align:center;display: inline-block;
     width: 85%;vertical-align: middle;">PLEASE RETURN THIS FORM <span class="font-base2" style="text-decoration:underline;"> ALONG WITH A COPY OF ALL MEDICAL RECORDS FOR THE PAST 12 MONTHS.</span></span>
     </p>
-
 
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -658,8 +653,6 @@
                 }
             });
         });
-
-
     });
 
 </script>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ asset('assets/img/favicon/favicon.png')}}" type="image/x-icon" />
     <title>DOH 5173-HIPPA State</title>
 </head>
 <style>
@@ -76,10 +77,10 @@
   height: 12px;
   background-color: white;
   border: 1px solid #777;
-  border-radius: 2px; 
+  border-radius: 2px;
   position: relative;
   cursor: pointer;
-  
+
 }
 input[type="radio"]:checked{
     background-color: #0075ff;
@@ -98,7 +99,7 @@ input[type="radio"]:checked:before {
   font-size: 9px;
   font-weight: bold;
   color: white;
-  background-color: #0075ff; 
+  background-color: #0075ff;
 }
 
     input[type="date"]::-webkit-calendar-picker-indicator {
@@ -137,7 +138,7 @@ input[type="radio"]:checked:before {
     }
 
     /* .submit-button:hover {
-        background-color: #16b6d3; 
+        background-color: #16b6d3;
     } */
 
     .submit-button:focus {
@@ -307,16 +308,16 @@ input{
 
    .mt-3{
         margin-top: 3px;
-    } 
+    }
    .mt-2{
         margin-top: 2px;
-    } 
+    }
    .mt-1{
         margin-top: 1px;
-    } 
+    }
    .mt-5{
         margin-top: 5px;
-    } 
+    }
     .mt-10{
         margin-top: 10px;
     }
@@ -334,7 +335,7 @@ input{
     flex-direction: column;
     gap:5px
   }
- 
+
   .flex-row{
     display: flex;
     flex-direction: row;
@@ -564,21 +565,21 @@ hr{
             <div style="margin-left: 25px;" class="mt-5" ><input type="radio" name="released_info"   value="medical_dated"> Medical records from
                 <input type="date" style="width:120px" name="medical_record_from" max="9999-12-31">(date) to <input type="date" style="width:120px" name="medical_record_to" max="9999-12-31">(date).
             </div>
-            <div style="margin-left: 25px;" class="mt-5"><input type="radio" name="released_info" value="medical_entire"> 
+            <div style="margin-left: 25px;" class="mt-5"><input type="radio" name="released_info" value="medical_entire">
             Entire Medical Record, including patient histories, office notes (except
-                psychotherapy notes), test results, radiology studies, films, referrals, 
+                psychotherapy notes), test results, radiology studies, films, referrals,
                 <br/>
                 <span style="margin-left: 25px;"> consults, billing records, insurance records, and records sent to you by other health care providers.</span>
                </div>
             <div class="flex-row" style="margin-left: 25px;gap:3px;margin-top:-5px">
-                 <input type="radio" name="released_info" style="margin-top:13px" value="medical_other"> 
+                 <input type="radio" name="released_info" style="margin-top:13px" value="medical_other">
                 <div class="flex-row" style="flex:1;gap:5px ">
                     <p>Other:</p>
                     <input type="text"  style="flex:1;height: 12px;position: relative;top: 11px;" name="other" maxlength="120">
                 </div>
             </div>
-               
-            
+
+
 
             <p style="margin-top:0px">9(b). Authorization to discuss Health Information:</p>
             <div class="flex-row" style="gap:5px;margin-top:-16px;margin-left:47px">
@@ -609,7 +610,7 @@ hr{
                     </label>
                 </div>
             </div>
-           
+
             <hr style="height:0.5px">
             <div class="flex-row align-center" style="padding: 3px 0;gap: 172px;">
                 <div>
@@ -620,7 +621,7 @@ hr{
                         <input type="radio" name="request_individual" value="request_individual" style="margin-top: 0;">
                         <label style="position: relative;top: 1px;left:2px" for="">At request of individual</label>
                     </div>
-                    <div style="display: flex;justify-content: center;align-items: center;"> 
+                    <div style="display: flex;justify-content: center;align-items: center;">
                         <input type="radio" name="request_individual" value="other_individual" style="margin-top: 0;">
                         <div style="position: relative;top: 1px;left:2px">
                         <label for="">Other:</label>
@@ -639,13 +640,13 @@ hr{
                 <p class="m-0">12. If not the patient, name of the person signing this form (print): </p>
                 <input type="text" name="person_signing" class="f-1 border-none">
             </div>
-            
+
             <hr style="height: 0.5px">
             <div class="flex-row align-center gap-5" style="padding: 3px 0;">
                 <p class="m-0">13. Type of authority to sign on behalf of the patient: </p>
                 <input type="text"  name="auth_info" class="f-1 border-none">
             </div>
-            
+
             <hr style="height:1.5px">
         <div>
             <div style="margin-top: 14px;">
@@ -671,7 +672,7 @@ hr{
 
                         <button id="clear-hippa-state" onclick="clearHippaStateCanvas()">Clear</button>
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -797,7 +798,7 @@ hr{
                         parent. If you are the legal guardian of the patient, put legal guardian</span>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <div class="sm l-height" style="margin-top: 15px;">

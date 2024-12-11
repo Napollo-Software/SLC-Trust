@@ -244,4 +244,10 @@ if (!function_exists('createDocument')) {
             ];
         }
     }
+
+    if(!function_exists('formatDateForPdf')) {
+        function formatDateForPdf($date, $format = 'm/d/Y') {
+            return $date ? date($format, strtotime($date)) : '';
+        }
+    }
 }

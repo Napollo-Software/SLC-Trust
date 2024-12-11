@@ -21,7 +21,7 @@
             src: url('fonts/Info-Bold.otf') format('truetype');
         }
 
-            body{                                                                          
+            body{
                 font-family:'info-normal';
                 font-size:12px
             }
@@ -153,10 +153,10 @@
                 margin-bottom:3px
             }
             .pb-3{
-                padding-bottom:3px  
+                padding-bottom:3px
             }
             .pb-7{
-                padding-bottom:7px;  
+                padding-bottom:7px;
             }
             .pl-20{
                 padding-left:25px
@@ -194,7 +194,7 @@
             </td>
             <td style="border-width: 0.5px;margin:0;width:170px">
                 <label style="font-size: 12px;" for="Date of Birth">Date of Birth:</label>
-                <input type="text" name="dob" class="no-border text-sm" value="{{date('m/d/Y',strtotime($dob))}}" style="width: 95%">
+                <input type="text" name="dob" class="no-border text-sm" value="{{ formatDateForPdf($dob) }}" style="width: 95%">
             </td>
             <td style="border-width: 0.5px;margin:0;width:170px">
                 <label style="font-size: 12px;" for="SSN Number">Social Security Number (Last four digits):</label>
@@ -295,11 +295,11 @@
             type="text"
             name="medical_record_from"
             class="border-bottom text-sm"
-            value="{{date('m/d/Y',strtotime($medical_record_from))}}"
+            value="{{ formatDateForPdf($medical_record_from)}}"
             >
                 (date) to
             <input
-                type="text" name="medical_record_to" class="border-bottom text-sm" value="{{date('m/d/Y',strtotime($medical_record_to))}}" >(date).
+                type="text" name="medical_record_to" class="border-bottom text-sm" value="{{formatDateForPdf($medical_record_to) }}" >(date).
          </div>
         <p class='m-0 pl-20'>
             <input type="checkbox" name="released_info" style='vertical-align:bottom;margin-bottom:3px'
@@ -336,7 +336,7 @@
                 <input type="text" name="init" class="border-bottom text-sm" value="{{$init}}" style="width: 100px;">
             </div>
             <div style='table-cell:width:70%'>
-                I authorize 
+                I authorize
                 <input type="text" name="auth_name" class="border-bottom text-sm" value="{{$auth_name}}" style="width: 410px"
                 placeholder="Name of individual/Health care provider">
                 <p style='padding-left:50px;margin-top:-4px; font-size:10px' class='m-0'>
@@ -455,7 +455,7 @@
                 @endif
             </div>
             <div style="display: table-cell; vertical-align: bottom;padding-left:15px;margin-top:15px;width:30%">
-                <input type="text" class="border-bottom text-sm" style="width:90%" name="date_hippa_state" value="{{date('m/d/Y',strtotime($date_hippa_state))}}">
+                <input type="text" class="border-bottom text-sm" style="width:90%" name="date_hippa_state" value="{{ formatDateForPdf($date_hippa_state) }}">
                 <p style="display: block; text-align: start;vertical-align: bottom; white-space: no-wrap;" class='m-0 text-sm'>
                     DATE
                 </p>
@@ -473,7 +473,7 @@
 
             <div style="display: table-cell; width: 68%; text-align: right; vertical-align: bottom;">
                 <span style="margin: 0;padding: 0;font-size: 18px;" class='font-bold'>
-                  Instructions for Completing the <br/>    
+                  Instructions for Completing the <br/>
                   Authorization for Release of Health Information Pursuant to HIPAA
                 </span>
             </div>
@@ -487,7 +487,7 @@
                 to the State Disability Review Team. These health
                 records will help the Disability Review Team determine if you
                 are disabled. You will need to fill out and send one of these forms to every one of your healthcare
-                providers that needs to send in your medical records. 
+                providers that needs to send in your medical records.
             </span>
             <br/>
             <br/>
@@ -538,10 +538,10 @@
         </p>
         <p class='m-0 py-7' style='margin-left:13px'>
             <span>
-                9a) 
+                9a)
             </span>
             • If you want the healthcare provider to send your medical records for a certain period of time, put a check
-            in the first box and enter the dates for the 
+            in the first box and enter the dates for the
             <br/>
             <span style='padding-left:20px'>
             time
@@ -637,7 +637,7 @@
             If you are the legal representative of the patient, put the relationship you have to the patient.  For example, if the patient is a child and you are the
             <br/>
             <span style='padding-left:27px'>
-                parent, put  
+                parent, put
                 parent.  If you are the legal guardian of the patient, put legal guardian.
             </span>
         </span>

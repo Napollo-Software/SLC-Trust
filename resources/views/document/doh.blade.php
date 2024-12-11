@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
+    <link rel="icon" href="{{ asset('assets/img/favicon/favicon.png')}}" type="image/x-icon" />
     <title>Document</title>
     <style>
         @font-face {
@@ -54,8 +55,8 @@
         }
 
         .submit-button:focus {
-            outline: none; 
-            box-shadow: 0 0 0 2px rgba(19, 75, 126, 0.25); 
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(19, 75, 126, 0.25);
         }
 
 
@@ -311,10 +312,10 @@ input[type="radio"]{
   height: 10px;
   background-color: white;
   border: 1px solid #000;
-  border-radius: 0; 
+  border-radius: 0;
   position: relative;
   cursor: pointer;
-  
+
 }
 input[type="radio"]:checked{
     background-color: #0075ff;
@@ -333,7 +334,7 @@ input[type="radio"]:checked:before {
   font-size: 9px;
   font-weight: bold;
   color: white;
-  background-color: #0075ff; 
+  background-color: #0075ff;
 }
 .mb-6{
     margin-bottom: 6px
@@ -422,9 +423,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         overflow-x: auto;
         min-width: 700px;
     }
-   
 
-    
+
+
 }
 
 @media only screen and (max-width: 770px){
@@ -451,7 +452,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 <div class="card">
     <form id="doh-form">
         @csrf
-        
+
         <input type="hidden" id=referral_id" name="referral_id" value="{{$referral->id}}">
         <input type="hidden" id="document_id" name="document_id" value="{{$documentId}}">
         <div class="container-row">
@@ -469,7 +470,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                 Section I – Identification
             </h2>
         </div>
-        
+
 
 
         <div class="sec-1">
@@ -519,8 +520,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                                 <input style="margin-top: 2px;" class="w130" type="text" name="case_number">
                             </div>
                         </div>
-                        
-                        
+
+
                     </div>
                     <div class="patient-style mt-18" style="gap:6px">
                         <div>
@@ -537,8 +538,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                             </div>
                     </div>
                 {{-- </div> --}}
-                
-               
+
+
             {{-- </div> --}}
         </div>
 
@@ -546,7 +547,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 
-        
+
 
 
 
@@ -730,11 +731,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
                 </div>
             </div>
             <div class="w30">
-            
+
                 <label>Print Name</label><br>
                 <input type="text" name="print_name" class="w90" >
             </div>
-            
+
                 <div class="w30">
                     <label>Date Signed</label><br>
                     <input type="date" name="date_signed" class="w90">

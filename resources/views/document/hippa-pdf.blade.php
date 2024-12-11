@@ -165,7 +165,7 @@
                 </td>
                 <td style='padding-top:0 !important'>
                     <label for="Date of Birth">Date of Birth</label>
-                    <input type="text" name="hippa_dob" class="border-none" value="{{date('m/d/Y',strtotime($hippa_dob))}}" style="width: 90%;">
+                    <input type="text" name="hippa_dob" class="border-none" value="{{ formatDateForPdf($hippa_dob) }}" style="width: 90%;">
                 </td>
                 <td style='padding-top:0 !important'>
                     <label for="SSN Number">Social Security Number</label>
@@ -187,7 +187,7 @@
         <p style="margin: 0;font-size: 11px;">In accordance with New York State Law and the Privacy Rule of the Health
             Insurance Portability and
             Accountability
-            Act of 1996 
+            Act of 1996
             <br/>
             (HIPAA), &nbsp; I understand that:</p>
         <ol style="font-size: 11px;margin:0;list-style:none;text-decoration:none;padding:0">
@@ -250,7 +250,7 @@
                         <br>
                         <textarea type="text" name="name_and_address" rows="2" class="border-none"
                               style="width: 98%;height:10px">{{$name_and_address}}</textarea>
-                        
+
                     </p>
                 </td>
             </tr>
@@ -276,7 +276,7 @@
                     class="no-border"
                     style="margin-bottom:0px !important;width:15%"
                     name="info_released_from"
-                    value="{{date('m/d/Y',strtotime($info_released_from))}}"
+                    value="{{ formatDateForPdf($info_released_from) }}"
                     >
                     <span>
                         to (insert date)
@@ -287,7 +287,7 @@
                     class="no-border"
                     name="info_released_to"
                     style="margin-bottom:0px !important;width:14%"
-                    value="{{date('m/d/Y',strtotime($info_released_to))}}"
+                    value="{{ formatDateForPdf($info_released_to) }}"
                     >
                     <p style="display: table; width: 100%; margin: 0; margin-bottom: 3px;padding-left:18px">
                         <input
@@ -313,13 +313,13 @@
                             <input
                              type="checkbox"
                              class='m-0 align-bottom'
-                             style='padding-left:19px;' 
-                             name="info_released1" 
+                             style='padding-left:19px;'
+                             name="info_released1"
                              value="other"
                              {{isset($info_released1) && $info_released1 == 'other' ? 'checked' : '' }}
                              >
                             <span>
-                                 Other: 
+                                 Other:
                             </span>
                              <input type="text"
                              name="info_other"
@@ -346,8 +346,8 @@
                             <ul style="list-style-type: none;margin: 0;padding: 0;">
                                 <li>
                                     <input
-                                    type="text" 
-                                    name="alcoholDrug" 
+                                    type="text"
+                                    name="alcoholDrug"
                                     class='border-none border-bottom'
                                     style='width:20%'
                                     value="{{$alcoholDrug}}"
@@ -358,11 +358,11 @@
                                   </label>
                                 </li>
                                 <li>
-                                    <input 
-                                    type="text" 
+                                    <input
+                                    type="text"
                                     name="mentalHealth"
                                     style='width:20%'
-                                    class='border-none border-bottom' 
+                                    class='border-none border-bottom'
                                     value="{{$mentalHealth}}"
                                     >
                                     <label
@@ -371,11 +371,11 @@
                                     </label>
                                 </li>
                                 <li>
-                                    <input 
-                                    type="text" 
+                                    <input
+                                    type="text"
                                     name="hivRelated"
                                     style='width:20%'
-                                    class='border-none border-bottom' 
+                                    class='border-none border-bottom'
                                     value="{{$hivRelated}}"
                                     >
                                     <label
@@ -395,7 +395,7 @@
                             </span>
                             <input
                             type="checkbox"
-                            class='align-bottom m-0' 
+                            class='align-bottom m-0'
                             style='margin-left:0px;margin-right:0px'
                             name="discuss"
                             value="discuss"
@@ -405,21 +405,21 @@
                                 By initialing here
                             </span>
                             <input
-                            type="text" 
-                            name="authorised_person" 
-                            placeholder="initials" 
-                            class="no-border" 
+                            type="text"
+                            name="authorised_person"
+                            placeholder="initials"
+                            class="no-border"
                             value="{{$authorised_person}}"
                             style='vertical-align:bottom'
                             >
                             <span class='pl-5 align-bottom pt-20'>
-                                I authorize 
+                                I authorize
                             </span>
                             <input
                             type="text"
                             name="authorize"
-                            class="no-border" 
-                            value="{{$authorize}}" 
+                            class="no-border"
+                            value="{{$authorize}}"
                             placeholder="Name of individual health care provider"
                             style='width:49%;vertical-align:bottom'
                             >
@@ -445,20 +445,20 @@
                     <p style="margin: 0;padding-left:5px">10. Reason for release of information:</p>
                     <div style='padding-left:16px'>
                         <input
-                        type="checkbox" 
+                        type="checkbox"
                         name="request"
                         class='m-0 align-bottom'
-                        value="request"  
+                        value="request"
                         {{isset($request) && $request =='request'? 'checked' :''}}
-                        > 
+                        >
                         <span style="margin:0;padding: 0">At request of individual</span>
                     </div>
                     <div style='padding-left:16px'>
                         <input
-                        type="checkbox" 
-                        name="reason_other"  
+                        type="checkbox"
+                        name="reason_other"
                         class='m-0 align-bottom'
-                        value="reason" 
+                        value="reason"
                         {{isset($request) && $request =='reason'? 'checked' :''}}
                         style="">
                         <span>
@@ -511,11 +511,11 @@
                         Date:
                     </span>
                     <input
-                    type="text" 
+                    type="text"
                     class="no-border"
                     name="sign_date"
                     value="{{$sign_date}}"
-                    value="{{date('m/d/Y',strtotime($sign_date))}}"
+                    value="{{ formatDateForPdf($sign_date) }}"
                     style="width: 60%;">
                 </div>
             </div>

@@ -667,9 +667,8 @@ class DocumentController extends Controller
 
     }
 
-    public function saveDoh(
-        Request $request
-    ) {
+    public function saveDoh(Request $request) {
+
         $referralId = $request->referral_id;
         $referral = Referral::find($referralId);
         if (!$referral) {
@@ -677,7 +676,7 @@ class DocumentController extends Controller
         }
 
         $hippa_state_sign_fieldname = 'doh_sign';
-        $directory = storage_path('app/public/' . $referral->email);
+        $directory = storage_path("app/public/{$referral->email}");
         if (!is_dir($directory)) {
             mkdir($directory, 0777, true);
         }
@@ -686,7 +685,7 @@ class DocumentController extends Controller
             $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
             $filename = $hippa_state_sign_fieldname . date('Ymd_His') . '.png';
 
-            $imagePath = $directory . '/' . $filename;
+            $imagePath = "{$directory}/{$filename}";
             file_put_contents($imagePath, $imageData);
             $request->merge([$hippa_state_sign_fieldname => $imagePath]);
         }
@@ -706,12 +705,12 @@ class DocumentController extends Controller
         $document = Documents::find($request->document_id);
         if ($document) {
             //delete old file
-            if (Storage::exists('public/' . $document->uploaded_url)) {
-                Storage::delete('public/' . $document->uploaded_url);
+            if (Storage::exists("public/{$document->uploaded_url}")) {
+                Storage::delete("public/{$document->uploaded_url}");
             }
             //delete signature images
             $email = explode('/', $document->uploaded_url)[0];
-            $folderPath = 'public/' . $email . '/'; // Adjust the folder path as needed
+            $folderPath = "public/{$email}/"; // Adjust the folder path as needed
 
             // Check if the folder exists
             if (Storage::exists($folderPath)) {
@@ -727,7 +726,6 @@ class DocumentController extends Controller
             }
             $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
-
             $document->save();
         }
 
@@ -735,9 +733,7 @@ class DocumentController extends Controller
         return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
     }
 
-    public function saveMap(
-        Request $request
-    ) {
+    public function saveMap(Request $request) {
         set_time_limit(200);
 
         $referralId = $request->referral_id;
@@ -814,7 +810,7 @@ class DocumentController extends Controller
             return response()->json(['message' => 'Referral not found'], 404);
         }
 
-        $directory = storage_path('app/public/' . $referral->email);
+        $directory = storage_path("app/public/{$referral->email}");
         if (!is_dir($directory)) {
             mkdir($directory, 0777, true);
         }
@@ -837,8 +833,8 @@ class DocumentController extends Controller
         $document = Documents::find($request->document_id);
         if ($document) {
             //delete old file
-            if (Storage::exists('public/' . $document->uploaded_url)) {
-                Storage::delete('public/' . $document->uploaded_url);
+            if (Storage::exists("public/{$document->uploaded_url}")) {
+                Storage::delete("public/{$document->uploaded_url}");
             }
             $document->status = "Recieved";
             $document->uploaded_url = $savePathWithoutDirectory;
@@ -850,9 +846,8 @@ class DocumentController extends Controller
 
     }
 
-    public function approval(
-        Request $request
-    ) {
+    public function approval(Request $request) {
+
         return view('document.approval-letter-pdf');
 
         $directory = storage_path('app/public/inamgoodboy@gmail.com');

@@ -93,19 +93,19 @@
             height: 10px;
         }
         td.c-tr{
-            
+
             font-family: 'ARIAL';
             vertical-align: top;
             text-align: left;
-        
+
         }
         td.c-tr-center{
-            
+
             font-family: 'ARIAL';
             vertical-align: top;
             font-size: 10px;
             /* text-align: left; */
-        
+
         }
         .label-style{
             font-size: 10px;
@@ -137,7 +137,7 @@
                 <img src="{{public_path('/images/nyc2.png')}}" alt="NYC" style="height: 85px;width:100%;">
              </div>
         {{-- </div> --}}
-      
+
 
     </div>
     <table style="width: 100%;margin-top:20px">
@@ -164,7 +164,7 @@
             </td>
             <td class="c-tr-center" colspan="1">
                 <label class="label-style" style="text-align: center" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px;position:relative;right:8px">DATE OF BIRTH</p></label>
-                <input class="inp-style" style="text-align: left;position: relative;left:5px" type="text" name="dob" value="{{date('m/d/Y',strtotime($dob))}}">
+                <input class="inp-style" style="text-align: left;position: relative;left:5px" type="text" name="dob" value="{{ formatDateForPdf($dob)}}">
             </td>
             <td class="c-tr" colspan="1">
                 <label class="label-style" style="bottom:10px" for="Patient Name"><p style="margin:0;font-size:10px;line-height:1;margin-top:5px">DISABLED PERSON'S I.D. NUMBER (If known and if different than SSN.)</p></label>
@@ -193,7 +193,7 @@
         <tr>
             <td class="c-tr" colspan="2">
                 <label class="label-style">
-                    <p style="margin:0;font-size:7.7px;font-family: 'ARIALBD'"><span style="font-size: 7.7px;background:yellow;font-family: 'ARIALBD'">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> <br> ACT IN HIS/HER BEHALF</p> 
+                    <p style="margin:0;font-size:7.7px;font-family: 'ARIALBD'"><span style="font-size: 7.7px;background:yellow;font-family: 'ARIALBD'">SIGNATURE OF DISABLED PERSON OR PERSON AUTHORIZED TO</span> <br> ACT IN HIS/HER BEHALF</p>
                 </label>
                 <div style="position:relative;width:140px;height:60px;">
                     @if($map_sign)
@@ -215,7 +215,7 @@
             </td>
             <td class="c-tr" style="width: 15%;">
                 <label class="label-style" ><p style="margin:0;font-size:10px;font-family: 'ARIALBD'">DATE</p></label>
-                <input style="position:relative;right:5px" class="inp-style" type="text" name="date_map" value="{{date('m/d/Y',strtotime($date_map))}}">
+                <input style="position:relative;right:5px" class="inp-style" type="text" name="date_map" value="{{ formatDateForPdf($date_map)}}">
             </td>
         </tr>
         <tr>
@@ -259,7 +259,7 @@
         </tr>
     </table>
 
-</form> 
+</form>
 
 </body>
 </html>

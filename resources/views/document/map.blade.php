@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ asset('assets/img/favicon/favicon.png')}}" type="image/x-icon" />
     <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <title>Map</title>
     <style>
@@ -48,7 +49,7 @@
             src: url('fonts/ARIALBD.ttf') format('truetype');
         }
 
-        
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -200,7 +201,7 @@ textarea{
     width: calc(100% - 10px);
     outline: none;
     padding: 7px;
-    border: 1px solid #b2b2b2; 
+    border: 1px solid #b2b2b2;
 }
 .loader {
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -313,14 +314,14 @@ textarea{
         margin-left: 0px;
         width: 100vw;
         margin-right: 0px;
-        
+
         font-size: 13px !important;
-    }  
+    }
 
     .card {
             background:white;
             width: 1000px;
-            padding: 10px !important; 
+            padding: 10px !important;
             overflow-x: scroll;
         }
 
@@ -351,16 +352,16 @@ textarea{
         }
 
         .header-img{
-            max-width: 40%; 
-            height: 45px; 
-            margin-right: -2px;  
+            max-width: 40%;
+            height: 45px;
+            margin-right: -2px;
         }
 
         .row-container{
             margin-bottom: 25px;
         }
-  
-        
+
+
     }
     </style>
 </head>
@@ -405,7 +406,7 @@ textarea{
                     <label for="Patient Name">NAME AND ADDRESS (if known) AT THE TIME DISABLED PERSON HAD CONTACT WITH SOURCE (Include Zip Code) </label><br>
                     <textarea name="source_contact_name_address" style="margin-top: 5px" rows="4" id="" maxlength="150"></textarea>
                 </td>
-                <td style="width:23%"> 
+                <td style="width:23%">
                     <label for="Patient Name">DATE OF BIRTH</label><br><br>
                     <input type="date" name="dob" style="margin-top: 5px" value="{{$referral->date_of_birth}}">
                 </td>

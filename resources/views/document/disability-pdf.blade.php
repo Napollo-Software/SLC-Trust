@@ -197,7 +197,7 @@
 <body>
 <form id="disability-form">
     @csrf
-    <input type="hidden" id=referral_id" name="referral_id">
+    <input type="hidden" id="referral_id" name="referral_id">
     <div style="display: table; width: 100%;">
         <div style="display: table-row;">
             <p style="display: table-cell; width: 50%;" class="xs">
@@ -209,7 +209,6 @@
             </p>
         </div>
     </div>
-
 
     <hr class="custom-hr">
     <div style="display: table;width: 100%;padding:0;margin: 0;">
@@ -356,11 +355,11 @@
     <div style="display: table; width: 100%;padding-top:7px ">
         <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-right: 10px;">
             If “Yes”, when? (month/year)</p>
-        <input type="text"  value="{{date('m/Y',strtotime($ssa_application_date))}}"  class="border-btm" name="ssa_application_date"
+        <input type="text"  value="{{ formatDateForPdf($ssa_application_date) }}"  class="border-btm" name="ssa_application_date"
                style="display: table-cell; vertical-align: bottom;width:85%">
         <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-left: 10px; padding-right: 10px;">
             SSA decision date: (month/year)</p>
-        <input type="text" class="border-btm" id="ssa_decision_date" name="ssa_decision_date"  value="{{date('m/Y',strtotime($ssa_decision_date))}}" style="display: table-cell; vertical-align: bottom;">
+        <input type="text" class="border-btm" id="ssa_decision_date" name="ssa_decision_date"  value="{{ formatDateForPdf($ssa_decision_date) }}" style="display: table-cell; vertical-align: bottom;">
     </div>
 
     <div style="display: table; width: 100%;padding-top:7px">
@@ -399,7 +398,7 @@
         <p style="display: table-cell; vertical-align: bottom; white-space: nowrap; padding-left: 10px; padding-right: 10px; margin: 0;">
             If “Yes”, when? (month/year)
         </p>
-        <input type="text" name="appeal_date" class="border-btm" value="{{date('m/Y',strtotime($appeal_date))}}"  style="display: table-cell; vertical-align: bottom;width:135%">
+        <input type="text" name="appeal_date" class="border-btm" value="{{ formatDateForPdf($appeal_date) }}"  style="display: table-cell; vertical-align: bottom;width:135%">
     </div>
     <br>
 
@@ -485,7 +484,7 @@
 
                 <div class="form-group">
                     <label for="schooling" class="sm"  style="vertical-align: middle;"><span class="sm" style="vertical-align: middle"> Date of last visit (month/year):</span></label>
-                    <input type="text" value="{{date('m/Y',strtotime($primary_care_provider_details))}}"  name="primary_care_provider_details" class="border-btm"
+                    <input type="text" value="{{ formatDateForPdf($primary_care_provider_details) }}"  name="primary_care_provider_details" class="border-btm"
                            style="width: 450px;">
                 </div>
             </td>
@@ -1009,12 +1008,12 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:3">
                 <p>
                     <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm "  style="width:150px" name="start_employment_date_one"
-                    value="{{date('m/d/Y',strtotime($start_employment_date_one))}}"  >
+                    value="{{ formatDateForPdf($start_employment_date_one) }}"  >
                 </p>
 
                 <p style=" margin: 0;padding:0">
                 <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" class="border-btm xs" style="width:164px" name="end_employment_date_one"
-                value="{{date('m/d/Y',strtotime($end_employment_date_one))}}" >
+                value="{{formatDateForPdf($end_employment_date_one)}}" >
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
@@ -1128,12 +1127,12 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:3">
                 <p>
                     <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm " style="width:150px" name="start_employment_date_two"
-                    value="{{date('m/d/Y',strtotime($start_employment_date_two))}}"  >
+                    value="{{ formatDateForPdf($start_employment_date_two) }}"  >
                 </p>
 
                 <p style=" margin: 0;padding:0">
                 <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" style="width:168px" class="border-btm xs" style="width:164px" name="end_employment_date_two"
-                value="{{date('m/d/Y',strtotime($end_employment_date_two))}}">
+                value="{{ formatDateForPdf($end_employment_date_two) }}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
@@ -1248,12 +1247,12 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:3">
                 <p>
                     <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm " style="width:150px" name="start_employment_date_three"
-                    value="{{date('m/d/Y',strtotime($start_employment_date_three))}}">
+                    value="{{ formatDateForPdf($start_employment_date_three) }}">
                 </p>
 
                 <p style=" margin: 0;padding:0">
                 <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" style="width:168px" class="border-btm xs" style="width:164px" name="end_employment_date_three"
-                value="{{date('m/d/Y',strtotime($end_employment_date_three))}}">
+                value="{{ formatDateForPdf($end_employment_date_three) }}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
@@ -1374,12 +1373,12 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:3">
                 <p>
                     <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm " style="width:150px" name="start_employment_date_four"
-                    value="{{date('m/d/Y',strtotime($start_employment_date_four))}}">
+                    value="{{ formatDateForPdf($start_employment_date_four) }}">
                 </p>
 
                 <p style=" margin: 0;padding:0">
                 <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" style="width:168px" class="border-btm xs" style="width:164px" name="end_employment_date_four"
-                value="{{date('m/d/Y',strtotime($end_employment_date_four))}}">
+                value="{{ formatDateForPdf($end_employment_date_four) }}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
@@ -1493,12 +1492,12 @@ case management agencies, etc.).
             <td style=" margin: 0;padding:3">
                 <p>
                     <span class="sm semiBold" style="vertical-align: middle;" >From: </span> <input type="text"  class="border-btm " style="width:150px" name="start_employment_date_five"
-                    value="{{date('m/d/Y',strtotime($start_employment_date_five))}}"  >
+                    value="{{ formatDateForPdf($start_employment_date_five) }}"  >
                 </p>
 
                 <p style=" margin: 0;padding:0">
                 <span class="sm semiBold" style="vertical-align:middle" >To: </span> <input type="text" style="width:168px" class="border-btm xs" style="width:164px" name="end_employment_date_five"
-                value="{{date('m/d/Y',strtotime($end_employment_date_five))}}">
+                value="{{ formatDateForPdf($end_employment_date_five) }}">
                 </p>
             </td>
             <td style=" margin: 0;padding:0">
@@ -1615,7 +1614,7 @@ case management agencies, etc.).
             </td>
             <td style=" margin: 0; padding: 0; padding-left:5px;padding-bottom:5px">
                 <span class="sm semiBold">Date:</span>
-                <input type="text" class="noborder" name="form_date"  value="{{date('m/d/Y',strtotime($form_date))}}"   style=" vertical-align: bottom;">
+                <input type="text" class="noborder" name="form_date"  value="{{ formatDateForPdf($form_date) }}"   style=" vertical-align: bottom;">
             </td>
         </tr>
         <tr style=" margin: 0; padding: 0">
