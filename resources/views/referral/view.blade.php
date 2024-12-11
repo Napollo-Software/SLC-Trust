@@ -112,12 +112,12 @@ return $colors[$randomIndex];
                                 Notes
                             </a>
                         </li>
-                        <li class="nav-item1 follows-tab">
+                        {{-- <li class="nav-item1 follows-tab">
                             <a class="nav-link  thumb" onclick="showTab('follows-card')">
-                                <i class="menu-icon mr-2 tf-icons bx bx-task "></i>
+                                <i class="menu-icon mr-2 tf-icons bx bx-book "></i>
                                 Followups
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item1 attachment-tab">
                             <a class="nav-link  thumb" onclick="showTab('attachment-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-spreadsheet"></i>
@@ -763,8 +763,8 @@ return $colors[$randomIndex];
                     <h4 class="px-3">Followups</h4>
                     @if ($user->hasPermissionTo('Add Contact'))
                     <div>
-                        <a class="btn btn-primary NoteAddBtn print-btn pb-1 pt-1 " style="color: white;">
-                            <i class="bx bx-save pb-1"></i>Add Note</a></div>
+                        <a class="btn btn-primary FollowupAddBtn pb-1 pt-1 " style="color: white;">
+                            <i class="bx bx-save pb-1"></i>Add Followup</a></div>
                     @endif
                 </div>
                 <div class="card-body p-3">
@@ -1098,41 +1098,31 @@ return $colors[$randomIndex];
     </div>
 </div>
 
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+<div class="modal fade" id="followupModal" tabindex="-1" aria-labelledby="followupModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content sty bg-transparent  " style="border: none; box-shadow: none">
             <div class="card">
-                @if ($referral->get_followup->isNotEmpty())
                 <div class="card-body">
                     <form id="editFollowup">
                         @csrf
+                        <input type="hidden" name="followup_id" id="followup_id" value="">
+                        <input type="hidden" name="from" value="{{ $user->id }}">
+                        <input type="hidden" name="to" value="{{ $referral->id }}">
                         <div class="modal-body">
-                            <h4>Edit Followup</h4>
+                            <h4>Followup</h4>
                             <div class="row">
-                                <input type="hidden" name="from" class="form-control" id="from" value="{{ $referral->get_followup->first()->from }}">
-                                <div class="form-group">
-                                    <label for="from">From:</label>
-                                    <input type="text" name="fromdisable" class="form-control" id="from" value="{{ $fromFollowup->name }}" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">Name:</label>
-                                    <input type="text" class="form-control" value="{{ $referral->first_name }} {{ $referral->last_name }}" readonly>
-                                </div>
                                 <div class="form-group">
                                     <label for="date">Date:</label>
-                                    <input type="date" name="date" class="form-control remove-readonly" value="{{ $referral->get_followup->first()->date }}">
+                                    <input type="date" name="date" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="time">Time:</label>
-                                    <input type="time" name="time" class="form-control remove-readonly" value="{{ $referral->get_followup->first()->time }}">
+                                    <input type="time" name="time" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="note">Note:</label>
-                                    <input type="note" name="note" id="note" class="form-control remove-readonly" value="{{ $referral->get_followup->first()->note }}">
+                                    <label for="note">Description:</label>
+                                    <input type="note" name="note" id="note" class="form-control">
                                 </div>
-                                <input type="hidden" name="from" class="form-control remove-readonly" value="{{ $referral->get_followup->first()->from }}">
-                                <input type="hidden" name="id" class="form-control remove-readonly" value="{{ $referral->get_followup->first()->id }}">
-                                <input type="hidden" name="to" class="form-control" value="{{ $referral->get_followup->first()->to }}">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary custom-hover">Submit</button>
@@ -1140,7 +1130,6 @@ return $colors[$randomIndex];
                         </button>
                     </form>
                 </div>
-                @endif
             </div>
         </div>
     </div>
@@ -1176,6 +1165,7 @@ return $colors[$randomIndex];
         </div>
     </div>
 </div>
+
 
 <script src="{{ url('/assets/custom/jquery.min.js') }}"></script>
 <script src="{{ url('/assets/custom/custom.js') }}"></script>
@@ -1367,7 +1357,7 @@ return $colors[$randomIndex];
             success: function(response) {
                 $('#followup-note').text(note);
                 swal.fire('Success', 'Followup has been updated successfully', 'success');
-                $('#editModal').click();
+                $('#followupModal').click();
             },
             error: function(response) {
                 swal.fire('Failed', 'Something went wrong', 'error');
@@ -1791,8 +1781,16 @@ return $colors[$randomIndex];
         $('#addNoteModal').modal('show')
     }
 
-    function hideAddContactModal() {
+     function hideAddContactModal() {
         $('#addNoteModal').modal('hide')
+    }
+
+    function showFollowupModal() {
+        $('#followupModal').modal('show')
+    }
+
+    function hideFollowupModal() {
+        $('#followupModal').modal('hide')
     }
 
     $('.closeContactModal').on('click', function (e) {
@@ -1802,6 +1800,10 @@ return $colors[$randomIndex];
     $('.NoteAddBtn').on('click', function (e) {
         e.preventDefault()
         showAddNoteModal()
+    })
+    $('.FollowupAddBtn').on('click', function (e) {
+        e.preventDefault()
+        showFollowupModal()
     })
 
     $(document).on('click', '.NoteEditBtn', function (e) {
