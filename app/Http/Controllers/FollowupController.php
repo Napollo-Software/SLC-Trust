@@ -63,23 +63,25 @@ class FollowupController extends Controller
             'note' => 'required',
             'type' => 'required',
         ]);
+
         $data = $request->all();
 
-        $followup = new Followup();
-        $followup->from = $request->input('from');
-        $followup->to = $request->input('to');
-        $followup->date = $request->input('date');
-        $followup->time = $request->input('time');
-        $followup->note = $request->input('note');
-        $followup->type = $request->input('type');
-        $followup->referral_id = (!empty($data['referral'])) ? $request->input('referral') : null;
-        $followup->save();
-        $type = new Type();
-        $type->category = $request->type === "other" ? "Designation" : $request->type;
-        $type->name = $request->type === "other" ? "Designation" : $request->type;
+        $followup = Followup::create([
+            'from' => $request->from,
+            'to' => $request->to,
+            'date' => $request->date,
+            'time' => $request->time,
+            'note' => $request->note,
+            'type' => $request->type,
+            'referral_id' => (!empty($data['referral'])) ? $request->input('referral') : null
+        ]);
 
-        $type->save();
-        return response()->json(['success' => true]);
+        Type::create([
+            'category' => $request->type === "other" ? "Designation" : $request->type,
+            'name' => $request->type === "other" ? "Designation" : $request->type
+        ]);
+
+        return response()->json(['success' => true, "followup" => $followup, "message" => "Followup created successfully"]);
     }
 
     public function noteStore(Request $request)

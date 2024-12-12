@@ -48,7 +48,7 @@ return $colors[$randomIndex];
         font-size: 14px;
         cursor: pointer;
         border-radius: 4px;
-        | transition: transform 0.3s, background-color 0.3s;
+        transition: transform 0.3s, background-color 0.3s;
     }
 
     .dataTable {
@@ -112,12 +112,12 @@ return $colors[$randomIndex];
                                 Notes
                             </a>
                         </li>
-                        {{-- <li class="nav-item1 follows-tab">
+                        <li class="nav-item1 follows-tab">
                             <a class="nav-link  thumb" onclick="showTab('follows-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-book "></i>
                                 Followups
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item1 attachment-tab">
                             <a class="nav-link  thumb" onclick="showTab('attachment-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-spreadsheet"></i>
@@ -768,14 +768,14 @@ return $colors[$randomIndex];
                     @endif
                 </div>
                 <div class="card-body p-3">
-                    <ul class="task-list" id="notes-list">
-                        @foreach ($referral->get_followup as $item)
-                        <li id="note-{{$item->id}}">
+                    <ul class="task-list" id="followups-list">
+                        @foreach ($referral->followups as $item)
+                        <li id="followup-{{$item->id}}">
                             <div class="row-container d-flex justify-content-between">
                                 <div><i class="task-icon bg-{{ randomColor() }}"></i>
                                     <h6 class="text-break">{{ $item->note }}</h6>
                                     <p class="text-muted fs-12">
-                                        {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}</p>
+                                        Date & Time: {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}</p>
                                 </div>
                                 <!--div>
                                     <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
@@ -853,82 +853,82 @@ return $colors[$randomIndex];
             </div>
 
             <div class="row medicaid-card">
-                 <div class="card medicaid-card d-none ">
-                        <h4 class="px-3 py-3 border-bottom " style=" ">Medicaid Details</h4>
-                        <div class="card-body px-0" style="padding-top:10px ">
-                            <div class="row align-items-center">
-                                <form id="MedicaidForm">
-                                    @csrf
-                                    <input type="hidden" name="inputId" value="{{ $referral->referral_medcaid->id }}">
-                                    <input type="hidden" name="referral_id" value="{{ $referral->id }}">
-                                    <div class="col-md-12 px-0">
-                                        <div class="form-group px-3">
-                                            <div class="row row-sm">
-                                                <div class="col-md-3">
-                                                    <label for="medicaidNumber" class="form-label">Medicaid
-                                                        Number</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <input placeholder="e.g., AB12345C" pattern="[A-Za-z]{2}\d{5}[A-Za-z]" title="Format: Two letters, five digits, one letter (e.g., AB12345C)" type="text" id="medicaidNumber" name="medicaidNumber" class="form-control" value="{{ $referral->referral_medcaid->medicaid_number }}" readonly>
-                                                </div>
+                <div class="card medicaid-card d-none ">
+                    <h4 class="px-3 py-3 border-bottom " style=" ">Medicaid Details</h4>
+                    <div class="card-body px-0" style="padding-top:10px ">
+                        <div class="row align-items-center">
+                            <form id="MedicaidForm">
+                                @csrf
+                                <input type="hidden" name="inputId" value="{{ $referral->referral_medcaid->id }}">
+                                <input type="hidden" name="referral_id" value="{{ $referral->id }}">
+                                <div class="col-md-12 px-0">
+                                    <div class="form-group px-3">
+                                        <div class="row row-sm">
+                                            <div class="col-md-3">
+                                                <label for="medicaidNumber" class="form-label">Medicaid
+                                                    Number</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input placeholder="e.g., AB12345C" pattern="[A-Za-z]{2}\d{5}[A-Za-z]" title="Format: Two letters, five digits, one letter (e.g., AB12345C)" type="text" id="medicaidNumber" name="medicaidNumber" class="form-control" value="{{ $referral->referral_medcaid->medicaid_number }}" readonly>
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="form-group px-3">
-                                            <div class="row row-sm">
-                                                <div class="col-md-3">
-                                                    <label for="type" class="form-label">Type</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="type" name="type" class="form-control" value="{{ $referral->referral_medcaid->type }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group px-3" data-select2-id="108">
-                                            <div class="row" data-select2-id="107">
-                                                <hr>
-                                                <div class="col-md-3">
-                                                    <label for="phone_number" class="form-label">Medicare</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ $referral->referral_medcaid->phone_number }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group px-3" data-select2-id="10">
-                                            <div class="row" data-select2-id="9">
-                                                <hr>
-                                                <div class="col-md-3">
-                                                    <label for="activeMedicaid" class="form-label">Active
-                                                        Medicaid</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="activeMedicaid" name="activeMedicaid" class="form-control" value="{{ $referral->referral_medcaid->active_medicaid }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group px-3" data-select2-id="10">
-                                            <div class="row" data-select2-id="9">
-                                                <hr>
-                                                <div class="col-md-3">
-                                                    <label for="code" class="form-label">Code</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <input type="text" id="code" name="code" class="form-control" value="{{ $referral->referral_medcaid->code }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="button" style="float: right" class="btn btn-primary custom-hover editButton fs-6 mx-3">Edit
-                                        </button>
-                                        <button type="submit" style="float: right; display: none;" class="btn btn-primary custom-hover submitButton fs-6 mx-3">Submit
-                                        </button>
-                                        <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary fs-6 custom-hover cancelButton mx-3">Cancel
-                                        </button>
                                     </div>
-                                </form>
-                            </div>
+                                    <hr>
+                                    <div class="form-group px-3">
+                                        <div class="row row-sm">
+                                            <div class="col-md-3">
+                                                <label for="type" class="form-label">Type</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="type" name="type" class="form-control" value="{{ $referral->referral_medcaid->type }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group px-3" data-select2-id="108">
+                                        <div class="row" data-select2-id="107">
+                                            <hr>
+                                            <div class="col-md-3">
+                                                <label for="phone_number" class="form-label">Medicare</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ $referral->referral_medcaid->phone_number }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group px-3" data-select2-id="10">
+                                        <div class="row" data-select2-id="9">
+                                            <hr>
+                                            <div class="col-md-3">
+                                                <label for="activeMedicaid" class="form-label">Active
+                                                    Medicaid</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="activeMedicaid" name="activeMedicaid" class="form-control" value="{{ $referral->referral_medcaid->active_medicaid }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group px-3" data-select2-id="10">
+                                        <div class="row" data-select2-id="9">
+                                            <hr>
+                                            <div class="col-md-3">
+                                                <label for="code" class="form-label">Code</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <input type="text" id="code" name="code" class="form-control" value="{{ $referral->referral_medcaid->code }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" style="float: right" class="btn btn-primary custom-hover editButton fs-6 mx-3">Edit
+                                    </button>
+                                    <button type="submit" style="float: right; display: none;" class="btn btn-primary custom-hover submitButton fs-6 mx-3">Submit
+                                    </button>
+                                    <button type="button" style="margin-right:5px; float: right; display: none;" class="btn btn-secondary fs-6 custom-hover cancelButton mx-3">Cancel
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
+                </div>
             </div>
 
             <div class="card physician-card d-none">
@@ -1099,40 +1099,52 @@ return $colors[$randomIndex];
 </div>
 
 <div class="modal fade" id="followupModal" tabindex="-1" aria-labelledby="followupModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content sty bg-transparent  " style="border: none; box-shadow: none">
-            <div class="card">
-                <div class="card-body">
-                    <form id="editFollowup">
-                        @csrf
-                        <input type="hidden" name="followup_id" id="followup_id" value="">
-                        <input type="hidden" name="from" value="{{ $user->id }}">
-                        <input type="hidden" name="to" value="{{ $referral->id }}">
-                        <div class="modal-body">
-                            <h4>Followup</h4>
-                            <div class="row">
-                                <div class="form-group">
-                                    <label for="date">Date:</label>
-                                    <input type="date" name="date" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="time">Time:</label>
-                                    <input type="time" name="time" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="note">Description:</label>
-                                    <input type="note" name="note" id="note" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary custom-hover">Submit</button>
-                        <button type="button" class="btn btn-secondary closeeditType" data-dismiss="modal">Close
-                        </button>
-                    </form>
-                </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addFollowModalHeader">Add Followup</h5>
+                <button type="button" class="close close-btn closeContactModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
+            <form id="followupForm">
+                @csrf
+                <input type="hidden" name="type" id="type" value="followup">
+                <input type="hidden" name="referral" id="referral" value="{{ $referral->id }}">
+                <input type="hidden" name="from" value="{{ $user->id }}">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="date">Follow Up Date *</label>
+                            <input type="date" name="date" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Follow Up Time *</label>
+                            <input type="time" name="time" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Assignee *</label>
+                            <select id="defaultSelect" class="form-control" name="to">
+                                <option value="">Choose One</option>
+                                @foreach ($assignee as $item)
+                                <option value="{{ $item->id }}">{{ $item->first_name }} {{ $item->last_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="note">Description *</label>
+                        <textarea type="note" name="note" id="note" required rows="4" class="form-control"></textarea>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary followup-button custom-hover">Submit</button>
+                        <button type="button" class="btn btn-secondary closeContactModal" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
         </div>
+        </form>
     </div>
+</div>
 </div>
 
 <div class="modal fade" id="addNoteModal" tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel" aria-hidden="true">
@@ -1165,6 +1177,7 @@ return $colors[$randomIndex];
         </div>
     </div>
 </div>
+
 
 
 <script src="{{ url('/assets/custom/jquery.min.js') }}"></script>
@@ -1233,6 +1246,7 @@ return $colors[$randomIndex];
         $(".services-card").addClass('d-none');
         $(".patient-card").addClass('d-none');
         $(".tasks-card").addClass('d-none');
+        $(".follows-card").addClass('d-none');
         $(".physician-card").addClass('d-none');
         $(".sms-card").addClass('d-none');
         $(".esign-card").addClass('d-none');
@@ -1783,6 +1797,7 @@ return $colors[$randomIndex];
 
      function hideAddContactModal() {
         $('#addNoteModal').modal('hide')
+        $('#followupModal').modal('hide')
     }
 
     function showFollowupModal() {
@@ -1837,6 +1852,7 @@ return $colors[$randomIndex];
                 hideAddContactModal();
                 $('.note-button').attr('disabled', false);
                 $("#addNoteModal").removeClass("in").hide();
+                $("#followupModal").removeClass("in").hide();
                 $("#add_note_form").trigger("reset");
                 swal.fire('Success', data.message, 'success');
 
@@ -1913,5 +1929,93 @@ return $colors[$randomIndex];
         return colors[randomIndex];
     }
 
+
+    $(document).on('submit', '#followupForm', function (e) {
+    e.preventDefault();
+    $('.form-control').removeClass('is-invalid');
+    $('.invalid-feedback.is-invalid').remove();
+    $('.followup-button').attr('disabled', true);
+
+    $.ajax({
+        url: '{{ route('follow_up.store') }}',
+        method: 'POST',
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (data) {
+            hideAddContactModal();
+            $('.followup-button').attr('disabled', false);
+            $('#followupModal').removeClass('in').hide();
+            $('#followupForm').trigger('reset');
+            swal.fire('Success', data.message, 'success');
+
+            let followupDateTime = new Date(`${data.followup.date}T${data.followup.time}`);
+
+            let formattedDate = followupDateTime.toLocaleDateString('en-US', {
+                month: '2-digit',
+                day: '2-digit',
+                year: 'numeric'
+            });
+
+            let followups_list = $('#followups-list');
+            let followup_id = data.followup.id;
+
+            let existing_followup = $(`#followup-${followup_id}`);
+
+            let followupTime = new Date(`1970-01-01T${data.followup.time}`);
+
+            let formattedTime = followupTime.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+
+            if (existing_followup.length > 0) {
+                existing_followup.html(`
+                    <div class="row-container d-flex justify-content-between">
+                        <div>
+                            <i class="task-icon bg-${randomColor()}"></i>
+                            <h6>${data.followup.note}</h6>
+                            <p class="text-muted fs-12">${formattedDate} ${formattedTime}</p>
+                        </div>
+                        <div>
+                            <button
+                                class="NoteEditBtn1 btn pb-1 pt-1"
+                                data-data='${JSON.stringify(data.followup)}'
+                                title="Click to edit followup">
+                            </button>
+                        </div>
+                    </div>
+                `);
+            } else {
+                followups_list.prepend(`
+                    <li id="followup-${followup_id}">
+                        <div class="row-container d-flex justify-content-between">
+                            <div>
+                                <i class="task-icon bg-${randomColor()}"></i>
+                                <h6>${data.followup.note}</h6>
+                                <p class="text-muted fs-12">${formattedDate} ${formattedTime}</p>
+                            </div>
+                            <div>
+                                <button
+                                    class="NoteEditBtn1 btn pb-1 pt-1"
+                                    data-data='${JSON.stringify(data.followup)}'
+                                    title="Click to edit followup">
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                `);
+            }
+        },
+        error: function (xhr) {
+            $('.followup-button').attr('disabled', false);
+            erroralert(xhr);
+        }
+    });
+});
+
 </script>
+
 @endsection

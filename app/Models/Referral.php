@@ -69,6 +69,13 @@ class Referral extends Model
     {
         return $this->hasMany(Followup::class, 'to', 'id');
     }
+
+    public function followups()
+    {
+        return $this->hasMany(Followup::class, 'referral_id', 'id');
+
+    }
+
     public function get_uploaded_documents()
     {
         return $this->hasMany(Documents::class, 'referral_id', 'id');

@@ -232,7 +232,7 @@ class ReferralController extends Controller
         $docs = DocumentESign::all();
         $document = DocumentESign::all();
         $lead = Lead::all();
-        $referral = Referral::find($id);
+        $referral = Referral::with('followups')->findOrFail($id);
 
         $emergencyDetails = EmergencyContacts::where('referral_id', $id)->get();
         $checks = $referral->refferals_check;
@@ -243,7 +243,11 @@ class ReferralController extends Controller
         $checkListTrust = $referral->trustCheckList;
         $totalTrust = $esignTrust + $documentTrust + $financeTrust + $checkListTrust;
 
-        return view('referral.view', compact('pendingDocumentCount', 'recievedDocumentCount', 'totalTrust', 'fromFollowup', 'referral', 'referralDocuments', 'actualDocuments', 'document', 'checks', 'emergencyDetails'));
+        $assignee = User::whereHas('roles', function ($query) {
+            $query->where('role', 'employee');
+        })->get();
+
+        return view('referral.view', compact('pendingDocumentCount', 'recievedDocumentCount', 'totalTrust', 'fromFollowup', 'referral', 'referralDocuments', 'actualDocuments', 'document', 'checks', 'emergencyDetails', 'assignee'));
     }
 
     public function update(Request $request)
