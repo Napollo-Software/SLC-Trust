@@ -406,6 +406,8 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
              searching: false
         });
 
+        });
+
         $('#filter_vod_form').on('submit', function(e) {
             e.preventDefault();
 
@@ -448,8 +450,6 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                 }
             });
         });
-
-    });
 
     $(document).on('change','#defaultSelect',function(e){
         e.preventDefault();
