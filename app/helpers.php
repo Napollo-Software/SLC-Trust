@@ -240,7 +240,7 @@ if (!function_exists('createDocument')) {
         function ignoreAdminEmails()
         {
             return [
-                // 'devops@napollo.net',
+                'devops@napollo.net',
             ];
         }
     }
