@@ -131,14 +131,17 @@
                     </div>
                     <div class="col-md-6 p-2">
                         <label for="form-label">Case Type</label>
-                        <select name="case_type" class="form-select form-control">
+                        <select name="case_type_id" id="case_type_id" class="form-select form-control" onchange="showOtherInput()">
                             <option value="">Choose One</option>
-                            <option value="">{{ $lead->type_id ? $lead->type_id->name : 'N/A' }}</option>
-                            </option>
+                            <option value="other">Other</option>
                             @foreach (\App\Models\Type::where('category', 'Case Type')->get() as $type)
-                            <option {{ $lead->case_type == $type->name ? 'selected' : '' }} value="{{ $type->name }}">{{ $type->name }}</option>
+                            <option {{ $lead->case_type_id == $type->id ? 'selected' : '' }} value="{{ $type->id }}">{{ $type->name }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div id="other_input" class="col-md-6 p-2" style="display: none;">
+                        <label for="other_case">Other Case Type</label>
+                        <input type="text" name="other_case" class="form-control">
                     </div>
                     <div class="col-md-6 p-2">
                         <label for="form-label">Note</label>
@@ -241,7 +244,20 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script>
+<script>
+
+function showOtherInput() {
+
+        var caseTypeSelect = document.getElementById('case_type_id');
+        var otherInput = document.getElementById('other_input');
+
+        if (caseTypeSelect.value === 'other') {
+            otherInput.style.display = 'block';
+        } else {
+            otherInput.style.display = 'none';
+        }
+    }
+
  $(document).ready(function () {
 
     function handleSourceVisibility(val) {

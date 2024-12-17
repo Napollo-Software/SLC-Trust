@@ -11,6 +11,11 @@ class Lead extends Model
 
     protected $guarded = [];
 
+    public function full_name()
+    {
+        return "{$this->contact_first_name} {$this->contact_last_name}";
+    }
+
     public function vendor()
     {
         return $this->belongsTo(User::class, 'vendor_id', 'id');
@@ -42,6 +47,11 @@ class Lead extends Model
     }
 
     public function type_id()
+    {
+        return $this->belongsTo(Type::class, 'case_type_id', 'id');
+    }
+
+    public function type()
     {
         return $this->belongsTo(Type::class, 'case_type_id', 'id');
     }

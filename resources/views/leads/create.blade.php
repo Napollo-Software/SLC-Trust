@@ -117,14 +117,13 @@
                         <input type="text" class="form-control" name="interested">
                     </div>
 
-
                     <div class="col-md-6 p-2">
                         <label for="form-label">Case Type <span class="text-danger">*</span></label>
-                        <select name="case_type" id="case_type" class="form-select form-control" onchange="showOtherInput()" required>
+                        <select name="case_type_id" id="case_type_id" class="form-select form-control" onchange="showOtherInput()" required>
                             <option value="">Choose One</option>
                             <option value="other">Other</option>
                             @foreach (\App\Models\Type::where('category', 'Case Type')->get() as $type)
-                            <option value="{{ $type->name }}">{{ $type->name }}</option>
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -133,6 +132,7 @@
                         <label for="other_case">Other Case Type</label>
                         <input type="text" name="other_case" class="form-control">
                     </div>
+
                     <div class="col-md-6 p-2">
                         <label for="form-label">Note</label>
                         <input type="text" name="note" class="form-control">
@@ -269,7 +269,7 @@
     });
 
     function showOtherInput() {
-        var caseTypeSelect = document.getElementById('case_type');
+        var caseTypeSelect = document.getElementById('case_type_id');
         var otherInput = document.getElementById('other_input');
 
         if (caseTypeSelect.value === 'other') {

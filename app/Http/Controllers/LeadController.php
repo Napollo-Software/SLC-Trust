@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\contacts;
+use Session;
 use App\Models\Lead;
-use App\Models\User;
-use App\Models\Followup;
 use App\Models\Type;
-use Illuminate\Contracts\Session\Session as SessionSession;
+use App\Models\User;
+use App\Models\contacts;
+use App\Models\Followup;
+use App\Models\Notifcation;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Session;
+use Illuminate\Contracts\Session\Session as SessionSession;
 
 class LeadController extends Controller
 {
@@ -54,7 +55,6 @@ class LeadController extends Controller
 
     public function store(Request $request)
     {
-        $new_type = 0;
         $converted_to_referral = "";
         if($request->convert_to_referral == 1){
             $converted_to_referral = 1;
@@ -73,26 +73,28 @@ class LeadController extends Controller
             'interested' => 'nullable|max:250',
             'sub_status' => 'required',
             'assign_to' => 'required',
-            'case_type' => 'required|max:250',
+            'case_type_id' =>  'required',
             'note' => 'nullable|max:250',
             'source_type' => 'required',
             'contact' => $request->input('source_type') === 'contact' ? 'required' : 'nullable',
             'account' => $request->input('source_type') === 'account' ? 'required' : 'nullable',
             'source' => $request->input('source_type') === 'FnF' ? 'required' : 'nullable',
-            // 'follow_up_date' => 'required',
-            // 'follow_up_time' => 'required',
-            // 'follow_up_note' => 'nullable|max:1000',
-            'other_case'=>Rule::requiredIf($request->case_type === 'other'),
+            'other_case'=>Rule::requiredIf($request->case_type_id == 'other'),
         ]);
-        $newTypeId = null;
-        if ($request->case_type === "other") {
+
+        if ($request->case_type_id === "other") {
             $type = Type::create([
                 'category' => 'Case Type',
                 'name' => $request->other_case,
             ]);
             $newTypeId = $type->id;
         }
+        else {
+            $newTypeId = $request->case_type_id;
+        }
+
         $sourceType = $request->input('source_type');
+
         $lead = Lead::create([
             'contact_first_name' => $request->contact_first_name,
             'contact_last_name' => $request->contact_last_name,
@@ -107,7 +109,6 @@ class LeadController extends Controller
             'interested_in' => $request->interested,
             'sub_status' => $request->sub_status,
             'vendor_id' => $request->assign_to,
-            'case_type' => $request->case_type === 'other' ? null : $request->case_type,
             'case_type_id' => $newTypeId,
             'note' => $request->note,
             'source_type' => $request->source_type,
@@ -115,14 +116,14 @@ class LeadController extends Controller
             'converted_to_referral' => $converted_to_referral
         ]);
 
-        // $follow_up = new Followup();
-        // $follow_up->leadId = $leadId;
-        // $follow_up->from = Session::get('loginId');
-        // $follow_up->to = $lead->id;
-        // $follow_up->date = $request->follow_up_date;
-        // $follow_up->time = $request->follow_up_time;
-        // $follow_up->note = $request->follow_up_note;
-        // $follow_up->save();
+        Notifcation::create([
+            'user_id' => $request->assign_to,
+            'name' => $lead->full_name(),
+            'description' => 'The lead ' . $lead->full_name() . ' has been assigned to you.',
+            'title' => 'New Lead Assigned',
+            'status' => 0,
+        ]);
+
         return response()->json($lead->id);
     }
 
@@ -162,17 +163,31 @@ class LeadController extends Controller
             'interested' => 'nullable|max:250',
             'sub_status' => 'required',
             'assign_to' => 'required',
-            'case_type' => 'required',
+            'case_type_id' =>  'required',
             'note' => 'nullable|max:250',
             'source_type' => 'required',
             'closing_reason' => 'nullable|max:500',
-            'contact' => $request->input('source_type') === 'contact' ? 'required' : 'nullable',
-            'account' => $request->input('source_type') === 'account' ? 'required' : 'nullable',
-            'source' => $request->input('source_type') === 'FnF' ? 'required' : 'nullable',
+            'contact' => $request->input('source_type') == 'contact' ? 'required' : 'nullable',
+            'account' => $request->input('source_type') == 'account' ? 'required' : 'nullable',
+            'source' => $request->input('source_type') == 'FnF' ? 'required' : 'nullable',
+            'other_case'=>Rule::requiredIf($request->case_type_id == 'other'),
         ]);
 
-        $lead = Lead::find($id);
+        $lead = Lead::findOrFail($id);
+
+        if ($request->case_type_id === "other") {
+            $type = Type::create([
+                'category' => 'Case Type',
+                'name' => $request->other_case,
+            ]);
+            $newTypeId = $type->id;
+        }
+        else {
+            $newTypeId = $request->case_type_id;
+        }
+
         $sourceType = $request->input('source_type');
+
         $lead->update([
             'contact_first_name' => $request->contact_first_name,
             'contact_last_name' => $request->contact_last_name,
@@ -187,7 +202,7 @@ class LeadController extends Controller
             'interested_in' => $request->interested,
             'sub_status' => $request->sub_status,
             'vendor_id' => $request->assign_to,
-            'case_type' => $request->case_type,
+            'case_type_id' => $newTypeId,
             'note' => $request->note,
             'source_type' => $request->source_type,
             'closing_reason' => $request->closing_reason,
