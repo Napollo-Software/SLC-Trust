@@ -161,6 +161,22 @@
                         <td colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">DESCRIPTION</span></td>
                         <td style="text-align: right !important;text-align: end !important;" colspan="1"><span style="color: white;font-size:16px;font-family: 'Poppins-SemiBold';position: relative;bottom: 2.8px;">AMOUNT</span></td>
                     </tr>
+                    @if(!empty($registration_transaction))
+                    <tr>
+                        <td colspan="1" style="padding-left:5px;vertical-align:top">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($registration_transaction->created_at)) }}</label>
+                        </td>
+                        <td colspan="1" style="vertical-align:top">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px">Initial Fee</label>
+                        </td>
+                        <td style="width:40%;vertical-align:top" colspan="1">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px">Enrollment</label>
+                        </td>
+                        <td style="text-align: end;vertical-align:top;position:relative" colspan="1">
+                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:absolute;right:5px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
+                        </td>
+                    </tr>
+                    @endif
                     @if(!empty($deposit_transaction))
                     <tr>
                         <td colspan="1" style="padding-left:5px;vertical-align:top">
@@ -176,22 +192,6 @@
                         </td>
                         <td style="text-align: end;vertical-align:top;position:relative" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px;position:absolute;right:5px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
-                        </td>
-                    </tr>
-                    @endif
-                    @if(!empty($registration_transaction))
-                    <tr>
-                        <td colspan="1" style="padding-left:5px;vertical-align:top">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($registration_transaction->created_at)) }}</label>
-                        </td>
-                        <td colspan="1" style="vertical-align:top">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px">Initial Fee</label>
-                        </td>
-                        <td style="width:40%;vertical-align:top" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px">Enrollment</label>
-                        </td>
-                        <td style="text-align: end;vertical-align:top;position:relative" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px;position:absolute;right:5px">${{ $registration_transaction->credit > 0 ? number_format($registration_transaction->credit, 2) : ($registration_transaction->debit > 0 ? number_format($registration_transaction->debit, 2) : '') }}</label>
                         </td>
                     </tr>
                     @endif

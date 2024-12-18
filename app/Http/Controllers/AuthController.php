@@ -1063,14 +1063,15 @@ class AuthController extends Controller
         $endDate = Carbon::parse($request->endDate)->endOfDay();
 
         $transactions = Transaction::where('user_id', $user->id)
-            ->where('type', '!=', Transaction::MaintenanceFee)
-            ->whereBetween('created_at', [$startDate, $endDate])
-            ->get();
+        ->where('type', '!=', Transaction::MaintenanceFee)
+        ->whereBetween('created_at', [$startDate, $endDate])
+        ->orderByRaw("CASE WHEN type = ? THEN 1 ELSE 2 END", [Transaction::EnrollmentFee])
+        ->orderBy('created_at', 'ASC')
+        ->get();
 
-            if ($transactions->isEmpty()) {
-                // Return a 404 status code with a message if no transactions are found
-                return response()->json(['error' => 'No transactions found for the selected date range.'], 404);
-            }
+        if ($transactions->isEmpty()) {
+            return response()->json(['error' => 'No transactions found for the selected date range.'], 404);
+        }
 
         $pdf = PDF::loadView('document.trusted-surplus-report-pdf', [
             'user' => $user,
