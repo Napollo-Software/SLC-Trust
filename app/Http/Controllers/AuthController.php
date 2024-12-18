@@ -820,9 +820,11 @@ class AuthController extends Controller
             $transactionId = $request->trans_no ?? $request->check_no ?? $request->card_no;
             $reference_id = generateTransactionId();
 
+            $transactionDate = Carbon::parse($request->date_of_trans)->format('m/d/Y');
+
             // Description for the deposit
-            $description = "Deposit of \${$request->balance} made via {$request->payment_type} on {$request->date_of_trans} Transaction ID: #{$transactionId}.";
-            $customer_description = "\${$request->balance} added in account on {$request->date_of_trans} against {$request->payment_type} Transaction ID: #{$transactionId}.";
+            $description = "Deposit of \${$request->balance} made via {$request->payment_type} on {$transactionDate} Transaction ID: #{$transactionId}.";
+            $customer_description = "\${$request->balance} added in account on {$transactionDate} against {$request->payment_type} Transaction ID: #{$transactionId}.";
 
             // Record the credit transaction for the added balance
             $admin->transactions()->create([
