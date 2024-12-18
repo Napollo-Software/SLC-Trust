@@ -179,7 +179,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                             <h6 class="mb-0">Date of Birth</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            @if (date('m-d-Y', strtotime($user->dob)) != '01-01-1970')
+                            @if ($user->dob)
                             {{ date('m-d-Y', strtotime($user->dob)) }}
                             @endif
                         </div>

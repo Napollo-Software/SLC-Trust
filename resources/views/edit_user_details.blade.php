@@ -184,8 +184,8 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 <h6 class="mb-0">Date of Birth</h6>
                             </div>
                             <div class="col-sm-4 text-secondary">
-                                @if(date('m-d-Y',strtotime($user->dob)) != '01-01-1970')
-                                <input type="date" name="dob" class="form-control p-2" value="{{date('Y-m-d',strtotime($user->dob))}}">
+                                @if($user->dob)
+                                <input type="date" name="dob" class="form-control p-2" value="{{ date('Y-m-d',strtotime($user->dob))}}">
                                 @else
                                 <input type="date" class="form-control p-2" name="dob">
                                 @endif
