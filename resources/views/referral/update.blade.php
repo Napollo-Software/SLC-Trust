@@ -164,11 +164,11 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient DOB</label>
-                                <input type="date" class="form-control" value="{{ $Referral->date_of_birth }}" name="date_of_birth" placeholder="12/07/2003">
+                                <input type="date" class="form-control" value="{{ $Referral->date_of_birth }}" onchange="calculateAge()" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="12/07/2003">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Age</label>
-                                <input type="number" class="form-control" value="{{ $Referral->age }}" id="age" name="age" placeholder="18">
+                                <input type="number" class="form-control" readonly value="{{ $Referral->age }}" id="age" name="age" placeholder="18">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient SSN</label>
@@ -310,12 +310,28 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script>
 
+    function calculateAge() {
+        const dobInput = document.getElementById('date_of_birth').value;
+        const ageInput = document.getElementById('age');
 
+        if (dobInput) {
+            const dob = new Date(dobInput);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            const dayDiff = today.getDate() - dob.getDate();
 
+            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                age--;
+            }
+            ageInput.value = age;
+        } else {
+            ageInput.value = '';
+        }
+    }
 
         $(document).ready(function () {
             // Function to handle the visibility of elements based on source_type

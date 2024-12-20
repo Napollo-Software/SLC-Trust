@@ -2,7 +2,6 @@
 @section('title', 'Add Referral | Senior Life Care Trusts')
 @section('wrapper')
 <style>
-
     .card .card-header {
         font-weight: 500;
     }
@@ -33,7 +32,7 @@
 <div class="">
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
-       <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
+        <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Add Referral</b> </div>
     </h5>
     <form id="referralStoreForm">
         @csrf
@@ -131,11 +130,11 @@
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient DOB</label>
-                                <input type="date" class="form-control" name="date_of_birth" placeholder="12/07/2003">
+                                <input type="date" onchange="calculateAge()" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="12/07/2003">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient Age</label>
-                                <input type="number" class="form-control" id="age" name="age" placeholder="18">
+                                <input type="number" class="form-control" readonly id="age" name="age" placeholder="Age">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Patient SSN</label>
@@ -143,7 +142,7 @@
                             </div>
                             <div class="col-md-6 d-none p-2">
                                 <label for="form-label">Patient Language</label>
-                                 <select class="form-control form-select" id="patient_language" name="patient_language" >
+                                <select class="form-control form-select" id="patient_language" name="patient_language">
                                     <option value="" selected>Select Patient Language</option>
                                     <option value="English">English</option>
                                     <option value="Russian">Russian</option>
@@ -164,7 +163,7 @@
                                 <label for="form-label">Address</label>
                                 <input type="text" class="form-control" id="Address" name="address" placeholder="house# 03 street 07/ new york city">
                             </div>
-                             <div class="col-md-6 p-2">
+                            <div class="col-md-6 p-2">
                                 <label for="form-label">APT/SUITE </label>
                                 <input type="text" class="form-control" id="apt" name="apt" placeholder="Enter APT/SUITE">
                             </div>
@@ -216,7 +215,7 @@
                         <div class="row">
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Medicaid Number</label>
-                                <input placeholder="e.g., AB12345C" pattern="[A-Za-z]{2}\d{5}[A-Za-z]" title="Format: Two letters, five digits, one letter (e.g., AB12345C)"  type="text" class="form-control" id="medicaid_phone" name="medicaid_phone">
+                                <input placeholder="e.g., AB12345C" pattern="[A-Za-z]{2}\d{5}[A-Za-z]" title="Format: Two letters, five digits, one letter (e.g., AB12345C)" type="text" class="form-control" id="medicaid_phone" name="medicaid_phone">
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="form-label">Medicare Number</label>
@@ -257,95 +256,95 @@
             </div>
             <div class="col-md-4">
 
-               <div class="card shadow-lg mb-3">
-                   <div class="card-header d-flex justify-content-between pl-0 pb-1 pl-2">
-                       <h5>Emergency Contact</h5>
-                       <div class="print-btn p-0">
-                           <label for="checkBox">Same as applicant</label>
-                           <input type="checkbox" class="m-1 cursor-pointer" id="checkBox">
-                       </div>
-                   </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 p-2">
-                                    <label for="form-label">First Name*</label>
-                                    <input type="text" class="form-control" id="emergency__first_name" placeholder="Enter First Name" name="emergency_first_name">
-                                </div>
-                                <div class="col-md-6 p-2">
-                                    <label for="form-label">Last Name*</label>
-                                    <input type="text" class="form-control" id="emergency_last_name" placeholder="Enter Last Name" name="emergency_last_name">
-                                </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">Phone Number</label>
-                                    <input type="text" class="form-control phone" placeholder="(___) ___-___" id="emergency_phone" name="emergency_phone">
-                                </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">Ext Number</label>
-                                    <input type="number" class="form-control" id="emergency_ext" placeholder="Enter Ext Number" name="emergency_ext">
-                                </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">Email*</label>
-                                    <input type="text" class="form-control" id="emergency_email" placeholder="Enter Emergency Email" name="emergency_email">
-                                </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">Relationship to Patient</label>
-                                    <select name="emegency_relationship" class="form-control select-2">
-                                        <option value="">Select One</option>
-                                        <option value="child">Child</option>
-                                        <option value="client">Parent</option>
-                                        <option value="consumer">Friend</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">Address</label>
-                                    <input type="text" class="form-control" placeholder="Enter address" id="emergency_address" name="emergency_address">
-                                </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">City</label>
-                                    <input type="text" class="form-control" id="emergency_city" placeholder="Enter City" name="emergency_city">
-                                </div>
-                                <div class="col-md-12 p-2">
-                                    <label for="form-label">State/Province</label>
-                                    <select id="defaultSelect" class="form-control select-2" name="emergency_state">
-                                        <option value="">Choose One</option>
-                                        @foreach (App\Models\City::select('state')->distinct()->get() as $state)
-                                        <option @if (old('state') == $state->state ||  $state->state == 'New York')
-                                            {{ 'selected' }}
-                                            @endif
-                                            value="{{ $state->state }}">{{ $state->state }}</option>
-                                        @endforeach
-                                    </select>
-                                    <span class="text-danger">
-                                        @error('state')
-                                        {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-                                <div class="col-md-6 p-2">
-                                    <label for="form-label">County</label>
-                                    <input type="text" placeholder="" class="form-control" id="emergency_county" name="emergency_county">
-                                </div>
-                                <div class="col-md-6 p-2">
-                                    <label for="form-label">Zip Code/Postal Code</label>
-                                    <input type="number" class="form-control" id="emergency_zip" name="emergency_zip">
-                                </div>
-                                <div class="col-md-6 p-2">
-                                    <label for="form-label">APT/SUITE</label>
-                                    <input type="text" class="form-control" id="emergency_apt" name="emergency_apt">
-                                </div>
-                                <div class="form-group mb-0">
-                                    <input type="checkbox" id="live_with_parent" name="live_with_parent" value="1">
-                                    <label for="option1 mb-1">Lives with parents</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="have_keys" name="have_keys" value="1">
-                                    <label for="option2 mb-1">Have keys</label>
-                                </div>
-                                <div>
-                                </div>
+                <div class="card shadow-lg mb-3">
+                    <div class="card-header d-flex justify-content-between pl-0 pb-1 pl-2">
+                        <h5>Emergency Contact</h5>
+                        <div class="print-btn p-0">
+                            <label for="checkBox">Same as applicant</label>
+                            <input type="checkbox" class="m-1 cursor-pointer" id="checkBox">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 p-2">
+                                <label for="form-label">First Name*</label>
+                                <input type="text" class="form-control" id="emergency__first_name" placeholder="Enter First Name" name="emergency_first_name">
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="form-label">Last Name*</label>
+                                <input type="text" class="form-control" id="emergency_last_name" placeholder="Enter Last Name" name="emergency_last_name">
+                            </div>
+                            <div class="col-md-12 p-2">
+                                <label for="form-label">Phone Number</label>
+                                <input type="text" class="form-control phone" placeholder="(___) ___-___" id="emergency_phone" name="emergency_phone">
+                            </div>
+                            <div class="col-md-12 p-2">
+                                <label for="form-label">Ext Number</label>
+                                <input type="number" class="form-control" id="emergency_ext" placeholder="Enter Ext Number" name="emergency_ext">
+                            </div>
+                            <div class="col-md-12 p-2">
+                                <label for="form-label">Email*</label>
+                                <input type="text" class="form-control" id="emergency_email" placeholder="Enter Emergency Email" name="emergency_email">
+                            </div>
+                            <div class="col-md-12 p-2">
+                                <label for="form-label">Relationship to Patient</label>
+                                <select name="emegency_relationship" class="form-control select-2">
+                                    <option value="">Select One</option>
+                                    <option value="child">Child</option>
+                                    <option value="client">Parent</option>
+                                    <option value="consumer">Friend</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 p-2">
+                                <label for="form-label">Address</label>
+                                <input type="text" class="form-control" placeholder="Enter address" id="emergency_address" name="emergency_address">
+                            </div>
+                            <div class="col-md-12 p-2">
+                                <label for="form-label">City</label>
+                                <input type="text" class="form-control" id="emergency_city" placeholder="Enter City" name="emergency_city">
+                            </div>
+                            <div class="col-md-12 p-2">
+                                <label for="form-label">State/Province</label>
+                                <select id="defaultSelect" class="form-control select-2" name="emergency_state">
+                                    <option value="">Choose One</option>
+                                    @foreach (App\Models\City::select('state')->distinct()->get() as $state)
+                                    <option @if (old('state')==$state->state || $state->state == 'New York')
+                                        {{ 'selected' }}
+                                        @endif
+                                        value="{{ $state->state }}">{{ $state->state }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="text-danger">
+                                    @error('state')
+                                    {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="form-label">County</label>
+                                <input type="text" placeholder="" class="form-control" id="emergency_county" name="emergency_county">
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="form-label">Zip Code/Postal Code</label>
+                                <input type="number" class="form-control" id="emergency_zip" name="emergency_zip">
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="form-label">APT/SUITE</label>
+                                <input type="text" class="form-control" id="emergency_apt" name="emergency_apt">
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" id="live_with_parent" name="live_with_parent" value="1">
+                                <label for="option1 mb-1">Lives with parents</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="have_keys" name="have_keys" value="1">
+                                <label for="option2 mb-1">Have keys</label>
+                            </div>
+                            <div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
             <div class="col-md-12">
                 <button type="submit" class="btn contact-button btn-primary"><i class="bx bx-save pb-1"></i>Submit</button>
@@ -353,14 +352,37 @@
     </form>
 </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/inputmask.min.js"></script>
 
     <script>
+
+    const today_dob = new Date();
+    const formattedDate = today_dob.toISOString().split('T')[0];
+    document.getElementById('date_of_birth').setAttribute('max', formattedDate);
+
+    function calculateAge() {
+        const dobInput = document.getElementById('date_of_birth').value;
+        const ageInput = document.getElementById('age');
+
+        if (dobInput) {
+            const dob = new Date(dobInput);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            const dayDiff = today.getDate() - dob.getDate();
+
+            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                age--;
+            }
+            ageInput.value = age;
+        } else {
+            ageInput.value = '';
+        }
+    }
         $(document).ready(function () {
 
             var snn_input = document.getElementById('ssn');
@@ -447,7 +469,7 @@
         $('#zip').on('input', function () {
             var zip = $(this).val();
 
-            if (zip.length === 5) { // ZIP codes are typically 5 digits
+            if (zip.length === 5) {
                 $.ajax({
                     url: '/zip-details',
                     type: 'GET',
@@ -456,7 +478,7 @@
                         if (response.postalcodes && response.postalcodes.length > 0) {
                             var location = response.postalcodes[0];
                             $('#city').val(location.placeName);
-                            $('#county').val(location.adminName2); // County
+                            $('#county').val(location.adminName2);
                         } else {
                             $('#city').val('');
                             $('#county').val('');
