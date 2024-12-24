@@ -570,13 +570,18 @@ class AuthController extends Controller
     {
         $user = User::findOrFail($id);
 
+        $from = "";
+        $to = "";
+
         $vod_documents = $user->transactions()
             ->select('user_id', 'vod_link', 'created_at')
             ->whereNotNull('vod_link')
             ->distinct()
             ->get();
 
-        return view("edit_user", compact('user', 'vod_documents'));
+        $transactions = $user->transactions;
+
+        return view("edit_user", compact('user', 'vod_documents', 'transactions', 'from', 'to'));
     }
 
     public function edit_user_details(Request $request, $id)
