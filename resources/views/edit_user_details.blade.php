@@ -82,7 +82,12 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
         margin-left: 1rem;
         margin-right: 1rem;
     }
-
+    @media screen and (min-width: 992px) {
+        .img-sidebar  {
+        position: sticky;
+        top: 125px; 
+    }
+    }
 </style>
 <div class="">
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
@@ -96,7 +101,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
             <div class="col-xl-4">
                 @csrf
                 <!-- Profile picture card-->
-                <div class="card mb-4 mb-xl-0 " style="width:95%;">
+                <div class="card mb-4 mb-xl-0 img-sidebar" style="width:95%;">
                     <div class="card-header">
                         <div class="d-flex">
                             <h6 class="col-md-12 text-center pt-2">

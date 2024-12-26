@@ -42,8 +42,8 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 @endif
                             </div>
                             <div class="card-body text-center" > 
-                                <div class="card mb-0"  style="height: 400px">
-                                    <div class="card-body w-100 h-100 p-3 ">
+                                <div class="card mb-0"  >
+                                    <div class="card-body   p-3 ">
                                         @if ($user->profile_pic == null)
                                         @php
                                         $app_name = config('app.name');
@@ -60,7 +60,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                         @endphp
                                         @endif
                                         <a href="@if ($user->profile_pic != null) {{ url('img/' . $user->profile_pic) }} @endif" target="_blank" class="">
-                                            <img src="{{ url('img/' . $profile) }}" alt="User image" class="w-100 h-100 object-fit-contain" @if (isset($document_type['extension']) && $document_type['extension']=='pdf' ) style=" " @endif>
+                                            <img src="{{ url('img/' . $profile) }}" alt="User image" class="img-thumbnail"@if (isset($document_type['extension']) && $document_type['extension']=='pdf' ) style="width: 150px; " @endif>
                                         </a>
                                     </div>
                                 </div>
