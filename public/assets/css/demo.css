@@ -145,6 +145,9 @@ span.relative.inline-flex.items-center.px-4.py-2.-ml-px.text-sm.font-medium.text
 .swal2-styled.swal2-confirm {
     background-color: #559e99 !important;
 }
+.swal2-confirm {
+  background-color: #559e99 !important; 
+}
 .btn-btn-custom {
   background: transparent;
   border: none;
