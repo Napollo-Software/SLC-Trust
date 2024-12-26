@@ -1597,7 +1597,7 @@ return $colors[$randomIndex];
         var trustDocumentbox = $('.trustDocument');
         var trustFinancebox = $('.trustFinance');
         var trustCheckListbox = $('.trustCheckList');
-        var referralIdInput = $('#referral_id');
+        var referralIdInput = '{{ $referral->id }}';
         var csrfToken = $('#csrf_token').val();
         var checkboxes = trustEsignbox.add(trustDocumentbox).add(trustFinancebox).add(trustCheckListbox);
         checkboxes.on('change', function() {
@@ -1606,7 +1606,7 @@ return $colors[$randomIndex];
             var isCheckedDocument = trustDocumentbox.prop('checked');
             var isCheckedFinance = trustFinancebox.prop('checked');
             var isCheckedCheckList = trustCheckListbox.prop('checked');
-            var referralId = referralIdInput.val();
+            var referralId = referralIdInput;
             var csrfToken = '{{ csrf_token() }}';
             $.ajax({
                 type: 'POST',
