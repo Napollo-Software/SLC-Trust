@@ -5,100 +5,109 @@
 $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');
 @endphp
 <style>
+   
+    @media screen and (min-width: 992px) {
+        .img-sidebar  {
+        position: sticky;
+        top: 125px;
+        height: 100% !important; 
+    }
+    }
 </style>
-<div>
-    <h5 class=" d-flex justify-content-start pt-3 pb-2">
-        <b></b>
-        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>View User</b> </div>
-    </h5>
-    <form id="formAuxthentication" class="mb-3" action="{{ route('update_existing_user', $user['id']) }}" method="post" enctype="multipart/form-data">
-        <div class="row d-flex justify-content-stretch">
-            <div class="col-xl-4">
-                @method('post')
-                @csrf
-                <input type="hidden" value="{{$user->account_status}}" class="account-status">
-                <div class="card h-100 mb-4 mb-xl-0 ">
-                    <div class="card-header px-2 d-flex mt-2 justify-content-center flex-row text-center bg-white">
-                        <h6>
-                            @if ($user->role == 'User')
-                            Government issued photo ID
-                            @else
-                            Photo ID
-                            @endif
-                        </h6>
-                        @if ($user->profile_pic != null)
-                        <a class="pl-5" href="{{ url('img/' . $user->profile_pic) }}" download>
-                            <i class="bx bx-download"></i>
-                        </a>
-                        @endif
-                    </div>
-                    <div class="card-body text-center">
-                    
-                        <div class="card mt-4">
-                            <div class="card-body w-100 p-3">
-                                @if ($user->profile_pic == null)
-                                @php
-                                $app_name = config('app.name');
-                                $profile = $app_name.'-Logo.png';
-                                @endphp
-                                @else
-                                @php
-                                $document_type = pathinfo($user->profile_pic);
-                                if ($document_type['extension'] == 'pdf') {
-                                $profile = 'pdf_icon.png';
-                                } else {
-                                $profile = $user->profile_pic;
-                                }
-                                @endphp
-                                @endif
-                                <a href="@if ($user->profile_pic != null) {{ url('img/' . $user->profile_pic) }} @endif" target="_blank">
-                                    <img src="{{ url('img/' . $profile) }}" alt="User image" class="img-thumbnail" @if (isset($document_type['extension']) && $document_type['extension']=='pdf' ) style="width: 150px" @endif>
+<div> 
+                <h5 class=" d-flex justify-content-start pt-3 pb-2 ">
+                <b></b>
+                <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>View User</b> </div>
+                </h5>
+        <form id="formAuxthentication" class="mb-3" action="{{ route('update_existing_user', $user['id']) }}" method="post" enctype="multipart/form-data"> 
+            <div class="row position-relative">
+                <div class="col-lg-4 img-sidebar " > 
+                    <div class="">  
+                        @method('post')
+                        @csrf
+                        <input type="hidden" value="{{$user->account_status}}" class="account-status">
+                        <div class="card  " >
+                            <div class="card-header px-3 d-flex py-3 gap-2 align-items-center bg-white">
+                                <h6 class="mb-0">
+                                    @if ($user->role == 'User')
+                                    Government issued photo ID
+                                    @else
+                                    Photo ID
+                                    @endif
+                                </h6>
+                                @if ($user->profile_pic != null)
+                                <a class=" " href="{{ url('img/' . $user->profile_pic) }}" download>
+                                    <i class="bx bx-download"></i>
                                 </a>
+                                @endif
+                            </div>
+                            <div class="card-body text-center" > 
+                                <div class="card mb-0"  style="height: 200px">
+                                    <div class="card-body w-100 h-100 p-3 ">
+                                        @if ($user->profile_pic == null)
+                                        @php
+                                        $app_name = config('app.name');
+                                        $profile = $app_name.'-Logo.png';
+                                        @endphp
+                                        @else
+                                        @php
+                                        $document_type = pathinfo($user->profile_pic);
+                                        if ($document_type['extension'] == 'pdf') {
+                                        $profile = 'pdf_icon.png';
+                                        } else {
+                                        $profile = $user->profile_pic;
+                                        }
+                                        @endphp
+                                        @endif
+                                        <a href="@if ($user->profile_pic != null) {{ url('img/' . $user->profile_pic) }} @endif" target="_blank" class="">
+                                            <img src="{{ url('img/' . $profile) }}" alt="User image" class="w-100 h-100 object-fit-contain" @if (isset($document_type['extension']) && $document_type['extension']=='pdf' ) style=" " @endif>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-8">
-                <div class="card h-100 mb-3">
-                    <div class="card-body">
-                        <h4>Profile Details</h4>
-                        <div class="d-flex flex-wrap gap-2 gap-md-3">
-                            @if($user->account_status == 'Approved')
-                            <button type="button" class="btn d-flex align-items-center btn-primary" data-bs-toggle="modal" data-bs-target="#vodModal">
-                                <i style="font-size:18px" class='bx bx-file me-1 px-2'></i>VOD</button>
-                            <a href="{{ route('approval-letter', $user->id) }}" class="btn btn-success" style="color: white;">
-                                <i class="bx bxs-download me-1"></i>Approval Letter</a>
-                            @if($user->role == "User")
-                            <a href="{{ route('view_user', $user->id) }}" class="btn btn-secondary" style="color: white;">
-                                <i class="bx bx-dollar-circle pb-1"></i>Add Balance</a>
-                            @endif
-                            @endif
-                            <a href="{{ route('edit_user', $user->id) }}" class="btn btn-primary" style="color: white;">
-                                <i class="bx bx-edit-alt pb-1"></i>Edit User </a>
-                            @if ($user->id != \Company::Account_id)
-                            <div>
-                            <select id="defaultSelect" class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif" name="account_status" data-id="{{ $user->id }}" required>
-                                @if($user->account_status == 'Pending')
-                                <option class="bg-white text-black" value="" disabled selected>Pending</option>
+    
+                <div class="col-lg-8  ">
+                    <div class="card h-100 mb-3">
+                        <div class="card-body">
+                            <h4>Profile Details</h4>
+                            <div class="d-flex flex-wrap gap-2 gap-md-3">
+                                @if($user->account_status == 'Approved')
+                                <button type="button" class="btn d-flex align-items-center btn-primary" data-bs-toggle="modal" data-bs-target="#vodModal">
+                                    <i style="font-size:18px" class='bx bx-file me-1 px-2'></i>VOD</button>
+                                <a href="{{ route('approval-letter', $user->id) }}" class="btn btn-success" style="color: white;">
+                                    <i class="bx bxs-download me-1"></i>Approval Letter</a>
+                                @if($user->role == "User")
+                                <a href="{{ route('view_user', $user->id) }}" class="btn btn-secondary" style="color: white;">
+                                    <i class="bx bx-dollar-circle pb-1"></i>Add Balance</a>
                                 @endif
-                                <option class="bg-white text-black" @if ($user->account_status == 'Approved') selected @endif
-                                    value="Approved">Approved</option>
-                                <option class="bg-white text-black" @if ($user->account_status == 'Not Approved') selected @endif
-                                    value="Not Approved">Not Approved</option>
-                                <option class="bg-white text-black" @if ($user->account_status == 'Disable') selected @endif
-                                    value="Disable">Deactivate</option>
-                            </select>
+                                @endif
+                                <a href="{{ route('edit_user', $user->id) }}" class="btn btn-primary" style="color: white;">
+                                    <i class="bx bx-edit-alt pb-1"></i>Edit User </a>
+                                @if ($user->id != \Company::Account_id)
+                                <div>
+                                <select id="defaultSelect" class="form-select @if ($user->account_status == 'Pending' || $user->account_status == '') bg-primary text-white @endif @if ($user->account_status == 'Approved') bg-success text-white @endif @if ($user->account_status == 'Not Approved') bg-danger text-white @endif @if ($user->account_status == 'Disable') bg-danger text-white @endif" name="account_status" data-id="{{ $user->id }}" required>
+                                    @if($user->account_status == 'Pending')
+                                    <option class="bg-white text-black" value="" disabled selected>Pending</option>
+                                    @endif
+                                    <option class="bg-white text-black" @if ($user->account_status == 'Approved') selected @endif
+                                        value="Approved">Approved</option>
+                                    <option class="bg-white text-black" @if ($user->account_status == 'Not Approved') selected @endif
+                                        value="Not Approved">Not Approved</option>
+                                    <option class="bg-white text-black" @if ($user->account_status == 'Disable') selected @endif
+                                        value="Disable">Deactivate</option>
+                                </select>
+                                </div>
+                                @endif
+                                <button type="submit" name="approval_action" class="btn btn-primary update-profile">Update</button>
                             </div>
-                            @endif
-                            <button type="submit" name="approval_action" class="btn btn-primary update-profile">Update</button>
-                        </div>
-                        <hr>
-                        <div class="container">
+                            <hr>
+                           
                             <div class="row">
                                 <!-- Left Column -->
-                                <div class="col-md-6">
+                                <div class="col-12">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <h6 class="mb-0">Full Name</h6>
@@ -178,10 +187,10 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                             {{ $user->gender }}
                                         </div>
                                     </div>
+                                    <hr>
                                 </div>
-
                                 <!-- Right Column -->
-                                <div class="col-md-6">
+                                <div class="col-12">
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <h6 class="mb-0">Billing Cycle</h6>
@@ -256,85 +265,85 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                     <input type="hidden" name="approval_action" class="approval_action" value="1">
                                 </div>
                             </div>
+                          
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-        <div class="col-md-12 mt-3">
-                <div class="card radius-10 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center mb-1">
-                            <div>
-                                <h5 class="mb-1">Transaction Details</h5>
-                                <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>All transactions
-                                </p>
+            
+            <div class=" mt-3">
+                    <div class="card radius-10 w-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-1">
+                                <div>
+                                    <h5 class="mb-1">Transaction Details</h5>
+                                    <p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>All transactions
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="table-responsive mt-2">
+                                <table class="table align-middle mb-0 table-hover dataTable" id="user_transactions">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>TID#</>
+                                            <th>Date & Time</th>
+                                            <th>Account Name</th>
+                                            <th>Transaction Details</th>
+                                            <th>Type</th>
+                                            <th class="text-center">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($transactions as $k => $data)
+                                        <tr>
+                                            <td>{{ $data->reference_id }}</td>
+                                            <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
+                                            <td>
+                                                @if ($data->user_id == \Company::Account_id && in_array($data->type, [Transaction::MaintenanceFee, Transaction::EnrollmentFee, Transaction::RenewalFee]))
+                                                {{ \Company::Account_name_income }}
+                                                @elseif ($data->user_id == \Company::Account_id)
+                                                {{ \Company::Account_name }}
+                                                @else
+                                                {{ $data->user->full_name() }}
+                                                @endif
+                                            </td>
+                                            @if ($data->bill_id)
+                                            <td style="width:50%"><a href="{{ route('claims.show', $data->bill_id ?? '#') }}">
+                                                    {{ $data->description }} </a></td>
+                                            @else
+                                            <td style="width:50%"> <a href="{{ url('show_user/' . $data->user_id) }}" class="text-black" title="This link will redirect you to customer's profile.">{{ $data->description }}
+                                                </a></td>
+                                            @endif
+                                            <td style="text-align:left !important;">
+                                                <span class="badge {{ $data->credit > 0 ? 'badge-success' : 'badge-danger' }}">
+                                                    @if ($data->credit > 0 )
+                                                    Credit
+                                                    @elseif ($data->debit > 0 )
+                                                    Debit
+                                                    @endif
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                @if ($data->credit > 0 )
+                                                ${{ number_format((float) $data->credit, 2, '.', ',') }}
+                                                @elseif ($data->debit > 0 )
+                                                ${{ number_format((float) $data->debit, 2, '.', ',') }}
+                                                @else
+                                                $0.00
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <hr>
-                        <div class="table-responsive mt-2">
-                            <table class="table align-middle mb-0 table-hover dataTable" id="user_transactions">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>TID#</>
-                                        <th>Date & Time</th>
-                                        <th>Account Name</th>
-                                        <th>Transaction Details</th>
-                                        <th>Type</th>
-                                        <th class="text-center">Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($transactions as $k => $data)
-                                    <tr>
-                                        <td>{{ $data->reference_id }}</td>
-                                        <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
-                                        <td>
-                                            @if ($data->user_id == \Company::Account_id && in_array($data->type, [Transaction::MaintenanceFee, Transaction::EnrollmentFee, Transaction::RenewalFee]))
-                                            {{ \Company::Account_name_income }}
-                                            @elseif ($data->user_id == \Company::Account_id)
-                                            {{ \Company::Account_name }}
-                                            @else
-                                            {{ $data->user->full_name() }}
-                                            @endif
-                                        </td>
-                                        @if ($data->bill_id)
-                                        <td style="width:50%"><a href="{{ route('claims.show', $data->bill_id ?? '#') }}">
-                                                {{ $data->description }} </a></td>
-                                        @else
-                                        <td style="width:50%"> <a href="{{ url('show_user/' . $data->user_id) }}" class="text-black" title="This link will redirect you to customer's profile.">{{ $data->description }}
-                                            </a></td>
-                                        @endif
-                                        <td style="text-align:left !important;">
-                                            <span class="badge {{ $data->credit > 0 ? 'badge-success' : 'badge-danger' }}">
-                                                @if ($data->credit > 0 )
-                                                Credit
-                                                @elseif ($data->debit > 0 )
-                                                Debit
-                                                @endif
-                                            </span>
-                                        </td>
-                                        <td class="text-center">
-                                            @if ($data->credit > 0 )
-                                            ${{ number_format((float) $data->credit, 2, '.', ',') }}
-                                            @elseif ($data->debit > 0 )
-                                            ${{ number_format((float) $data->debit, 2, '.', ',') }}
-                                            @else
-                                            $0.00
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </form>
-</div>
+            </div> 
+        </form>
+    </div>
 <div class="modal fade" id="vodModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content card">
