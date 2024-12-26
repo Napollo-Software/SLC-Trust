@@ -33,6 +33,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         @endif
                     </div>
                     <div class="card-body text-center">
+                    
                         <div class="card mt-4">
                             <div class="card-body w-100 p-3">
                                 @if ($user->profile_pic == null)
