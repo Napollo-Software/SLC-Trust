@@ -235,6 +235,7 @@ Route::get('/map', [DocumentController::class, 'map'])->name('map.signature');
 Route::get('/joinder', [DocumentController::class, 'joinder'])->name('joinder.signature');
 Route::get('/doh', [DocumentController::class, 'doh'])->name('doh.signature');
 Route::get('/disability', [DocumentController::class, 'disability'])->name('disability.signature');
+Route::get('/client_acknowledgement', [DocumentController::class, 'clientAcknowledgement'])->name('client_acknowledgement.signature');
 Route::post('signature/upload', [DocumentController::class, 'generateSignature'])->name('signaturepad.upload');
 Route::post('/save-joinder', [DocumentController::class, 'saveJoinder'])->name('save.joinder');
 Route::post('/save-hippa', [DocumentController::class, 'saveHippa'])->name('save.hippa');
@@ -242,6 +243,7 @@ Route::post('/save-hippa-state', [DocumentController::class, 'saveHippaState'])-
 Route::post('/save-map', [DocumentController::class, 'saveMap'])->name('save.map');
 Route::post('/save-doh', [DocumentController::class, 'saveDoh'])->name('save.doh');
 Route::post('/save-disability', [DocumentController::class, 'saveDisability'])->name('save.disability');
+Route::post('/save-client-acknowledgement', [DocumentController::class, 'saveClientAcknowledgement'])->name('save.client_acknowledgement');
 
 Route::post('/upload-multiple-documents', [DocumentController::class, 'uploadMultipleDocuments'])->name('upload.multiple.documents');
 

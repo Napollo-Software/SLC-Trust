@@ -207,6 +207,7 @@ class DocumentController extends Controller
             '4 DOH-5173 – HIPAA.pdf' => 'hippa_state',
             '5 DOH-5139 – Disability Questionnaire.pdf' => 'disability',
             '6 DOH-5143 – Medical.pdf' => 'doh',
+            '7 Client Acknowledgement.pdf' => 'client_acknowledgement',
         ];
 
         $selected_documents = $request->selected_documents;
@@ -322,6 +323,19 @@ class DocumentController extends Controller
     }
 
     //DISABILITY
+    public function clientAcknowledgement(Request $request)
+    {
+        $referralIdfromUrl = Crypt::decryptString($request->query('referralId'));
+        $referral = Referral::find($referralIdfromUrl);
+        if (!$referral) {
+            return redirect()->route('login');
+        }
+        $documentId = Documents::where('name', '7 Client Acknowledgement.pdf')
+            ->where('referral_id', $referral->id)->value('id');
+
+        return view('document.client_acknowledgement', compact('referral', 'documentId'));
+    }
+
     public function disability(Request $request)
     {
         $referralIdfromUrl = Crypt::decryptString($request->query('referralId'));
@@ -442,6 +456,112 @@ class DocumentController extends Controller
             ->setPaper('A4', 'portrait');
 
         $savePath = $directory . '/joinder_' . date('Ymd_His') . '.pdf';
+
+        $pdf->save($savePath);
+        $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
+        $document = Documents::find($request->document_id);
+
+        if ($document) {
+
+            if (Storage::exists('public/' . $document->uploaded_url)) {
+                Storage::delete('public/' . $document->uploaded_url);
+            }
+
+            $email = explode('/', $document->uploaded_url)[0];
+            $folderPath = 'public/' . $email . '/';
+
+            if (Storage::exists($folderPath)) {
+
+                $files = Storage::files($folderPath);
+
+                foreach ($files as $file) {
+                    if (pathinfo($file, PATHINFO_EXTENSION) === 'png') {
+                        Storage::delete($file);
+                    }
+                }
+            }
+
+            $document->status = "Recieved";
+            $document->uploaded_url = $savePathWithoutDirectory;
+            $document->save();
+
+        }
+
+        return response()->json(['pdf_url' => asset($savePath), 'referralId' => $referralId]);
+    }
+
+    public function saveClientAcknowledgement(Request $request)
+    {
+        $formattedDates = [];
+
+        if ($request->has('office_use_date_approved') && $request->office_use_date_approved) {
+            $formattedDates['office_use_date_approved'] = Carbon::parse($request->office_use_date_approved)->format('m/d/Y');
+        }
+
+        if ($request->has('office_use_effective_date') && $request->office_use_effective_date) {
+            $formattedDates['office_use_effective_date'] = Carbon::parse($request->office_use_effective_date)->format('m/d/Y');
+        }
+
+        if ($request->has('joinder_date') && $request->joinder_date) {
+            $formattedDates['joinder_date'] = Carbon::parse($request->joinder_date)->format('m/d/Y');
+        }
+
+        if ($request->has('sponsor_dob') && $request->sponsor_dob) {
+            $formattedDates['sponsor_dob'] = Carbon::parse($request->sponsor_dob)->format('m/d/Y');
+        }
+
+        if ($request->has('notary_on_date') && $request->notary_on_date) {
+            $formattedDates['notary_on_date'] = Carbon::parse($request->notary_on_date)->format('m/d/Y');
+        }
+
+        if ($request->has('sig_date1') && $request->sig_date1) {
+            $formattedDates['sig_date1'] = Carbon::parse($request->sig_date1)->format('m/d/Y');
+        }
+
+        if ($request->has('sig_date2') && $request->sig_date2) {
+            $formattedDates['sig_date2'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
+        }
+
+        // Merge the formatted dates back into the request, keeping all other data unchanged
+        $request->merge($formattedDates);
+        set_time_limit(200);
+        $referralId = $request->referral_id;
+        $referral = Referral::find($referralId);
+
+        if (!$referral) {
+            return response()->json(['message' => 'Referral not found'], 404);
+        }
+
+        $directory = storage_path('app/public/' . $referral->email);
+        if (!is_dir($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        $signatureFields = ['joinder_signature_1', 'joinder_signature_2', 'joinder_signature_3', 'joinder_signature_4', 'joinder_signature_5'];
+
+        foreach ($signatureFields as $fieldName) {
+            $imageData = $request->input($fieldName);
+            if ($imageData) {
+                $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
+                $filename = $fieldName . date('Ymd_His') . '.png';
+                $imagePath = $directory . '/' . $filename;
+
+                file_put_contents($imagePath, $imageData);
+                $request->merge([$fieldName => $imagePath]);
+
+            }
+        }
+
+        $data = $request->all();
+        $pdf = PDF::loadView('document.client_acknowledgement_signature_pdf', $data)
+            ->setOption([
+                'fontDir' => public_path('/fonts'),
+                'fontCache' => public_path('/fonts'),
+                'defaultFont' => 'Nominee-Black',
+            ])
+            ->setPaper('A4', 'portrait');
+
+        $savePath = $directory . '/client_acknowledgement_' . date('Ymd_His') . '.pdf';
 
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);

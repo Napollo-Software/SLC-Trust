@@ -226,7 +226,6 @@ class ReferralController extends Controller
             }
         }
 
-        $docs = DocumentESign::all();
         $document = DocumentESign::all();
         $lead = Lead::all();
         $referral = Referral::with('followups')->findOrFail($id);
@@ -239,6 +238,8 @@ class ReferralController extends Controller
         $financeTrust = $referral->trustFinance;
         $checkListTrust = $referral->trustCheckList;
         $totalTrust = $esignTrust + $documentTrust + $financeTrust + $checkListTrust;
+
+        if ($totalTrust > 99 ) $totalTrust = 100;
 
         $assignee = User::whereHas('roles', function ($query) {
             $query->where('role', 'employee');
