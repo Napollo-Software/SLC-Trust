@@ -1,24 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use Hash;
-use App\Models\Lead;
-use App\Models\Type;
-use App\Models\User;
-use App\Mail\Register;
+
+use App\Mail\ReferralConvertToCustomer;
+use App\Models\CheckList;
 use App\Models\contacts;
+use App\Models\DocumentESign;
+use App\Models\Documents;
+use App\Models\EmergencyContacts;
+use App\Models\Lead;
 use App\Models\Medicaid;
 use App\Models\Referral;
-use App\Models\CheckList;
-use App\Models\Documents;
-use Illuminate\Http\Request;
-use App\Models\DocumentESign;
+use App\Models\Type;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
-use App\Models\EmergencyContacts;
+use Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ReferralConvertToCustomer;
 use Illuminate\Support\Facades\Session;
-
 
 class ReferralController extends Controller
 {
@@ -40,13 +39,11 @@ class ReferralController extends Controller
 
     public function create($lead_id = null)
     {
-        if($lead_id)
-        {
+        if ($lead_id) {
             $lead = Lead::findOrFail($lead_id);
             $lead->converted_to_referral = 1;
             $lead->save();
-        }
-        else{
+        } else {
             $lead = Lead::latest('id')->first();
         }
         $typeData = Type::where('category', 'Case Type')->get();
@@ -80,7 +77,7 @@ class ReferralController extends Controller
                     } elseif ($emailExistsInUsers) {
                         $fail("The $attribute has already been taken in users.");
                     }
-                }
+                },
             ],
             'date_of_birth' => 'nullable|date',
             'country' => 'nullable|max:250',
@@ -298,7 +295,6 @@ class ReferralController extends Controller
             return response()->json(['message' => 'Referral not found'], 404);
         }
 
-
         $referral->update([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -326,10 +322,6 @@ class ReferralController extends Controller
             'case_type' => $request->type,
             'created_by' => $userId,
         ]);
-
-
-
-
 
         $checklist = CheckList::firstOrNew(["referral_id" => $request->id]);
 
@@ -466,35 +458,34 @@ class ReferralController extends Controller
     public function convert_to_customer(Request $request)
     {
 
-        $referral = Referral::find($request->id);
+        $referral = Referral::findOrFail($request->id);
 
-        $user = new User();
-        $user->role = "User";
-        $user->billing_method = 'manual';
-        $user->account_status = "Approved";
+        $user = User::create([
+            'role' => "User",
+            'billing_method' => 'manual',
+            'account_status' => "Approved",
+            'name' => $referral->first_name,
+            'last_name' => $referral->last_name,
+            'full_ssn' => $referral->patient_ssn,
+            'dob' => $referral->date_of_birth,
+            'address' => $referral->address,
+            'state' => $referral->state,
+            'city' => $referral->city,
+            'phone' => "+1$referral->phone_number",
+            'zipcode' => $referral->zip_code,
+            'gender' => $referral->gender,
+            'email' => $referral->email,
+            'user_balance' => '0',
+            'token' => $request->_token . rand(),
+            'password' => Hash::make(123456),
+            'billing_cycle' => $referral->bankAccount->billing_cycle,
+            'surplus_amount' => $referral->bankAccount->surplus_amount,
+        ]);
+
         $user->assignRole('user');
-        $user->name = $referral->first_name;
-        $user->last_name = $referral->last_name;
-        $user->full_ssn = $referral->patient_ssn;
-        $user->dob = $referral->date_of_birth;
-        $user->address = $referral->address;
-        $user->state = $referral->state;
-        $user->city = $referral->city;
-        $user->phone = "+1$referral->phone_number";
-        $user->zipcode = $referral->zip_code;
-        $user->gender = $referral->gender;
-        $user->email = $referral->email;
-        $user->user_balance = '0';
-        $user->token = $request->_token . rand();
-        $user->password = Hash::make(123456);
-        $user->billing_cycle = $referral->bankAccount->billing_cycle;
-        $user->surplus_amount = $referral->bankAccount->surplus_amount;
-        $user->save();
 
         $referral->bankAccount()->update(["user_id" => $user->id]);
-
-        $referral->convert_to_customer = $user->id;
-        $referral->save();
+        $referral->update(['convert_to_customer' => $user->id]);
 
         $directory = storage_path("app/public/$user->id");
         if (!is_dir($directory)) {
@@ -507,8 +498,6 @@ class ReferralController extends Controller
                 'defaultFont' => 'Nominee-Black'
             ])
             ->setPaper('A4', 'portrait');
-
-
         $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
 
         $pdf->save($savePath);

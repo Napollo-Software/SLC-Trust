@@ -50,15 +50,6 @@ $user = App\Models\User::find(Session::get('loginId'));
                                     <th>Actions</th>
                                     <th>Full name</th>
                                     <th>Email</th>
-                                    <!--th>Convert to Customer</th-->
-                                    <!-- TODO:/NEED TO BE DONE -->
-                                    <!-- <th>Intake status</th> -->
-                                    <!--th>Intake coordinator</th-->
-                                    <!--th>Follow Up note</th-->
-                                    <!--th>Follow up Date</th-->
-
-                                    <!-- <th>Open services</th> -->
-                                    <!--th>Modified Date</th-->
                                     <th>Source info</th>
                                     <th>Patient status</th>
                                     <th>Admission date</th>
@@ -85,9 +76,6 @@ $user = App\Models\User::find(Session::get('loginId'));
                                                     <i class="bx bx-trash-alt me-1"></i> Delete
                                                 </button>
                                                 @endif
-                                                <!-- <a class="dropdown-item"
-                                                           href="{{ route('emergency.referral', $u['id']) }}"><i
-                                                                class="bx bx-no-entry me-1"></i>Emergency Details</a> -->
                                             </div>
                                         </div>
                                     </td>
@@ -122,7 +110,7 @@ $user = App\Models\User::find(Session::get('loginId'));
                                         @switch($u['source_type'])
                                         @case('account')
                                         @php
-                                        $account = \App\Models\User::find($u['source']); // Replace 'Account' with your actual model name for accounts
+                                        $account = \App\Models\User::find($u['source']);
                                         @endphp
                                         @if ($account)
                                         {{ $account->name }}
@@ -163,7 +151,9 @@ $user = App\Models\User::find(Session::get('loginId'));
                                         @endswitch
                                     </td>
                                     <th class="row-{{ $u['id'] }}">
-                                        @if ($u->status == 'Pending')
+                                        @if($u->convert_to_customer)
+                                        <button class="btn pt-1 pb-1 btn-success">Converted To Customer</button>
+                                        @elseif ($u->status == 'Pending')
                                         <div class="dropdown">
                                             <button class="btn pt-1 pb-1
                                                             @if ($u->status == 'Admitted') btn-primary
@@ -195,6 +185,8 @@ $user = App\Models\User::find(Session::get('loginId'));
                 </div>
             </div>
             @endsection
+
+
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
                 <script type="text/javascript"
                         src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
