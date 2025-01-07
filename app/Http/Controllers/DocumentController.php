@@ -494,32 +494,8 @@ class DocumentController extends Controller
     {
         $formattedDates = [];
 
-        if ($request->has('office_use_date_approved') && $request->office_use_date_approved) {
-            $formattedDates['office_use_date_approved'] = Carbon::parse($request->office_use_date_approved)->format('m/d/Y');
-        }
-
-        if ($request->has('office_use_effective_date') && $request->office_use_effective_date) {
-            $formattedDates['office_use_effective_date'] = Carbon::parse($request->office_use_effective_date)->format('m/d/Y');
-        }
-
-        if ($request->has('joinder_date') && $request->joinder_date) {
-            $formattedDates['joinder_date'] = Carbon::parse($request->joinder_date)->format('m/d/Y');
-        }
-
-        if ($request->has('sponsor_dob') && $request->sponsor_dob) {
-            $formattedDates['sponsor_dob'] = Carbon::parse($request->sponsor_dob)->format('m/d/Y');
-        }
-
-        if ($request->has('notary_on_date') && $request->notary_on_date) {
-            $formattedDates['notary_on_date'] = Carbon::parse($request->notary_on_date)->format('m/d/Y');
-        }
-
-        if ($request->has('sig_date1') && $request->sig_date1) {
-            $formattedDates['sig_date1'] = Carbon::parse($request->sig_date1)->format('m/d/Y');
-        }
-
-        if ($request->has('sig_date2') && $request->sig_date2) {
-            $formattedDates['sig_date2'] = Carbon::parse($request->sig_date2)->format('m/d/Y');
+        if ($request->has('date') && $request->date) {
+            $formattedDates['date'] = Carbon::parse($request->date)->format('m/d/Y');
         }
 
         // Merge the formatted dates back into the request, keeping all other data unchanged
@@ -537,18 +513,17 @@ class DocumentController extends Controller
             mkdir($directory, 0777, true);
         }
 
-        $signatureFields = ['joinder_signature_1', 'joinder_signature_2', 'joinder_signature_3', 'joinder_signature_4', 'joinder_signature_5'];
+        $signatureFields = ['client_acknowledgement_signature'];
 
         foreach ($signatureFields as $fieldName) {
             $imageData = $request->input($fieldName);
             if ($imageData) {
                 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
                 $filename = $fieldName . date('Ymd_His') . '.png';
-                $imagePath = $directory . '/' . $filename;
+                $imagePath = "{$directory}/{$filename}";
 
                 file_put_contents($imagePath, $imageData);
                 $request->merge([$fieldName => $imagePath]);
-
             }
         }
 
@@ -562,19 +537,19 @@ class DocumentController extends Controller
             ->setPaper('A4', 'portrait');
 
         $savePath = $directory . '/client_acknowledgement_' . date('Ymd_His') . '.pdf';
-
         $pdf->save($savePath);
+
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
 
         if ($document) {
 
-            if (Storage::exists('public/' . $document->uploaded_url)) {
-                Storage::delete('public/' . $document->uploaded_url);
+            if (Storage::exists("public/{$document->uploaded_url}")) {
+                Storage::delete("public/{$document->uploaded_url}");
             }
 
             $email = explode('/', $document->uploaded_url)[0];
-            $folderPath = 'public/' . $email . '/';
+            $folderPath = "public/{$email}/";
 
             if (Storage::exists($folderPath)) {
 
