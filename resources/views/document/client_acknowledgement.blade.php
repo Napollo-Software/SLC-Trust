@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('assets/img/favicon/favicon.png')}}" type="image/x-icon" />
-    <title>1-Joinder Agreement</title>
+    <title>Client Acknowledgement</title>
     <link href="https://fonts.cdnfonts.com/css/rage-italic" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/5e782bf38cce30531775d9922caba85c?family=Nominee-Regular" rel="stylesheet">
     <style>
@@ -1841,7 +1841,7 @@
             font-style: italic;
         }
 
-        #signature-canvas-1 {
+        #signature-canvas {
             pointer-events: none;
         }
 
@@ -2635,7 +2635,7 @@
                                 </div>
                                 <div class="name-form-container">
                                     <div class="name-form">
-                                        <input type="text" name="client_acknowledgement_signature" id="signature_input_1" class="inp-first" oninput="generateSignature(1)"> <br>
+                                        <input type="text" name="signature_input" id="signature_input" class="inp-first" oninput="generateSignature()"> <br>
                                         <span>Signature</span>
                                     </div>
                                 </div>
@@ -2643,8 +2643,8 @@
                                     <div class="w-80">
                                     </div>
                                     <div class="w-30">
-                                        <canvas id="signature-canvas-1" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
-                                        <button style="width:50px;margin-top:5px" type="button" id="clear-2" onclick="clearCanvas(1)">Clear</button>
+                                        <canvas id="signature-canvas" style="width: 100%; height: 100px;background-color:#f2f2f2"></canvas>
+                                        <button style="width:50px;margin-top:5px" type="button" id="clear-2" onclick="clearCanvas()">Clear</button>
                                         <input type="hidden" id="client_acknowledgement_signature" name="client_acknowledgement_signature">
                                     </div>
                                 </div>
@@ -2669,7 +2669,7 @@
 
 <script type="text/javascript">
 
-    generateSignature(1)
+    generateSignature()
 
     $(document).ready(function () {
 
@@ -2706,7 +2706,7 @@
                     $('#submit-button').prop('disabled', false);
 
                 },
-                error: function (response) {
+                error: function (errors) {
                     alert('Error in saving file');
                     $('#submit-button').removeClass('btn-size');
                     $('.loader').hide();
@@ -2716,9 +2716,9 @@
         });
     });
 
-        function generateSignature(id) {
-        const name = document.getElementById(`signature_input_${id}`).value;
-        const canvas = document.getElementById(`signature-canvas-${id}`);
+        function generateSignature() {
+        const name = document.getElementById(`signature_input`).value;
+        const canvas = document.getElementById(`signature-canvas`);
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = '#f2f2f2';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -2727,9 +2727,9 @@
         ctx.fillText(name, 5, 80);
     }
 
-    function clearCanvas(id) {
-        document.getElementById(`signature_input_${id}`).value = '';
-        const canvas = document.getElementById(`signature-canvas-${id}`);
+    function clearCanvas() {
+        document.getElementById(`signature_input`).value = '';
+        const canvas = document.getElementById(`signature-canvas`);
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = 'white';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -2737,12 +2737,9 @@
 
     function saveCanvasAsImage() {
 
-        for (let i = 1; i <= 1; i++) {
-            const canvas = document.getElementById(`signature-canvas-${i}`);
+        const canvas = document.getElementById(`signature-canvas`);
             const signatureDataURL = canvas.toDataURL('image/png');
-            console.log(signatureDataURL);
-            document.getElementById(`joinder_signature_${i}`).value = signatureDataURL;
-        }
+            document.getElementById(`client_acknowledgement_signature`).value = signatureDataURL;
     }
     </script>
 </html>

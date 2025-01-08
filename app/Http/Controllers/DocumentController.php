@@ -492,14 +492,10 @@ class DocumentController extends Controller
 
     public function saveClientAcknowledgement(Request $request)
     {
-        $formattedDates = [];
-
         if ($request->has('date') && $request->date) {
-            $formattedDates['date'] = Carbon::parse($request->date)->format('m/d/Y');
+            $request->date = Carbon::parse($request->date)->format('m/d/Y');
         }
 
-        // Merge the formatted dates back into the request, keeping all other data unchanged
-        $request->merge($formattedDates);
         set_time_limit(200);
         $referralId = $request->referral_id;
         $referral = Referral::find($referralId);
@@ -513,21 +509,20 @@ class DocumentController extends Controller
             mkdir($directory, 0777, true);
         }
 
-        $signatureFields = ['client_acknowledgement_signature'];
+        $imageData = $request->client_acknowledgement_signature;
+        $fieldName = 'client_acknowledgement_signature';
 
-        foreach ($signatureFields as $fieldName) {
-            $imageData = $request->input($fieldName);
-            if ($imageData) {
-                $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
-                $filename = $fieldName . date('Ymd_His') . '.png';
-                $imagePath = "{$directory}/{$filename}";
+        if ($imageData) {
+            $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
+            $filename = $fieldName . date('Ymd_His') . '.png';
+            $imagePath = "{$directory}/{$filename}";
 
-                file_put_contents($imagePath, $imageData);
-                $request->merge([$fieldName => $imagePath]);
-            }
+            file_put_contents($imagePath, $imageData);
+            $request->merge([$fieldName => $imagePath]);
         }
 
         $data = $request->all();
+
         $pdf = PDF::loadView('document.client_acknowledgement_signature_pdf', $data)
             ->setOption([
                 'fontDir' => public_path('/fonts'),
