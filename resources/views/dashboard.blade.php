@@ -24,7 +24,7 @@
                 [25, 50, 100, -1]
                 , [25, 50, 100, "All"]
             ]
-            , "order": false // "0" means First column and "desc" is order type;
+            , "order": false
         });
     });
 
@@ -234,7 +234,7 @@
                                     <td style="vertical-align: middle;">
                                         {{$claim->user_details->full_name()}}
                                     </td>
-                                    <td style="vertical-align: middle;"> {{ date('m/d/Y h:i A', strtotime($claim['created_at'])) }}</td>
+                                    <td style="vertical-align: middle;"> {{ date('m/d/Y', strtotime($claim['submission_date'] ?? $claim['created_at'])) }}</td>
                                     <td style="vertical-align: middle;">{{ $claim->category_details->category_name }}</td>
                                     <td style="vertical-align: middle;">
                                         <span class="badge
@@ -292,11 +292,12 @@
                                     </td>
                                     <td style="vertical-align: middle;">${{ number_format((float) $claim['claim_amount'], 2, '.', ',') }}</td>
                                     <td style="vertical-align: middle;">
+                                        @if($claim->claim_bill_attachment)
                                         <?php $document_type = pathinfo($claim->claim_bill_attachment); ?>
-                                        <a href="img/{{ $claim->claim_bill_attachment }}" target="_blank">
-                                            Attachment <i class="bx bx-file"></i>
-                                        </a>
-
+                                            <a href="img/{{ $claim->claim_bill_attachment }}" target="_blank">
+                                                Attachment <i class="bx bx-file"></i>
+                                            </a>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -317,7 +318,6 @@
             title: 'Warning!',
             text: "Are you sure ,You want to delete bill # " + id,
             icon: 'warning',
-
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: 'info',
@@ -456,7 +456,7 @@
                                 <tr>
                                     <td style="width: 120px"><a href="claims/{{ $claim['id'] }}">Bill#{{ str_pad($claim['id'], 2, '0', STR_PAD_LEFT) }}</a>
                                     </td>
-                                    <td>{{ date('m/d/Y h:i A', strtotime($claim['created_at'])) }}</td>
+                                    <td>{{ date('m/d/Y', strtotime($claim['submission_date'] ?? $claim['created_at'])) }}</td>
                                     <td>{{ $claim->category_details->category_name }}</td>
                                     <td>
                                         <span class="badge
@@ -509,9 +509,9 @@
                                     <td>{{ $claim->account_number }}</td>
                                     <td>${{ number_format((float) $claim['claim_amount'], 2, '.', ',') }}</td>
                                     <td>
-                                       <a href="img/{{ $claim->claim_bill_attachment }}" target="_blank">
-                                                    Attachment <i class="bx bx-file"></i>
-                                                </a>
+                                        @if($claim->claim_bill_attachment)
+                                        <a href="img/{{ $claim->claim_bill_attachment }}" target="_blank">Attachment <i class="bx bx-file"></i></a>
+                                        @endif
                                     </td>
                                     <td>
                                         <div class="dropdown">

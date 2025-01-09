@@ -41,25 +41,29 @@
                     <div class="card-header">
                         <div class="d-flex">
                             <h5 class="col-md-11">Attachment</h5>
+                            @if($claim->claim_bill_attachment)
                             <a href="{{url('img/'.$claim->claim_bill_attachment)}}" download>
                                 <i class="menu-icon tf-icons bx bx-download"></i>
                             </a>
+                            @endif
                         </div>
                     </div>
                     <div class="card-body">
                         <!-- Profile picture image-->
-                        <div class="card">
-                            <div class="card-body" style="padding: 0.5rem 0.5rem;margin-left:auto;margin-right:auto; ">
-                                <?php $document_type=pathinfo($claim->claim_bill_attachment);?>
-                                <a href="{{url('img/'.$claim->claim_bill_attachment)}}" target="_blank">
-                                    @if (isset($document_type['extension']) && $document_type['extension'] === 'pdf')
-                                    <img src={{ url('img/pdf_icon.png')}} alt="" class="img-thumbnail" width="150px">
-                                    @else
-                                    <img src="{{url('img/'.$claim->claim_bill_attachment)}}" alt="" class="img-thumbnail"> </a>
-                                @endif
-                                </a>
+                        @if($claim->claim_bill_attachment)
+                            <div class="card">
+                                <div class="card-body" style="padding: 0.5rem 0.5rem;margin-left:auto;margin-right:auto; ">
+                                    <?php $document_type=pathinfo($claim->claim_bill_attachment);?>
+                                    <a href="{{url('img/'.$claim->claim_bill_attachment)}}" target="_blank">
+                                        @if (isset($document_type['extension']) && $document_type['extension'] === 'pdf')
+                                        <img src={{ url('img/pdf_icon.png')}} alt="" class="img-thumbnail" width="150px">
+                                        @else
+                                        <img src="{{url('img/'.$claim->claim_bill_attachment)}}" alt="" class="img-thumbnail"> </a>
+                                    @endif
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                         <!-- Profile picture help block-->
                         @if ($claim->recurred != "0")
                         <div class="col-lg-12 pt-2 text-center">

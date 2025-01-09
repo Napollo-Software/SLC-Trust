@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Excel;
-use Session;
-use App\Models\User;
-use App\Models\Claim;
-use App\Models\Category;
-use App\Jobs\SendBillJob;
-use App\Jobs\sendEmailJob;
-use App\Models\PayeeModel;
-use App\Models\Notifcation;
-use App\Models\Transaction;
-use App\Imports\UsersImport;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Imports\ApprovePendingBills;
 use App\Imports\CustomerDepositImport;
+use App\Imports\UsersImport;
+use App\Jobs\SendBillJob;
+use App\Models\Category;
+use App\Models\Claim;
+use App\Models\Notifcation;
+use App\Models\PayeeModel;
+use App\Models\Transaction;
+use App\Models\User;
+use Excel;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Session;
 
 class claimsController extends Controller
 {
@@ -121,7 +120,6 @@ class claimsController extends Controller
 
     }
 
-
     public function deletedbills(Request $request)
     {
         $search = $request['search'] ?? "";
@@ -136,10 +134,9 @@ class claimsController extends Controller
             $role = User::where('id', '=', Session::get('loginId'))->value('role');
 
             if ($role != 'User') {
-                //$claims = Claim::orderBy('id', 'desc')->paginate(15);
+
                 $claims = Claim::orderBy('id', 'desc')->onlyTrashed()->get();
                 $all_users = User::all();
-
 
             } else if ($role == 'User') {
 
@@ -148,11 +145,8 @@ class claimsController extends Controller
 
             }
 
-            // $claims = Claim::orderBy('id', 'desc')->where('claim_user', Session::get('loginId'))->paginate(15);
             $data = compact('claims', 'search', 'all_users');
             return view('claims.deletedclaims', $data);
-
-
         }
 
     }
@@ -163,7 +157,6 @@ class claimsController extends Controller
         $categories = Category::all();
         $search = $request['search'] ?? "";
         if ($search != "") {
-
             $claims = Claim::where('id', 'LIKE', "%$search%")->orwhere('claim_title', 'LIKE', "%$search%")->orwhere('claim_category', 'LIKE', "%$search%")->orwhere('claim_status', 'LIKE', "%$search%")->orwhere('claim_amount', 'LIKE', "%$search%")->orwhere('submission_date', 'LIKE', "%$search%")->get();
             $data = compact('claims', 'search', 'users');
             return view('claims.search')->with($data);
@@ -175,7 +168,6 @@ class claimsController extends Controller
             return view('claims.add_claim', $data);
 
         }
-        return view('claims.add_claim');
     }
 
     public function store(Request $request)
@@ -184,9 +176,10 @@ class claimsController extends Controller
             'claim_user' => 'required',
             'claim_category' => 'required',
             'claim_amount' => 'required|numeric',
-            'claim_bill_attachment' => 'required|mimes:jpg,jpeg,png,gif,pdf|max:6048',
+            'claim_bill_attachment' => 'nullable|mimes:jpg,jpeg,png,gif,pdf|max:6048',
             'recurring_day' => 'required_if:recurring_bill,1',
             'payee_name' => 'required',
+            'submission_date' => 'required',
         ], [
             'claim_bill_attachment.error' => 'Bill attachment must be an image or pdf',
             'claim_user.required' => 'Customer is required',
@@ -214,8 +207,12 @@ class claimsController extends Controller
 
             $name = Category::find($request->claim_category);
 
-            $attachment = rand() . $request->file('claim_bill_attachment')->getClientOriginalName();
-            $request->file('claim_bill_attachment')->move(public_path('/img'), $attachment);
+            if ($request->claim_bill_attachment) {
+                $attachment = rand() . $request->file('claim_bill_attachment')->getClientOriginalName();
+                $request->file('claim_bill_attachment')->move(public_path('/img'), $attachment);
+            } else {
+                $attachment = null;
+            }
 
             $claim = new Claim([
                 'claim_user' => $claimUser->id,
@@ -228,6 +225,7 @@ class claimsController extends Controller
                 'claim_bill_attachment' => $attachment,
                 'recurring_bill' => $request->has('recurring_bill') ? 1 : 0,
                 'recurring_day' => $request->recurring_day,
+                'submission_date' => $request->submission_date,
             ]);
 
             if ($request->claim_status == 'Approved' && $balance >= $request->claim_amount) {
@@ -248,7 +246,7 @@ class claimsController extends Controller
                     'payment_method' => $request->payment_method,
                     'payment_number' => $request->card_number,
                     'transaction_type' => \TransactionType::TrustedSurplus,
-                    'description' => "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category."
+                    'description' => "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category.",
                 ]);
 
                 ////////////////Admin Ledger/////////////////
@@ -261,7 +259,7 @@ class claimsController extends Controller
                     "payment_method" => $request->payment_method,
                     "payment_number" => $request->payment_number,
                     "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => "{$app_name} has processed {$claimUser->name} {$claimUser->last_name}'s payment against bill submitted for {$name->category_name} category."
+                    "description" => "{$app_name} has processed {$claimUser->name} {$claimUser->last_name}'s payment against bill submitted for {$name->category_name} category.",
                 ]);
 
                 /////////////User Bill Notification/////////////
@@ -271,7 +269,7 @@ class claimsController extends Controller
                     'bill_id' => $claim->id,
                     'description' => "Your Bill # " . $claim->id . " with $" . $request->claim_amount . " amount has been added on " . date('m/d/Y', strtotime(now())) . " by {$app_name}.",
                     'title' => 'Bill Approved',
-                    'status' => 0
+                    'status' => 0,
                 ]);
 
                 $name = "{$claimUser->name} {$claimUser->last_name}";
@@ -298,8 +296,9 @@ class claimsController extends Controller
                 foreach ($admins_notification as $notify) {
                     /////////////// Admin Notification//////////
 
-                    if (in_array($notify->email, $ignore_admin_notification))
+                    if (in_array($notify->email, $ignore_admin_notification)) {
                         continue;
+                    }
 
                     Notifcation::create([
                         'status' => 0,
@@ -315,8 +314,6 @@ class claimsController extends Controller
                     $email_message = $claimUser->name . ' ' . $claimUser->last_name . " has submitted bill#" . $details->id . " on " . date('m-d-Y', strtotime($claim->created_at)) . " and waiting for approval. Please use the button below to find the details of the bill:";
 
                     $url = url("/claims/{$details->id}");
-
-                    // SendEmailJob::dispatch($notify->email, $subject, $name, $email_message, $url);
 
                 }
             }
@@ -341,7 +338,6 @@ class claimsController extends Controller
             } else {
                 return response()->json(['header' => 'Bill Submitted !', 'type' => 'success', 'message' => " Your bill has been submitted successfully."]);
             }
-
 
         } catch (\Exception $e) {
 
@@ -429,7 +425,7 @@ class claimsController extends Controller
             'card_number' => 'required_if:claim_status,Approved,Partial',
             'partial_amount' => 'nullable|required_if:claim_status,Partial|numeric|min:1',
             'reason' => 'required_if:claim_status,Partial',
-            'refusal_reason' => 'required_if:claim_status,Refused'
+            'refusal_reason' => 'required_if:claim_status,Refused',
         ], [
             'claim_bill_attachment.error' => 'Bill attachment must be an image or pdf',
             'claim_user.required' => 'Customer is required',
@@ -440,7 +436,7 @@ class claimsController extends Controller
             'partial_amount.numeric' => 'Partial amount must be a number.',
             'partial_amount.min' => 'Partial amount must be at least 1.',
             'reason.required_if' => 'Reason is required when status is Partial',
-            'refusal_reason.required_if' => 'Refusal reason is required to refuse bill'
+            'refusal_reason.required_if' => 'Refusal reason is required to refuse bill',
         ]);
 
         $admin = User::findOrFail(\Company::Account_id);
@@ -475,7 +471,7 @@ class claimsController extends Controller
                 'refusal_reason' => $validated['refusal_reason'] ?? null,
                 'payment_method' => $validated['payment_method'] ?? null,
                 'card_number' => $validated['card_number'] ?? null,
-                'claim_category' => $request->claim_category
+                'claim_category' => $request->claim_category,
             ]);
 
             if ($request->claim_status == 'Approved') {
@@ -535,7 +531,7 @@ class claimsController extends Controller
 
                 $claim->update([
                     'claim_status' => 'Refused',
-                    'refusal_reason' => $request->refusal_reason
+                    'refusal_reason' => $request->refusal_reason,
                 ]);
 
                 /////////////User Bill Refused Notification/////////////
@@ -584,7 +580,7 @@ class claimsController extends Controller
                     'payment_number' => $request->card_number,
                     'payment_method' => $request->payment_method,
                     'transaction_type' => \TransactionType::TrustedSurplus,
-                    'description' => "{$app_name} has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category."
+                    'description' => "{$app_name} has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category.",
                 ]);
 
                 /////////////User Bill Partically approved Notification/////////////
@@ -614,7 +610,6 @@ class claimsController extends Controller
 
             DB::commit();
             return response()->json(['header' => "Bill {$request->claim_status}!", 'type' => 'success', 'message' => "Bill#{$request->id} has been {$request->claim_status} successfully."]);
-
 
         } catch (\Exception $e) {
             DB::rollback();
@@ -663,7 +658,7 @@ class claimsController extends Controller
                 'date' => 'required',
             ],
             [
-                'date.required' => 'Please select date first.'
+                'date.required' => 'Please select date first.',
             ]
         );
         $requestedMonth = date('Y-m', strtotime($request->input('date')));
@@ -748,7 +743,7 @@ class claimsController extends Controller
     }
     public function edit_bill($id)
     {
-        $claim = claim::find($id);
+        $claim = claim::findOrFail($id);
         // if($claim->claim_status!='Pending'){
         //     alert()->warning('warning !','Only pending bills will be edited');
         //     return back();
@@ -775,10 +770,10 @@ class claimsController extends Controller
         $this->validate(
             $request,
             [
-                'recurring_day' => 'required'
+                'recurring_day' => 'required',
             ],
             [
-                'recurring_day.required' => 'Please select billing cycle'
+                'recurring_day.required' => 'Please select billing cycle',
             ]
         );
         $claim = Claim::find($request->id);
@@ -787,9 +782,9 @@ class claimsController extends Controller
         $payeeModelOld = PayeeModel::find($claim->payee_name);
         $payeeModelNew = PayeeModel::find($request->payee_name);
         $payee_name = ($claim->payee_name != $request->payee_name && $payeeModelOld && $payeeModelNew)
-            ? "Payee name has been changed from " . $payeeModelOld->name
-            . " to " . $payeeModelNew->name . ". "
-            : "";
+        ? "Payee name has been changed from " . $payeeModelOld->name
+        . " to " . $payeeModelNew->name . ". "
+        : "";
         // $payee_name = $claim->payee_name != $request->payee_name ? "Payee name has been changed from ".PayeeModel::find($claim->payee_name)->name." to ".PayeeModel::find($request->payee_name)->name.". " : "";
         $account_number = $claim->account_number != $request->account_number ? "Account number has been changed from " . $claim->account_number . " to " . $request->account_number . ". " : "";
         $submission_date = $claim->created_at->format("Y-m-d") != $request->created_at ? "Submission date has been changed from " . $claim->created_at->format("m/d/Y") . " to " . date('m/d/Y', strtotime($request->created_at)) . "." : "";
@@ -810,9 +805,9 @@ class claimsController extends Controller
             'claim_amount' => 'required|numeric',
             'claim_category' => 'required',
             'claim_bill_attachment' => 'mimes:jpg,jpeg,png,gif,pdf|max:6048',
-            'recurring_day' => 'required_if:recurring_bill,1'
+            'recurring_day' => 'required_if:recurring_bill,1',
         ], [
-            'recurring_day.required_if' => 'Please select billing cycle'
+            'recurring_day.required_if' => 'Please select billing cycle',
         ]);
         $claim = claim::find($request->id);
         $claim->recurring_day = $request->recurring_day;

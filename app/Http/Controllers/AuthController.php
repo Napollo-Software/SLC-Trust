@@ -560,7 +560,7 @@ class AuthController extends Controller
     public function view_user(Request $request, $id)
     {
 
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
         return view("add_balance", compact('user'));
 
