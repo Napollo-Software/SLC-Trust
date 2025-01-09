@@ -48,7 +48,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 @else
                                 <div class="col-lg-3">
                                     @endif
-                                    <label for="exampleFormControlInput1" class="form-label">Bill Attachment (jpg,png,pdf) <span class="text-danger">*</span></label>
+                                    <label for="exampleFormControlInput1" class="form-label">Bill Attachment (jpg,png,pdf)</label>
                                     <input class="form-control" name="claim_bill_attachment" type="file" id="formFileMultiple" accept=".png,.jpg,.pdf">
                                     <span class="text-danger">
                                         @error('claim_bill_attachment')
