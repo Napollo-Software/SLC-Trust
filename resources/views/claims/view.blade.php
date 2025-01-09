@@ -216,7 +216,11 @@
                             <h6 class="mb-0">Submission Date</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {{$claim->created_at->format('m/d/Y h:i A')}}
+                        @if ($claim->submission_date)
+                            {{date('m/d/Y', strtotime($claim->submission_date))}}
+                        @else
+                            {{$claim->created_at->format('m/d/Y')}}
+                        @endif
                         </div>
                     </div>
                     <hr>
