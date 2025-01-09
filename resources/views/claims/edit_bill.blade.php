@@ -136,7 +136,7 @@
                         <h6 class="mb-0">Submission Date</h6>
                       </div>
                       <div class="col-sm-4 text-secondary">
-                        <input type="date" name="claim_date" class="form-control"  value="<?php echo date('Y-m-d', strtotime($claim->created_at)); ?>" readonly>
+                        <input type="date" name="submission_date" class="form-control"  value="{{ date('Y-m-d', strtotime($claim->submission_date ?? $claim->created_at )) }}">
                         {{-- {{$claim->created_at->format('m/d/Y h:i A')}} --}}
                       </div>
                     </div>

@@ -801,28 +801,29 @@ class claimsController extends Controller
     public function store_edit_bill(Request $request)
     {
         $this->validate($request, [
-            // 'claim_user'=>'required',
             'claim_amount' => 'required|numeric',
             'claim_category' => 'required',
             'claim_bill_attachment' => 'mimes:jpg,jpeg,png,gif,pdf|max:6048',
             'recurring_day' => 'required_if:recurring_bill,1',
+            'submission_date' => 'required',
         ], [
             'recurring_day.required_if' => 'Please select billing cycle',
         ]);
-        $claim = claim::find($request->id);
+
+        $claim = claim::findOrFail($request->id);
+
         $claim->recurring_day = $request->recurring_day;
-        // $claim->claim_user = $request->claim_user;
         $claim->claim_amount = $request->claim_amount;
         $claim->claim_category = $request->claim_category;
         $claim->recurring_bill = $request->recurring_bill;
         $claim->payee_name = $request->payee_name;
         $claim->account_number = $request->account_number;
+        $claim->submission_date = $request->submission_date;
+
         if ($request->claim_description) {
             $claim->claim_description = $request->claim_description;
         }
-        if (date('Y-m-d', strtotime($claim->created_at)) != $request->claim_date) {
-            $claim->created_at = $request->claim_date;
-        }
+
         if ($request->claim_bill_attachment) {
             $attachment = rand() . $request->claim_bill_attachment->getClientOriginalName();
             $request->claim_bill_attachment->move(public_path('/img'), $attachment);
