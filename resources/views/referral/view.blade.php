@@ -112,12 +112,12 @@ return $colors[$randomIndex];
                                 Notes
                             </a>
                         </li>
-                        <li class="nav-item1 follows-tab">
+                        {{-- <li class="nav-item1 follows-tab">
                             <a class="nav-link  thumb" onclick="showTab('follows-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-book "></i>
                                 Followups
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item1 attachment-tab">
                             <a class="nav-link  thumb" onclick="showTab('attachment-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-spreadsheet"></i>
