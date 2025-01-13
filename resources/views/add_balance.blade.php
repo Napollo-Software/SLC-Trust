@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <h5 class="card-header"><b>Customer Deposit Form</b></h5>
+                <h5 class="card-header py-3"> Customer Deposit Form </h5>
                 <div class="card-body">
                     @error('insufficient')
                     <div class="alert alert-danger alert-dismissible" role="alert">
@@ -29,14 +29,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
-                    <form id="formAuthentication" class="mb-3" action="{{route('add_user_balance', $user['id'] )}}" method="POST">
+                    <form id="formAuthentication" class=" " action="{{route('add_user_balance', $user['id'] )}}" method="POST">
                         @csrf
-                        <div class="row mb-3">
-                            <div class="col-lg-12 mb-3">
-                                <label class="form-label"><b>Select Actions:</b></label>
-                                <div class="d-flex gap-3">
+                        <div class="row flex-wrap">
+                            <div class="col-lg-4 mb-3">
+                                <label class="form-label"><b>Select Actions</b></label>
+                                <div class="d-flex gap-3 flex-wrap flex-column">
                                     <div class="form-check">
-                                        <input class="form-check-input toggle-field" type="checkbox" id="toggleBalance" data-target=".balance-section">
+                                        <input class="form-check-input toggle-field  " type="checkbox" id="toggleBalance" data-target=".balance-section">
                                         <label class="form-check-label" for="toggleBalance">Add Balance</label>
                                     </div>
                                     <div class="form-check">
@@ -50,49 +50,51 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 mb-3 balance-section d-none">
-                                <label for="balance" class="form-label">Add Balance</label>
-                                <input type="number" class="form-control" placeholder="$" name="balance" step="any" />
-                                @error('balance')
-                                <span class="text-danger"> {{$message}} </span>
-                                @enderror
+                            <div class="col-lg-8 px-0">
+                                <div class="col-lg-12 mb-3 balance-section d-none ">
+                                    <label for="balance" class="form-label">Add Balance</label>
+                                    <input type="number" class="form-control" placeholder="$" name="balance" step="any" />
+                                    @error('balance')
+                                    <span class="text-danger"> {{$message}} </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-12 mb-3 maintenance-fee-section d-none">
+                                    <label for="maintenance_fee" class="form-label">Maintenance Fee (in percentage)</label>
+                                    <input type="number" class="form-control" placeholder="%" value="12" name="maintenance_fee" step="any" />
+                                    @error('maintenance_fee')
+                                    <span class="text-danger"> {{$message}} </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-12 mb-3 registration-fee-section d-none">
+                                    <label for="registration_fee" class="form-label">Registration Fee Amount ($)</label>
+                                    <input class="form-control" value="300" name="registration_fee_amount" type="text">
+                                </div>
+
+                                <div class="col-lg-12 mb-3">
+                                    <label for="payment_type" class="form-label">Payment Type</label>
+                                    <select class="form-control form-select" name="payment_type" required>
+                                        <option value="">Select Type</option>
+                                        <option value="ACH">ACH</option>
+                                        <option value="Card">Card</option>
+                                        <option value="Check Payment">Check Payment</option>
+                                    </select>
+                                    @error('payment_type')
+                                    <span class="text-danger"> {{$message}} </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-lg-12 mb-3">
+                                    <label for="date_of_trans" class="form-label">Date of Transaction</label>
+                                    <input value="{{ date('Y-m-d') }}" type="date" class="form-control" name="date_of_trans" required />
+                                    @error('date_of_trans')
+                                    <span class="text-danger"> {{$message}} </span>
+                                    @enderror
+                                </div>
                             </div>
 
-                            <div class="col-lg-6 mb-3 maintenance-fee-section d-none">
-                                <label for="maintenance_fee" class="form-label">Maintenance Fee (in percentage)</label>
-                                <input type="number" class="form-control" placeholder="%" value="12" name="maintenance_fee" step="any" />
-                                @error('maintenance_fee')
-                                <span class="text-danger"> {{$message}} </span>
-                                @enderror
-                            </div>
-
-                            <div class="col-lg-6 mb-3 registration-fee-section d-none">
-                                <label for="registration_fee" class="form-label">Registration Fee Amount ($)</label>
-                                <input class="form-control" value="300" name="registration_fee_amount" type="text">
-                            </div>
-
-                            <div class="col-lg-6 pb-2">
-                                <label for="payment_type" class="form-label">Payment Type</label>
-                                <select class="form-control form-select" name="payment_type" required>
-                                    <option value="">Select Type</option>
-                                    <option value="ACH">ACH</option>
-                                    <option value="Card">Card</option>
-                                    <option value="Check Payment">Check Payment</option>
-                                </select>
-                                @error('payment_type')
-                                <span class="text-danger"> {{$message}} </span>
-                                @enderror
-                            </div>
-
-                            <div class="col-lg-6">
-                                <label for="date_of_trans" class="form-label">Date of Transaction</label>
-                                <input value="{{ date('Y-m-d') }}" type="date" class="form-control" name="date_of_trans" required />
-                                @error('date_of_trans')
-                                <span class="text-danger"> {{$message}} </span>
-                                @enderror
-                            </div>
-
-                            <div class="col-lg-12 mt-3">
+                            <div class="d-flex justify-content-end  ">
                                 <button class="btn btn-primary add-balance">Submit</button>
                             </div>
                         </div>
