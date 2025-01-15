@@ -228,7 +228,7 @@ class ReferralController extends Controller
 
         $document = DocumentESign::all();
         $lead = Lead::all();
-        $referral = Referral::with('followups')->findOrFail($id);
+        $referral = Referral::with(['followups', 'get_uploaded_documents'])->findOrFail($id);
 
         $emergencyDetails = EmergencyContacts::where('referral_id', $id)->get();
         $checks = $referral->refferals_check;
