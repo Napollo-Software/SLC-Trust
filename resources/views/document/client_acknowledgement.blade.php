@@ -2635,7 +2635,7 @@
                                 </div>
                                 <div class="name-form-container">
                                     <div class="name-form">
-                                        <input type="text" name="signature_input" id="signature_input" class="inp-first" oninput="generateSignature()" required> <br>
+                                        <input type="text" maxlength="25" name="signature_input" id="signature_input" class="inp-first" oninput="generateSignature()" required> <br>
                                         <span>Signature</span>
                                     </div>
                                 </div>
