@@ -46,7 +46,7 @@
 
         }
 
-        .row-container { 
+        .row-container {
             align-items: center;
         }
 
@@ -105,11 +105,11 @@
             width: 25px;
             height: 25px;
         }
-        .beneficiary-information { 
+        .beneficiary-information {
             font-size: 26px;
             padding: 10px 20px;
         }
-         
+
         .acknowledge-list ul {
             margin: 0;
         }
@@ -118,13 +118,13 @@
             padding: 3px 0px;
             font-family: 'Poppins-Regular';
         }
-       
+
         .name-form-container {
-            display: flex; 
+            display: flex;
             align-items: center;
-            margin-top: 15px; 
+            margin-top: 15px;
             /* width: 25%; */
-        } 
+        }
         .main-page {
             font-size: 28px;
             font-family: 'Poppins-Regular';
@@ -140,9 +140,6 @@
             background: transparent !important;
             margin: 0 !important;
         }
-        .beneficiary-information-name-form {
-        
-        }
     </style>
 </head>
 <body>
@@ -153,7 +150,7 @@
             </h4>
         </div>
         <div>
-            <div> 
+            <div>
                 <p style="text-align: center;font-family: 'Poppins-Regular';font-size:14px;margin:0;line-height:1"> CLIENT ACKNOWLEDGEMENT ON USE OF PRE-PAID CREDIT CARD OPTION</p>
                 <p style="text-align: center;font-family: 'Poppins-Regular';font-size:14px;margin:0;line-height:1">
                         TO
@@ -161,9 +158,9 @@
                 <p  style="text-align: center;font-family: 'Poppins-Regular';font-size:14px;margin:0;line-height:1">
                     SENIOR LIFE CARE
                 </p>
-            </div> 
+            </div>
         </div>
-        <section class="main-page" > 
+        <section class="main-page" >
             <!-- BENEFICIARY INFORMATION -->
 
             <div class="beneficiary-information">
@@ -199,23 +196,23 @@
 
                 <div class="beneficiary-information-form">
                     <div>
-                        <div class="beneficiary-information-name-form"> 
-                            <div class="name-form"> 
+                        <div class="beneficiary-information-name-form">
+                            <div class="name-form">
                                 <input type="text" value="{{ $sponsor_first_name }}" class="no-border inp-first" name="sponsor_first_name">
                                 <div style="line-height: 10px !important">Name</div>
-                            </div> 
+                            </div>
 
                             <div class="name-form">
                                 <input type="text" value="{{ $date }}" class="no-border inp-first" name="date">
                                 <div style="line-height: 10px !important">Date</div>
-                            </div> 
+                            </div>
 
                             <div class="name-form">
                                 <!-- Signature Image or Placeholder -->
                                 <div >
                                     @if ($client_acknowledgement_signature)
                                     <img src="{{ $client_acknowledgement_signature }}" alt="Signature 4"
-                                    style="width: 300px; height: 48px;">
+                                    style="width: 200px; height: 48px;">
                                     @else
                                     <div style="width: 200px;height:50px; text-align: center;">
                                         No Signature Provided
@@ -225,16 +222,16 @@
                                 <div class='xs' style='border-top:1px solid;width:100%;'>
                                     <label class='italic'>Signature</label>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </section>
     </div>
 
-       
+
 
     <div style="position: fixed;width: 100%;bottom: 0px;font-family:Poppins-Regular; background: white;padding-top:15px">
         <div style="width: 100%;">

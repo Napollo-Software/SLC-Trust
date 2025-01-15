@@ -47,6 +47,20 @@ use App\Http\Controllers\ReleaseNotesController;
 // });
 // dd(app()->make('Game'));
 
+Route::get('documents-000009',function(){
+	$referrals = \App\Models\Referral::get();
+        foreach ($referrals as $referral) {
+            \App\Models\Documents::create([
+                'name'        => "7 Client Acknowledgement.pdf",
+                'slug'        => "7Client-Acknowledgement.pdf",
+                'status'      => 'pending',
+                'referral_id' => $referral->id,
+                'actual_url'  => "/documents/7ClientAcknowledgement.pdf",
+            ]);
+        }
+        dd("Done!");
+});
+
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
