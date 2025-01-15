@@ -203,7 +203,7 @@
                             </div>
 
                             <div class="name-form">
-                                <input type="text" value="{{ $date }}" class="no-border inp-first" name="date">
+                                <input type="text" value="{{ formatDateForPdf($date) }}" class="no-border inp-first" name="date">
                                 <div style="line-height: 10px !important">Date</div>
                             </div>
 
