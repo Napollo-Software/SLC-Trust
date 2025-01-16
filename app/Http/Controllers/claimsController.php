@@ -205,7 +205,7 @@ class claimsController extends Controller
 
         try {
 
-            $name = Category::find($request->claim_category);
+            $category = Category::find($request->claim_category);
 
             if ($request->claim_bill_attachment) {
                 $attachment = rand() . $request->file('claim_bill_attachment')->getClientOriginalName();
@@ -246,7 +246,7 @@ class claimsController extends Controller
                     'payment_method' => $request->payment_method,
                     'payment_number' => $request->card_number,
                     'transaction_type' => \TransactionType::TrustedSurplus,
-                    'description' => "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category.",
+                    'description' => "{$app_name} has processed payment against bill submitted for " . $category->category_name . " category.",
                 ]);
 
                 ////////////////Admin Ledger/////////////////
@@ -259,7 +259,7 @@ class claimsController extends Controller
                     "payment_method" => $request->payment_method,
                     "payment_number" => $request->payment_number,
                     "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => "{$app_name} has processed {$claimUser->name} {$claimUser->last_name}'s payment against bill submitted for {$name->category_name} category.",
+                    "description" => "{$app_name} has processed {$claimUser->name} {$claimUser->last_name}'s payment against bill submitted for {$category->category_name} category.",
                 ]);
 
                 /////////////User Bill Notification/////////////
@@ -275,7 +275,11 @@ class claimsController extends Controller
                 $name = "{$claimUser->name} {$claimUser->last_name}";
                 $email_message = "Your bill#" . $details->id . " added on " . date('m-d-Y', strtotime($details->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
                 $url = "/claims/$details->id";
-                SendBillJob::dispatch($claimUser, $url, $email_message, 'bill_approved');
+
+                if($category->category_name != "Melody")
+                {
+                    SendBillJob::dispatch($claimUser, $url, $email_message, 'bill_approved');
+                }
 
             } else {
 
@@ -288,7 +292,10 @@ class claimsController extends Controller
 
                 $bill_message = "We are pleased to inform you that Bill #{$details->id} has been successfully added to your Senior Life Care account on " . date('m-d-Y', strtotime($claim->created_at)) . ". To view the details of your bill, please click the button below:";
 
-                SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_submitted");
+                if($category->category_name == "Melody")
+                {
+                    SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_submitted");
+                }
 
                 $admins_notification = User::where('role', '!=', "User")->get();
                 $ignore_admin_notification = ignoreAdminEmails();
@@ -442,7 +449,7 @@ class claimsController extends Controller
         $admin = User::findOrFail(\Company::Account_id);
         $claim = Claim::findOrFail($request->id);
         $claimUser = User::findOrFail($claim->claim_user);
-        $name = Category::findOrFail($request->claim_category);
+        $category = Category::findOrFail($request->claim_category);
         $app_name = config('app.professional_name');
 
         if ($claimUser->account_status == 'Disable') {
@@ -490,7 +497,7 @@ class claimsController extends Controller
                     "payment_number" => $request->card_number,
                     "payment_method" => $request->payment_method,
                     "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => "{$app_name} has processed payment against bill submitted for {$name->category_name} category.",
+                    "description" => "{$app_name} has processed payment against bill submitted for {$category->category_name} category.",
                 ]);
 
                 ////////////////Admin Ledger/////////////////
@@ -503,7 +510,7 @@ class claimsController extends Controller
                     "payment_number" => $request->card_number,
                     "payment_method" => $request->payment_method,
                     "transaction_type" => \TransactionType::TrustedSurplus,
-                    "description" => "{$app_name} has processed {$claimUser->name} {$claimUser->last_name}'s payment against bill submitted for {$name->category_name} category.",
+                    "description" => "{$app_name} has processed {$claimUser->name} {$claimUser->last_name}'s payment against bill submitted for {$category->category_name} category.",
                 ]);
 
                 /////////////User Bill Approved Notification/////////////
@@ -518,13 +525,14 @@ class claimsController extends Controller
                 ]);
 
                 $name = "$claimUser->name  $claimUser->last_name";
-                $subject = "Bill Approved";
-                $email_message = "Your bill#" . $claim->id . " added on " . date('m-d-Y', strtotime($claim->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
                 $url = "/claims/$claim->id";
 
                 $bill_message = "We are pleased to inform you that Bill #{$claim->id}, submitted on " . date('m-d-Y', strtotime($claim->created_at)) . ", has been approved. To view the details of your bill, please click the button below:";
 
-                SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_approved");
+                if($category->category_name == "Melody")
+                {
+                    SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_approved");
+                }
 
             }
             if ($request->claim_status == 'Refused') {
@@ -549,7 +557,11 @@ class claimsController extends Controller
 
                 $url = "/claims/$claim->id";
 
-                SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_rejected");
+                if($category->category_name == "Melody")
+                {
+                    SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_rejected");
+                }
+
 
             }
             if ($request->claim_status == "Partial") {
@@ -567,7 +579,7 @@ class claimsController extends Controller
                     'payment_number' => $request->card_number,
                     'payment_method' => $request->payment_method,
                     'transaction_type' => \TransactionType::TrustedSurplus,
-                    'description' => "{$app_name} has processed payment against bill submitted for " . $name->category_name . " category.",
+                    'description' => "{$app_name} has processed payment against bill submitted for " . $category->category_name . " category.",
                 ]);
 
                 ////////////////Admin Ledger/////////////////
@@ -580,7 +592,7 @@ class claimsController extends Controller
                     'payment_number' => $request->card_number,
                     'payment_method' => $request->payment_method,
                     'transaction_type' => \TransactionType::TrustedSurplus,
-                    'description' => "{$app_name} has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $name->category_name . " category.",
+                    'description' => "{$app_name} has processed " . $claimUser->name . " " . $claimUser->last_name . "'s payment against bill submitted for " . $category->category_name . " category.",
                 ]);
 
                 /////////////User Bill Partically approved Notification/////////////
@@ -595,13 +607,15 @@ class claimsController extends Controller
                 ]);
 
                 $name = "{$claimUser->name} {$claimUser->last_name}";
-                $subject = "Bill Partially Approved";
-                $email_message = "Your bill#" . $claim->id . " added on " . date('m-d-Y', strtotime($claim->created_at)) . " has been partially approved. Please use the button below to find the details of your bill:";
+
                 $url = "/claims/$claim->id";
 
                 $bill_message = "We would like to inform you that Bill #{$claim->id}, submitted on " . date('m-d-Y', strtotime($claim->created_at)) . ", has been partially approved. To view the details of your bill, please click the button below:";
 
-                SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_partially_approved");
+                if($category->category_name == "Melody")
+                {
+                    SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_partially_approved");
+                }
 
                 DB::commit();
 
