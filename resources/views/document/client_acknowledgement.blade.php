@@ -2588,7 +2588,7 @@
                 <!-- BENEFICIARY INFORMATION -->
 
                 <div class="beneficiary-information">
-                    <p>This is to acknowledge that I have been informed, by Senior Life Care, that the use of the prepaid credit card option provided with my Pooled Income Trust account (the “PIT”) is to limited to
+                    <p>This is to acknowledge that I have been informed, by Senior Life Care, that the use of the pre-paid credit card option provided with my Pooled Income Trust account (the “PIT”) is to limited to
                         authorized living expenses, including by not limited to, rent, food, clothes or utilities. Unauthorized
                         expenses include, but are not limited to: </p>
                     <div class="acknowledge-list">
@@ -2613,7 +2613,7 @@
                     <div style="padding: 30px 0">
                         <b>
                             I ACKNOWLEDGE THAT IF THE CARD IS MISPLACED OR STOLEN, IT IS MY RESPONSIBILITY TO
-                            NOTIFY MELODY BENIFITS IMMEDIATELY. SENIOR LIFE CARE AND MELODY BENIFITS ARE NOT
+                            NOTIFY MELODY BENEFITS IMMEDIATELY. SENIOR LIFE CARE AND MELODY BENEFITS ARE NOT
                             RESPONSIBLE AND WILL NOT REIMBURSE ANY LOST OR STOLEN FUNDS.
                         </b>
                     </div>
