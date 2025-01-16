@@ -292,7 +292,7 @@ class claimsController extends Controller
 
                 $bill_message = "We are pleased to inform you that Bill #{$details->id} has been successfully added to your Senior Life Care account on " . date('m-d-Y', strtotime($claim->created_at)) . ". To view the details of your bill, please click the button below:";
 
-                if($category->category_name == "Melody")
+                if($category->category_name != "Melody")
                 {
                     SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_submitted");
                 }
@@ -529,7 +529,7 @@ class claimsController extends Controller
 
                 $bill_message = "We are pleased to inform you that Bill #{$claim->id}, submitted on " . date('m-d-Y', strtotime($claim->created_at)) . ", has been approved. To view the details of your bill, please click the button below:";
 
-                if($category->category_name == "Melody")
+                if($category->category_name != "Melody")
                 {
                     SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_approved");
                 }
@@ -557,7 +557,7 @@ class claimsController extends Controller
 
                 $url = "/claims/$claim->id";
 
-                if($category->category_name == "Melody")
+                if($category->category_name != "Melody")
                 {
                     SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_rejected");
                 }
@@ -612,7 +612,7 @@ class claimsController extends Controller
 
                 $bill_message = "We would like to inform you that Bill #{$claim->id}, submitted on " . date('m-d-Y', strtotime($claim->created_at)) . ", has been partially approved. To view the details of your bill, please click the button below:";
 
-                if($category->category_name == "Melody")
+                if($category->category_name != "Melody")
                 {
                     SendBillJob::dispatch($claimUser, $url, $bill_message, "bill_partially_approved");
                 }
