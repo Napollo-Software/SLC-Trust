@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
 
+
 class claimsController extends Controller
 {
     public function index(Request $request)
