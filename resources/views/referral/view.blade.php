@@ -1116,7 +1116,7 @@ return $colors[$randomIndex];
                     <div class="row">
                         <div class="form-group">
                             <label for="date">Follow Up Date *</label>
-                            <input type="date" name="date" required class="form-control">
+                            <input type="date" name="date" id="follow-up-date" required class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="time">Follow Up Time *</label>
@@ -1127,7 +1127,7 @@ return $colors[$randomIndex];
                             <select id="defaultSelect" class="form-control" name="to">
                                 <option value="">Choose One</option>
                                 @foreach ($assignee as $item)
-                                <option value="{{ $item->id }}">{{ $item->first_name }} {{ $item->last_name }}</option>
+                                <option value="{{ $item->id }}">{{ $item->full_name() }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -1185,6 +1185,11 @@ return $colors[$randomIndex];
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <script>
+
+        $(document).ready(function() {
+            const createToday = new Date().toISOString().split('T')[0];
+            document.getElementById('follow-up-date').setAttribute('min', createToday);
+        });
 
         $('.convert-btn').on('click', function (e) {
         e.preventDefault();
