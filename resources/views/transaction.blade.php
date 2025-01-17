@@ -5,7 +5,6 @@
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Claim;
-use App\Models\Referral;
 use App\Models\Followup;
 use App\Models\Transaction;
 
@@ -62,6 +61,34 @@ $role = $login_user->role;
 
                     .fc-header-toolbar {
                         font-size: 10px !important;
+                    }
+                }
+
+                .fc-toolbar-chunk button {
+                    background: #559e99 !important;
+                    border: 1px solid #559e99 !important;
+                }
+                .fc-toolbar-chunk .fc-prev-button {
+                    padding-left: 18px;
+                    padding-right: 18px;
+                    text-align: center;
+                }
+                .fc-toolbar-chunk .fc-next-button {
+                    padding-left: 18px;
+                    padding-right: 18px;
+                    text-align: center;
+                }
+
+                @media screen and (max-width: 768px) {
+                    .fc-toolbar-chunk .fc-prev-button {
+                        padding-left: 1px;
+                        padding-right: 1px;
+                        text-align: center;
+                    }
+                    .fc-toolbar-chunk .fc-next-button {
+                        padding-left: 1px;
+                        padding-right: 1px;
+                        text-align: center;
                     }
                 }
             </style>
@@ -643,7 +670,7 @@ $role = $login_user->role;
                 content.innerHTML = `
                     <div ${strikeThrough}>
                         <strong>${userName}:</strong>
-                        "${note.length > 10 ? note.substring(0, 10) + '...' : note}"
+                        "${note.length > 5 ? note.substring(0, 5) + '...' : note}"
                     </div>
                 `;
 
