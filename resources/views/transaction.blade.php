@@ -409,11 +409,11 @@ $role = $login_user->role;
         </div>
         @endif
         @if ($login_user->hasPermissionTo('Front Office'))
-        <div class="row row-cols-1 row-cols-xl-2">
-            <div class="col d-flex">
-                <div class="card radius-10 w-100">
-                    <div class="card-body">
-                        <div id="calendar22" class="col-md-12"></div>
+        <div class="pb-5">
+            <div class="card radius-10 w-100">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <div id="calendar22"></div>
                     </div>
                 </div>
             </div>
@@ -629,16 +629,23 @@ $role = $login_user->role;
                 };
             }),
             eventContent: function(info) {
+
                 const id = info.event.id;
                 const note = info.event.extendedProps.note;
-                const date = info.event.extendedProps.date;
                 const completed = info.event.extendedProps.completed;
+                const user = info.event.extendedProps.user || {};
+                const userName = `${user.name || ''} ${user.last_name || ''}`.trim();
+                const strikeThrough = completed ? 'style="text-decoration: line-through;"' : '';
 
                 const content = document.createElement('div');
-                content.id = `calender_follow_up_${id}`;
-                content.innerHTML = completed > 0
-                    ? `<s>${note.length > 10 ? note.substring(0, 10) + '...' : note}</s>`
-                    : `${note.length > 10 ? note.substring(0, 10) + '...' : note}`;
+                content.id = `calendar_follow_up_${id}`;
+                content.classList.add('custom-event-content');
+                content.innerHTML = `
+                    <div ${strikeThrough}>
+                        <strong>${userName}:</strong>
+                        "${note.length > 10 ? note.substring(0, 10) + '...' : note}"
+                    </div>
+                `;
 
                 return { domNodes: [content] };
             },
