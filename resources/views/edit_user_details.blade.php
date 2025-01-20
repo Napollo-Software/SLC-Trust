@@ -85,7 +85,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
     @media screen and (min-width: 992px) {
         .img-sidebar  {
         position: sticky;
-        top: 125px; 
+        top: 125px;
     }
     }
 </style>
@@ -152,6 +152,15 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <div class="card-body">
                         <div style="display: flex">
                             <h4>Profile Details</h4>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Account No</h6>
+                            </div>
+                            <div class="col-sm-4 text-secondary">
+                                <input type="text" readonly class="form-control p-2" value="{{ $user->id }}">
+                            </div>
                         </div>
                         <hr>
                         <div class="row">

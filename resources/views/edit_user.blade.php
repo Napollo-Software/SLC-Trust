@@ -5,24 +5,24 @@
 $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');
 @endphp
 <style>
-   
+
     @media screen and (min-width: 992px) {
         .img-sidebar  {
         position: sticky;
         top: 125px;
-        height: 100% !important; 
+        height: 100% !important;
     }
     }
 </style>
-<div> 
+<div>
                 <h5 class=" d-flex justify-content-start pt-3 pb-2 ">
                 <b></b>
                 <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>View User</b> </div>
                 </h5>
-        <form id="formAuxthentication" class="mb-3" action="{{ route('update_existing_user', $user['id']) }}" method="post" enctype="multipart/form-data"> 
+        <form id="formAuxthentication" class="mb-3" action="{{ route('update_existing_user', $user['id']) }}" method="post" enctype="multipart/form-data">
             <div class="row position-relative">
-                <div class="col-lg-4 img-sidebar " > 
-                    <div class="">  
+                <div class="col-lg-4 img-sidebar " >
+                    <div class="">
                         @method('post')
                         @csrf
                         <input type="hidden" value="{{$user->account_status}}" class="account-status">
@@ -41,7 +41,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 </a>
                                 @endif
                             </div>
-                            <div class="card-body text-center" > 
+                            <div class="card-body text-center" >
                                 <div class="card mb-0"  >
                                     <div class="card-body   p-3 ">
                                         @if ($user->profile_pic == null)
@@ -68,7 +68,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="col-lg-8  ">
                     <div class="card h-100 mb-3">
                         <div class="card-body">
@@ -104,10 +104,18 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 <button type="submit" name="approval_action" class="btn btn-primary update-profile">Update</button>
                             </div>
                             <hr>
-                           
+
                             <div class="row">
-                                <!-- Left Column -->
                                 <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Account No</h6>
+                                        </div>
+                                        <div class="col-sm-8 text-secondary">
+                                            {{ $user->id }}
+                                        </div>
+                                    </div>
+                                    <hr>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <h6 class="mb-0">Full Name</h6>
@@ -189,7 +197,6 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                     </div>
                                     <hr>
                                 </div>
-                                <!-- Right Column -->
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-sm-4">
@@ -265,12 +272,11 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                     <input type="hidden" name="approval_action" class="approval_action" value="1">
                                 </div>
                             </div>
-                          
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class=" mt-3">
                     <div class="card radius-10 w-100">
                         <div class="card-body">
@@ -300,7 +306,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                             <td>{{ $data->reference_id }}</td>
                                             <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
                                             <td>
-                                                @if ($data->user_id == \Company::Account_id && in_array($data->type, [Transaction::MaintenanceFee, Transaction::EnrollmentFee, Transaction::RenewalFee]))
+                                                @if ($data->user_id == \Company::Account_id && in_array($data->type, [\App\Models\Transaction::MaintenanceFee, \App\Models\Transaction::EnrollmentFee, \App\Models\Transaction::RenewalFee]))
                                                 {{ \Company::Account_name_income }}
                                                 @elseif ($data->user_id == \Company::Account_id)
                                                 {{ \Company::Account_name }}
@@ -341,7 +347,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </form>
     </div>
 <div class="modal fade" id="vodModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">

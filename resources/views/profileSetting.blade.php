@@ -268,7 +268,7 @@ color:#69707a;
                       </div>
                       <div class="row gx-3">
                         <!-- Form Group (organization name)-->
-                        <div class="col-md-12">
+                        <div class="col-md-{{ $user['role'] == 'User' ? '6' : '12' }}">
                           <label for="exampleFormControlInput1" class="form-label">Email</label>
                         <input
                           type="Email"
@@ -280,6 +280,17 @@ color:#69707a;
                         />
                         <span class="text-danger">@error('email'){{$message}} @enderror</span>
                         </div>
+                        @if($role == 'User')
+                          <div class="col-md-6">
+                            <label for="exampleFormControlInput1" class="form-label">Account No</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="balance" value="{{$user['id']}}"
+                              disabled
+                            />
+                          </div>
+                          @endif
                         <!-- Form Group (location)-->
                         <div class="col-md-6 pt-3">
                           <label for="username" class="form-label">Billing Method</label>
