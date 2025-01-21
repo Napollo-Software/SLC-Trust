@@ -20,7 +20,7 @@
                
                  <div class="d-flex gap-3 flex-wrap flex-column  ">
                     <div class="form-check d-flex align-items-center ">
-                        <input class="form-check-input toggle-field p-2 " type="checkbox" id="toggleBalance" data-target=".balance-section">
+                        <input class="form-check-input toggle-field p-2 " type="checkbox" id="toggleBalance" data-target=".balance-section" checked>
                         <label class="form-check-label ps-1 pt-1" for="toggleBalance" >Add Balance</label>
                     </div>
                     <div class="form-check d-flex align-items-center">
@@ -31,13 +31,11 @@
                         <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
                         <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Include Maintenance Fee</label>
                     </div>
-                    <div class="form-check  d-flex align-items-center">
-                        
-                        <input class="form-check-input toggle-field p-2" type="checkbox"  >
-                        <label class="form-check-label ps-1 pt-1"  >Send amount to Credit Card</label>
-                    </div>
-                    
-                </div> 
+                    <div class="form-check d-flex align-items-center" id="creditCardOption">
+                        <input class="form-check-input toggle-field p-2" type="checkbox" id="sendToCreditCard"  />
+                        <label class="form-check-label ps-1 pt-1" for="sendToCreditCard">Send amount to Credit Card</label>
+                    </div> 
+                    </div>  
                 </div>
             </div>
         </div>
@@ -67,7 +65,7 @@
                         @csrf
                         <div class="row flex-wrap"> 
                             <div class="col-lg-8 px-0">
-                                <div class="col-lg-12 mb-3 balance-section d-none ">
+                                <div class="col-lg-12 mb-3 balance-section  ">
                                     <label for="balance" class="form-label">Add Balance</label>
                                     <input type="number" class="form-control" placeholder="$" name="balance" step="any" />
                                     @error('balance')
@@ -110,7 +108,7 @@
                                 </div>
                             </div>
 
-                            <div class="d-flex justify-content-end  ">
+                            <div class="d-flex justify-content-start  ">
                                 <button class="btn btn-primary add-balance">Submit</button>
                             </div>
                         </div>
@@ -155,7 +153,6 @@
             }
         });
 
-
         function showDiv2(divId, element) {
             if (element.value == 'ACH') {
                 $('.trans-no').attr('required', true);
@@ -183,5 +180,10 @@
             }
         }
 
+        
+       
+    }
 </script>
+
+
 @endsection
