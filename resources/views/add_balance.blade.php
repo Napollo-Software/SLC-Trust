@@ -1,14 +1,47 @@
 @extends("nav")
 @section('title', 'Add Balance | Senior Life Care Trusts')
 @section("wrapper")
- 
+ <style>
+    .stick {
+        position: sticky !important;
+        top: 0; 
+    }
+ </style>
 <div>
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
         <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>Add Balance</b> </div>
     </h5>
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="row gap-y-2">
+        <div class="col-lg-4" >
+            <div class="card  " >
+                <h5 class="card-header py-3">Select Actions</h5>
+                <div class="card-body">
+               
+                 <div class="d-flex gap-3 flex-wrap flex-column  ">
+                    <div class="form-check d-flex align-items-center ">
+                        <input class="form-check-input toggle-field p-2 " type="checkbox" id="toggleBalance" data-target=".balance-section">
+                        <label class="form-check-label ps-1 pt-1" for="toggleBalance" >Add Balance</label>
+                    </div>
+                    <div class="form-check d-flex align-items-center">
+                        <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleRegistrationFee" data-target=".registration-fee-section">
+                        <label class="form-check-label ps-1 pt-1" for="toggleRegistrationFee">Charge Registration Fee</label>
+                    </div>
+                    <div class="form-check  d-flex align-items-center">
+                        <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
+                        <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Include Maintenance Fee</label>
+                    </div>
+                    <div class="form-check  d-flex align-items-center">
+                        
+                        <input class="form-check-input toggle-field p-2" type="checkbox"  >
+                        <label class="form-check-label ps-1 pt-1"  >Send amount to Credit Card</label>
+                    </div>
+                    
+                </div> 
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
             <div class="card">
                 <h5 class="card-header py-3"> Customer Deposit Form </h5>
                 <div class="card-body">
@@ -32,31 +65,7 @@
                     @endif
                     <form id="formAuthentication" class=" " action="{{route('add_user_balance', $user['id'] )}}" method="POST">
                         @csrf
-                        <div class="row flex-wrap">
-                            <div class="col-lg-4 mb-3">
-                                <label class="form-label"><b>Select Actions</b></label>
-                                <div class="d-flex gap-3 flex-wrap flex-column  ">
-                                    <div class="form-check d-flex align-items-center ">
-                                        <input class="form-check-input toggle-field p-2 " type="checkbox" id="toggleBalance" data-target=".balance-section">
-                                        <label class="form-check-label ps-1 pt-1" for="toggleBalance" >Add Balance</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center">
-                                        <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleRegistrationFee" data-target=".registration-fee-section">
-                                        <label class="form-check-label ps-1 pt-1" for="toggleRegistrationFee">Charge Registration Fee</label>
-                                    </div>
-                                    <div class="form-check  d-flex align-items-center">
-                                        <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
-                                        <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Include Maintenance Fee</label>
-                                    </div>
-                                    <div class="form-check  d-flex align-items-center">
-                                        
-                                        <input class="form-check-input toggle-field p-2" type="checkbox"  >
-                                        <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Send amount to Credit Card</label>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-
+                        <div class="row flex-wrap"> 
                             <div class="col-lg-8 px-0">
                                 <div class="col-lg-12 mb-3 balance-section d-none ">
                                     <label for="balance" class="form-label">Add Balance</label>
