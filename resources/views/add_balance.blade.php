@@ -1,6 +1,7 @@
 @extends("nav")
 @section('title', 'Add Balance | Senior Life Care Trusts')
 @section("wrapper")
+ 
 <div>
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
@@ -34,19 +35,25 @@
                         <div class="row flex-wrap">
                             <div class="col-lg-4 mb-3">
                                 <label class="form-label"><b>Select Actions</b></label>
-                                <div class="d-flex gap-3 flex-wrap flex-column">
-                                    <div class="form-check">
-                                        <input class="form-check-input toggle-field  " type="checkbox" id="toggleBalance" data-target=".balance-section">
-                                        <label class="form-check-label" for="toggleBalance">Add Balance</label>
+                                <div class="d-flex gap-3 flex-wrap flex-column  ">
+                                    <div class="form-check d-flex align-items-center ">
+                                        <input class="form-check-input toggle-field p-2 " type="checkbox" id="toggleBalance" data-target=".balance-section">
+                                        <label class="form-check-label ps-1 pt-1" for="toggleBalance" >Add Balance</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input toggle-field" type="checkbox" id="toggleRegistrationFee" data-target=".registration-fee-section">
-                                        <label class="form-check-label" for="toggleRegistrationFee">Charge Registration Fee</label>
+                                    <div class="form-check d-flex align-items-center">
+                                        <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleRegistrationFee" data-target=".registration-fee-section">
+                                        <label class="form-check-label ps-1 pt-1" for="toggleRegistrationFee">Charge Registration Fee</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input toggle-field" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
-                                        <label class="form-check-label" for="toggleMaintenanceFee">Include Maintenance Fee</label>
+                                    <div class="form-check  d-flex align-items-center">
+                                        <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
+                                        <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Include Maintenance Fee</label>
                                     </div>
+                                    <div class="form-check  d-flex align-items-center">
+                                        
+                                        <input class="form-check-input toggle-field p-2" type="checkbox"  >
+                                        <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Send amount to Credit Card</label>
+                                    </div>
+                                    
                                 </div>
                             </div>
 
