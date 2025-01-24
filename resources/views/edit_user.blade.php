@@ -106,16 +106,8 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                             <hr>
 
                             <div class="row">
+                                <!-- Left Column -->
                                 <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <h6 class="mb-0">Account No</h6>
-                                        </div>
-                                        <div class="col-sm-8 text-secondary">
-                                            {{ $user->id }}
-                                        </div>
-                                    </div>
-                                    <hr>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <h6 class="mb-0">Full Name</h6>
@@ -197,6 +189,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                     </div>
                                     <hr>
                                 </div>
+                                <!-- Right Column -->
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-sm-4">
@@ -307,7 +300,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                             <td>{{ $data->reference_id }}</td>
                                             <td>{{ date('m/d/Y H:i A', strtotime($data->created_at)) }}</td>
                                             <td>
-                                                @if ($data->user_id == \Company::Account_id && in_array($data->type, [\App\Models\Transaction::MaintenanceFee, \App\Models\Transaction::EnrollmentFee, \App\Models\Transaction::RenewalFee]))
+                                                @if ($data->user_id == \Company::Account_id && in_array($data->type, [Transaction::MaintenanceFee, Transaction::EnrollmentFee, Transaction::RenewalFee]))
                                                 {{ \Company::Account_name_income }}
                                                 @elseif ($data->user_id == \Company::Account_id)
                                                 {{ \Company::Account_name }}
