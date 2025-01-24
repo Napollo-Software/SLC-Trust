@@ -1,149 +1,227 @@
 @extends("nav")
 @section('title', 'Add Balance | Senior Life Care Trusts')
 @section("wrapper")
- <style>
-    .stick {
-        position: sticky !important;
-        top: 0; 
+<style>
+    #hidden_div,
+    #hidden_div,
+    #hidden_div2 {
+        display: none;
     }
- </style>
+
+</style>
 <div>
-    <h5 class=" d-flex justify-content-start pt-3 pb-2">
+    <h5 class="d-flex justify-content-start pt-3 pb-2">
         <b></b>
         <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>Add Balance</b> </div>
     </h5>
-    <div class="row gap-y-2">
-        <div class="col-lg-4" >
-            <div class="card  " >
-                <h5 class="card-header py-3">Select Actions</h5>
-                <div class="card-body">
-               
-                 <div class="d-flex gap-3 flex-wrap flex-column  ">
-                    <div class="form-check d-flex align-items-center ">
-                        <input class="form-check-input toggle-field p-2 " type="checkbox" id="toggleBalance" data-target=".balance-section" checked>
-                        <label class="form-check-label ps-1 pt-1" for="toggleBalance" >Add Balance</label>
+    <form id="depositForm" action="{{route('add_user_balance', $user->id )}}" method="POST">
+        @csrf
+        <div class="row gap-y-2 d-flex">
+            <div class="col-lg-4">
+                <div class="card">
+                    <h5 class="card-header py-3">Select Actions</h5>
+                    <div class="card-body">
+                        <div class="d-flex gap-3 flex-wrap flex-column">
+                            <div class="form-check d-flex align-items-center">
+                                <input class="form-check-input toggle-field p-2" name="add_balance" type="checkbox" id="toggleBalance" data-target=".balance-section" checked>
+                                <label class="form-check-label ps-1 pt-1" for="toggleBalance">Add Balance</label>
+                            </div>
+                            <div class="form-check d-flex align-items-center">
+                                <input class="form-check-input toggle-field p-2" name="registration_fee" type="checkbox" id="toggleRegistrationFee" data-target=".registration-fee-section">
+                                <label class="form-check-label ps-1 pt-1" for="toggleRegistrationFee">Charge one-time Registration Fee</label>
+                            </div>
+                            <div class="form-check d-flex align-items-center">
+                                <input class="form-check-input toggle-field p-2" name="maintenance_fee_check" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
+                                <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Charge Maintenance Fee</label>
+                            </div>
+                            <div class="form-check d-flex align-items-center d-none" id="creditCardOption">
+                                <input class="form-check-input toggle-field p-2" name="send_amount_to_credit_card" type="checkbox" id="sendToCreditCard" checked />
+                                <label class="form-check-label ps-1 pt-1" for="sendToCreditCard">Send Remaining Amount to Credit Card</label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-check d-flex align-items-center">
-                        <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleRegistrationFee" data-target=".registration-fee-section">
-                        <label class="form-check-label ps-1 pt-1" for="toggleRegistrationFee">Charge Registration Fee</label>
-                    </div>
-                    <div class="form-check  d-flex align-items-center">
-                        <input class="form-check-input toggle-field p-2" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
-                        <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Include Maintenance Fee</label>
-                    </div>
-                    <div class="form-check d-flex align-items-center" id="creditCardOption">
-                        <input class="form-check-input toggle-field p-2" type="checkbox" id="sendToCreditCard"  />
-                        <label class="form-check-label ps-1 pt-1" for="sendToCreditCard">Send amount to Credit Card</label>
-                    </div> 
-                    </div>  
                 </div>
             </div>
-        </div>
-        <div class="col-lg-8">
-            <div class="card">
-                <h5 class="card-header py-3"> Customer Deposit Form </h5>
-                <div class="card-body">
-                    @error('insufficient')
-                    <div class="alert alert-danger alert-dismissible" role="alert">
-                        {{$message}}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    @enderror
-                    @if(Session::has('success'))
-                    <div class="alert alert-success alert-dismissible" role="alert">
-                        {{Session::get('success')}}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    @endif
-                    @if(Session::has('fail'))
-                    <div class="alert alert-fail alert-dismissible" role="alert">
-                        {{Session::get('fail')}}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    @endif
-                    <form id="formAuthentication" class=" " action="{{route('add_user_balance', $user['id'] )}}" method="POST">
-                        @csrf
-                        <div class="row flex-wrap"> 
+            <div class="col-lg-8">
+                <div class="card">
+                    <h5 class="card-header py-3">Customer Deposit Form</h5>
+                    <div class="card-body">
+                        <div class="row flex-wrap">
                             <div class="col-lg-8 px-0">
-                                <div class="col-lg-12 mb-3 balance-section  ">
+                                <div class="col-lg-12 mb-3 balance-section">
                                     <label for="balance" class="form-label">Add Balance</label>
-                                    <input type="number" class="form-control" placeholder="$" name="balance" step="any" />
-                                    @error('balance')
-                                    <span class="text-danger"> {{$message}} </span>
-                                    @enderror
+                                    <input type="number" class="form-control" placeholder="$" name="balance" step="any" min="0" />
                                 </div>
-
                                 <div class="col-lg-12 mb-3 maintenance-fee-section d-none">
-                                    <label for="maintenance_fee" class="form-label">Maintenance Fee (in percentage)</label>
-                                    <input type="number" class="form-control" placeholder="%" value="12" name="maintenance_fee" step="any" />
-                                    @error('maintenance_fee')
-                                    <span class="text-danger"> {{$message}} </span>
-                                    @enderror
+                                    <label for="maintenance_fee_type" class="form-label">Deduct maintenance fee in?</label>
+                                    <select name="maintenance_fee_type" class="form-control form-select" id="maintenance_fee_type">
+                                        <option value="percentage">Percentage (%)</option>
+                                        <option value="fixed">Fixed Amount</option>
+                                    </select>
                                 </div>
-
+                                <div class="col-lg-12 mb-3 maintenance-fee-section d-none">
+                                    <label for="maintenance_fee" class="form-label">Maintenance Fee</label>
+                                    <input type="number" class="form-control" placeholder="Enter fixed amount or percentage" name="maintenance_fee" id="maintenance_fee" step="any" min="0" />
+                                </div>
                                 <div class="col-lg-12 mb-3 registration-fee-section d-none">
-                                    <label for="registration_fee" class="form-label">Registration Fee Amount ($)</label>
-                                    <input class="form-control" value="300" name="registration_fee_amount" type="text">
+                                    <label for="registration_fee_amount" class="form-label">Registration Fee Amount</label>
+                                    <input class="form-control" name="registration_fee_amount" placeholder="Enter amount" type="number" value="300" min="0" step="any" />
                                 </div>
-
-                                <div class="col-lg-12 mb-3">
+                                <div class="col-lg-12 mb-3 required-with-balance">
                                     <label for="payment_type" class="form-label">Payment Type</label>
-                                    <select class="form-control form-select" name="payment_type" required>
+                                    <select class="form-control form-select" name="payment_type" onchange="showDiv2(this)" required>
                                         <option value="">Select Type</option>
                                         <option value="ACH">ACH</option>
                                         <option value="Card">Card</option>
                                         <option value="Check Payment">Check Payment</option>
                                     </select>
-                                    @error('payment_type')
-                                    <span class="text-danger"> {{$message}} </span>
-                                    @enderror
                                 </div>
-
+                                <div class="col-lg-12 mb-3" id="hidden_div">
+                                    <label for="exampleFormControlInput1" class="form-label">Transaction No.#</label>
+                                    <input type="text" class="form-control mb-3 trans-no" placeholder="Transaction No." name="trans_no" required />
+                                </div>
+                                <div class="col-lg-12 mb-3" id="hidden_div2">
+                                    <label for="exampleFormControlInput1" class="form-label">Check No.#</label>
+                                    <input type="text" class="form-control mb-3 check-no" placeholder="Check No." name="check_no" />
+                                </div>
+                                <div class="col-lg-12 mb-3" id="hidden_div3">
+                                    <label for="exampleFormControlInput1" class="form-label">Card No.#</label>
+                                    <input type="text" class="form-control mb-3 card-no" placeholder="Card No" name="card_no" />
+                                </div>
                                 <div class="col-lg-12 mb-3">
-                                    <label for="date_of_trans" class="form-label">Date of Transaction</label>
-                                    <input value="{{ date('Y-m-d') }}" type="date" class="form-control" name="date_of_trans" required />
-                                    @error('date_of_trans')
-                                    <span class="text-danger"> {{$message}} </span>
-                                    @enderror
+                                    <label for="exampleFormControlInput1" class="form-label">Date of Transaction</label>
+                                    <input value="{{ date('Y-m-d') }}" type="date" class="form-control" placeholder="Date of Transaction" name="date_of_trans" required />
                                 </div>
                             </div>
-
-                            <div class="d-flex justify-content-start  ">
+                            <div class="d-flex justify-content-start">
                                 <button class="btn btn-primary add-balance">Submit</button>
                             </div>
                         </div>
-                    </form>
-
-                    <script>
-                        // JavaScript to toggle visibility of fields
-                        document.querySelectorAll('.toggle-field').forEach(function(checkbox) {
-                            checkbox.addEventListener('change', function() {
-                                const target = document.querySelector(this.dataset.target);
-                                if (this.checked) {
-                                    target.classList.remove('d-none'); // Show the section
-                                } else {
-                                    target.classList.add('d-none'); // Hide the section
-                                }
-                            });
-                        });
-
-                    </script>
-
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script type="text/javascript">
-    function toggleBalanceInputs(checkbox) {
-        const balanceInput = document.querySelector('input[name="balance"]');
-        const maintenanceFeeInput = document.querySelector('input[name="maintenance_fee"]');
-        const registrationFeeAmountInput = document.querySelector('input[name="registration_fee_amount"]');
+<script>
+    function showDiv2(element) {
+        if (element.value == 'ACH') {
+            $('.trans-no').attr('required', true);
+            $('.check-no').attr('required', false);
+            $('.card-no').attr('required', false);
+            document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
+            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
+            document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
+        }
+        if (element.value == 'Check Payment') {
+            $('.trans-no').attr('required', false);
+            $('.check-no').attr('required', true);
+            $('.card-no').attr('required', false);
+            document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
+            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
+            document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
+        }
+        if (element.value == 'Card') {
+            $('.trans-no').attr('required', false);
+            $('.check-no').attr('required', false);
+            $('.card-no').attr('required', true);
+            document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
+            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
+            document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
+        }
+    }
+
+    $(document).ready(function() {
+
+        const maintenanceFeeType = $('#maintenance_fee_type');
+        const maintenanceFee = $('#maintenance_fee');
+        const addBalanceCheckbox = $('#toggleBalance');
+        const maintenanceFeeCheckbox = $('#toggleMaintenanceFee'); // Updated selector for maintenance_fee_check
+
+        function updateMaintenanceFeeOptions() {
+            if (maintenanceFeeCheckbox.is(':checked')) {
+                if (addBalanceCheckbox.is(':checked')) {
+
+                    maintenanceFeeType.prop('disabled', false);
+                    maintenanceFeeType.val('percentage');
+                } else {
+
+                    maintenanceFeeType.val('fixed');
+                    maintenanceFeeType.prop('disabled', true);
+                }
+            } else {
+
+                maintenanceFeeType.prop('disabled', true);
+                maintenanceFeeType.val('');
+            }
+        }
+
+        updateMaintenanceFeeOptions();
+
+        maintenanceFeeCheckbox.on('change', updateMaintenanceFeeOptions);
+        addBalanceCheckbox.on('change', updateMaintenanceFeeOptions);
+
+        $(document).on('submit', '#depositForm', function(e) {
+            e.preventDefault();
+            $('.form-control').removeClass('is-invalid');
+            $('.invalid-feedback.is-invalid').remove();
+            const $submitButton = $('.add-balance');
+            $submitButton.text('Submitting...').prop('disabled', true);
+            $.ajax({
+                type: "POST"
+                , url: "{{route('add_user_balance', $user->id )}}"
+                , data: new FormData(this)
+                , dataType: 'JSON'
+                , processData: false
+                , contentType: false
+                , cache: false
+                , success: function(data) {
+                    if (data.success) {
+                        swal.fire(data.header, data.message, "success").then(() => {
+                            location.reload();
+                        });
+                    } else {
+                        swal.fire(data.header, data.message, "error");
+
+                    }
+                }
+                , error: function(xhr) {
+                    erroralert(xhr);
+                }
+                , complete: () => {
+                    $submitButton.text('Submit').prop('disabled', false);
+                }
+            })
+        });
+
+        $('.toggle-field').on('change', function() {
+            const target = $($(this).data('target'));
+            if ($(this).is(':checked')) {
+                target.removeClass('d-none');
+            } else {
+                target.addClass('d-none');
+            }
+        });
+
+        const $addBalanceCheckbox = $('#toggleBalance');
+        const $creditCardOption = $('#creditCardOption');
+
+        function toggleCreditCardOption() {
+            if ($addBalanceCheckbox.is(':checked')) {
+                $creditCardOption.removeClass('d-none');
+            } else {
+                $creditCardOption.addClass('d-none');
+            }
+        }
+
+        toggleCreditCardOption();
+
+        $addBalanceCheckbox.on('change', toggleCreditCardOption);
 
         $(document).on('change', '#registration_fee', function() {
-            var selectedValue = $(this).val();
+            const selectedValue = $(this).val();
             if (selectedValue == "1") {
                 $('.registration-div').removeClass('d-none');
                 $('.registration_fee_amount').prop('required', true);
@@ -153,37 +231,20 @@
             }
         });
 
-        function showDiv2(divId, element) {
-            if (element.value == 'ACH') {
-                $('.trans-no').attr('required', true);
-                $('.check-no').attr('required', false);
-                $('.card-no').attr('required', false);
-                document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-                document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
-                document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
+        $(document).on('change', 'select[name="payment_type"]', function() {
+            const paymentType = $(this).val();
+            if (paymentType === 'ACH') {
+                $('input[name="trans_no"]').prop('required', true).closest('.form-group').show();
+                $('input[name="check_no"], input[name="card_no"]').prop('required', false).closest('.form-group').hide();
+            } else if (paymentType === 'Check Payment') {
+                $('input[name="check_no"]').prop('required', true).closest('.form-group').show();
+                $('input[name="trans_no"], input[name="card_no"]').prop('required', false).closest('.form-group').hide();
+            } else if (paymentType === 'Card') {
+                $('input[name="card_no"]').prop('required', true).closest('.form-group').show();
+                $('input[name="trans_no"], input[name="check_no"]').prop('required', false).closest('.form-group').hide();
             }
-            if (element.value == 'Check Payment') {
-                $('.trans-no').attr('required', false);
-                $('.check-no').attr('required', true);
-                $('.card-no').attr('required', false);
-                document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-                document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
-                document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
-            }
-            if (element.value == 'Card') {
-                $('.trans-no').attr('required', false);
-                $('.check-no').attr('required', false);
-                $('.card-no').attr('required', true);
-                document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-                document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
-                document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
-            }
-        }
+        });
+    });
 
-        
-       
-    }
 </script>
-
-
 @endsection
