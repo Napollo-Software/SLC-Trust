@@ -278,7 +278,7 @@ Route::get('/show_user/{id}', [AuthController::class, 'show_user'])->name('show_
 
 Route::get('/edit_user/{id}', [AuthController::class, 'edit_user_details'])->name('edit_user')->middleware(['isLoggedIn',]);
 
-Route::get('/add_user_balance/{id}', [AuthController::class, 'add_user_balance'])->name('add_user_balance')->middleware('isLoggedIn');
+Route::post('/add_user_balance/{id}', [AuthController::class, 'add_user_balance'])->name('add_user_balance')->middleware('isLoggedIn');
 
 Route::post('/update_existing_user/{id}', [AuthController::class, 'update_existing_user'])->name('update_existing_user')->middleware('isLoggedIn');
 

@@ -14,6 +14,7 @@ class Transaction extends Model
     const EnrollmentFee = "enrollment_fee";
     const RenewalFee = "renewal_fee";
     const Adjustment = "adjustment";
+    const CreditCard = "credit_card";
 
     protected $guarded = [];
 

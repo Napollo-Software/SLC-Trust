@@ -81,7 +81,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                     <i class="bx bxs-download me-1"></i>Approval Letter</a>
                                 @if($user->role == "User")
                                 <a href="{{ route('view_user', $user->id) }}" class="btn btn-secondary" style="color: white;">
-                                    <i class="bx bx-dollar-circle pb-1"></i>Add Balance</a>
+                                    <i class="bx bx-dollar-circle pb-1"></i>Manage Payment</a>
                                 @endif
                                 @endif
                                 <a href="{{ route('edit_user', $user->id) }}" class="btn btn-primary" style="color: white;">
@@ -272,6 +272,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                     <input type="hidden" name="approval_action" class="approval_action" value="1">
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

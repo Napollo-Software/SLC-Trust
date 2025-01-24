@@ -148,39 +148,49 @@ $users = User::find(Session::get('loginId'));
                             </thead>
                             <tbody>
                                 @foreach ($user as $k => $u)
-                                <tr>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                <i class="bx bx-cog"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                @if ($role != 'Moderator')
-                                                <a class="dropdown-item pb-2" href="{{ route('show_user', $u['id']) }}"><i class='bx bxs-show'></i> View</a>
-                                                {{-- @if ($users->hasPermissionTo('User Edit')) --}}
-                                                <a class="dropdown-item pb-2" href="{{ route('edit_user', $u['id']) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                {{-- @endif --}}
-                                                @endif
-                                                @if ($users->hasPermissionTo('Deposit') && $u->role == 'User')
-                                                <a class="dropdown-item" href="{{ route('view_user', $u['id']) }}"><i class="bx bx-dollar-circle me-1"></i> Add Balance</a>
-                                                <a class="dropdown-item" href="{{ route('approval-letter', $u['id']) }}"><i class="bx bxs-download me-1"></i>Approval Letter</a>
-                                                @endif
+                                    <tr>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                                        data-bs-toggle="dropdown">
+                                                    <i class="bx bx-cog"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    @if ($role != 'Moderator')
+                                                        <a class="dropdown-item pb-2"
+                                                           href="{{ route('show_user', $u['id']) }}"><i
+                                                                class='bx bxs-show'></i> View</a>
+                                                        {{-- @if ($users->hasPermissionTo('User Edit')) --}}
+                                                        <a class="dropdown-item pb-2"
+                                                           href="{{ route('edit_user', $u['id']) }}"><i
+                                                                class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                        {{-- @endif --}}
+                                                    @endif
+                                                    @if ($users->hasPermissionTo('Deposit') && $u->role == 'User')
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('view_user', $u['id']) }}"><i
+                                                                class="bx bx-dollar-circle me-1"></i> Add Balance</a>
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('approval-letter', $u['id']) }}"><i
+                                                                class="bx bxs-download me-1"></i>Approval Letter</a>
+                                                    @endif
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>{{ $u->id }}</td>
-                                    <td>
-                                        @if ($role == 'Admin')
-                                        <a href="{{ route('show_user', $u['id']) }}">{{ $u['name'] }}
-                                            {{ $u['last_name'] }}</a>
-                                    </td>
-                                    @else
-                                    {{ $u['name'] }} {{ $u['last_name'] }}
-                                    @endif
-                                    <td>{{ $u['email'] }}</td>
-                                    <td>{{ $u['role'] }}</td>
-                                    <th>
-                                        <span class="badge
+                                        </td>
+                                        <!--td>{{ $u->id }}</td-->
+                                        <td>
+                                            @if ($role == 'Admin')
+                                                <a href="{{ route('show_user', $u['id']) }}">{{ $u['name'] }}
+                                                    {{ $u['last_name'] }}</a>
+                                        </td>
+                                        @else
+                                            {{ $u['name'] }} {{ $u['last_name'] }}
+                                        @endif
+                                        <td>{{ $u['email'] }}</td>
+                                        <td>{{ $u['role'] }}</td>
+                                        <th>
+                            <span
+                                            class="badge
                                 @if ($u->account_status == 'Pending') bg-primary @endif
                                 @if ($u->account_status == 'Approved') bg-success @endif
                                 @if ($u->account_status == 'Not Approved' || $u->account_status == 'Suspended') bg-danger @endif
