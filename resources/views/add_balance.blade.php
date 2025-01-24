@@ -201,6 +201,16 @@
     $(document).ready(function() {
         $(document).on('submit', '#depositForm', function(e) {
             e.preventDefault();
+
+            const isAnyCheckboxChecked = $('#toggleBalance').is(':checked') ||
+                $('#toggleRegistrationFee').is(':checked') ||
+                $('#toggleMaintenanceFee').is(':checked');
+
+            if (!isAnyCheckboxChecked) {
+                swal.fire('Error', 'You must select at least one action option.', 'error');
+                return;
+            }
+
             $('.form-control').removeClass('is-invalid');
             $('.invalid-feedback.is-invalid').remove();
             const $submitButton = $('.add-balance');
