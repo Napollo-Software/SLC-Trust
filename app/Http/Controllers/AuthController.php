@@ -19,7 +19,6 @@ use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
 use Session;
 use Spatie\Permission\Models\Role;
 
@@ -780,7 +779,13 @@ class AuthController extends Controller
             'maintenance_fee_check'   => 'nullable',
             'maintenance_fee'         => 'nullable|numeric|min:0',
             'registration_fee'        => 'nullable',
-            'maintenance_fee_type'    => 'required_if:maintenance_fee_check,on|string|in:percentage,fixed',
+            'maintenance_fee_type'    => ['nullable', 'string', 'in:percentage,fixed', function ($attribute, $value, $fail) use ($request) {
+                if ($request->has('add_balance') && $request->add_balance === 'on' &&
+                    $request->has('maintenance_fee_check') && $request->maintenance_fee_check === 'on' &&
+                    empty($value)) {
+                    $fail('The Maintenance Fee Type field is required when both Add Balance and Maintenance Fee are checked.');
+                }
+            }],
             'registration_fee_amount' => 'nullable|numeric|min:0',
         ], [
             'date_of_trans.required' => 'Transaction date field is required',
@@ -941,7 +946,7 @@ class AuthController extends Controller
             }
 
             $directory = public_path("storage/{$user->id}/vod_letters");
-            if (!is_dir($directory)) {
+            if (! is_dir($directory)) {
                 mkdir($directory, 0777, true);
             }
 
