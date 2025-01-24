@@ -35,7 +35,7 @@
                                 <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Charge Maintenance Fee</label>
                             </div>
                             <div class="form-check d-flex align-items-center d-none" id="creditCardOption">
-                                <input class="form-check-input toggle-field p-2" name="send_amount_to_credit_card" type="checkbox" id="sendToCreditCard" checked />
+                                <input class="form-check-input toggle-field p-2" name="send_amount_to_credit_card" type="checkbox" id="sendToCreditCard" />
                                 <label class="form-check-label ps-1 pt-1" for="sendToCreditCard">Send Remaining Amount to Credit Card</label>
                             </div>
                         </div>
@@ -113,7 +113,6 @@
         $('.check-no').attr('required', value === 'Check Payment');
         $('.card-no').attr('required', value === 'Card');
 
-        // Toggle visibility of divs based on the selected value
         $('#hidden_div').toggle(value === 'ACH');
         $('#hidden_div2').toggle(value === 'Check Payment');
         $('#hidden_div3').toggle(value === 'Card');
@@ -148,39 +147,6 @@
 
         maintenanceFeeCheckbox.on('change', updateMaintenanceFeeOptions);
         addBalanceCheckbox.on('change', updateMaintenanceFeeOptions);
-
-        $(document).on('submit', '#depositForm', function(e) {
-            e.preventDefault();
-            $('.form-control').removeClass('is-invalid');
-            $('.invalid-feedback.is-invalid').remove();
-            const $submitButton = $('.add-balance');
-            $submitButton.text('Submitting...').prop('disabled', true);
-            $.ajax({
-                type: "POST"
-                , url: "{{route('add_user_balance', $user->id )}}"
-                , data: new FormData(this)
-                , dataType: 'JSON'
-                , processData: false
-                , contentType: false
-                , cache: false
-                , success: function(data) {
-                    if (data.success) {
-                        swal.fire(data.header, data.message, "success").then(() => {
-                            location.reload();
-                        });
-                    } else {
-                        swal.fire(data.header, data.message, "error");
-
-                    }
-                }
-                , error: function(xhr) {
-                    erroralert(xhr);
-                }
-                , complete: () => {
-                    $submitButton.text('Submit').prop('disabled', false);
-                }
-            })
-        });
 
         $('.toggle-field').on('change', function() {
             const target = $($(this).data('target'));
@@ -229,6 +195,41 @@
                 $('input[name="card_no"]').prop('required', true).closest('.form-group').show();
                 $('input[name="trans_no"], input[name="check_no"]').prop('required', false).closest('.form-group').hide();
             }
+        });
+    });
+
+    $(document).ready(function() {
+        $(document).on('submit', '#depositForm', function(e) {
+            e.preventDefault();
+            $('.form-control').removeClass('is-invalid');
+            $('.invalid-feedback.is-invalid').remove();
+            const $submitButton = $('.add-balance');
+            $submitButton.text('Submitting...').prop('disabled', true);
+            $.ajax({
+                type: "POST"
+                , url: "{{route('add_user_balance', $user->id )}}"
+                , data: new FormData(this)
+                , dataType: 'JSON'
+                , processData: false
+                , contentType: false
+                , cache: false
+                , success: function(data) {
+                    if (data.success) {
+                        swal.fire(data.header, data.message, "success").then(() => {
+                            location.reload();
+                        });
+                    } else {
+                        swal.fire(data.header, data.message, "error");
+
+                    }
+                }
+                , error: function(xhr) {
+                    erroralert(xhr);
+                }
+                , complete: () => {
+                    $submitButton.text('Submit').prop('disabled', false);
+                }
+            })
         });
     });
 
