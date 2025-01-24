@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="col-lg-12 mb-3 maintenance-fee-section d-none">
                                     <label for="maintenance_fee" class="form-label">Maintenance Fee</label>
-                                    <input type="number" class="form-control" placeholder="Enter fixed amount or percentage" name="maintenance_fee" id="maintenance_fee" step="any" min="0" />
+                                    <input type="number" class="form-control" placeholder="Maintenance Fee " name="maintenance_fee" id="maintenance_fee" step="any" min="0" />
                                 </div>
                                 <div class="col-lg-12 mb-3 registration-fee-section d-none">
                                     <label for="registration_fee_amount" class="form-label">Registration Fee Amount</label>
@@ -242,6 +242,43 @@
             })
         });
     });
+
+    $(document).ready(function () {
+    const toggleBalance = $('#toggleBalance'); 
+
+    toggleBalance.change(function () {
+        if (!toggleBalance.is(':checked')) {
+            $('select[name="payment_type"]').val('').prop('required', false).parent().addClass('d-none'); 
+            $('input[name="trans_no"]').val('').prop('required', false).parent().addClass('d-none');  
+            $('input[name="card_no"]').val('').prop('required', false).parent().addClass('d-none');   
+            $('input[name="check_no"]').val('').prop('required', false).parent().addClass('d-none');  
+            $('input[name="date_of_trans"]').val('').prop('required', false).parent().addClass('d-none'); 
+        } else {
+            $('select[name="payment_type"]').prop('required', true).parent().removeClass('d-none');
+            $('input[name="trans_no"]').prop('required', true).parent().removeClass('d-none');
+            $('input[name="card_no"]').prop('required', true).parent().removeClass('d-none');
+            $('input[name="check_no"]').prop('required', true).parent().removeClass('d-none');
+            $('input[name="date_of_trans"]').prop('required', true).parent().removeClass('d-none');
+        }
+    });
+});
+
+$(document).ready(function () {
+    const maintenanceFeeType = $('#maintenance_fee_type'); // Use the constant for the selector
+    const maintenanceFee = $('#maintenance_fee'); // Cache the maintenance fee input
+
+    maintenanceFeeType.change(function () {
+        const selectedValue = maintenanceFeeType.val(); // Get the selected value
+
+        if (selectedValue === 'percentage') {
+            maintenanceFee.val(12); // Set value to 12 if percentage is selected
+        } else if (selectedValue === 'fixed') {
+            maintenanceFee.val(30); // Set value to 30 if fixed is selected
+        }
+    });
+});
+
+
 
 </script>
 @endsection
