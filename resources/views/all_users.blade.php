@@ -172,7 +172,7 @@
                                                     @if ($users->hasPermissionTo('Deposit') && $u->role == 'User')
                                                         <a class="dropdown-item"
                                                            href="{{ route('view_user', $u['id']) }}"><i
-                                                                class="bx bx-dollar-circle me-1"></i> Add Balance</a>
+                                                                class="bx bx-dollar-circle me-1"></i> Manage Payment</a>
                                                         <a class="dropdown-item"
                                                            href="{{ route('approval-letter', $u['id']) }}"><i
                                                                 class="bx bxs-download me-1"></i>Approval Letter</a>

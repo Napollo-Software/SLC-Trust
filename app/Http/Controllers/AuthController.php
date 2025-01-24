@@ -770,12 +770,28 @@ class AuthController extends Controller
     public function add_user_balance(Request $request, $id)
     {
         $this->validate($request, [
-            'payment_type'            => 'required|string',
+            'payment_type'            => 'nullable|required_if:payment_type,on',
             'balance'                 => 'nullable|numeric|gt:0',
-            'date_of_trans'           => 'required|date',
-            'trans_no'                => 'required_if:payment_type,ACH|nullable|string',
-            'check_no'                => 'required_if:payment_type,Check Payment|nullable|string',
-            'card_no'                 => 'required_if:payment_type,Card|nullable|string',
+            'date_of_trans'           => ['nullable', 'required_if:add_balance,on', 'date', function ($attribute, $value, $fail) use ($request) {
+                if ($request->has('add_balance') && $request->add_balance === 'on' && empty($value)) {
+                    $fail('The Transaction Date field is required when Add Balance is checked.');
+                }
+            }],
+            'trans_no'                => ['nullable', 'string', function ($attribute, $value, $fail) use ($request) {
+                if ($request->payment_type === 'ACH' && $request->has('add_balance') && $request->add_balance === 'on' && empty($value)) {
+                    $fail('The Transaction No. field is required for ACH payments when Add Balance is checked.');
+                }
+            }],
+            'check_no'                => ['nullable', 'string', function ($attribute, $value, $fail) use ($request) {
+                if ($request->payment_type === 'Check Payment' && $request->has('add_balance') && $request->add_balance === 'on' && empty($value)) {
+                    $fail('The Check No. field is required for Check Payment when Add Balance is checked.');
+                }
+            }],
+            'card_no'                 => ['nullable', 'string', function ($attribute, $value, $fail) use ($request) {
+                if ($request->payment_type === 'Card' && $request->has('add_balance') && $request->add_balance === 'on' && empty($value)) {
+                    $fail('The Card No. field is required for Card payments when Add Balance is checked.');
+                }
+            }],
             'maintenance_fee_check'   => 'nullable',
             'maintenance_fee'         => 'nullable|numeric|min:0',
             'registration_fee'        => 'nullable',
@@ -788,10 +804,10 @@ class AuthController extends Controller
             }],
             'registration_fee_amount' => 'nullable|numeric|min:0',
         ], [
-            'date_of_trans.required' => 'Transaction date field is required',
-            'trans_no.required_if'   => 'Transaction No. is required for ACH payments.',
-            'check_no.required_if'   => 'Check No. is required for Check Payment.',
-            'card_no.required_if'    => 'Card No. is required for Card payments.',
+            'date_of_trans.required_if' => 'Transaction date field is required when Add Balance is checked.',
+            'trans_no.required_if'      => 'Transaction No. is required for ACH payments when Add Balance is checked.',
+            'check_no.required_if'      => 'Check No. is required for Check Payment when Add Balance is checked.',
+            'card_no.required_if'       => 'Card No. is required for Card payments when Add Balance is checked.',
         ]);
 
         $user     = User::findOrFail($id);

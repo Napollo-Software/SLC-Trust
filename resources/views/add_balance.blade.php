@@ -1,5 +1,5 @@
 @extends("nav")
-@section('title', 'Add Balance | Senior Life Care Trusts')
+@section('title', 'Manage Payment | Senior Life Care Trusts')
 @section("wrapper")
 <style>
     #hidden_div,
@@ -12,7 +12,7 @@
 <div>
     <h5 class="d-flex justify-content-start pt-3 pb-2">
         <b></b>
-        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>Add Balance</b> </div>
+        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>Manage Payment</b> </div>
     </h5>
     <form id="depositForm" action="{{route('add_user_balance', $user->id )}}" method="POST">
         @csrf
@@ -44,7 +44,7 @@
             </div>
             <div class="col-lg-8">
                 <div class="card">
-                    <h5 class="card-header py-3">Customer Deposit Form</h5>
+                    <h5 class="card-header py-3">Payment Form</h5>
                     <div class="card-body">
                         <div class="row flex-wrap">
                             <div class="col-lg-8 px-0">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="col-lg-12 mb-3 maintenance-fee-section d-none">
                                     <label for="maintenance_fee" class="form-label">Maintenance Fee</label>
-                                    <input type="number" class="form-control" placeholder="Enter fixed amount or percentage" name="maintenance_fee" id="maintenance_fee" step="any" min="0" />
+                                    <input type="number" class="form-control" placeholder="Enter maintenance fee" name="maintenance_fee" id="maintenance_fee" step="any" min="0" />
                                 </div>
                                 <div class="col-lg-12 mb-3 registration-fee-section d-none">
                                     <label for="registration_fee_amount" class="form-label">Registration Fee Amount</label>
@@ -240,6 +240,41 @@
                     $submitButton.text('Submit').prop('disabled', false);
                 }
             })
+        });
+    });
+
+
+    $(document).ready(function() {
+
+
+        const maintenanceFeeType1 = $('#maintenance_fee_type');
+        const maintenanceFee1 = $('#maintenance_fee');
+
+        maintenanceFeeType1.change(function() {
+            const selectedValue = maintenanceFeeType1.val();
+
+            if (selectedValue === 'percentage') {
+                maintenanceFee1.val(12);
+            } else if (selectedValue === 'fixed') {
+                maintenanceFee1.val(30);
+            }
+        });
+        const toggleBalance1 = $('#toggleBalance');
+
+        toggleBalance1.change(function() {
+            if (!toggleBalance1.is(':checked')) {
+                $('select[name="payment_type"]').val('').prop('required', false).parent().addClass('d-none');
+                $('input[name="trans_no"]').val('').prop('required', false).parent().addClass('d-none');
+                $('input[name="card_no"]').val('').prop('required', false).parent().addClass('d-none');
+                $('input[name="check_no"]').val('').prop('required', false).parent().addClass('d-none');
+                $('input[name="date_of_trans"]').val('').prop('required', false).parent().addClass('d-none');
+            } else {
+                $('select[name="payment_type"]').prop('required', true).parent().removeClass('d-none');
+                $('input[name="trans_no"]').prop('required', true).parent().removeClass('d-none');
+                $('input[name="card_no"]').prop('required', true).parent().removeClass('d-none');
+                $('input[name="check_no"]').prop('required', true).parent().removeClass('d-none');
+                $('input[name="date_of_trans"]').prop('required', true).parent().removeClass('d-none');
+            }
         });
     });
 
