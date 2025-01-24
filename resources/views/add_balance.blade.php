@@ -107,30 +107,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
     function showDiv2(element) {
-        if (element.value == 'ACH') {
-            $('.trans-no').attr('required', true);
-            $('.check-no').attr('required', false);
-            $('.card-no').attr('required', false);
-            document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
-            document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
-        }
-        if (element.value == 'Check Payment') {
-            $('.trans-no').attr('required', false);
-            $('.check-no').attr('required', true);
-            $('.card-no').attr('required', false);
-            document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
-            document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
-        }
-        if (element.value == 'Card') {
-            $('.trans-no').attr('required', false);
-            $('.check-no').attr('required', false);
-            $('.card-no').attr('required', true);
-            document.getElementById("hidden_div").style.display = element.value == 'ACH' ? 'block' : 'none';
-            document.getElementById("hidden_div2").style.display = element.value == 'Check Payment' ? 'block' : 'none';
-            document.getElementById("hidden_div3").style.display = element.value == 'Card' ? 'block' : 'none';
-        }
+        const value = element.value;
+
+        $('.trans-no').attr('required', value === 'ACH');
+        $('.check-no').attr('required', value === 'Check Payment');
+        $('.card-no').attr('required', value === 'Card');
+
+        // Toggle visibility of divs based on the selected value
+        $('#hidden_div').toggle(value === 'ACH');
+        $('#hidden_div2').toggle(value === 'Check Payment');
+        $('#hidden_div3').toggle(value === 'Card');
     }
 
     $(document).ready(function() {
@@ -138,7 +124,7 @@
         const maintenanceFeeType = $('#maintenance_fee_type');
         const maintenanceFee = $('#maintenance_fee');
         const addBalanceCheckbox = $('#toggleBalance');
-        const maintenanceFeeCheckbox = $('#toggleMaintenanceFee'); // Updated selector for maintenance_fee_check
+        const maintenanceFeeCheckbox = $('#toggleMaintenanceFee');
 
         function updateMaintenanceFeeOptions() {
             if (maintenanceFeeCheckbox.is(':checked')) {
