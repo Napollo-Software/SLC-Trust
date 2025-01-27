@@ -9,6 +9,7 @@
     }
 
 </style>
+@php $one_time_registeration_fee = $user->transactions()->where('Type', \App\Models\Transaction::MaintenanceFee)->first(); @endphp
 <div>
     <h5 class="d-flex justify-content-start pt-3 pb-2">
         <b></b>
@@ -27,9 +28,12 @@
                                 <label class="form-check-label ps-1 pt-1" for="toggleBalance">Add Balance</label>
                             </div>
                             <div class="form-check d-flex align-items-center">
-                                <input class="form-check-input toggle-field p-2" name="registration_fee" type="checkbox" id="toggleRegistrationFee" data-target=".registration-fee-section">
+                                <input class="form-check-input toggle-field p-2" {{ $one_time_registeration_fee ? 'disabled' : '' }} name="registration_fee" type="checkbox" id="toggleRegistrationFee" data-target=".registration-fee-section">
                                 <label class="form-check-label ps-1 pt-1" for="toggleRegistrationFee">Charge one-time Registration Fee</label>
                             </div>
+                            @if($one_time_registeration_fee)
+                                <small class="text-danger">${{ $one_time_registeration_fee->debit }} Registration fee is already deducted</small>
+                                @endif
                             <div class="form-check d-flex align-items-center">
                                 <input class="form-check-input toggle-field p-2" name="maintenance_fee_check" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
                                 <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Charge Maintenance Fee</label>
@@ -65,7 +69,7 @@
                                 </div>
                                 <div class="col-lg-12 mb-3 registration-fee-section d-none">
                                     <label for="registration_fee_amount" class="form-label">Registration Fee Amount</label>
-                                    <input class="form-control" name="registration_fee_amount" placeholder="Enter amount" type="number" value="300" min="0" step="any" />
+                                    <input class="form-control" name="registration_fee_amount" {{ $one_time_registeration_fee ? 'readonly' : '' }} placeholder="Enter amount" type="number" value="300" min="0" step="any" />
                                 </div>
                                 <div class="col-lg-12 mb-3 required-with-balance">
                                     <label for="payment_type" class="form-label">Payment Type</label>
@@ -154,9 +158,9 @@
             const selectedValue = maintenanceFeeType.val();
 
             if (selectedValue === 'percentage') {
-                maintenanceFee.val(12); 
+                maintenanceFee.val(12);
             } else if (selectedValue === 'fixed') {
-                maintenanceFee.val(""); 
+                maintenanceFee.val("");
             }
         }
         updateMaintenanceFee();
