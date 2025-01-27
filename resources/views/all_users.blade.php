@@ -170,9 +170,11 @@
                                                         {{-- @endif --}}
                                                     @endif
                                                     @if ($users->hasPermissionTo('Deposit') && $u->role == 'User')
+                                                        @if ( $u->account_status == 'Approved')    
                                                         <a class="dropdown-item"
                                                            href="{{ route('view_user', $u['id']) }}"><i
                                                                 class="bx bx-dollar-circle me-1"></i> Manage Payment</a>
+                                                        @endif
                                                         <a class="dropdown-item"
                                                            href="{{ route('approval-letter', $u['id']) }}"><i
                                                                 class="bx bxs-download me-1"></i>Approval Letter</a>

@@ -2,6 +2,8 @@
 @section('title', 'View User | Senior Life Care Trusts')
 @section('wrapper')
 @php
+
+use App\Models\Transaction;
 $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role');
 @endphp
 <style>
