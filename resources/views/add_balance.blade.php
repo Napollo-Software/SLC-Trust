@@ -156,7 +156,7 @@
             if (selectedValue === 'percentage') {
                 maintenanceFee.val(12); 
             } else if (selectedValue === 'fixed') {
-                maintenanceFee.val(30); 
+                maintenanceFee.val(""); 
             }
         }
         updateMaintenanceFee();
