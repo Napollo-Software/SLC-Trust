@@ -131,10 +131,12 @@
 
                     maintenanceFeeType.prop('disabled', false);
                     maintenanceFeeType.val('percentage');
+                    updateMaintenanceFee();
                 } else {
 
                     maintenanceFeeType.val('fixed');
                     maintenanceFeeType.prop('disabled', true);
+                    updateMaintenanceFee();
                 }
             } else {
 
@@ -144,6 +146,22 @@
         }
 
         updateMaintenanceFeeOptions();
+
+
+        function updateMaintenanceFee() {
+            const maintenanceFeeType = $('#maintenance_fee_type');
+            const maintenanceFee = $('#maintenance_fee');
+            const selectedValue = maintenanceFeeType.val();
+
+            if (selectedValue === 'percentage') {
+                maintenanceFee.val(12); 
+            } else if (selectedValue === 'fixed') {
+                maintenanceFee.val(30); 
+            }
+        }
+        updateMaintenanceFee();
+
+        maintenanceFeeType.on('change', updateMaintenanceFee);
 
         maintenanceFeeCheckbox.on('change', updateMaintenanceFeeOptions);
         addBalanceCheckbox.on('change', updateMaintenanceFeeOptions);
@@ -246,19 +264,6 @@
 
     $(document).ready(function() {
 
-
-        const maintenanceFeeType1 = $('#maintenance_fee_type');
-        const maintenanceFee1 = $('#maintenance_fee');
-
-        maintenanceFeeType1.change(function() {
-            const selectedValue = maintenanceFeeType1.val();
-
-            if (selectedValue === 'percentage') {
-                maintenanceFee1.val(12);
-            } else if (selectedValue === 'fixed') {
-                maintenanceFee1.val(30);
-            }
-        });
         const toggleBalance1 = $('#toggleBalance');
 
         toggleBalance1.change(function() {
