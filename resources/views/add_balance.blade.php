@@ -9,7 +9,7 @@
     }
 
 </style>
-@php $one_time_registeration_fee = $user->transactions()->where('Type', \App\Models\Transaction::MaintenanceFee)->first(); @endphp
+@php $one_time_registeration_fee = $user->transactions()->where('Type', \App\Models\Transaction::EnrollmentFee)->first(); @endphp
 <div>
     <h5 class="d-flex justify-content-start pt-3 pb-2">
         <b></b>
@@ -248,7 +248,7 @@
                 , success: function(data) {
                     if (data.success) {
                         swal.fire(data.header, data.message, "success").then(() => {
-                            location.reload();
+                            location.href = '/all_users';
                         });
                     } else {
                         swal.fire(data.header, data.message, "error");

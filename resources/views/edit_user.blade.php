@@ -408,6 +408,28 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 <script>
     $(document).ready(function() {
+
+        $("#formAuxthentication").on('submit', function(e) {
+    e.preventDefault();
+
+    var form = $(this);
+    const previous_status = '{{$user->account_status}}';
+
+    if (previous_status === $("#defaultSelect").val()) {
+        swal.fire({
+            title: 'Status',
+            text: 'For updating please change the status',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+        });
+        } else {
+            form.off('submit');
+            form.submit();
+        }
+    });
+
+
+
         $('#vod_table').DataTable({
             aLengthMenu: [
                 [25, 50, 100, -1]

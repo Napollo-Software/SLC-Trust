@@ -119,8 +119,8 @@
                             <h6 class="mb-0">Date of Birth</h6>
                         </div>
                         <div class="col-sm-4 text-secondary">
-                            <input type="date" class="form-control p-2" name="dob">
-                            <span class="text-danger">@error('dob'){{$message}} @enderror</span>
+                            <input type="date" class="form-control p-2" name="DOB">
+                            <span class="text-danger">@error('DOB'){{$message}} @enderror</span>
                         </div>
                     </div>
                     <hr class="billing_method d-none">
