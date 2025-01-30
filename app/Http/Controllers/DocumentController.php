@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\DocumentJob;
-use App\Jobs\sendEmailJob;
-use App\Jobs\SendManualApploadDocumentJob;
-use App\Models\DocumentESign;
-use App\Models\Documents;
-use App\Models\Lead;
-use App\Models\Referral;
-use App\Models\User;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use App\Models\Lead;
+use App\Models\User;
+use App\Models\Referral;
+use App\Jobs\DocumentJob;
+use App\Models\Documents;
+use App\Jobs\sendEmailJob;
 use Illuminate\Http\Request;
+use App\Models\DocumentESign;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Jobs\SendManualApploadDocumentJob;
 
 class DocumentController extends Controller
 {
@@ -742,7 +743,9 @@ class DocumentController extends Controller
             $name = "{$referral->first_name} {$referral->last_name}";
 
             try {
-                SendManualApploadDocumentJob::dispatch($referral, $urls);
+                if ($request->has('send_email')) {
+                    SendManualApploadDocumentJob::dispatch($referral, $urls);
+                }
             } catch (\Exception $e) {
                 $message = "Emails could not be sent. Error: " . $e->getMessage();
                 Alert::error('Error', $message);

@@ -1088,10 +1088,15 @@ return $colors[$randomIndex];
                 <div class="modal-body">
                     <input type="file" name="uploadedfile[]" multiple class="form-control">
                     <div id="errorMessagesfor"></div>
+                    <!-- Toggle Switch -->
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="sendEmailToggle" name="send_email" value="1" checked>
+                        <label class="form-check-label" for="sendEmailToggle">Send Email</label>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark closemodalmultiple">Cancel</button>
-                    <button type="submit" id="upload_send_email" class="btn btn-primary custom-hover">Upload & Send Email</button>
+                    <button type="submit" id="upload_send_email" class="btn btn-primary custom-hover">Upload</button>
                 </div>
             </form>
         </div>
@@ -1549,10 +1554,10 @@ return $colors[$randomIndex];
                     swal.fire('Success', response.message, 'success');
                     $('#uploadMoredocument').modal('hide');
                     $('#fileDocumenentMultiple')[0].reset();
-                    $("#upload_send_email").attr('disabled', false).text('Upload & Send Email');
+                    $("#upload_send_email").attr('disabled', false).text('Upload');
                 },
                 error: function(response) {
-                   $("#upload_send_email").attr('disabled', false).text('Upload & Send Email');
+                   $("#upload_send_email").attr('disabled', false).text('Upload');
                     if (response.status === 422) {
                         swal.fire('Failed', 'Only PDF Files Allowed.', 'error');
 
