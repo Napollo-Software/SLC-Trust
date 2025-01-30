@@ -1085,13 +1085,15 @@ return $colors[$randomIndex];
                     <input type="hidden" name="referral_id" value="{{ $referral->id }}">
                     <h4 class="modal-title" id="addNoteModalLabel">Upload Documents (Multiple Allowed)</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body ">
                     <input type="file" name="uploadedfile[]" multiple class="form-control">
                     <div id="errorMessagesfor"></div>
                     <!-- Toggle Switch -->
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="sendEmailToggle" name="send_email" value="1" checked>
-                        <label class="form-check-label" for="sendEmailToggle">Send Email</label>
+                    <div class=" " style="padding: 12px 16px 0px 16px">
+                    <div class="form-check form-switch  ">
+                        <input class="form-check-input" style="height: 16px !important" type="checkbox" id="sendEmailToggle" name="send_email" value="1" checked>
+                        <label class="form-check-label "  style="padding-top: 3px !important" for="sendEmailToggle">Send Email</label>
+                    </div>
                     </div>
                 </div>
                 <div class="modal-footer">
