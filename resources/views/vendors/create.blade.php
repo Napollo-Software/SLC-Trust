@@ -42,11 +42,10 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <!-- Removed cols-lg-6 to standardize column sizes -->
-                                    <label for="exampleFormControlInput1" class="form-label mt-3">Type<span
-                                            class="text-danger">*</span></label>
+                                    <label for="exampleFormControlInput1" class="form-label mt-3">Type</label>
                                     <div class="d-flex">
                                         <select id="defaultSelect" class="form-select select-2" name="type"
-                                                onchange="showOtherInput(this)" required>
+                                                onchange="showOtherInput(this)" >
                                             <option value="">Choose One</option>
                                             <option value="other" @if (old('type') == 'other') selected @endif>Other
                                             </option>
@@ -91,11 +90,11 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label class="mb-0">Phone<span class="text-danger">*</span></label>
+                                <label class="mb-0">Phone</label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control phone" placeholder="(___) ___-___" name="phone"
-                                       value="{{ old('phone') }}" id="phone" required/>
+                                       value="{{ old('phone') }}" id="phone" />
                                 <span class="text-danger">
                                     @error('phone')
                                     {{ $message }}
@@ -110,7 +109,7 @@
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="url" class="form-control" placeholder="Website" name="website"
-                                       value="{{ old('website') }}" required/>
+                                       value="{{ old('website') }}" />
                                 <span class="text-danger">
                                     @error('website')
                                     {{ $message }}
@@ -121,12 +120,12 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3 ">
-                                <label class="mb-0">Country<span class="text-danger">*</span></label>
+                                <label class="mb-0">Country</label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <div class="form-group">
                                     <select id="defaultSelect" onchange="getCountry(this)" class="form-select select-2"
-                                            name="country" required>
+                                            name="country" >
                                         <option value="" disabled selected hidden>--Select an option</option>
                                         <option @if (old('country') == 'United States of America')
                                                     {{ 'selected' }}
@@ -154,7 +153,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label class="mb-0">State / Province<span class="text-danger">*</span></label>
+                                <label class="mb-0">State / Province</label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <select id="SelectState" class="form-select select-2" name="state">
@@ -171,11 +170,11 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label class="mb-0">City<span class="text-danger">*</span></label>
+                                <label class="mb-0">City</label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control" placeholder="User City" name="city"
-                                       value="{{ old('city') }}" required/>
+                                       value="{{ old('city') }}" />
                                 <span class="text-danger">
                                     @error('city')
                                     {{ $message }}
@@ -186,11 +185,11 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label class="mb-0">Zip Code<span class="text-danger">*</span></label>
+                                <label class="mb-0">Zip Code</label>
                             </div>
                             <div class="col-sm-4 text-secondary">
                                 <input type="text" class="form-control" placeholder="Zip Code" maxlength="6"
-                                       name="zipcode" value="{{ old('zipcode') }}" required/>
+                                       name="zipcode" value="{{ old('zipcode') }}" />
                                 <span class="text-danger">
                                     @error('zipcode')
                                     {{ $message }}
@@ -201,10 +200,10 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <label class="mb-0">Address 1<span class="text-danger">*</span></label>
+                                <label class="mb-0">Address 1</label>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <textarea type="text" class="form-control" placeholder="Address" required
+                                <textarea type="text" class="form-control" placeholder="Address" 
                                           name="address1">{{ old('address1') }}</textarea>
                                 <span class="text-danger">
                                     @error('address1')

@@ -32,17 +32,6 @@ class VendorController extends Controller
         $request->validate([
             'name' => 'required|max:250',
             'email' => 'required|unique:users,email',
-            'phone' => 'required|max:250',
-            'website' => 'nullable|max:250',
-            'country' => 'required|max:250',
-            'state' => 'required|max:250',
-            'city' => 'required|max:250',
-            'address1' => 'required|max:250',
-            'address2' => 'nullable|max:250',
-            'zipcode' => 'required|max:250',
-            'type' => 'required|max:250',
-            'other_type' => 'max:250|required_if:type,other',
-
         ]);
 
         if ($request->type === "other") {
@@ -95,16 +84,6 @@ class VendorController extends Controller
         $request->validate([
             'name' => 'required|max:250',
             'email' => 'required|unique:users,email,' . $id,
-            'phone' => 'required|max:250',
-            'website' => 'nullable|max:250',
-            'country' => 'required|max:250',
-            'state' => 'required|max:250',
-            'city' => 'required|max:250',
-            'address1' => 'required|max:250',
-            'address2' => 'nullable|max:250',
-            'zipcode' => 'required|max:250',
-            'type' => 'required|max:250',
-            'other_type' => 'required_if:type,other',
         ]);
         $vendor = User::find($id);
         if ($vendor) {
