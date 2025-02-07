@@ -738,13 +738,13 @@ $role = $login_user->role;
                     <div class="p-3 border rounded bg-light mb-2 ">
 
                         <div class="pb-2 d-flex align-items-center gap-2 border-bottom">
-                            <div class="fw-semibold" style="width: 100px">From:</div> <div>Some Name</div>
+                            <div class="fw-semibold" style="width: 100px">From:</div> <div class="ok" ${strikeThrough}>Some Name</div>
                         </div>
                         <div class="py-2 d-flex align-items-center gap-2 border-bottom">
-                            <div class="fw-semibold" style="width: 100px">To:</div> <div>Some Name</div>
+                            <div class="fw-semibold" style="width: 100px">To:</div> <div class="ok" ${strikeThrough}>Some Name</div>
                         </div>
                         <div class="pt-2 d-flex align-items-center gap-2  ">
-                            <div class="fw-semibold" style="width: 100px">Note:</div> <div class="">${event.note}</div>
+                            <div class="fw-semibold" style="width: 100px">Note:</div> <div class="ok" ${strikeThrough}>${event.note}</div>
                         </div>
                     </div>
 
@@ -779,9 +779,11 @@ $role = $login_user->role;
                         if (isCompleted) {
                             $("#change_strike_"+followupId).css('text-decoration', 'line-through')
                             $("#date_change_strike_"+followupId).css('text-decoration', 'line-through')
+                            $(".ok").css('text-decoration', 'line-through')
                         } else {
                             $("#change_strike_"+followupId).css('text-decoration', 'none')
                             $("#date_change_strike_"+followupId).css('text-decoration', 'none')
+                            $(".ok").css('text-decoration', 'none')
                         }
 
                         const event = calendar.getEventById(followupId);
