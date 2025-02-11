@@ -14,25 +14,37 @@ $role = $login_user->role;
 
         if($role == 'Admin')
         {
-            $followup = Followup::with(['employee' => function($query){
-                $query->select('id', 'name', 'last_name');
-            }])->where('type', 'followup')->get();
+            $followup = Followup::with([
+                'employee:id,name,last_name',
+                'toName:id,name,last_name',
+                'fromName:id,name,last_name'
+            ])->where('type', 'followup')->get();
+
+
 
         } elseif ($role == 'Employee')
         {
-            $followup = Followup::with(['employee' => function($query) {
-                $query->select('id', 'name', 'last_name');
-            }])->where('type', 'followup')
-            ->where(function($query) {
-                $query->where('to', Session::get('loginId'))
-                    ->orWhere('from', Session::get('loginId'));
+            $followup = Followup::with([
+                'employee:id,name,last_name',
+                'toName:id,name,last_name',
+                'fromName:id,name,last_name'
+            ])->where('type', 'followup')
+            ->where(function ($query) {
+                $loginId = Session::get('loginId');
+                $query->where('to', $loginId)
+                    ->orWhere('from', $loginId);
             })->get();
+
 
         } else {
 
-            $followup = Followup::with(['employee' => function($query){
-                $query->select('id', 'name', 'last_name');
-            }])->where('type', 'followup')->where('to', Session::get('loginId'))->get();
+            $followup = Followup::with([
+                'employee:id,name,last_name',
+                'toName:id,name,last_name',
+                'fromName:id,name,last_name'
+            ])->where('type', 'followup')
+            ->where('to', Session::get('loginId'))
+            ->get();
 
         }
 
@@ -630,6 +642,7 @@ $role = $login_user->role;
         var calendarEl = document.getElementById('calendar22');
         var followupEvents = @json($followup);
             console.log(followupEvents);
+            console.log("followupEvents");
         var calendar = new FullCalendar.Calendar(calendarEl, {
             headerToolbar: {
                 right: 'dayGridMonth prev next'
@@ -651,7 +664,9 @@ $role = $login_user->role;
                         note: event.note,
                         completed: event.completed,
                         date: event.date,
-                        user: event.employee
+                        user: event.employee,
+                        from: event.from_name,
+                        to: event.to_name,
                     }
                 };
             }),
@@ -770,7 +785,8 @@ $role = $login_user->role;
                 const checked = event.completed ? 'checked' : '';
                 const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
                 const userName = `${event.employee.name || ''} ${event.employee.last_name || ''}`.trim();
-
+                const fromName = `${event.from_name.name || ''} ${event.from_name.last_name || ''}`.trim();
+                const toName = `${event.to_name.name || ''} ${event.to_name.last_name || ''}`.trim();
                 return `
                   <div class=" pb-2"> <div >
                                 <span class="fw-bold">Date:</span> 
@@ -798,10 +814,10 @@ $role = $login_user->role;
                     <div class="p-3 border rounded bg-light mb-2 ">
 
                         <div class="pb-2 d-flex align-items-center gap-2 border-bottom">
-                            <div class="fw-semibold" style="width: 100px">From:</div> <div class="ok" ${strikeThrough}>Some Name</div>
+                            <div class="fw-semibold" style="width: 100px">From:</div> <div class="ok" ${strikeThrough}>${fromName}</div>
                         </div>
                         <div class="py-2 d-flex align-items-center gap-2 border-bottom">
-                            <div class="fw-semibold" style="width: 100px">To:</div> <div class="ok" ${strikeThrough}>Some Name</div>
+                            <div class="fw-semibold" style="width: 100px">To:</div> <div class="ok" ${strikeThrough}>${toName}</div>
                         </div>
                         <div class="pt-2 d-flex align-items-center gap-2  ">
                             <div class="fw-semibold" style="width: 100px">Note:</div> <div class="ok" ${strikeThrough}>${event.note}</div>

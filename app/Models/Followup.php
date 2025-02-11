@@ -22,6 +22,14 @@ class Followup extends Model
     {
         return $this->belongsTo(User::class,'to','id')->withDefault();
     }
+    public function fromName()
+    {
+        return $this->belongsTo(User::class,'from','id')->withDefault();
+    }
+    public function toName()
+    {
+        return $this->belongsTo(User::class,'to','id')->where('role', 'employee')->withDefault();
+    }
 
     public function referral()
     {
