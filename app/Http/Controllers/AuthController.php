@@ -417,7 +417,7 @@ class AuthController extends Controller
 
         if ($id) {
 
-            $notification = Notifcation::where('id', $id)
+            $notification = Notifcation::with('referralName')->where('id', $id)
                 ->where('user_id', $user->id)
                 ->first();
 
@@ -431,7 +431,7 @@ class AuthController extends Controller
             }
         } else {
 
-            $notifications = Notifcation::where('user_id', $user->id)
+            $notifications = Notifcation::with('referralName')->where('user_id', $user->id)
                 ->orderBy('id', 'desc')
                 ->get();
 
@@ -515,8 +515,7 @@ class AuthController extends Controller
 
         $start_date = null;
 
-        $followup = Followup::select('note', 'date')->get();
-
+        $followup = Followup::with('referralName')->select('note', 'date' , 'referral_id')->get();
         $customers = User::where('role', 'User')
             ->leftJoin('transactions', 'users.id', '=', 'transactions.user_id')
             ->select('users.id', 'users.name', 'users.email', \DB::raw('SUM(transactions.credit) - SUM(transactions.debit) as balance'))

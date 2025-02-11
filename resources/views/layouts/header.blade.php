@@ -55,8 +55,9 @@
                                         <div class="">
                                             <h6 class="msg-name"><span class="msg-time float-end">{{ us_date_format($item->created_at) }}</span></h6>
                                             <br>
-                                            <h6 class="msg-name">{{ $item->title }}</h6>
-                                            <p class="msg-info" style="text-wrap:wrap">{{ $item->description }}</p>
+                                            <h6 class="msg-name">{{ $item->title  }}</h6>
+                                            <p class="msg-info" style="text-wrap:wrap">{{ $item->description }}</p> <span>{{ optional($item->referralName)->referral_name ?? '' }}</span>
+
                                         </div>
                                     </div>
                                 </a>

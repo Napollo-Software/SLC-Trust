@@ -32,4 +32,10 @@ class Followup extends Model
         return $this->belongsTo(User::class, 'from', 'id')->withDefault();
     }
 
+    public function referralName()
+    {
+        return $this->belongsTo(Referral::class, 'referral_id', 'id')
+            ->selectRaw("referrals.id, CONCAT(first_name, ' ', last_name) as referral_name");
+    }
+
 }

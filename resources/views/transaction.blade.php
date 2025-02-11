@@ -629,7 +629,7 @@ $role = $login_user->role;
         document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar22');
         var followupEvents = @json($followup);
-
+            console.log(followupEvents);
         var calendar = new FullCalendar.Calendar(calendarEl, {
             headerToolbar: {
                 right: 'dayGridMonth prev next'
@@ -641,7 +641,7 @@ $role = $login_user->role;
             selectable: true,
             selectMirror: true,
             droppable: true,
-            themeColor: '#559e99',
+            themeColor: '#559de99',
             dayMaxEvents: true,
             events: followupEvents.map(function(event) {
                 return {
@@ -655,27 +655,87 @@ $role = $login_user->role;
                     }
                 };
             }),
-            eventContent: function(info) {
+          
+            dayCellDidMount: function (info) {
+                var clickedDate = new Date(info.date);
+                const year = clickedDate.getFullYear();
+                const month = String(clickedDate.getMonth() + 1).padStart(2, '0');
+                const day = String(clickedDate.getDate()).padStart(2, '0');
+                const formattedDate = `${year}-${month}-${day}`;
 
+                var matchingEvents = followupEvents.filter(event => event.date === formattedDate);
+
+                if (matchingEvents.length > 0) {
+                    setTimeout(() => {
+                        matchingEvents.forEach(matchingEvent => {
+                            // Select all elements with a unique ID based on event ID
+                            var eventElements = document.querySelectorAll(`#calendar_follow_up_${matchingEvent.id}`);
+                            
+                            eventElements.forEach(eventElement => {
+                                if (matchingEvent.from == matchingEvent.to) {
+                                    eventElement.style.backgroundColor = "#4CAF50"; // Soft Green (Success)
+                                    eventElement.style.color = "#ffffff"; // White text
+                                    eventElement.style.border = "1px solid #388E3C"; // Darker green border
+                                } else {
+                                    eventElement.style.backgroundColor = "#FFEB3B"; // Soft Yellow
+                                    eventElement.style.color = "#333333"; // Dark text
+                                    eventElement.style.border = "1px solid #FBC02D"; // Gold border
+                                }
+
+                                // Additional styles for better UI
+                                eventElement.style.padding = "8px";
+                                eventElement.style.borderRadius = "6px";
+                                eventElement.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.2)"; // Soft shadow
+                                eventElement.style.fontWeight = "bold";
+                                eventElement.style.textAlign = "center";
+                            });
+                        });
+                    }, 50); // Small delay to ensure rendering
+                }
+            },
+
+            eventContent: function(info) {
                 const id = info.event.id;
                 const note = info.event.extendedProps.note;
                 const completed = info.event.extendedProps.completed;
                 const user = info.event.extendedProps.user || {};
                 const userName = `${user.name || ''} ${user.last_name || ''}`.trim();
                 const strikeThrough = completed ? 'style="text-decoration: line-through;"' : '';
-
+                
+                // Create the content div
                 const content = document.createElement('div');
                 content.id = `calendar_follow_up_${id}`;
                 content.classList.add('custom-event-content');
+                
+                // Set the inner HTML content for the event
                 content.innerHTML = `
                     <div ${strikeThrough}>
                         <strong>${userName}:</strong>
                         "${note.length > 5 ? note.substring(0, 5) + '...' : note}"
                     </div>
                 `;
-
+                
+                // Apply additional styles if completed
+                if (info.event.from === info.event.to) {
+                    content.style.backgroundColor = "#4CAF50"; // Soft Green (Success)
+                    content.style.color = "#ffffff"; // White text
+                    content.style.border = "1px solid #388E3C"; // Darker green border
+                } else {
+                    content.style.backgroundColor = "#FFEB3B"; // Soft Yellow
+                    content.style.color = "#333333"; // Dark text
+                    content.style.border = "1px solid #FBC02D"; // Gold border
+                }
+                
+                // Additional styles for better UI
+                content.style.padding = "8px";
+                content.style.borderRadius = "6px";
+                content.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.2)"; // Soft shadow
+                content.style.fontWeight = "bold";
+                content.style.textAlign = "center";
+                
                 return { domNodes: [content] };
             },
+
             eventClick: function(info) {
                 info.jsEvent.preventDefault();
 

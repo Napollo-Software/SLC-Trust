@@ -46,7 +46,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($data as $followup)
-                                <tr class="row-{{ $followup['id'] }}">
+                                <tr class="row-{{ $followup['id'] }} fdasfd {{ $followup->from == $followup->to ? 'bg-info' : 'bg-warning' }}">
                                     <td>{{ $followup->id }}</td>
                                     <td>{{ $from->name }} {{ $from->last_name }}</td>
                                     <td>{{ $followup->lead->full_name() }}

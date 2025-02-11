@@ -111,7 +111,7 @@
                     <div class="notification-list_detail ">
                         <b>{{ $data->title }}</b>
                         <p class="text-muted pt-1">{{ $data->description }}</p>
-                        <p class="text-muted pt-1"><small>at {{date('m/d/Y h:i A',strtotime($data->created_at))}}</small></p>
+                        <p class="text-muted pt-1"><small>at {{date('m/d/Y h:i A',strtotime($data->created_at))}}</small></p> <span>{{ optional($data->referralName)->referral_name ?? '' }}</span>
                     </div>
                 </div>
                 <div class="notification-list_feature-img rounded-circle" style="margin-top:-15px;margin-right:-28px;background-color:white;height:20px"> <button type="button" class="btn-close remove-notification" data-id="{{$data->id}}" data-bs-dismiss="alert" aria-label="Close"></button> </div>

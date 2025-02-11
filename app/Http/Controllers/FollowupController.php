@@ -25,7 +25,6 @@ class FollowupController extends Controller
             $to = Referral::all();
             return view('follow-up.index', compact('data', 'from', 'to'));
         } else if ($routeName === 'follow_up.index') {
-
             $query = Followup::where('type', 'followup');
 
             $user = User::find(Session::get('loginId'));
