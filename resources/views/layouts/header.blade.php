@@ -56,14 +56,16 @@
                                             <h6 class="msg-name"><span class="msg-time float-end">{{ us_date_format($item->created_at) }}</span></h6>
                                             <br>
                                             <h6 class="msg-name">{{ $item->title  }}</h6>
-                                            <p class="msg-info" style="text-wrap:wrap">{{ $item->description }}</p> <span>{{ optional($item->referralName)->referral_name ?? '' }}</span>
+                                            
                                             <!-- ------ conditional ------ -->
                                             <div class="alert alert-info  p-2 rounded" style="text-wrap:wrap">
                                                 <span>
-                                                    <strong>John Doe</strong> is following up with <strong>Jane Smith</strong> regarding  
-                                                    <strong>Referral Noman</strong>.
-                                                    <br/> 
-                                                    <span class="d-inline-block text-truncate" style="max-width: 200px;">Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout that does not yet have content.</span> 
+                                                    {{ $item->description }}
+                                                     @if(optional($item->referralName)->referral_name)
+                                                        regarding <strong>Referral {{ $item->referralName->referral_name }}</strong>
+                                                    @endif
+                                                    {{-- <br/> 
+                                                    <span class="d-inline-block text-truncate" style="max-width: 200px;">Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout that does not yet have content.</span>  --}}
                                                 </span>
                                             </div>
 

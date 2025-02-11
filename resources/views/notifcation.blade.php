@@ -109,16 +109,14 @@
                 <div class="notification-list_content">
                     <div class="notification-list_img rounded-circle bg-success"> </div>
                     <div class="notification-list_detail ">
-                        <b>{{ $data->title }}</b>
-                        <p class="text-muted pt-1">{{ $data->description }}</p>
                         <!-- --------conditional ----- -->
                         <div class="alert alert-info mb-0 p-2 rounded text-black" style="text-wrap:wrap">
-                        <span>
-                            <strong>John Doe</strong> is following up with <strong>Jane Smith</strong> regarding  
-                            <strong>Referral Noman</strong>.
-                            <br/>
-                            <div class="fw-semibold pt-1">FollowUp Task:</div> 
-                            <span >Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout that does not yet have content.</span> 
+                            <span>
+                            <div class="fw-semibold pt-1">{{ $data->title }}</div> 
+                            {{ $data->description }} 
+                            @if(optional($data->referralName)->referral_name)
+                                regarding <strong>Referral {{ $data->referralName->referral_name }}</strong>
+                            @endif
                         </span>
                     </div>
                         <p class="text-muted pt-1"><small>at {{date('m/d/Y h:i A',strtotime($data->created_at))}}</small></p> <span>{{ optional($data->referralName)->referral_name ?? '' }}</span>
