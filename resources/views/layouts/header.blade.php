@@ -46,9 +46,9 @@
                                 @endif
                                 @foreach ($notifications as $item)
                                 <a class="dropdown-item" href="{{ url('notifications/'.$item->id) }}">
-                                    <div class="d-flex align-items-center gap-3" >
+                                    <div class="d-flex align-items-start gap-3" >
                                       <div>
-                                            <div class="user-online" style="width: 45px; height: 45px;">
+                                            <div class="user-online mt-3" style="width: 45px; height: 45px;">
                                                 <img src="{{ $item->user_details->avatar }}" class=" " alt="user avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%">
                                             </div>
                                         </div>
@@ -57,6 +57,16 @@
                                             <br>
                                             <h6 class="msg-name">{{ $item->title  }}</h6>
                                             <p class="msg-info" style="text-wrap:wrap">{{ $item->description }}</p> <span>{{ optional($item->referralName)->referral_name ?? '' }}</span>
+                                            <!-- ------ conditional ------ -->
+                                            <div class="alert alert-info  p-2 rounded" style="text-wrap:wrap">
+                                                <span>
+                                                    <strong>John Doe</strong> is following up with <strong>Jane Smith</strong> regarding  
+                                                    <strong>Referral Noman</strong>.
+                                                    <br/> 
+                                                    <span class="d-inline-block text-truncate" style="max-width: 200px;">Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout that does not yet have content.</span> 
+                                                </span>
+                                            </div>
+
 
                                         </div>
                                     </div>
