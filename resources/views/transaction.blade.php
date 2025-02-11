@@ -673,9 +673,9 @@ $role = $login_user->role;
                             
                             eventElements.forEach(eventElement => {
                                 if (matchingEvent.from == matchingEvent.to) {
-                                    eventElement.style.backgroundColor = "#4CAF50"; // Soft Green (Success)
+                                    eventElement.style.backgroundColor = "#6dc6a7"; // Soft Green (Success)
                                     eventElement.style.color = "#ffffff"; // White text
-                                    eventElement.style.border = "1px solid #388E3C"; // Darker green border
+                                    eventElement.style.border = "1px solid #6dc6a7"; // Darker green border
                                 } else {
                                     eventElement.style.backgroundColor = "#FFEB3B"; // Soft Yellow
                                     eventElement.style.color = "#333333"; // Dark text
