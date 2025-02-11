@@ -737,6 +737,7 @@ $role = $login_user->role;
             },
 
             eventClick: function(info) {
+                console.log('info', info.event);
                 info.jsEvent.preventDefault();
 
                 var clickedDate = new Date(info.event.start);
@@ -749,27 +750,69 @@ $role = $login_user->role;
                     return event.date === formattedDate;
                 });
 
-                var content = '<h5 class="pb-2">' + clickedDate.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit'
-                }) + '</h5>';
-
+                // var content = ' <p class="pb-2"> <span class="fw-medium">Date: </span> ' + clickedDate.toLocaleDateString('en-US', {
+                //     year: 'numeric',
+                //     month: '2-digit',
+                //     day: '2-digit'
+                // }) + '</p>  ';
+                // <div class=" d-flex align-items-center justify-content-between gap-2"> <div >
+                //                 <span class="fw-bold">Date:</span> 
+                //                 ${clickedDate.toLocaleDateString('en-US', {
+                //                     year: 'numeric',
+                //                     month: '2-digit',
+                //                     day: '2-digit'
+                //                 })}
+                //             </div>
+                //             <div>
+                //                 <span class="text-nowrap"><span class="fw-bold">Time:</span>  ${convertTo12Hour(event.time)}</span>
+                //             </div></div>
                 var eventDetails = eventsForDate.map(function(event) {
-                    const checked = event.completed ? 'checked' : '';
-                    const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
-                    const userName = `${event.employee.name || ''} ${event.employee.last_name || ''}`.trim();
+                const checked = event.completed ? 'checked' : '';
+                const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
+                const userName = `${event.employee.name || ''} ${event.employee.last_name || ''}`.trim();
 
-                    return `<li class="border-bottom d-flex justify-content-between py-2 pt-3 text-7 m-0" style="font-size: 13px !important; list-style:none;">
-                                <div class="d-flex justify-content-start align-items-start gap-1">
-                                    <input type="checkbox" class="mt-1 toggle-completed" data-id="${event.id}" ${checked}>
-                                    <p id="change_strike_${event.id}" ${strikeThrough}>${userName}: "${event.note}"</p>
-                                </div>
-                                <span ${strikeThrough} class="text-nowrap" id="date_change_strike_${event.id}" class="float-end">${convertTo12Hour(event.time)}</span>
-                            </li>`;
-                }).join('');
+                return `
+                  <div class=" pb-2"> <div >
+                                <span class="fw-bold">Date:</span> 
+                                ${clickedDate.toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: '2-digit',
+                                    day: '2-digit'
+                                })}
+                            </div>
+                            <div class="d-flex align-items-center pt-1">
+                                <span class="text-nowrap"><span class="fw-bold">Time:</span>  ${convertTo12Hour(event.time)}</span>
+                            </div></div>
+                 <div class="mb-1 d-flex align-items-center flex-wrap justify-content-between gap-2">
+                    <div class="fw-bold fs-6" >Follow up Details</div>
+                   <div>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="checkbox" class="toggle-completed" data-id="${event.id}" ${checked}>
+                            <p id="change_strike_${event.id}" ${strikeThrough} class="m-0 fw-semibold" >
+                                 Mark as completed
+                            </p>
+                        </div>
+                       
+                    </div>
+                 </div>
+                    <div class="p-3 border rounded bg-light mb-2 ">
 
-                $('#eventDetails').html(content + eventDetails);
+                        <div class="pb-2 d-flex align-items-center gap-2 border-bottom">
+                            <div class="fw-semibold" style="width: 100px">From:</div> <div class="ok" ${strikeThrough}>Some Name</div>
+                        </div>
+                        <div class="py-2 d-flex align-items-center gap-2 border-bottom">
+                            <div class="fw-semibold" style="width: 100px">To:</div> <div class="ok" ${strikeThrough}>Some Name</div>
+                        </div>
+                        <div class="pt-2 d-flex align-items-center gap-2  ">
+                            <div class="fw-semibold" style="width: 100px">Note:</div> <div class="ok" ${strikeThrough}>${event.note}</div>
+                        </div>
+                    </div>
+
+                  `;
+            }).join('');
+
+
+                $('#eventDetails').html( eventDetails);
                 $('#eventModal').modal('show');
 
                 $('.toggle-completed').on('change', function() {
@@ -796,9 +839,11 @@ $role = $login_user->role;
                         if (isCompleted) {
                             $("#change_strike_"+followupId).css('text-decoration', 'line-through')
                             $("#date_change_strike_"+followupId).css('text-decoration', 'line-through')
+                            $(".ok").css('text-decoration', 'line-through')
                         } else {
                             $("#change_strike_"+followupId).css('text-decoration', 'none')
                             $("#date_change_strike_"+followupId).css('text-decoration', 'none')
+                            $(".ok").css('text-decoration', 'none')
                         }
 
                         const event = calendar.getEventById(followupId);
