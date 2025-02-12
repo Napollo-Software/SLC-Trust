@@ -744,11 +744,7 @@ $role = $login_user->role;
                     content.style.color = "#ffffff"; // Dark text
                     content.style.border = "1px solid lightgray"; // Gold border
                    
-                } else {
-                    content.style.backgroundColor = "#6dc6a7"; // Soft Green (Success)
-                    content.style.color = "#000000"; // White text
-                    content.style.border = "none"; // Darker green border
-                }
+                } 
                 
                 // Additional styles for better UI
                
