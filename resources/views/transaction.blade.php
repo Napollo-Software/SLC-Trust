@@ -679,39 +679,40 @@ $role = $login_user->role;
                 // const completed = info.event.extendedProps.completed;
                 var matchingEvents = followupEvents.filter(event => event.date === formattedDate);
 
-                // if (matchingEvents.length > 0) {
-                //     setTimeout(() => {
-                //         matchingEvents.forEach(matchingEvent => {
-                //             // Select all elements with a unique ID based on event ID
-                //             var eventElements = document.querySelectorAll(`#calendar_follow_up_${matchingEvent.id}`);
+                if (matchingEvents.length > 0) {
+                    setTimeout(() => {
+                        matchingEvents.forEach(matchingEvent => {
+                            // Select all elements with a unique ID based on event ID
+                            var eventElements = document.querySelectorAll(`#calendar_follow_up_${matchingEvent.id}`);
                             
-                //             eventElements.forEach(eventElement => {
-                //                 if (matchingEvent.from == matchingEvent.to) {
-                //                     eventElement.style.backgroundColor = "#6dc6a7 !important"; // Soft Green (Success)
-                //                     eventElement.style.color = "#ffffff"; // White text
-                //                     eventElement.style.border = "none !important"; 
-                //                     eventElement.style.opacity = "0.5 !important"; 
-                //                  } else {
-                //                     eventElement.style.backgroundColor = "#06778a"; // Soft Yellow
-                //                     eventElement.style.color = "#ffffff"; // Dark text
-                //                     eventElement.style.border = "none";  
-                //                  }
+                            eventElements.forEach(eventElement => {
+                                console.log(matchingEvent.from , matchingEvent.to);
+                                if (matchingEvent.from == matchingEvent.to) {
+                                    eventElement.style.backgroundColor = "black"; // Soft Green (Success)
+                                    eventElement.style.color = "#ffffff"; // White text
+                                    eventElement.style.border = "none"; 
+                                    // eventElement.style.opacity = "0.5"; 
+                                 } else {
+                                    eventElement.style.backgroundColor = "#red"; // Soft Yellow
+                                    eventElement.style.color = "#ffffff"; // Dark text
+                                    eventElement.style.border = "none";  
+                                 }
 
-                //                 // Additional styles for better UI
-                //                 eventElement.style.padding = "6px";
-                //                 eventElement.style.borderRadius = "0px";
-                //                 eventElement.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.2)"; // Soft shadow
-                //                 eventElement.style.fontWeight = "400";
-                //                 eventElement.style.textAlign = "center";
-                //                 eventElement.style.overflow = "hidden";
-                //                 eventElement.style.whiteSpace = "nowrap";
-                //                 eventElement.style.textOverflow = "ellipsis";
-                //                 eventElement.style.width = "100%"; // Adjust based on your layout
-                //                 // eventElement.style.maxWidth = "200px"; // Adjust as needed
-                //             });
-                //         });
-                //     }, 50); // Small delay to ensure rendering
-                // }
+                                // Additional styles for better UI
+                                eventElement.style.padding = "6px";
+                                eventElement.style.borderRadius = "0px";
+                                eventElement.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.2)"; // Soft shadow
+                                eventElement.style.fontWeight = "400";
+                                eventElement.style.textAlign = "center";
+                                eventElement.style.overflow = "hidden";
+                                eventElement.style.whiteSpace = "nowrap";
+                                eventElement.style.textOverflow = "ellipsis";
+                                eventElement.style.width = "100%"; // Adjust based on your layout
+                                // eventElement.style.maxWidth = "200px"; // Adjust as needed
+                            });
+                        });
+                    }, 50); // Small delay to ensure rendering
+                }
             },
 
             eventContent: function(info) {
@@ -737,12 +738,10 @@ $role = $login_user->role;
                 
                 // Apply additional styles if completed
                 if (completed) {
-                    content.style.backgroundColor = "#6dc6a7"; // Soft Green (Success)
-                    content.style.color = "#000000"; // White text
+                    content.style.color = "#ffffff"; // White text
                     content.style.border = "none"; // Darker green border
                 } else {
-                    content.style.backgroundColor = "lightgray"; // Soft Yellow
-                    content.style.color = "#333333"; // Dark text
+                    content.style.color = "#ffffff"; // Dark text
                     content.style.border = "1px solid lightgray"; // Gold border
                 }
                 
