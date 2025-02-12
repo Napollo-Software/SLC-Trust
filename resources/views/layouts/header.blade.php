@@ -58,7 +58,7 @@
                                             <h6 class="msg-name">{{ $item->title  }}</h6>
                                             
                                             <!-- ------ conditional ------ -->
-                                            <div class="alert alert-info  p-2 rounded mt-1" style="text-wrap:wrap">
+                                            <div class="p-2 mt-1" style="text-wrap:wrap; background: #CFF4FC; border-radius: 4px;">
                                                 <span>
                                                     {{ $item->description }}
                                                      @if(optional($item->referralName)->referral_name)
