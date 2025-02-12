@@ -825,10 +825,10 @@ $role = $login_user->role;
                     <div class="p-3 border rounded bg-light mb-2 ">
 
                         <div class="pb-2 d-flex align-items-center gap-2 border-bottom">
-                            <div class="fw-semibold" style="width: 100px">From:</div> <div class="ok" ${strikeThrough}>${fromName}</div>
+                            <div class="fw-semibold" style="width: 100px">From:</div> <div  >${fromName}</div>
                         </div>
                         <div class="py-2 d-flex align-items-center gap-2 border-bottom">
-                            <div class="fw-semibold" style="width: 100px">To:</div> <div class="ok" ${strikeThrough}>${toName}</div>
+                            <div class="fw-semibold" style="width: 100px">To:</div> <div  >${toName}</div>
                         </div>
                         <div class="pt-2 d-flex align-items-center gap-2  ">
                             <div class="fw-semibold" style="width: 100px">Note:</div> <div class="ok" ${strikeThrough}>${event.note}</div>
