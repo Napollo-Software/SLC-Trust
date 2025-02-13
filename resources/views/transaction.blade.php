@@ -659,6 +659,8 @@ $role = $login_user->role;
                 return {
                     id: event.id,
                     start: event.date,
+                    from: event.from,
+                    to: event.to,
                     extendedProps: {
                         note: event.note,
                         completed: event.completed,
@@ -686,9 +688,8 @@ $role = $login_user->role;
                             var eventElements = document.querySelectorAll(`#calendar_follow_up_${matchingEvent.id}`);
                             
                             eventElements.forEach(eventElement => {
-                                console.log(matchingEvent.from , matchingEvent.to);
                                 if (matchingEvent.from == matchingEvent.to) {
-                                    eventElement.style.backgroundColor = "black"; // Soft Green (Success)
+                                    eventElement.style.backgroundColor = "#6DC6A7"; // Soft Green (Success)
                                     eventElement.style.color = "#ffffff"; // White text
                                     eventElement.style.border = "none"; 
                                     // eventElement.style.opacity = "0.5"; 
@@ -719,6 +720,8 @@ $role = $login_user->role;
                 const id = info.event.id;
                 const note = info.event.extendedProps.note;
                 const completed = info.event.extendedProps.completed;
+                const from = info.event.extendedProps.from;
+                const to = info.event.extendedProps.to;
                 const user = info.event.extendedProps.user || {};
                 const userName = `${user.name || ''} ${user.last_name || ''}`.trim();
                 const strikeThrough = completed ? 'style="text-decoration: line-through;"' : '';
@@ -735,16 +738,21 @@ $role = $login_user->role;
                         "${note.length > 5 ? note.substring(0, 5) + '...' : note}"
                     </div>
                 `;
-                
                 // Apply additional styles if completed
                 if (completed) {
                     content.style.color = "#ffffff"; // White text
+                    content.style.background = "lightgray"; // White text
                     content.style.border = "none"; // Darker green border
+
                 } else {
+                    if(from === to){
+                        content.style.setProperty("background-color", "#6DC6A7", "important");
+                    }
                     content.style.color = "#ffffff"; // Dark text
-                    content.style.border = "1px solid lightgray"; // Gold border
-                   
+                    content.style.border = "1px solid lightgray"; // Gold border                   
                 } 
+
+                
                 
                 // Additional styles for better UI
                
