@@ -1,97 +1,112 @@
 @extends('nav')
 @section('title', 'Referral | Senior Life Care Trusts')
 @section('wrapper')
+
+<style>
+    .sticky_box  {
+        position: sticky;
+        top: 125px;
+    }
+</style>
 <div class="">
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Pending Deposit Reports</b> </div>
     </h5>
-    <div class="row">
-        <div class="col-lg-12 mb-12">
-            <div class="">
-                <div class="row justify-content-start m-1 ">
-                    <div class="col-md-2">
-                        <div class="card shadow-sm p-3 border-0 rounded">
-                            <h5 class="mb-3 fw-bold text-primary">Billing Cycle</h5>
-                            <div class="card-body pt-0">
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_1" name="billing_cycle[]" value="1" 
-                                        @if (in_array("1", (array) old('billing_cycle', []))) checked @endif>
-                                    <label class="form-check-label ms-2" for="billing_cycle_1">1st of every Month</label>
-                                </div>
-                        
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_3" name="billing_cycle[]" value="3" 
-                                        @if (in_array("3", (array) old('billing_cycle', []))) checked @endif>
-                                    <label class="form-check-label ms-2" for="billing_cycle_3">3rd of every Month</label>
-                                </div>
-                        
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_7" name="billing_cycle[]" value="7" 
-                                        @if (in_array("7", (array) old('billing_cycle', []))) checked @endif >
-                                    <label class="form-check-label ms-2" for="billing_cycle_7">7th of every Month</label>
-                                </div>
-                        
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_14" name="billing_cycle[]" value="14" 
-                                                @if (in_array("14", (array) old('billing_cycle', []))) checked @endif >
-                                            <label class="form-check-label ms-2" for="billing_cycle_14">14th of every Month</label>
-                                        </div>
-                        
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_21" name="billing_cycle[]" value="21" 
-                                        @if (in_array("21", (array) old('billing_cycle', []))) checked @endif>
-                                    <label class="form-check-label ms-2" for="billing_cycle_21">21st of every Month</label>
-                                </div>
-                        
-                                <div class="form-check">
-                                    <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_28" name="billing_cycle[]" value="28" 
-                                        @if (in_array("28", (array) old('billing_cycle', []))) checked @endif>
-                                    <label class="form-check-label ms-2" for="billing_cycle_28">28th of every Month</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Surplus/Maintenance Section -->
-                        <div class="card shadow-sm p-3 border-0 rounded mt-3">
-                            <h5 class="mb-3 fw-bold text-success">Surplus/Maintenance</h5>
-                            <div class="card-body pt-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="status_done" name="status" value="done" 
-                                        @if (old('status') == "done") checked @endif>
-                                    <label class="form-check-label ms-2" for="status_done">Done</label>
-                                </div>
-                        
-                                <div class="form-check mt-2">
-                                    <input class="form-check-input" type="radio" id="status_pending" name="status" value="pending" 
-                                        @if (old('status') == "pending") checked @endif>
-                                    <label class="form-check-label ms-2" for="status_pending">Pending</label>
-                                </div>
-                            </div>
-                        </div>
-                                               
+    <div class="row justify-content-start  ">
+        <div class="col-md-3 " >
+           <div class="sticky_box">
+                <div class="card"  >
+                    <div class="card-header ">
+                    <h5 class="mb-0 fw-bold text-primary">Billing Cycle</h5>
                     </div>
-                    <div class="card col-md-10 shadow-none p-3" style="height: 450px;">
-                        <div class="card-header bg-white border-0">
-                            <div class="d-flex align-items-center justify-content-between p-3 mb-0">
-                                <div>
-                                    <h5 class="mb-1 ">Report Overview</h5>
-                                    <p class="mb-0 font-13 text-secondary"><i class='bx bx-grid'></i> Reports
-                                    </p>
-                                </div>
-                                <div>
-                                    <a href="" id="exportBtn"
-                                    class="btn btn-primary import-file-user-data print-btn pb-1 pt-1">
-                                    Export
-                                    </a>
-                                </div>
-                            </div>
+                    <div class="card-body ">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_1" name="billing_cycle[]" value="1" 
+                                @if (in_array("1", (array) old('billing_cycle', []))) checked @endif>
+                            <label class="form-check-label ms-2" for="billing_cycle_1">1st of every Month</label>
                         </div>
-                        <div class="table-responsive text-nowrap overflow-auto " id="reportTableContainer">
-                            <div id="userTableContainer">
-                                @include('partials.user_list')
-                            </div>
+                
+                        <div class="form-check mb-2">
+                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_3" name="billing_cycle[]" value="3" 
+                                @if (in_array("3", (array) old('billing_cycle', []))) checked @endif>
+                            <label class="form-check-label ms-2" for="billing_cycle_3">3rd of every Month</label>
                         </div>
+                
+                        <div class="form-check mb-2">
+                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_7" name="billing_cycle[]" value="7" 
+                                @if (in_array("7", (array) old('billing_cycle', []))) checked @endif >
+                            <label class="form-check-label ms-2" for="billing_cycle_7">7th of every Month</label>
+                        </div>
+                
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_14" name="billing_cycle[]" value="14" 
+                                        @if (in_array("14", (array) old('billing_cycle', []))) checked @endif >
+                                    <label class="form-check-label ms-2" for="billing_cycle_14">14th of every Month</label>
+                                </div>
+                
+                        <div class="form-check mb-2">
+                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_21" name="billing_cycle[]" value="21" 
+                                @if (in_array("21", (array) old('billing_cycle', []))) checked @endif>
+                            <label class="form-check-label ms-2" for="billing_cycle_21">21st of every Month</label>
+                        </div>
+                
+                        <div class="form-check">
+                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_28" name="billing_cycle[]" value="28" 
+                                @if (in_array("28", (array) old('billing_cycle', []))) checked @endif>
+                            <label class="form-check-label ms-2" for="billing_cycle_28">28th of every Month</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Surplus/Maintenance Section -->
+                <div class="card ">
+                    <div class="card-header ">
+                    <h5 class="mb-0 fw-bold text-primary">Surplus/Maintenance</h5>
+                    </div>
+                    
+                    <div class="card-body ">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="status_done" name="status" value="done" 
+                                @if (old('status') == "done") checked @endif>
+                            <label class="form-check-label ms-2" for="status_done">Done</label>
+                        </div>
+                
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" id="status_pending" name="status" value="pending" 
+                                @if (old('status') == "pending") checked @endif>
+                            <label class="form-check-label ms-2" for="status_pending">Pending</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                        
+            </div>
+        <div class="col-md-9 ">
+            <div class="card " style=" ">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-between ">
+                        <div class="">
+                            <h5 class="mb-0 fw-bold text-primary d-flex align-items-center gap-1">
+                                <i class='bx bx-grid'></i>
+                                <div>
+                                    Report Overview
+                                </div>
+                            </h5>
+                            <!-- <p class="mb-0 font-13 text-secondary"><i class='bx bx-grid'></i> Reports
+                            </p> -->
+                        </div>
+                        <div>
+                            <a href="" id="exportBtn"
+                            class="btn btn-primary import-file-user-data print-btn pb-1 pt-1">
+                            Export
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive text-nowrap overflow-auto p-3" id="reportTableContainer">
+                    <div id="userTableContainer">
+                        @include('partials.user_list')
                     </div>
                 </div>
             </div>

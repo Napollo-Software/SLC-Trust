@@ -1,18 +1,18 @@
 @if($users->isEmpty())
-    <table id="userTable" class="table table-striped">
+    <table id="userTable" class="table table-striped  mb-0">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Billing Cycle</th>
-                <th>Balance</th>
-                <th>Surplus Amount</th>
+                <th class="">Name</th>
+                <th class="">Email</th>
+                <th class="">Phone</th>
+                <th class="">Billing Cycle</th>
+                <th class="">Balance</th>
+                <th class="">Surplus Amount</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td colspan="6" class="text-center text-muted">No users found.</td>
+                <td colspan="6" class="text-center text-muted py-5">No record found.</td>
             </tr>
         </tbody>
     </table>
