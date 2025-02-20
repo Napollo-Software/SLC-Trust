@@ -341,6 +341,23 @@
                         </ul>
                     </li>
                     @endif
+                    @if ($user->hasPermissionTo('Front Office'))
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
+                            <div class="parent-icon"><i class="bx bxs-report"></i>
+                            </div>
+                            <div class="menu-title d-flex align-items-center">Report</div>
+                            <div class="ms-auto dropy-icon"><i class="bx bx-chevron-down"></i></div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            {{-- @if ($user->hasPermissionTo('View Report')) --}}
+                            <li>
+                                <a class="dropdown-item {{in_array(Route::currentRouteName(),['reports.pending.deposit'])? 'active' : ''  }}" href="{{ route('reports.pending.deposit') }}"><i class="bx bx-spreadsheet"></i>Pending Deposit
+                                    </a></li>
+                            {{-- @endif --}}
+                        </ul>
+                    </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                             <div class="parent-icon"><i class="bx bx-cog"></i>

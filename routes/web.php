@@ -204,6 +204,9 @@ Route::group(['prefix' => 'leadreport', 'middleware' => ['isLoggedIn']], functio
 
 Route::group(['prefix' => 'reports', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/pending-deposit', [ReportController::class, 'pendingDepsit'])->name('reports.pending.deposit');
+    Route::get('/pending-deposit-filter', [ReportController::class, 'pendingDepsitFilter'])->name('reports.pending.deposit.filter');
+    Route::get('/pending-deposit/export', [ReportController::class, 'pendingDepsitExport'])->name('reports.pending.deposit.export');
     Route::match(['get', 'post'], '/add-report', [ReportController::class, 'add_report'])->name('reports.add_report');
     Route::get('/upload-file', [ReportController::class, 'upload_file'])->name('reports.upload_file');
     Route::post('/reports/duplicate/{report}', [ReportController::class, 'duplicate'])->name('reports.duplicate');

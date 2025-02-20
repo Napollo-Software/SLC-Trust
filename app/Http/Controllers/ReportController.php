@@ -2,23 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\contacts;
-use App\Models\Lead;
-use Illuminate\Support\Facades\Log;
-use App\Models\PayeeModel;
-use App\Models\Referral;
-use App\Models\Report;
-use Illuminate\Http\Request;
-use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Session;
-
-use App\Models\Transaction;
-use CreateClosingBalancesTable;
 use DateTime;
-use Illuminate\Support\Facades\Schema;
 use Redirect;
+use Carbon\Carbon;
+use App\Models\Lead;
+use App\Models\User;
+use App\Models\Report;
+use App\Models\contacts;
+use App\Models\Referral;
+use App\Models\PayeeModel;
+use App\Models\Transaction;
+
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Excel;
+use CreateClosingBalancesTable;
+use Illuminate\Support\Facades\Log;
+use App\Exports\PendingDepositExport;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 
 class ReportController extends Controller
@@ -34,6 +37,74 @@ class ReportController extends Controller
             return response()->json($reports);
         }
         return view('reports.index', compact('reports'));
+    }
+    public function pendingDepsit()
+    {
+        $users = collect([]);
+        return view('reports.pending-deposite', compact('users'));
+    }
+
+    public function pendingDepsitFilter(Request $request)
+    {
+        $query = User::with([
+            'transactions' => function ($query) {
+                $query->selectRaw('user_id, sum(credit) as total_credit, sum(debit) as total_debit')
+                    ->groupBy('user_id');
+            }
+        ]);
+
+        // Filter by billing cycle
+        if ($request->filled('billing_cycle')) {
+            $query->whereIn('billing_cycle', $request->billing_cycle);
+        }
+
+        // Filter by status
+        if ($request->filled('status')) {
+            if ($request->status === 'done') {
+                $query->whereHas('transactions', function ($q) {
+                    $q->where('type', 'deposit');
+                });
+            } else {
+                $query->whereDoesntHave('transactions', function ($q) {
+                    $q->where('type', 'deposit');
+                });
+            }
+        }
+        $query->where('account_status', 'Approved')
+            ->where('role', 'User');
+
+        $users = $query->get();
+
+        foreach ($users as $user) {
+            $credit = $user->transactions->sum('total_credit');
+            $debit = $user->transactions->sum('total_debit');
+            $user->balance = $credit - $debit;
+        }
+
+        return response()->json([
+            'html' => view('partials.user_list', compact('users'))->render()
+        ]);
+    }
+    public function pendingDepsitExport(Request $request, Excel $excel): BinaryFileResponse
+    {
+        $request->validate([
+            'billing_cycle' => 'nullable|array',
+            'billing_cycle.*' => 'string',
+            'status' => 'nullable|string',
+        ]);
+
+        $filters = [
+            'billing_cycle' => $request->input('billing_cycle', []),
+            'status' => $request->input('status', null),
+        ];
+
+        if (empty($filters['billing_cycle']) && empty($filters['status'])) {
+            return response()->noContent(204); 
+        }
+
+        $fileName = 'PendingDeposits_' . now()->format('Ymd_His') . '.xlsx';
+
+        return $excel->download(new PendingDepositExport($filters), $fileName);
     }
 
     public function view($id)
@@ -111,14 +182,11 @@ class ReportController extends Controller
         $users = User::where('role', 'User')->get();
         $transactions = Transaction::where('user_id', \Company::Account_id);
 
-        if ($request->type == 'operational')
-        {
+        if ($request->type == 'operational') {
             $transactions = $transactions->where('transaction_type', \TransactionType::Operational)->orderBy('id', 'DESC')->get();
-        } elseif ($request->type == 'trusted_surplus')
-        {
+        } elseif ($request->type == 'trusted_surplus') {
             $transactions = $transactions->where('transaction_type', \TransactionType::TrustedSurplus)->orderBy('id', 'DESC')->get();
-        } else
-        {
+        } else {
             $transactions = $transactions->orderBy('id', 'DESC')->get();
         }
 

@@ -16,6 +16,21 @@ class User extends Model
 
     const Approved = 'Approved';
 
+
+    const BILLING_CYCLES = [
+        1  => '1st of every Month',
+        3  => '3rd of every Month',
+        7  => '7th of every Month',
+        14 => '14th of every Month',
+        21 => '21st of every Month',
+        28 => '28th of every Month',
+    ];
+
+    public function getBillingCycleTitleAttribute()
+    {
+        return self::BILLING_CYCLES[$this->billing_cycle] ?? 'Unknown';
+    }
+
     public function calims()
     {
         return $this->hasMany(Claim::class, 'claim_user');
