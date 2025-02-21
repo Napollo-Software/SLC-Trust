@@ -1,26 +1,27 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Jobs\sendEmailJob;
-use App\Models\Category;
+use Hash;
+use Cookie;
+use Session;
+use Carbon\Carbon;
 use App\Models\City;
+use App\Models\Lead;
+use App\Models\User;
 use App\Models\Claim;
+use App\Models\Category;
 use App\Models\contacts;
 use App\Models\Followup;
-use App\Models\Lead;
-use App\Models\Notifcation;
 use App\Models\Referral;
+use App\Jobs\sendEmailJob;
+use App\Models\Notifcation;
 use App\Models\Transaction;
-use App\Models\User;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Carbon\Carbon;
-use Cookie;
-use Hash;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Session;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -417,7 +418,7 @@ class AuthController extends Controller
 
         if ($id) {
 
-            $notification = Notifcation::where('id', $id)
+            $notification = Notifcation::with('referralName')->where('id', $id)
                 ->where('user_id', $user->id)
                 ->first();
 
@@ -431,7 +432,7 @@ class AuthController extends Controller
             }
         } else {
 
-            $notifications = Notifcation::where('user_id', $user->id)
+            $notifications = Notifcation::with('referralName')->where('user_id', $user->id)
                 ->orderBy('id', 'desc')
                 ->get();
 
@@ -446,6 +447,9 @@ class AuthController extends Controller
 
     public function bill_reports(Request $request)
     {
+        $auth = Auth::user();
+        $role = $auth ? $auth->role : null;
+        
         $pool_fund = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
          - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
 
@@ -515,8 +519,7 @@ class AuthController extends Controller
 
         $start_date = null;
 
-        $followup = Followup::select('note', 'date')->get();
-
+        $followup = Followup::with('referralName')->select('note', 'date' , 'referral_id')->get();
         $customers = User::where('role', 'User')
             ->leftJoin('transactions', 'users.id', '=', 'transactions.user_id')
             ->select('users.id', 'users.name', 'users.email', \DB::raw('SUM(transactions.credit) - SUM(transactions.debit) as balance'))

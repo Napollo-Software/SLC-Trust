@@ -4716,10 +4716,10 @@ input::placeholder {
 	position: absolute;
 
 
-	bottom: 1px;
+	bottom: -1px;
 
 
-	right: 17px;
+	right: 18px;
 
 
 	width: 8px;

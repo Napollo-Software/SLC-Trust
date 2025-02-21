@@ -14,25 +14,37 @@ $role = $login_user->role;
 
         if($role == 'Admin')
         {
-            $followup = Followup::with(['employee' => function($query){
-                $query->select('id', 'name', 'last_name');
-            }])->where('type', 'followup')->get();
+            $followup = Followup::with([
+                'employee:id,name,last_name',
+                'toName:id,name,last_name',
+                'fromName:id,name,last_name'
+            ])->where('type', 'followup')->get();
+
+
 
         } elseif ($role == 'Employee')
         {
-            $followup = Followup::with(['employee' => function($query) {
-                $query->select('id', 'name', 'last_name');
-            }])->where('type', 'followup')
-            ->where(function($query) {
-                $query->where('to', Session::get('loginId'))
-                    ->orWhere('from', Session::get('loginId'));
+            $followup = Followup::with([
+                'employee:id,name,last_name',
+                'toName:id,name,last_name',
+                'fromName:id,name,last_name'
+            ])->where('type', 'followup')
+            ->where(function ($query) {
+                $loginId = Session::get('loginId');
+                $query->where('to', $loginId)
+                    ->orWhere('from', $loginId);
             })->get();
+
 
         } else {
 
-            $followup = Followup::with(['employee' => function($query){
-                $query->select('id', 'name', 'last_name');
-            }])->where('type', 'followup')->where('to', Session::get('loginId'))->get();
+            $followup = Followup::with([
+                'employee:id,name,last_name',
+                'toName:id,name,last_name',
+                'fromName:id,name,last_name'
+            ])->where('type', 'followup')
+            ->where('to', Session::get('loginId'))
+            ->get();
 
         }
 
@@ -629,7 +641,7 @@ $role = $login_user->role;
         document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar22');
         var followupEvents = @json($followup);
-
+        var role = '{{ $role }}';
         var calendar = new FullCalendar.Calendar(calendarEl, {
             headerToolbar: {
                 right: 'dayGridMonth prev next'
@@ -641,42 +653,123 @@ $role = $login_user->role;
             selectable: true,
             selectMirror: true,
             droppable: true,
-            themeColor: '#559e99',
+            themeColor: '#559de99',
             dayMaxEvents: true,
             events: followupEvents.map(function(event) {
                 return {
                     id: event.id,
                     start: event.date,
+                    from: event.from,
+                    to: event.to,
                     extendedProps: {
                         note: event.note,
                         completed: event.completed,
                         date: event.date,
-                        user: event.employee
+                        user: event.employee,
+                        from: event.from_name,
+                        to: event.to_name,
                     }
                 };
             }),
-            eventContent: function(info) {
+          
+            dayCellDidMount: function (info) {
+                var clickedDate = new Date(info.date);
+                const year = clickedDate.getFullYear();
+                const month = String(clickedDate.getMonth() + 1).padStart(2, '0');
+                const day = String(clickedDate.getDate()).padStart(2, '0');
+                const formattedDate = `${year}-${month}-${day}`;
+                // const completed = info.event.extendedProps.completed;
+                var matchingEvents = followupEvents.filter(event => event.date === formattedDate);
 
+                if (matchingEvents.length > 0) {
+                    setTimeout(() => {
+                        matchingEvents.forEach(matchingEvent => {
+                            // Select all elements with a unique ID based on event ID
+                            var eventElements = document.querySelectorAll(`#calendar_follow_up_${matchingEvent.id}`);
+                            
+                            eventElements.forEach(eventElement => {
+                                if (matchingEvent.from == matchingEvent.to && role == 'Admin') {
+                                    eventElement.style.backgroundColor = "#6DC6A7"; // Soft Green (Success)
+                                    eventElement.style.color = "#ffffff"; // White text
+                                    eventElement.style.border = "none"; 
+                                    // eventElement.style.opacity = "0.5"; 
+                                 } else {
+                                    eventElement.style.backgroundColor = "#red"; // Soft Yellow
+                                    eventElement.style.color = "#ffffff"; // Dark text
+                                    eventElement.style.border = "none";  
+                                 }
+
+                                // Additional styles for better UI
+                                eventElement.style.padding = "6px";
+                                eventElement.style.borderRadius = "0px";
+                                eventElement.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.2)"; // Soft shadow
+                                eventElement.style.fontWeight = "400";
+                                eventElement.style.textAlign = "center";
+                                eventElement.style.overflow = "hidden";
+                                eventElement.style.whiteSpace = "nowrap";
+                                eventElement.style.textOverflow = "ellipsis";
+                                eventElement.style.width = "100%"; // Adjust based on your layout
+                                // eventElement.style.maxWidth = "200px"; // Adjust as needed
+                            });
+                        });
+                    }, 50); // Small delay to ensure rendering
+                }
+            },
+
+            eventContent: function(info) {
                 const id = info.event.id;
                 const note = info.event.extendedProps.note;
                 const completed = info.event.extendedProps.completed;
+                const from = info.event.extendedProps.from;
+                const to = info.event.extendedProps.to;
                 const user = info.event.extendedProps.user || {};
                 const userName = `${user.name || ''} ${user.last_name || ''}`.trim();
                 const strikeThrough = completed ? 'style="text-decoration: line-through;"' : '';
-
+                
+                // Create the content div
                 const content = document.createElement('div');
                 content.id = `calendar_follow_up_${id}`;
                 content.classList.add('custom-event-content');
+                
+                // Set the inner HTML content for the event
                 content.innerHTML = `
                     <div ${strikeThrough}>
                         <strong>${userName}:</strong>
                         "${note.length > 5 ? note.substring(0, 5) + '...' : note}"
                     </div>
                 `;
+                // Apply additional styles if completed
+                if (completed) {
+                    content.style.color = "#ffffff"; // White text
+                    content.style.background = "lightgray"; // White text
+                    content.style.border = "none"; // Darker green border
 
+                } else {
+                    if(from === to && role == 'Admin'){
+                        content.style.setProperty("background-color", "#6DC6A7", "important");
+                    }
+                    content.style.color = "#ffffff"; // Dark text
+                    content.style.border = "1px solid lightgray"; // Gold border                   
+                } 
+
+                
+                
+                // Additional styles for better UI
+               
+                content.style.padding = "6px";
+                content.style.borderRadius = "0px";
+                content.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.2)"; // Soft shadow
+                content.style.fontWeight = "400";
+                content.style.textAlign = "center";
+                content.style.overflow = "hidden";
+                content.style.whiteSpace = "nowrap";
+                content.style.textOverflow = "ellipsis";
+                content.style.width = "100%"; // Adjust based on your layout
                 return { domNodes: [content] };
             },
+
             eventClick: function(info) {
+              
                 info.jsEvent.preventDefault();
 
                 var clickedDate = new Date(info.event.start);
@@ -689,27 +782,70 @@ $role = $login_user->role;
                     return event.date === formattedDate;
                 });
 
-                var content = '<h5 class="pb-2">' + clickedDate.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: '2-digit',
-                    day: '2-digit'
-                }) + '</h5>';
-
+                // var content = ' <p class="pb-2"> <span class="fw-medium">Date: </span> ' + clickedDate.toLocaleDateString('en-US', {
+                //     year: 'numeric',
+                //     month: '2-digit',
+                //     day: '2-digit'
+                // }) + '</p>  ';
+                // <div class=" d-flex align-items-center justify-content-between gap-2"> <div >
+                //                 <span class="fw-bold">Date:</span> 
+                //                 ${clickedDate.toLocaleDateString('en-US', {
+                //                     year: 'numeric',
+                //                     month: '2-digit',
+                //                     day: '2-digit'
+                //                 })}
+                //             </div>
+                //             <div>
+                //                 <span class="text-nowrap"><span class="fw-bold">Time:</span>  ${convertTo12Hour(event.time)}</span>
+                //             </div></div>
                 var eventDetails = eventsForDate.map(function(event) {
-                    const checked = event.completed ? 'checked' : '';
-                    const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
-                    const userName = `${event.employee.name || ''} ${event.employee.last_name || ''}`.trim();
+                const checked = event.completed ? 'checked' : '';
+                const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
+                const userName = `${event.employee.name || ''} ${event.employee.last_name || ''}`.trim();
+                const fromName = `${event.from_name.name || ''} ${event.from_name.last_name || ''}`.trim();
+                const toName = `${event.to_name.name || ''} ${event.to_name.last_name || ''}`.trim();
+                return `
+                  <div class=" pb-2"> <div >
+                                <span class="fw-semibold">Date:</span> 
+                                ${clickedDate.toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: '2-digit',
+                                    day: '2-digit'
+                                })}
+                            </div>
+                            <div class="d-flex align-items-center pt-1">
+                                <span class="text-nowrap"><span class="fw-semibold">Time:</span>  ${convertTo12Hour(event.time)}</span>
+                            </div></div>
+                 <div class="mb-2 d-flex align-items-center flex-wrap justify-content-between gap-2">
+                    <div class="fw-medium fs-6" >Follow up Details</div>
+                   <div>
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="checkbox" class="toggle-completed" data-id="${event.id}" ${checked}>
+                            <p id="change_strike_${event.id}" ${strikeThrough} class="m-0 fw-medium" >
+                                 Mark as completed
+                            </p>
+                        </div>
+                       
+                    </div>
+                 </div>
+                    <div class="p-3 border rounded bg-light mb-2 ">
 
-                    return `<li class="border-bottom d-flex justify-content-between py-2 pt-3 text-7 m-0" style="font-size: 13px !important; list-style:none;">
-                                <div class="d-flex justify-content-start align-items-start gap-1">
-                                    <input type="checkbox" class="mt-1 toggle-completed" data-id="${event.id}" ${checked}>
-                                    <p id="change_strike_${event.id}" ${strikeThrough}>${userName}: "${event.note}"</p>
-                                </div>
-                                <span ${strikeThrough} class="text-nowrap" id="date_change_strike_${event.id}" class="float-end">${convertTo12Hour(event.time)}</span>
-                            </li>`;
-                }).join('');
+                        <div class="pb-2 d-flex align-items-center gap-2 border-bottom">
+                            <div class="fw-medium" style="width: 100px">From:</div> <div  >${fromName}</div>
+                        </div>
+                        <div class="py-2 d-flex align-items-center gap-2 border-bottom">
+                            <div class="fw-medium" style="width: 100px">To:</div> <div  >${toName}</div>
+                        </div>
+                        <div class="pt-2 d-flex align-items-center gap-2  ">
+                            <div class="fw-medium" style="width: 100px">Note:</div> <div class="ok" ${strikeThrough}>${event.note}</div>
+                        </div>
+                    </div>
 
-                $('#eventDetails').html(content + eventDetails);
+                  `;
+            }).join('');
+
+
+                $('#eventDetails').html( eventDetails);
                 $('#eventModal').modal('show');
 
                 $('.toggle-completed').on('change', function() {
@@ -736,9 +872,11 @@ $role = $login_user->role;
                         if (isCompleted) {
                             $("#change_strike_"+followupId).css('text-decoration', 'line-through')
                             $("#date_change_strike_"+followupId).css('text-decoration', 'line-through')
+                            $(".ok").css('text-decoration', 'line-through')
                         } else {
                             $("#change_strike_"+followupId).css('text-decoration', 'none')
                             $("#date_change_strike_"+followupId).css('text-decoration', 'none')
+                            $(".ok").css('text-decoration', 'none')
                         }
 
                         const event = calendar.getEventById(followupId);

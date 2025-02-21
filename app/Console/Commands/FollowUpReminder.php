@@ -51,6 +51,7 @@ class FollowUpReminder extends Command
         ->whereDate('date', $currentDate)
         ->whereTime('time', 'like', $currentHour . ':%')
         ->get();
+        
         foreach ($followups as $followup){
             $user = User::find($followup->to);
             $admins = User::where('role', "admin")->get();
@@ -62,6 +63,7 @@ class FollowUpReminder extends Command
                     'name' => $admin->name,
                     'description' => 'Reminder for '.$user->full_name().' "'.$followup->note.'" scheduled for today at '.$followup->time,
                     'title' => 'Follow up',
+                    'referral_id' => $followup->referral_id,
                     'status' => 0,
                 ]);
             }

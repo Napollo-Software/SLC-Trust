@@ -46,17 +46,30 @@
                                 @endif
                                 @foreach ($notifications as $item)
                                 <a class="dropdown-item" href="{{ url('notifications/'.$item->id) }}">
-                                    <div class="d-flex align-items-center gap-3" >
+                                    <div class="d-flex align-items-start gap-3" >
                                       <div>
-                                            <div class="user-online" style="width: 45px; height: 45px;">
+                                            <div class="user-online mt-3" style="width: 45px; height: 45px;">
                                                 <img src="{{ $item->user_details->avatar }}" class=" " alt="user avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%">
                                             </div>
                                         </div>
                                         <div class="">
                                             <h6 class="msg-name"><span class="msg-time float-end">{{ us_date_format($item->created_at) }}</span></h6>
                                             <br>
-                                            <h6 class="msg-name">{{ $item->title }}</h6>
-                                            <p class="msg-info" style="text-wrap:wrap">{{ $item->description }}</p>
+                                            <h6 class="msg-name">{{ $item->title  }}</h6>
+                                            
+                                            <!-- ------ conditional ------ -->
+                                            <div class="p-2 mt-1" style="text-wrap:wrap; background: #CFF4FC; border-radius: 4px;">
+                                                <span>
+                                                    {{ $item->description }}
+                                                     @if(optional($item->referralName)->referral_name)
+                                                        regarding <strong>Referral {{ $item->referralName->referral_name }}</strong>
+                                                    @endif
+                                                    {{-- <br/> 
+                                                    <span class="d-inline-block text-truncate" style="max-width: 200px;">Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout that does not yet have content.</span>  --}}
+                                                </span>
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </a>
