@@ -112,6 +112,15 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-sm-4">
+                                            <h6 class="mb-0">Account No</h6>
+                                        </div>
+                                        <div class="col-sm-8 text-secondary">
+                                            {{ $user->id }}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
                                             <h6 class="mb-0">Full Name</h6>
                                         </div>
                                         <div class="col-sm-8 text-secondary">

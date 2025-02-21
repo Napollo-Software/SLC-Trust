@@ -138,7 +138,7 @@
                                 <thead class="table-light">
                                 <tr>
                                     <th>Actions</th>
-                                    <!--th>UID#</th-->
+                                    <th>Account No</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Role</th>
@@ -182,7 +182,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <!--td>{{ $u->id }}</td-->
+                                        <td>{{ $u->id }}</td>
                                         <td>
                                             @if ($role == 'Admin')
                                                 <a href="{{ route('show_user', $u['id']) }}">{{ $u['name'] }}
