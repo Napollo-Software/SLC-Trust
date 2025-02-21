@@ -806,7 +806,7 @@ $role = $login_user->role;
                 const toName = `${event.to_name.name || ''} ${event.to_name.last_name || ''}`.trim();
                 return `
                   <div class=" pb-2"> <div >
-                                <span class="fw-bold">Date:</span> 
+                                <span class="fw-semibold">Date:</span> 
                                 ${clickedDate.toLocaleDateString('en-US', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -814,10 +814,10 @@ $role = $login_user->role;
                                 })}
                             </div>
                             <div class="d-flex align-items-center pt-1">
-                                <span class="text-nowrap"><span class="fw-bold">Time:</span>  ${convertTo12Hour(event.time)}</span>
+                                <span class="text-nowrap"><span class="fw-semibold">Time:</span>  ${convertTo12Hour(event.time)}</span>
                             </div></div>
                  <div class="mb-1 d-flex align-items-center flex-wrap justify-content-between gap-2">
-                    <div class="fw-bold fs-6" >Follow up Details</div>
+                    <div class="fw-semibold fs-6" >Follow up Details</div>
                    <div>
                         <div class="d-flex align-items-center gap-2">
                             <input type="checkbox" class="toggle-completed" data-id="${event.id}" ${checked}>

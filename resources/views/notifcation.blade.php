@@ -110,7 +110,7 @@
                     <div class="notification-list_img rounded-circle bg-success"> </div>
                     <div class="notification-list_detail ">
                         <!-- --------conditional ----- -->
-                        <div class="fw-semibold pt-1 fs-5">{{ $data->title }}</div> 
+                        <div class="fw-medium pt-1 fs-5">{{ $data->title }}</div> 
                         <!-- <div class="alert alert-info mb-0 p-2 rounded text-black" style="text-wrap:wrap">
                             <span>
                                 <strong>John Doe</strong> is following up with <strong>Jane Smith</strong> regarding  
