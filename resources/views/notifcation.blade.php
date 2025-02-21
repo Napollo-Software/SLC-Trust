@@ -110,7 +110,7 @@
                     <div class="notification-list_img rounded-circle bg-success"> </div>
                     <div class="notification-list_detail ">
                         <!-- --------conditional ----- -->
-                        <div class="fw-semibold pt-1 fs-5">{{ $data->title }}</div> 
+                        <div class="fw-medium py-1" style="font-size: 16px">{{ $data->title }}</div> 
                         <!-- <div class="alert alert-info mb-0 p-2 rounded text-black" style="text-wrap:wrap">
                             <span>
                                 <strong>John Doe</strong> is following up with <strong>Jane Smith</strong> regarding  
@@ -120,7 +120,7 @@
                                 <span >Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web development to fill empty spaces in a layout that does not yet have content.</span> 
                             </span>
                         </div> -->
-                        <div class="alert alert-info mb-0 p-2 rounded text-black" style="text-wrap:wrap">
+                        <div class="alert alert-info mb-0 p-2 rounded text-black " style="text-wrap:wrap">
                             <span>
                             <!-- <div class="fw-semibold pt-1">{{ $data->title }}</div>  -->
                             {{ $data->description }} 
@@ -129,7 +129,7 @@
                             @endif
                         </span>
                     </div>
-                        <p class="text-muted pt-1"><small>at {{date('m/d/Y h:i A',strtotime($data->created_at))}}</small></p>  
+                        <p class="text-muted pt-2"><small>at {{date('m/d/Y h:i A',strtotime($data->created_at))}}</small></p>  
                     </div>
                 </div>
                 <div class="notification-list_feature-img p-2" style="margin-top:-10px;margin-right:-20px;background-color:#69B4AC; height:37px "> <button type="button" class="btn-close remove-notification text-white" data-id="{{$data->id}}" data-bs-dismiss="alert" aria-label="Close"></button> </div>

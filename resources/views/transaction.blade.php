@@ -806,7 +806,7 @@ $role = $login_user->role;
                 const toName = `${event.to_name.name || ''} ${event.to_name.last_name || ''}`.trim();
                 return `
                   <div class=" pb-2"> <div >
-                                <span class="fw-bold">Date:</span> 
+                                <span class="fw-semibold">Date:</span> 
                                 ${clickedDate.toLocaleDateString('en-US', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -814,14 +814,14 @@ $role = $login_user->role;
                                 })}
                             </div>
                             <div class="d-flex align-items-center pt-1">
-                                <span class="text-nowrap"><span class="fw-bold">Time:</span>  ${convertTo12Hour(event.time)}</span>
+                                <span class="text-nowrap"><span class="fw-semibold">Time:</span>  ${convertTo12Hour(event.time)}</span>
                             </div></div>
-                 <div class="mb-1 d-flex align-items-center flex-wrap justify-content-between gap-2">
-                    <div class="fw-bold fs-6" >Follow up Details</div>
+                 <div class="mb-2 d-flex align-items-center flex-wrap justify-content-between gap-2">
+                    <div class="fw-medium fs-6" >Follow up Details</div>
                    <div>
                         <div class="d-flex align-items-center gap-2">
                             <input type="checkbox" class="toggle-completed" data-id="${event.id}" ${checked}>
-                            <p id="change_strike_${event.id}" ${strikeThrough} class="m-0 fw-semibold" >
+                            <p id="change_strike_${event.id}" ${strikeThrough} class="m-0 fw-medium" >
                                  Mark as completed
                             </p>
                         </div>
@@ -831,13 +831,13 @@ $role = $login_user->role;
                     <div class="p-3 border rounded bg-light mb-2 ">
 
                         <div class="pb-2 d-flex align-items-center gap-2 border-bottom">
-                            <div class="fw-semibold" style="width: 100px">From:</div> <div  >${fromName}</div>
+                            <div class="fw-medium" style="width: 100px">From:</div> <div  >${fromName}</div>
                         </div>
                         <div class="py-2 d-flex align-items-center gap-2 border-bottom">
-                            <div class="fw-semibold" style="width: 100px">To:</div> <div  >${toName}</div>
+                            <div class="fw-medium" style="width: 100px">To:</div> <div  >${toName}</div>
                         </div>
                         <div class="pt-2 d-flex align-items-center gap-2  ">
-                            <div class="fw-semibold" style="width: 100px">Note:</div> <div class="ok" ${strikeThrough}>${event.note}</div>
+                            <div class="fw-medium" style="width: 100px">Note:</div> <div class="ok" ${strikeThrough}>${event.note}</div>
                         </div>
                     </div>
 
