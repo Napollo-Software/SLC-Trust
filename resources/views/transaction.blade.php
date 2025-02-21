@@ -17,7 +17,8 @@ $role = $login_user->role;
             $followup = Followup::with([
                 'employee:id,name,last_name',
                 'toName:id,name,last_name',
-                'fromName:id,name,last_name'
+                'fromName:id,name,last_name',
+                'referralName'
             ])->where('type', 'followup')->get();
 
 
@@ -27,7 +28,8 @@ $role = $login_user->role;
             $followup = Followup::with([
                 'employee:id,name,last_name',
                 'toName:id,name,last_name',
-                'fromName:id,name,last_name'
+                'fromName:id,name,last_name',
+                'referralName'
             ])->where('type', 'followup')
             ->where(function ($query) {
                 $loginId = Session::get('loginId');
@@ -41,7 +43,8 @@ $role = $login_user->role;
             $followup = Followup::with([
                 'employee:id,name,last_name',
                 'toName:id,name,last_name',
-                'fromName:id,name,last_name'
+                'fromName:id,name,last_name',
+                'referralName'
             ])->where('type', 'followup')
             ->where('to', Session::get('loginId'))
             ->get();
@@ -668,6 +671,9 @@ $role = $login_user->role;
                         user: event.employee,
                         from: event.from_name,
                         to: event.to_name,
+                        referral_name: event.referral_name && event.referral_name.referral_name 
+                        ? event.referral_name.referral_name 
+                        : null , // Ensure safe access
                     }
                 };
             }),
@@ -722,10 +728,10 @@ $role = $login_user->role;
                 const completed = info.event.extendedProps.completed;
                 const from = info.event.extendedProps.from;
                 const to = info.event.extendedProps.to;
+                const referral_name = info.event.extendedProps.referral_name;
                 const user = info.event.extendedProps.user || {};
                 const userName = `${user.name || ''} ${user.last_name || ''}`.trim();
                 const strikeThrough = completed ? 'style="text-decoration: line-through;"' : '';
-                
                 // Create the content div
                 const content = document.createElement('div');
                 content.id = `calendar_follow_up_${id}`;
@@ -769,7 +775,7 @@ $role = $login_user->role;
             },
 
             eventClick: function(info) {
-              
+                console.log("Info ==> " , info);
                 info.jsEvent.preventDefault();
 
                 var clickedDate = new Date(info.event.start);
@@ -799,11 +805,13 @@ $role = $login_user->role;
                 //                 <span class="text-nowrap"><span class="fw-bold">Time:</span>  ${convertTo12Hour(event.time)}</span>
                 //             </div></div>
                 var eventDetails = eventsForDate.map(function(event) {
+                    console.log("Event => " , event);
                 const checked = event.completed ? 'checked' : '';
                 const strikeThrough = event.completed ? 'style="text-decoration: line-through;"' : '';
                 const userName = `${event.employee.name || ''} ${event.employee.last_name || ''}`.trim();
                 const fromName = `${event.from_name.name || ''} ${event.from_name.last_name || ''}`.trim();
                 const toName = `${event.to_name.name || ''} ${event.to_name.last_name || ''}`.trim();
+                const referral_name = event.referral_name?.referral_name || null;
                 return `
                   <div class=" pb-2"> <div >
                                 <span class="fw-semibold">Date:</span> 
@@ -836,6 +844,11 @@ $role = $login_user->role;
                         <div class="py-2 d-flex align-items-center gap-2 border-bottom">
                             <div class="fw-medium" style="width: 100px">To:</div> <div  >${toName}</div>
                         </div>
+                        ${referral_name ? `
+                            <div class="py-2 d-flex align-items-center gap-2 border-bottom">
+                                <div class="fw-medium" style="width: 100px">Referral Name:</div> <div>${referral_name}</div>
+                            </div>
+                        ` : ''}
                         <div class="pt-2 d-flex align-items-center gap-2  ">
                             <div class="fw-medium" style="width: 100px">Note:</div> <div class="ok" ${strikeThrough}>${event.note}</div>
                         </div>
