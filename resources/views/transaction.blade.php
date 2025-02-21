@@ -641,7 +641,7 @@ $role = $login_user->role;
         document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar22');
         var followupEvents = @json($followup);
-          
+        var role = '{{ $role }}';
         var calendar = new FullCalendar.Calendar(calendarEl, {
             headerToolbar: {
                 right: 'dayGridMonth prev next'
@@ -688,7 +688,7 @@ $role = $login_user->role;
                             var eventElements = document.querySelectorAll(`#calendar_follow_up_${matchingEvent.id}`);
                             
                             eventElements.forEach(eventElement => {
-                                if (matchingEvent.from == matchingEvent.to) {
+                                if (matchingEvent.from == matchingEvent.to && role == 'Admin') {
                                     eventElement.style.backgroundColor = "#6DC6A7"; // Soft Green (Success)
                                     eventElement.style.color = "#ffffff"; // White text
                                     eventElement.style.border = "none"; 
@@ -745,7 +745,7 @@ $role = $login_user->role;
                     content.style.border = "none"; // Darker green border
 
                 } else {
-                    if(from === to){
+                    if(from === to && role == 'Admin'){
                         content.style.setProperty("background-color", "#6DC6A7", "important");
                     }
                     content.style.color = "#ffffff"; // Dark text

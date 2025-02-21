@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Followup;
-use App\Models\User;
 use App\Models\lead;
-use App\Models\Referral;
 use App\Models\Type;
+use App\Models\User;
+use App\Models\Followup;
+use App\Models\Referral;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -15,6 +16,9 @@ class FollowupController extends Controller
 {
     public function index(Request $request)
     {
+        $auth = Auth::user();
+        $role = $auth ? $auth->role : null;
+        
         $routeName = Route::currentRouteName();
 
         $from = User::where('id', '=', Session::get('loginId'))->first();
@@ -23,7 +27,7 @@ class FollowupController extends Controller
         if ($routeName === 'follow_up.list') {
             $data = Followup::where('type', 'note')->get();
             $to = Referral::all();
-            return view('follow-up.index', compact('data', 'from', 'to'));
+            return view('follow-up.index', compact('data', 'from', 'to' , 'role'));
         } else if ($routeName === 'follow_up.index') {
             $query = Followup::where('type', 'followup');
 
@@ -47,7 +51,7 @@ class FollowupController extends Controller
                 $query->where('role', 'employee');
             })->get();
             $referrals = Referral::all();
-            return view('follow-up-new.index', compact('data', 'from', 'to', 'referrals'));
+            return view('follow-up-new.index', compact('data', 'from', 'to', 'referrals' , 'role'));
         }
     }
 

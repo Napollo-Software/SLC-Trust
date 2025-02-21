@@ -1,26 +1,27 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Jobs\sendEmailJob;
-use App\Models\Category;
+use Hash;
+use Cookie;
+use Session;
+use Carbon\Carbon;
 use App\Models\City;
+use App\Models\Lead;
+use App\Models\User;
 use App\Models\Claim;
+use App\Models\Category;
 use App\Models\contacts;
 use App\Models\Followup;
-use App\Models\Lead;
-use App\Models\Notifcation;
 use App\Models\Referral;
+use App\Jobs\sendEmailJob;
+use App\Models\Notifcation;
 use App\Models\Transaction;
-use App\Models\User;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Carbon\Carbon;
-use Cookie;
-use Hash;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Session;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -446,6 +447,9 @@ class AuthController extends Controller
 
     public function bill_reports(Request $request)
     {
+        $auth = Auth::user();
+        $role = $auth ? $auth->role : null;
+        
         $pool_fund = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
          - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
 
