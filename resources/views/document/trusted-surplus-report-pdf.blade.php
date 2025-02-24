@@ -175,7 +175,7 @@
                         </td>
                         <td style="width: 40%; vertical-align: top;" colspan="1">
                             <label style="font-family: 'Poppins-Regular'; font-size: 14px;">
-                                {{ $transaction->type == \App\Models\Transaction::EnrollmentFee ? 'Enrollment' : \Carbon\Carbon::parse($transaction->date)->format('F Y') }}
+                                {{ $transaction->type == \App\Models\Transaction::EnrollmentFee ? 'Enrollment' : \Carbon\Carbon::parse($transaction->created_at)->format('F Y') }}
                             </label>
                         </td>
                         <td style="text-align: end; vertical-align: top; position: relative;" colspan="1">

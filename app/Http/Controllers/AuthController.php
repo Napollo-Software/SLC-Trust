@@ -1145,8 +1145,8 @@ class AuthController extends Controller
         $endDate   = Carbon::parse($request->endDate)->endOfDay();
 
         $transactions = Transaction::where('user_id', $user->id)
-            ->where('type', '!=', Transaction::MaintenanceFee)
-            ->whereBetween('created_at', [$startDate, $endDate])
+        ->whereNotIn('type', [Transaction::MaintenanceFee, Transaction::CreditCard]) 
+        ->whereBetween('created_at', [$startDate, $endDate])
             ->orderByRaw("CASE WHEN type = ? THEN 1 ELSE 2 END", [Transaction::EnrollmentFee])
             ->orderBy('created_at', 'ASC')
             ->get();
