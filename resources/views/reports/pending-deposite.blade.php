@@ -13,10 +13,10 @@
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Pending Deposit Reports</b> </div>
     </h5>
-    <div class="row justify-content-start  ">
-        <div class="col-md-3 " >
+    <div class="row justify-content-start  g-3">
+        <div class="col-lg-3 " >
            <div class="sticky_box">
-                <div class="card"  >
+                <div class="card mb-3"  >
                     <div class="card-header ">
                     <h5 class="mb-0 fw-bold text-primary">Billing Cycle</h5>
                     </div>
@@ -82,7 +82,7 @@
             </div>
                                         
             </div>
-        <div class="col-md-9 ">
+        <div class="col-lg-9 ">
             <div class="card " style=" ">
                 <div class="card-header">
                     <div class="d-flex align-items-center justify-content-between ">
@@ -114,6 +114,7 @@
     </div>
 </div>
 @endsection
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 <script>

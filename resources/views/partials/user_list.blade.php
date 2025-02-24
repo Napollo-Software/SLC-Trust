@@ -33,8 +33,8 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->phone }}</td>
-                    <td>{{ $user->billing_cycle_title }}</td>
+                    <td class="text-nowrap">{{ $user->phone }}</td>
+                    <td class="text-nowrap">{{ $user->billing_cycle_title }}</td>
                     <td>${{ number_format((float) $user->balance, 2, '.', ',') ?? 'N/A' }}</td>
                     <td>${{ number_format((float) $user->surplus_amount, 2, '.', ',') }}</td>
                 </tr>
