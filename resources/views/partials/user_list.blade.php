@@ -1,5 +1,5 @@
 @if($users->isEmpty())
-    <table id="userTable" class="table table-striped  mb-0">
+    <table id="userTable" class="table table-hover  mb-0">
         <thead>
             <tr>
                 <th class="">Name</th>
@@ -17,7 +17,7 @@
         </tbody>
     </table>
 @else
-    <table id="userTable" class="table table-striped">
+    <table id="userTable" class="table table-hover">
         <thead>
             <tr>
                 <th>Name</th>

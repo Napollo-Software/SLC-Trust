@@ -87,7 +87,7 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center justify-content-between ">
                         <div class="">
-                            <h5 class="mb-0 fw-bold text-primary d-flex align-items-center gap-1">
+                            <h5 class="mb-0 text-black d-flex align-items-center gap-1">
                                 <i class='bx bx-grid'></i>
                                 <div>
                                     Report Overview
