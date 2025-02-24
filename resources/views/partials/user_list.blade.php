@@ -12,7 +12,9 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="6" class="text-center text-muted py-5">No record found.</td>
+                <td colspan="6" ><div class="text-center text-muted d-flex align-items-center w-100 justify-content-center" style="height:112px">
+                No record found.
+                </div></td>
             </tr>
         </tbody>
     </table>
