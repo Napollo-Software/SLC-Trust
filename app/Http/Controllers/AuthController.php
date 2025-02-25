@@ -970,35 +970,38 @@ class AuthController extends Controller
                 mkdir($directory, 0777, true);
             }
 
-            $pdf = PDF::loadView('document.trusted-surplus-pdf', [
-                'user'                     => $user,
-                "deposit_transaction"      => $deposit_transaction,
-                "registration_transaction" => $registration_transaction,
-                "maintenance_transaction"  => $maintenance_transaction,
-            ])
-                ->setOption([
-                    'fontDir'     => public_path('/fonts'),
-                    'fontCache'   => public_path('/fonts'),
-                    'defaultFont' => 'Nominee-Black',
+            if(!empty($deposit_transaction) || !empty($registration_transaction)){
+                Log::info('Transaction Debugging', [
+                    'deposit_transaction'      => $deposit_transaction ? $deposit_transaction->toArray() : null,
+                    'registration_transaction' => $registration_transaction ? $registration_transaction->toArray() : null,
+                ]);
+                $pdf = PDF::loadView('document.trusted-surplus-pdf', [
+                    'user'                     => $user,
+                    "deposit_transaction"      => $deposit_transaction,
+                    "registration_transaction" => $registration_transaction,
+                    "maintenance_transaction"  => $maintenance_transaction,
                 ])
-                ->setPaper('A4', 'portrait');
-
-            $file_name = 'VOD_' . $user->full_name() . "_" . date('F_Y_His') . ".pdf";
-            $file_path = "$directory/$file_name";
-            $pdf->save("$directory/$file_name");
-
-            if (file_exists($file_path)) {
-                if (!empty($deposit_transaction)) {
-                    $deposit_transaction->update(["vod_link" => $file_name]);
-                } elseif (!empty($registration_transaction)) {
-                    $registration_transaction->update(["vod_link" => $file_name]);
-                } elseif (!empty($maintenance_transaction)) {
-                    $maintenance_transaction->update(["vod_link" => $file_name]);
-                } elseif (!empty($credit_card_transaction)) {
-                    $credit_card_transaction->update(["vod_link" => $file_name]);
+                    ->setOption([
+                        'fontDir'     => public_path('/fonts'),
+                        'fontCache'   => public_path('/fonts'),
+                        'defaultFont' => 'Nominee-Black',
+                    ])
+                    ->setPaper('A4', 'portrait');
+    
+                $file_name = 'VOD_' . $user->full_name() . "_" . date('F_Y_His') . ".pdf";
+                $file_path = "$directory/$file_name";
+                $pdf->save("$directory/$file_name");
+                if (file_exists($file_path)) {
+                    if (!empty($deposit_transaction)) {
+                        Log::info("deposit_transaction ");
+                        $deposit_transaction->update(["vod_link" => $file_name]);
+                    } elseif (!empty($registration_transaction)) {
+                        Log::info("registration_transaction ");
+                        $registration_transaction->update(["vod_link" => $file_name]);
+                    } 
+                } else {
+                    Log::error("PDF generation failed: {$file_path}");
                 }
-            } else {
-                Log::error("PDF generation failed: {$file_path}");
             }
 
             Notifcation::create([
