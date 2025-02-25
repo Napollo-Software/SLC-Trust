@@ -917,7 +917,6 @@ class AuthController extends Controller
             }
 
             if ($request->registration_fee && $request->registration_fee_amount > 0) {
-
                 $registration_fee_description      = "A one-time enrollment fee of \${$request->registration_fee_amount} has been charged.";
                 $customer_registration_description = "A one-time Enrollment fee of \${$request->registration_fee_amount} deducted.";
 
@@ -930,6 +929,7 @@ class AuthController extends Controller
                     "description"      => $customer_registration_description,
                     "transaction_type" => \TransactionType::Operational,
                 ]);
+
 
                 $admin->transactions()->create([
                     "reference_id"     => $reference_id,
@@ -971,10 +971,6 @@ class AuthController extends Controller
             }
 
             if(!empty($deposit_transaction) || !empty($registration_transaction)){
-                Log::info('Transaction Debugging', [
-                    'deposit_transaction'      => $deposit_transaction ? $deposit_transaction->toArray() : null,
-                    'registration_transaction' => $registration_transaction ? $registration_transaction->toArray() : null,
-                ]);
                 $pdf = PDF::loadView('document.trusted-surplus-pdf', [
                     'user'                     => $user,
                     "deposit_transaction"      => $deposit_transaction,
@@ -993,10 +989,9 @@ class AuthController extends Controller
                 $pdf->save("$directory/$file_name");
                 if (file_exists($file_path)) {
                     if (!empty($deposit_transaction)) {
-                        Log::info("deposit_transaction ");
                         $deposit_transaction->update(["vod_link" => $file_name]);
-                    } elseif (!empty($registration_transaction)) {
-                        Log::info("registration_transaction ");
+                    }
+                    if (!empty($registration_transaction)) {
                         $registration_transaction->update(["vod_link" => $file_name]);
                     } 
                 } else {
