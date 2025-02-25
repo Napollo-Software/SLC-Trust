@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -983,22 +984,21 @@ class AuthController extends Controller
                 ->setPaper('A4', 'portrait');
 
             $file_name = 'VOD_' . $user->full_name() . "_" . date('F_Y_His') . ".pdf";
-
+            $file_path = "$directory/$file_name";
             $pdf->save("$directory/$file_name");
 
-            $deposit_transaction      = null;
-            $registration_transaction = null;
-            $maintenance_transaction  = null;
-            $credit_card_transaction  = null;
-
-            if ($deposit_transaction) {
-                $deposit_transaction->update(["vod_link" => $file_name]);
-            } elseif ($registration_transaction) {
-                $registration_transaction->update(["vod_link" => $file_name]);
-            } elseif ($maintenance_transaction) {
-                $maintenance_transaction->update(["vod_link" => $file_name]);
-            } elseif ($credit_card_transaction) {
-                $credit_card_transaction->update(["vod_link" => $file_name]);
+            if (file_exists($file_path)) {
+                if (!empty($deposit_transaction)) {
+                    $deposit_transaction->update(["vod_link" => $file_name]);
+                } elseif (!empty($registration_transaction)) {
+                    $registration_transaction->update(["vod_link" => $file_name]);
+                } elseif (!empty($maintenance_transaction)) {
+                    $maintenance_transaction->update(["vod_link" => $file_name]);
+                } elseif (!empty($credit_card_transaction)) {
+                    $credit_card_transaction->update(["vod_link" => $file_name]);
+                }
+            } else {
+                Log::error("PDF generation failed: {$file_path}");
             }
 
             Notifcation::create([
