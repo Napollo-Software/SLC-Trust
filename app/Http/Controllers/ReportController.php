@@ -46,6 +46,12 @@ class ReportController extends Controller
 
     public function pendingDepsitFilter(Request $request)
     {
+        if (!$request->filled('billing_cycle') && !$request->filled('status')) {
+            return response()->json([
+                'html' => view('partials.user_list', ['users' => collect()])->render() // Empty collection
+            ]);
+        }
+        
         $query = User::with([
             'transactions' => function ($query) {
                 $query->selectRaw('user_id, sum(credit) as total_credit, sum(debit) as total_debit')
