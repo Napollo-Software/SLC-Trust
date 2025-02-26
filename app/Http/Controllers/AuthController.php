@@ -880,6 +880,8 @@ class AuthController extends Controller
                     "description"  => $description,
                     "type"         => Transaction::Deposit,
                     "reference_id" => $reference_id,
+                    "date_of_trans" => $request->date_of_trans,
+                    
                 ]);
 
                 $deposit_transaction = $user->transactions()->create([
@@ -887,6 +889,8 @@ class AuthController extends Controller
                     "credit"       => $depost_amount,
                     "description"  => $customer_description,
                     "type"         => Transaction::Deposit,
+                    "date_of_trans" => $request->date_of_trans,
+
                 ]);
             }
 
@@ -903,6 +907,8 @@ class AuthController extends Controller
                     "type"             => Transaction::MaintenanceFee,
                     "description"      => $customer_platform_fee_description,
                     "transaction_type" => \TransactionType::Operational,
+                    "date_of_trans" => $request->date_of_trans,
+
                 ]);
 
                 $admin->transactions()->create([
@@ -911,6 +917,8 @@ class AuthController extends Controller
                     "type"             => Transaction::MaintenanceFee,
                     "description"      => $platform_fee_description,
                     "transaction_type" => \TransactionType::Operational,
+                    "date_of_trans" => $request->date_of_trans,
+
                 ]);
 
                 $remaining_amount -= $maintenance_fee_amount;
@@ -928,6 +936,8 @@ class AuthController extends Controller
                     "debit"            => $request->registration_fee_amount,
                     "description"      => $customer_registration_description,
                     "transaction_type" => \TransactionType::Operational,
+                    "date_of_trans" => $request->date_of_trans,
+
                 ]);
 
 
@@ -937,6 +947,8 @@ class AuthController extends Controller
                     "credit"           => $request->registration_fee_amount,
                     "description"      => $registration_fee_description,
                     "transaction_type" => \TransactionType::Operational,
+                    "date_of_trans" => $request->date_of_trans,
+
                 ]);
 
                 $remaining_amount -= $request->registration_fee_amount;
@@ -954,6 +966,8 @@ class AuthController extends Controller
                     "debit"            => $remaining_amount,
                     "description"      => $customer_amount_debited_description,
                     "transaction_type" => \TransactionType::Operational,
+                    "date_of_trans" => $request->date_of_trans,
+
                 ]);
 
                 $admin->transactions()->create([
@@ -962,6 +976,8 @@ class AuthController extends Controller
                     "credit"           => $remaining_amount,
                     "description"      => $amount_credited_description,
                     "transaction_type" => \TransactionType::Operational,
+                    "date_of_trans" => $request->date_of_trans,
+
                 ]);
             }
 
@@ -1019,7 +1035,6 @@ class AuthController extends Controller
             DB::rollback();
 
             errorLogs($e->getMessage());
-
             return response()->json([
                 'success' => false,
                 'header'  => 'Error!',
@@ -1148,6 +1163,7 @@ class AuthController extends Controller
             ->orderByRaw("CASE WHEN type = ? THEN 1 ELSE 2 END", [Transaction::EnrollmentFee])
             ->orderBy('created_at', 'ASC')
             ->get();
+            
 
         if ($transactions->isEmpty()) {
             return response()->json(['error' => 'No transactions found for the selected date range.'], 404);
