@@ -124,7 +124,10 @@ class LeadController extends Controller
             'status' => 0,
         ]);
 
-        return response()->json($lead->id);
+        return response()->json([
+            'message' => 'Lead created successfully',
+            'lead_id' => $lead->id,
+        ]);
     }
 
     public function edit($id)

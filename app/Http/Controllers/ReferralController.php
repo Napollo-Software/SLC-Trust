@@ -39,12 +39,15 @@ class ReferralController extends Controller
 
     public function create($lead_id = null)
     {
+        $lead = null;
+
         if ($lead_id) {
-            $lead = Lead::findOrFail($lead_id);
-            $lead->converted_to_referral = 1;
-            $lead->save();
-        } else {
-            $lead = Lead::latest('id')->first();
+            $lead = Lead::where('id', $lead_id)
+                        ->where('converted_to_referral', 1)
+                        ->first();
+        }
+        if (!$lead) {
+            return redirect()->route('referral.list'); // Redirect if no lead found
         }
         $typeData = Type::where('category', 'Case Type')->get();
         $referal = Referral::get();

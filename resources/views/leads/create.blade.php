@@ -338,8 +338,8 @@
             , cache: false
             , success: function(data) {
                 swal.fire('success', 'Lead has been created successfully', 'success');
-                if (check == 1) {
-                    window.location.href = "{{ route('create.referral') }}";
+                if (check == 1 && data.lead_id) {
+                    window.location.href = "{{ route('create.referral') }}/" + data.lead_id;
                 } else {
                     window.location.href = "{{ route('lead.list') }}";
                 }
