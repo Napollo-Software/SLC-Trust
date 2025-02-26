@@ -46,7 +46,7 @@ class ReferralController extends Controller
             ->where('converted_to_referral', 1)
             ->first();
             if (!$lead) {
-                return redirect()->route('referral.list'); // Redirect if no lead found
+                return redirect()->route('referral.list'); 
             }
         }
         $typeData = Type::where('category', 'Case Type')->get();
