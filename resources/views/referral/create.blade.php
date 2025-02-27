@@ -53,7 +53,7 @@
                                 <input type="text" class="form-control" id="last_name" name="last_name" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_last_name : "" }}" placeholder="eg: Smith">
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="form-label">Patient Phone Number*</label>
+                                <label for="form-label">Patient Phone Number</label>
                                 <input type="text" class="form-control phone" placeholder="(___) ___-___" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_phone : "" }}" id="phone" name="phone">
                             </div>
                             <div class="col-md-6 p-2">

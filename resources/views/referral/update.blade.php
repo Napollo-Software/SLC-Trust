@@ -136,7 +136,7 @@ Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dak
                                 <input type="text" class="form-control" value="{{ $Referral->last_name }}" id="last_name" name="last_name" placeholder="eg: Smith">
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="form-label">Patient Phone Number*</label>
+                                <label for="form-label">Patient Phone Number</label>
                                 <input type="text" class="form-control phone" placeholder="(___) ___-___" value="{{ $Referral->phone_number }}" id="phone_number" name="phone_number">
                             </div>
                             <div class="col-md-6 p-2">
