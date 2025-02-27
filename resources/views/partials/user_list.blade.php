@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="6" ><div class="text-center text-muted d-flex align-items-center w-100 justify-content-center" style="height:112px">
+                <td colspan="6" ><div class="text-center text-muted d-flex align-items-center w-100 justify-content-center" style="height:127px">
                 No record found.
                 </div></td>
             </tr>
