@@ -180,7 +180,7 @@
                     @if(!empty($deposit_transaction))
                     <tr>
                         <td colspan="1" style="padding-left:5px;vertical-align:top">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime(($transaction->date_of_trans === null ) ? $transaction->created_at : $transaction->date_of_trans)) }}</label>
+                            <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime(($deposit_transaction->date_of_trans === null ) ? $deposit_transaction->created_at : $deposit_transaction->date_of_trans)) }}</label>
                         </td>
                        <td colspan="1" style="vertical-align:top;">
                         <label style="font-family: 'Poppins-Regular'; font-size:14px; white-space: nowrap;">
