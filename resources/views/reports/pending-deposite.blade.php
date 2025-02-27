@@ -18,7 +18,7 @@
            <div class="sticky_box">
                 <div class="card mb-3"  >
                     <div class="card-header ">
-                    <h5 class="mb-0 text-black">Billing Cycle</h5>
+                    <h5 class="mb-0 text-black py-2">Billing Cycle</h5>
                     </div>
                     <div class="card-body ">
                         <div class="form-check mb-2">
@@ -62,7 +62,7 @@
                 <!-- Surplus/Maintenance Section -->
                 <div class="card ">
                     <div class="card-header ">
-                    <h5 class="mb-0 text-black">Surplus/Maintenance</h5>
+                    <h5 class="mb-0 text-black py-2">Surplus/Maintenance</h5>
                     </div>
                     
                     <div class="card-body ">
