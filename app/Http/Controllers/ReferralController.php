@@ -67,7 +67,7 @@ class ReferralController extends Controller
             'first_name' => 'required|string|max:250',
             'last_name' => 'required|string|max:250',
             'age' => 'nullable|integer',
-            'phone' => 'required|string',
+            'phone' => 'string',
             'email' => [
                 'required',
                 'email',
@@ -259,7 +259,7 @@ class ReferralController extends Controller
             'last_name' => 'required|string|max:250',
             'gender' => 'required|string|max:250',
             'age' => 'nullable|integer',
-            'phone_number' => 'required|string',
+            'phone_number' => 'string',
             'email' => 'required|email',
             'date_of_birth' => 'nullable|date',
             'country' => 'nullable|max:250',

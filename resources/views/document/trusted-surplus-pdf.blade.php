@@ -164,7 +164,7 @@
                     @if(!empty($registration_transaction))
                     <tr>
                         <td colspan="1" style="padding-left:5px;vertical-align:top">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime($registration_transaction->created_at)) }}</label>
+                            <label style="font-family: 'Poppins-Regular';font-size:14px">{{ date('m/d/Y',strtotime(($registration_transaction->date_of_trans === null ) ? $registration_transaction->created_at : $registration_transaction->date_of_trans)) }}</label>
                         </td>
                         <td colspan="1" style="vertical-align:top">
                             <label style="font-family: 'Poppins-Regular';font-size:14px">Initial Fee</label>
@@ -188,7 +188,7 @@
                         </label>
                     </td>
                         <td style="width:40%;vertical-align:top" colspan="1">
-                            <label style="font-family: 'Poppins-Regular';font-size:14px"> {{ \Carbon\Carbon::parse($deposit_transaction->date)->format('F Y') }}</label>
+                            <label style="font-family: 'Poppins-Regular';font-size:14px"> {{ \Carbon\Carbon::parse($deposit_transaction->date_of_trans ?? $deposit_transaction->created_at)->format('F Y') }}</label>
                         </td>
                         <td style="text-align: end;vertical-align:top;position:relative" colspan="1">
                             <label style="font-family: 'Poppins-Regular';font-size:14px;position:absolute;right:5px">${{ $deposit_transaction->credit > 0 ? number_format($deposit_transaction->credit, 2) : ($deposit_transaction->debit > 0 ? number_format($deposit_transaction->debit, 2) : '') }}</label>
