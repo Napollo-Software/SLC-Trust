@@ -48,7 +48,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach ($data as $followup)
-                                    <tr class="row-{{ $followup['id'] }} {{( $followup->from == $followup->to && $role == 'Admin'  )  ? 'bg-primary text-white' : '' }}">
+                                    <tr class="row-{{ $followup['id'] }} {{( $followup->from == $login_user->id  )  ? 'bg-primary text-white' : '' }}">
                                         <td>{{ $followup->id }}</td>
                                         <td>{{ $followup->sender->full_name() }}</td>
                                         <td>{{ $followup->employee->full_name() }}</td>

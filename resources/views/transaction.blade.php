@@ -9,7 +9,7 @@ use App\Models\Followup;
 use App\Models\Transaction;
 
 $login_user = User::find(Session::get('loginId'));
-
+$authId = $login_user->id;
 $role = $login_user->role;
 
         if($role == 'Admin')
@@ -686,7 +686,7 @@ $role = $login_user->role;
                 const formattedDate = `${year}-${month}-${day}`;
                 // const completed = info.event.extendedProps.completed;
                 var matchingEvents = followupEvents.filter(event => event.date === formattedDate);
-
+                var authId = {{ $authId }};
                 if (matchingEvents.length > 0) {
                     setTimeout(() => {
                         matchingEvents.forEach(matchingEvent => {
@@ -694,7 +694,9 @@ $role = $login_user->role;
                             var eventElements = document.querySelectorAll(`#calendar_follow_up_${matchingEvent.id}`);
                             
                             eventElements.forEach(eventElement => {
-                                if (matchingEvent.from == matchingEvent.to && role == 'Admin') {
+                                console.log(matchingEvent.from , authId);
+                                if (matchingEvent.from == authId) {
+                                    console.log(matchingEvent.to , authId);
                                     eventElement.style.backgroundColor = "#6DC6A7"; // Soft Green (Success)
                                     eventElement.style.color = "#ffffff"; // White text
                                     eventElement.style.border = "none"; 
@@ -723,6 +725,8 @@ $role = $login_user->role;
             },
 
             eventContent: function(info) {
+                var authId = {{ $authId }};
+
                 const id = info.event.id;
                 const note = info.event.extendedProps.note;
                 const completed = info.event.extendedProps.completed;
@@ -751,7 +755,7 @@ $role = $login_user->role;
                     content.style.border = "none"; // Darker green border
 
                 } else {
-                    if(from === to && role == 'Admin'){
+                    if(from == authId){
                         content.style.setProperty("background-color", "#6DC6A7", "important");
                     }
                     content.style.color = "#ffffff"; // Dark text
