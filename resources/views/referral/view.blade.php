@@ -115,7 +115,7 @@ return $colors[$randomIndex];
                         <li class="nav-item1 follows-tab">
                             <a class="nav-link  thumb" onclick="showTab('follows-card')">
                                 <i class="menu-icon mr-2 tf-icons bx bx-book "></i>
-                                Followups
+                                Follow up
                             </a>
                         </li>
                         <li class="nav-item1 attachment-tab">
@@ -760,11 +760,11 @@ return $colors[$randomIndex];
 
             <div class="card follows-card d-none">
                 <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
-                    <h4 class="px-3">Followups</h4>
+                    <h4 class="px-3">Follow ups</h4>
                     @if ($user->hasPermissionTo('Add Contact'))
                     <div>
                         <a class="btn btn-primary FollowupAddBtn pb-1 pt-1 " style="color: white;">
-                            <i class="bx bx-save pb-1"></i>Add Followup</a></div>
+                            <i class="bx bx-save pb-1"></i>Add Follow up</a></div>
                     @endif
                 </div>
                 <div class="card-body p-3">
@@ -1109,7 +1109,7 @@ return $colors[$randomIndex];
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addFollowModalHeader">Add Followup</h5>
+                <h5 class="modal-title" id="addFollowModalHeader">Add Follow up</h5>
                 <button type="button" class="close close-btn closeContactModal" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>

@@ -430,6 +430,17 @@
         }
 </script>
 <script>
+    $(document).ready(function () {
+        $('.modal').on('hidden.bs.modal', function () {
+            $(this).find('form')[0].reset(); 
+        });
+
+        $('.modal').modal({
+            backdrop: 'static',
+            keyboard: false     
+        });
+    });
+
     new PerfectScrollbar('.chat-list');
     new PerfectScrollbar('.chat-content');
 </script>
