@@ -131,11 +131,11 @@
                 </div>
             </h5>
             <!-- <div class="font-22 ">
-                <button class="btn btn-primary import-file-user-data NoteAddBtn print-btn px-2 py-1 ">
-                    <i class='bx bx-save pb-2 pt-1 px-0 mx-0'></i>
-                    Add Note
-                </button>
-            </div> -->
+                    <button class="btn btn-primary import-file-user-data NoteAddBtn print-btn px-2 py-1 ">
+                        <i class='bx bx-save pb-2 pt-1 px-0 mx-0'></i>
+                        Add Note
+                    </button>
+                </div> -->
         </div>
         <!-- Account page navigation-->
         <div class="row d-flex align-items-stretch gap-2 gap-md-0">
@@ -181,7 +181,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9"> 
+            <div class="col-md-9">
                 <div class="card w-100 lead-info" id="alwaysShow">
                     <div class="card-header d-flex p-2 ">
                         <h4 class="mb-0 py-2">Lead Information</h4>
@@ -225,7 +225,7 @@
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>
                 <div class="card w-100 patient-info d-none">
                     <div class="card-header d-flex  p-2 ">
                         <h4 class="mb-0 py-2">Patient Information</h4>
@@ -261,7 +261,7 @@
                             </div>
                         </div </div>
                     </div>
-                </div> 
+                </div>
                 <div class="card other-info d-none">
                     <div class="card-header d-flex p-2 ">
                         <h4 class="mb-0 py-2">Other Information</h4>
@@ -329,7 +329,7 @@
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>
                 <div class="card tasks-card d-none">
                     <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
                         <h4 class="px-3">Notes</h4>
@@ -353,10 +353,10 @@
                                             </p>
                                         </div>
                                         <!--div>
-                                                                            <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
-                                                                                <i class="bx bx-edit pb-1"></i>
-                                                                            </button>
-                                                                        </div-->
+                                                                                    <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
+                                                                                        <i class="bx bx-edit pb-1"></i>
+                                                                                    </button>
+                                                                                </div-->
                                     </div>
                                 </li>
                             @endforeach
@@ -387,10 +387,10 @@
                                             </p>
                                         </div>
                                         <!--div>
-                                                                            <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
-                                                                                <i class="bx bx-edit pb-1"></i>
-                                                                            </button>
-                                                                        </div-->
+                                                                                    <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
+                                                                                        <i class="bx bx-edit pb-1"></i>
+                                                                                    </button>
+                                                                                </div-->
                                     </div>
                                 </li>
                             @endforeach
@@ -436,53 +436,56 @@
         </div>
 
         <div class="modal fade" id="followupModal" tabindex="-1" aria-labelledby="followupModalLabel" aria-hidden="true">
-        
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addFollowModalHeader">Add Follow up</h5>
-                <button type="button" class="close close-btn closeContactModal" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <form id="followupForm">
-                @csrf
-                <input type="hidden" name="type" id="type" value="followup">
-                <input type="hidden" name="leadId" id="lead" value="{{ $lead->id }}">
-                <input type="hidden" name="from" value="{{ $user->id }}">
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="date">Follow Up Date *</label>
-                            <input type="date" name="date" id="follow-up-date" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="time">Follow Up Time *</label>
-                            <input type="time" name="time" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="time">Assignee *</label>
-                            <select id="defaultSelect" class="form-control" name="to">
-                                <option value="">Choose One</option>
-                                @foreach ($assignee as $item)
-                                <option value="{{ $item->id }}">{{ $item->full_name() }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addFollowModalHeader">Add Follow up</h5>
+                        <button type="button" class="close close-btn closeContactModal" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <label for="note">Description *</label>
-                        <textarea type="note" name="note" id="note" required rows="4" class="form-control"></textarea>
-                    </div>
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary followup-button custom-hover">Submit</button>
-                        <button type="button" class="btn btn-secondary closeContactModal" data-dismiss="modal">Close</button>
-                    </div>
+                    <form id="followupForm">
+                        @csrf
+                        <input type="hidden" name="type" id="type" value="followup">
+                        <input type="hidden" name="leadId" id="lead" value="{{ $lead->id }}">
+                        <input type="hidden" name="from" value="{{ $user->id }}">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="date">Follow Up Date *</label>
+                                    <input type="date" name="date" id="follow-up-date" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Follow Up Time *</label>
+                                    <input type="time" name="time" required class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Assignee *</label>
+                                    <select id="defaultSelect" class="form-control" name="to">
+                                        <option value="">Choose One</option>
+                                        @foreach ($assignee as $item)
+                                            <option value="{{ $item->id }}">{{ $item->full_name() }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="note">Description *</label>
+                                <textarea type="note" name="note" id="note" required rows="4"
+                                    class="form-control"></textarea>
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary followup-button custom-hover">Submit</button>
+                                <button type="button" class="btn btn-secondary closeContactModal"
+                                    data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                 </div>
+                </form>
+            </div>
         </div>
-        </form>
-        </div>
-</div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
@@ -526,9 +529,9 @@
             $("." + tabName).removeClass('d-none');
         }
         $('.FollowupAddBtn').on('click', function (e) {
-        e.preventDefault()
-        showFollowupModal()
-    })
+            e.preventDefault()
+            showFollowupModal()
+        })
         function showFollowupModal() {
             $('#followupModal').modal('show')
         }
@@ -583,24 +586,6 @@
                         if (existing_note.length > 0) {
 
                             existing_note.html(`
-                            <div class="row-container d-flex justify-content-between">
-                                <div>
-                                    <i class="task-icon bg-${randomColor()}"></i>
-                                    <h6>${data.note.note}</h6>
-                                    <p class="text-muted fs-12">${formattedDate1} ${formattedTime}</p>
-                                </div>
-                                <div>
-                                    <button
-                                        class="NoteEditBtn1 btn pb-1 pt-1"
-                                        data-data='${JSON.stringify(data.note)}'
-                                        title="Click to edit note">
-                                    </button>
-                                </div>
-                            </div>
-                        `);
-                        } else {
-                            notes_list.prepend(`
-                            <li id="note-${note_id}">
                                 <div class="row-container d-flex justify-content-between">
                                     <div>
                                         <i class="task-icon bg-${randomColor()}"></i>
@@ -615,8 +600,26 @@
                                         </button>
                                     </div>
                                 </div>
-                            </li>
-                        `);
+                            `);
+                        } else {
+                            notes_list.prepend(`
+                                <li id="note-${note_id}">
+                                    <div class="row-container d-flex justify-content-between">
+                                        <div>
+                                            <i class="task-icon bg-${randomColor()}"></i>
+                                            <h6>${data.note.note}</h6>
+                                            <p class="text-muted fs-12">${formattedDate1} ${formattedTime}</p>
+                                        </div>
+                                        <div>
+                                            <button
+                                                class="NoteEditBtn1 btn pb-1 pt-1"
+                                                data-data='${JSON.stringify(data.note)}'
+                                                title="Click to edit note">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            `);
                         }
                     },
                     error: function (xhr) {
@@ -624,6 +627,93 @@
                         erroralert(xhr);
                     }
                 });
+            });
+        });
+
+
+        $(document).on('submit', '#followupForm', function (e) {
+            e.preventDefault();
+            $('.form-control').removeClass('is-invalid');
+            $('.invalid-feedback.is-invalid').remove();
+            $('.followup-button').attr('disabled', true);
+
+            $.ajax({
+                url: '{{ route('follow_up.store') }}',
+                method: 'POST',
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data) {
+                    hideAddContactModal();
+                    $('.followup-button').attr('disabled', false);
+                    $('#followupModal').removeClass('in').hide();
+                    $('#followupForm').trigger('reset');
+                    swal.fire('Success', data.message, 'success');
+
+                    let followupDateTime = new Date(`${data.followup.date}T${data.followup.time}`);
+
+                    let formattedDate = followupDateTime.toLocaleDateString('en-US', {
+                        month: '2-digit',
+                        day: '2-digit',
+                        year: 'numeric'
+                    });
+
+                    let followups_list = $('#followups-list');
+                    let followup_id = data.followup.id;
+
+                    let existing_followup = $(`#followup-${followup_id}`);
+
+                    let followupTime = new Date(`1970-01-01T${data.followup.time}`);
+
+                    let formattedTime = followupTime.toLocaleTimeString('en-US', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: true
+                    });
+
+                    if (existing_followup.length > 0) {
+                        existing_followup.html(`
+                        <div class="row-container d-flex justify-content-between">
+                            <div>
+                                <i class="task-icon bg-${randomColor()}"></i>
+                                <h6>${data.followup.note}</h6>
+                                <p class="text-muted fs-12">${formattedDate} ${formattedTime}</p>
+                            </div>
+                            <div>
+                                <button
+                                    class="NoteEditBtn1 btn pb-1 pt-1"
+                                    data-data='${JSON.stringify(data.followup)}'
+                                    title="Click to edit followup">
+                                </button>
+                            </div>
+                        </div>
+                    `);
+                    } else {
+                        followups_list.prepend(`
+                        <li id="followup-${followup_id}">
+                            <div class="row-container d-flex justify-content-between">
+                                <div>
+                                    <i class="task-icon bg-${randomColor()}"></i>
+                                    <h6>${data.followup.note}</h6>
+                                    <p class="text-muted fs-12">${formattedDate} ${formattedTime}</p>
+                                </div>
+                                <div>
+                                    <button
+                                        class="NoteEditBtn1 btn pb-1 pt-1"
+                                        data-data='${JSON.stringify(data.followup)}'
+                                        title="Click to edit followup">
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    `);
+                    }
+                },
+                error: function (xhr) {
+                    $('.followup-button').attr('disabled', false);
+                    erroralert(xhr);
+                }
             });
         });
     </script>
