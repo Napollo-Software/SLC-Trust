@@ -81,41 +81,49 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 
 </style>
 <div class="">
-    <h5 class=" d-flex justify-content-start pt-3 pb-2">
-        <b></b>
-        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/leads')}}" class="text-muted fw-light pointer"><b>All Leads</b></a> / <b>View Lead</b> </div>
-    </h5>
+   
+    <div class="d-flex align-items-center justify-content-between pt-lg-3 pb-3 flex-wrap gap-2 ">
+        <h5 class="  mb-0">
+             <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/leads')}}" class="text-muted fw-light pointer"><b>All Leads</b></a> / <b>View Lead</b> </div>
+        </h5>
+        <div class="font-22 ">
+            <button class="btn btn-primary import-file-user-data NoteAddBtn print-btn px-2 py-1 ">
+                <i class='bx bx-save pb-2 pt-1 px-0 mx-0'></i>
+                Add Note
+            </button>
+        </div>
+    </div>
     <!-- Account page navigation-->
     <div class="row d-flex align-items-stretch gap-2 gap-md-0">
-        <div class="col-md-6">
-            <div class="card h-100">
+        <div class="col-lg-5">
+            <div class="card ">
                 <div class="card-header d-flex p-2 ">
-                    <h4>Lead Information</h4>
+                    <h4 class="mb-0 py-2">Lead Information</h4>
                 </div>
                 <div class="card-body ">
                     <div class="row">
                         <div class="col-md-6">
-                            <h6 class="mb-0">Lead Full Name</h6>
+                            <h6 class="mb-md-0">Lead Full Name</h6>
                         </div>
-                        <div class="col-md-6 text-left">
+                        <div class="col-md-6 text-left text-secondary">
                             {{$lead->contact_first_name.' '.$lead->contact_last_name}}
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6 class="mb-0">Lead Email</h6>
+                            <h6 class="mb-md-0">Lead Email</h6>
                         </div>
-                        <div class="col-md-6 text-left">
+                        <div class="col-md-6 text-left text-secondary">
                             {{$lead->contact_email}}
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6 class="mb-0">Lead Phone</h6>
+                            <h6 class="mb-md-0">Lead Phone</h6>
                         </div>
-                        <div class="col-md-6 text-left">
+                        <div class="col-md-6 text-left text-secondary">
                             @if($lead->contact_phone != '+1')
                             {{$lead->contact_phone}}
                             @endif
@@ -124,24 +132,22 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6 class="mb-0">Relationship with Patient</h6>
+                            <h6 class="mb-md-0">Relationship with Patient</h6>
                         </div>
-                        <div class="col-md-6 text-left">
+                        <div class="col-md-6 text-left text-secondary">
                             {{$lead->relation_to_patient}}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card h-100">
-                <div class="card-header d-flex p-2 ">
-                    <h4>Patient Information</h4>
+            <div class="card  ">
+                <div class="card-header d-flex  p-2 ">
+                    <h4 class="mb-0 py-2">Patient Information</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Patient Name</h6>
+                            <h6 class="mb-md-0">Patient Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{$lead->patient_first_name}} {{$lead->patient_last_name}}
@@ -151,7 +157,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <hr>
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Patietn Phone</h6>
+                            <h6 class="mb-md-0 text-nowrap">Patietn Phone</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             @if($lead->patient_phone != '+1')
@@ -162,7 +168,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <hr>
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Patient Email</h6>
+                            <h6 class="mb-md-0">Patient Email</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{$lead->patient_email}}
@@ -171,17 +177,15 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                 </div>
             </div>
         </div>
-    </div>
-    .<div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-7">
             <div class="card">
                 <div class="card-header d-flex p-2 ">
-                    <h4>Other Information</h4>
+                    <h4 class="mb-0 py-2">Other Information</h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Sub Status</h6>
+                            <h6 class="mb-md-0">Sub Status</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{$lead->sub_status}}
@@ -191,7 +195,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     @if($lead->sub_status == 'closed')
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Closing Reason</h6>
+                            <h6 class="mb-md-0">Closing Reason</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{$lead->closing_reason}}
@@ -201,7 +205,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     @endif
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Vendo ID</h6>
+                            <h6 class="mb-md-0">Vendo ID</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{$lead->vendor_id}}
@@ -210,7 +214,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <hr>
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Case Type</h6>
+                            <h6 class="mb-md-0">Case Type</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{ $lead->type_id ? $lead->type_id->name:$lead->case_type }}
@@ -219,7 +223,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <hr>
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Source Type</h6>
+                            <h6 class=mb-md-0">Source Type</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{$lead->source_type}}
@@ -228,7 +232,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                     <hr>
                     <div class="row">
                         <div class="col-sm-3">
-                            <h6 class="mb-0">Note</h6>
+                            <h6 class="mb-md-0">Note</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             {{$lead->note}}
@@ -244,11 +248,55 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
             </div>
         </div>
     </div>
+    <div class="modal fade" id="addNoteModal" tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNoteModalHeader">Add Note</h5>
+                <button type="button" class="close close-btn closeContactModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="add_note_form" method="post">
+                @csrf
+                <input type="hidden" name="note_id" id="note_id" value="">
+                <input type="hidden" name="from"  >
+                <input type="hidden" name="to"  >
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 p-2">
+                            <label for="form-label">Note <span class="text-danger">*</span></label>
+                            <textarea name="note" id="note_text" rows="5" maxlength="255" placeholder="Type note here" class="form-control address" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary note-button mb-3">Save</button>
+                    <button type="button" class="btn btn-secondary mb-3 closeContactModal" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
         document.getElementById('back-btn').addEventListener('click', function() {
             window.history.back();
         });
-
+        $('.NoteAddBtn').on('click', function (e) {
+        e.preventDefault()
+        showAddNoteModal()
+    })
+        function showAddNoteModal() {
+            $('#addNoteModal').modal('show')
+        }
+        function hideAddContactModal() {
+        $('#addNoteModal').modal('hide')
+        $('#followupModal').modal('hide')
+    }
+        $('.closeContactModal').on('click', function (e) {
+            e.preventDefault()
+            hideAddContactModal()
+        })
     </script>
     @endsection
