@@ -87,41 +87,92 @@
         }
 
         .nav-item1 {
-            padding: 8px 4px;
+            padding: 0px;
             font-size: 16px;
-            min-width: 2rem;
-            -webkit-transition: .3s color;
-            transition: .3s color;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
+            min-width: 2rem; 
             user-select: none;
-            cursor: pointer;
-            display: -ms-flexbox;
-            display: -webkit-box;
-            display: flex;
-            -ms-flex-align: center;
-            -webkit-box-align: center;
+            cursor: pointer; 
+            display: flex; 
             align-items: center;
         }
 
         .nav1.nav-column .nav-link.active {
             color: #fff !important;
             background-color: #559E99;
-            padding: 8px;
-            font-size: 14px;
-            min-width: 100%;
-            border-radius: 4px;
+           
         }
 
         .nav-item1 a {
             display: flex;
             align-items: center;
+            min-width: 100%;
+            border-radius: 4px;
+            padding: 8px;  
         }
 
         .menu-icon {
             font-size: 17px;
         }
+        .task-list li:hover .task-icon,
+        .task-list li:focus .task-icon {
+            transform: scale(1.3);
+            left: 24px;
+        }
+
+        .task-list li:hover .task-icon::before,
+        .task-list li:focus .task-icon::before {
+            left: -5px;
+            display: block;
+        }
+
+        .task-list li .task-icon {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            border-radius: 50%;
+            padding: 2px;
+            width: 12px;
+            height: 12px;
+            z-index: 2;
+            transition: all ease 0.2s;
+        }
+
+        .task-list li .task-icon::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 1px;
+            top: 5px;
+            background: #e0e9f1;
+            display: none;
+        }
+        .task-list {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0px 0 0;
+    color: #3c4858;
+}
+
+.task-list:before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    bottom: 0;
+    height: 88%;
+    left: 15px;
+    border-left: 1px solid #e0e9f1;
+}
+
+.task-list li {
+    position: relative;
+    min-height: 73px;
+    padding-left: 55px;
+}
+
+.task-list li:last-child:after {
+    display: none;
+}
     </style>
     <div class="">
         <div class="d-flex align-items-center justify-content-between pt-lg-3 pb-3 flex-wrap gap-2 ">
@@ -138,78 +189,79 @@
                 </div> -->
         </div>
         <!-- Account page navigation-->
-        <div class="row d-flex align-items-stretch gap-2 gap-md-0">
-            <div class="col-md-3">
-                <div class="card mb-4 ">
-                    <div class="card-body p-2">
-                        <div class="border-bottom  ">
-                            <h4 class=" ">Select</h4>
-                        </div>
-                        <ul class="nav1 nav-column pb-0 flex-column br-7 px-0">
-                            <li class="nav-item1 mt-0  ">
-                                <a class="nav-link thumb active" onclick="showTab('lead-info')">
-                                    <i class="menu-icon mr-2 tf-icons bx bx-layout "></i>
-                                    Lead Information
-                                </a>
-                            </li>
-                            <li class="nav-item1 mt-0  ">
-                                <a class="nav-link thumb  " onclick="showTab('lead-info')">
-                                    <i class="menu-icon mr-2 tf-icons bx bx-layout "></i>
-                                    Patient Information
-                                </a>
-                            </li>
-                            <li class="nav-item1 mt-0  ">
-                                <a class="nav-link thumb  " onclick="showTab('lead-info')">
-                                    <i class="menu-icon mr-2 tf-icons bx bx-layout "></i>
-                                    Other Information
-                                </a>
-                            </li>
-                            <li class="nav-item1 tasks-tab">
-                                <a class="nav-link  thumb" onclick="showTab('tasks-card')">
-                                    <i class="menu-icon mr-2 tf-icons bx bx-task "></i>
-                                    Notes
-                                </a>
-                            </li>
-                            <li class="nav-item1 follows-tab">
-                                <a class="nav-link  thumb" onclick="showTab('follows-card')">
-                                    <i class="menu-icon mr-2 tf-icons bx bx-book "></i>
-                                    Follow up
-                                </a>
-                            </li>
+        <div class="row d-flex align-items-stretch gap-2 gap-lg-0">
+            <div class="col-lg-3  ">
+                <div class="card mb-0">
+                    <div class="card-header">
+                    <h4 class="mb-0">Select</h4>
+                    </div>
+                    <div class="card-body p-2"> 
+                        <ul class="nav1 nav-column  p-0 pb-0  m-0 flex-column  ">
+                        <li class="nav-item1 mt-0">
+                            <a class="nav-link thumb active" onclick="showTab('lead-info', this)">
+                                <i class="menu-icon mr-2 tf-icons bx bx-layout"></i>
+                                Lead Information
+                            </a>
+                        </li>
+                        <li class="nav-item1 mt-0">
+                            <a class="nav-link thumb" onclick="showTab('patient-info', this)">
+                                <i class="menu-icon mr-2 tf-icons bx bx-layout"></i>
+                                Patient Information
+                            </a>
+                        </li>
+                        <li class="nav-item1 mt-0">
+                            <a class="nav-link thumb" onclick="showTab('other-info', this)">
+                                <i class="menu-icon mr-2 tf-icons bx bx-layout"></i>
+                                Other Information
+                            </a>
+                        </li>
+                        <li class="nav-item1 tasks-tab">
+                            <a class="nav-link thumb" onclick="showTab('tasks-card', this)">
+                                <i class="menu-icon mr-2 tf-icons bx bx-task"></i>
+                                Notes
+                            </a>
+                        </li>
+                        <li class="nav-item1 follows-tab">
+                            <a class="nav-link thumb" onclick="showTab('follows-card', this)">
+                                <i class="menu-icon mr-2 tf-icons bx bx-book"></i>
+                                Follow up
+                            </a>
+                        </li>
+
 
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-lg-9  ">
                 <div class="card w-100 lead-info" id="alwaysShow">
-                    <div class="card-header d-flex p-2 ">
+                    <div class="card-header d-flex py-2 px-3 ">
                         <h4 class="mb-0 py-2">Lead Information</h4>
                     </div>
-                    <div class="card-body ">
+                    <div class="card-body " style="min-height: 223px;">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-3">
                                 <h6 class="mb-md-0">Lead Full Name</h6>
                             </div>
-                            <div class="col-md-6 text-left text-secondary">
+                            <div class="col-sm-9 text-left text-secondary">
                                 {{$lead->contact_first_name . ' ' . $lead->contact_last_name}}
                             </div>
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-3">
                                 <h6 class="mb-md-0">Lead Email</h6>
                             </div>
-                            <div class="col-md-6 text-left text-secondary">
+                            <div class="col-sm-9 text-left text-secondary">
                                 {{$lead->contact_email}}
                             </div>
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-3">
                                 <h6 class="mb-md-0">Lead Phone</h6>
                             </div>
-                            <div class="col-md-6 text-left text-secondary">
+                            <div class="col-sm-9 text-left text-secondary">
                                 @if($lead->contact_phone != '+1')
                                     {{$lead->contact_phone}}
                                 @endif
@@ -217,20 +269,20 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-sm-3">
                                 <h6 class="mb-md-0">Relationship with Patient</h6>
                             </div>
-                            <div class="col-md-6 text-left text-secondary">
+                            <div class="col-sm-9 text-left text-secondary">
                                 {{$lead->relation_to_patient}}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card w-100 patient-info d-none">
-                    <div class="card-header d-flex  p-2 ">
+                    <div class="card-header d-flex py-2 px-3 ">
                         <h4 class="mb-0 py-2">Patient Information</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="min-height: 223px;">
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-md-0">Patient Name</h6>
@@ -263,7 +315,7 @@
                     </div>
                 </div>
                 <div class="card other-info d-none">
-                    <div class="card-header d-flex p-2 ">
+                    <div class="card-header d-flex py-2 px-3 ">
                         <h4 class="mb-0 py-2">Other Information</h4>
                     </div>
                     <div class="card-body">
@@ -315,6 +367,7 @@
                         </div>
                         <hr>
                         <div class="row">
+
                             <div class="col-sm-3">
                                 <h6 class="mb-md-0">Note</h6>
                             </div>
@@ -331,8 +384,9 @@
                     </div>
                 </div>
                 <div class="card tasks-card d-none">
-                    <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
-                        <h4 class="px-3">Notes</h4>
+                <div class="card-header py-2 px-3">
+                    <div class=" d-flex align-items-center justify-content-between w-100 flex-wrap gap-2 ">
+                        <h4 class="mb-0">Notes</h4>
                         {{-- @if ($user->hasPermissionTo('Add Contact')) --}}
                         <div>
                             <a class="btn btn-primary NoteAddBtn print-btn pb-1 pt-1 " style="color: white;">
@@ -340,8 +394,9 @@
                         </div>
                         {{-- @endif --}}
                     </div>
-                    <div class="card-body p-3">
-                        <ul class="task-list" id="notes-list">
+                    </div>
+                    <div class="card-body p-3" style="min-height: 223px;">
+                        <!-- <ul class="task-list" id="notes-list">
                             @foreach ($lead->get_followup as $item)
                                 <li id="note-{{$item->id}}">
                                     <div class="row-container d-flex justify-content-between">
@@ -352,21 +407,32 @@
                                                 {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}
                                             </p>
                                         </div>
-                                        <!--div>
-                                                                                    <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
-                                                                                        <i class="bx bx-edit pb-1"></i>
-                                                                                    </button>
-                                                                                </div-->
+                                     
                                     </div>
                                 </li>
                             @endforeach
-                        </ul>
+                        </ul> -->
+                        <ul class="task-list" id="notes-list">
+                        @foreach ($lead->get_followup as $item)
+                        <li id="note-{{$item->id}}">
+                            <div class="row-container d-flex justify-content-between">
+                                <div><i class="task-icon bg-{{ randomColor() }}"></i>
+                                    <h6 class="text-break">{{ $item->note }}</h6>
+                                    <p class="text-muted fs-12">
+                                        {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }}
+                                        {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}
+                                    </p>
+                                </div> 
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
                     </div>
                 </div>
 
                 <div class="card follows-card d-none">
-                    <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
-                        <h4 class="px-3">Follow ups</h4>
+                    <div class="card-header py-2 px-3 d-flex align-items-center justify-content-between flex-wrap gap-2 ">
+                        <h4 class="mb-0">Follow ups</h4>
                         {{-- @if ($user->hasPermissionTo('Add Contact')) --}}
                         <div>
                             <a class="btn btn-primary FollowupAddBtn pb-1 pt-1 " style="color: white;">
@@ -374,7 +440,7 @@
                         </div>
                         {{-- @endif --}}
                     </div>
-                    <div class="card-body p-3">
+                    <div class="card-body p-3" style="min-height: 223px;">
                         <ul class="task-list" id="followups-list">
                             @foreach ($lead->get_followup as $item)
                                 <li id="followup-{{$item->id}}">
@@ -463,7 +529,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="time">Assignee *</label>
-                                    <select id="defaultSelect" class="form-control" name="to">
+                                    <select id="defaultSelect" class="form-control" name="to" style="height: auto;">
                                         <option value="">Choose One</option>
                                         @foreach ($assignee as $item)
                                             <option value="{{ $item->id }}">{{ $item->full_name() }}</option>
@@ -512,22 +578,19 @@
             e.preventDefault()
             hideAddContactModal()
         })
+        
+        function showTab(tabName, element) { 
+                $("#alwaysShow").removeClass('d-none');
+                $(".lead-info, .patient-info, .other-info, .tasks-card, .follows-card").addClass('d-none');
+                $("." + tabName).removeClass('d-none');
 
-        function showTab(tabName) {
+                // Remove 'active' class from all tabs
+                $(".nav-link").removeClass('active');
 
-            if (tabName == 'patient-card') {
-                $("#second-tab").show();
+                // Add 'active' class to the clicked tab
+                $(element).addClass('active');
             }
-            else {
-                $("#second-tab").hide();
-            }
 
-            $("#alwaysShow").removeClass('d-none');
-            $(".lead-info").addClass('d-none');
-            $(".tasks-card").addClass('d-none');
-            $(".follows-card").addClass('d-none');
-            $("." + tabName).removeClass('d-none');
-        }
         $('.FollowupAddBtn').on('click', function (e) {
             e.preventDefault()
             showFollowupModal()
