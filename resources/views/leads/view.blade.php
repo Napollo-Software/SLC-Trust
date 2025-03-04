@@ -376,7 +376,7 @@
                     </div>
                     <div class="card-body p-3">
                         <ul class="task-list" id="followups-list">
-                            @foreach ($lead->get_followup as $item)
+                            @foreach ($lead->followups as $item)
                                 <li id="followup-{{$item->id}}">
                                     <div class="row-container d-flex justify-content-between">
                                         <div><i class="task-icon bg-{{ randomColor() }}"></i>
