@@ -448,7 +448,7 @@
             <form id="followupForm">
                 @csrf
                 <input type="hidden" name="type" id="type" value="followup">
-                <input type="hidden" name="referral" id="referral" value="{{ $referral->id }}">
+                <input type="hidden" name="leadId" id="lead" value="{{ $lead->id }}">
                 <input type="hidden" name="from" value="{{ $user->id }}">
                 <div class="modal-body">
                     <div class="row">

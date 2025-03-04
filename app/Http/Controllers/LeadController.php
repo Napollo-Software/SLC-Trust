@@ -29,11 +29,13 @@ class LeadController extends Controller
         })->get();
         $contacts = contacts::select('id', 'fname', 'lname')->get();
         $lead = Lead::with('followups')->find($id);
-        // print_r($lead->toArray() , true);
-        // dd($lead);
+
+        $assignee = User::whereHas('roles', function ($query) {
+            $query->where('role', 'employee');
+        })->get();
 
         if ($lead) {
-            return view('leads.view', compact('lead', 'vendors', 'contacts'));
+            return view('leads.view', compact('lead', 'vendors', 'contacts' , 'assignee'));
         } else {
             alert('error', 'Lead not found');
             return redirect('/leads');
