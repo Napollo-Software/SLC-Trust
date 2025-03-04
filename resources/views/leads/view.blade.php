@@ -78,12 +78,44 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
         margin-left: 1rem;
         margin-right: 1rem;
     }
-
+    .nav-item1 {
+        padding: 8px 4px;
+        font-size: 16px;
+        min-width: 2rem;
+        -webkit-transition: .3s color;
+        transition: .3s color;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: flex;
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+                align-items: center;
+    } 
+    .nav1.nav-column .nav-link.active {
+        color: #fff !important;
+        background-color: #559E99;
+        padding: 8px;
+        font-size: 16px;
+        min-width: 100%;
+        border-radius: 4px;
+    }
+    .nav-item1 a {
+        display:flex;
+        align-items: center;
+    }
+    .menu-icon { 
+        font-size: 18px;
+    }
 </style>
 <div class="">
    
     <div class="d-flex align-items-center justify-content-between pt-lg-3 pb-3 flex-wrap gap-2 ">
-        <h5 class="  mb-0">
+        <h5 class="mb-0">
              <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/leads')}}" class="text-muted fw-light pointer"><b>All Leads</b></a> / <b>View Lead</b> </div>
         </h5>
         <div class="font-22 ">
@@ -95,155 +127,251 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
     </div>
     <!-- Account page navigation-->
     <div class="row d-flex align-items-stretch gap-2 gap-md-0">
-        <div class="col-lg-5">
-            <div class="card ">
-                <div class="card-header d-flex p-2 ">
-                    <h4 class="mb-0 py-2">Lead Information</h4>
-                </div>
-                <div class="card-body ">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 class="mb-md-0">Lead Full Name</h6>
-                        </div>
-                        <div class="col-md-6 text-left text-secondary">
-                            {{$lead->contact_first_name.' '.$lead->contact_last_name}}
-                        </div>
+        <div class="col-md-3">
+            <div class="card mb-4 ">
+                <div class="card-body p-2">
+                    <div class="border-bottom  ">
+                        <h4 class=" ">Select</h4>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 class="mb-md-0">Lead Email</h6>
-                        </div>
-                        <div class="col-md-6 text-left text-secondary">
-                            {{$lead->contact_email}}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 class="mb-md-0">Lead Phone</h6>
-                        </div>
-                        <div class="col-md-6 text-left text-secondary">
-                            @if($lead->contact_phone != '+1')
-                            {{$lead->contact_phone}}
-                            @endif
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 class="mb-md-0">Relationship with Patient</h6>
-                        </div>
-                        <div class="col-md-6 text-left text-secondary">
-                            {{$lead->relation_to_patient}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card  ">
-                <div class="card-header d-flex  p-2 ">
-                    <h4 class="mb-0 py-2">Patient Information</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-md-0">Patient Name</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            {{$lead->patient_first_name}} {{$lead->patient_last_name}}
-
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-md-0 text-nowrap">Patietn Phone</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            @if($lead->patient_phone != '+1')
-                            {{$lead->patient_phone}}
-                            @endif
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-md-0">Patient Email</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            {{$lead->patient_email}}
-                        </div>
-                    </div </div>
+                    <ul class="nav1 nav-column pb-0 flex-column br-7 px-0">
+                        <li class="nav-item1 mt-0  ">
+                            <a class="nav-link thumb active" onclick="showTab('lead-info')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-layout "></i>
+                                Lead Information
+                            </a>
+                        </li> 
+                        <li class="nav-item1 tasks-tab">
+                            <a class="nav-link  thumb" onclick="showTab('tasks-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-task "></i>
+                                Notes
+                            </a>
+                        </li>
+                        <li class="nav-item1 follows-tab">
+                            <a class="nav-link  thumb" onclick="showTab('follows-card')">
+                                <i class="menu-icon mr-2 tf-icons bx bx-book "></i>
+                                Follow up
+                            </a>
+                        </li>
+                       
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="col-lg-7">
-            <div class="card">
-                <div class="card-header d-flex p-2 ">
-                    <h4 class="mb-0 py-2">Other Information</h4>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-md-0">Sub Status</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            {{$lead->sub_status}}
-                        </div>
-                    </div>
-                    <hr>
-                    @if($lead->sub_status == 'closed')
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-md-0">Closing Reason</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            {{$lead->closing_reason}}
-                        </div>
-                    </div>
-                    <hr>
+        <div class="col-md-9  ">
+            <div class="lead-info"> 
+                <div class="d-lg-flex gap-3">
+                     <div class="card w-100" id="alwaysShow">
+                         <div class="card-header d-flex p-2 ">
+                             <h4 class="mb-0 py-2">Lead Information</h4>
+                         </div>
+                         <div class="card-body ">
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <h6 class="mb-md-0">Lead Full Name</h6>
+                                 </div>
+                                 <div class="col-md-6 text-left text-secondary">
+                                     {{$lead->contact_first_name.' '.$lead->contact_last_name}}
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <h6 class="mb-md-0">Lead Email</h6>
+                                 </div>
+                                 <div class="col-md-6 text-left text-secondary">
+                                     {{$lead->contact_email}}
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <h6 class="mb-md-0">Lead Phone</h6>
+                                 </div>
+                                 <div class="col-md-6 text-left text-secondary">
+                                     @if($lead->contact_phone != '+1')
+                                     {{$lead->contact_phone}}
+                                     @endif
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <h6 class="mb-md-0">Relationship with Patient</h6>
+                                 </div>
+                                 <div class="col-md-6 text-left text-secondary">
+                                     {{$lead->relation_to_patient}}
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="card w-100">
+                         <div class="card-header d-flex  p-2 ">
+                             <h4 class="mb-0 py-2">Patient Information</h4>
+                         </div>
+                         <div class="card-body">
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class="mb-md-0">Patient Name</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     {{$lead->patient_first_name}} {{$lead->patient_last_name}}
+     
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class="mb-md-0 text-nowrap">Patietn Phone</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     @if($lead->patient_phone != '+1')
+                                     {{$lead->patient_phone}}
+                                     @endif
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class="mb-md-0">Patient Email</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     {{$lead->patient_email}}
+                                 </div>
+                             </div </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="w-100">
+                     <div class="card">
+                         <div class="card-header d-flex p-2 ">
+                             <h4 class="mb-0 py-2">Other Information</h4>
+                         </div>
+                         <div class="card-body">
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class="mb-md-0">Sub Status</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     {{$lead->sub_status}}
+                                 </div>
+                             </div>
+                             <hr>
+                             @if($lead->sub_status == 'closed')
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class="mb-md-0">Closing Reason</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     {{$lead->closing_reason}}
+                                 </div>
+                             </div>
+                             <hr>
+                             @endif
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class="mb-md-0">Vendo ID</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     {{$lead->vendor_id}}
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class="mb-md-0">Case Type</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     {{ $lead->type_id ? $lead->type_id->name:$lead->case_type }}
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class=mb-md-0">Source Type</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     {{$lead->source_type}}
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-sm-3">
+                                     <h6 class="mb-md-0">Note</h6>
+                                 </div>
+                                 <div class="col-sm-9 text-secondary">
+                                     {{$lead->note}}
+                                 </div>
+                             </div>
+                             <hr>
+                             <div class="row">
+                                 <div class="col-sm-12">
+                                     <button id='back-btn' class="btn btn-primary">Close</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+
+            <div class="card tasks-card d-none">
+                <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
+                    <h4 class="px-3">Notes</h4>
+                    @if ($user->hasPermissionTo('Add Contact'))
+                    <div>
+                        <a class="btn btn-primary NoteAddBtn print-btn pb-1 pt-1 " style="color: white;">
+                            <i class="bx bx-save pb-1"></i>Add Note</a></div>
                     @endif
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-md-0">Vendo ID</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            {{$lead->vendor_id}}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-md-0">Case Type</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            {{ $lead->type_id ? $lead->type_id->name:$lead->case_type }}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class=mb-md-0">Source Type</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            {{$lead->source_type}}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6 class="mb-md-0">Note</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                            {{$lead->note}}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <button id='back-btn' class="btn btn-primary">Close</button>
-                        </div>
-                    </div>
+                </div>
+                <div class="card-body p-3">
+                    <ul class="task-list" id="notes-list">
+                        @foreach ($referral->get_followup as $item)
+                        <li id="note-{{$item->id}}">
+                            <div class="row-container d-flex justify-content-between">
+                                <div><i class="task-icon bg-{{ randomColor() }}"></i>
+                                    <h6 class="text-break">{{ $item->note }}</h6>
+                                    <p class="text-muted fs-12">
+                                        {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}</p>
+                                </div>
+                                <!--div>
+                                    <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
+                                        <i class="bx bx-edit pb-1"></i>
+                                    </button>
+                                </div-->
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card follows-card d-none">
+                <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
+                    <h4 class="px-3">Follow ups</h4>
+                    @if ($user->hasPermissionTo('Add Contact'))
+                    <div>
+                        <a class="btn btn-primary FollowupAddBtn pb-1 pt-1 " style="color: white;">
+                            <i class="bx bx-save pb-1"></i>Add Follow up</a></div>
+                    @endif
+                </div>
+                <div class="card-body p-3">
+                    <ul class="task-list" id="followups-list">
+                        @foreach ($referral->followups as $item)
+                        <li id="followup-{{$item->id}}">
+                            <div class="row-container d-flex justify-content-between">
+                                <div><i class="task-icon bg-{{ randomColor() }}"></i>
+                                    <h6 class="text-break">{{ $item->note }}</h6>
+                                    <p class="text-muted fs-12">
+                                        Date & Time: {{ \Carbon\Carbon::parse($item->date)->format('m/d/Y') }} {{ \Carbon\Carbon::parse($item->time)->format('h:i A') }}</p>
+                                </div>
+                                <!--div>
+                                    <button class="NoteEditBtn btn pb-1 pt-1" data-data='@json($item)' title="Click to edit note">
+                                        <i class="bx bx-edit pb-1"></i>
+                                    </button>
+                                </div-->
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
@@ -298,5 +426,21 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
             e.preventDefault()
             hideAddContactModal()
         })
+
+        function showTab(tabName) {
+
+        if(tabName == 'patient-card')
+            {
+                $("#second-tab").show();
+            }
+            else {
+                $("#second-tab").hide();
+            }
+
+        $("#alwaysShow").removeClass('d-none');
+        $(".lead-info").addClass('d-none'); 
+        $(".tasks-card").addClass('d-none');
+        $(".follows-card").addClass('d-none'); 
+        }
     </script>
     @endsection
