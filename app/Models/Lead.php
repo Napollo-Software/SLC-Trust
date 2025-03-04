@@ -91,4 +91,12 @@ class Lead extends Model
         $vendor = User::find($this->attributes['vendor_id']);
         return $vendor ? $vendor->name : 'N/A';
     }
+    public function followups()
+    {
+        return $this->hasMany(Followup::class, 'leadId', 'id');
+    }
+    public function get_followup()
+    {
+        return $this->hasMany(Followup::class, 'to', 'id');
+    }
 }

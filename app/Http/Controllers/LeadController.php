@@ -28,7 +28,10 @@ class LeadController extends Controller
             $query->where('name', 'vendor');
         })->get();
         $contacts = contacts::select('id', 'fname', 'lname')->get();
-        $lead = Lead::find($id);
+        $lead = Lead::with('followups')->find($id);
+        // print_r($lead->toArray() , true);
+        // dd($lead);
+
         if ($lead) {
             return view('leads.view', compact('lead', 'vendors', 'contacts'));
         } else {

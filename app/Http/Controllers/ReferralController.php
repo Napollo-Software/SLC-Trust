@@ -231,7 +231,8 @@ class ReferralController extends Controller
         $document = DocumentESign::all();
         $lead = Lead::all();
         $referral = Referral::with(['followups', 'get_uploaded_documents'])->findOrFail($id);
-
+        // print_r($referral->toArray() , true);
+        // dd($referral);
         $emergencyDetails = EmergencyContacts::where('referral_id', $id)->get();
         $checks = $referral->refferals_check;
         $fromFollowup = User::find($referral->get_followup->first()) !== null ? User::find($referral->get_followup->first()->from) : null;

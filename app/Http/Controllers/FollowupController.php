@@ -76,7 +76,8 @@ class FollowupController extends Controller
             'time' => $request->time,
             'note' => $request->note,
             'type' => $request->type,
-            'referral_id' => (!empty($data['referral'])) ? $request->input('referral') : null
+            'referral_id' => (!empty($data['referral'])) ? $request->input('referral') : null,
+            'leadId' => (!empty($data['leadId'])) ? $request->input('leadId') : null
         ]);
 
         Type::create([
