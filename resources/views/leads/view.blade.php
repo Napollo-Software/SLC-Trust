@@ -238,7 +238,7 @@
                     <div class="card-header d-flex py-2 px-3 ">
                         <h4 class="mb-0 py-2">Lead Information</h4>
                     </div>
-                    <div class="card-body " style="min-height: 223px;">
+                    <div class="card-body " style="min-height: 230px;">
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-md-0">Lead Full Name</h6>
@@ -282,7 +282,7 @@
                     <div class="card-header d-flex py-2 px-3 ">
                         <h4 class="mb-0 py-2">Patient Information</h4>
                     </div>
-                    <div class="card-body" style="min-height: 223px;">
+                    <div class="card-body" style="min-height: 230px;">
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-md-0">Patient Name</h6>
@@ -395,7 +395,7 @@
                         {{-- @endif --}}
                     </div>
                     </div>
-                    <div class="card-body p-3" style="min-height: 223px;">
+                    <div class="card-body p-3" style="min-height: 230px;">
                         <!-- <ul class="task-list" id="notes-list">
                             @foreach ($lead->get_followup as $item)
                                 <li id="note-{{$item->id}}">
@@ -440,7 +440,7 @@
                         </div>
                         {{-- @endif --}}
                     </div>
-                    <div class="card-body p-3" style="min-height: 223px;">
+                    <div class="card-body p-3" style="min-height: 232px;">
                         <ul class="task-list" id="followups-list">
                             @foreach ($lead->followups as $item)
                                 <li id="followup-{{$item->id}}">
