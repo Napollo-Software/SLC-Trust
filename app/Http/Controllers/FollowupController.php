@@ -106,7 +106,9 @@ class FollowupController extends Controller
                 'date' => date('Y-m-d'),
                 'time' => date('H:i:s'),
                 'note' => $request->note,
-                'type' => 'note'
+                'type' => 'note',
+                'referral_id' => $request->has('referral') ? $request->input('referral') : null,
+                'leadId' => $request->has('leadId') ? $request->input('leadId') : null,
             ]
         );
 

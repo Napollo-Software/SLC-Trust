@@ -11,6 +11,7 @@ use App\Models\Followup;
 use App\Models\Notifcation;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Session\Session as SessionSession;
 
 class LeadController extends Controller
@@ -60,6 +61,7 @@ class LeadController extends Controller
 
     public function store(Request $request)
     {
+        $authId = Session::get('loginId');
         $converted_to_referral = "";
         if($request->convert_to_referral == 1){
             $converted_to_referral = 1;
@@ -121,6 +123,9 @@ class LeadController extends Controller
             'converted_to_referral' => $converted_to_referral
         ]);
 
+
+        $this->storeNote($lead->id , $authId , $request->note);
+
         Notifcation::create([
             'user_id' => $request->assign_to,
             'name' => $lead->full_name(),
@@ -132,6 +137,18 @@ class LeadController extends Controller
         return response()->json([
             'message' => 'Lead created successfully',
             'lead_id' => $lead->id,
+        ]);
+    }
+    Public function storeNote($to, $from, $note)
+    {
+        return Followup::create([
+            'from' => $from,
+            'to' => $to,
+            'leadId' => $to,
+            'date' => now()->format('Y-m-d'),
+            'time' => now()->format('H:i:s'),
+            'note' => $note,
+            'type' => 'note'
         ]);
     }
 

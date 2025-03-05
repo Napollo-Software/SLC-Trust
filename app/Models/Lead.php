@@ -93,10 +93,12 @@ class Lead extends Model
     }
     public function followups()
     {
-        return $this->hasMany(Followup::class, 'leadId', 'id');
+        return $this->hasMany(Followup::class, 'leadId', 'id')
+                    ->where('type', 'followup');
     }
     public function get_followup()
     {
-        return $this->hasMany(Followup::class, 'to', 'id');
+        return $this->hasMany(Followup::class, 'leadId', 'id')
+                    ->where('type', 'note');
     }
 }

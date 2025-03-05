@@ -1168,6 +1168,7 @@ return $colors[$randomIndex];
                 <input type="hidden" name="note_id" id="note_id" value="">
                 <input type="hidden" name="from" value="{{ $user->id }}">
                 <input type="hidden" name="to" value="{{ $referral->id }}">
+                <input type="hidden" name="referral_id" value="{{ $referral->id }}">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12 p-2">

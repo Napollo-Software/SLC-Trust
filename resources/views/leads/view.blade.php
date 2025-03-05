@@ -482,6 +482,7 @@
                         <input type="hidden" name="note_id" id="note_id" value="">
                         <input type="hidden" name="from" value="{{ $user->id }}">
                         <input type="hidden" name="to" value="{{ $lead->id }}">
+                        <input type="hidden" name="leadId" value="{{ $lead->id }}">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-12 p-2">

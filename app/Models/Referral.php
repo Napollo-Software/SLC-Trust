@@ -67,13 +67,14 @@ class Referral extends Model
     }
     public function get_followup()
     {
-        return $this->hasMany(Followup::class, 'to', 'id');
+        return $this->hasMany(Followup::class, 'referral_id', 'id')
+                    ->where('type', 'note');
     }
 
     public function followups()
     {
-        return $this->hasMany(Followup::class, 'referral_id', 'id');
-
+        return $this->hasMany(Followup::class, 'referral_id', 'id')
+                    ->where('type', 'followup');
     }
 
     public function get_uploaded_documents()
