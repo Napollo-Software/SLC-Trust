@@ -111,7 +111,7 @@
         }
 
         .menu-icon {
-            font-size: 17px;
+            font-size: 18px;
         }
         .task-list li:hover .task-icon,
         .task-list li:focus .task-icon {
@@ -198,14 +198,14 @@
                     <div class="card-body p-2"> 
                         <ul class="nav1 nav-column  p-0 pb-0  m-0 flex-column  ">
                         <li class="nav-item1 mt-0">
-                            <a class="nav-link thumb active" onclick="showTab('lead-info', this)">
-                                <i class="menu-icon mr-2 tf-icons bx bx-layout"></i>
+                            <a class="nav-link thumb active" onclick="showTab('lead-info', this)"> 
+                                <i class='menu-icon mr-2 tf-icons bx bxs-user-detail'></i>
                                 Lead Information
                             </a>
                         </li>
                         <li class="nav-item1 mt-0">
-                            <a class="nav-link thumb" onclick="showTab('patient-info', this)">
-                                <i class="menu-icon mr-2 tf-icons bx bx-layout"></i>
+                            <a class="nav-link thumb" onclick="showTab('patient-info', this)"> 
+                                <i class='menu-icon mr-2 tf-icons bx bxs-user-badge'></i>
                                 Patient Information
                             </a>
                         </li>
