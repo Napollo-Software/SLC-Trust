@@ -223,6 +223,7 @@ class claimsController extends Controller
                 'expense_date' => $request->expense_date,
                 'payee_name' => $request->payee_name,
                 'account_number' => $request->account_number,
+                'bill_number' => $request->bill_number,
                 'claim_bill_attachment' => $attachment,
                 'recurring_bill' => $request->has('recurring_bill') ? 1 : 0,
                 'recurring_day' => $request->recurring_day,

@@ -191,6 +191,7 @@
                                 <tr>
                                     <th>Actions</th>
                                     <th>Title</th>
+                                    <th>Bill Number</th>
                                     <th>User</th>
                                     <th>Date</th>
                                     <th>Category</th>
@@ -230,6 +231,9 @@
                                         </div>
                                     </td>
                                     <td style="vertical-align: middle;"><a href="claims/{{ $claim['id'] }}">Bill#{{ str_pad($claim['id'], 2, '0', STR_PAD_LEFT) }}</a>
+                                    </td>
+                                    <td style="vertical-align: middle;">
+                                        {{  $claim->bill_number  }}
                                     </td>
                                     <td style="vertical-align: middle;">
                                         {{$claim->user_details->full_name()}}

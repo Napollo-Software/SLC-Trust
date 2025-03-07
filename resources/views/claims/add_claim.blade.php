@@ -73,11 +73,17 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                         @enderror
                                     </span>
                                 </div>
+
+                                <div class="col-lg-3 pt-3 pb-2">
+                                    <label for="" class="form-label">Bil Number</label>
+                                    <input type="text" name="bill_number" class="form-control" maxlength="40">
+                                </div>
+
                                 @if ($role != 'Admin')
                                 <input type="hidden" value="Panding" name="claim_status">
                                 @endif
                                 @if ($role != 'User')
-                                <div class="col-lg-6 pt-2">
+                                <div class="col-lg-3 pt-2">
                                     <label for="exampleFormControlInput1" class="form-label">Bill Status </label>
                                     <select id="defaultSelect" class="form-select" name="claim_status">
                                         <option name="Pending">Pending</option>
