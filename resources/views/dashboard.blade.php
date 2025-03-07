@@ -443,7 +443,7 @@
                         <table class="table table-bordered dataTable ">
                             <thead>
                                 <tr>
-                                    <th>tittle</th>
+                                    <th>Tittle</th>
                                     <th>Bill Number</th>
                                     <th>Date</th>
                                     <th>Category</th>
