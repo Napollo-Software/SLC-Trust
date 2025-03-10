@@ -461,9 +461,7 @@
                                 <tr>
                                     <td style="width: 120px"><a href="claims/{{ $claim['id'] }}">Bill#{{ str_pad($claim['id'], 2, '0', STR_PAD_LEFT) }}</a>
                                     </td>
-                                    <td>
-                                        {{$claim->bill_number}}
-                                    </td>
+                                    <td> {{$claim->bill_number}} </td>
                                     <td>{{ date('m/d/Y', strtotime($claim['submission_date'] ?? $claim['created_at'])) }}</td>
                                     <td>{{ $claim->category_details->category_name }}</td>
                                     <td>
