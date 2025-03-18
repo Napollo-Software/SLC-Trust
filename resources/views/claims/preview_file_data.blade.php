@@ -55,7 +55,7 @@
         }
 
         .dropzone {
-            width: 97%;
+            margin: 14px;
             height: 100px;
             border: 1px dashed #999;
             border-radius: 3px;
@@ -78,110 +78,139 @@
         }
     </style>
     <!-- partial:index.partial.html -->
-
-    <div class="">
-        <div class="d-flex justify-content-between">
-            <h5 class=" mb-3"><span class="text-muted fw-light">Update Pending Bills</h5>
-            <a class="btn btn-primary custom-float mb-2" href="{{ route('export.pending.bills') }}"><i class='bx bx-export pb-1'></i>Export
-            </a>
-            </h5>
-        </div>
-        <div class="row upload-file">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="dropzone m-3">
-                        <img src="{{ url('/upload.svg') }}" class="upload-icon" />
-                        <br>
-                        <b>Upload/Drag file here</b>
-                        <form id="upload_file" enctype="multipart/form-data">
-                            <input type="file" id="excelfile" onchange="ExportToTable()" class="upload-input pt-2" />
-                        </form>
-                    </div>
+   <div class="pb-3">
+        <h5 class=" d-flex justify-content-start pt-3 pb-2">
+            <b></b>
+            <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Update Bills Status</b></div>
+        </h5>
+        <div class="card mb-0">
+            <div class="card-header"> 
+                <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
+                    <h5 class="mb-0"><span class=" ">Update Pending Bills</h5>
+                    <a class="btn btn-primary custom-float " href="{{ route('export.pending.bills') }}"><i class='bx bx-export pb-1'></i>Export
+                    </a>
+                    </h5>
                 </div>
             </div>
-        </div>
-        <div class="row upload-result d-none">
-            <div class="col-lg-6 mb-1">
-                <div class="card ">
-                    <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between mb-1">
-                            <div>
-                                <h5 class="card-title  mb-2">
-                                    Success
-                                </h5>
-                                <small class="fw-semibold">Rows </small><span class="badge bg-primary success-row"
-                                    me-1">N/A</span>
-                            </div>
-                            <div class="avatar flex-shrink-0 ">
-                                <img src="{{ url('/assets/img/icons/unicons/approved.png') }}" alt="chart success"
-                                    class="rounded">
+            <div class="card-body"> 
+                <div class="row upload-file">
+                    <div class="col-lg-12">
+                        <div class="card mb-0">
+                            <div class="dropzone ">
+                                <img src="{{ url('/upload.svg') }}" class="upload-icon" />
+                                <br>
+                                <b>Upload/Drag file here</b>
+                                <form id="upload_file" enctype="multipart/form-data">
+                                    <input type="file" id="excelfile" onchange="ExportToTable()" class="upload-input pt-2" />
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card">
+                <div class="row upload-result d-none gy-3">
+                <div class="col-lg-6 ">
+                    <div class="card  mb-0">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start justify-content-between  ">
+                                <div>
+                                    <h3 class=" mb-2">
+                                        Success
+                                    </h3>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h6 class="fw-semibold mb-0">Rows </h6><span class="badge bg-primary success-row me-1">N/A</span>
+                                </div>
+                                </div>
+                                <div class="avatar flex-shrink-0 ">
+                                    <img src="{{ url('/assets/img/icons/unicons/approved.png') }}" alt="chart success"
+                                        class="rounded">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-0">
                     <div class="card-body">
-                        <div class="card-title d-flex align-items-start justify-content-between mb-1">
-                            <div>
-                                <h5 class="card-title mb-2">
+                            <div class="d-flex align-items-start justify-content-between ">
+                                <div>
+                                    <h3 class=" mb-2">
                                     Failed
-                                </h5>
-                                <small class="fw-semibold">Rows </small><span
-                                    class="badge bg-danger failed-row me-1">N/A</span>
+                                    </h3>
+                                <div class="d-flex align-items-center gap-2">
+                                        <h6 class="fw-semibold mb-0">Rows </h6><span class="badge bg-danger failed-row me-11">N/A</span>
+                                </div>
                                 <input type="hidden" class="failed-rows">
-                            </div>
-                            <div class="avatar flex-shrink-0 ">
-                                <img src="{{ url('/assets/img/icons/unicons/pending.png') }}" alt="chart success"
-                                    class="rounded">
+                                </div>
+                                <div class="avatar flex-shrink-0 ">
+                                    <img src="{{ url('/assets/img/icons/unicons/pending.png') }}" alt="chart success"
+                                        class="rounded">
+                                </div>
                             </div>
                         </div>
+                        <!-- <div class="card-body">
+                            <div class="card-title d-flex align-items-start justify-content-between mb-1">
+                                <div>
+                                    <h5 class="card-title mb-2">
+                                        Failed
+                                    </h5>
+                                    <small class="fw-semibold">Rows </small><span
+                                        class="badge bg-danger failed-row me-1">N/A</span>
+                                    <input type="hidden" class="failed-rows">
+                                </div>
+                                <div class="avatar flex-shrink-0 ">
+                                    <img src="{{ url('/assets/img/icons/unicons/pending.png') }}" alt="chart success"
+                                        class="rounded">
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
+            </div>
+        
+
         </div>
+        
+        <div class="card mt-3 mb-5">
+            <div class="card-header d-flex justify-content-Between align-items-center flex-wrap gap-2 mb-0 pb-2"> 
+                <h5 class="mb-0">File Details</h5>
+                <div class="d-flex  gap-2 ">
+                    <button class="btn btn-primary upload-btn" disabled> Upload! </i></button>
+                    <button id="clear_form" class="btn btn-secondary"><i class="bx bx-trash"></i>Clear</button> 
+                </div>
+            </div>
+            <div class="card-body overflow-auto" >
+                <div class="table-responsive overflow-auto text-nowrap  pb-2 scrollable-container">
+                    <table class="table align-middle mb-0 table-hover dataTable" id="exceltable">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Rejection_Reason</th>
+                                <th>Bill_Id</th>
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Payee</th>
+                                <th>Account</th>
+                                <th>Status</th>
+                                <th>Bill_Amount($)</th>
+                                <th>User_Balance($)</th>
+                                <th>Paid_Amount($)</th>
+                                <th>Payment_Method</th>
+                                <th>Payment_Number</th>
 
-    <div class="row mt-2">
-        <div class="">
-            <div class="card">
-                <h5 class="card-header d-flex justify-content-Between mb-0 pb-2">
-                    <b>File Details</b>
-                    <span><button class="btn btn-primary upload-btn" disabled> Upload! </i></button>
-                        <button id="clear_form" class="btn btn-secondary"><i class="bx bx-trash"></i>Clear</button></span>
-                </h5>
-                <div class="card-body">
-                    <div class="table-responsive text-nowrap overflow-auto pb-2 scrollable-container">
-                        <table class="table table-bordered dataTable " id="exceltable">
-                            <thead>
-                                <tr>
-                                    <th>Rejection_Reason</th>
-                                    <th>Bill_Id</th>
-                                    <th>User</th>
-                                    <th>Date</th>
-                                    <th>Category</th>
-                                    <th>Payee</th>
-                                    <th>Account</th>
-                                    <th>Status</th>
-                                    <th>Bill_Amount($)</th>
-                                    <th>User_Balance($)</th>
-                                    <th>Paid_Amount($)</th>
-                                    <th>Payment_Method</th>
-                                    <th>Payment_Number</th>
-
-                                    <!-- Add other headers here if needed -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Data will be populated here -->
-                            </tbody>
-                        </table>
-                    </div>
+                                <!-- Add other headers here if needed -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+   </div>
+        
+  
 @endsection
 
 <!-- partial -->
@@ -475,19 +504,19 @@
             encounteredRows[uniqueKey] = true;
 
             rowHTML += ';">';
-            rowHTML += '<td><span class="badge bg-' + color + '">' + reason + '</span></td>';
-            rowHTML += '<td>Bill#' + row['Bill Id'] + '</td>';
-            rowHTML += '<td>' + row['User'] + '</td>';
-            rowHTML += '<td>' + row['Date'] + '</td>';
-            rowHTML += '<td>' + row['Category'] + '</td>';
-            rowHTML += '<td>' + row['Payee'] + '</td>';
-            rowHTML += '<td>' + row['Account'] + '</td>';
-            rowHTML += '<td>' + status + '</td>'; // Use the pre-defined variable here
-            rowHTML += '<td>' + row['Bill Amount ($)'] + '</td>';
-            rowHTML += '<td>' + user_balance + '</td>'; // Use the pre-defined variable here
-            rowHTML += '<td>' + row['Paid Amount ($)'] + '</td>';
-            rowHTML += '<td>' + row['Payment method (ACH,Card,Check Payment)'] + '</td>';
-            rowHTML += '<td>' + row['Payment Number'] + '</td>';
+            rowHTML += '<td class="text-nowrap"><span class="badge bg-' + color + '">' + reason + '</span></td>';
+            rowHTML += '<td class="text-nowrap">Bill#' + row['Bill Id'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + row['User'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + row['Date'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + row['Category'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + row['Payee'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + row['Account'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + status + '</td>'; // Use the pre-defined variable here
+            rowHTML += '<td class="text-nowrap">' + row['Bill Amount ($)'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + user_balance + '</td>'; // Use the pre-defined variable here
+            rowHTML += '<td class="text-nowrap">' + row['Paid Amount ($)'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + row['Payment method (ACH,Card,Check Payment)'] + '</td>';
+            rowHTML += '<td class="text-nowrap">' + row['Payment Number'] + '</td>';
             rowHTML += '</tr>';
 
             $(tableId + " tbody").append(rowHTML);
