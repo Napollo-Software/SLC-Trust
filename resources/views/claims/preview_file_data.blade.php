@@ -87,7 +87,7 @@
             <div class="card-header"> 
                 <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
                     <h5 class="mb-0"><span class=" ">Update Pending Bills</h5>
-                    <a class="btn btn-primary custom-float " href="{{ route('export.pending.bills') }}"><i class='bx bx-export pb-1'></i>Export
+                    <a class="btn btn-primary custom-float " href="{{ route('export.pending.bills') }}" style="background-color: #6BB0AA"><i class='bx bx-export pb-1'></i>Export
                     </a>
                     </h5>
                 </div>
@@ -245,7 +245,7 @@
             icon: 'warning',
 
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#6BB0AA',
             cancelButtonColor: 'info',
             confirmButtonText: 'Yes, proceed!'
         }).then((result) => {
