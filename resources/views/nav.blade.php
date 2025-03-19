@@ -36,6 +36,7 @@
 </head>
 <body>
     @php
+         checkAuth(); 
         $user = App\Models\User::find(Session::get('loginId'));
         $followup = App\Models\Followup::select('note', 'date')->orderBy('id','desc')->get();
         $notifications = App\Models\Notifcation::with('referralName')->where('user_id', $user->id)->latest()->take(6)->get();

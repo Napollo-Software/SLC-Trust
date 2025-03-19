@@ -253,3 +253,11 @@ if (! function_exists('formatDateForPdf')) {
         return $date ? date($format, strtotime($date)) : '';
     }
 }
+if (!function_exists('checkAuth')) {
+    function checkAuth()
+    {
+        if (!Session::has('loginId')) {
+            exit(Redirect::to('/')->with('fail', 'Please login first')->send());
+        }
+    }
+}
