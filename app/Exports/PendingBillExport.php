@@ -11,6 +11,8 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
+use PhpOffice\PhpSpreadsheet\Cell\DataValidation;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
 
 
 class PendingBillExport implements FromCollection,WithHeadings, WithEvents, ShouldAutoSize
@@ -35,7 +37,7 @@ class PendingBillExport implements FromCollection,WithHeadings, WithEvents, Shou
             ])->first();
             if($user){
                 $user_name = $user->name.' '.$user->last_name;
-                $user_balance = $user->user_balance;
+                $user_balance = userBalance($user->id);
 
             $category = Category::find($claim->claim_category);
             $result[] = array(
@@ -74,12 +76,29 @@ class PendingBillExport implements FromCollection,WithHeadings, WithEvents, Shou
     public function registerEvents(): array
     {
         return [
-            AfterSheet::class    => function(AfterSheet $event) {
-                $event->sheet->getDelegate()->getStyle('A1:L1')
-                        ->getFill()
-                        ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
-                        ->getStartColor()
-                        ->setARGB('2ecfde');
+            AfterSheet::class => function (AfterSheet $event) {
+                $sheet = $event->sheet->getDelegate();
+                
+                $sheet->getStyle('A1:L1')
+                    ->getFill()
+                    ->setFillType(Fill::FILL_SOLID)
+                    ->getStartColor()
+                    ->setARGB('2ECFDE');
+
+                $dropdownOptions = '"Approved,Partially Approve,Reject"';
+
+                $highestRow = $sheet->getHighestRow();
+
+                for ($row = 2; $row <= $highestRow; $row++) {
+                    $validation = $sheet->getCell("G$row")->getDataValidation();
+                    $validation->setType(DataValidation::TYPE_LIST);
+                    $validation->setErrorStyle(DataValidation::STYLE_INFORMATION);
+                    $validation->setAllowBlank(false);
+                    $validation->setShowInputMessage(true);
+                    $validation->setShowErrorMessage(true);
+                    $validation->setShowDropDown(true);
+                    $validation->setFormula1($dropdownOptions);
+                }
             },
         ];
     }
