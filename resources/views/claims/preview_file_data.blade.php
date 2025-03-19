@@ -417,14 +417,14 @@
         // Iterate through each row in jsonData
         jsonData.forEach(function(row) {
             // Assuming Column A and Column B are the columns to check
-            var user_balance = parseFloat(row[
-                'User Balance ($)']); // Replace 'User Balance ($)' with the actual header/title of Column A
+            var user_balance = row['User Balance ($)'] === "N/A" || row['User Balance ($)'] == 0 
+            ? 0 
+            : parseFloat(row['User Balance ($)']) || 0;
             var paid_amount = parseFloat(row[
                 'Paid Amount ($)']); // Replace 'Paid Amount ($)' with the actual header/title of Column B
             var bill_amount = parseFloat(row[
                 'Bill Amount ($)']); // Replace 'Paid Amount ($)' with the actual header/title of Column B
             var status = row['Status (You can either Approved ,Partially Approve or Reject bills )'];
-
             // Replace 'undefined' values with an empty string
             row['Payee'] = row['Payee'] || '';
             row['Account'] = row['Account'] || '';

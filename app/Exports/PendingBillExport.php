@@ -2,17 +2,18 @@
 
 namespace App\Exports;
 
-use App\Models\Claim;
 use App\Models\User;
-use App\Models\PayeeModel;
+use App\Models\Claim;
 use App\Models\Category;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-use Maatwebsite\Excel\Concerns\ShouldAutoSize;
-use Maatwebsite\Excel\Concerns\WithEvents;
+use App\Models\PayeeModel;
+use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Events\AfterSheet;
-use PhpOffice\PhpSpreadsheet\Cell\DataValidation;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use PhpOffice\PhpSpreadsheet\Cell\DataValidation;
 
 
 class PendingBillExport implements FromCollection,WithHeadings, WithEvents, ShouldAutoSize
@@ -36,9 +37,11 @@ class PendingBillExport implements FromCollection,WithHeadings, WithEvents, Shou
                 ['id','=',$claim->claim_user],
             ])->first();
             if($user){
+                $userBalance = userBalance($user->id);
+                $balance = ($userBalance === "N/A") ? '0' : $userBalance;
                 $user_name = $user->name.' '.$user->last_name;
-                $user_balance = userBalance($user->id);
-
+                $user_balance = $balance;
+                
             $category = Category::find($claim->claim_category);
             $result[] = array(
                 'Bill Id' => $claim->id,

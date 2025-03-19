@@ -239,18 +239,18 @@
                                         href=" {{ route('recurring.bills') }}"><i class="bx bx-file-blank"></i>Recurring
                                     Bills</a>
                             </li>
-                            @endif
-                            @if ($user->hasPermissionTo('Recycle'))
-                            <li>
-                                <a class="dropdown-item {{  Route::currentRouteName() ==='recycle.bills' ? 'open active' : '' }}" href="{{ route('recycle.bills') }}"><i class="bx bx-trash"></i>Recycle
-                                    Bin</a></li>
-                            @endif
+                            @endif    
                             @if ($user->hasPermissionTo('Update Bill Status'))
                                 <li>
                                     <a class="dropdown-item {{ Route::currentRouteName() === 'claim.preview' ? 'active' : '' }}"
                                     href="{{ url('claim/preview-file') }}"><i class="bx bx-layer"></i>Update
                                     Bills Status</a>
                             </li>
+                            @endif
+                            @if ($user->hasPermissionTo('Recycle'))
+                            <li>
+                                <a class="dropdown-item {{  Route::currentRouteName() ==='recycle.bills' ? 'open active' : '' }}" href="{{ route('recycle.bills') }}"><i class="bx bx-trash"></i>Recycle
+                                    Bin</a></li>
                             @endif
                         </ul>
                     </li>
