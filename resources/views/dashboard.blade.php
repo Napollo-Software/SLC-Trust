@@ -18,15 +18,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('.dataTable').DataTable({
-            aLengthMenu: [
-                [25, 50, 100, -1]
-                , [25, 50, 100, "All"]
-            ]
-            , "order": false
-        });
+$(document).ready(function() {
+    $('.dataTable').DataTable({
+        "order": [], 
+        "columnDefs": [
+            {
+                "targets": 5, 
+                "orderable": true,
+                "type": "string",
+            },
+            {
+                "targets": [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11], 
+                "orderable": false
+            }
+        ],
+        "initComplete": function(settings, json) {
+            var totalRecords = this.api().rows().count(); 
+            $('#totalRecords').html(" Total Records: " + totalRecords );
+        }
     });
+});
 
 </script>
 <?php
@@ -154,14 +165,16 @@
                 <div class="d-flex align-items-center p-3">
                     <div>
                         <h5 class="mb-1">Latest Bills</h5>
-                        <p class="mb-0 font-13 text-secondary"><i class="bx bxs-calendar"></i>Latest 250 Bills</p>
-                    </div>
+                        <p class="mb-0 font-13 text-secondary">
+                            <i class="bx bxs-calendar"></i> <span id="totalRecords"></span>
+                        </p>
+                    </div>                    
                     <div class="dropdown ms-auto">
                         <form id="search_bills" action="<?= url('search-bills') ?>" method="POST">
                             <div class="d-flex custom-float">
                                 @csrf
                                 <div class="">
-                                    <select class="form-select user-id select-2 m-1 p-1" name="search" required>
+                                    <select class="form-select user-id select-2 m-1 p-1" name="search">
                                         <option value="">Choose One</option>
                                         @foreach ($users as $user)
                                         @if ($user->role == 'User' && $user->account_status == 'Approved')
@@ -237,26 +250,23 @@
                                     <td style="vertical-align: middle;"> {{ date('m/d/Y', strtotime($claim['submission_date'] ?? $claim['created_at'])) }}</td>
                                     <td style="vertical-align: middle;">{{ $claim->category_details->category_name }}</td>
                                     <td style="vertical-align: middle;">
-                                        <span class="badge
-                                                        @if ($claim->claim_status == 'Approved') bg-success @endif
-                                                        @if ($claim->claim_status == 'Partially approved') bg-primary @endif
-                                                        @if ($claim->claim_status == 'Pending') bg-info @endif
-                                                        @if ($claim->claim_status == 'Refused') bg-danger @endif
-                                                        me-1">
-                                            @if ($claim->claim_status == 'Approved')
-                                            {{ $claim['claim_status'] }}
-                                            @endif
-                                            @if ($claim->claim_status == 'Partially approved')
-                                            {{ $claim['claim_status'] }}
-                                            @endif
-                                            @if ($claim->claim_status == 'Pending')
-                                            {{ $claim['claim_status'] }}
-                                            @endif
-                                            @if ($claim->claim_status == 'Refused')
-                                            {{ $claim['claim_status'] }}
-                                            @endif
+                                        <span class="hidden-status" style="display: none;">
+                                            @if ($claim->claim_status == 'Approved') A @endif
+                                            @if ($claim->claim_status == 'Partially approved') P @endif
+                                            @if ($claim->claim_status == 'Pending') N @endif
+                                            @if ($claim->claim_status == 'Refused') R @endif
+                                        </span>
+                                    
+                                        <span class="badge 
+                                                    @if ($claim->claim_status == 'Approved') bg-success @endif
+                                                    @if ($claim->claim_status == 'Partially approved') bg-primary @endif
+                                                    @if ($claim->claim_status == 'Pending') bg-info @endif
+                                                    @if ($claim->claim_status == 'Refused') bg-danger @endif
+                                                    me-1">
+                                            {{ $claim->claim_status }}
                                         </span>
                                     </td>
+                                    
                                     <td style="vertical-align: middle;">
                                         <div class="card mt-3" style="vertical-align: middle;">
                                             <div class="card-body" style="vertical-align: middle;">

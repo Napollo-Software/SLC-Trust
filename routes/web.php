@@ -329,7 +329,7 @@ Route::Post('delete/bill', [claimsController::class, 'destroy'])->name('delete.b
 
 Route::Post('restore/bill', [claimsController::class, 'RestoreBill'])->name('restore.bill');
 
-Route::post('search-bills', [claimsController::class, 'index']);
+Route::match(['get', 'post'], 'search-bills', [ClaimsController::class, 'index']);
 
 Route::get('edit-bill/{id}', [claimsController::class, 'edit_bill'])->name('edit_bill');
 
