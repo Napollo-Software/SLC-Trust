@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Log;
 use App\Exports\PendingDepositExport;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Session;
+use App\Exports\PendingEnrollmentExport;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
@@ -121,7 +122,7 @@ class ReportController extends Controller
 
     public function pendingEnrollmentFilter(Request $request)
     {
-        if (!$request->filled('billing_cycle') && !$request->filled('status')) {
+        if (!$request->filled('status')) {
             return response()->json([
                 'html' => view('partials.user_list', ['users' => collect()])->render() // Empty collection
             ]);
@@ -133,11 +134,6 @@ class ReportController extends Controller
                     ->groupBy('user_id');
             }
         ]);
-
-        // Filter by billing cycle
-        if ($request->filled('billing_cycle')) {
-            $query->whereIn('billing_cycle', $request->billing_cycle);
-        }
 
         // Filter by status
         if ($request->filled('status')) {
@@ -179,7 +175,7 @@ class ReportController extends Controller
             'status' => $request->input('status', null),
         ];
 
-        if (empty($filters['billing_cycle']) && empty($filters['status'])) {
+        if (empty($filters['status'])) {
             return response()->noContent(204); 
         }
 

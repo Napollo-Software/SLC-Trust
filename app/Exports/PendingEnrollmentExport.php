@@ -17,19 +17,14 @@ class PendingEnrollmentExport implements FromCollection, WithHeadings, WithMappi
 
     public function collection()
     {
-        if (empty($this->filters['billing_cycle'])) {
+        if (empty($this->filters['status'])) {
             return collect([]);
         }
     
         $query = User::with(['transactions' => function($query) {
             $query->selectRaw('user_id, sum(credit) as total_credit, sum(debit) as total_debit')
                   ->groupBy('user_id');
-        }]);
-    
-        if (!empty($this->filters['billing_cycle']) && is_array($this->filters['billing_cycle'])) {
-            $query->whereIn('billing_cycle', $this->filters['billing_cycle']);
-        }
-    
+        }]);    
         if (!empty($this->filters['status'])) {
             if ($this->filters['status'] === 'done') {
                 $query->whereHas('transactions', function ($q) {

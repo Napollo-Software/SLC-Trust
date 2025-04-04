@@ -62,14 +62,14 @@
                 <!-- Surplus/Maintenance Section -->
                 <div class="card ">
                     <div class="card-header ">
-                    <h5 class="mb-0 text-black py-2">Surplus/Maintenance</h5>
+                    <h5 class="mb-0 text-black py-2">Surplus Amount</h5>
                     </div>
                     
                     <div class="card-body ">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" id="status_done" name="status" value="done" 
                                 @if (old('status') == "done") checked @endif>
-                            <label class="form-check-label ms-2" for="status_done">Done</label>
+                            <label class="form-check-label ms-2" for="status_done">Received</label>
                         </div>
                 
                         <div class="form-check mt-2">

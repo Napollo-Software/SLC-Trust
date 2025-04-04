@@ -353,12 +353,12 @@ $user = App\Models\User::find(Session::get('loginId'));
                                 {{-- @if ($user->hasPermissionTo('View Report')) --}}
                                 <li>
                                     <a class="dropdown-item {{in_array(Route::currentRouteName(), ['reports.pending.deposit']) ? 'active' : ''  }}"
-                                        href="{{ route('reports.pending.deposit') }}"><i class="bx bx-spreadsheet"></i>Pending Deposit
+                                        href="{{ route('reports.pending.deposit') }}"><i class="bx bx-spreadsheet"></i>Due Deposit
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item {{in_array(Route::currentRouteName(), ['reports.pending.enrollment']) ? 'active' : ''  }}"
-                                        href="{{ route('reports.pending.enrollment') }}"><i class="bx bx-spreadsheet"></i>Pending Enrollment
+                                        href="{{ route('reports.pending.enrollment') }}"><i class="bx bx-spreadsheet"></i>Due Enrollment
                                     </a>
                                 </li>
                                 {{-- @endif --}}

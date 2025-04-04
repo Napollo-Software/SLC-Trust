@@ -15,61 +15,18 @@
     </h5>
     <div class="row justify-content-start  g-3">
         <div class="col-lg-3 " >
-           <div class="sticky_box">
-                <div class="card mb-3"  >
-                    <div class="card-header ">
-                    <h5 class="mb-0 text-black py-2">Billing Cycle</h5>
-                    </div>
-                    <div class="card-body ">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_1" name="billing_cycle[]" value="1" 
-                                @if (in_array("1", (array) old('billing_cycle', []))) checked @endif>
-                            <label class="form-check-label ms-2" for="billing_cycle_1">1st of every Month</label>
-                        </div>
-                
-                        <div class="form-check mb-2">
-                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_3" name="billing_cycle[]" value="3" 
-                                @if (in_array("3", (array) old('billing_cycle', []))) checked @endif>
-                            <label class="form-check-label ms-2" for="billing_cycle_3">3rd of every Month</label>
-                        </div>
-                
-                        <div class="form-check mb-2">
-                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_7" name="billing_cycle[]" value="7" 
-                                @if (in_array("7", (array) old('billing_cycle', []))) checked @endif >
-                            <label class="form-check-label ms-2" for="billing_cycle_7">7th of every Month</label>
-                        </div>
-                
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_14" name="billing_cycle[]" value="14" 
-                                        @if (in_array("14", (array) old('billing_cycle', []))) checked @endif >
-                                    <label class="form-check-label ms-2" for="billing_cycle_14">14th of every Month</label>
-                                </div>
-                
-                        <div class="form-check mb-2">
-                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_21" name="billing_cycle[]" value="21" 
-                                @if (in_array("21", (array) old('billing_cycle', []))) checked @endif>
-                            <label class="form-check-label ms-2" for="billing_cycle_21">21st of every Month</label>
-                        </div>
-                
-                        <div class="form-check">
-                            <input class="form-check-input billing_cycle" type="checkbox" id="billing_cycle_28" name="billing_cycle[]" value="28" 
-                                @if (in_array("28", (array) old('billing_cycle', []))) checked @endif>
-                            <label class="form-check-label ms-2" for="billing_cycle_28">28th of every Month</label>
-                        </div>
-                    </div>
-                </div>
-                
+           <div class="sticky_box">                
                 <!-- Surplus/Maintenance Section -->
-                <div class="card ">
+                <div class="card mb-3">
                     <div class="card-header ">
-                    <h5 class="mb-0 text-black py-2">Surplus/Maintenance</h5>
+                    <h5 class="mb-0 text-black py-2">Surplus Amount</h5>
                     </div>
                     
                     <div class="card-body ">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" id="status_done" name="status" value="done" 
                                 @if (old('status') == "done") checked @endif>
-                            <label class="form-check-label ms-2" for="status_done">Done</label>
+                            <label class="form-check-label ms-2" for="status_done">Received</label>
                         </div>
                 
                         <div class="form-check mt-2">
