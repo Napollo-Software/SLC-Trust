@@ -17,7 +17,7 @@ class PendingDepositExport implements FromCollection, WithHeadings, WithMapping
 
     public function collection()
     {
-        if (empty($this->filters['billing_cycle'])) {
+        if (empty($this->filters['billing_cycle']) && empty($this->filters['status'])) {
             return collect([]);
         }
     

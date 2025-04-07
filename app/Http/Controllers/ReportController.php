@@ -171,7 +171,6 @@ class ReportController extends Controller
         ]);
 
         $filters = [
-            'billing_cycle' => $request->input('billing_cycle', []),
             'status' => $request->input('status', null),
         ];
 

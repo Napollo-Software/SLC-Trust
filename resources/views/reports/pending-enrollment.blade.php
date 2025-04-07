@@ -96,7 +96,6 @@
             url: "{{ route('reports.pending.enrollment.filter') }}",
             method: "GET",
             data: {
-                billing_cycle: selectedBillingCycles,
                 status: status
             },
             success: function (response) {

@@ -40,7 +40,6 @@ class PendingEnrollmentExport implements FromCollection, WithHeadings, WithMappi
         $query->where('account_status', 'Approved')->where('role', 'User');
     
         $users = $query->get();
-    
         foreach ($users as $user) {
             $credit = $user->transactions->sum('total_credit');
             $debit  = $user->transactions->sum('total_debit');

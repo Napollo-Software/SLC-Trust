@@ -769,9 +769,10 @@ class AuthController extends Controller
 
     public function add_user_balance(Request $request, $id)
     {
+        // dd($request->all());
         $this->validate($request, [
             'payment_type'            => 'nullable|required_if:payment_type,on',
-            'balance'                 => 'nullable|numeric|gt:0',
+            'balance'                 => ['nullable', 'required_if:add_balance,on', 'numeric', 'gt:0'],
             'date_of_trans'           => ['nullable', 'required_if:add_balance,on', 'date', function ($attribute, $value, $fail) use ($request) {
                 if ($request->has('add_balance') && $request->add_balance === 'on' && empty($value)) {
                     $fail('The Transaction Date field is required when Add Balance is checked.');
@@ -793,7 +794,7 @@ class AuthController extends Controller
                 }
             }],
             'maintenance_fee_check'   => 'nullable',
-            'maintenance_fee'         => 'nullable|numeric|min:0',
+            'maintenance_fee' => ['nullable', 'required_if:maintenance_fee_check,on', 'numeric', 'min:0'],
             'registration_fee'        => 'nullable',
             'maintenance_fee_type'    => ['nullable', 'string', 'in:percentage,fixed', function ($attribute, $value, $fail) use ($request) {
                 if ($request->has('add_balance') && $request->add_balance === 'on' &&
