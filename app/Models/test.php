@@ -46,14 +46,24 @@
      }
      $claimUser = User::find($claim_user);
      $intrustpit = User::find(7);
-     if ($claimUser->user_balance < $claim_amount && $request->claim_status != 'Refused') {
-         if ($user->role != 'User') {
-             return response()->json(['header' => 'Insufficient balance!', 'type' => 'warning', 'message' => $claimUser->name . "'s balance is $" . $claimUser->user_balance . " which is insufficient to add this bill, Please add balance first."]);
-         } else {
-             Alert::warning('Insufficient balance !', "Your balance is insufficient to add bills,Please request a deposit and try again.")->persistent('Dismiss');
-             ;
-         }
-     }
+     $balanceStr = number_format((float) $claimUser->user_balance, 2, '.', '');
+     $claimAmountStr = number_format((float) $claim_amount, 2, '.', '');
+
+    if (bccomp($balanceStr, $claimAmountStr, 2) < 0 && $request->claim_status != 'Refused') {
+        if ($user->role != 'User') {
+            return response()->json([
+                'header' => 'Insufficient balance!',
+                'type' => 'warning',
+                'message' => "{$claimUser->name}'s balance is \${$claimUser->user_balance} which is insufficient to add this bill. Please add balance first."
+            ]);
+        } else {
+            Alert::warning(
+                'Insufficient balance!',
+                "Your balance is insufficient to add bills. Please request a deposit and try again."
+            )->persistent('Dismiss');
+        }
+    }
+
      $claim = Claim::find($id);
      $claim->claim_category = $request->claim_category;
      $claim->recurring_bill = $request->recurring_bill;
