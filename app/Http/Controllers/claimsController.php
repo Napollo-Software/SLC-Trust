@@ -200,18 +200,18 @@ class claimsController extends Controller
 
         $balanceStr = number_format((float) $balance, 2, '.', '');
         $claimAmountStr = number_format((float) $validated['claim_amount'], 2, '.', '');
-
         if (
             $user->role != "User" &&
             bccomp($balanceStr, $claimAmountStr, 2) < 0 &&
             $request->claim_status == 'Approved'
-        ) {
-            return response()->json([
-                'type' => 'warning',
-                'header' => 'Insufficient balance!',
-                'message' => "{$claimUser->name}'s balance is insufficient to approve this bill. Please add balance first."
-            ]);
-        }
+            ) {
+                return response()->json([
+                    'type' => 'warning',
+                    'header' => 'Insufficient balance!',
+                    'message' => "{$claimUser->name}'s balance is insufficient to approve this bill. Please add balance first."
+                ]);
+            }
+            // dd($balanceStr , $claimAmountStr);
 
 
         DB::beginTransaction();
@@ -359,8 +359,8 @@ class claimsController extends Controller
             if (bccomp($balanceStr, $claimAmountStr, 2) < 0) {
                 return response()->json([
                     'header' => 'Insufficient balance!',
-                    'type' => 'warning',
-                    'message' => "Your balance is insufficient to submit this bill."
+                    'type' => 'success',
+                    'message' => "Your bill has been submitted successfully."
                 ]);
             } else {
                 return response()->json([
