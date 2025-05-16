@@ -180,6 +180,19 @@ color:#69707a;
                           <span class="text-danger">@error('dob'){{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-6">
+                          <label for="exampleFormControlInput1" class="form-label">APT/SUITE</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="APT/SUITE"
+                            name="apt_suite"
+                            value="{{$user['apt_suite']}}"
+                          />
+                          <span class="text-danger">@error('apt_suite'){{$message}} @enderror</span>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-lg-12">
                           <label for="exampleFormControlInput1" class="form-label">Address</label>
                           <input
                             type="text"

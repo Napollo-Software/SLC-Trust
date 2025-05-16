@@ -675,6 +675,7 @@ class AuthController extends Controller
         $user->full_ssn  = $request->full_ssn;
         $user->dob       = $request->dob;
         $user->address   = $request->address;
+        $user->apt_suite   = $request->apt_suite;
         if ($request->state != null) {
             $user->state = $request->state;
         }
