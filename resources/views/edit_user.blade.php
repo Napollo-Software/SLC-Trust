@@ -257,6 +257,15 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-4">
+                                            <h6 class="mb-0">APT/SUITE</h6>
+                                        </div>
+                                        <div class="col-sm-8 text-secondary">
+                                            {{ $user->apt_suite }}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-4">
                                             <h6 class="mb-0">State, City</h6>
                                         </div>
                                         <div class="col-sm-8 text-secondary">

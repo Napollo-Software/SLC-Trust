@@ -374,6 +374,15 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         </div>
                         <hr>
                         <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">APT/SUITE</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <textarea name="apt_suite" class="form-control" cols="5">{{$user->apt_suite}}</textarea>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
                             <div class="col-sm-12">
                                 <button type="submit" name="approval_action" class="btn btn-primary up-date-profile">Update Profile</button>
                             </div>

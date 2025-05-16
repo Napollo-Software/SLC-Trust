@@ -1,28 +1,28 @@
 <?php
 namespace App\Http\Controllers;
 
-use Hash;
-use Cookie;
-use Session;
-use Carbon\Carbon;
-use App\Models\City;
-use App\Models\Lead;
-use App\Models\User;
-use App\Models\Claim;
+use App\Jobs\sendEmailJob;
 use App\Models\Category;
+use App\Models\City;
+use App\Models\Claim;
 use App\Models\contacts;
 use App\Models\Followup;
-use App\Models\Referral;
-use App\Jobs\sendEmailJob;
+use App\Models\Lead;
 use App\Models\Notifcation;
+use App\Models\Referral;
 use App\Models\Transaction;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
+use Cookie;
+use Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Session;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -450,7 +450,7 @@ class AuthController extends Controller
     {
         $auth = Auth::user();
         $role = $auth ? $auth->role : null;
-        
+
         $pool_fund = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
          - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
 
@@ -520,7 +520,7 @@ class AuthController extends Controller
 
         $start_date = null;
 
-        $followup = Followup::with('referralName')->select('note', 'date' , 'referral_id')->get();
+        $followup  = Followup::with('referralName')->select('note', 'date', 'referral_id')->get();
         $customers = User::where('role', 'User')
             ->leftJoin('transactions', 'users.id', '=', 'transactions.user_id')
             ->select('users.id', 'users.name', 'users.email', \DB::raw('SUM(transactions.credit) - SUM(transactions.debit) as balance'))
@@ -739,6 +739,7 @@ class AuthController extends Controller
         $user->full_ssn      = $request->full_ssn;
         $user->dob           = $request->dob;
         $user->address       = $request->address;
+        $user->apt_suite     = $request->apt_suite;
         $user->state         = $request->state;
         $user->city          = $request->city;
         $user->notify_before = $request->notify_before;
@@ -876,19 +877,19 @@ class AuthController extends Controller
                 $customer_description = "\${$depost_amount} added in account on {$transactionDate} against {$request->payment_type} Transaction ID: #{$transactionId}.";
 
                 $admin->transactions()->create([
-                    "debit"        => $depost_amount,
-                    "description"  => $description,
-                    "type"         => Transaction::Deposit,
-                    "reference_id" => $reference_id,
+                    "debit"         => $depost_amount,
+                    "description"   => $description,
+                    "type"          => Transaction::Deposit,
+                    "reference_id"  => $reference_id,
                     "date_of_trans" => $request->date_of_trans,
-                    
+
                 ]);
 
                 $deposit_transaction = $user->transactions()->create([
-                    "reference_id" => $reference_id,
-                    "credit"       => $depost_amount,
-                    "description"  => $customer_description,
-                    "type"         => Transaction::Deposit,
+                    "reference_id"  => $reference_id,
+                    "credit"        => $depost_amount,
+                    "description"   => $customer_description,
+                    "type"          => Transaction::Deposit,
                     "date_of_trans" => $request->date_of_trans,
 
                 ]);
@@ -907,7 +908,7 @@ class AuthController extends Controller
                     "type"             => Transaction::MaintenanceFee,
                     "description"      => $customer_platform_fee_description,
                     "transaction_type" => \TransactionType::Operational,
-                    "date_of_trans" => $request->date_of_trans,
+                    "date_of_trans"    => $request->date_of_trans,
 
                 ]);
 
@@ -917,7 +918,7 @@ class AuthController extends Controller
                     "type"             => Transaction::MaintenanceFee,
                     "description"      => $platform_fee_description,
                     "transaction_type" => \TransactionType::Operational,
-                    "date_of_trans" => $request->date_of_trans,
+                    "date_of_trans"    => $request->date_of_trans,
 
                 ]);
 
@@ -936,10 +937,9 @@ class AuthController extends Controller
                     "debit"            => $request->registration_fee_amount,
                     "description"      => $customer_registration_description,
                     "transaction_type" => \TransactionType::Operational,
-                    "date_of_trans" => $request->date_of_trans,
+                    "date_of_trans"    => $request->date_of_trans,
 
                 ]);
-
 
                 $admin->transactions()->create([
                     "reference_id"     => $reference_id,
@@ -947,7 +947,7 @@ class AuthController extends Controller
                     "credit"           => $request->registration_fee_amount,
                     "description"      => $registration_fee_description,
                     "transaction_type" => \TransactionType::Operational,
-                    "date_of_trans" => $request->date_of_trans,
+                    "date_of_trans"    => $request->date_of_trans,
 
                 ]);
 
@@ -966,7 +966,7 @@ class AuthController extends Controller
                     "debit"            => $remaining_amount,
                     "description"      => $customer_amount_debited_description,
                     "transaction_type" => \TransactionType::Operational,
-                    "date_of_trans" => $request->date_of_trans,
+                    "date_of_trans"    => $request->date_of_trans,
 
                 ]);
 
@@ -976,7 +976,7 @@ class AuthController extends Controller
                     "credit"           => $remaining_amount,
                     "description"      => $amount_credited_description,
                     "transaction_type" => \TransactionType::Operational,
-                    "date_of_trans" => $request->date_of_trans,
+                    "date_of_trans"    => $request->date_of_trans,
 
                 ]);
             }
@@ -986,7 +986,7 @@ class AuthController extends Controller
                 mkdir($directory, 0777, true);
             }
 
-            if(!empty($deposit_transaction) || !empty($registration_transaction)){
+            if (! empty($deposit_transaction) || ! empty($registration_transaction)) {
                 $pdf = PDF::loadView('document.trusted-surplus-pdf', [
                     'user'                     => $user,
                     "deposit_transaction"      => $deposit_transaction,
@@ -999,17 +999,17 @@ class AuthController extends Controller
                         'defaultFont' => 'Nominee-Black',
                     ])
                     ->setPaper('A4', 'portrait');
-    
+
                 $file_name = 'VOD_' . $user->full_name() . "_" . date('F_Y_His') . ".pdf";
                 $file_path = "$directory/$file_name";
                 $pdf->save("$directory/$file_name");
                 if (file_exists($file_path)) {
-                    if (!empty($deposit_transaction)) {
+                    if (! empty($deposit_transaction)) {
                         $deposit_transaction->update(["vod_link" => $file_name]);
                     }
-                    if (!empty($registration_transaction)) {
+                    if (! empty($registration_transaction)) {
                         $registration_transaction->update(["vod_link" => $file_name]);
-                    } 
+                    }
                 } else {
                     Log::error("PDF generation failed: {$file_path}");
                 }
@@ -1158,12 +1158,11 @@ class AuthController extends Controller
         $endDate   = Carbon::parse($request->endDate)->endOfDay();
 
         $transactions = Transaction::where('user_id', $user->id)
-        ->whereNotIn('type', [Transaction::MaintenanceFee, Transaction::CreditCard]) 
-        ->whereBetween('created_at', [$startDate, $endDate])
+            ->whereNotIn('type', [Transaction::MaintenanceFee, Transaction::CreditCard])
+            ->whereBetween('created_at', [$startDate, $endDate])
             ->orderByRaw("CASE WHEN type = ? THEN 1 ELSE 2 END", [Transaction::EnrollmentFee])
             ->orderBy('created_at', 'ASC')
             ->get();
-            
 
         if ($transactions->isEmpty()) {
             return response()->json(['error' => 'No transactions found for the selected date range.'], 404);
