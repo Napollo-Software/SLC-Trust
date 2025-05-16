@@ -772,7 +772,6 @@ class AuthController extends Controller
         $role = User::where('id', '=', Session::get('loginId'))->value('role');
 
         if ($request->send_welcome_email && $role && $role != "User") {
-            dd(33);
 
             $directory = storage_path("app/public/$user->id");
             if (! is_dir($directory)) {
