@@ -340,6 +340,7 @@ class AuthController extends Controller
     {
         if (Session::has('loginId')) {
             Session::pull('loginId');
+            Session::forget('loginId');
             return redirect('/');
         }
     }
@@ -675,7 +676,7 @@ class AuthController extends Controller
         $user->full_ssn  = $request->full_ssn;
         $user->dob       = $request->dob;
         $user->address   = $request->address;
-        $user->apt_suite   = $request->apt_suite;
+        $user->apt_suite = $request->apt_suite;
         if ($request->state != null) {
             $user->state = $request->state;
         }
@@ -710,14 +711,13 @@ class AuthController extends Controller
 
     public function update_existing_user_profile(Request $request, $id)
     {
-
         $dt     = new Carbon();
         $before = $dt->subYears(16)->format('Y-m-d');
         $request->validate([
             'fname'          => 'required',
             'last_name'      => 'required',
             'profile_pic'    => 'mimes:jpeg,png,jpg,gif,pdf',
-            'email'          => 'required|email',
+            'email'          => 'required|email|unique:users,email,' . $id,
             'billing_cycle'  => 'required',
             'surplus_amount' => 'nullable|numeric|lt:10000|gt:0',
             'password'       => 'nullable|min:6|max:20',
@@ -767,7 +767,33 @@ class AuthController extends Controller
         $user->surplus_amount = $request->surplus_amount;
         // $user->date_of_withdrawal = $request->date_of_withdrawal;
         $user->email = $request->email;
-        $res         = $user->save();
+        $user->save();
+
+        $role = User::where('id', '=', Session::get('loginId'))->value('role');
+
+        if ($request->send_welcome_email && $role && $role != "User") {
+            dd(33);
+
+            $directory = storage_path("app/public/$user->id");
+            if (! is_dir($directory)) {
+                mkdir($directory, 0777, true);
+            }
+
+            $pdf = PDF::loadView('document.approval-letter-pdf', ['user' => $user])
+                ->setOption([
+                    'fontDir'     => public_path('/fonts'),
+                    'fontCache'   => public_path('/fonts'),
+                    'defaultFont' => 'Nominee-Black',
+                ])
+                ->setPaper('A4', 'portrait');
+
+            $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+
+            $pdf->save($savePath);
+
+            Mail::to($request->email)->send(new \App\Mail\Register($user, $savePath));
+        }
+
         alert()->success('Profile updated!', 'Profile has been updated successfully!');
 
         return redirect("all_users");

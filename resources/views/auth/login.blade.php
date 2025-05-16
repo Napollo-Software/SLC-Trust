@@ -84,7 +84,7 @@
                     id="email"
                     name="email"
                     @if(Cookie::has('adminemail'))
-                    value=" {{Cookie::get('adminemail')}}"
+                    value="{{Cookie::get('adminemail')}}"
                     @endif
                     placeholder="Enter your email or username here"
 
