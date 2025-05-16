@@ -571,6 +571,17 @@ return $colors[$randomIndex];
                             <div class="form-group px-3 " data-select2-id="10">
                                 <div class="row" data-select2-id="9">
                                     <div class="col-md-3">
+                                        <label for="timeZone" class="form-label">APT/SUITE</label>
+                                    </div>
+                                    <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
+                                        <p class="m-0"> {{ $referral->apt_suite }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group px-3 " data-select2-id="10">
+                                <div class="row" data-select2-id="9">
+                                    <div class="col-md-3">
                                         <label for="timeZone" class="form-label">ZIP Code</label>
                                     </div>
                                     <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
