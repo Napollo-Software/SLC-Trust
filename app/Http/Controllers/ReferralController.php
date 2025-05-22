@@ -245,7 +245,7 @@ class ReferralController extends Controller
 
         $assignee = User::whereHas('roles', function ($query) {
             $query->where('role', 'employee');
-        })->get();
+        })->orWhere("id", 7)->get();
 
         return view('referral.view', compact('pendingDocumentCount', 'recievedDocumentCount', 'totalTrust', 'fromFollowup', 'referral', 'referralDocuments', 'actualDocuments', 'document', 'checks', 'emergencyDetails', 'assignee'));
     }
