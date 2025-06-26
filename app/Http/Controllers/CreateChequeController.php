@@ -4,7 +4,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 use Illuminate\Http\Request;
 
-class CreateCheckController extends Controller
+class CreateChequeController extends Controller
 {
     public function submitForms(Request $request)
     {
@@ -21,7 +21,7 @@ class CreateCheckController extends Controller
                 'memo'=>$request->memo[$k],
             ];
         }
-        $pdf = PDF::loadView('reports.printCheck', compact('formDataArray'));
+        $pdf = PDF::loadView('reports.printCheque', compact('formDataArray'));
         return $pdf->download('check_report.pdf');
     }
 }
