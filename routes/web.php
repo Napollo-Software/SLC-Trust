@@ -26,7 +26,7 @@ use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\AdjustmentController;
 use App\Http\Controllers\LeadReportController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\CreateChequeController;
+use App\Http\Controllers\CreateCheckController;
 use App\Http\Controllers\ReleaseNotesController;
 
 /*
@@ -216,7 +216,7 @@ Route::group(['prefix' => 'release', 'middleware' => ['isLoggedIn']], function (
 
 Route::get('/calendar', [CalendarController::class, 'index']);
 
-Route::get('/submit-forms', [CreateChequeController::class, 'submitForms'])->name('submit.forms');
+Route::get('/submit-forms', [CreateCheckController::class, 'submitForms'])->name('submit.forms');
 
 Route::post('/update-physician', [MedicaidController::class, 'updatePhysician'])->name('update-physician');
 Route::post('/update-medicaid', [MedicaidController::class, 'updateMedicaid'])->name('update-medicaid');

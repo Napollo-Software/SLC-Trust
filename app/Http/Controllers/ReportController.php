@@ -221,7 +221,7 @@ class ReportController extends Controller
     {
         $users = User::where('role', 'User')->get();
         $payees = PayeeModel::get();
-        return view('reports.cheque', compact('users', 'payees'));
+        return view('reports.check', compact('users', 'payees'));
     }
 
     public function filter_user(Request $request)
