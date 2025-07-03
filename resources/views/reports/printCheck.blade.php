@@ -144,15 +144,185 @@
         width: 25%;
         padding: 0 0 0 0.7em
     }
+.my-check {
+  position: relative;
+  width: 720px;              
+  height: 288px;             
+  background: #e3eef8;
+  background-image: linear-gradient(to right, rgba(243, 246, 249, 0.15), rgba(125, 185, 232, 0.15)),url('https://subtlepatterns.com/patterns/connect.png');
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14.4px;        
+  padding: 8px  4px;         
+}
+
+.my-check::before {
+  content: '';
+  position: absolute;
+  top: 7.2px;                
+  left: 7.2px;
+  width: calc(100% - 14.4px);
+  height: calc(100% - 14.4px);
+  border: 2px dotted #b2b6bc;
+}
+
+/* Company & Address */
+.my-company {
+  position: absolute;
+  top: 14.4px;
+  left: 14.4px;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.my-address {
+  position: absolute;
+  top: 37.44px;           
+  left: 14.4px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+/* Check Number */
+.my-check-number {
+  position: absolute;
+  top: 14.4px;
+  right: 14.4px;
+  font-family: "Courier New", monospace;
+  font-size: 14.4px;
+}
+
+/* Date */
+.my-date {
+  position: absolute;
+  top: 70px;
+  right: 120px;           
+  font-family: Damion, cursive;
+  font-size: 21.6px;         
+  width: 86.4px;            
+  text-align: right;
+  padding-right: 4.32px;   
+  border-bottom: 1px solid #666;
+}
+
+.my-date::before {
+  content: 'DATE';
+  position: absolute;
+  top: 25.92px;          
+  left: -40px;            
+  font-size: 10px;         
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Pay to the order of */
+.my-orderof {
+  position: absolute;
+  top: 120px;                
+  left: 70px;            
+  font-family: Damion, cursive;
+  font-size: 25.92px;       
+  width: 60%;
+  padding-left: 11.52px;     
+  line-height: 1;
+  border-bottom: 1px solid #666;
+}
+
+.my-orderof::before {
+  content: 'PAY TO THE ORDER OF';
+  position: absolute;
+  top: 25px;             
+  left: -50px;             
+  font-size: 10px;        
+  width: 55px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Numeric Amount */
+.my-num {
+  position: absolute;
+  top: 120px;
+  right: 20px;
+  font-family: Damion, cursive;
+  font-size: 21.6px;
+  border: 2px solid #666;
+  padding: 1px 8px;   
+  line-height: 1;
+}
+
+.my-num::before {
+  content: '$';
+  position: absolute;
+  top: 12px;               
+  left: -18px;            
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Amount in Words */
+.my-dollars {
+  position: absolute;
+  top: 170px;              
+  left: 14.4px;
+  font-family: Damion, cursive;
+  font-size: 23.04px;        
+  width: 70%;
+  padding-left: 60px;    
+  border-bottom: 1px solid #666;
+}
+
+.my-dollars::after {
+  content: 'DOLLARS';
+  position: absolute;
+  top: 25px;             
+  right: -75px;            
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Memo */
+.my-memo {
+  position: absolute;
+  bottom: 20px;            
+  left: 45px;              
+  font-family: Damion, cursive;
+  font-size: 20px;        
+  width: 55%;
+  padding-left: 12px;    
+  border-bottom: 1px solid #666;
+}
+
+.my-memo::before {
+  content: 'MEMO';
+  position: absolute;
+  padding-left: 12px;     
+  top: 15px;             
+  left: -50px;             
+  font-size: 10px;        
+  width: 55px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Signature */
+.my-signature {
+  position: absolute;
+  bottom: 36px;              
+  right: 14.4px;
+  font-family: 'Mrs Saint Delafield', cursive;
+  font-size: 33.12px;     
+  padding-left: 7.2px;
+  line-height: 1;
+  border-bottom: 1px solid #666;
+}
+
+
 </style>
 </head>
 <body>
     @foreach ($formDataArray as $formData)
-    <div class="check-container" style="margin-top:100px">
+    <!-- <div class="check-container" style="margin-top:100px">
         <div class="check print-check">
-            <div class="row">
-                <div class="col-md-6"><b>Trusted Surplus Solutions</b><br>59 Merrall Dr<br>Lawrence, NY 11559-1518</div>
-                <div class="col-md-6 number check-number-text">{{ $formData['checkNumber'] ?? 'N/A' }}</div>
+            <div class="!row">
+                <div class="!col-md-6"><b>Trusted Surplus Solutions</b><br>59 Merrall Dr<br>Lawrence, NY 11559-1518</div>
+                <div class="!col-md-6 number check-number-text">{{ $formData['checkNumber'] ?? 'N/A' }}</div>
             </div>
             <div class="date check-date-text">{{ $formData['checkDate'] ?? 'N/A' }}</div>
             <div class="info">
@@ -163,7 +333,52 @@
             <div class="memo memo-text"><small>{{ $formData['memo'] ?? 'N/A' }}</small></div>
             <div class="sig signature">{{ config('app.name') }}</div>
         </div>
-    </div>
+
+    </div> -->
+    <div class="my-check">
+  <div class="my-company">
+    <b>Trusted surplus Solutions</b>
+  </div>
+  <div class="my-address">
+    59 Merrall Dr<br>
+    Lawrence, NY 11559-1518
+  </div>
+  <div class="my-check-number">
+    <!-- 1025 -->
+    {{ $formData['checkNumber'] ?? 'N/A' }}
+</div>
+
+<div class="my-date">
+    <!-- 6/20/2023 -->
+    {{ $formData['checkDate'] ?? 'N/A' }}
+  </div>
+
+  <div class="my-orderof">
+    <!-- Customer -->
+    {{ $formData['user'] ?? 'N/A' }}
+  </div>
+  <div class="my-num">
+    <!-- 75.00  -->
+    {{ $formData['amountInWord'] ?? 'N/A' }}
+  </div>
+  <div class="my-dollars">
+    <!-- Seventy-five and 00/100 -->
+    {{ $formData['amountInNumber'] ?? 'N/A' }}
+
+  </div>
+
+  <div class="my-memo">
+    <small>
+      <!-- Aleksandra Gelman-Apt 9F, 2775 West 5ht streat (3B) Brooklyn, NY 11224 -->
+      {{ $formData['memo'] ?? 'N/A' }}
+    </small>
+  </div>
+
+  <div class="my-signature">
+    {{ config('app.name') }}
+  </div>
+</div>
     @endforeach
+
 </body>
 </html>
