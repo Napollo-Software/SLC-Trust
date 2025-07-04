@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-md-6 p-2">
                                 <label for="check-number">Check Number</label>
-                                <input type="number" id="check-number" class="form-control check-number-details" name="number[]" placeholder="Check number" min="0">
+                                <input type="number" required id="check-number" class="form-control check-number-details" name="number[]" placeholder="Check number" min="0">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -42,7 +42,7 @@
                             <div class="col-md-6 p-2">
                                 <label for="user-account">User Account</label>
                                 <div class="form-group">
-                                    <select id="user-account" name="user[]" class="form-control select-2" style="width: 100%">
+                                    <select required id="user-account" name="user[]" class="form-control select-2" style="width: 100%">
                                         <option value="">Select User Account</option>
                                         @foreach ($users->sortBy('name') as $user)
                                         <option value="{{ $user->name . ' ' . $user->last_name }}">
@@ -56,11 +56,11 @@
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="amount-in-number">Amount in Number</label>
-                                <input type="number" id="amount-in-number" class="form-control amount-in-number-details" name="amount_in_number[]" onKeyPress="if(this.value.length==9) return false;" placeholder="Amount in number" min="0">
+                                <input type="number" required id="amount-in-number" class="form-control amount-in-number-details" name="amount_in_number[]" onKeyPress="if(this.value.length==9) return false;" placeholder="Amount in number" min="0">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-word">Amount in Word</label>
+                                <label required for="amount-in-word">Amount in Word</label>
                                 <input type="text" id="amount-in-word" class="form-control amount-in-word-details" name="amount_in_word[]" placeholder="Amount in word">
                                 <div class="invalid-feedback"></div>
                             </div>
