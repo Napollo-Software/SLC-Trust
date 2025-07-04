@@ -86,7 +86,7 @@
         </div>
     </div>
 </div>
-<div id="accounts" style="visibility:hidden">
+<div id="accounts" style="display:none">
     <option value="">Select Account</option>
     @foreach ($users as $user)
     <option value="{{ $user->name . ' ' . $user->last_name }}">{{ $user->name . ' ' . $user->last_name . "($" . $user->balance . ')' }}</option>
