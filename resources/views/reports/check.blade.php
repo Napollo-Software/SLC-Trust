@@ -136,6 +136,8 @@
             errors.amountInWord = "Amount in Word is required.";
         } else if ($amountInWord.val().length > 65) {
             errors.amountInWord = "Amount in Word must not exceed 65 characters.";
+        } else if (/^\d+$/.test($amountInWord.val())) {
+            errors.amountInWord = "Amount in Word field must be in words.";
         }
 
         if ($memoDetails.val() && $memoDetails.val().length > 65) {
