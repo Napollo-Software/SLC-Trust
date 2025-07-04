@@ -17,7 +17,7 @@
             margin: 0;
             size: 8.5in 11in; /* Standard US letter size for consistent printing */
         }
-      
+
     }
     html, body {
       margin: 0;
@@ -153,49 +153,49 @@
         padding: 0 0 0 0.7em
     }
 .my-check {
-  position: relative;            
+  position: relative;
   background: #e3eef8;
   background-image: linear-gradient(to right, rgba(243, 246, 249, 0.15), rgba(125, 185, 232, 0.15)),url('https://subtlepatterns.com/patterns/connect.png');
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 14.4px;        
-  padding: 10px;    
-  margin: 20px 10px 10px 10px;    
+  font-size: 14.4px;
+  padding: 10px;
+  margin: 20px 10px 10px 10px;
   border: 1px solid black;
-  border-style: dashed;   
+  border-style: dashed;
 }
 
 /* Company & Address */
-.my-company { 
+.my-company {
   font-weight: bold;
   line-height: 1.3;
 }
 
-.my-address { 
+.my-address {
   font-weight: normal;
   line-height: 1.3;
 }
 
 /* Check Number */
-.my-check-number { 
+.my-check-number {
   font-family: "Courier New", monospace;
   font-size: 14.4px;
 }
 
 /* Date */
-.my-date {  
+.my-date {
   font-family: Damion, cursive;
-  font-size: 21.6px;     
+  font-size: 21.6px;
 }
 
 /* Pay to the order of */
-.my-orderof {           
+.my-orderof {
   font-family: Damion, cursive;
-  font-size: 25.92px;     
+  font-size: 25.92px;
   border-bottom: 1px solid #666;
-  width : 98%; 
-  border-bottom: 1px solid black; 
-  padding-bottom: 2px;  
+  width : 98%;
+  border-bottom: 1px solid black;
+  padding-bottom: 2px;
 }
 
 .font-helvetica {
@@ -210,31 +210,31 @@
   font-family: Damion, cursive;
   font-size: 21.6px;
   border: 2px solid #666;
-  padding: 1px 4px;    
+  padding: 1px 4px;
 }
 
 /* Amount in Words */
-.my-dollars { 
+.my-dollars {
   font-family: Damion, cursive;
-  font-size: 25.92px;       
+  font-size: 25.92px;
   width: 70%;
-  padding-left: 60px;    
+  padding-left: 60px;
   border-bottom: 1px solid #666;
 }
 
 /* Memo */
-.my-memo {  
+.my-memo {
   font-family: Damion, cursive;
-  font-size: 20px;    
-  padding-left: 12px;    
+  font-size: 20px;
+  padding-left: 12px;
   border-bottom: 1px solid #666;
 }
 
 /* Signature */
-.my-signature { 
+.my-signature {
   font-family: 'Mrs Saint Delafield', cursive;
-  font-size: 33.12px;     
-  padding-left: 7.2px; 
+  font-size: 33.12px;
+  padding-left: 7.2px;
 }
 
  body {
@@ -246,11 +246,11 @@
     margin: 0;
     padding: 0;
   }
- 
+
  .w-50 {
   width: 50%;
  }
- .w-full { 
+ .w-full {
   width: 100%;
  }
 .table-layout {
@@ -262,12 +262,12 @@
   width: 100%;
 }
 .table-cell {
-  display: table-cell; 
+  display: table-cell;
 }
 .text-end {
   text-align: right;
 }
- 
+
  .page-break {
       page-break-after: always
   }
@@ -276,7 +276,7 @@
 <body>
     @foreach ($formDataArray as $formData)
     <div>
-        <div class="my-check"> 
+        <div class="my-check">
             <div class="table-layout">
                 <div class="table-row">
                     <div class="table-cell w-50">
@@ -285,19 +285,19 @@
                         </div>
                     </div>
                     <div class="table-cell w-50 text-end">
-                        {{ $formData['checkNumber'] ?? 'N/A' }} 
+                        {{ $formData['checkNumber'] ?? 'N/A' }}
                     </div>
                 </div>
             </div>
-        
+
             <div class="my-address">
-                59 Merrall Dr 
+                59 Merrall Dr
             </div>
-            
+
             <div class="table-layout">
                 <div class="table-row">
                     <div class="table-cell w-50">
-                        Lawrence, NY 11559-1518 
+                        Lawrence, NY 11559-1518
                     </div>
                     <div class="table-cell w-50 text-end" style=" ">
                         <span class="font-helvetica">Date:</span> <span class="my-date" style="border-bottom: 1px solid black; padding-bottom: 2px;">{{ $formData['checkDate'] ?? 'N/A' }}</span>
@@ -314,12 +314,12 @@
                                     <div class="font-helvetica">PAY TO THE ORDER OF</div>
                                 </div>
                                 <div class="table-cell" style="width: 90%;">
-                                    <div class="font-damion my-orderof" style="padding-right: 5px;">{{ $formData['user'] ?? 'N/A' }}</div> 
+                                    <div class="font-damion my-orderof" style="padding-right: 5px;">{{ $formData['user'] ?? 'N/A' }}</div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
-                    
+
                     <div class="table-cell" style="width: 10%; vertical-align: bottom;">
                         <div class="table-layout">
                             <div class="table-row">
@@ -327,46 +327,46 @@
                                     $
                                 </div>
                                 <div class="table-cell" style="width: 90%;">
-                                    <div class="my-num"> 
-                                        {{ $formData['amountInWord'] ?? 'N/A' }}
+                                    <div class="my-num">
+                                        {{ $formData['amountInNumber'] ?? 'N/A' }}
                                     </div>
                                 </div>
                             </div>
-                        </div>  
-                    </div> 
+                        </div>
+                    </div>
                 </div>
             </div>
- 
+
             <div class="table-layout">
                 <div class="table-row">
-                    <div class="table-cell my-dollars" style="width: 95%"> 
-                        {{ $formData['amountInNumber'] ?? 'N/A' }}  
+                    <div class="table-cell my-dollars" style="width: 95%">
+                        {{ $formData['amountInWord'] ?? 'N/A' }}
                     </div>
                     <div class="table-cell font-helvetica" style="width: 5%; vertical-align: bottom;">
                         DOLLARS
-                    </div> 
+                    </div>
                 </div>
             </div>
- 
+
             <div class="table-layout">
                 <div class="table-row">
-                    <div class="table-cell" style="width: 70%; vertical-align: bottom;"> 
+                    <div class="table-cell" style="width: 70%; vertical-align: bottom;">
                         <div class="table-layout">
                             <div class="table-row">
                                 <div class="table-cell" style="width: 5%; font-size: 10px; vertical-align: middle;">
-                                    <div class="font-helvetica">Memo</div>   
-                                </div> 
+                                    <div class="font-helvetica">Memo</div>
+                                </div>
                                 <div class="table-cell" style="width: 92%;">
-                                    <div class="my-memo" style="padding-right: 5px;">{{ $formData['memo'] ?? 'N/A' }}</div> 
+                                    <div class="my-memo" style="padding-right: 5px;">{{ $formData['memo'] ?? 'N/A' }}</div>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                     <div class="table-cell" style="width: 30%; vertical-align: middle;">
                         <div class="my-signature">
                             {{ config('app.name') }}
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
