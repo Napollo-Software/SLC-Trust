@@ -281,7 +281,7 @@
                 <div class="table-row">
                     <div class="table-cell w-50">
                         <div class="my-company">
-                            <b>Trusted surplus Solutions</b>
+                            <b>Senior Life Care</b>
                         </div>
                     </div>
                     <div class="table-cell w-50 text-end">
@@ -291,13 +291,13 @@
             </div>
 
             <div class="my-address">
-                59 Merrall Dr
+                5014-16th Ave, Suite 489
             </div>
 
             <div class="table-layout">
                 <div class="table-row">
                     <div class="table-cell w-50">
-                        Lawrence, NY 11559-1518
+                        Brooklyn, NY 11204
                     </div>
                     <div class="table-cell w-50 text-end" style=" ">
                         <span class="font-helvetica">Date:</span> <span class="my-date" style="border-bottom: 1px solid black; padding-bottom: 2px;">{{ $formData['checkDate'] ?? 'N/A' }}</span>
