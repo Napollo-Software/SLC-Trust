@@ -216,7 +216,7 @@ Route::group(['prefix' => 'release', 'middleware' => ['isLoggedIn']], function (
 
 Route::get('/calendar', [CalendarController::class, 'index']);
 
-Route::get('/submit-forms', [CreateCheckController::class, 'submitForms'])->name('submit.forms');
+Route::post('submit-forms', [CreateCheckController::class, 'submitForms'])->name('submit.forms');
 
 Route::post('/update-physician', [MedicaidController::class, 'updatePhysician'])->name('update-physician');
 Route::post('/update-medicaid', [MedicaidController::class, 'updateMedicaid'])->name('update-medicaid');
