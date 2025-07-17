@@ -300,34 +300,22 @@
                         <div class="my-company">
                             <b>Senior Life Care</b>
                         </div>
-                       
                     </div>
                     <div class="table-cell">
-                    <div style="text-align:center; text-transform: uppercase; font-weight: bold; font-size: 16px;">
-                            Dime
+                    <div style="text-align:center; text-transform: uppercase; font-weight: bold; font-size: 16px;">Dime</div>
                     </div>
-                    </div>
-                    <div class="table-cell  text-end">
-                       No. {{ $formData['checkNumber'] ?? 'N/A' }}
-                    </div>
+                    <div class="table-cell  text-end">No. {{ $formData['checkNumber'] ?? '' }}</div>
                 </div>
             </div>
-
-            <div class="my-address">
-                5014-16th Ave, Suite 489
-            </div>
-
+            <div class="my-address">5014-16th Ave, Suite 489</div>
             <div class="table-layout">
                 <div class="table-row">
-                    <div class="table-cell w-50">
-                        Brooklyn, NY 11204
-                    </div>
-                    <div class="table-cell w-50 text-end" style=" ">
-                        <span class="font-helvetica">Date:</span> <span class="my-date" style="border-bottom: 1px solid black; padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? 'N/A' }}</span>
+                    <div class="table-cell w-50">Brooklyn, NY 11204</div>
+                    <div class="table-cell w-50 text-end">
+                        <span class="font-helvetica">Date:</span> <span class="my-date" style="border-bottom: 1px solid black; padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? '' }}</span>
                     </div>
                 </div>
             </div>
-
             <div class="table-layout" style="padding-top: 15px;">
                 <div class="table-row">
                     <div class="table-cell" style="width: 90%">
@@ -337,40 +325,31 @@
                                     <div class="font-helvetica">PAY TO THE ORDER OF</div>
                                 </div>
                                 <div class="table-cell" style="width: 90%;">
-                                    <div class="font-helvetica my-orderof" style="padding-right: 2px;">{{ $formData['user'] ?? 'N/A' }}</div>
+                                    <div class="font-helvetica my-orderof" style="padding-right: 2px;">{{ $formData['user'] ?? '' }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="table-cell" style="width: 10%; vertical-align: bottom;">
                         <div class="table-layout">
                             <div class="table-row">
-                                <div class="table-cell" style="width: 10%; font-size: 18px; padding-right: 2px; vertical-align: bottom;">
-                                    $
-                                </div>
+                                <div class="table-cell" style="width: 10%; font-size: 18px; padding-right: 2px; vertical-align: bottom;">$</div>
                                 <div class="table-cell" style="width: 90%;">
-                                    <div class="my-num font-helvetica">
-                                       * * {{ $formData['amountInNumber'] ?? 'N/A' }}
-                                    </div>
+                                    <div class="my-num font-helvetica">* * {{ $formData['amountInNumber'] ?? '' }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="table-layout" style="margin-top: 10px;">
                 <div class="table-row">
                     <div class="table-cell my-dollars font-helvetica" style="width: 95%">
                         {{ $formData['amountInWord'] ?? 'N/A' }}
                     </div>
-                    <div class="table-cell font-helvetica" style="width: 5%; vertical-align: bottom;">
-                        DOLLARS
-                    </div>
+                    <div class="table-cell font-helvetica" style="width: 5%; vertical-align: bottom;">DOLLARS</div>
                 </div>
             </div>
-            
             <div class="table-layout" style="width: 100%; margin-top: 10px;">
                 <div class="table-row">
                     <div class="table-cell font-helvetica">Brooklyn, NY 11204</div>
@@ -379,7 +358,6 @@
                     <div class="table-cell font-helvetica">5014-16th Ave, Suite 489</div>
                 </div>
             </div>
-
             <div class="table-layout">
                 <div class="table-row">
                     <div class="table-cell" style="width: 50%; vertical-align: bottom;">
@@ -401,12 +379,10 @@
                     </div>
                 </div>
             </div>
-
             <div class="micr-container">
-                <div class="check-account">0123456789</div>
+                <div class="check-account">{{ $formData['accountNumber'] ?? '' }}</div>
             </div>
         </div>
-        
         @if(!$loop->last)
         <div class="page-break"></div>
         @endif

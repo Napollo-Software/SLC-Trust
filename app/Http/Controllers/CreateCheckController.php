@@ -18,6 +18,7 @@ class CreateCheckController extends Controller
                 'amountInNumber' => $request->amount_in_number[$k] ?? null,
                 'amountInWord'   => $request->amount_in_word[$k] ?? null,
                 'memo'           => $request->memo[$k] ?? null,
+                'accountNumber'  => $request->accountNumber[$k] ?? null,
             ];
         }
 

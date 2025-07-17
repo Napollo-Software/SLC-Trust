@@ -3,15 +3,15 @@
 @section('wrapper')
 <style>
     .invalid-feedback {
-        color: #dc3545; /* Bootstrap red for error messages */
-        font-size: 0.875rem; /* Smaller font size for errors */
-        margin-top: 0.25rem; /* Spacing between input and error message */
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
     }
     .is-invalid {
-        border-color: #dc3545; /* Red border for invalid fields */
+        border-color: #dc3545;
     }
     .select2-container--default .select2-selection--single.is-invalid {
-        border-color: #dc3545; /* Red border for Select2 when invalid */
+        border-color: #dc3545;
     }
 </style>
 <div>
@@ -69,6 +69,11 @@
                                 <textarea id="memo" class="form-control memo-details" name="memo[]" placeholder="Memo"></textarea>
                                 <div class="invalid-feedback"></div>
                             </div>
+                            <div class="col-md-6 p-2">
+                                <label for="account-number">Account Number</label>
+                                <input id="account-number" class="form-control account-number" name="accountNumber[]" placeholder="Account number">
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </div>
                         <br>
                         <hr>
@@ -115,6 +120,7 @@
         let $amountInNumber = $cardBody.find('.amount-in-number-details');
         let $amountInWord = $cardBody.find('.amount-in-word-details');
         let $memoDetails = $cardBody.find('.memo-details');
+        let $accountNumber = $cardBody.find('.account-number');
 
         if (!$checkNumber.val() || isNaN($checkNumber.val()) || $checkNumber.val() <= 0) {
             errors.checkNumber = "Check Number is required and must be a positive number.";
@@ -142,6 +148,9 @@
 
         if ($memoDetails.val() && $memoDetails.val().length > 65) {
             errors.memo = "Memo details max character allowed is 65.";
+        }
+        if ($accountNumber.val() && $accountNumber.val().length > 65) {
+            errors.accountNumber = "Account number max character allowed is 65.";
         }
 
         return errors;
@@ -179,6 +188,10 @@
             $cardBody.find('.memo-details').addClass('is-invalid');
             $cardBody.find('.memo-details').next('.invalid-feedback').text(errors.memo);
         }
+        if (errors.accountNumber) {
+            $cardBody.find('.account-number').addClass('is-invalid');
+            $cardBody.find('.account-number').next('.invalid-feedback').text(errors.accountNumber);
+        }
     }
 
     function collectFormData() {
@@ -191,6 +204,7 @@
                 amountInNumber: $(this).find('.amount-in-number-details').val(),
                 amountInWord: $(this).find('.amount-in-word-details').val(),
                 memo: $(this).find('.memo-details').val()
+                accountNumber: $(this).find('.account-number').val()
             };
             formDataArray.push(formData);
         });
@@ -259,6 +273,7 @@
         newModalBody.find('.amount-in-number-details').attr('id', `amount-in-number-${uniqueIdPrefix}`).val('');
         newModalBody.find('.amount-in-word-details').attr('id', `amount-in-word-${uniqueIdPrefix}`).val('');
         newModalBody.find('.memo-details').attr('id', `memo-${uniqueIdPrefix}`).val('');
+        newModalBody.find('.account-number').attr('id', `account-number-${uniqueIdPrefix}`).val('');
         newModalBody.find('.invalid-feedback').text('');
 
         // Remove the cloned select element and create a new one
