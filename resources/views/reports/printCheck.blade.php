@@ -15,14 +15,19 @@
         }
         @page {
             margin: 0;
-            size: 8.5in 11in; /* Standard US letter size for consistent printing */
+            size: 8.5in 11in;
         }
-
+    }
+    @font-face {
+        font-family: 'MICR';
+        src: url("fonts/MICR.ttf") format('truetype');
+        font-weight: normal;
+        font-style: normal;
     }
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
+        margin: 0;
+        padding: 0;
+        height: 100%;
     }
     .date {
         margin-right: 15%;
@@ -152,126 +157,138 @@
         width: 25%;
         padding: 0 0 0 0.7em
     }
-.my-check {
-  position: relative;
-  background: #e3eef8;
-  background-image: linear-gradient(to right, rgba(243, 246, 249, 0.15), rgba(125, 185, 232, 0.15)),url('https://subtlepatterns.com/patterns/connect.png');
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 14.4px;
-  padding: 10px;
-  margin: 20px 10px 10px 10px;
-  border: 1px solid black;
-  border-style: dashed;
-}
+    .my-check {
+        position: relative;
+        background: #e3eef8;
+        background-image: linear-gradient(to right, rgba(243, 246, 249, 0.15), rgba(125, 185, 232, 0.15)),url('https://subtlepatterns.com/patterns/connect.png');
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 14.4px;
+        padding: 10px;
+        margin: 15px 10px 10px 10px;
+        border: 1px solid black;
+        border-style: dashed;
+    }
 
-/* Company & Address */
-.my-company {
-  font-weight: bold;
-  line-height: 1.3;
-}
+    /* Company & Address */
+    .my-company {
+        font-weight: bold;
+        line-height: 1.3;
+    }
 
-.my-address {
-  font-weight: normal;
-  line-height: 1.3;
-}
+    .my-address {
+        font-weight: normal;
+        line-height: 1.3;
+    }
 
-/* Check Number */
-.my-check-number {
-  font-family: "Courier New", monospace;
-  font-size: 14.4px;
-}
+    /* Check Number */
+    .my-check-number {
+        font-family: "Courier New", monospace;
+        font-size: 14.4px;
+    }
 
-/* Date */
-.my-date {
-  font-family: Damion, cursive;
-  font-size: 21.6px;
-}
+    /* Date */
+    .my-date {
+        /* font-family: Damion, cursive; */
+        /* font-size: 21.6px; */
+    }
 
-/* Pay to the order of */
-.my-orderof {
-  font-family: Damion, cursive;
-  font-size: 25.92px;
-  border-bottom: 1px solid #666;
-  width : 98%;
-  border-bottom: 1px solid black;
-  padding-bottom: 2px;
-}
+    /* Pay to the order of */
+    .my-orderof {
+        font-family: Damion, cursive;
+        /* font-size: 20px; */
+        border-bottom: 1px solid #666;
+        width : 98%;
+        border-bottom: 1px solid black;
+        padding-bottom: 2px;
+    }
 
-.font-helvetica {
-   font-family: Helvetica, Arial, sans-serif;
-}
-.font-damion {
-   font-family: Damion, cursive;
-}
+    .font-helvetica {
+        font-family: Helvetica, Arial, sans-serif;
+    }
+    .font-damion {
+        font-family: Damion, cursive;
+    }
 
-/* Numeric Amount */
-.my-num {
-  font-family: Damion, cursive;
-  font-size: 21.6px;
-  border: 2px solid #666;
-  padding: 1px 4px;
-}
+    /* Numeric Amount */
+    .my-num {
+        /* font-size: 15px; */
+        border: 2px solid #666;
+        padding: 1px 4px;
+    }
 
-/* Amount in Words */
-.my-dollars {
-  font-family: Damion, cursive;
-  font-size: 25.92px;
-  width: 70%;
-  padding-left: 60px;
-  border-bottom: 1px solid #666;
-}
+    /* Amount in Words */
+    .my-dollars {
+        /* font-size: 20px; */
+        width: 70%;
+        padding-left: 60px;
+        border-bottom: 1px solid #666;
+        /* margin-top: 10px; */
+    }
 
-/* Memo */
-.my-memo {
-  font-family: Damion, cursive;
-  font-size: 20px;
-  padding-left: 12px;
-  border-bottom: 1px solid #666;
-}
+    /* Memo */
+    .my-memo {
+        /* font-size: 20px; */
+        padding-left: 12px;
+        border-bottom: 1px solid #666;
+    }
 
-/* Signature */
-.my-signature {
-  font-family: 'Mrs Saint Delafield', cursive;
-  font-size: 33.12px;
-  padding-left: 7.2px;
-}
+    /* Signature */
+    .my-signature {
+        font-family: 'Mrs Saint Delafield', cursive;
+        font-size: 25px;
+        padding-left: 7.2px;
+        border-bottom: 1px solid #666;
+    }
 
- body {
-    background-image: url('assets/images/check-pdf-background-min.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
+    body {
+        background-image: url('assets/images/check-pdf-background-min.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
 
- .w-50 {
-  width: 50%;
- }
- .w-full {
-  width: 100%;
- }
-.table-layout {
-  display: table;
-  width: 100%;
-}
-.table-row {
-  display: table-row;
-  width: 100%;
-}
-.table-cell {
-  display: table-cell;
-}
-.text-end {
-  text-align: right;
-}
+    .w-50 {
+        width: 50%;
+    }
+    .w-full {
+        width: 100%;
+    }
+    .table-layout {
+        display: table;
+        width: 100%;
+    }
+    .table-row {
+        display: table-row;
+        width: 100%;
+    }
+    .table-cell {
+        display: table-cell;
+    }
+    .text-end {
+        text-align: right;
+    }
+    .check-account {
+        font-family: 'MICR', monospace;
+        /* font-size: 17px;  */
+        text-align: center;
+        margin-top: 10px;
+        width: 100%;
+    }
 
- .page-break {
-      page-break-after: always
-  }
-</style>
+    .page-break {
+        page-break-after: always;
+    }
+
+    .micr-container {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+    </style>
 </head>
 <body>
     @foreach ($formDataArray as $formData)
@@ -279,13 +296,19 @@
         <div class="my-check">
             <div class="table-layout">
                 <div class="table-row">
-                    <div class="table-cell w-50">
+                    <div class="table-cell ">
                         <div class="my-company">
                             <b>Senior Life Care</b>
                         </div>
+                       
                     </div>
-                    <div class="table-cell w-50 text-end">
-                        {{ $formData['checkNumber'] ?? 'N/A' }}
+                    <div class="table-cell">
+                    <div style="text-align:center; text-transform: uppercase; font-weight: bold; font-size: 16px;">
+                            Dime
+                    </div>
+                    </div>
+                    <div class="table-cell  text-end">
+                       No. {{ $formData['checkNumber'] ?? 'N/A' }}
                     </div>
                 </div>
             </div>
@@ -300,7 +323,7 @@
                         Brooklyn, NY 11204
                     </div>
                     <div class="table-cell w-50 text-end" style=" ">
-                        <span class="font-helvetica">Date:</span> <span class="my-date" style="border-bottom: 1px solid black; padding-bottom: 2px;">{{ $formData['checkDate'] ?? 'N/A' }}</span>
+                        <span class="font-helvetica">Date:</span> <span class="my-date" style="border-bottom: 1px solid black; padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? 'N/A' }}</span>
                     </div>
                 </div>
             </div>
@@ -310,11 +333,11 @@
                     <div class="table-cell" style="width: 90%">
                         <div class="table-layout">
                             <div class="table-row">
-                                <div class="table-cell" style="width: 7%; font-size: 10px;">
+                                <div class="table-cell" style="width: 10%; font-size: 10px; font-weight:bold">
                                     <div class="font-helvetica">PAY TO THE ORDER OF</div>
                                 </div>
                                 <div class="table-cell" style="width: 90%;">
-                                    <div class="font-damion my-orderof" style="padding-right: 5px;">{{ $formData['user'] ?? 'N/A' }}</div>
+                                    <div class="font-helvetica my-orderof" style="padding-right: 2px;">{{ $formData['user'] ?? 'N/A' }}</div>
                                 </div>
                             </div>
                         </div>
@@ -327,8 +350,8 @@
                                     $
                                 </div>
                                 <div class="table-cell" style="width: 90%;">
-                                    <div class="my-num">
-                                        {{ $formData['amountInNumber'] ?? 'N/A' }}
+                                    <div class="my-num font-helvetica">
+                                       * * {{ $formData['amountInNumber'] ?? 'N/A' }}
                                     </div>
                                 </div>
                             </div>
@@ -337,9 +360,9 @@
                 </div>
             </div>
 
-            <div class="table-layout">
+            <div class="table-layout" style="margin-top: 10px;">
                 <div class="table-row">
-                    <div class="table-cell my-dollars" style="width: 95%">
+                    <div class="table-cell my-dollars font-helvetica" style="width: 95%">
                         {{ $formData['amountInWord'] ?? 'N/A' }}
                     </div>
                     <div class="table-cell font-helvetica" style="width: 5%; vertical-align: bottom;">
@@ -347,34 +370,47 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="table-layout" style="width: 100%; margin-top: 10px;">
+                <div class="table-row">
+                    <div class="table-cell font-helvetica">Brooklyn, NY 11204</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell font-helvetica">5014-16th Ave, Suite 489</div>
+                </div>
+            </div>
 
             <div class="table-layout">
                 <div class="table-row">
-                    <div class="table-cell" style="width: 70%; vertical-align: bottom;">
+                    <div class="table-cell" style="width: 50%; vertical-align: bottom;">
                         <div class="table-layout">
                             <div class="table-row">
-                                <div class="table-cell" style="width: 5%; font-size: 10px; vertical-align: middle;">
+                                <div class="table-cell" style="width: 5%;  vertical-align: middle; font-size: 10px; font-weight:bold">
                                     <div class="font-helvetica">Memo</div>
                                 </div>
-                                <div class="table-cell" style="width: 92%;">
-                                    <div class="my-memo" style="padding-right: 5px;">{{ $formData['memo'] ?? 'N/A' }}</div>
+                                <div class="table-cell" style="width: 50%;">
+                                    <div class="my-memo font-helvetica" style="padding-right: 5px;">{{ $formData['memo'] ?? 'N/A' }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="table-cell" style="width: 30%; vertical-align: middle;">
+                    <div class="table-cell" style="width: 30%; vertical-align: middle; padding-left: 10px;">
                         <div class="my-signature">
                             {{ config('app.name') }}
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="micr-container">
+                <div class="check-account">0123456789</div>
+            </div>
         </div>
+        
         @if(!$loop->last)
         <div class="page-break"></div>
         @endif
     </div>
-
     @endforeach
 </body>
 </html>
