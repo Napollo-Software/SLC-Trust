@@ -302,7 +302,7 @@
                         </div>
                     </div>
                     <div class="table-cell">
-                    <div style="text-align:center; text-transform: uppercase; font-weight: bold; font-size: 16px;">Dime</div>
+                    <div style="text-align:center; text-transform: uppercase; font-weight: bold; font-size: 16px;">{{ $formData['bankName'] ?? '' }}</div>
                     </div>
                     <div class="table-cell  text-end">No. {{ $formData['checkNumber'] ?? '' }}</div>
                 </div>
@@ -324,13 +324,13 @@
                                 <div class="table-cell" style="width: 10%; font-size: 10px; font-weight:bold">
                                     <div class="font-helvetica">PAY TO THE ORDER OF</div>
                                 </div>
-                                <div class="table-cell" style="width: 90%;">
+                                <div class="table-cell" style="width: 80%;">
                                     <div class="font-helvetica my-orderof" style="padding-right: 2px;">{{ $formData['user'] ?? '' }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="table-cell" style="width: 10%; vertical-align: bottom;">
+                    <div class="table-cell" style="width: 20%; vertical-align: bottom;">
                         <div class="table-layout">
                             <div class="table-row">
                                 <div class="table-cell" style="width: 10%; font-size: 18px; padding-right: 2px; vertical-align: bottom;">$</div>

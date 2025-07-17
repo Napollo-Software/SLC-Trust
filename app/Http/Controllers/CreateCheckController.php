@@ -13,12 +13,13 @@ class CreateCheckController extends Controller
         foreach ($request->number as $k => $data) {
             $formDataArray[] = [
                 'checkNumber'    => $request->number[$k] ?? null,
-                'checkDate'      => $request->date[$k] ?? null,
+                'checkDate'      => date('M/D/Y', strtotime($request->date[$k])) ?? null,
                 'user'           => $request->user[$k] ?? null,
                 'amountInNumber' => $request->amount_in_number[$k] ?? null,
                 'amountInWord'   => $request->amount_in_word[$k] ?? null,
                 'memo'           => $request->memo[$k] ?? null,
                 'accountNumber'  => $request->accountNumber[$k] ?? null,
+                'bankName'       => $request->bankName[$k] ?? null,
             ];
         }
 
