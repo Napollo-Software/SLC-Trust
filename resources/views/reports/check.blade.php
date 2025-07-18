@@ -29,8 +29,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 p-2">
-                                <label for="check-number">Check Number</label>
-                                <input type="number" required id="check-number" class="form-control check-number-details" name="number[]" placeholder="Check number" min="1">
+                                <label for="check-number">Number</label>
+                                <input type="number" required id="check-number" class="form-control check-number-details" name="number[]" placeholder="Check number" min="1" max="9999999">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="amount-in-number">Amount in Number</label>
-                                <input type="number" required id="amount-in-number" class="form-control amount-in-number-details" name="amount_in_number[]" step="0.01" min="0.01" placeholder="Amount in number">
+                                <input type="number" required id="amount-in-number" class="form-control amount-in-number-details" name="amount_in_number[]" step="0.01" min="0.01" max="10000000" placeholder="Amount in number">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -68,13 +68,23 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
+                                <label for="routing-number">Routing Number</label>
+                                <input type="text" required id="routing-number" class="form-control routing-number" name="routingNumber[]" placeholder="9-digit routing number">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-6 p-2">
                                 <label for="account-number">Account Number</label>
-                                <input type="text" id="account-number" class="form-control account-number" name="accountNumber[]" placeholder="Account number">
+                                <input type="text" required id="account-number" class="form-control account-number" name="accountNumber[]" placeholder="Account number">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="bank-check-number">Bank Check Number</label>
+                                <input type="text" required id="bank-check-number" class="form-control bank-check-number" name="bankCheckNumber[]" placeholder="6-digit check number">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
                                 <label for="bank-name">Bank Name</label>
-                                <input type="text" id="bank-name" class="form-control bank-name" name="bankName[]" placeholder="Bank number">
+                                <input type="text" id="bank-name" class="form-control bank-name" name="bankName[]" placeholder="Bank name">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -89,7 +99,7 @@
                         <button class="btn btn-primary" id="but_add" type="button" onclick="add_more()">
                             <i class="bx bx-plus pb-1"></i>Add more
                         </button>
-                        <button class="btn btn-secondary" type="submit">
+                        <button class="btn btn-secondary" type="button" onclick="sendFormData()">
                             <i class="bx bx-printer"></i>Print
                         </button>
                     </div>
@@ -115,7 +125,15 @@
 
 <script>
     $(document).ready(function() {
-        $('#user-account').select2();
+        // Initialize Select2 for all existing select elements
+        $('.select-2').select2();
+
+        // Prevent form submission on Enter key
+        $('#check-form').on('keypress', function(e) {
+            if (e.which === 13) {
+                e.preventDefault();
+            }
+        });
     });
 
     function validateFormData($cardBody) {
@@ -126,48 +144,97 @@
         let $amountInNumber = $cardBody.find('.amount-in-number-details');
         let $amountInWord = $cardBody.find('.amount-in-word-details');
         let $memoDetails = $cardBody.find('.memo-details');
+        let $routingNumber = $cardBody.find('.routing-number');
         let $accountNumber = $cardBody.find('.account-number');
+        let $bankCheckNumber = $cardBody.find('.bank-check-number');
         let $bankName = $cardBody.find('.bank-name');
         let $signature = $cardBody.find('.signature');
 
-        if (!$checkNumber.val() || isNaN($checkNumber.val()) || $checkNumber.val() <= 0) {
-            errors.checkNumber = "Check Number is required and must be a positive number.";
+        // Check Number validation
+        if (!$checkNumber.val() || isNaN($checkNumber.val()) || parseInt($checkNumber.val()) <= 0) {
+            errors.checkNumber = "Number is required and must be a positive number.";
+        } else if (parseInt($checkNumber.val()) > 9999999) {
+            errors.checkNumber = "Number must not exceed 7 digits.";
+        } else {
+            // Check for duplicate numbers
+            let checkNumber = parseInt($checkNumber.val());
+            let isDuplicate = false;
+            $('.check-number-details').not($checkNumber).each(function() {
+                if (parseInt($(this).val()) === checkNumber) {
+                    isDuplicate = true;
+                }
+            });
+            if (isDuplicate) {
+                errors.checkNumber = "Number must be unique.";
+            }
         }
 
+        // Check Date validation
         if (!$checkDate.val()) {
             errors.checkDate = "Check Date is required.";
+        } else {
+            let today = new Date().setHours(0, 0, 0, 0);
+            let selectedDate = new Date($checkDate.val()).setHours(0, 0, 0, 0);
+            if (selectedDate > today) {
+                errors.checkDate = "Check Date cannot be in the future.";
+            }
         }
 
+        // User Account validation
         if (!$user.val()) {
             errors.user = "User Account is required.";
         }
 
-        if (!$amountInNumber.val() || isNaN($amountInNumber.val()) || $amountInNumber.val() <= 0) {
+        // Amount in Number validation
+        if (!$amountInNumber.val() || isNaN($amountInNumber.val()) || parseFloat($amountInNumber.val()) <= 0) {
             errors.amountInNumber = "Amount in Number is required and must be a positive number.";
+        } else if (parseFloat($amountInNumber.val()) > 10000000) {
+            errors.amountInNumber = "Amount in Number must not exceed 10,000,000.";
         }
 
+        // Amount in Word validation
         if (!$amountInWord.val()) {
             errors.amountInWord = "Amount in Word is required.";
         } else if ($amountInWord.val().length > 65) {
             errors.amountInWord = "Amount in Word must not exceed 65 characters.";
         } else if (/^\d+$/.test($amountInWord.val())) {
-            errors.amountInWord = "Amount in Word must be in words.";
+            errors.amountInWord = "Amount in Word must be in words, not numbers.";
         }
 
+        // Memo validation
         if ($memoDetails.val() && $memoDetails.val().length > 65) {
             errors.memo = "Memo must not exceed 65 characters.";
         }
 
-        if ($accountNumber.val() && $accountNumber.val().length > 65) {
-            errors.accountNumber = "Account Number must not exceed 65 characters.";
+        // Routing Number validation
+        if (!$routingNumber.val()) {
+            errors.routingNumber = "Routing Number is required.";
+        } else if (!/^\d{9}$/.test($routingNumber.val())) {
+            errors.routingNumber = "Routing Number must be exactly 9 digits.";
         }
 
+        // Account Number validation
+        if (!$accountNumber.val()) {
+            errors.accountNumber = "Account Number is required.";
+        } else if (!/^\d{1,17}$/.test($accountNumber.val())) {
+            errors.accountNumber = "Account Number must be 1 to 17 digits.";
+        }
+
+        // Bank Check Number validation
+        if (!$bankCheckNumber.val()) {
+            errors.bankCheckNumber = "Bank Check Number is required.";
+        } else if (!/^\d{6}$/.test($bankCheckNumber.val())) {
+            errors.bankCheckNumber = "Bank Check Number must be exactly 6 digits.";
+        }
+
+        // Bank Name validation
         if ($bankName.val() && $bankName.val().length > 50) {
-            errors.bankName = "Bank name must not exceed 50 characters.";
+            errors.bankName = "Bank Name must not exceed 50 characters.";
         }
 
+        // Signature validation
         if ($signature.val() && $signature.val().length > 50) {
-            errors.signature = "Signature must not exceed 65 characters.";
+            errors.signature = "Signature must not exceed 50 characters.";
         }
 
         return errors;
@@ -205,13 +272,21 @@
             $cardBody.find('.memo-details').addClass('is-invalid');
             $cardBody.find('.memo-details').next('.invalid-feedback').text(errors.memo);
         }
+        if (errors.routingNumber) {
+            $cardBody.find('.routing-number').addClass('is-invalid');
+            $cardBody.find('.routing-number').next('.invalid-feedback').text(errors.routingNumber);
+        }
         if (errors.accountNumber) {
             $cardBody.find('.account-number').addClass('is-invalid');
             $cardBody.find('.account-number').next('.invalid-feedback').text(errors.accountNumber);
         }
+        if (errors.bankCheckNumber) {
+            $cardBody.find('.bank-check-number').addClass('is-invalid');
+            $cardBody.find('.bank-check-number').next('.invalid-feedback').text(errors.bankCheckNumber);
+        }
         if (errors.bankName) {
-            $cardBody.find('.bank-bank').addClass('is-invalid');
-            $cardBody.find('.bank-bank').next('.invalid-feedback').text(errors.bankName);
+            $carBody.find('.bank-name').addClass('is-invalid');
+            $cardBody.find('.bank-name').next('.invalid-feedback').text(errors.bankName);
         }
         if (errors.signature) {
             $cardBody.find('.signature').addClass('is-invalid');
@@ -229,7 +304,9 @@
                 amountInNumber: $(this).find('.amount-in-number-details').val(),
                 amountInWord: $(this).find('.amount-in-word-details').val(),
                 memo: $(this).find('.memo-details').val(),
+                routingNumber: $(this).find('.routing-number').val(),
                 accountNumber: $(this).find('.account-number').val(),
+                bankCheckNumber: $(this).find('.bank-check-number').val(),
                 bankName: $(this).find('.bank-name').val(),
                 signature: $(this).find('.signature').val()
             };
@@ -242,11 +319,13 @@
         let formDataArray = collectFormData();
         let allValid = true;
 
+        // Clear all previous errors
         $('.card-body').each(function() {
             clearErrors($(this));
         });
 
-        $('.card-body').each(function(index) {
+        // Validate each card body
+        $('.card-body').each(function() {
             let errors = validateFormData($(this));
             if (Object.keys(errors).length > 0) {
                 allValid = false;
@@ -254,21 +333,25 @@
             }
         });
 
-        if (!allValid) {
-            return;
+        if (allValid) {
+            $("#check-form").submit();
+        } else {
+            // Scroll to the first error
+            let firstError = $('.is-invalid:first');
+            if (firstError.length) {
+                $('html, body').animate({
+                    scrollTop: firstError.offset().top - 100
+                }, 500);
+            }
         }
-
-        $("#check-form").submit();
     }
 
     function add_more() {
+        // Validate all existing card bodies
+        let allValid = true;
         $('.card-body').each(function() {
             clearErrors($(this));
-        });
-
-        let allValid = true;
-        $('.card-body').each(function(index) {
-            let errors = validateFormData($(this));
+            let errors = validateFormData($(FuzzyLogic));
             if (Object.keys(errors).length > 0) {
                 allValid = false;
                 displayErrors($(this), errors);
@@ -276,13 +359,22 @@
         });
 
         if (!allValid) {
+            // Scroll to the first error
+            let firstError = $('.is-invalid:first');
+            if (firstError.length) {
+                $('html, body').animate({
+                    scrollTop: firstError.offset().top - 100
+                }, 500);
+            }
             return;
         }
 
+        // Clone the first card body
         let newModalBody = $('.card-body:first').clone(true);
         let checkNumberFields = $('.card-body').find('.check-number-details');
         let maxCheckNumber = 0;
 
+        // Find the maximum check number
         checkNumberFields.each(function() {
             let checkNumber = parseInt($(this).val());
             if (!isNaN(checkNumber) && checkNumber > maxCheckNumber) {
@@ -293,16 +385,20 @@
         let newCheckNumber = maxCheckNumber + 1;
         let uniqueIdPrefix = 'field-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
 
+        // Update input IDs and clear values
         newModalBody.find('.check-number-details').attr('id', `check-number-${uniqueIdPrefix}`).val(newCheckNumber);
         newModalBody.find('.check-date-details').attr('id', `check-date-${uniqueIdPrefix}`).val('<?php echo date('Y-m-d'); ?>');
         newModalBody.find('.amount-in-number-details').attr('id', `amount-in-number-${uniqueIdPrefix}`).val('');
         newModalBody.find('.amount-in-word-details').attr('id', `amount-in-word-${uniqueIdPrefix}`).val('');
         newModalBody.find('.memo-details').attr('id', `memo-${uniqueIdPrefix}`).val('');
+        newModalBody.find('.routing-number').attr('id', `routing-number-${uniqueIdPrefix}`).val('');
         newModalBody.find('.account-number').attr('id', `account-number-${uniqueIdPrefix}`).val('');
+        newModalBody.find('.bank-check-number').attr('id', `bank-check-number-${uniqueIdPrefix}`).val('');
         newModalBody.find('.bank-name').attr('id', `bank-name-${uniqueIdPrefix}`).val('');
         newModalBody.find('.signature').attr('id', `signature-${uniqueIdPrefix}`).val('');
         newModalBody.find('.invalid-feedback').text('');
 
+        // Replace select element
         newModalBody.find('.select-2').parent().empty();
         let newSelect = $('<select>', {
             id: `user-account-${uniqueIdPrefix}`,
@@ -316,8 +412,10 @@
         newModalBody.find('.form-group').append(newSelect);
         newModalBody.find('.form-group').append('<div class="invalid-feedback mt-3"></div>');
 
+        // Initialize Select2 for the new select element
         newModalBody.find(`#user-account-${uniqueIdPrefix}`).select2();
 
+        // Add remove button
         let removeButton = $('<button/>', {
             text: 'X',
             type: 'button',
@@ -328,12 +426,14 @@
             }
         });
         newModalBody.prepend(removeButton);
+        newModalBody.append('<hr>');
 
+        // Insert the new card body
         newModalBody.insertAfter(".card-body:last");
-    }
 
-    $('.btn-secondary').on('click', function(e) {
-        e.preventDefault();
-        sendFormData();
-    });
+        // Scroll to the new card body
+        $('html, body').animate({
+            scrollTop: newModalBody.offset().top - 100
+        }, 500);
+    }
 </script>

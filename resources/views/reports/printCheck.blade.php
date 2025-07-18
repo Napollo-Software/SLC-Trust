@@ -21,6 +21,7 @@
     @font-face {
         font-family: 'MICR';
         src: url("fonts/MICR.ttf") format('truetype');
+        src: url("fonts/._MICRE13B.ttf") format('truetype');
         font-weight: normal;
         font-style: normal;
     }
@@ -213,7 +214,6 @@
     /* Numeric Amount */
     .my-num {
         /* font-size: 15px; */
-        border: 2px solid #666;
         padding: 1px 4px;
     }
 
@@ -272,7 +272,7 @@
         text-align: right;
     }
     .check-account {
-        font-family: 'MICR', monospace;
+        font-family: 'MICR', 'MICR E13B', monospace;
         /* font-size: 17px;  */
         text-align: center;
         margin-top: 10px;
@@ -312,7 +312,7 @@
                 <div class="table-row">
                     <div class="table-cell w-50">Brooklyn, NY 11204</div>
                     <div class="table-cell w-50 text-end">
-                        <span class="font-helvetica">Date:</span> <span class="my-date" style="border-bottom: 1px solid black; padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? '' }}</span>
+                        <span class="font-helvetica">Date:</span> <span class="my-date" style="padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? '' }}</span>
                     </div>
                 </div>
             </div>
@@ -380,7 +380,9 @@
                 </div>
             </div>
             <div class="micr-container">
-                <div class="check-account">{{ $formData['accountNumber'] ?? '' }}</div>
+                ⑆{{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}⁋
+                {{ str_pad($formData['accountNumber'] ?? '', 17, '0', STR_PAD_LEFT) }}⁌
+                {{ str_pad($formData['bankCheckNumber'] ?? '', 6, '0', STR_PAD_LEFT) }}
             </div>
         </div>
         @if(!$loop->last)
