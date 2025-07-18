@@ -21,7 +21,6 @@
     @font-face {
         font-family: 'MICR';
         src: url("fonts/MICR.ttf") format('truetype');
-        src: url("fonts/._MICRE13B.ttf") format('truetype');
         font-weight: normal;
         font-style: normal;
     }
@@ -214,6 +213,7 @@
     /* Numeric Amount */
     .my-num {
         /* font-size: 15px; */
+        /* border: 2px solid #666; */
         padding: 1px 4px;
     }
 
@@ -272,11 +272,12 @@
         text-align: right;
     }
     .check-account {
-        font-family: 'MICR', 'MICR E13B', monospace;
+        font-family: 'MICR', monospace;
         /* font-size: 17px;  */
         text-align: center;
         margin-top: 10px;
         width: 100%;
+
     }
 
     .page-break {
@@ -302,7 +303,7 @@
                         </div>
                     </div>
                     <div class="table-cell">
-                    <div style="text-align:center; text-transform: uppercase; font-weight: bold; font-size: 16px;">{{ $formData['bankName'] ?? '' }}</div>
+                    <div style="text-align:center; text-transform: uppercase; font-weight: bold; font-size: 16px;"> {{ $formData['bankName'] ?? '' }}</div>
                     </div>
                     <div class="table-cell  text-end">No. {{ $formData['checkNumber'] ?? '' }}</div>
                 </div>
@@ -312,37 +313,37 @@
                 <div class="table-row">
                     <div class="table-cell w-50">Brooklyn, NY 11204</div>
                     <div class="table-cell w-50 text-end">
-                        <span class="font-helvetica">Date:</span> <span class="my-date" style="padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? '' }}</span>
+                        <span class="font-helvetica">Date:</span> <span class="my-date" style=" padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? '' }}</span>
                     </div>
                 </div>
             </div>
             <div class="table-layout" style="padding-top: 15px;">
                 <div class="table-row">
-                    <div class="table-cell" style="width: 90%">
+                    <div class="table-cell" style="width: 70%">
                         <div class="table-layout">
                             <div class="table-row">
                                 <div class="table-cell" style="width: 10%; font-size: 10px; font-weight:bold">
                                     <div class="font-helvetica">PAY TO THE ORDER OF</div>
                                 </div>
-                                <div class="table-cell" style="width: 80%;">
+                                <div class="table-cell" style="width: 90%;">
                                     <div class="font-helvetica my-orderof" style="padding-right: 2px;">{{ $formData['user'] ?? '' }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="table-cell" style="width: 20%; vertical-align: bottom;">
+                    <div class="table-cell" style="width: 20%; vertical-align: middle;">
                         <div class="table-layout">
                             <div class="table-row">
-                                <div class="table-cell" style="width: 10%; font-size: 18px; padding-right: 2px; vertical-align: bottom;">$</div>
+                                <div class="table-cell" style="width: 10%; font-size: 18px; padding-right: 2px; ">$</div>
                                 <div class="table-cell" style="width: 90%;">
-                                    <div class="my-num font-helvetica">* * {{ $formData['amountInNumber'] ?? '' }}</div>
+                                    <div class=" font-helvetica">* * {{ $formData['amountInNumber'] ?? '' }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="table-layout" style="margin-top: 10px;">
+            <div class="table-layout" style="margin-top: 5px;">
                 <div class="table-row">
                     <div class="table-cell my-dollars font-helvetica" style="width: 95%">
                         {{ $formData['amountInWord'] ?? 'N/A' }}
@@ -374,16 +375,19 @@
                     </div>
                     <div class="table-cell" style="width: 30%; vertical-align: middle; padding-left: 10px;">
                         <div class="my-signature">
-                            {{ config('app.name') }}
+                            {{ $formData['signature']  }}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="micr-container">
-                ⑆{{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}⁋
-                {{ str_pad($formData['accountNumber'] ?? '', 17, '0', STR_PAD_LEFT) }}⁌
-                {{ str_pad($formData['bankCheckNumber'] ?? '', 6, '0', STR_PAD_LEFT) }}
-            </div>
+    <div class="check-account">
+        T{{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}T
+    O{{ str_pad($formData['accountNumber'] ?? '', 17, '0', STR_PAD_LEFT) }}O    
+    {{ str_pad($formData['bankCheckNumber'] ?? '', 6, '0', STR_PAD_LEFT) }}
+    </div>
+</div>
+
         </div>
         @if(!$loop->last)
         <div class="page-break"></div>
