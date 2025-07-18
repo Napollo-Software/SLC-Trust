@@ -218,9 +218,8 @@
         /* Pay to the order of */
         .my-orderof {
             font-family: Damion, cursive;
-            /* font-size: 20px; */
             border-bottom: 1px solid #666;
-            width: 98%;
+            width: 100%;
             border-bottom: 1px solid black;
             padding-bottom: 2px;
         }
@@ -242,9 +241,6 @@
 
         /* Amount in Words */
         .my-dollars {
-            /* font-size: 20px; */
-            width: 70%;
-            padding-left: 60px;
             border-bottom: 1px solid #666;
             /* margin-top: 10px; */
         }
@@ -336,7 +332,7 @@
                     <div class="table-cell">
                         <div style="text-align:center; text-transform: uppercase; font-weight: bold; font-size: 16px;"> {{ $formData['bankName'] ?? '' }}</div>
                     </div>
-                    <div class="table-cell  text-end">No. {{ $formData['checkNumber'] ?? '' }}</div>
+                    <div class="table-cell  text-end"><span style="font-weight: bold;">No.</span> {{ $formData['checkNumber'] ?? '' }}</div>
                 </div>
             </div>
             <div class="my-address">5014-16th Ave, Suite 489</div>
@@ -344,7 +340,7 @@
                 <div class="table-row">
                     <div class="table-cell w-50">Brooklyn, NY 11204</div>
                     <div class="table-cell w-50 text-end">
-                        <span class="font-helvetica">Date:</span> <span class="my-date" style=" padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? '' }}</span>
+                        <span class="font-helvetica" style="font-weight: bold;">Date:</span> <span class="my-date" style=" padding-bottom: 2px; font-helvetica">{{ $formData['checkDate'] ?? '' }}</span>
                     </div>
                 </div>
             </div>
@@ -353,8 +349,8 @@
                     <div class="table-cell" style="width: 70%">
                         <div class="table-layout">
                             <div class="table-row">
-                                <div class="table-cell" style="width: 10%; font-size: 10px; font-weight:bold">
-                                    <div class="font-helvetica">PAY TO THE ORDER OF</div>
+                                <div class="table-cell" style="width: 12%; font-size: 10px; font-weight:bold">
+                                    <div class="font-helvetica">Pay To The Order Of</div>
                                 </div>
                                 <div class="table-cell" style="width: 90%;">
                                     <div class="font-helvetica my-orderof" style="padding-right: 2px;">{{ $formData['user'] ?? '' }}</div>
@@ -365,7 +361,7 @@
                     <div class="table-cell" style="width: 20%; vertical-align: middle;">
                         <div class="table-layout">
                             <div class="table-row">
-                                <div class="table-cell" style="width: 10%; font-size: 18px; padding-right: 2px; ">$</div>
+                                <div class="table-cell" style="width: 10%; font-size: 18px;padding-left:5px; padding-right: 2px;font-weight: bold;">$</div>
                                 <div class="table-cell" style="width: 90%;">
                                     <div class=" font-helvetica">* * {{ $formData['amountInNumber'] ?? '' }}</div>
                                 </div>
@@ -376,10 +372,10 @@
             </div>
             <div class="table-layout" style="margin-top: 5px;">
                 <div class="table-row">
-                    <div class="table-cell my-dollars font-helvetica" style="width: 95%">
+                    <div class="table-cell  font-helvetica" style="width:70%; border-bottom:1px solid black">
                         {{ $formData['amountInWord'] ? $formData['amountInWord'].'***': '' }}
                     </div>
-                    <div class="table-cell font-helvetica" style="width: 5%; vertical-align: bottom;">DOLLARS</div>
+                    <div class="table-cell font-helvetica" style="width: 20%; vertical-align: bottom;padding-left:5%; font-weight: bold;">Dollars</div>
                 </div>
             </div>
             <div class="table-layout" style="width: 100%; margin-top: 10px;">
@@ -398,11 +394,11 @@
             </div>
             <div class="table-layout">
                 <div class="table-row">
-                    <div class="table-cell" style="width: 50%;">
+                    <div class="table-cell" style="width: 30%;">
                         <div class="table-layout">
                             <div class="table-row">
                                 <div class="table-cell" style="width: 5%;  vertical-align: middle; font-size: 10px; font-weight:bold">
-                                    <div class="font-helvetica">Memo</div>
+                                    <div class="font-helvetica">Memo:</div>
                                 </div>
                                 <div class="table-cell" style="width: 50%;">
                                     <div class="my-memo font-helvetica" style="padding-right: 5px;">{{ $formData['memo'] ?? 'N/A' }}</div>
@@ -410,7 +406,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="table-cell" style="width: 30%; vertical-align: middle; padding-left: 10px;">
+                    <div class="table-cell" style="width: 20%; vertical-align: middle; padding-left: 80px; padding-right: 20px;">
                         <div class="my-signature">
                             {{ $formData['signature']  }}
                         </div>
@@ -419,8 +415,8 @@
             </div>
             <div class="micr-container">
                 <div class="check-account">
-                    T{{ str_pad($formData['checkNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}T
-                    O{{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}O
+                    O{{ str_pad($formData['checkNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}O
+                    T{{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}T
                     {{ str_pad($formData['accountNumber'] ?? '', 0, '0', STR_PAD_LEFT) }}
                 </div>
             </div>
