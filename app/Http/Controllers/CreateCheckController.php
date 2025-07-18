@@ -14,7 +14,7 @@ class CreateCheckController extends Controller
                 'checkNumber'     => $request->number[$k] ?? null,
                 'checkDate'       => date('m/d/Y', strtotime($request->date[$k])) ?? null,
                 'user'            => $request->user[$k] ?? null,
-                'amountInNumber'  => number_format($request->amount_in_number[$k], 2) ?? null,
+                'amountInNumber'  => $request->amount_in_number[$k] ?? null,
                 'amountInWord'    => $request->amount_in_word[$k] ?? null,
                 'memo'            => $request->memo[$k] ?? null,
                 'routingNumber'   => $request->routingNumber[$k] ?? null,
