@@ -29,8 +29,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 p-2">
-                                <label for="check-number">Number</label>
-                                <input type="number" required id="check-number" class="form-control check-number-details" name="number[]" placeholder="Check number" min="1" max="9999999">
+                                <label for="number">Number</label>
+                                <input type="number" required id="number" class="form-control number-details" name="number[]" placeholder="Number" min="1" max="9999999">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -138,7 +138,7 @@
 
     function validateFormData($cardBody) {
         let errors = {};
-        let $checkNumber = $cardBody.find('.check-number-details');
+        let $number = $cardBody.find('.number-details');
         let $checkDate = $cardBody.find('.check-date-details');
         let $user = $cardBody.find('.select-2[name="user[]"]');
         let $amountInNumber = $cardBody.find('.amount-in-number-details');
@@ -151,21 +151,21 @@
         let $signature = $cardBody.find('.signature');
 
         // Check Number validation
-        if (!$checkNumber.val() || isNaN($checkNumber.val()) || parseInt($checkNumber.val()) <= 0) {
-            errors.checkNumber = "Number is required and must be a positive number.";
-        } else if (parseInt($checkNumber.val()) > 9999999) {
-            errors.checkNumber = "Number must not exceed 7 digits.";
+        if (!$number.val() || isNaN($number.val()) || parseInt($number.val()) <= 0) {
+            errors.number = "Number is required and must be a positive number.";
+        } else if (parseInt($number.val()) > 9999999) {
+            errors.number = "Number must not exceed 7 digits.";
         } else {
             // Check for duplicate numbers
-            let checkNumber = parseInt($checkNumber.val());
+            let number = parseInt($number.val());
             let isDuplicate = false;
-            $('.check-number-details').not($checkNumber).each(function() {
-                if (parseInt($(this).val()) === checkNumber) {
+            $('.number-details').not($number).each(function() {
+                if (parseInt($(this).val()) === number) {
                     isDuplicate = true;
                 }
             });
             if (isDuplicate) {
-                errors.checkNumber = "Number must be unique.";
+                errors.number = "Number must be unique.";
             }
         }
 
@@ -247,9 +247,9 @@
     }
 
     function displayErrors($cardBody, errors) {
-        if (errors.checkNumber) {
-            $cardBody.find('.check-number-details').addClass('is-invalid');
-            $cardBody.find('.check-number-details').next('.invalid-feedback').text(errors.checkNumber);
+        if (errors.number) {
+            $cardBody.find('.number-details').addClass('is-invalid');
+            $cardBody.find('.number-details').next('.invalid-feedback').text(errors.number);
         }
         if (errors.checkDate) {
             $cardBody.find('.check-date-details').addClass('is-invalid');
@@ -298,7 +298,7 @@
         let formDataArray = [];
         $('.card-body').each(function() {
             let formData = {
-                checkNumber: $(this).find('.check-number-details').val(),
+                number: $(this).find('.number-details').val(),
                 checkDate: $(this).find('.check-date-details').val(),
                 user: $(this).find('.select-2[name="user[]"]').val(),
                 amountInNumber: $(this).find('.amount-in-number-details').val(),
@@ -374,22 +374,22 @@
         console.log('Validation passed, adding new card body'); // Debug log
         // Clone the first card body
         let newModalBody = $('.card-body:first').clone(true);
-        let checkNumberFields = $('.card-body').find('.check-number-details');
-        let maxCheckNumber = 0;
+        let numberFields = $('.card-body').find('.number-details');
+        let maxNumber = 0;
 
         // Find the maximum check number
-        checkNumberFields.each(function() {
-            let checkNumber = parseInt($(this).val());
-            if (!isNaN(checkNumber) && checkNumber > maxCheckNumber) {
-                maxCheckNumber = checkNumber;
+        numberFields.each(function() {
+            let number = parseInt($(this).val());
+            if (!isNaN(number) && number > maxNumber) {
+                maxNumber = number;
             }
         });
 
-        let newCheckNumber = maxCheckNumber + 1;
+        let newNumber = maxNumber + 1;
         let uniqueIdPrefix = 'field-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
 
         // Update input IDs and clear values
-        newModalBody.find('.check-number-details').attr('id', `check-number-${uniqueIdPrefix}`).val(newCheckNumber);
+        newModalBody.find('.number-details').attr('id', `number-${uniqueIdPrefix}`).val(newNumber);
         newModalBody.find('.check-date-details').attr('id', `check-date-${uniqueIdPrefix}`).val('<?php echo date('Y-m-d'); ?>');
         newModalBody.find('.amount-in-number-details').attr('id', `amount-in-number-${uniqueIdPrefix}`).val('');
         newModalBody.find('.amount-in-word-details').attr('id', `amount-in-word-${uniqueIdPrefix}`).val('');
