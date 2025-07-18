@@ -187,7 +187,7 @@
             font-family: Helvetica, Arial, sans-serif;
             font-size: 14.4px;
             padding: 10px;
-            margin: 15px 10px 10px 10px;
+            margin: 10px 5px 10px 5px;
             border: 1px solid black;
             border-style: dashed;
         }
@@ -259,9 +259,10 @@
         /* Signature */
         .my-signature {
             font-family: 'Mrs Saint Delafield', cursive;
-            font-size: 25px;
+            font-size: 40px;
             padding-left: 7.2px;
             border-bottom: 1px solid #666;
+            margin-top: -65px;
         }
 
         body {
@@ -376,22 +377,28 @@
             <div class="table-layout" style="margin-top: 5px;">
                 <div class="table-row">
                     <div class="table-cell my-dollars font-helvetica" style="width: 95%">
-                        {{ $formData['amountInWord'] ?? 'N/A' }}
+                        {{ $formData['amountInWord'] ? $formData['amountInWord'].'***': '' }}
                     </div>
                     <div class="table-cell font-helvetica" style="width: 5%; vertical-align: bottom;">DOLLARS</div>
                 </div>
             </div>
             <div class="table-layout" style="width: 100%; margin-top: 10px;">
                 <div class="table-row">
-                    <div class="table-cell font-helvetica">Brooklyn, NY 11204</div>
+                    <div class="table-cell font-helvetica">{!! $formData['addressLine1'] ?? '&nbsp;' !!}</div>
                 </div>
                 <div class="table-row">
-                    <div class="table-cell font-helvetica">5014-16th Ave, Suite 489</div>
+                    <div class="table-cell font-helvetica">{!! $formData['addressLine2'] ?? '&nbsp;' !!}</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell font-helvetica">{!! $formData['addressLine3'] ?? '&nbsp;' !!}</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell font-helvetica">&nbsp;</div>
                 </div>
             </div>
             <div class="table-layout">
                 <div class="table-row">
-                    <div class="table-cell" style="width: 50%; vertical-align: bottom;">
+                    <div class="table-cell" style="width: 50%;">
                         <div class="table-layout">
                             <div class="table-row">
                                 <div class="table-cell" style="width: 5%;  vertical-align: middle; font-size: 10px; font-weight:bold">
@@ -412,9 +419,9 @@
             </div>
             <div class="micr-container">
                 <div class="check-account">
-                    T{{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}T
-                    O{{ str_pad($formData['accountNumber'] ?? '', 17, '0', STR_PAD_LEFT) }}O
-                    {{ str_pad($formData['bankCheckNumber'] ?? '', 6, '0', STR_PAD_LEFT) }}
+                    T{{ str_pad($formData['checkNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}T
+                    O{{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}O
+                    {{ str_pad($formData['accountNumber'] ?? '', 0, '0', STR_PAD_LEFT) }}
                 </div>
             </div>
 

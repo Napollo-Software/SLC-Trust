@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 p-2">
-                                <label for="number">Number</label>
+                                <label for="number">Check Number</label>
                                 <input type="number" required id="number" class="form-control number-details" name="number[]" placeholder="Number" min="1" max="9999999">
                                 <div class="invalid-feedback"></div>
                             </div>
@@ -78,8 +78,18 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="bank-check-number">Bank Check Number</label>
-                                <input type="text" required id="bank-check-number" class="form-control bank-check-number" name="bankCheckNumber[]" placeholder="6-digit check number">
+                                <label for="address-line1">Customer Addres Line 1</label>
+                                <input type="text" required id="address-line1" class="form-control address-line1" name="addressLine1[]" placeholder="Account number">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="address-line2">Customer Addres Line 2</label>
+                                <input type="text" required id="address-line2" class="form-control address-line2" name="addressLine2[]" placeholder="Account number">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-md-6 p-2">
+                                <label for="address-line3">Customer Addres Line 2</label>
+                                <input type="text" required id="address-line3" class="form-control address-line3" name="addressLine3[]" placeholder="Account number">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -146,16 +156,19 @@
         let $memoDetails = $cardBody.find('.memo-details');
         let $routingNumber = $cardBody.find('.routing-number');
         let $accountNumber = $cardBody.find('.account-number');
-        let $bankCheckNumber = $cardBody.find('.bank-check-number');
+        let $addressLine1 = $cardBody.find('.address-line1');
+        let $addressLine2 = $cardBody.find('.address-line2');
+        let $addressLine3 = $cardBody.find('.address-line3');
         let $bankName = $cardBody.find('.bank-name');
         let $signature = $cardBody.find('.signature');
 
         // Check Number validation
         if (!$number.val() || isNaN($number.val()) || parseInt($number.val()) <= 0) {
             errors.number = "Number is required and must be a positive number.";
-        } else if (parseInt($number.val()) > 9999999) {
-            errors.number = "Number must not exceed 7 digits.";
-        } else {
+        } else if ($number.val().length > 9) {
+            errors.number = "Number must not exceed 9 characters.";
+        }
+        else {
             // Check for duplicate numbers
             let number = parseInt($number.val());
             let isDuplicate = false;
@@ -200,33 +213,40 @@
             errors.memo = "Memo must not exceed 65 characters.";
         }
 
-        // Routing Number validation
         if (!$routingNumber.val()) {
             errors.routingNumber = "Routing Number is required.";
         } else if (!/^\d{9}$/.test($routingNumber.val())) {
             errors.routingNumber = "Routing Number must be exactly 9 digits.";
         }
 
-        // Account Number validation
         if (!$accountNumber.val()) {
             errors.accountNumber = "Account Number is required.";
         } else if (!/^\d{1,17}$/.test($accountNumber.val())) {
             errors.accountNumber = "Account Number must be 1 to 17 digits.";
         }
 
-        // Bank Check Number validation
-        if (!$bankCheckNumber.val()) {
-            errors.bankCheckNumber = "Bank Check Number is required.";
-        } else if (!/^\d{6}$/.test($bankCheckNumber.val())) {
-            errors.bankCheckNumber = "Bank Check Number must be exactly 6 digits.";
+        if ($addressLine1.val() && $addressLine1.val().length > 50) {
+            errors.addressLine1 = "Customer address line 1 must not exceed 50 characters.";
         }
-
-        // Bank Name validation
+        if ($addressLine2.val() && $addressLine2.val().length > 50) {
+            errors.addressLine2 = "Customer address line 2 must not exceed 50 characters.";
+        }
+        if ($addressLine3.val() && $addressLine3.val().length > 50) {
+            errors.addressLine3 = "Customer address line 3 must not exceed 50 characters.";
+        }
+        if (!$addressLine1.val()) {
+            errors.addressLine1 = "Customer address line 1 is required.";
+        }
+        if (!$addressLine2.val()) {
+            errors.addressLine2 = "Customer address line 2 is required.";
+        }
+        if (!$addressLine3.val()) {
+            errors.addressLine3 = "Customer address line 3 is required.";
+        }
         if ($bankName.val() && $bankName.val().length > 50) {
             errors.bankName = "Bank Name must not exceed 50 characters.";
         }
 
-        // Signature validation
         if ($signature.val() && $signature.val().length > 50) {
             errors.signature = "Signature must not exceed 50 characters.";
         }
@@ -274,12 +294,20 @@
             $cardBody.find('.account-number').addClass('is-invalid');
             $cardBody.find('.account-number').next('.invalid-feedback').text(errors.accountNumber);
         }
-        if (errors.bankCheckNumber) {
-            $cardBody.find('.bank-check-number').addClass('is-invalid');
-            $cardBody.find('.bank-check-number').next('.invalid-feedback').text(errors.bankCheckNumber);
+        if (errors.addressLine1) {
+            $cardBody.find('.address-line1').addClass('is-invalid');
+            $cardBody.find('.address-line1').next('.invalid-feedback').text(errors.accountNumber);
+        }
+        if (errors.addressLine2) {
+            $cardBody.find('.address-line2').addClass('is-invalid');
+            $cardBody.find('.address-line2').next('.invalid-feedback').text(errors.accountNumber);
+        }
+        if (errors.addressLine3) {
+            $cardBody.find('.address-line3').addClass('is-invalid');
+            $cardBody.find('.address-line3').next('.invalid-feedback').text(errors.accountNumber);
         }
         if (errors.bankName) {
-            $cardBody.find('.bank-name').addClass('is-invalid'); // Fixed typo from '$carBody' to '$cardBody'
+            $cardBody.find('.bank-name').addClass('is-invalid');
             $cardBody.find('.bank-name').next('.invalid-feedback').text(errors.bankName);
         }
         if (errors.signature) {
@@ -300,8 +328,10 @@
                 memo: $(this).find('.memo-details').val(),
                 routingNumber: $(this).find('.routing-number').val(),
                 accountNumber: $(this).find('.account-number').val(),
-                bankCheckNumber: $(this).find('.bank-check-number').val(),
                 bankName: $(this).find('.bank-name').val(),
+                addressLine1: $(this).find('.address-line1').val(),
+                addressLine2: $(this).find('.address-line2').val(),
+                addressLine3: $(this).find('.address-line3').val(),
                 signature: $(this).find('.signature').val()
             };
             formDataArray.push(formData);
@@ -313,12 +343,10 @@
         let formDataArray = collectFormData();
         let allValid = true;
 
-        // Clear all previous errors
         $('.card-body').each(function() {
             clearErrors($(this));
         });
 
-        // Validate each card body
         $('.card-body').each(function() {
             let errors = validateFormData($(this));
             if (Object.keys(errors).length > 0) {
@@ -330,7 +358,6 @@
         if (allValid) {
             $("#check-form").submit();
         } else {
-            // Scroll to the first error
             let firstError = $('.is-invalid:first');
             if (firstError.length) {
                 $('html, body').animate({
@@ -341,12 +368,10 @@
     }
 
     function add_more() {
-        console.log('Add more clicked'); // Debug log
-        // Validate all existing card bodies
         let allValid = true;
         $('.card-body').each(function() {
             clearErrors($(this));
-            let errors = validateFormData($(this)); // Fixed from $(FuzzyLogic) to $(this)
+            let errors = validateFormData($(this));
             if (Object.keys(errors).length > 0) {
                 allValid = false;
                 displayErrors($(this), errors);
@@ -354,8 +379,7 @@
         });
 
         if (!allValid) {
-            console.log('Validation failed'); // Debug log
-            // Scroll to the first error
+            console.log('Validation failed');
             let firstError = $('.is-invalid:first');
             if (firstError.length) {
                 $('html, body').animate({
@@ -365,13 +389,10 @@
             return;
         }
 
-        console.log('Validation passed, adding new card body'); // Debug log
-        // Clone the first card body
         let newModalBody = $('.card-body:first').clone(true);
         let numberFields = $('.card-body').find('.number-details');
         let maxNumber = 0;
 
-        // Find the maximum check number
         numberFields.each(function() {
             let number = parseInt($(this).val());
             if (!isNaN(number) && number > maxNumber) {
@@ -382,7 +403,6 @@
         let newNumber = maxNumber + 1;
         let uniqueIdPrefix = 'field-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
 
-        // Update input IDs and clear values
         newModalBody.find('.number-details').attr('id', `number-${uniqueIdPrefix}`).val(newNumber);
         newModalBody.find('.check-date-details').attr('id', `check-date-${uniqueIdPrefix}`).val('<?php echo date('Y-m-d'); ?>');
         newModalBody.find('.amount-in-number-details').attr('id', `amount-in-number-${uniqueIdPrefix}`).val('');
@@ -390,12 +410,13 @@
         newModalBody.find('.memo-details').attr('id', `memo-${uniqueIdPrefix}`).val('');
         newModalBody.find('.routing-number').attr('id', `routing-number-${uniqueIdPrefix}`).val('');
         newModalBody.find('.account-number').attr('id', `account-number-${uniqueIdPrefix}`).val('');
-        newModalBody.find('.bank-check-number').attr('id', `bank-check-number-${uniqueIdPrefix}`).val('');
         newModalBody.find('.bank-name').attr('id', `bank-name-${uniqueIdPrefix}`).val('');
+        newModalBody.find('.address-line1').attr('id', `address-line1-${uniqueIdPrefix}`).val('');
+        newModalBody.find('.address-line2').attr('id', `address-line2-${uniqueIdPrefix}`).val('');
+        newModalBody.find('.address-line3').attr('id', `address-line3-${uniqueIdPrefix}`).val('');
         newModalBody.find('.signature').attr('id', `signature-${uniqueIdPrefix}`).val('');
         newModalBody.find('.invalid-feedback').text('');
 
-        // Replace select element
         newModalBody.find('.select-2').parent().empty();
         let newSelect = $('<select>', {
             id: `user-account-${uniqueIdPrefix}`,
@@ -409,10 +430,8 @@
         newModalBody.find('.form-group').append(newSelect);
         newModalBody.find('.form-group').append('<div class="invalid-feedback mt-3"></div>');
 
-        // Initialize Select2 for the new select element
         newModalBody.find(`#user-account-${uniqueIdPrefix}`).select2();
 
-        // Add remove button
         let removeButton = $('<button/>', {
             text: 'X',
             type: 'button',
@@ -425,13 +444,11 @@
         newModalBody.prepend(removeButton);
         newModalBody.append('<hr>');
 
-        // Insert the new card body
         newModalBody.insertAfter(".card-body:last");
 
-        // Scroll to the new card body
         $('html, body').animate({
             scrollTop: newModalBody.offset().top - 100
         }, 500);
-        console.log('New card body added'); // Debug log
+        console.log('New card body added');
     }
 </script>
