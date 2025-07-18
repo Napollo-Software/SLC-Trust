@@ -285,7 +285,7 @@
             $cardBody.find('.bank-check-number').next('.invalid-feedback').text(errors.bankCheckNumber);
         }
         if (errors.bankName) {
-            $carBody.find('.bank-name').addClass('is-invalid');
+            $cardBody.find('.bank-name').addClass('is-invalid'); // Fixed typo from '$carBody' to '$cardBody'
             $cardBody.find('.bank-name').next('.invalid-feedback').text(errors.bankName);
         }
         if (errors.signature) {
@@ -347,11 +347,12 @@
     }
 
     function add_more() {
+        console.log('Add more clicked'); // Debug log
         // Validate all existing card bodies
         let allValid = true;
         $('.card-body').each(function() {
             clearErrors($(this));
-            let errors = validateFormData($(FuzzyLogic));
+            let errors = validateFormData($(this)); // Fixed from $(FuzzyLogic) to $(this)
             if (Object.keys(errors).length > 0) {
                 allValid = false;
                 displayErrors($(this), errors);
@@ -359,6 +360,7 @@
         });
 
         if (!allValid) {
+            console.log('Validation failed'); // Debug log
             // Scroll to the first error
             let firstError = $('.is-invalid:first');
             if (firstError.length) {
@@ -369,6 +371,7 @@
             return;
         }
 
+        console.log('Validation passed, adding new card body'); // Debug log
         // Clone the first card body
         let newModalBody = $('.card-body:first').clone(true);
         let checkNumberFields = $('.card-body').find('.check-number-details');
@@ -435,5 +438,6 @@
         $('html, body').animate({
             scrollTop: newModalBody.offset().top - 100
         }, 500);
+        console.log('New card body added'); // Debug log
     }
 </script>
