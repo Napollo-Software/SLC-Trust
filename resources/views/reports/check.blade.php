@@ -172,12 +172,6 @@
         // Check Date validation
         if (!$checkDate.val()) {
             errors.checkDate = "Check Date is required.";
-        } else {
-            let today = new Date().setHours(0, 0, 0, 0);
-            let selectedDate = new Date($checkDate.val()).setHours(0, 0, 0, 0);
-            if (selectedDate > today) {
-                errors.checkDate = "Check Date cannot be in the future.";
-            }
         }
 
         // User Account validation
