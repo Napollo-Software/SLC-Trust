@@ -84,7 +84,7 @@
             <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Update Bills Status</b></div>
         </h5>
         <div class="card mb-0">
-            <div class="card-header"> 
+            <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
                     <h5 class="mb-0"><span class=" ">Update Pending Bills</h5>
                     <a class="btn btn-primary custom-float " href="{{ route('export.pending.bills') }}" style="background-color: #6BB0AA"><i class='bx bx-export pb-1'></i>Export
@@ -92,7 +92,7 @@
                     </h5>
                 </div>
             </div>
-            <div class="card-body"> 
+            <div class="card-body">
                 <div class="row upload-file">
                     <div class="col-lg-12">
                         <div class="card mb-0">
@@ -167,16 +167,16 @@
                 </div>
             </div>
             </div>
-        
+
 
         </div>
-        
+
         <div class="card mt-3 mb-5">
-            <div class="card-header d-flex justify-content-Between align-items-center flex-wrap gap-2 mb-0 pb-2"> 
+            <div class="card-header d-flex justify-content-Between align-items-center flex-wrap gap-2 mb-0 pb-2">
                 <h5 class="mb-0">File Details</h5>
                 <div class="d-flex  gap-2 ">
                     <button class="btn btn-primary upload-btn" disabled> Upload! </i></button>
-                    <button id="clear_form" class="btn btn-secondary"><i class="bx bx-trash"></i>Clear</button> 
+                    <button id="clear_form" class="btn btn-secondary"><i class="bx bx-trash"></i>Clear</button>
                 </div>
             </div>
             <div class="card-body overflow-auto" >
@@ -209,11 +209,10 @@
             </div>
         </div>
    </div>
-        
-  
+
+
 @endsection
 
-<!-- partial -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -253,7 +252,7 @@
                 $.ajax({
                     type: 'POST',
                     url: "{{ route('update.bills.status') }}",
-                    data: formData, // Directly pass formData without enclosing it in another object
+                    data: formData,
                     processData: false,
                     contentType: false,
                     headers: {
@@ -291,12 +290,11 @@
     }
 
     function BindTable(jsondata, tableid) {
-        /*Function used to convert the JSON array to Html Table*/
 
         var columns = BindTableHeader(
             jsondata,
             tableid
-        ); /*Gets all the column headings of Excel*/
+        );
         for (var i = 0; i < jsondata.length; i++) {
             var row$ = $("<tr/>");
             for (var colIndex = 0; colIndex < columns.length; colIndex++) {
@@ -309,7 +307,6 @@
     }
 
     function BindTableHeader(jsondata, tableid) {
-        /*Function used to get all column names from JSON and bind the html table header*/
 
         var columnSet = [];
         var headerTr$ = $("<tr/>");
@@ -318,8 +315,6 @@
             for (var key in rowHash) {
                 if (rowHash.hasOwnProperty(key)) {
                     if ($.inArray(key, columnSet) == -1) {
-                        /*Adding each unique column names to a variable array*/
-
                         columnSet.push(key);
                         headerTr$.append($("<th/>").html(key));
                     }
@@ -332,20 +327,17 @@
 
     function ExportToTable() {
         var regex = /(.xlsx|.xls)$/;
-        /*Checks whether the file is a valid excel file*/
 
         if (regex.test($("#excelfile").val().toLowerCase())) {
-            var xlsxflag = false; /*Flag for checking whether excel is .xls format or .xlsx format*/
+            var xlsxflag = false;
             if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {
                 xlsxflag = true;
             }
-            /*Checks whether the browser supports HTML5*/
 
             if (typeof FileReader != "undefined") {
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     var data = e.target.result;
-                    /*Converts the excel data in to object*/
 
                     if (xlsxflag) {
                         var workbook = XLSX.read(data, {
@@ -356,7 +348,6 @@
                             type: "binary"
                         });
                     }
-                    /*Gets all the sheetnames of excel into a variable*/
 
                     var sheet_name_list = workbook.SheetNames;
                     if (sheet_name_list.length !== 1) {
@@ -365,10 +356,8 @@
                         return;
                     }
                     var cnt =
-                        0; /*This is used for restricting the script to consider only the first sheet of excel*/
+                        0;
                     sheet_name_list.forEach(function(y) {
-                        /*Iterate through all sheets*/
-                        /*Convert the cell value to Json*/
 
                         if (xlsxflag) {
                             var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
@@ -388,7 +377,6 @@
                 };
 
                 if (xlsxflag) {
-                    /*If the excel file is .xlsx extension, then create an Array Buffer from excel*/
                     reader.readAsArrayBuffer($("#excelfile")[0].files[0]);
                 } else {
                     reader.readAsBinaryString($("#excelfile")[0].files[0]);
@@ -407,72 +395,62 @@
     }
 
     function BindTable(jsonData, tableId) {
-        // Clear the table first
         $(tableId + " tbody").empty();
         var success = 0;
         var failed = 0;
         var color = 'danger';
         var reason = "Good to go!";
         var encounteredRows = {};
-        // Iterate through each row in jsonData
         jsonData.forEach(function(row) {
-            // Assuming Column A and Column B are the columns to check
-            var user_balance = row['User Balance ($)'] === "N/A" || row['User Balance ($)'] == 0 
-            ? 0 
+            var user_balance = row['User Balance ($)'] === "N/A" || row['User Balance ($)'] == 0
+            ? 0
             : parseFloat(row['User Balance ($)']) || 0;
             var paid_amount = parseFloat(row[
-                'Paid Amount ($)']); // Replace 'Paid Amount ($)' with the actual header/title of Column B
+                'Paid Amount ($)']);
             var bill_amount = parseFloat(row[
-                'Bill Amount ($)']); // Replace 'Paid Amount ($)' with the actual header/title of Column B
+                'Bill Amount ($)']);
             var status = row['Status (You can either Approved ,Partially Approve or Reject bills )'];
-            // Replace 'undefined' values with an empty string
             row['Payee'] = row['Payee'] || '';
             row['Account'] = row['Account'] || '';
             row['Paid Amount ($)'] = row['Paid Amount ($)'] || '';
-            row['Payment method (ACH,Card,Check Payment)'] = row['Payment method (ACH,Card,Check Payment)'] ||
-                '';
+            row['Payment method (ACH,Card,Check Payment)'] = row['Payment method (ACH,Card,Check Payment)'] || '';
             row['Payment Number'] = row['Payment Number'] || '';
             var uniqueKey = row['Bill Id'];
-            // Create the row dynamically based on the conditions and apply row color
             var rowHTML = '<tr style="background-color: ';
-            if (paid_amount > user_balance && (status !== 'Pending' || status !== 'Reject')) {
+            /* if (paid_amount > user_balance && (status !== 'Pending' || status !== 'Reject')) {
                 // rowHTML += 'orange';
                 var reason = "Insufficient Balance!";
                 color = 'danger';
                 failed++;
-            } else if (paid_amount <= 0 && (status !== 'Pending' && status !== 'Reject')) {
-                // rowHTML += 'orange';
+            }
+            else
+            */
+             if (paid_amount <= 0 && (status !== 'Pending' && status !== 'Reject')) {
                 var reason = "Invalid paid amount!";
                 color = 'danger';
                 failed++;
             } else if (paid_amount != bill_amount && status == 'Approved') {
-                // rowHTML += 'orange';
                 var reason = "Invalid paid amount!";
                 color = 'danger';
                 failed++;
             } else if (row['Paid Amount ($)'] != '' && status == 'Pending') {
-                // rowHTML += 'orange';
                 var reason = "Change Bill Status!";
                 color = 'danger';
                 failed++;
             } else if (row['Paid Amount ($)'] == '' && status != 'Pending' && status != 'Reject') {
-                // rowHTML += 'orange';
                 reason = "Paid Amount is null!";
                 color = 'danger';
                 failed++;
             } else if (paid_amount == bill_amount && status == "Partially Approve") {
-                // rowHTML += 'orange';
                 reason = "Incorrect Status!";
                 color = 'danger';
                 failed++;
             } else if (paid_amount > bill_amount && status == "Partially Approve") {
-                // rowHTML += 'orange';
                 reason = "Invalid paid amount!";
                 color = 'danger';
                 failed++;
             } else if (status != 'Pending' && status != 'Approved' && status != 'Partially Approve' && status !=
                 'Reject') {
-                // rowHTML += 'orange';
                 reason = "Check status spell!";
                 color = 'danger';
                 failed++;
@@ -482,15 +460,14 @@
             } else if (status == 'Reject') {
                 reason = "Bill Rejected!";
                 color = 'warning';
-                // rowHTML += 'orange';
             } else if (encounteredRows[uniqueKey]) {
                 console.log(row['Bill Id']);
                 color = 'danger';
-                reason = "Duplicate Bill"; // Set the duplicate error message
+                reason = "Duplicate Bill";
                 failed++;
             } else if (typeof row['Bill Id'] === "undefined") {
                 color = 'danger';
-                reason = "Bill Id must not be null"; // Set the duplicate error message
+                reason = "Bill Id must not be null";
                 failed++;
             } else {
                 rowHTML += 'lavender';
@@ -499,8 +476,6 @@
                 success++;
             }
 
-
-            // Mark this row as encountered
             encounteredRows[uniqueKey] = true;
 
             rowHTML += ';">';
@@ -511,9 +486,9 @@
             rowHTML += '<td class="text-nowrap">' + row['Category'] + '</td>';
             rowHTML += '<td class="text-nowrap">' + row['Payee'] + '</td>';
             rowHTML += '<td class="text-nowrap">' + row['Account'] + '</td>';
-            rowHTML += '<td class="text-nowrap">' + status + '</td>'; // Use the pre-defined variable here
+            rowHTML += '<td class="text-nowrap">' + status + '</td>';
             rowHTML += '<td class="text-nowrap">' + row['Bill Amount ($)'] + '</td>';
-            rowHTML += '<td class="text-nowrap">' + user_balance + '</td>'; // Use the pre-defined variable here
+            rowHTML += '<td class="text-nowrap">' + user_balance + '</td>';
             rowHTML += '<td class="text-nowrap">' + row['Paid Amount ($)'] + '</td>';
             rowHTML += '<td class="text-nowrap">' + row['Payment method (ACH,Card,Check Payment)'] + '</td>';
             rowHTML += '<td class="text-nowrap">' + row['Payment Number'] + '</td>';
@@ -527,11 +502,6 @@
         $('.failed-row').text(failed);
         $('.failed-rows').val(failed);
         $('.upload-btn').attr('disabled', false);
-        // if(failed<=0){
-        //     $('.upload-btn').attr('disabled', false).text('Upload!');
-        // }else{
-        //     $('.upload-btn').attr('disabled', true).text('Please Resolve the errors first!');
-        // }
         console.log("Number of rows in the table: " + numRows);
     }
 </script>

@@ -276,7 +276,7 @@ class claimsController extends Controller
 
                 $name = "{$claimUser->name} {$claimUser->last_name}";
                 $email_message = "Your bill#" . $details->id . " added on " . date('m-d-Y', strtotime($details->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
-                $url = "/claims/$details->id";
+                $url = url("/claims/$details->id");
 
                 if($category->category_name != "Melody")
                 {
@@ -303,7 +303,6 @@ class claimsController extends Controller
                 $ignore_admin_notification = ignoreAdminEmails();
 
                 foreach ($admins_notification as $notify) {
-                    /////////////// Admin Notification//////////
 
                     if (in_array($notify->email, $ignore_admin_notification)) {
                         continue;
@@ -315,12 +314,12 @@ class claimsController extends Controller
                         'bill_id' => $claim->id,
                         'user_id' => $notify->id,
                         'name' => $claimUser->name,
-                        'description' => "Bill # " . $claim->id . " with $" . $request->claim_amount . " amount has been added by " . $claimUser->name . " on " . date('m/d/Y', strtotime(now())) . ".",
+                        'description' => "Bill # {$claim->id} with ${$request->claim_amount} amount has been added by {$claimUser->name} on " . date('m/d/Y', strtotime(now())) . ".",
                     ]);
 
                     $details = $claim;
                     $name = "{$notify->name} {$notify->last_name}";
-                    $email_message = $claimUser->name . ' ' . $claimUser->last_name . " has submitted bill#" . $details->id . " on " . date('m-d-Y', strtotime($claim->created_at)) . " and waiting for approval. Please use the button below to find the details of the bill:";
+                    $email_message = "{$claimUser->name} {$claimUser->last_name} has submitted bill#{$details->id} on " . date('m-d-Y', strtotime($claim->created_at)) . " and waiting for approval. Please use the button below to find the details of the bill:";
 
                     $url = url("/claims/{$details->id}");
 
@@ -329,7 +328,6 @@ class claimsController extends Controller
 
             if ($request->claim_status != 'Approved') {
 
-                /////////////User Bill Notification/////////////
                 Notifcation::create([
                     'status' => 0,
                     'title' => 'Bill Added',
