@@ -198,9 +198,21 @@ class claimsController extends Controller
 
         $balance = userBalance($claimUser->id);
 
-        if ($user->role != "User" && $balance < $validated['claim_amount'] && $request->claim_status == 'Approved') {
-            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => $claimUser->name . "'s balance is insufficient to approve this bill, Please add balance first."]);
-        }
+        $balanceStr = number_format((float) $balance, 2, '.', '');
+        $claimAmountStr = number_format((float) $validated['claim_amount'], 2, '.', '');
+        if (
+            $user->role != "User" &&
+            bccomp($balanceStr, $claimAmountStr, 2) < 0 &&
+            $request->claim_status == 'Approved'
+            ) {
+                return response()->json([
+                    'type' => 'warning',
+                    'header' => 'Insufficient balance!',
+                    'message' => "{$claimUser->name}'s balance is insufficient to approve this bill. Please add balance first."
+                ]);
+            }
+            // dd($balanceStr , $claimAmountStr);
+
 
         DB::beginTransaction();
 
@@ -340,10 +352,21 @@ class claimsController extends Controller
             }
 
             DB::commit();
-            if ($balance < $request->claim_amount) {
-                return response()->json(['header' => 'Insufficient balance!', 'type' => 'success', 'message' => " Your bill has been submitted successfully."]);
+            $balanceStr = number_format((float) $balance, 2, '.', '');
+            $claimAmountStr = number_format((float) $request->claim_amount, 2, '.', '');
+
+            if (bccomp($balanceStr, $claimAmountStr, 2) < 0) {
+                return response()->json([
+                    'header' => 'Insufficient balance!',
+                    'type' => 'success',
+                    'message' => "Your bill has been submitted successfully."
+                ]);
             } else {
-                return response()->json(['header' => 'Bill Submitted !', 'type' => 'success', 'message' => " Your bill has been submitted successfully."]);
+                return response()->json([
+                    'header' => 'Bill Submitted!',
+                    'type' => 'success',
+                    'message' => "Your bill has been submitted successfully."
+                ]);
             }
 
         } catch (\Exception $e) {
@@ -458,9 +481,16 @@ class claimsController extends Controller
 
         $balance = userBalance($claimUser->id);
         $amountToUpdate = $request->claim_status == 'Partial' ? $validated['partial_amount'] : $claim->claim_amount;
-
-        if ($balance < $amountToUpdate && $request->claim_status != 'Refused') {
-            return response()->json(['type' => 'warning', 'header' => 'Insufficient balance!', 'message' => "{$claimUser->name}'s balance is insufficient to update this bill."]);
+        $balanceStr = number_format((float) $balance, 2, '.', '');
+        $amountStr = number_format((float) $amountToUpdate, 2, '.', '');
+        
+        // Accurate float comparison using bccomp
+        if (bccomp($balanceStr, $amountStr, 2) < 0 && $request->claim_status != 'Refused') {
+            return response()->json([
+                'type' => 'warning',
+                'header' => 'Insufficient balance!',
+                'message' => "{$claimUser->name}'s balance is insufficient to update this bill.",
+            ]);
         }
 
         $claim = Claim::find($id);

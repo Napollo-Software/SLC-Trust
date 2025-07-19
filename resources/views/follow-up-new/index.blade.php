@@ -41,6 +41,7 @@
                                     <th>From</th>
                                     <th>To</th>
                                     <th>Linked Referral</th>
+                                    <th>Date</th>
                                     <th>Time</th>
                                     <th>Follow Up</th>
                                     <th>Action</th>
@@ -53,6 +54,7 @@
                                         <td>{{ $followup->sender->full_name() }}</td>
                                         <td>{{ $followup->employee->full_name() }}</td>
                                         <td>{{ $followup->referral->first_name.' '.$followup->referral->last_name }}</td>
+                                        <td>{{ formatDateForPdf($followup->date) }}</td>
                                         <td>{{ \Carbon\Carbon::parse($followup->time)->format('h:i A') }}</td>
                                         <td>
                                             <div class="text-break" style="max-width:800px; overflow:auto; white-spaces:normal;">

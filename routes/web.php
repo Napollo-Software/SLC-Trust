@@ -47,20 +47,6 @@ use App\Http\Controllers\ReleaseNotesController;
 // });
 // dd(app()->make('Game'));
 
-Route::get('documents-000009',function(){
-	$referrals = \App\Models\Referral::get();
-        foreach ($referrals as $referral) {
-            \App\Models\Documents::create([
-                'name'        => "7 Client Acknowledgement.pdf",
-                'slug'        => "7Client-Acknowledgement.pdf",
-                'status'      => 'pending',
-                'referral_id' => $referral->id,
-                'actual_url'  => "/documents/7ClientAcknowledgement.pdf",
-            ]);
-        }
-        dd("Done!");
-});
-
 
 Route::get('/logout', [AuthController::class, 'logout']);
 
@@ -304,8 +290,6 @@ Route::get('/all-customers', [VendorController::class, 'all_customers'])->middle
 Route::get('/signature', [DocumentController::class, 'signature'])->name('document.signature');
 
 Route::get('/nav', [AuthController::class, 'nav'])->middleware('isLoggedIn');
-
-Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/transactions', [AuthController::class, 'transactions'])->middleware('isLoggedIn');
 
@@ -996,11 +980,5 @@ Route::get('email',function(){
         ];
 
     return view("emails.email_documents", $data);
-
-});
-
-Route::get('/okkk',function(){
-
-   return view('document.trusted-surplus-pdf');
 
 });

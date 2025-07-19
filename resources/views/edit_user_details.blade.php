@@ -89,7 +89,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
     }
     }
 </style>
-<div class="">
+<div>
     <h5 class=" d-flex justify-content-start pt-3 pb-2">
         <b></b>
        <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> /<a href="{{url('/all_users')}}" class="text-muted fw-light pointer"><b>All Users</b></a> / <b>Edit User</b> </div>
@@ -211,10 +211,16 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Email</h6>
                             </div>
-                            <div class="col-sm-4 text-secondary">
-                                <input type="email" name="email" value="{{ $user->email }}" class="form-control p-2">
-                                <span class="text-danger">@error('email'){{$message}} @enderror</span>
+                            <div class="col-sm-4 text-secondary d-flex align-items-center">
+                                <input type="email" id="email" name="email" value="{{ $user->email }}" class="form-control p-2" autocomplete="off">
                             </div>
+                            <div class="col-sm-4 text-secondary d-flex align-items-center">
+                                <div id="welcomeEmailCheckbox" style="display:none;">
+                                <input type="checkbox" id="sendWelcomeEmail" name="send_welcome_email" value="1" />
+                                <label for="sendWelcomeEmail" class="mb-0" style="user-select:none;">Send Welcome Email?</label>
+                                </div>
+                            </div>
+                            <span class="text-danger">@error('email'){{$message}} @enderror</span>
                         </div>
                         <hr>
                         <div class="row">
@@ -374,6 +380,15 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         </div>
                         <hr>
                         <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">APT/SUITE</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <textarea name="apt_suite" class="form-control" cols="5">{{$user->apt_suite}}</textarea>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
                             <div class="col-sm-12">
                                 <button type="submit" name="approval_action" class="btn btn-primary up-date-profile">Update Profile</button>
                             </div>
@@ -386,10 +401,20 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
-    document.getElementById('phone').addEventListener('input', function(e) {
-        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-        e.target.value = !x[2] ? x[1] : '+1(' + x[1] + ')' + x[2] + (x[3] ? '-' + x[3] : '');
-    });
+$(document).ready(function() {
+  var $emailInput = $('#email');
+  var $welcomeEmailCheckbox = $('#welcomeEmailCheckbox');
+  var originalEmail = $emailInput.val().trim();
+
+  $emailInput.on('input', function() {
+    if ($emailInput.val().trim() !== originalEmail) {
+      $welcomeEmailCheckbox.css('display', 'flex');
+    } else {
+      $welcomeEmailCheckbox.hide();
+      $('#sendWelcomeEmail').prop('checked', false);
+    }
+  });
+});
 
 </script>
 @endsection

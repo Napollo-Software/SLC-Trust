@@ -18,11 +18,10 @@ class FollowupController extends Controller
     {
         $auth = Auth::user();
         $role = $auth ? $auth->role : null;
-        
+
         $routeName = Route::currentRouteName();
 
         $from = User::where('id', '=', Session::get('loginId'))->first();
-
 
         if ($routeName === 'follow_up.list') {
             $data = Followup::where('type', 'note')->get();
@@ -49,7 +48,8 @@ class FollowupController extends Controller
 
             $to = User::whereHas('roles', function ($query) {
                 $query->where('role', 'employee');
-            })->get();
+            })->orWhere('id', 7)->get();
+
             $referrals = Referral::all();
             return view('follow-up-new.index', compact('data', 'from', 'to', 'referrals' , 'role'));
         }

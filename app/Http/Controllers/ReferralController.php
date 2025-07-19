@@ -46,7 +46,7 @@ class ReferralController extends Controller
             ->where('converted_to_referral', 1)
             ->first();
             if (!$lead) {
-                return redirect()->route('referral.list'); 
+                return redirect()->route('referral.list');
             }
         }
         $typeData = Type::where('category', 'Case Type')->get();
@@ -245,7 +245,7 @@ class ReferralController extends Controller
 
         $assignee = User::whereHas('roles', function ($query) {
             $query->where('role', 'employee');
-        })->get();
+        })->orWhere("id", 7)->get();
 
         return view('referral.view', compact('pendingDocumentCount', 'recievedDocumentCount', 'totalTrust', 'fromFollowup', 'referral', 'referralDocuments', 'actualDocuments', 'document', 'checks', 'emergencyDetails', 'assignee'));
     }
@@ -471,6 +471,7 @@ class ReferralController extends Controller
             'full_ssn' => $referral->patient_ssn,
             'dob' => $referral->date_of_birth,
             'address' => $referral->address,
+            'apt_suite' => $referral->apt_suite,
             'state' => $referral->state,
             'city' => $referral->city,
             'phone' => "+1$referral->phone_number",
