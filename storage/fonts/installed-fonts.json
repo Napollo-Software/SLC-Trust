@@ -1,0 +1,29 @@
+{
+    "poppins-regular": {
+        "normal": "poppins_regular_normal_456586f45660e82c9a79c5a72264a232"
+    },
+    "poppins-medium": {
+        "normal": "poppins_medium_normal_b1f8ff3348612901ff846f1b9d91955d"
+    },
+    "poppins-semibold": {
+        "normal": "poppins_semibold_normal_a018a64e65d87786c7175a4a33da6cbf"
+    },
+    "poppins-bold": {
+        "normal": "poppins_bold_normal_0d720beeb333f43589c26d51ddd14670"
+    },
+    "poppins-italic": {
+        "normal": "poppins_italic_normal_90c7b6122061f79384ebba85dd1a6700"
+    },
+    "poppins-extrabold": {
+        "normal": "poppins_extrabold_normal_bd25a78da585f0ebbf97caf10a35c72f"
+    },
+    "damion": {
+        "normal": "damion_normal_ac19a81ef0672225077b1714b9c703b4"
+    },
+    "mrs saint delafield": {
+        "normal": "mrs_saint_delafield_normal_3963ff14badbf73cd69f30c94f23a83e"
+    },
+    "micr": {
+        "normal": "micr_normal_0d3a1e241b4a220988d85ffc3c041472"
+    }
+}

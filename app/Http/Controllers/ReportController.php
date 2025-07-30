@@ -1,25 +1,17 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\contacts;
 use App\Models\Lead;
-use Illuminate\Support\Facades\Log;
-use App\Models\PayeeModel;
 use App\Models\Referral;
 use App\Models\Report;
-use Illuminate\Http\Request;
+use App\Models\Transaction;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Session;
-
-use App\Models\Transaction;
-use CreateClosingBalancesTable;
 use DateTime;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
-use Redirect;
-use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Session;
 
 class ReportController extends Controller
 {
@@ -38,37 +30,36 @@ class ReportController extends Controller
 
     public function view($id)
     {
-        $report = Report::find($id);
-        $startDate = $report->start_date;
-        $endDate = $report->end_date;
-        $fileURL = $report->fileUrl;
-        $decodedData = json_decode($fileURL, true);
+        $report         = Report::find($id);
+        $startDate      = $report->start_date;
+        $endDate        = $report->end_date;
+        $fileURL        = $report->fileUrl;
+        $decodedData    = json_decode($fileURL, true);
         $filterCallback = function ($value) {
             return $value !== 0;
         };
-        $referralData = array_filter($decodedData['referralJsonArray'], $filterCallback);
-        $leadData = array_filter($decodedData['leadJsonArray'], $filterCallback);
-        $contactData = array_filter($decodedData['contactJsonArray'], $filterCallback);
-        $accountData = array_filter($decodedData['accountJsonArray'], $filterCallback);
-        $referral = array_fill_keys(array_keys($referralData), null);
-        $lead = array_fill_keys(array_keys($leadData), null);
-        $contact = array_fill_keys(array_keys($contactData), null);
-        $account = array_fill_keys(array_keys($accountData), null);
+        $referralData  = array_filter($decodedData['referralJsonArray'], $filterCallback);
+        $leadData      = array_filter($decodedData['leadJsonArray'], $filterCallback);
+        $contactData   = array_filter($decodedData['contactJsonArray'], $filterCallback);
+        $accountData   = array_filter($decodedData['accountJsonArray'], $filterCallback);
+        $referral      = array_fill_keys(array_keys($referralData), null);
+        $lead          = array_fill_keys(array_keys($leadData), null);
+        $contact       = array_fill_keys(array_keys($contactData), null);
+        $account       = array_fill_keys(array_keys($accountData), null);
         $referralModel = new Referral();
-        $leadModel = new Lead();
-        $contactModel = new contacts();
-        $accountModel = new User();
+        $leadModel     = new Lead();
+        $contactModel  = new contacts();
+        $accountModel  = new User();
         $referralModel->setTable('referrals');
         $leadModel->setTable('leads');
         $contactModel->setTable('contacts');
         $accountModel->setTable('users');
         $referralReport = empty($referral) ? [] : $referralModel->select(array_keys($referral))->whereBetween('created_at', [$startDate, $endDate])->get();
-        $leadReport = empty($lead) ? [] : $leadModel->select(array_keys($lead))->whereBetween('created_at', [$startDate, $endDate])->get();
-        $contactReport = empty($contact) ? [] : $contactModel->select(array_keys($contact))->whereBetween('created_at', [$startDate, $endDate])->get();
-        $accountReport = empty($account) ? [] : $accountModel->select(array_keys($account))->where('role', ['Vendor'])->whereBetween('created_at', [$startDate, $endDate])->get();
+        $leadReport     = empty($lead) ? [] : $leadModel->select(array_keys($lead))->whereBetween('created_at', [$startDate, $endDate])->get();
+        $contactReport  = empty($contact) ? [] : $contactModel->select(array_keys($contact))->whereBetween('created_at', [$startDate, $endDate])->get();
+        $accountReport  = empty($account) ? [] : $accountModel->select(array_keys($account))->where('role', ['Vendor'])->whereBetween('created_at', [$startDate, $endDate])->get();
         return view('reports.view', compact('referralReport', 'leadReport', 'contactReport', 'accountReport', 'report', 'referralData', 'leadData', 'contactData', 'accountData', 'lead'));
     }
-
 
     public function add_report()
     {
@@ -79,46 +70,41 @@ class ReportController extends Controller
     {
         $newReport = $report->replicate();
 
-        $newReport->title = $report->title . ' (Copy)';
+        $newReport->title       = $report->title . ' (Copy)';
         $newReport->description = $report->description . ' (Copy)';
         $newReport->save();
 
         $duplicatedReport = [
-            'id' => $newReport->id,
-            'type' => $newReport->type,
-            'category' => $newReport->category,
-            'object' => $newReport->object,
-            'created_at' => $newReport->created_at,
-            'title' => $newReport->title,
+            'id'          => $newReport->id,
+            'type'        => $newReport->type,
+            'category'    => $newReport->category,
+            'object'      => $newReport->object,
+            'created_at'  => $newReport->created_at,
+            'title'       => $newReport->title,
             'description' => $newReport->description,
-            'created_by' => $newReport->user->name,
-            'view_url' => route('view.report', ['id' => $newReport->id]),
+            'created_by'  => $newReport->user->name,
+            'view_url'    => route('view.report', ['id' => $newReport->id]),
         ];
 
         return response()->json($duplicatedReport);
     }
 
-
-
     public function transaction(Request $request)
     {
 
         $start_date = '';
-        $end_date = '';
-        $user_id = '';
-        $type = $request->type ?? '';
+        $end_date   = '';
+        $user_id    = '';
+        $type       = $request->type ?? '';
 
-        $users = User::where('role', 'User')->get();
+        $users        = User::where('role', 'User')->get();
         $transactions = Transaction::where('user_id', \Company::Account_id);
 
-        if ($request->type == 'operational')
-        {
+        if ($request->type == 'operational') {
             $transactions = $transactions->where('transaction_type', \TransactionType::Operational)->orderBy('id', 'DESC')->get();
-        } elseif ($request->type == 'trusted_surplus')
-        {
+        } elseif ($request->type == 'trusted_surplus') {
             $transactions = $transactions->where('transaction_type', \TransactionType::TrustedSurplus)->orderBy('id', 'DESC')->get();
-        } else
-        {
+        } else {
             $transactions = $transactions->orderBy('id', 'DESC')->get();
         }
 
@@ -128,10 +114,10 @@ class ReportController extends Controller
 
     public function monthly_statement(Request $request)
     {
-        $start_date = '';
-        $end_date = '';
-        $user_id = '';
-        $users = User::where('role', 'User')->get();
+        $start_date   = '';
+        $end_date     = '';
+        $user_id      = '';
+        $users        = User::where('role', 'User')->get();
         $transactions = [];
 
         return view('reports.monthly-statement', compact('users', 'transactions', 'start_date', 'end_date', 'user_id'));
@@ -140,7 +126,7 @@ class ReportController extends Controller
     public function bank_reconciliation(Request $request)
     {
         $startDate = Carbon::now()->subMonths(2)->startOfMonth();
-        $endDate = Carbon::now()->subMonths(2)->endOfMonth();
+        $endDate   = Carbon::now()->subMonths(2)->endOfMonth();
 
         $payments = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$startDate, $endDate])
@@ -158,7 +144,7 @@ class ReportController extends Controller
             ->get();
 
         $opening_start_date = Carbon::now()->subMonth(3)->startOfMonth();
-        $opening_end_date = Carbon::now()->subMonth(3)->endOfMonth();
+        $opening_end_date   = Carbon::now()->subMonth(3)->endOfMonth();
 
         $opening_payments = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$opening_start_date, $opening_end_date])
@@ -176,25 +162,24 @@ class ReportController extends Controller
             ->sum('deduction');
         $opening_balance = $opening_deposits - $opening_payments;
 
-
-        $start_date = Carbon::now();
-        $start_date = $start_date->subMonth()->format('Y-m');
-        $end_date = '';
-        $user_id = '';
-        $users = User::where('role', 'User')->get();
+        $start_date   = Carbon::now();
+        $start_date   = $start_date->subMonth()->format('Y-m');
+        $end_date     = '';
+        $user_id      = '';
+        $users        = User::where('role', 'User')->get();
         $transactions = [];
         return view('reports.bank-reconciliation', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'opening_balance', 'payments', 'deposits', ));
     }
 
     public function filter_bank_reconciliation(Request $request)
     {
-        $date = explode('-', $request->from);
-        $year = $date[0];
-        $month = $date[1];
-        $start_date = Carbon::create($year, $month, 1)->startOfMonth();
-        $endDate = $start_date->copy()->endOfMonth();
+        $date            = explode('-', $request->from);
+        $year            = $date[0];
+        $month           = $date[1];
+        $start_date      = Carbon::create($year, $month, 1)->startOfMonth();
+        $endDate         = $start_date->copy()->endOfMonth();
         $opening_balance = Transaction::where('chart_of_account', \Company::Account_id)->whereBetween('created_at', [$start_date, $endDate])->sum('deduction');
-        $payments = Transaction::where('chart_of_account', \Company::Account_id)
+        $payments        = Transaction::where('chart_of_account', \Company::Account_id)
             ->whereBetween('created_at', [$start_date, $endDate])
             ->where(function ($query) {
                 $query->where('description', 'LIKE', '%payment against%')
@@ -208,29 +193,36 @@ class ReportController extends Controller
                     ->orWhere('description', 'LIKE', '%add amount%');
             })
             ->get();
-        $this_month = Carbon::now()->format('Y-m');
-        $start_date = $start_date->format('Y-m');
-        $end_date = '';
-        $user_id = '';
-        $users = User::where('role', 'User')->get();
+        $this_month   = Carbon::now()->format('Y-m');
+        $start_date   = $start_date->format('Y-m');
+        $end_date     = '';
+        $user_id      = '';
+        $users        = User::where('role', 'User')->get();
         $transactions = [];
         return view('reports.bank-reconciliation', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'opening_balance', 'payments', 'deposits', 'this_month', ));
     }
 
     public function check(Request $request)
     {
-        $users = User::where('role', 'User')->get();
-        $payees = PayeeModel::get();
-        return view('reports.check', compact('users', 'payees'));
+        $users = User::where('role', 'User')
+            ->withSum('transactions as credit_sum', 'credit')
+            ->withSum('transactions as debit_sum', 'debit')
+            ->get()
+            ->map(function ($user) {
+                $user->balance = $user->credit_sum - $user->debit_sum;
+                return $user;
+            });
+
+        return view('reports.check', compact('users'));
     }
 
     public function filter_user(Request $request)
     {
-        $start_date = Carbon::parse($request->from);
-        $end_date = Carbon::parse($request->to);
-        $user_id = $request->user;
-        $type = $request->type;
-        $users = User::where('role', 'User')->get();
+        $start_date   = Carbon::parse($request->from);
+        $end_date     = Carbon::parse($request->to);
+        $user_id      = $request->user;
+        $type         = $request->type;
+        $users        = User::where('role', 'User')->get();
         $transactions = Transaction::query();
         if ($start_date && $end_date) {
             $transactions->whereDate('created_at', '>=', $start_date)
@@ -246,8 +238,8 @@ class ReportController extends Controller
             $transactions->where('transaction_type', 'Trusted Surplus');
         }
         $transactions = $transactions->get();
-        $start_date = $request->from;
-        $end_date = $request->to;
+        $start_date   = $request->from;
+        $end_date     = $request->to;
         return view('reports.transaction', compact('users', 'transactions', 'start_date', 'end_date', 'user_id', 'type'));
     }
 
@@ -255,13 +247,13 @@ class ReportController extends Controller
     {
         $this->validate($request, [
             'from' => 'required',
-            'user' => 'required'
+            'user' => 'required',
         ]);
 
         $start_date = $request->from;
-        $user_id = $request->user;
+        $user_id    = $request->user;
 
-        $year = date('Y', strtotime($start_date));
+        $year  = date('Y', strtotime($start_date));
         $month = date('m', strtotime($start_date));
         $users = User::where('role', 'User')->get();
 
@@ -275,7 +267,7 @@ class ReportController extends Controller
     public function monthly_mass_statement($user_id)
     {
 
-        $user = User::find($user_id);
+        $user  = User::find($user_id);
         $month = new DateTime();
         $month->modify('last day of this month');
         $transactions = Transaction::where('chart_of_account', null)->where('user_id', $user_id)->whereMonth('created_at', '=', $month->format('m'))->get();
@@ -303,21 +295,20 @@ class ReportController extends Controller
     public function upload_file(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
+            'title'       => 'required|max:255',
             'description' => 'required|max:255',
-            'file' => 'required|max:10240|mimes:xlsx,xls,csv',
+            'file'        => 'required|max:10240|mimes:xlsx,xls,csv',
         ]);
 
         $fileName = time() . '.' . $request->file->extension();
         $request->file->move(public_path('uploaded-reports'), $fileName);
-        $fileUrl = "/uploaded-reports/$fileName";
-        $report = new Report();
-        $report->title = $request->title;
+        $fileUrl             = "/uploaded-reports/$fileName";
+        $report              = new Report();
+        $report->title       = $request->title;
         $report->description = $request->description;
-        $report->fileUrl = $fileUrl;
+        $report->fileUrl     = $fileUrl;
         $report->uploaded_by = Session::get("loginId");
         $report->save();
-
 
         return response()->json(['success' => 'File uploaded successfully.', 'file' => $fileName]);
     }
@@ -325,26 +316,25 @@ class ReportController extends Controller
     {
     }
 
-
     public function saveReport(Request $request)
     {
-        $startDate = $request->input('startDate');
-        $endDate = $request->input('endDate');
-        $startDate = Carbon::parse($startDate)->startOfDay();
-        $endDate = Carbon::parse($endDate)->endOfDay();
-        $reportArray = $request->input('reportArray');
-        $userId = Session::get("loginId");
-        $data = json_decode($reportArray, true);
-        $report = new Report();
-        $report->fileUrl = json_encode($data);
-        $report->title = $request->input('report_title');
+        $startDate           = $request->input('startDate');
+        $endDate             = $request->input('endDate');
+        $startDate           = Carbon::parse($startDate)->startOfDay();
+        $endDate             = Carbon::parse($endDate)->endOfDay();
+        $reportArray         = $request->input('reportArray');
+        $userId              = Session::get("loginId");
+        $data                = json_decode($reportArray, true);
+        $report              = new Report();
+        $report->fileUrl     = json_encode($data);
+        $report->title       = $request->input('report_title');
         $report->description = $request->input('report_description');
         $report->uploaded_by = $userId;
-        $report->type = $request->input('summaryRadio') == 'on' ? "summary" : "details";
-        $report->category = $request->input('category');
-        $report->object = $request->input('object');
-        $report->start_date = $startDate;
-        $report->end_date = $endDate;
+        $report->type        = $request->input('summaryRadio') == 'on' ? "summary" : "details";
+        $report->category    = $request->input('category');
+        $report->object      = $request->input('object');
+        $report->start_date  = $startDate;
+        $report->end_date    = $endDate;
         $report->save();
         return response()->json([
             'message' => 'Report saved successfully',
@@ -382,132 +372,132 @@ class ReportController extends Controller
     {
 
         $request->validate([
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'report_title' => 'required',
+            'start_date'         => 'required',
+            'end_date'           => 'required',
+            'report_title'       => 'required',
             'report_description' => 'required',
         ]);
         $referralColumnMappings = [
-            'id' => 'ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'case_type' => 'Case Type',
-            'age' => 'Age',
-            'status' => 'Status',
-            'email_status' => 'Email Status',
-            'phone_number' => 'Phone Number',
-            'gender' => 'Gender',
-            'date_of_birth' => 'Date of Birth',
-            'email' => 'Email',
-            'country' => 'Country',
-            'city' => 'City',
-            'state' => 'State',
-            'address' => 'Address',
-            'zip_code' => 'Zip Code',
-            'apt_suite' => 'Apt Suite',
-            'patient_ssn' => 'Patient SSN',
+            'id'              => 'ID',
+            'first_name'      => 'First Name',
+            'last_name'       => 'Last Name',
+            'case_type'       => 'Case Type',
+            'age'             => 'Age',
+            'status'          => 'Status',
+            'email_status'    => 'Email Status',
+            'phone_number'    => 'Phone Number',
+            'gender'          => 'Gender',
+            'date_of_birth'   => 'Date of Birth',
+            'email'           => 'Email',
+            'country'         => 'Country',
+            'city'            => 'City',
+            'state'           => 'State',
+            'address'         => 'Address',
+            'zip_code'        => 'Zip Code',
+            'apt_suite'       => 'Apt Suite',
+            'patient_ssn'     => 'Patient SSN',
             'medicaid_number' => 'Medicaid Number',
-            'medicaid_plan' => 'Medicaid Plan',
+            'medicaid_plan'   => 'Medicaid Plan',
             'medicare_number' => 'Medicare Number',
-            'source_type' => 'Source Type',
-            'source' => 'Source',
-            'admission_date' => 'Admission Date',
-            'trustEsign' => 'TrustEsign',
-            'trustDocument' => 'TrustDocument',
-            'trustFinance' => 'TrustFinance',
-            'trustCheckList' => 'TrustCheckList',
-            'created_by' => 'Created By',
-            'intake' => 'Intake',
-            'marketer' => 'Marketer',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'source_type'     => 'Source Type',
+            'source'          => 'Source',
+            'admission_date'  => 'Admission Date',
+            'trustEsign'      => 'TrustEsign',
+            'trustDocument'   => 'TrustDocument',
+            'trustFinance'    => 'TrustFinance',
+            'trustCheckList'  => 'TrustCheckList',
+            'created_by'      => 'Created By',
+            'intake'          => 'Intake',
+            'marketer'        => 'Marketer',
+            'created_at'      => 'Created At',
+            'updated_at'      => 'Updated At',
         ];
         $leadColumnMappings = [
-            'id' => 'ID',
-            'case_type_id' => 'Case Type ID',
-            'language' => 'Language',
-            'contact_first_name' => 'Contact First Name',
-            'contact_last_name' => 'Contact Last Name',
-            'contact_phone' => 'Contact Phone',
-            'contact_email' => 'Contact Email',
-            'relation_to_patient' => 'Relation to Patient',
-            'patient_first_name' => 'Patient First Name',
-            'patient_last_name' => 'Patient Last Name',
-            'patient_phone' => 'Patient Phone',
-            'patient_email' => 'Patient Email',
-            'interested_in' => 'Interested In',
-            'sub_status' => 'Sub Status',
-            'vendor_id' => 'Vendor ID',
+            'id'                    => 'ID',
+            'case_type_id'          => 'Case Type ID',
+            'language'              => 'Language',
+            'contact_first_name'    => 'Contact First Name',
+            'contact_last_name'     => 'Contact Last Name',
+            'contact_phone'         => 'Contact Phone',
+            'contact_email'         => 'Contact Email',
+            'relation_to_patient'   => 'Relation to Patient',
+            'patient_first_name'    => 'Patient First Name',
+            'patient_last_name'     => 'Patient Last Name',
+            'patient_phone'         => 'Patient Phone',
+            'patient_email'         => 'Patient Email',
+            'interested_in'         => 'Interested In',
+            'sub_status'            => 'Sub Status',
+            'vendor_id'             => 'Vendor ID',
             'converted_to_referral' => 'Converted to Referral',
-            'case_type' => 'Case Type',
-            'note' => 'Note',
-            'source_type' => 'Source Type',
-            'source_id' => 'Source ID',
-            'source' => 'Source',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'case_type'             => 'Case Type',
+            'note'                  => 'Note',
+            'source_type'           => 'Source Type',
+            'source_id'             => 'Source ID',
+            'source'                => 'Source',
+            'created_at'            => 'Created At',
+            'updated_at'            => 'Updated At',
         ];
         $contactsColumnMappings = [
-            'id' => 'ID',
-            'fname' => 'First Name',
-            'lname' => 'Last Name',
+            'id'               => 'ID',
+            'fname'            => 'First Name',
+            'lname'            => 'Last Name',
             'name_of_practice' => 'Name of Practice',
-            'account' => 'Account',
-            'phone' => 'Phone',
-            'email' => 'Email',
-            'fax' => 'Fax',
-            'ext_number' => 'Extension Number',
-            'country' => 'Country',
-            'state' => 'State',
-            'city' => 'City',
-            'zip_code' => 'Zip Code',
-            'address' => 'Address',
-            'designation' => 'Designation',
-            'vendor_id' => 'Vendor ID',
-            'created_by' => 'Created by',
-            'updated_at' => 'Updated Date',
-            'created_at' => 'Created Date',
+            'account'          => 'Account',
+            'phone'            => 'Phone',
+            'email'            => 'Email',
+            'fax'              => 'Fax',
+            'ext_number'       => 'Extension Number',
+            'country'          => 'Country',
+            'state'            => 'State',
+            'city'             => 'City',
+            'zip_code'         => 'Zip Code',
+            'address'          => 'Address',
+            'designation'      => 'Designation',
+            'vendor_id'        => 'Vendor ID',
+            'created_by'       => 'Created by',
+            'updated_at'       => 'Updated Date',
+            'created_at'       => 'Created Date',
         ];
         $accountColumnMappings = [
-            'id' => 'ID',
-            'name' => 'Name',
-            'last_name' => 'Last Name',
-            'profile_pic' => 'Profile Picture',
-            'address_2' => 'Address 2',
-            'website' => 'Website',
-            'country' => 'Country',
-            'full_ssn' => 'Full SSN',
-            'dob' => 'Date of Birth',
-            'address' => 'Address',
-            'state' => 'State',
-            'city' => 'City',
-            'zipcode' => 'Zip Code',
-            'email' => 'Email',
-            'marital_status' => 'Marital Status',
-            'vendor_type' => 'Vendor Type',
-            'vendor_type_name' => 'Vendor Type Name',
-            'gender' => 'Gender',
-            'avatar' => 'Avatar',
-            'role' => 'Role',
-            'account_status' => 'Account Status',
-            'user_balance' => 'User Balance',
+            'id'                 => 'ID',
+            'name'               => 'Name',
+            'last_name'          => 'Last Name',
+            'profile_pic'        => 'Profile Picture',
+            'address_2'          => 'Address 2',
+            'website'            => 'Website',
+            'country'            => 'Country',
+            'full_ssn'           => 'Full SSN',
+            'dob'                => 'Date of Birth',
+            'address'            => 'Address',
+            'state'              => 'State',
+            'city'               => 'City',
+            'zipcode'            => 'Zip Code',
+            'email'              => 'Email',
+            'marital_status'     => 'Marital Status',
+            'vendor_type'        => 'Vendor Type',
+            'vendor_type_name'   => 'Vendor Type Name',
+            'gender'             => 'Gender',
+            'avatar'             => 'Avatar',
+            'role'               => 'Role',
+            'account_status'     => 'Account Status',
+            'user_balance'       => 'User Balance',
             'date_of_withdrawal' => 'Date of Withdrawal',
-            'docs' => 'Document',
-            'created_at' => 'Created Date',
-            'updated_at' => 'Updated Date',
-            'phone' => 'Phone Number',
-            'billing_method' => 'Billing Methode',
-            'billing_cycle' => 'Billing Cycle',
-            'notify_by' => 'Notify By',
+            'docs'               => 'Document',
+            'created_at'         => 'Created Date',
+            'updated_at'         => 'Updated Date',
+            'phone'              => 'Phone Number',
+            'billing_method'     => 'Billing Methode',
+            'billing_cycle'      => 'Billing Cycle',
+            'notify_by'          => 'Notify By',
         ];
 
         $referralJsonArray = [];
-        $leadJsonArray = [];
-        $contactJsonArray = [];
-        $accountJsonArray = [];
-        $startDate = $request->input('start_date');
-        $endDate = $request->input('end_date');
-        if (!empty($request->checkedReferral)) {
+        $leadJsonArray     = [];
+        $contactJsonArray  = [];
+        $accountJsonArray  = [];
+        $startDate         = $request->input('start_date');
+        $endDate           = $request->input('end_date');
+        if (! empty($request->checkedReferral)) {
             $referralData = Referral::select($request->checkedReferral)->whereBetween('created_at', [$startDate, $endDate])->get();
             foreach ($referralColumnMappings as $key => $value) {
                 if (in_array($key, $request->checkedReferral)) {
@@ -519,7 +509,7 @@ class ReportController extends Controller
         } else {
             $referralData = null;
         }
-        if (!empty($request->checkedLead)) {
+        if (! empty($request->checkedLead)) {
             $leadData = Lead::select($request->checkedLead)->whereBetween('created_at', [$startDate, $endDate])->get();
             foreach ($leadColumnMappings as $key => $value) {
                 if (in_array($key, $request->checkedLead)) {
@@ -531,7 +521,7 @@ class ReportController extends Controller
         } else {
             $leadData = null;
         }
-        if (!empty($request->checkedAccount)) {
+        if (! empty($request->checkedAccount)) {
             $accountData = User::select($request->checkedAccount)->where('role', ['Vendor'])->whereBetween('created_at', [$startDate, $endDate])->get();
             foreach ($accountColumnMappings as $key => $value) {
                 if (in_array($key, $request->checkedAccount)) {
@@ -543,7 +533,7 @@ class ReportController extends Controller
         } else {
             $accountData = null;
         }
-        if (!empty($request->checkedContacts)) {
+        if (! empty($request->checkedContacts)) {
             $contactData = contacts::select($request->checkedContacts)->whereBetween('created_at', [$startDate, $endDate])->get();
             foreach ($contactsColumnMappings as $key => $value) {
                 if (in_array($key, $request->checkedContacts)) {
@@ -557,42 +547,42 @@ class ReportController extends Controller
         }
         $mergedArray = [
             'referralJsonArray' => $referralJsonArray,
-            'leadJsonArray' => $leadJsonArray,
-            'contactJsonArray' => $contactJsonArray,
-            'accountJsonArray' => $accountJsonArray,
+            'leadJsonArray'     => $leadJsonArray,
+            'contactJsonArray'  => $contactJsonArray,
+            'accountJsonArray'  => $accountJsonArray,
         ];
         return response()->json([
-            'message' => 'Selected columns submitted successfully',
-            'contact' => $contactData,
-            'referral' => $referralData,
-            'lead' => $leadData,
-            'account' => $accountData,
-            'reportArray' => $mergedArray
+            'message'     => 'Selected columns submitted successfully',
+            'contact'     => $contactData,
+            'referral'    => $referralData,
+            'lead'        => $leadData,
+            'account'     => $accountData,
+            'reportArray' => $mergedArray,
         ]);
     }
     public function updateReport(Request $request)
     {
-        $updated_by = Session::get("loginId");
-        $startDate = $request->input('startDate');
-        $endDate = $request->input('endDate');
-        $startDate = Carbon::parse($startDate)->startOfDay();
-        $endDate = Carbon::parse($endDate)->endOfDay();
+        $updated_by  = Session::get("loginId");
+        $startDate   = $request->input('startDate');
+        $endDate     = $request->input('endDate');
+        $startDate   = Carbon::parse($startDate)->startOfDay();
+        $endDate     = Carbon::parse($endDate)->endOfDay();
         $reportArray = $request->input('reportArray');
-        $data = json_decode($reportArray, true);
-        $report = Report::find($request->report_id);
-        $userId = $report->uploaded_by;
+        $data        = json_decode($reportArray, true);
+        $report      = Report::find($request->report_id);
+        $userId      = $report->uploaded_by;
         if ($data !== null) {
             $report->fileUrl = json_encode($data);
         }
-        $report->title = $request->input('report_title');
+        $report->title       = $request->input('report_title');
         $report->description = $request->input('report_title');
         $report->uploaded_by = $userId;
-        $report->updated_by = $updated_by;
-        $report->type = $request->input('summaryRadio') == 'on' ? "summary" : "details";
-        $report->category = $request->input('category');
-        $report->object = $request->input('object');
-        $report->start_date = $startDate;
-        $report->end_date = $endDate;
+        $report->updated_by  = $updated_by;
+        $report->type        = $request->input('summaryRadio') == 'on' ? "summary" : "details";
+        $report->category    = $request->input('category');
+        $report->object      = $request->input('object');
+        $report->start_date  = $startDate;
+        $report->end_date    = $endDate;
         $report->save();
         return response()->json([
             'message' => 'Update saved successfully',
