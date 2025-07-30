@@ -30,136 +30,120 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
         $app_name = config('app.professional_name');
         $admin    = User::findOrFail(\Company::Account_id);
 
-        foreach ($collection as $item) {
-            if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] != "Pending") {
+        DB::beginTransaction();
 
-                $claim = Claim::find($item['bill_id']);
+        try {
 
-                if ($claim && $claim->claim_user != null) {
+            foreach ($collection as $item) {
 
-                    $claim->payment_method = $item['payment_method_achcardcheck_payment'];
-                    $claim->card_number    = $item['payment_number'];
-                    $claim->account_number = str_replace('A.C#', '', $item['account']);
+                if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] != "Pending") {
 
-                    $user     = User::find($claim->claim_user);
-                    $category = Category::find($claim->claim_category);
+                    $claim = Claim::find($item['bill_id']);
 
-                    $userBalance  = userBalance($user->id);
-                    $userBalance = ($userBalance == "N/A") ? '0' : $userBalance;
+                    logger("Iteration", [
+                        "Item" => $item,
+                        "bill" => $claim,
+                    ]);
 
-                    if ($claim->claim_status == "Pending") {
+                    if ($claim && $claim->claim_user && $claim->claim_status == "Pending") {
+
+                        $claim->payment_method = $item['payment_method_achcardcheck_payment'];
+                        $claim->card_number    = $item['payment_number'];
+                        $claim->account_number = str_replace('A.C#', '', $item['account']);
+
+                        $user     = User::find($claim->claim_user);
+                        $category = Category::find($claim->claim_category);
+
+                        $userBalance = userBalance($user->id);
+                        $userBalance = ($userBalance == "N/A") ? '0' : $userBalance;
 
                         if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] == 'Approved' && $item['paid_amount'] == $claim->claim_amount) {
-                            DB::beginTransaction();
 
-                            try {
-                                $claim->claim_status = 'Approved';
-                                $claim->save();
+                            $claim->claim_status = 'Approved';
+                            $claim->save();
+                            $user->save();
 
-                                $user->save();
+                            $reference_id = generateTransactionId();
 
-                                $reference_id = generateTransactionId();
+                            $user->transactions()->create([
+                                'status'           => 1,
+                                'bill_id'          => $claim->id,
+                                "reference_id"     => $reference_id,
+                                'debit'            => $claim->claim_amount,
+                                'payment_method'   => $claim->payment_method,
+                                'payment_number'   => $claim->card_number,
+                                'transaction_type' => \TransactionType::TrustedSurplus,
+                                'description'      => "{$app_name} has processed payment against bill submitted for {$category->category_name} category.",
+                            ]);
 
-                                $user->transactions()->create([
-                                    'status'           => 1,
-                                    'bill_id'          => $claim->id,
-                                    "reference_id"     => $reference_id,
-                                    'debit'            => $claim->claim_amount,
-                                    'payment_method'   => $claim->payment_method,
-                                    'payment_number'   => $claim->card_number,
-                                    'transaction_type' => \TransactionType::TrustedSurplus,
-                                    'description'      => "{$app_name} has processed payment against bill submitted for {$category->category_name} category.",
-                                ]);
+                            $admin->transactions()->create([
+                                "status"           => 1,
+                                "bill_id"          => $claim->id,
+                                "reference_id"     => $reference_id,
+                                "credit"           => $claim->claim_amount,
+                                "payment_method"   => $claim->payment_method,
+                                "payment_number"   => $claim->payment_number,
+                                "transaction_type" => \TransactionType::TrustedSurplus,
+                                "description"      => "{$app_name} has processed {$user->name} {$user->last_name}'s payment against bill submitted for {$category->category_name} category.",
+                            ]);
 
-                                $admin->transactions()->create([
-                                    "status"           => 1,
-                                    "bill_id"          => $claim->id,
-                                    "reference_id"     => $reference_id,
-                                    "credit"           => $claim->claim_amount,
-                                    "payment_method"   => $claim->payment_method,
-                                    "payment_number"   => $claim->payment_number,
-                                    "transaction_type" => \TransactionType::TrustedSurplus,
-                                    "description"      => "{$app_name} has processed {$user->name} {$user->last_name}'s payment against bill submitted for {$category->category_name} category.",
-                                ]);
-
-                                Notifcation::create([
-                                    'user_id'     => $user->id,
-                                    'name'        => $user->name,
-                                    'bill_id'     => $claim->id,
-                                    'description' => "Your Bill #{$claim->id} with \${$claim->claim_amount} amount added on " . date('m/d/Y', strtotime($claim->created_at)) . " has been approved successfully.",
-                                    'title'       => 'Bill Approved',
-                                    'status'      => 0,
-                                ]);
-
-                                DB::commit();
-                            } catch (\Exception $e) {
-                                DB::rollBack();
-                                \Log::error('Error processing claim: ' . $e->getMessage());
-                                return response()->json(['error' => 'Something went wrong'], 500);
-                            }
+                            Notifcation::create([
+                                'user_id'     => $user->id,
+                                'name'        => $user->name,
+                                'bill_id'     => $claim->id,
+                                'description' => "Your Bill #{$claim->id} with \${$claim->claim_amount} amount added on " . date('m/d/Y', strtotime($claim->created_at)) . " has been approved successfully.",
+                                'title'       => 'Bill Approved',
+                                'status'      => 0,
+                            ]);
 
                             $subject       = "Bill Approved";
                             $name          = "{$user->name} {$user->last_name}";
                             $email_message = "Your bill#{$user->id} added on " . date('m-d-Y', strtotime($user->created_at)) . " has been Approved. Please use the button below to find the details of your bill:";
-                            $url           = ("/claims/{$claim->id}");
+                            $url           = url("/claims/{$claim->id}");
 
                             if ($user->notify_by == "email" || $category->category_name != "Melody") {
                                 SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
                             }
                         }
                         if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] == 'Partially Approve' && $item['paid_amount'] <= $claim->claim_amount) {
-                            
-                            DB::beginTransaction();
 
-                            try {
+                            $claim->claim_status   = "Partially approved";
+                            $claim->partial_amount = $item['paid_amount'];
+                            $claim->save();
+                            $reference_id = generateTransactionId();
 
-                                $claim->claim_status   = "Partially approved";
-                                $claim->partial_amount = $item['paid_amount'];
-                                $claim->save();
-                                $reference_id = generateTransactionId();
+                            $user->transactions()->create([
+                                'status'           => 1,
+                                'bill_id'          => $claim->id,
+                                'reference_id'     => $reference_id,
+                                'debit'            => $item['paid_amount'],
+                                'payment_number'   => $claim->card_number,
+                                'payment_method'   => $claim->payment_method,
+                                'transaction_type' => \TransactionType::TrustedSurplus,
+                                'description'      => "{$app_name} has processed payment against bill submitted for {$category->category_name} category.",
+                            ]);
 
-                                $user->transactions()->create([
-                                    'status'           => 1,
-                                    'bill_id'          => $claim->id,
-                                    'reference_id'     => $reference_id,
-                                    'debit'            => $item['paid_amount'],
-                                    'payment_number'   => $claim->card_number,
-                                    'payment_method'   => $claim->payment_method,
-                                    'transaction_type' => \TransactionType::TrustedSurplus,
-                                    'description'      => "{$app_name} has processed payment against bill submitted for {$category->category_name} category.",
-                                ]);
+                            $admin->transactions()->create([
+                                'status'           => 1,
+                                'bill_id'          => $claim->id,
+                                'reference_id'     => $reference_id,
+                                'credit'           => $item['paid_amount'],
+                                'payment_number'   => $claim->card_number,
+                                'payment_method'   => $claim->payment_method,
+                                'transaction_type' => \TransactionType::TrustedSurplus,
+                                'description'      => "{$app_name} has processed {$user->name} {$user->last_name}'s payment against bill submitted for {$category->category_name} category.",
+                            ]);
 
-                                $admin->transactions()->create([
-                                    'status'           => 1,
-                                    'bill_id'          => $claim->id,
-                                    'reference_id'     => $reference_id,
-                                    'credit'           => $item['paid_amount'],
-                                    'payment_number'   => $claim->card_number,
-                                    'payment_method'   => $claim->payment_method,
-                                    'transaction_type' => \TransactionType::TrustedSurplus,
-                                    'description'      => "{$app_name} has processed {$user->name} {$user->last_name}'s payment against bill submitted for {$category->category_name} category.",
-                                ]);
-
-                                Notifcation::create([
-                                    'status'      => 0,
-                                    'bill_id'     => $claim->id,
-                                    'name'        => $user->name,
-                                    'user_id'     => $user->id,
-                                    'title'       => 'Partically approved',
-                                    'description' => "Your Bill # {$claim->id} with ${$claim->claim_amount} amount added on " . date('m/d/Y', strtotime(now())) . " has been partically approved with amount ${$claim->partial_amount}.",
-                                ]);
-
-                                DB::commit();
-                            } 
-                            catch (\Exception $e) {
-                                DB::rollBack();
-                                \Log::error("Error processing claim: {$e}");
-                                return response()->json(['error' => 'Something went wrong'], 500);
-                            }
+                            Notifcation::create([
+                                'status'      => 0,
+                                'bill_id'     => $claim->id,
+                                'name'        => $user->name,
+                                'user_id'     => $user->id,
+                                'title'       => 'Partically approved',
+                                'description' => "Your Bill # {$claim->id} with \${$claim->claim_amount} amount added on " . date('m/d/Y', strtotime(now())) . " has been partically approved with amount \${$claim->partial_amount}.",
+                            ]);
 
                             $name = "{$user->name} {$user->last_name}";
-
-                            $url = "/claims/$claim->id";
 
                             $subject       = "Bill Partially Approved";
                             $name          = "{$user->name} {$user->last_name}";
@@ -195,6 +179,11 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                     }
                 }
             }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            \Log::error('Error processing claim: ' . $e->getMessage());
+            return response()->json(['error' => 'Something went wrong'], 500);
         }
 
     }
