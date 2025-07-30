@@ -326,7 +326,7 @@ class claimsController extends Controller
                         'bill_id' => $claim->id,
                         'user_id' => $notify->id,
                         'name' => $claimUser->name,
-                        'description' => "Bill # {$claim->id} with ${$request->claim_amount} amount has been added by {$claimUser->name} on " . date('m/d/Y', strtotime(now())) . ".",
+                        'description' => "Bill # {$claim->id} with \${$request->claim_amount} amount has been added by {$claimUser->name} on " . date('m/d/Y', strtotime(now())) . ".",
                     ]);
 
                     $details = $claim;
@@ -483,7 +483,7 @@ class claimsController extends Controller
         $amountToUpdate = $request->claim_status == 'Partial' ? $validated['partial_amount'] : $claim->claim_amount;
         $balanceStr = number_format((float) $balance, 2, '.', '');
         $amountStr = number_format((float) $amountToUpdate, 2, '.', '');
-        
+
         // Accurate float comparison using bccomp
         if (bccomp($balanceStr, $amountStr, 2) < 0 && $request->claim_status != 'Refused') {
             return response()->json([
