@@ -73,20 +73,12 @@ return $colors[$randomIndex];
     }
 
 </style>
-<div class="">
-
-    <!-- CONTENT -->
-
-    <!-- PAGE-HEADER -->
+<div>
     <h5 class=" d-flex justify-content-start pt-5 pb-2 px-2">
         <b></b>
         <div> <a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <a href="{{url('/referral')}}" class="text-muted fw-light pointer"><b>All Referral</b></a> / <b>View Referral</b> </div>
     </h5>
-    <!-- PAGE-HEADER END -->
-
-    <!-- ROW -->
-
-    <div class="row p-2" style="margin-bottom:100px !important;">
+    <div class="row p-2" style="padding-bottom:50px !important;">
         <div class="col-lg-4 col-xl-2">
             <div class="card mb-4">
                 <div class="card-body p-2">
@@ -737,7 +729,6 @@ return $colors[$randomIndex];
                     </div>
                 </div>
             </div>
-
             <div class="card tasks-card d-none">
                 <div class="border-bottom d-flex align-items-center justify-content-between p-2 mt-2">
                     <h4 class="px-3">Notes</h4>
@@ -947,7 +938,7 @@ return $colors[$randomIndex];
                     <div class="row align-items-center">
                         <form id="PhysicianForm">
                             @csrf
-                            <input type="hidden" id="userId" name="userId" class="form-control" value="{{ $referral->referral_phy->id }}">
+                            <input type="hidden" id="physician_id" name="physician_id" class="form-control" value="{{ $referral->referral_phy->id }}">
                             <input type="hidden" name="referral_id" value="{{ $referral->id }}">
                             <div class="col-md-12 px-0">
                                 <h4 class="pb-3 px-3 border-bottom">Physician Detail</h4>
@@ -1197,7 +1188,6 @@ return $colors[$randomIndex];
 </div>
 
 
-
 <script src="{{ url('/assets/custom/jquery.min.js') }}"></script>
 <script src="{{ url('/assets/custom/custom.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -1424,7 +1414,9 @@ return $colors[$randomIndex];
     });
 
     $('#PhysicianForm').on('submit', function(e) {
-        e.preventDefault()
+        e.preventDefault();
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback.is-invalid').remove();
         $.ajax({
             url: "{{ route('update-physician') }}",
             type: 'POST',
