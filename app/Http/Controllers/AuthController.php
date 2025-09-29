@@ -192,7 +192,7 @@ class AuthController extends Controller
             $details = $user;
             Mail::to($request->email)->send(new \App\Mail\registermail($details));
 
-            $admins_notification = User::where('role', "admin")->get();
+            $admins_notification = User::where('role', "Admin")->get();
 
             $ignore_admin_notification = ignoreAdminEmails();
 
