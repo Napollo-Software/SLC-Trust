@@ -165,13 +165,9 @@ class RecurringBill extends Command
 
              }
 
-             $admins_notification = User::where('role','!=',"User")->get();
-			   $ignore_admin_notification = [
-                    'devops@napollo.net',
-                    'svaldivia@trustedsurplus.org',
-                    'ldurzieh@trustedsurplus.org',
-                    'rbauman@trustedsurplus.org'
-                ];
+            $admins_notification = User::where('role',"Admin")->get();
+			$ignore_admin_notification = ['devops@napollo.net'];
+
             foreach($admins_notification as $notify){
                  ///////////// Admin Notification/////////////
 				 if(in_array($notify->email,$ignore_admin_notification))
