@@ -53,13 +53,13 @@
                                 </div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-number">Amount in Number</label>
-                                <input type="number" required id="amount-in-number" class="form-control amount-in-number-details" name="amount_in_number[]" step="0.01" min="0.01" max="10000000" placeholder="Amount in number">
+                                <label for="amount-in-number">Amount in Numbers</label>
+                                <input type="number" required id="amount-in-number" class="form-control amount-in-number-details" name="amount_in_number[]" step="0.01" min="0.01" max="10000000" placeholder="Amount in numbers">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-word">Amount in Word</label>
-                                <input type="text" required id="amount-in-word" class="form-control amount-in-word-details" name="amount_in_word[]" placeholder="Amount in word">
+                                <label for="amount-in-word">Amount in Words</label>
+                                <input type="text" required id="amount-in-word" class="form-control amount-in-word-details" name="amount_in_word[]" placeholder="Amount in words">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -78,18 +78,18 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="address-line1">Customer Addres Line 1</label>
-                                <input type="text" required id="address-line1" class="form-control address-line1" name="addressLine1[]" placeholder="Account number">
+                                <label for="address-line1">Customer Address Line 1</label>
+                                <input type="text" required id="address-line1" class="form-control address-line1" name="addressLine1[]" placeholder="Customer address line 1">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="address-line2">Customer Addres Line 2</label>
-                                <input type="text" required id="address-line2" class="form-control address-line2" name="addressLine2[]" placeholder="Account number">
+                                <label for="address-line2">Customer Address Line 2</label>
+                                <input type="text" required id="address-line2" class="form-control address-line2" name="addressLine2[]" placeholder="Customer address line 2">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="address-line3">Customer Addres Line 2</label>
-                                <input type="text" required id="address-line3" class="form-control address-line3" name="addressLine3[]" placeholder="Account number">
+                                <label for="address-line3">Customer Address Line 3</label>
+                                <input type="text" required id="address-line3" class="form-control address-line3" name="addressLine3[]" placeholder="Customer address line 3">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -164,7 +164,7 @@
 
         // Check Number validation
         if (!$number.val() || isNaN($number.val()) || parseInt($number.val()) <= 0) {
-            errors.number = "Number is required and must be a positive number.";
+            errors.number = "This field is required and must be a positive number.";
         } else if ($number.val().length > 9) {
             errors.number = "Number must not exceed 9 characters.";
         }
@@ -194,18 +194,18 @@
 
         // Amount in Number validation
         if (!$amountInNumber.val() || isNaN($amountInNumber.val()) || parseFloat($amountInNumber.val()) <= 0) {
-            errors.amountInNumber = "Amount in Number is required and must be a positive number.";
+            errors.amountInNumber = "This field is required and must be a positive number.";
         } else if (parseFloat($amountInNumber.val()) > 10000000) {
-            errors.amountInNumber = "Amount in Number must not exceed 10,000,000.";
+            errors.amountInNumber = "This field must not exceed 10,000,000.";
         }
 
         // Amount in Word validation
         if (!$amountInWord.val()) {
-            errors.amountInWord = "Amount in Word is required.";
+            errors.amountInWord = "This field is required.";
         } else if ($amountInWord.val().length > 65) {
-            errors.amountInWord = "Amount in Word must not exceed 65 characters.";
+            errors.amountInWord = "This field must not exceed 65 characters.";
         } else if (/^\d+$/.test($amountInWord.val())) {
-            errors.amountInWord = "Amount in Word must be in words, not numbers.";
+            errors.amountInWord = "This field must be in words, not numbers.";
         }
 
         // Memo validation
@@ -220,36 +220,39 @@
         }
 
         if (!$accountNumber.val()) {
-            errors.accountNumber = "Account Number is required.";
+            errors.accountNumber = "This field is required.";
         } else if (!/^\d{1,17}$/.test($accountNumber.val())) {
-            errors.accountNumber = "Account Number must be 1 to 17 digits.";
+            errors.accountNumber = "This field must be 1 to 17 digits.";
         }
 
         if ($addressLine1.val() && $addressLine1.val().length > 50) {
-            errors.addressLine1 = "Customer address line 1 must not exceed 50 characters.";
+            errors.addressLine1 = "This field must not exceed 50 characters.";
         }
         if ($addressLine2.val() && $addressLine2.val().length > 50) {
-            errors.addressLine2 = "Customer address line 2 must not exceed 50 characters.";
+            errors.addressLine2 = "This field must not exceed 50 characters.";
         }
         if ($addressLine3.val() && $addressLine3.val().length > 50) {
-            errors.addressLine3 = "Customer address line 3 must not exceed 50 characters.";
+            errors.addressLine3 = "This field must not exceed 50 characters.";
         }
         if (!$addressLine1.val()) {
-            errors.addressLine1 = "Customer address line 1 is required.";
+            errors.addressLine1 = "This field is required.";
         }
         if (!$addressLine2.val()) {
-            errors.addressLine2 = "Customer address line 2 is required.";
+            errors.addressLine2 = "This field is required.";
         }
         if (!$addressLine3.val()) {
-            errors.addressLine3 = "Customer address line 3 is required.";
+            errors.addressLine3 = "This field is required.";
         }
         if ($bankName.val() && $bankName.val().length > 50) {
             errors.bankName = "Bank Name must not exceed 50 characters.";
         }
-
+        if (!$signature.val()) {
+            errors.signature = "This field is required.";
+        }
         if ($signature.val() && $signature.val().length > 50) {
             errors.signature = "Signature must not exceed 50 characters.";
         }
+
 
         return errors;
     }
