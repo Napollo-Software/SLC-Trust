@@ -23,7 +23,7 @@ class CreateCheckController extends Controller
                 'signature'      => $request->signature[$k] ?? null,
                 'addressLine1'   => $request->addressLine1[$k] ?? null,
                 'addressLine2'   => $request->addressLine2[$k] ?? null,
-                'addressLine3'   => $request->addressLine1[$k] ?? null,
+                'addressLine3'   => $request->addressLine3[$k] ?? null,
             ];
         }
 

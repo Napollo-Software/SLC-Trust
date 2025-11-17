@@ -237,11 +237,8 @@
         if (!$addressLine1.val()) {
             errors.addressLine1 = "This field is required.";
         }
-        if (!$addressLine2.val()) {
-            errors.addressLine2 = "This field is required.";
-        }
-        if (!$addressLine3.val()) {
-            errors.addressLine3 = "This field is required.";
+        if (!$bankName.val()) {
+            errors.bankName = "This field is required";
         }
         if ($bankName.val() && $bankName.val().length > 50) {
             errors.bankName = "Bank Name must not exceed 50 characters.";
