@@ -8,6 +8,7 @@ use App\Models\Notifcation;
 use App\Models\User;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -39,11 +40,6 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                 if ($item['status_you_can_either_approved_partially_approve_or_reject_bills'] != "Pending") {
 
                     $claim = Claim::find($item['bill_id']);
-
-                    logger("Iteration", [
-                        "Item" => $item,
-                        "bill" => $claim,
-                    ]);
 
                     if ($claim && $claim->claim_user && $claim->claim_status == "Pending") {
 
@@ -92,8 +88,8 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                                 'name'        => $user->name,
                                 'bill_id'     => $claim->id,
                                 'description' => "Your Bill #{$claim->id} with \${$claim->claim_amount} amount added on " . date('m/d/Y', strtotime($claim->created_at)) . " has been approved successfully.",
-                                'title'       => 'Bill Approved',
-                                'status'      => 0,
+                                'title'  => 'Bill Approved',
+                                'status' => 0,
                             ]);
 
                             $subject       = "Bill Approved";
@@ -176,13 +172,19 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
                                 SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);
                             }
                         }
+
+                        Log::info("Bill imported", [
+                            "Bill ID" => $claim->id,
+                            "Item"    => $item,
+                        ]);
                     }
                 }
             }
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            \Log::error('Error processing claim: ' . $e->getMessage());
+            Log::error('Error processing claim: ' . $e->getMessage(), ["Exception" => $e]);
             return response()->json(['error' => 'Something went wrong'], 500);
         }
 

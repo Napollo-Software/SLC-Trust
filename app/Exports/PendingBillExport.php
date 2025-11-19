@@ -74,7 +74,7 @@ class PendingBillExport implements FromCollection, WithHeadings, WithEvents, Sho
             'User Balance ($)',
             'Bill Type',
             'Paid Amount ($)',
-            'Payment method (ACH,Card,Cheque Payment)',
+            'Payment method (ACH,Card,Check Payment)',
             'Payment Number',
         ];
     }
