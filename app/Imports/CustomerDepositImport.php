@@ -146,7 +146,7 @@ class CustomerDepositImport implements ToCollection, WithStartRow,WithHeadingRow
             //     $user = new User();
             //     $user->name = $user_data[0];
             //     $user->last_name = $user_data[1];
-            //     $user->email = $user_data[0].$user_data[1].'@intrustpit.com';
+            //     $user->email = $user_data[0].$user_data[1].'@slc.org';
             //     $user->account_status = "Approved";
             //     $user->avatar = "93561655300919_avatar.png";
             //     $user->user_balance = $data['amount'];

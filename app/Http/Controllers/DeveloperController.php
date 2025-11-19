@@ -17,44 +17,44 @@ class DeveloperController extends Controller
 {
     public function welcomeEmail(Request $request)
     {
-        $all_users = User::where('role','User')->where('email','Not Like','%@intrustpit.com')->get();
-        $ignore_emails = [
-            'Rochelr2003@yahoo.com'
-            // 'yaus345@gmail.com',
-            // 'Debbie22271@aol.com',
-            // 'eo63694@gmail.com',
-            // 'hwieds@gmail.com',
-            // 'irismstern@gmail.com',
-            // 'tara@mylittlesunshinenyc.com',
-            // 'wantaghfitz@gmail.com',
-        ];
-        foreach($all_users as $user){
-           if(in_array($user->email, $ignore_emails)){
-            $rand_token = Str::random(50);
-            $token = User::find($user->id);
-            $token->token = $rand_token;
-            $token->save();
-            WelcomeEmailJob::dispatch($user->email,null,$user->name.' '.$user->last_name,$user->email,$rand_token);
-           }
-            // continue;
-            
-            // \Mail::to($user->email)->send(new \App\Mail\WelcomeEmail(null,$user->name.' '.$user->last_name,null,$rand_token,));
-       }
-        
-        dd($all_users);
-        // $name='usama';
-        // $url = 'fsa';
-        // return view('emails.welcome-email',compact('name','url'));
-        \Mail::to('usamafiaz915@gmail.com')->send(new \App\Mail\WelcomeEmail(null,null,null,null));
-        dd('Emails sent successfully');
+    //     $all_users = User::where('role','User')->where('email','Not Like','%@slc.org')->get();
+    //     $ignore_emails = [
+    //         'Rochelr2003@yahoo.com'
+    //         // 'yaus345@gmail.com',
+    //         // 'Debbie22271@aol.com',
+    //         // 'eo63694@gmail.com',
+    //         // 'hwieds@gmail.com',
+    //         // 'irismstern@gmail.com',
+    //         // 'tara@mylittlesunshinenyc.com',
+    //         // 'wantaghfitz@gmail.com',
+    //     ];
+    //     foreach($all_users as $user){
+    //        if(in_array($user->email, $ignore_emails)){
+    //         $rand_token = Str::random(50);
+    //         $token = User::find($user->id);
+    //         $token->token = $rand_token;
+    //         $token->save();
+    //         WelcomeEmailJob::dispatch($user->email,null,$user->name.' '.$user->last_name,$user->email,$rand_token);
+    //        }
+    //         // continue;
+
+    //         // \Mail::to($user->email)->send(new \App\Mail\WelcomeEmail(null,$user->name.' '.$user->last_name,null,$rand_token,));
+    //    }
+
+    //     dd($all_users);
+    //     // $name='usama';
+    //     // $url = 'fsa';
+    //     // return view('emails.welcome-email',compact('name','url'));
+    //     \Mail::to('usamafiaz915@gmail.com')->send(new \App\Mail\WelcomeEmail(null,null,null,null));
+    //     dd('Emails sent successfully');
     }
     public function makeAcutualDocument()
     {
         createDocument(42);
         dd('success');
     }
-    
-    
+
+
     public function ImportPayee(Request $request)
     {
        return view('payees.import');
@@ -79,7 +79,7 @@ class DeveloperController extends Controller
                 $new_claim->created_at = "2023-02-26";
                 $new_claim->save();
             }
-        } 
+        }
         dd('Bills replicated successfully');
     }
     public function EmailDoc(){

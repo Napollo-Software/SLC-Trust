@@ -45,7 +45,7 @@
          $claim_user = $user->id;
      }
      $claimUser = User::find($claim_user);
-     $intrustpit = User::find(7);
+     $slc_company = User::find(7);
      $balanceStr = number_format((float) $claimUser->user_balance, 2, '.', '');
      $claimAmountStr = number_format((float) $claim_amount, 2, '.', '');
 
@@ -95,11 +95,11 @@
          //////////////// Admin Ledger/////////////////
 
          $transaction = new Transaction();
-         $transaction->chart_of_account = $intrustpit->id;
+         $transaction->chart_of_account = $slc_company->id;
          $transaction->bill_id = $claim->id;
          $transaction->user_id = $claim_user;
-         $transaction->name = $intrustpit->name;
-         $transaction->last_name = $intrustpit->last_name;
+         $transaction->name = $slc_company->name;
+         $transaction->last_name = $slc_company->last_name;
          $transaction->deduction = $request->claim_amount;
          $transaction->payment_method = $request->payment_method;
          $transaction->payment_number = $request->card_number;
@@ -174,11 +174,11 @@
          $transaction->save();
          //////////////// Admin Ledger/////////////////
          $transaction = new Transaction();
-         $transaction->chart_of_account = $intrustpit->id;
+         $transaction->chart_of_account = $slc_company->id;
          $transaction->bill_id = $claim->id;
          $transaction->user_id = $claim_user;
-         $transaction->name = $intrustpit->name;
-         $transaction->last_name = $intrustpit->last_name;
+         $transaction->name = $slc_company->name;
+         $transaction->last_name = $slc_company->last_name;
          $transaction->payment_method = $request->payment_method;
          $transaction->payment_number = $request->card_number;
          $transaction->transaction_type = "Trusted Surplus";
