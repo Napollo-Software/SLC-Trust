@@ -49,6 +49,11 @@ class Claim extends Model
         return $this->belongsTo(PayeeModel::class, 'payee_name', 'id');
     }
 
+    public function payee()
+    {
+        return $this->belongsTo(PayeeModel::class, 'payee_name');
+    }
+
     public function secondary_bills()
     {
         return Claim::where('recurred', $this->id)->get(['id', 'created_at']);

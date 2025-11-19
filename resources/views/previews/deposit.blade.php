@@ -365,7 +365,7 @@
         var success = 0;
         var failed = 0;
         var color = 'danger';
-        var reason = "Good to go!";
+        var reason = "Ready";
         var encounteredRows = {};
         // Iterate through each row in jsonData
         jsonData.forEach(function(row) {
@@ -409,7 +409,7 @@
                 failed++;
             }else{
                 rowHTML +='lavender';
-                reason = "Good to go!";
+                reason = "Ready";
                 color = 'primary'
                 success++;
             }

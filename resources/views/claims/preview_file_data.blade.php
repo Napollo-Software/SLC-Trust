@@ -1,113 +1,117 @@
 @extends('nav')
 @section('title', 'Update Bill Status | Senior Life Care Trusts')
 @section('wrapper')
-    <style>
-        #content {
-            margin: 40px auto;
-            text-align: center;
-            width: 600px;
-        }
+<style>
+    #content {
+        margin: 40px auto;
+        text-align: center;
+        width: 600px;
+    }
 
-        #content h1 {
-            text-transform: uppercase;
-            font-weight: 700;
-            margin: 0 0 40px 0;
-            font-size: 25px;
-            line-height: 30px;
-        }
+    #content h1 {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0 0 40px 0;
+        font-size: 25px;
+        line-height: 30px;
+    }
 
-        .circle {
-            width: 20px;
-            height: 20px;
-            line-height: 200px;
-            border-radius: 50%;
-            /* the magic */
-            -moz-border-radius: 50%;
-            -webkit-border-radius: 50%;
-            text-align: center;
-            color: white;
-            font-size: 16px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin: 0 auto 40px;
-        }
+    .circle {
+        width: 20px;
+        height: 20px;
+        line-height: 200px;
+        border-radius: 50%;
+        /* the magic */
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0 auto 40px;
+    }
 
-        .blue {
-            background-color: #3498db;
-        }
+    .blue {
+        background-color: #3498db;
+    }
 
-        .green {
-            background-color: #16a085;
-        }
+    .green {
+        background-color: #16a085;
+    }
 
-        .red {
-            background-color: #e74c3c;
-        }
+    .red {
+        background-color: #e74c3c;
+    }
 
-        .feedback {
-            font-size: 14px;
-            color: #b1b1b1;
-        }
+    .feedback {
+        font-size: 14px;
+        color: #b1b1b1;
+    }
 
-        .scrollable-container {
-            max-height: 90vh;
-            overflow-y: scroll;
-        }
+    .scrollable-container {
+        max-height: 90vh;
+        overflow-y: scroll;
+    }
 
-        .dropzone {
-            margin: 14px;
-            height: 100px;
-            border: 1px dashed #999;
-            border-radius: 3px;
-            text-align: center;
+    .dropzone {
+        margin: 14px;
+        height: 100px;
+        border: 1px dashed #999;
+        border-radius: 3px;
+        text-align: center;
 
-        }
+    }
 
-        .upload-icon {
-            margin: 25px 2px 2px 2px;
-        }
+    .upload-icon {
+        margin: 25px 2px 2px 2px;
+    }
 
-        .upload-input {
-            position: relative;
-            top: -62px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-    </style>
-    <!-- partial:index.partial.html -->
-   <div class="pb-3">
-        <h5 class=" d-flex justify-content-start pt-3 pb-2">
-            <b></b>
-            <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Update Bills Status</b></div>
-        </h5>
-        <div class="card mb-0">
-            <div class="card-header">
-                <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
-                    <h5 class="mb-0"><span class=" ">Update Pending Bills</h5>
-                    <a class="btn btn-primary custom-float " href="{{ route('export.pending.bills') }}" style="background-color: #6BB0AA"><i class='bx bx-export pb-1'></i>Export
-                    </a>
-                    </h5>
-                </div>
+    .upload-input {
+        position: relative;
+        top: -62px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .swal2-cancel {
+        background-color: red !important;
+    }
+
+</style>
+<div class="pb-3">
+    <h5 class=" d-flex justify-content-start pt-3 pb-2">
+        <b></b>
+        <div><a href="{{url('/main')}}" class="text-muted fw-light pointer"><b>Dashboard</b></a> / <b>Update Bills Status</b></div>
+    </h5>
+    <div class="card mb-0">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap">
+                <h5 class="mb-0"><span class=" ">Update Pending Bills</h5>
+                <a class="btn btn-primary custom-float " href="{{ route('export.pending.bills') }}" style="background-color: #6BB0AA"><i class='bx bx-export pb-1'></i>Export
+                </a>
+                </h5>
             </div>
-            <div class="card-body">
-                <div class="row upload-file">
-                    <div class="col-lg-12">
-                        <div class="card mb-0">
-                            <div class="dropzone ">
-                                <img src="{{ url('/upload.svg') }}" class="upload-icon" />
-                                <br>
-                                <b>Upload/Drag file here</b>
-                                <form id="upload_file" enctype="multipart/form-data">
-                                    <input type="file" id="excelfile" onchange="ExportToTable()" class="upload-input pt-2" />
-                                </form>
-                            </div>
+        </div>
+        <div class="card-body">
+            <div class="row upload-file">
+                <div class="col-lg-12">
+                    <div class="card mb-0">
+                        <div class="dropzone ">
+                            <img src="{{ url('/upload.svg') }}" class="upload-icon" />
+                            <br>
+                            <b>Upload/Drag file here</b>
+                            <form id="upload_file" enctype="multipart/form-data">
+                                <input type="file" id="excelfile" onchange="ExportToTable()" class="upload-input pt-2" />
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="row upload-result d-none gy-3">
+            </div>
+            <div class="row upload-result d-none gy-3">
                 <div class="col-lg-6 ">
                     <div class="card  mb-0">
                         <div class="card-body">
@@ -116,13 +120,12 @@
                                     <h3 class=" mb-2">
                                         Success
                                     </h3>
-                                <div class="d-flex align-items-center gap-2">
-                                    <h6 class="fw-semibold mb-0">Rows </h6><span class="badge bg-primary success-row me-1">N/A</span>
-                                </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <h6 class="fw-semibold mb-0">Rows </h6><span class="badge bg-primary success-row me-1">N/A</span>
+                                    </div>
                                 </div>
                                 <div class="avatar flex-shrink-0 ">
-                                    <img src="{{ url('/assets/img/icons/unicons/approved.png') }}" alt="chart success"
-                                        class="rounded">
+                                    <img src="{{ url('/assets/img/icons/unicons/approved.png') }}" alt="chart success" class="rounded">
                                 </div>
                             </div>
                         </div>
@@ -130,85 +133,64 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="card mb-0">
-                    <div class="card-body">
+                        <div class="card-body">
                             <div class="d-flex align-items-start justify-content-between ">
                                 <div>
                                     <h3 class=" mb-2">
-                                    Failed
-                                    </h3>
-                                <div class="d-flex align-items-center gap-2">
-                                        <h6 class="fw-semibold mb-0">Rows </h6><span class="badge bg-danger failed-row me-11">N/A</span>
-                                </div>
-                                <input type="hidden" class="failed-rows">
-                                </div>
-                                <div class="avatar flex-shrink-0 ">
-                                    <img src="{{ url('/assets/img/icons/unicons/pending.png') }}" alt="chart success"
-                                        class="rounded">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="card-body">
-                            <div class="card-title d-flex align-items-start justify-content-between mb-1">
-                                <div>
-                                    <h5 class="card-title mb-2">
                                         Failed
-                                    </h5>
-                                    <small class="fw-semibold">Rows </small><span
-                                        class="badge bg-danger failed-row me-1">N/A</span>
+                                    </h3>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <h6 class="fw-semibold mb-0">Rows </h6><span class="badge bg-danger failed-row me-11">N/A</span>
+                                    </div>
                                     <input type="hidden" class="failed-rows">
                                 </div>
                                 <div class="avatar flex-shrink-0 ">
-                                    <img src="{{ url('/assets/img/icons/unicons/pending.png') }}" alt="chart success"
-                                        class="rounded">
+                                    <img src="{{ url('/assets/img/icons/unicons/pending.png') }}" alt="chart success" class="rounded">
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-
-
         </div>
 
-        <div class="card mt-3 mb-5">
-            <div class="card-header d-flex justify-content-Between align-items-center flex-wrap gap-2 mb-0 pb-2">
-                <h5 class="mb-0">File Details</h5>
-                <div class="d-flex  gap-2 ">
-                    <button class="btn btn-primary upload-btn" disabled> Upload! </i></button>
-                    <button id="clear_form" class="btn btn-secondary"><i class="bx bx-trash"></i>Clear</button>
-                </div>
-            </div>
-            <div class="card-body overflow-auto" >
-                <div class="table-responsive overflow-auto text-nowrap  pb-2 scrollable-container">
-                    <table class="table align-middle mb-0 table-hover dataTable" id="exceltable">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Rejection_Reason</th>
-                                <th>Bill_Id</th>
-                                <th>User</th>
-                                <th>Date</th>
-                                <th>Category</th>
-                                <th>Payee</th>
-                                <th>Account</th>
-                                <th>Status</th>
-                                <th>Bill_Amount($)</th>
-                                <th>User_Balance($)</th>
-                                <th>Paid_Amount($)</th>
-                                <th>Payment_Method</th>
-                                <th>Payment_Number</th>
 
-                                <!-- Add other headers here if needed -->
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Data will be populated here -->
-                        </tbody>
-                    </table>
-                </div>
+    </div>
+
+    <div class="card mt-3 mb-5">
+        <div class="card-header d-flex justify-content-Between align-items-center flex-wrap gap-2 mb-0 pb-2">
+            <h5 class="mb-0">File Details</h5>
+            <div class="d-flex  gap-2 ">
+                <button class="btn btn-primary upload-btn" disabled> Upload</i></button>
+                <button id="clear_form" class="btn btn-secondary"><i class="bx bx-trash"></i>Clear</button>
             </div>
         </div>
-   </div>
+        <div class="card-body overflow-auto">
+            <div class="table-responsive overflow-auto text-nowrap  pb-2 scrollable-container">
+                <table class="table align-middle mb-0 table-hover dataTable" id="exceltable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Rejection_Reason</th>
+                            <th>Bill_Id</th>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Payee</th>
+                            <th>Account</th>
+                            <th>Status</th>
+                            <th>Bill_Amount($)</th>
+                            <th>User_Balance($)</th>
+                            <th>Paid_Amount($)</th>
+                            <th>Payment_Method</th>
+                            <th>Payment_Number</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @endsection
@@ -234,46 +216,45 @@
         formData.append('import_file', fileInput.files[0]);
         var failed_row = $('.failed-rows').val();
         if (failed_row > 0) {
-            var message = "Are you sure ,You want to proceed, The rows with errors will be ignored";
+            var message = "Are you sure you want to proceed?, The rows with errors will be ignored";
         } else {
-            var message = "Are you sure ,You want to proceed";
+            var message = "Are you sure you want to proceed?";
         }
         swal.fire({
-            title: 'Warning!',
-            text: message,
-            icon: 'warning',
-
-            showCancelButton: true,
-            confirmButtonColor: '#6BB0AA',
-            cancelButtonColor: 'info',
-            confirmButtonText: 'Yes, proceed!'
+            title: 'Warning'
+            , text: message
+            , icon: 'warning'
+            , showCancelButton: true
+            , cancelButtonColor: 'info'
+            , confirmButtonText: 'Yes'
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    type: 'POST',
-                    url: "{{ route('update.bills.status') }}",
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    headers: {
+                    type: 'POST'
+                    , url: "{{ route('update.bills.status') }}"
+                    , data: formData
+                    , processData: false
+                    , contentType: false
+                    , headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function(data) {
+                    }
+                    , success: function(data) {
                         $('.upload-btn').text('Upload');
-                        swal.fire('success', 'Bills status updated successfully',
-                        'success');
+                        swal.fire('success', 'Bills status updated successfully'
+                            , 'success');
                         window.location.reload();
-                    },
-                    error: function(xhr) {
+                    }
+                    , error: function(xhr) {
                         erroralert(xhr);
                     }
                 });
             } else {
-                $('.upload-btn').attr('disabled', false).text('Upload!');
+                $('.upload-btn').attr('disabled', false).text('Upload');
             }
         })
 
     });
+
 </script>
 <script src="./Upload.js"></script>
 <script src="./text.js"></script>
@@ -292,8 +273,8 @@
     function BindTable(jsondata, tableid) {
 
         var columns = BindTableHeader(
-            jsondata,
-            tableid
+            jsondata
+            , tableid
         );
         for (var i = 0; i < jsondata.length; i++) {
             var row$ = $("<tr/>");
@@ -384,12 +365,12 @@
             } else {
                 $('.upload-file').removeClass('d-none');
                 $('.upload-result').addClass('d-none');
-                swal.fire('warning', 'Sorry! Your browser does not support HTML5!', 'warning');
+                swal.fire('warning', 'Sorry, Your browser does not support HTML5', 'warning');
             }
         } else {
             $('.upload-file').removeClass('d-none');
             $('.upload-result').addClass('d-none');
-            swal.fire('warning', 'Please upload a valid file!', 'warning');
+            swal.fire('warning', 'Please upload a valid file', 'warning');
             $('#upload_file')[0].reset();
         }
     }
@@ -399,12 +380,12 @@
         var success = 0;
         var failed = 0;
         var color = 'danger';
-        var reason = "Good to go!";
+        var reason = "Ready";
         var encounteredRows = {};
         jsonData.forEach(function(row) {
-            var user_balance = row['User Balance ($)'] === "N/A" || row['User Balance ($)'] == 0
-            ? 0
-            : parseFloat(row['User Balance ($)']) || 0;
+            var user_balance = row['User Balance ($)'] === "N/A" || row['User Balance ($)'] == 0 ?
+                0 :
+                parseFloat(row['User Balance ($)']) || 0;
             var paid_amount = parseFloat(row[
                 'Paid Amount ($)']);
             var bill_amount = parseFloat(row[
@@ -417,48 +398,40 @@
             row['Payment Number'] = row['Payment Number'] || '';
             var uniqueKey = row['Bill Id'];
             var rowHTML = '<tr style="background-color: ';
-            /* if (paid_amount > user_balance && (status !== 'Pending' || status !== 'Reject')) {
-                // rowHTML += 'orange';
-                var reason = "Insufficient Balance!";
-                color = 'danger';
-                failed++;
-            }
-            else
-            */
-             if (paid_amount <= 0 && (status !== 'Pending' && status !== 'Reject')) {
-                var reason = "Invalid paid amount!";
+            if (paid_amount <= 0 && (status !== 'Pending' && status !== 'Reject')) {
+                var reason = "Invalid paid amount";
                 color = 'danger';
                 failed++;
             } else if (paid_amount != bill_amount && status == 'Approved') {
-                var reason = "Invalid paid amount!";
+                var reason = "Invalid paid amount";
                 color = 'danger';
                 failed++;
             } else if (row['Paid Amount ($)'] != '' && status == 'Pending') {
-                var reason = "Change Bill Status!";
+                var reason = "Change Bill Status";
                 color = 'danger';
                 failed++;
             } else if (row['Paid Amount ($)'] == '' && status != 'Pending' && status != 'Reject') {
-                reason = "Paid Amount is null!";
+                reason = "Paid Amount is null";
                 color = 'danger';
                 failed++;
             } else if (paid_amount == bill_amount && status == "Partially Approve") {
-                reason = "Incorrect Status!";
+                reason = "Incorrect Status";
                 color = 'danger';
                 failed++;
             } else if (paid_amount > bill_amount && status == "Partially Approve") {
-                reason = "Invalid paid amount!";
+                reason = "Invalid paid amount";
                 color = 'danger';
                 failed++;
             } else if (status != 'Pending' && status != 'Approved' && status != 'Partially Approve' && status !=
                 'Reject') {
-                reason = "Check status spell!";
+                reason = "Check status spell";
                 color = 'danger';
                 failed++;
             } else if (status == 'Pending') {
                 rowHTML += '';
-                reason = "Pending!";
+                reason = "Pending";
             } else if (status == 'Reject') {
-                reason = "Bill Rejected!";
+                reason = "Bill Rejected";
                 color = 'warning';
             } else if (encounteredRows[uniqueKey]) {
                 console.log(row['Bill Id']);
@@ -471,7 +444,7 @@
                 failed++;
             } else {
                 rowHTML += 'lavender';
-                reason = "Good to go!";
+                reason = "Ready";
                 color = 'primary'
                 success++;
             }
@@ -504,4 +477,5 @@
         $('.upload-btn').attr('disabled', false);
         console.log("Number of rows in the table: " + numRows);
     }
+
 </script>

@@ -170,7 +170,7 @@
                                                         {{-- @endif --}}
                                                     @endif
                                                     @if ($users->hasPermissionTo('Deposit') && $u->role == 'User')
-                                                        @if ( $u->account_status == 'Approved')    
+                                                        @if ( $u->account_status == 'Approved')
                                                         <a class="dropdown-item"
                                                            href="{{ route('view_user', $u['id']) }}"><i
                                                                 class="bx bx-dollar-circle me-1"></i> Manage Payment</a>
@@ -404,7 +404,7 @@
                         var success = 0;
                         var failed = 0;
                         var color = 'danger';
-                        var reason = "Good to go!";
+                        var reason = "Ready";
                         // Iterate through each row in jsonData
                         jsonData.forEach(function (row) {
                             // Assuming Column A and Column B are the columns to check
@@ -471,7 +471,7 @@
                                 // rowHTML += 'orange';
                             } else {
                                 rowHTML += 'lavender';
-                                reason = "Good to go!";
+                                reason = "Ready";
                                 color = 'primary'
                                 success++;
                             }

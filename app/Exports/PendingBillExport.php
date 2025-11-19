@@ -1,16 +1,12 @@
 <?php
 namespace App\Exports;
 
-use App\Models\Category;
 use App\Models\Claim;
-use App\Models\PayeeModel;
-use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Events\AfterSheet;
-use PhpOffice\PhpSpreadsheet\Cell\DataValidation;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 
 class PendingBillExport implements FromCollection, WithHeadings, WithEvents, ShouldAutoSize
@@ -21,34 +17,46 @@ class PendingBillExport implements FromCollection, WithHeadings, WithEvents, Sho
 
         $claims = Claim::where(['claim_status' => 'Pending', 'archived' => null])->get();
 
+        $claims = Claim::with([
+            'user',
+            'payee',
+            'category',
+            'parentbill',
+        ])
+            ->whereHas('user')
+            ->whereNull('archived')->where('claim_status', 'Pending')->get();
+
         foreach ($claims as $claim) {
-            $payee = PayeeModel::find($claim->payee_name);
-            if ($payee) {
-                $payee = $payee->name;
+
+            $payee    = $claim->payee?->name;
+            $user     = $claim->user;
+            $category = $claim->category;
+
+            $userBalance  = userBalance($user->id);
+            $user_balance = ($userBalance == "N/A") ? '0' : $userBalance;
+            $user_name    = "{$user->name} {$user->last_name}";
+
+            $type = 'One Time';
+
+            if ($claim->recurring_bill == 1 || ($claim->recurred && $claim->parentbill && $claim->parentbill->recurring_bill == 1)) {
+                $type = 'Recurring';
             }
 
-            $user = User::find($claim->claim_user);
-
-            if ($user) {
-
-                $userBalance  = userBalance($user->id);
-                $user_balance = ($userBalance == "N/A") ? '0' : $userBalance;
-                $user_name    = "{$user->name} {$user->last_name}";
-
-                $category = Category::find($claim->claim_category);
-
-                $result[] = [
-                    'Bill Id'          => $claim->id,
-                    'User'             => $user_name,
-                    'Date'             => $claim->created_at,
-                    'Category'         => $category->category_name,
-                    'Payee'            => $payee,
-                    'Account'          => "A.C# {$claim->account_number}",
-                    'Status'           => $claim->claim_status,
-                    'Bill Amount ($)'  => $claim->claim_amount,
-                    'User Balance ($)' => $user_balance,
-                ];
-            }
+            $result[] = [
+                'Bill Id'  => $claim->id,
+                'User'     => $user_name,
+                'Date'     => $claim->created_at,
+                'Category' => $category->category_name,
+                'Payee'    => $payee,
+                'Account'  => "A.C# {$claim->account_number}",
+                'Status'           => $claim->claim_status,
+                'Bill Amount ($)'  => $claim->claim_amount,
+                'User Balance ($)' => $user_balance,
+                'Bill Type'        => $type,
+                'Paid Amount ($)'  => '',
+                'Payment Method'   => '',
+                'Payment Number'   => '',
+            ];
         }
         return collect($result);
     }
@@ -64,10 +72,10 @@ class PendingBillExport implements FromCollection, WithHeadings, WithEvents, Sho
             'Status (You can either Approved ,Partially Approve or Reject bills )',
             'Bill Amount ($)',
             'User Balance ($)',
+            'Bill Type',
             'Paid Amount ($)',
-            'Payment method (ACH,Card,Check Payment)',
+            'Payment method (ACH,Card,Cheque Payment)',
             'Payment Number',
-
         ];
     }
     public function registerEvents(): array
@@ -76,26 +84,25 @@ class PendingBillExport implements FromCollection, WithHeadings, WithEvents, Sho
             AfterSheet::class => function (AfterSheet $event) {
                 $sheet = $event->sheet->getDelegate();
 
-                $sheet->getStyle('A1:L1')
-                    ->getFill()
-                    ->setFillType(Fill::FILL_SOLID)
-                    ->getStartColor()
-                    ->setARGB('2ECFDE');
+                $headerRange = 'A1:' . $sheet->getHighestColumn() . '1';
 
-                $dropdownOptions = '"Approved,Partially Approve,Reject"';
+                $sheet->getStyle($headerRange)->applyFromArray([
+                    'font'      => [
+                        'bold'  => true,
+                        'color' => ['argb' => 'FFFFFFFF'],
+                        'size'  => 11,
+                    ],
+                    'fill'      => [
+                        'fillType'   => Fill::FILL_SOLID,
+                        'startColor' => ['argb' => 'FF000000'],
+                    ],
+                    'alignment' => [
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical'   => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                    ],
+                ]);
 
-                $highestRow = $sheet->getHighestRow();
-
-                for ($row = 2; $row <= $highestRow; $row++) {
-                    $validation = $sheet->getCell("G$row")->getDataValidation();
-                    $validation->setType(DataValidation::TYPE_LIST);
-                    $validation->setErrorStyle(DataValidation::STYLE_INFORMATION);
-                    $validation->setAllowBlank(false);
-                    $validation->setShowInputMessage(true);
-                    $validation->setShowErrorMessage(true);
-                    $validation->setShowDropDown(true);
-                    $validation->setFormula1($dropdownOptions);
-                }
+                $sheet->freezePane('A2');
             },
         ];
     }
