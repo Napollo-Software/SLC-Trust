@@ -20,11 +20,11 @@ class PendingEnrollmentExport implements FromCollection, WithHeadings, WithMappi
         if (empty($this->filters['status'])) {
             return collect([]);
         }
-    
+
         $query = User::with(['transactions' => function($query) {
             $query->selectRaw('user_id, sum(credit) as total_credit, sum(debit) as total_debit')
                   ->groupBy('user_id');
-        }]);    
+        }]);
         if (!empty($this->filters['status'])) {
             if ($this->filters['status'] === 'done') {
                 $query->whereHas('transactions', function ($q) {
@@ -36,30 +36,29 @@ class PendingEnrollmentExport implements FromCollection, WithHeadings, WithMappi
                 });
             }
         }
-    
+
         $query->where('account_status', 'Approved')->where('role', 'User');
-    
+
         $users = $query->get();
         foreach ($users as $user) {
             $credit = $user->transactions->sum('total_credit');
             $debit  = $user->transactions->sum('total_debit');
             $user->balance = $credit - $debit;
         }
-    
+
         return $users;
     }
 
     public function headings(): array
     {
-        return ['Name', 'Email', 'Phone', 'Billing Cycle', 'Balance', 'Surplus Amount'];
+        return ['Client ID', 'Name', 'Billing Cycle', 'Balance', 'Surplus Amount'];
     }
 
     public function map($user): array
     {
         return [
+            $user->id,
             $user->name,
-            $user->email,
-            $user->phone,
             $user->billing_cycle_title,
             number_format((float) $user->balance, 2, '.', ','),
             number_format((float) $user->surplus_amount, 2, '.', ',')
