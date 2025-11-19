@@ -190,6 +190,12 @@ Route::group(['prefix' => 'leadreport', 'middleware' => ['isLoggedIn']], functio
 
 Route::group(['prefix' => 'reports', 'middleware' => ['isLoggedIn']], function () {
     Route::get('/', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/pending-deposit', [ReportController::class, 'pendingDepsit'])->name('reports.pending.deposit');
+    Route::get('/pending-deposit-filter', [ReportController::class, 'pendingDepsitFilter'])->name('reports.pending.deposit.filter');
+    Route::get('/pending-deposit/export', [ReportController::class, 'pendingDepsitExport'])->name('reports.pending.deposit.export');
+    Route::get('/pending-enrollment', [ReportController::class, 'pendingEnrollment'])->name('reports.pending.enrollment');
+    Route::get('/pending-enrollment-filter', [ReportController::class, 'pendingEnrollmentFilter'])->name('reports.pending.enrollment.filter');
+    Route::get('/pending-enrollment/export', [ReportController::class, 'pendingEnrollmentExport'])->name('reports.pending.enrollment.export');
     Route::match(['get', 'post'], '/add-report', [ReportController::class, 'add_report'])->name('reports.add_report');
     Route::get('/upload-file', [ReportController::class, 'upload_file'])->name('reports.upload_file');
     Route::post('/reports/duplicate/{report}', [ReportController::class, 'duplicate'])->name('reports.duplicate');
@@ -307,7 +313,7 @@ Route::Post('delete/bill', [claimsController::class, 'destroy'])->name('delete.b
 
 Route::Post('restore/bill', [claimsController::class, 'RestoreBill'])->name('restore.bill');
 
-Route::post('search-bills', [claimsController::class, 'index']);
+Route::match(['get', 'post'], 'search-bills', [ClaimsController::class, 'index']);
 
 Route::get('edit-bill/{id}', [claimsController::class, 'edit_bill'])->name('edit_bill');
 

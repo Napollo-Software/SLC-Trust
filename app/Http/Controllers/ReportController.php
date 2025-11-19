@@ -1,17 +1,23 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\contacts;
-use App\Models\Lead;
-use App\Models\Referral;
-use App\Models\Report;
-use App\Models\Transaction;
-use App\Models\User;
-use Carbon\Carbon;
 use DateTime;
+use Carbon\Carbon;
+use App\Models\Lead;
+use App\Models\User;
+use App\Models\Report;
+use App\Models\contacts;
+use App\Models\Referral;
+use App\Models\Transaction;
+
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Excel;
+use App\Exports\PendingDepositExport;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Session;
+use App\Exports\PendingEnrollmentExport;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+
 
 class ReportController extends Controller
 {
@@ -27,7 +33,149 @@ class ReportController extends Controller
         }
         return view('reports.index', compact('reports'));
     }
+    public function pendingDepsit()
+    {
+        $users = collect([]);
+        return view('reports.pending-deposite', compact('users'));
+    }
 
+    public function pendingDepsitFilter(Request $request)
+    {
+        if (!$request->filled('billing_cycle') && !$request->filled('status')) {
+            return response()->json([
+                'html' => view('partials.user_list', ['users' => collect()])->render() // Empty collection
+            ]);
+        }
+
+        $query = User::with([
+            'transactions' => function ($query) {
+                $query->selectRaw('user_id, sum(credit) as total_credit, sum(debit) as total_debit')
+                    ->groupBy('user_id');
+            }
+        ]);
+
+        // Filter by billing cycle
+        if ($request->filled('billing_cycle')) {
+            $query->whereIn('billing_cycle', $request->billing_cycle);
+        }
+
+        // Filter by status
+        if ($request->filled('status')) {
+            if ($request->status === 'done') {
+                $query->whereHas('transactions', function ($q) {
+                    $q->where('type', 'deposit');
+                });
+            } else {
+                $query->whereDoesntHave('transactions', function ($q) {
+                    $q->where('type', 'deposit');
+                });
+            }
+        }
+        $query->where('account_status', 'Approved')
+            ->where('role', 'User');
+
+        $users = $query->get();
+
+        foreach ($users as $user) {
+            $credit = $user->transactions->sum('total_credit');
+            $debit = $user->transactions->sum('total_debit');
+            $user->balance = $credit - $debit;
+        }
+
+        return response()->json([
+            'html' => view('partials.user_list', compact('users'))->render()
+        ]);
+    }
+    public function pendingDepsitExport(Request $request, Excel $excel): BinaryFileResponse
+    {
+        $request->validate([
+            'billing_cycle' => 'nullable|array',
+            'billing_cycle.*' => 'string',
+            'status' => 'nullable|string',
+        ]);
+
+        $filters = [
+            'billing_cycle' => $request->input('billing_cycle', []),
+            'status' => $request->input('status', null),
+        ];
+
+        if (empty($filters['billing_cycle']) && empty($filters['status'])) {
+            return response()->noContent(204);
+        }
+
+        $fileName = 'PendingDeposits_' . now()->format('Ymd_His') . '.xlsx';
+
+        return $excel->download(new PendingDepositExport($filters), $fileName);
+    }
+
+    public function pendingEnrollment()
+    {
+        $users = collect([]);
+        return view('reports.pending-enrollment', compact('users'));
+    }
+
+    public function pendingEnrollmentFilter(Request $request)
+    {
+        if (!$request->filled('status')) {
+            return response()->json([
+                'html' => view('partials.user_list', ['users' => collect()])->render() // Empty collection
+            ]);
+        }
+
+        $query = User::with([
+            'transactions' => function ($query) {
+                $query->selectRaw('user_id, sum(credit) as total_credit, sum(debit) as total_debit')
+                    ->groupBy('user_id');
+            }
+        ]);
+
+        // Filter by status
+        if ($request->filled('status')) {
+            if ($request->status === 'done') {
+                $query->whereHas('transactions', function ($q) {
+                    $q->where('type', 'enrollment_fee');
+                });
+            } else {
+                $query->whereDoesntHave('transactions', function ($q) {
+                    $q->where('type', 'enrollment_fee');
+                });
+            }
+        }
+        $query->where('account_status', 'Approved')
+            ->where('role', 'User');
+
+        $users = $query->get();
+
+        foreach ($users as $user) {
+            $credit = $user->transactions->sum('total_credit');
+            $debit = $user->transactions->sum('total_debit');
+            $user->balance = $credit - $debit;
+        }
+
+        return response()->json([
+            'html' => view('partials.user_list', compact('users'))->render()
+        ]);
+    }
+    public function pendingEnrollmentExport(Request $request, Excel $excel): BinaryFileResponse
+    {
+        $request->validate([
+            'billing_cycle' => 'nullable|array',
+            'billing_cycle.*' => 'string',
+            'status' => 'nullable|string',
+        ]);
+
+        $filters = [
+            'status' => $request->input('status', null),
+        ];
+
+        if (empty($filters['status'])) {
+            return response()->noContent(204);
+        }
+
+        $fileName = 'PendingEnrollment_' . now()->format('Ymd_His') . '.xlsx';
+
+        return $excel->download(new PendingEnrollmentExport($filters), $fileName);
+    }
     public function view($id)
     {
         $report         = Report::find($id);
