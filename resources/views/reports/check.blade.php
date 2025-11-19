@@ -29,17 +29,17 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 p-2">
-                                <label for="number">Check Number</label>
+                                <label for="number">Check Number <span class="text-danger">*</span></label>
                                 <input type="number" required id="number" class="form-control number-details" name="number[]" placeholder="Number" min="1" max="9999999">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="check-date">Check Date</label>
+                                <label for="check-date">Check Date <span class="text-danger">*</span></label>
                                 <input type="date" required id="check-date" class="form-control check-date-details" name="date[]" value="<?php echo date('Y-m-d'); ?>">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="user-account">User Account</label>
+                                <label for="user-account">User Account <span class="text-danger">*</span></label>
                                 <div class="form-group">
                                     <select required id="user-account" name="user[]" class="form-control select-2" style="width: 100%">
                                         <option value="">Select User Account</option>
@@ -53,12 +53,12 @@
                                 </div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-number">Amount in Numbers</label>
+                                <label for="amount-in-number">Amount in Numbers <span class="text-danger">*</span></label>
                                 <input type="number" required id="amount-in-number" class="form-control amount-in-number-details" name="amount_in_number[]" step="0.01" min="0.01" max="10000000" placeholder="Amount in numbers">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-word">Amount in Words</label>
+                                <label for="amount-in-word">Amount in Words <span class="text-danger">*</span></label>
                                 <input type="text" required id="amount-in-word" class="form-control amount-in-word-details" name="amount_in_word[]" placeholder="Amount in words">
                                 <div class="invalid-feedback"></div>
                             </div>
@@ -68,17 +68,17 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="routing-number">Routing Number</label>
+                                <label for="routing-number">Routing Number <span class="text-danger">*</span></label>
                                 <input type="text" required id="routing-number" class="form-control routing-number" name="routingNumber[]" placeholder="9-digit routing number">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="account-number">Account Number</label>
+                                <label for="account-number">Account Number <span class="text-danger">*</span></label>
                                 <input type="text" required id="account-number" class="form-control account-number" name="accountNumber[]" placeholder="Account number">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="address-line1">Customer Address Line 1</label>
+                                <label for="address-line1">Customer Address Line 1 <span class="text-danger">*</span></label>
                                 <input type="text" required id="address-line1" class="form-control address-line1" name="addressLine1[]" placeholder="Customer address line 1">
                                 <div class="invalid-feedback"></div>
                             </div>
@@ -93,12 +93,12 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="bank-name">Bank Name</label>
+                                <label for="bank-name">Bank Name <span class="text-danger">*</span></label>
                                 <input type="text" id="bank-name" class="form-control bank-name" name="bankName[]" placeholder="Bank name">
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="signature">Signature</label>
+                                <label for="signature">Signature <span class="text-danger">*</span></label>
                                 <input type="text" id="signature" class="form-control signature" name="signature[]" placeholder="Signature">
                                 <div class="invalid-feedback"></div>
                             </div>
