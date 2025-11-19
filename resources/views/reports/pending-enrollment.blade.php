@@ -25,6 +25,12 @@
 
                         <div class="card-body ">
                             <div class="form-check">
+                                <input class="form-check-input" type="radio" id="status_all" name="status" value="all"
+                                    @if (old('status', 'pending') == 'all') checked @endif>
+                                <label class="form-check-label ms-2" for="status_all">All</label>
+                            </div>
+
+                            <div class="form-check">
                                 <input class="form-check-input" type="radio" id="status_done" name="status"
                                     value="done" @if (old('status') == 'done') checked @endif>
                                 <label class="form-check-label ms-2" for="status_done">Received</label>
@@ -52,7 +58,7 @@
                                     </div>
                                 </h5>
                                 <!-- <p class="mb-0 font-13 text-secondary"><i class='bx bx-grid'></i> Reports
-                                </p> -->
+                                    </p> -->
                             </div>
                             <div>
                                 <a href="" id="exportBtn"
