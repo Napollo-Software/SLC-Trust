@@ -239,7 +239,7 @@ $user = App\Models\User::find(Session::get('loginId'));
                                         href=" {{ route('recurring.bills') }}"><i class="bx bx-file-blank"></i>Recurring
                                     Bills</a>
                             </li>
-                            @endif    
+                            @endif
                             @if ($user->hasPermissionTo('Update Bill Status'))
                                 <li>
                                     <a class="dropdown-item {{ Route::currentRouteName() === 'claim.preview' ? 'active' : '' }}"
@@ -358,12 +358,12 @@ $user = App\Models\User::find(Session::get('loginId'));
                                 {{-- @if ($user->hasPermissionTo('View Report')) --}}
                                 <li>
                                     <a class="dropdown-item {{in_array(Route::currentRouteName(), ['reports.pending.deposit']) ? 'active' : ''  }}"
-                                        href="{{ route('reports.pending.deposit') }}"><i class="bx bx-spreadsheet"></i>Due Deposit
+                                        href="{{ route('reports.pending.deposit') }}"><i class="bx bx-spreadsheet"></i>Deposits
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item {{in_array(Route::currentRouteName(), ['reports.pending.enrollment']) ? 'active' : ''  }}"
-                                        href="{{ route('reports.pending.enrollment') }}"><i class="bx bx-spreadsheet"></i>Due Enrollment
+                                        href="{{ route('reports.pending.enrollment') }}"><i class="bx bx-spreadsheet"></i>Enrollments
                                     </a>
                                 </li>
                                 {{-- @endif --}}

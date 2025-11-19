@@ -1,4 +1,4 @@
-@if($users->isEmpty())
+@if ($users->isEmpty())
     <table id="userTable" class="table table-hover  mb-0">
         <thead>
             <tr>
@@ -12,9 +12,12 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="6" ><div class="text-center text-muted d-flex align-items-center w-100 justify-content-center" style="height:127px">
-                No record found.
-                </div></td>
+                <td colspan="6">
+                    <div class="text-center text-muted d-flex align-items-center w-100 justify-content-center"
+                        style="height:127px">
+                        No record found.
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -27,17 +30,25 @@
                 <th>Phone</th>
                 <th>Billing Cycle</th>
                 <th>Balance</th>
+                <th>Deposit Status</th>
                 <th>Surplus Amount</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($users as $user)
                 <tr>
-                    <td>{{ $user->full_name() }}</td>
+                    <td>{{ $user->full_name }}</td>
                     <td>{{ $user->email }}</td>
                     <td class="text-nowrap">{{ $user->phone }}</td>
                     <td class="text-nowrap">{{ $user->billing_cycle_title }}</td>
                     <td>${{ number_format((float) $user->balance, 2, '.', ',') ?? 'N/A' }}</td>
+                    <td>
+                        <span
+                            class="badge {{ $user->amount_status === 'Received' ? 'bg-success' : 'bg-warning text-dark' }}">
+                            {{ $user->amount_status }}
+                        </span>
+                    </td>
+
                     <td>${{ number_format((float) $user->surplus_amount, 2, '.', ',') }}</td>
                 </tr>
             @endforeach
