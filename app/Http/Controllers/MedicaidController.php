@@ -46,13 +46,13 @@ class MedicaidController extends Controller
     public function updatePhysician(Request $request)
     {
         $request->validate([
-            'userName' => 'required|string',
-            'practiceName' => 'required|string',
-            'phone' => 'required|string',
-            'extNumber' => 'required|string',
-            'email' => 'required|string|email',
-            'address' => 'required|string',
-            'fax' => 'required|string',
+            'userName'     => 'nullable|string|max:255',
+            'practiceName' => 'nullable|string|max:255',
+            'phone'        => 'nullable|string|max:20',
+            'extNumber'    => 'nullable|string|max:255',
+            'email'        => 'nullable|string|max:255|email',
+            'address'      => 'nullable|string|max:255',
+            'fax'          => 'nullable|string|max:255',
         ]);
 
         $userId = $request->input('userId');
