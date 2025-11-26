@@ -62,9 +62,10 @@
                             <div class="col-md-6 p-2">
                                 <label for="amount-in-number">Amount in Numbers <span
                                         class="text-danger">*</span></label>
-                                <input type="number" required id="amount-in-number"
-                                    class="form-control amount-in-number-details" name="amount_in_number[]" step="0.01"
-                                    min="0.01" max="10000000" placeholder="Amount in numbers">
+                               <input type="text" required id="amount-in-number"
+    class="form-control amount-in-number-details"
+    name="amount_in_number[]" placeholder="Amount in numbers">
+
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -156,6 +157,37 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <script>
+    function sanitizeAmount(input) {
+    // Keep only digits and decimal point
+    input = input.replace(/[^0-9.]/g, "");
+
+    // Allow only one decimal point
+    let firstDot = input.indexOf(".");
+    if (firstDot !== -1) {
+        // Remove all additional dots
+        input =
+            input.substring(0, firstDot + 1) +
+            input.substring(firstDot + 1).replace(/\./g, "");
+    }
+
+    // If decimals > 2 → keep only first 2 (NO ROUNDING, strict)
+    let parts = input.split(".");
+    if (parts.length === 2 && parts[1].length > 2) {
+        parts[1] = parts[1].substring(0, 2);
+        input = parts[0] + "." + parts[1];
+    }
+
+    return input;
+}
+
+$(document).on("input", ".amount-in-number-details", function () {
+    let cleanValue = sanitizeAmount($(this).val());
+    $(this).val(cleanValue);
+
+    let wordField = $(this).closest(".card-body").find(".amount-in-word-details");
+    wordField.val(numberToWords(cleanValue));
+});
+
 function numberToWords(amount) {
     amount = parseFloat(amount);   // Convert FIRST
 
