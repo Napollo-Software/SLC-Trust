@@ -157,19 +157,20 @@
 
 <script>
 function numberToWords(amount) {
+    amount = parseFloat(amount);   // Convert FIRST
+
+    if (isNaN(amount) || amount <= 0 || amount > 999999999999) return "";
+
     const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
-    const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen",
-        "Nineteen"
-    ];
+    const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
     const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-    const thousands = ["", "Thousand", "Million"];
+    const scale = ["", "Thousand", "Million", "Billion"];
 
-    if (isNaN(amount) || amount <= 0 || amount > 10000000) return "";
-
-    let numStr = parseFloat(amount).toFixed(2); // keep 2 decimal places
+    let numStr = amount.toFixed(2);
     let parts = numStr.split(".");
-    let integerPart = parseInt(parts[0], 10);
-    let decimalPart = parseInt(parts[1], 10);
+    let intPart = parseInt(parts[0]);
+    let decimalPart = parseInt(parts[1]);
+    let originalInt = intPart;
 
     function convertHundreds(num) {
         let str = "";
@@ -188,35 +189,37 @@ function numberToWords(amount) {
         return str.trim();
     }
 
-    let word = "";
+    let words = "";
     let i = 0;
-    while (integerPart > 0) {
-        let chunk = integerPart % 1000;
-        if (chunk) {
-            word = convertHundreds(chunk) + (thousands[i] ? " " + thousands[i] + " " : " ") + word;
+
+    while (intPart > 0) {
+        let chunk = intPart % 1000;
+        if (chunk > 0) {
+            words = convertHundreds(chunk) + " " + scale[i] + " " + words;
         }
-        integerPart = Math.floor(integerPart / 1000);
+        intPart = Math.floor(intPart / 1000);
         i++;
     }
 
-    if (integerPart === 0) {
-        if (decimalPart > 0) {
-            word = convertHundreds(decimalPart) + " Cent";
-            if (decimalPart > 1) word += "s";
-            word += " Only";
+    words = words.trim();
+
+    // Handle cents
+    if (decimalPart > 0) {
+        let centWords = convertHundreds(decimalPart) + " Cent" + (decimalPart > 1 ? "s" : "");
+
+        if (originalInt > 0) {
+            words += " and " + centWords + " Only";
+        } else {
+            words = centWords + " Only";
         }
     } else {
-        if (decimalPart > 0) {
-            word += " and " + convertHundreds(decimalPart) + " Cent";
-            if (decimalPart > 1) word += "s";
-        } else {
-            word += " Only";
-        }
+        words += " Only";
     }
 
-
-    return word.trim();
+    return words.trim();
 }
+
+
 
 $(document).on('input', '.amount-in-number-details', function() {
     let amount = $(this).val();

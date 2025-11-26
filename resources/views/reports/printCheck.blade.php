@@ -442,8 +442,8 @@
             <div class="micr-container">
                 <div class="check-account">
                     O{{ str_pad($formData['checkNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}O
-                    T{{ str_pad($formData['accountNumber'] ?? '', 0, '0', STR_PAD_LEFT) }}T
-                    {{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}
+                    T{{ str_pad($formData['routingNumber'] ?? '', 9, '0', STR_PAD_LEFT) }}T
+                    {{ str_pad($formData['accountNumber'] ?? '', 0, '0', STR_PAD_LEFT) }}
                 </div>
             </div>
         </div>
