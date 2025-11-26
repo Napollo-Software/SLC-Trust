@@ -53,7 +53,7 @@
                                 <input type="text" class="form-control" id="last_name" name="last_name" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_last_name : "" }}" placeholder="eg: Smith">
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="form-label">Patient Phone Number*</label>
+                                <label for="form-label">Patient Phone Number</label>
                                 <input type="text" class="form-control phone" placeholder="(___) ___-___" value="{{ isset($lead) && $lead->converted_to_referral == 1 ? $lead->patient_phone : "" }}" id="phone" name="phone">
                             </div>
                             <div class="col-md-6 p-2">
@@ -287,19 +287,13 @@
                                 <input type="text" class="form-control" id="emergency_email" placeholder="Enter Emergency Email" name="emergency_email">
                             </div>
                             <div class="col-md-12 p-2">
-                               <label for="form-label">Relationship to Patient</label>
-                            <select name="emegency_relationship" class="form-control select-2">
-                                <option value="">Select One</option>
-                                <option value="child">Child</option>
-                                <option value="parent">Parent</option>
-                                <option value="friend">Friend</option>
-                                <option value="niece">Niece</option>
-                                <option value="nephew">Nephew</option>
-                                <option value="grandson">Grandson</option>
-                                <option value="granddaughter">Granddaughter</option>
-                                <option value="brother">Brother</option>
-                                <option value="sister">Sister</option>
-                            </select>
+                                <label for="form-label">Relationship to Patient</label>
+                                <select name="emegency_relationship" class="form-control select-2">
+                                    <option value="">Select One</option>
+                                    <option value="child">Child</option>
+                                    <option value="client">Parent</option>
+                                    <option value="consumer">Friend</option>
+                                </select>
                             </div>
                             <div class="col-md-12 p-2">
                                 <label for="form-label">Address</label>

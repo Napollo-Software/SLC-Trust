@@ -126,31 +126,17 @@
                                                 <input type="text" class="form-control" id="emergency_email"
                                                     name="emergency_email" value="{{ $u->emergency_email }}">
                                             </div>
-                                           <div class="col-md-6">
-                                            <label for="form-label">Relationship To Patient</label>
-                                            <select name="emegency_relationship" class="form-select">
-                                                <!-- Keep the user's current selection first -->
-                                                <option value="{{ $u->emergency_relationshipt }}">
-                                                    {{ $u->emergency_relationship }}
-                                                </option>
-
-                                                <!-- Default placeholder -->
-                                                <option value="">Select One</option>
-
-                                                <!-- All options -->
-                                                <option value="child">Child</option>
-                                                <option value="parent">Parent</option>
-                                                <option value="parent">spouse</option>
-                                                <option value="friend">Friend</option>
-                                                <option value="niece">Niece</option>
-                                                <option value="nephew">Nephew</option>
-                                                <option value="grandson">Grandson</option>
-                                                <option value="granddaughter">Granddaughter</option>
-                                                <option value="brother">Brother</option>
-                                                <option value="sister">Sister</option>
-                                            </select>
-                                        </div>
-
+                                            <div class="col-md-6 ">
+                                                <label for="form-label">Relationship To Patient</label>
+                                                <select name="emegency_relationship" class="form-select">
+                                                    <option value="{{ $u->emergency_relationshipt }}">
+                                                        {{ $u->emergency_relationship }}</option>
+                                                    <option value="">Select One</option>
+                                                    <option value="child">Child</option>
+                                                    <option value="client">Parent</option>
+                                                    <option value="consumer">Friend</option>
+                                                </select>
+                                            </div>
                                             <div class="col-md-6 text-secondary">
                                                 <label for="form-label">State/Province</label>
 

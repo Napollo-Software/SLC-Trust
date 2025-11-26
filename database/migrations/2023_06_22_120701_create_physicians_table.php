@@ -15,15 +15,15 @@ class CreatePhysiciansTable extends Migration
     {
         Schema::create('physicians', function (Blueprint $table) {
             $table->id();
-            $table->string('physician_name')->nullable();
-            $table->string('practice_name')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('physician_name');
+            $table->string('practice_name');
+            $table->string('phone');
             $table->string('referral_name');
-            $table->string('ext')->nullable();
-            $table->string('email')->nullable();
-            $table->string('physician_address')->nullable();
-            $table->string('fax')->nullable();
-            $table->string('npi')->nullable();
+            $table->string('ext');
+            $table->string('email');
+            $table->string('physician_address');
+            $table->string('fax');
+            $table->string('npi');
             $table->timestamps();
         });
     }
