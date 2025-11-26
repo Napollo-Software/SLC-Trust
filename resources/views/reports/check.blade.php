@@ -191,7 +191,7 @@ $(document).on("input", ".amount-in-number-details", function () {
 function numberToWords(amount) {
     amount = parseFloat(amount);   // Convert FIRST
 
-    if (isNaN(amount) || amount <= 0 || amount > 999999999999) return "";
+    if (isNaN(amount) || amount <= 0 || amount > 10000000) return "";
 
     const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
     const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
@@ -317,18 +317,22 @@ function validateFormData($cardBody) {
     }
 
     // Amount in Number validation
-    if (!$amountInNumber.val() || isNaN($amountInNumber.val()) || parseFloat($amountInNumber.val()) <= 0) {
-        errors.amountInNumber = "This field is required and must be a positive number.";
-    } else if (parseFloat($amountInNumber.val()) > 10000000) {
-        errors.amountInNumber = "This field must not exceed 10,000,000.";
-    }
+   if (
+    !$amountInNumber.val() ||
+    isNaN($amountInNumber.val()) ||
+    parseFloat($amountInNumber.val()) <= 0
+) {
+    errors.amountInNumber = "This field is required and must be a positive number.";
+} 
+else if (parseFloat($amountInNumber.val()) > 10000000) {
+    errors.amountInNumber = "This field must not exceed 10,000,000.";
+}
+
 
     // Amount in Word validation
     if (!$amountInWord.val()) {
         errors.amountInWord = "This field is required.";
-    } else if ($amountInWord.val().length > 65) {
-        errors.amountInWord = "This field must not exceed 65 characters.";
-    } else if (/^\d+$/.test($amountInWord.val())) {
+    }    else if (/^\d+$/.test($amountInWord.val())) {
         errors.amountInWord = "This field must be in words, not numbers.";
     }
 
