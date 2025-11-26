@@ -62,9 +62,10 @@
                             <div class="col-md-6 p-2">
                                 <label for="amount-in-number">Amount in Numbers <span
                                         class="text-danger">*</span></label>
-                                <input type="number" required id="amount-in-number"
-                                    class="form-control amount-in-number-details" name="amount_in_number[]" step="0.01"
-                                    min="0.01" max="10000000" placeholder="Amount in numbers">
+                               <input type="text" required id="amount-in-number"
+    class="form-control amount-in-number-details"
+    name="amount_in_number[]" placeholder="Amount in numbers">
+
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -156,10 +157,41 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <script>
+    function sanitizeAmount(input) {
+    // Keep only digits and decimal point
+    input = input.replace(/[^0-9.]/g, "");
+
+    // Allow only one decimal point
+    let firstDot = input.indexOf(".");
+    if (firstDot !== -1) {
+        // Remove all additional dots
+        input =
+            input.substring(0, firstDot + 1) +
+            input.substring(firstDot + 1).replace(/\./g, "");
+    }
+
+    // If decimals > 2 → keep only first 2 (NO ROUNDING, strict)
+    let parts = input.split(".");
+    if (parts.length === 2 && parts[1].length > 2) {
+        parts[1] = parts[1].substring(0, 2);
+        input = parts[0] + "." + parts[1];
+    }
+
+    return input;
+}
+
+$(document).on("input", ".amount-in-number-details", function () {
+    let cleanValue = sanitizeAmount($(this).val());
+    $(this).val(cleanValue);
+
+    let wordField = $(this).closest(".card-body").find(".amount-in-word-details");
+    wordField.val(numberToWords(cleanValue));
+});
+
 function numberToWords(amount) {
     amount = parseFloat(amount);   // Convert FIRST
 
-    if (isNaN(amount) || amount <= 0 || amount > 999999999999) return "";
+    if (isNaN(amount) || amount <= 0 || amount > 10000000) return "";
 
     const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
     const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
@@ -285,18 +317,22 @@ function validateFormData($cardBody) {
     }
 
     // Amount in Number validation
-    if (!$amountInNumber.val() || isNaN($amountInNumber.val()) || parseFloat($amountInNumber.val()) <= 0) {
-        errors.amountInNumber = "This field is required and must be a positive number.";
-    } else if (parseFloat($amountInNumber.val()) > 10000000) {
-        errors.amountInNumber = "This field must not exceed 10,000,000.";
-    }
+   if (
+    !$amountInNumber.val() ||
+    isNaN($amountInNumber.val()) ||
+    parseFloat($amountInNumber.val()) <= 0
+) {
+    errors.amountInNumber = "This field is required and must be a positive number.";
+} 
+else if (parseFloat($amountInNumber.val()) > 10000000) {
+    errors.amountInNumber = "This field must not exceed 10,000,000.";
+}
+
 
     // Amount in Word validation
     if (!$amountInWord.val()) {
         errors.amountInWord = "This field is required.";
-    } else if ($amountInWord.val().length > 65) {
-        errors.amountInWord = "This field must not exceed 65 characters.";
-    } else if (/^\d+$/.test($amountInWord.val())) {
+    }    else if (/^\d+$/.test($amountInWord.val())) {
         errors.amountInWord = "This field must be in words, not numbers.";
     }
 
