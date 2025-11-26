@@ -190,7 +190,7 @@ class ReferralController extends Controller
     public function edit($id)
     {
         $typeData = Type::where('category', 'Case Type')->get();
-        $Referral = Referral::with(['accounts_source:id,name', 'contact_source:id,fname,lname', 'bankAccount'])->findOrFail($id);
+        $Referral = Referral::with(['accounts_source:id,name', 'contact_source:id,fname,lname', 'bankAccount','emergency_details'])->findOrFail($id);
         $contacts = contacts::select('id', 'fname', 'lname')->get();
         $checklistData = CheckList::where('referral_id', $id)->first();
         $vendors = User::select('id', 'name')->whereHas('roles', function ($query) {
@@ -207,9 +207,7 @@ class ReferralController extends Controller
         $source = $checklistData->source;
         $tform = $checklistData->tform;
         $checks = $Referral->refferals_check;
-
         $intakeCordinator = User::where('role', 'Admin')->get();
-
         return view('referral.update', compact('typeData', 'intakeCordinator', 'Referral', 'checks', 'contacts', 'vendors'));
     }
     public function view($id)
@@ -277,7 +275,7 @@ class ReferralController extends Controller
             'emergency_ext' => 'numeric',
             'emergency_state' => 'string',
             'emergency_email' => 'email',
-            'emegency_relationship' => 'string',
+            'emergency_relationship' => 'string',
             'emergency_phone' => 'string',
             'emergency_city' => 'string|max:250',
             'emergency_zip' => 'numeric',
@@ -339,6 +337,27 @@ class ReferralController extends Controller
             'source' => $request->has('document_checkboxes9') ? 1 : 0,
             'tform' => $request->has('document_checkboxes10') ? 1 : 0,
         ])->save();
+
+        // Update or create emergency contact
+            EmergencyContacts::updateOrCreate(
+                ['referral_id' => $referral->id], // Match existing record by referral_id
+                [
+                    'emergency_relationship' => $request->emergency_relationship,
+                    'emergency_first_name' => $request->emergency_first_name,
+                    'emergency_last_name' => $request->emergency_last_name,
+                    'emergency_phone_number' => $request->emergency_phone,
+                    'emergency_address' => $request->emergency_address,
+                    'emergency_ext_number' => $request->emergency_ext,
+                    'emergency_apt_suite' => $request->emergency_apt,
+                    'emergency_zip_code' => $request->emergency_zip,
+                    'emergency_state' => $request->emergency_state,
+                    'emergency_email' => $request->emergency_email,
+                    'emergency_city' => $request->emergency_city,
+                    'live_with_parents' => $request->live_with_parent ?? 0,
+                    'have_keys' => $request->have_keys ?? 0,
+                ]
+            );
+
 
         return response()->json(['message' => 'Referral updated successfully']);
     }
