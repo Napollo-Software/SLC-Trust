@@ -36,7 +36,7 @@
 </head>
 <body>
     @php
-         checkAuth(); 
+         checkAuth();
         $user = App\Models\User::find(Session::get('loginId'));
         $followup = App\Models\Followup::select('note', 'date')->orderBy('id','desc')->get();
         $notifications = App\Models\Notifcation::with('referralName')->where('user_id', $user->id)->latest()->take(6)->get();
@@ -265,7 +265,9 @@
 	<script src="{{ asset('assets/new_theme/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
 	<script src="{{ asset('assets/new_theme/js/index.js')}}"></script>
-    <script src="{{ asset('assets/new_theme/js/widgets.js')}}"></script>
+    @if(in_array(Route::currentRouteName(), ['dashboard', 'vendor.dashboard', 'bill_reports']))
+        <script src="{{ asset('assets/new_theme/js/widgets.js')}}"></script>
+    @endif
 	<!--app JS-->
 	<script src="{{ asset('assets/new_theme/js/app.js')}}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -366,7 +368,7 @@
             }
         }
         // Add an event listener to the window that triggers the function
-        window.addEventListener('load', removeDisplayNone);
+        // window.addEventListener('load', removeDisplayNone);
         window.addEventListener("load", function () {
             var loader = document.getElementById("loader");
             loader.style.display = "block";
@@ -433,17 +435,21 @@
 <script>
     $(document).ready(function () {
         $('.modal').on('hidden.bs.modal', function () {
-            $(this).find('form')[0].reset(); 
+            $(this).find('form')[0].reset();
         });
 
         $('.modal').modal({
             backdrop: 'static',
-            keyboard: false     
+            keyboard: false
         });
     });
 
-    new PerfectScrollbar('.chat-list');
-    new PerfectScrollbar('.chat-content');
+    if(document.querySelector('.chat-list')) {
+        new PerfectScrollbar('.chat-list');
+    }
+    if(document.querySelector('.chat-content')) {
+        new PerfectScrollbar('.chat-content');
+    }
 </script>
 @include('sweetalert::alert')
 @yield("script")

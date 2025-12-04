@@ -192,6 +192,11 @@ $user = App\Models\User::find(Session::get('loginId'));
                                 <a class="dropdown-item {{ in_array(Route::currentRouteName(), ['users.all', 'view_user', 'show_user', 'edit_user']) ? 'active' : '' }}" href="{{ route('users.all') }}"><i class="bx bx-user-circle"></i>All
                                     Users</a></li>
                             @endif
+                            @if ($user->hasPermissionTo('Deposit'))
+                            <li>
+                                <a class="dropdown-item {{ Route::currentRouteName() === 'bulk.upload.transactions' ? 'active' : '' }}" href="{{ route('bulk.upload.transactions') }}"><i class="bx bx-upload"></i>Bulk Upload</a>
+                            </li>
+                            @endif
                         </ul>
                     </li>
                     @endif

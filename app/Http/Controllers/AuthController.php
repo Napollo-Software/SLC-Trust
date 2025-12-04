@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Exports\BulkTransactionTemplateExport;
+use App\Imports\AddUserBalanceImport;
 use App\Jobs\sendEmailJob;
 use App\Models\Category;
 use App\Models\City;
@@ -21,11 +23,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use Session;
 use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
+    public function downloadBulkTransactionTemplate()
+    {
+        return Excel::download(new BulkTransactionTemplateExport, 'bulk_transaction_template.xlsx');
+    }
+
     public function login()
     {
         return view("auth.login");
@@ -565,6 +573,12 @@ class AuthController extends Controller
 
     }
 
+    public function bulk_upload_view()
+    {
+        $user = User::where('id', Session::get('loginId'))->first();
+        return view("bulk_upload_transactions", compact('user'));
+    }
+
     public function show_user(Request $request, $id)
     {
         $user = User::findOrFail($id);
@@ -825,7 +839,7 @@ class AuthController extends Controller
                 }
             }],
             'maintenance_fee_check'   => 'nullable',
-            'maintenance_fee' => ['nullable', 'required_if:maintenance_fee_check,on', 'numeric', 'min:0'],
+            'maintenance_fee'         => ['nullable', 'required_if:maintenance_fee_check,on', 'numeric', 'min:0'],
             'registration_fee'        => 'nullable',
             'maintenance_fee_type'    => ['nullable', 'string', 'in:percentage,fixed', function ($attribute, $value, $fail) use ($request) {
                 if ($request->has('add_balance') && $request->add_balance === 'on' &&
@@ -1043,10 +1057,10 @@ class AuthController extends Controller
             }
 
             Notifcation::create([
-                "status"      => 0,
-                "user_id"     => $user->id,
-                "title"       => 'Balance Added',
-                "name"        => "{$user->name} {$user->last_name}",
+                "status"  => 0,
+                "user_id" => $user->id,
+                "title"   => 'Balance Added',
+                "name"    => "{$user->name} {$user->last_name}",
                 "description" => "Your {$app_name} account has been topped up successfully with amount \${$depost_amount}",
             ]);
 
@@ -1068,6 +1082,570 @@ class AuthController extends Controller
                 'message' => "Something went wrong. Please try again." . $e->getMessage(),
             ]);
         }
+    }
+
+// validate_bulk_upload
+    public function validate_bulk_upload(Request $request)
+    {
+        try {
+            // Accept two modes:
+            // 1) frontend sends pre-parsed rows in JSON: `rows` (recommended)
+            // 2) or (fallback) frontend uploads file and we ask client to re-upload parsed rows
+            $rows = $request->input('rows', []);
+
+            if (empty($rows)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No data provided for validation. Please send parsed rows as JSON via "rows".',
+                ], 422);
+            }
+
+            $validationResults = [];
+            $successCount      = 0;
+            $errorCount        = 0;
+
+            $pendingCount = 0;
+
+            foreach ($rows as $index => $row) {
+                $rowNumber = $index + 2; // Account for header row
+
+                // Normalize row keys first (convert Excel headers to snake_case)
+                $row = $this->normalizeRowKeys($row);
+
+                Log::info("Row {$rowNumber}: After normalization, keys: " . json_encode(array_keys($row)));
+                Log::info("Row {$rowNumber}: user_account value: " . var_export($row['user_account'] ?? 'NOT SET', true));
+
+                // Skip instruction and example rows
+                if ($this->isInstructionRow($row['user_account'] ?? '')) {
+                    Log::info("Row {$rowNumber}: Skipped - Instruction/Example row");
+                    continue;
+                }
+
+                $result              = $this->validateSingleRow($row, $rowNumber);
+                $validationResults[] = $result;
+
+                if ($result['status'] === 'Ready') {
+                    $successCount++;
+                } elseif ($result['status'] === 'Error') {
+                    $errorCount++;
+                } elseif ($result['status'] === 'Pending') {
+                    $pendingCount++;
+                }
+            }
+
+            return response()->json([
+                'success' => true,
+                'results' => $validationResults,
+                'summary' => [
+                    'total'   => count($validationResults),
+                    'ready'   => $successCount,
+                    'error'   => $errorCount,
+                    'pending' => $pendingCount,
+                ],
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Error validating bulk upload: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error validating file: ' . $e->getMessage(),
+            ], 500);
+        }
+    }
+
+// bulk_add_user_balance
+    public function bulk_add_user_balance(Request $request)
+    {
+        try {
+            // If frontend sent parsed rows (recommended): validate & process only valid rows
+            $rows = $request->input('rows', null);
+
+            // If rows provided as JSON (from validate endpoint), process only valid ones
+            if (is_array($rows)) {
+                $validRows = [];
+                $allErrors = [];
+
+                foreach ($rows as $index => $row) {
+                    $rowNumber = $index + 2;
+
+                    if ($this->isInstructionRow($row['user_account'] ?? '')) {
+                        continue;
+                    }
+
+                    $result = $this->validateSingleRow($row, $rowNumber);
+
+                    // Only process rows with status 'Ready'
+                    if ($result['status'] === 'Ready' && $result['is_valid']) {
+                        // convert row to collection-compatible array keys as used in AddUserBalanceImport
+                        $validRows[] = array_change_key_case($row, CASE_LOWER);
+                    } else {
+                        // Collect errors for Error and Pending rows
+                        if ($result['status'] === 'Error' && count($result['errors']) > 0) {
+                            $allErrors[] = "Row {$rowNumber}: " . implode("; ", $result['errors']);
+                        } elseif ($result['status'] === 'Pending') {
+                            $allErrors[] = "Row {$rowNumber}: Pending - No transaction data filled";
+                        }
+                    }
+                }
+
+                // If there are no valid rows, return errors and do not process anything
+                if (count($validRows) === 0) {
+                    return response()->json([
+                        'success' => false,
+                        'header'  => 'No valid rows to process',
+                        'message' => 'All rows contain errors. Fix the errors and try again.',
+                        'errors'  => $allErrors,
+                    ], 422);
+                }
+
+                // Process only the valid rows using your existing import class:
+                $import = new AddUserBalanceImport();
+
+                // AddUserBalanceImport->collection expects a Collection of rows (heading keyed)
+                $collection = collect($validRows);
+
+                // call collection() directly to process validated rows
+                // Note: collection() does DB transactions inside, so it will behave the same as row-level import
+                $import->collection($collection);
+
+                $successCount = $import->getSuccessCount();
+                $errorCount   = $import->getErrorCount();
+                $errors       = array_merge($import->getErrors(), $allErrors);
+
+                return response()->json([
+                    'success' => true,
+                    'header'  => 'Success!',
+                    'message' => "Successfully processed {$successCount} transaction(s). " . ($errorCount ? "{$errorCount} row(s) failed." : ''),
+                    'details' => [
+                        'success_count' => $successCount,
+                        'error_count'   => $errorCount,
+                        'errors'        => $errorCount > 0 ? array_slice($errors, 0, 10) : [],
+                    ],
+                ]);
+            }
+
+            // Fallback: if frontend uploaded file but didn't parse/validate client-side,
+            // keep original behavior (import file directly). Recommended: call validate first from frontend.
+            $request->validate([
+                'import_file' => 'required|file|mimes:xlsx,xls|max:10240', // 10MB
+            ]);
+
+            $import = new AddUserBalanceImport();
+            Excel::import($import, $request->file('import_file'));
+            $successCount = $import->getSuccessCount();
+            $errorCount   = $import->getErrorCount();
+            $errors       = $import->getErrors();
+
+            if ($errorCount > 0 && $successCount === 0) {
+                return response()->json([
+                    'success' => false,
+                    'header'  => 'Upload Failed',
+                    'message' => 'All rows failed to process. Errors: ' . implode('<br>', array_slice($errors, 0, 5)) .
+                    ($errorCount > 5 ? '<br>... and ' . ($errorCount - 5) . ' more errors' : ''),
+                ], 422);
+            }
+
+            $message = "Successfully processed {$successCount} transaction(s).";
+            if ($errorCount > 0) {
+                $message .= " {$errorCount} row(s) failed. Check logs for details.";
+            }
+
+            return response()->json([
+                'success' => true,
+                'header'  => 'Success!',
+                'message' => $message,
+                'details' => [
+                    'success_count' => $successCount,
+                    'error_count'   => $errorCount,
+                    'errors'        => $errorCount > 0 ? array_slice($errors, 0, 10) : [],
+                ],
+            ]);
+
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            $failures      = $e->failures();
+            $errorMessages = [];
+            foreach ($failures as $failure) {
+                $errorMessages[] = "Row " . $failure->row() . ": " . implode(', ', $failure->errors());
+            }
+
+            return response()->json([
+                'success' => false,
+                'header'  => 'Validation Error',
+                'message' => implode('<br>', array_slice($errorMessages, 0, 5)) .
+                (count($errorMessages) > 5 ? '<br>... and more errors' : ''),
+            ], 422);
+
+        } catch (\Exception $e) {
+            Log::error('Bulk upload error: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'header'  => 'Error',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    // validateSingleRow
+    private function validateSingleRow($row, $rowNumber)
+    {
+        $errors   = [];
+        $warnings = [];
+        $isValid  = true;
+
+        Log::info("validateSingleRow - Row {$rowNumber}: Starting validation");
+        Log::info("Row {$rowNumber}: user_account = " . var_export($row['user_account'] ?? 'NOT SET', true));
+
+        // Skip empty rows
+        if (empty($row['user_account'])) {
+            Log::info("Row {$rowNumber}: Marked as Skipped - empty user_account");
+            return [
+                'row_number'   => $rowNumber,
+                'user_account' => '',
+                'user_name'    => '',
+                'is_valid'     => false,
+                'can_process'  => false,
+                'status'       => 'Skipped',
+                'errors'       => ['Empty row - no user account'],
+                'warnings'     => [],
+                'details'      => [],
+            ];
+        }
+
+        $user_id = (int) $row['user_account'];
+        Log::info("Row {$rowNumber}: Looking up User ID: {$user_id}");
+        $user    = User::find($user_id);
+
+        if (! $user) {
+            Log::warning("Row {$rowNumber}: User ID {$user_id} not found");
+            return [
+                'row_number'   => $rowNumber,
+                'user_account' => $user_id,
+                'user_name'    => '',
+                'is_valid'     => false,
+                'can_process'  => false,
+                'status'       => 'Error',
+                'errors'       => ["User with Account Number {$user_id} not found"],
+                'warnings' => [],
+                'details'  => [],
+            ];
+        }
+
+        Log::info("Row {$rowNumber}: User found - {$user->name} (ID: {$user->id})");
+
+        // Parse values (matching import logic)
+        // Note: Laravel Excel converts headers to snake_case, so "User Account" becomes "user_account"
+        $add_balance             = $this->parseNumeric($row['add_balance'] ?? null);
+        $payment_type            = $this->parseString($row['payment_type'] ?? null);
+        $reference_number        = $this->parseString($row['reference_number'] ?? null);
+        $registration_fee_amount = $this->parseNumeric($row['registration_fee_amount'] ?? null);
+        $deduct_maintenance_type = $this->parseString($row['deduct_maintenance_type'] ?? null);
+        $maintenance_fee_value   = $this->parseNumeric($row['maintenance_fee_value'] ?? null);
+        $date_of_trans_value     = $row['date_of_transaction'] ?? null;
+        $send_remaining          = strtolower($this->parseString($row['send_remaining_amount_to_credit_card'] ?? 'no'));
+
+        Log::info("Row {$rowNumber}: Parsed values - Add Balance: {$add_balance}, Payment Type: {$payment_type}, Reference: {$reference_number}, Reg Fee: {$registration_fee_amount}, Maint Type: {$deduct_maintenance_type}, Maint Value: {$maintenance_fee_value}, Date: {$date_of_trans_value}, Send Remaining: {$send_remaining}");
+
+        $has_add_balance        = $add_balance > 0;
+        $has_maintenance_fee    = ! empty($deduct_maintenance_type) && $maintenance_fee_value > 0;
+        $has_registration_fee   = $registration_fee_amount > 0;
+        $has_transfer_remaining = $send_remaining === 'yes';
+
+        Log::info("Row {$rowNumber}: Flags - has_add_balance: " . ($has_add_balance ? 'true' : 'false') . ", has_maintenance_fee: " . ($has_maintenance_fee ? 'true' : 'false') . ", has_registration_fee: " . ($has_registration_fee ? 'true' : 'false'));
+
+        // Check if row is "Pending" - has user account/name but no transaction data
+        $has_any_transaction_data = $has_add_balance || $has_maintenance_fee || $has_registration_fee ||
+                                    !empty($payment_type) || !empty($reference_number) ||
+                                    !empty($date_of_trans_value) || $has_transfer_remaining;
+
+        Log::info("Row {$rowNumber}: has_any_transaction_data = " . ($has_any_transaction_data ? 'true' : 'false'));
+
+        // If no transaction data is filled, mark as Pending
+        if (!$has_any_transaction_data) {
+            Log::info("Row {$rowNumber}: Marked as Pending - no transaction data");
+            return [
+                'row_number'   => $rowNumber,
+                'user_account' => $user_id,
+                'user_name'    => $user->full_name(),
+                'is_valid'     => false,
+                'can_process'  => false,
+                'status'       => 'Pending',
+                'errors'       => [],
+                'warnings'     => [],
+                'details'      => [
+                    'current_balance'  => number_format(userBalance($user->id), 2),
+                    'deposit_amount'   => '0.00',
+                    'maintenance_fee'  => '0.00',
+                    'registration_fee' => '0.00',
+                    'payment_type'     => 'N/A',
+                    'reference_number' => 'N/A',
+                ],
+            ];
+        }
+
+        // Check user status
+        if ($user->account_status !== "Approved") {
+            $errors[] = "User profile is not approved";
+            $isValid  = false;
+        }
+
+        // Validate negative amounts
+        if ($add_balance < 0) {
+            $errors[] = "Add Balance cannot be negative";
+            $isValid  = false;
+        }
+        if ($maintenance_fee_value < 0) {
+            $errors[] = "Maintenance Fee Value cannot be negative";
+            $isValid  = false;
+        }
+        if ($registration_fee_amount < 0) {
+            $errors[] = "Registration Fee Amount cannot be negative";
+            $isValid  = false;
+        }
+
+        // Validate add_balance requirements
+        if ($has_add_balance) {
+            if (empty($payment_type)) {
+                $errors[] = "Payment Type is required when Add Balance > 0";
+                $isValid  = false;
+            } elseif (! in_array($payment_type, ['ach', 'card', 'check'])) {
+                $errors[] = "Payment Type must be 'ach', 'card', or 'check'";
+                $isValid  = false;
+            }
+
+            if (empty($reference_number)) {
+                $refName = $payment_type === 'ach' ? 'Transaction No.' :
+                ($payment_type === 'check' ? 'Check No.' : 'Card No.');
+                $errors[] = "{$refName} is required for {$payment_type}";
+                $isValid  = false;
+            }
+
+            if (empty($date_of_trans_value)) {
+                $errors[] = "Date of Transaction is required when Add Balance > 0";
+                $isValid  = false;
+            } else {
+                // Validate date format
+                if (! $this->isValidDate($date_of_trans_value)) {
+                    $errors[] = "Date of Transaction is invalid. Use YYYY-MM-DD or Excel date";
+                    $isValid  = false;
+                }
+            }
+        }
+
+        // Validate maintenance fee
+        if (! empty($deduct_maintenance_type) && ! in_array($deduct_maintenance_type, ['percentage', 'fixed'])) {
+            $errors[] = "Deduct Maintenance Type must be 'percentage' or 'fixed'";
+            $isValid  = false;
+        }
+        if (! empty($deduct_maintenance_type) && $maintenance_fee_value <= 0) {
+            $errors[] = "Maintenance Fee Value is required when Deduct Maintenance Type is specified";
+            $isValid  = false;
+        }
+        if ($maintenance_fee_value > 0 && empty($deduct_maintenance_type)) {
+            $errors[] = "Deduct Maintenance Type is required when Maintenance Fee Value > 0";
+            $isValid  = false;
+        }
+
+        // Validate send remaining
+        if ($send_remaining !== '' && ! in_array($send_remaining, ['yes', 'no'])) {
+            $errors[] = "Send Remaining Amount must be 'yes' or 'no'";
+            $isValid  = false;
+        }
+        if ($has_transfer_remaining && ! $has_add_balance) {
+            $errors[] = "'Send Remaining Amount to Credit Card' can only be used when Add Balance > 0";
+            $isValid  = false;
+        }
+
+        // Calculate maintenance fee (matching single user logic)
+        $maintenance_fee_amount = 0;
+        if ($has_maintenance_fee) {
+            if ($deduct_maintenance_type === 'percentage' && $add_balance > 0) {
+                $maintenance_fee_amount = $add_balance * ($maintenance_fee_value / 100);
+            } else {
+                $maintenance_fee_amount = $maintenance_fee_value;
+            }
+        }
+
+        // Check balance requirements (matching single user logic)
+        $current_user_balance = userBalance($user->id);
+
+        // Check maintenance fee balance
+        if ($maintenance_fee_amount > 0) {
+            $total_available = $current_user_balance + $add_balance;
+            if ($total_available < $maintenance_fee_amount) {
+                $errors[] = sprintf(
+                    "Insufficient balance for Maintenance fee. Available: $%.2f (Current: $%.2f + Deposit: $%.2f), Required: $%.2f",
+                    $total_available,
+                    $current_user_balance,
+                    $add_balance,
+                    $maintenance_fee_amount
+                );
+                $isValid = false;
+            }
+        }
+
+        // Check registration fee balance
+        if ($has_registration_fee) {
+            $total_deduction = $maintenance_fee_amount + $registration_fee_amount;
+            $total_available = $current_user_balance + $add_balance;
+            if ($total_deduction > $total_available) {
+                $errors[] = sprintf(
+                    "Insufficient balance for Enrollment fee. Available: $%.2f, Required: $%.2f",
+                    $total_available,
+                    $total_deduction
+                );
+                $isValid = false;
+            }
+        }
+
+        // NEW: One-time registration fee check (user must not have previous EnrollmentFee)
+        if ($has_registration_fee) {
+            $alreadyPaid = $user->transactions()
+                ->where('type', Transaction::EnrollmentFee)
+                ->exists();
+
+            if ($alreadyPaid) {
+                $errors[] = "One-time Enrollment fee is already charged for {$user->name}.";
+                $isValid  = false;
+            }
+        }
+
+        // Warnings
+        if ($deduct_maintenance_type === 'percentage' && $maintenance_fee_value > 100) {
+            $warnings[] = "Maintenance Fee percentage is over 100%";
+        }
+
+        $finalStatus = $isValid ? 'Ready' : 'Error';
+        Log::info("Row {$rowNumber}: Final validation - Status: {$finalStatus}, Errors count: " . count($errors));
+
+        return [
+            'row_number'   => $rowNumber,
+            'user_account' => $user_id,
+            'user_name'    => $user->full_name(),
+            'is_valid'     => $isValid,
+            'can_process'  => $isValid, // frontend can use this flag
+            'status'       => $finalStatus, // Changed from 'Valid' to 'Ready'
+            'errors'       => $errors,
+            'warnings'     => $warnings,
+            'details'      => [
+                'current_balance'  => number_format($current_user_balance, 2),
+                'deposit_amount'   => number_format($add_balance, 2),
+                'maintenance_fee'  => number_format($maintenance_fee_amount, 2),
+                'registration_fee' => number_format($registration_fee_amount, 2),
+                'payment_type'     => strtoupper($payment_type ?? 'N/A'),
+                'reference_number' => $reference_number ?? 'N/A',
+            ],
+        ];
+    }
+
+    /**
+     * Helper methods
+     */
+    private function isInstructionRow($userAccount)
+    {
+        $userAccount = trim(strtoupper((string) $userAccount));
+        return str_starts_with($userAccount, 'INSTRUCTION') ||
+        str_starts_with($userAccount, '---') ||
+            $userAccount === '1001';
+    }
+
+    private function parseNumeric($value)
+    {
+        if ($value === null || $value === '') {
+            return 0;
+        }
+        return is_numeric($value) ? (float) $value : 0;
+    }
+
+    private function parseString($value)
+    {
+        if ($value === null || $value === '') {
+            return null;
+        }
+        return strtolower(trim((string) $value));
+    }
+
+    private function isValidDate($dateValue)
+    {
+        if (empty($dateValue)) {
+            return false;
+        }
+
+        try {
+            if (is_numeric($dateValue)) {
+                $date = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($dateValue);
+                return ($date && $date->format('Y') > 1900 && $date->format('Y') < 2100);
+            } else {
+                $date = Carbon::parse($dateValue);
+                return ($date && $date->year > 1900 && $date->year < 2100);
+            }
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Normalize row keys to match expected snake_case format
+     * Handles various Excel header formats (spaces, capitals, etc.)
+     */
+    private function normalizeRowKeys($row)
+    {
+        $normalized = [];
+        $columnMap = [
+            // Excel headers -> backend expected keys
+            'User Account' => 'user_account',
+            'user account' => 'user_account',
+            'UserAccount' => 'user_account',
+            'Name' => 'name',
+            'name' => 'name',
+            'Current Balance' => 'current_balance',
+            'current balance' => 'current_balance',
+            'CurrentBalance' => 'current_balance',
+            'Enrollment Fee Already Done' => 'enrollment_fee_already_done',
+            'enrollment fee already done' => 'enrollment_fee_already_done',
+            'EnrollmentFeeAlreadyDone' => 'enrollment_fee_already_done',
+            'Add Balance' => 'add_balance',
+            'add balance' => 'add_balance',
+            'AddBalance' => 'add_balance',
+            'Payment Type' => 'payment_type',
+            'payment type' => 'payment_type',
+            'PaymentType' => 'payment_type',
+            'Reference Number' => 'reference_number',
+            'reference number' => 'reference_number',
+            'ReferenceNumber' => 'reference_number',
+            'Registration Fee Amount' => 'registration_fee_amount',
+            'registration fee amount' => 'registration_fee_amount',
+            'RegistrationFeeAmount' => 'registration_fee_amount',
+            'Deduct Maintenance Type' => 'deduct_maintenance_type',
+            'deduct maintenance type' => 'deduct_maintenance_type',
+            'DeductMaintenanceType' => 'deduct_maintenance_type',
+            'Maintenance Fee Value' => 'maintenance_fee_value',
+            'maintenance fee value' => 'maintenance_fee_value',
+            'MaintenanceFeeValue' => 'maintenance_fee_value',
+            'Date Of Transaction' => 'date_of_transaction',
+            'date of transaction' => 'date_of_transaction',
+            'DateOfTransaction' => 'date_of_transaction',
+            'Send Remaining Amount To Credit Card' => 'send_remaining_amount_to_credit_card',
+            'send remaining amount to credit card' => 'send_remaining_amount_to_credit_card',
+            'SendRemainingAmountToCreditCard' => 'send_remaining_amount_to_credit_card',
+        ];
+
+        Log::info('normalizeRowKeys: Input keys: ' . json_encode(array_keys($row)));
+
+        foreach ($row as $key => $value) {
+            $originalKey = $key;
+            // Check if key exists in map
+            if (isset($columnMap[$key])) {
+                $normalized[$columnMap[$key]] = $value;
+                Log::info("normalizeRowKeys: Mapped '{$originalKey}' -> '{$columnMap[$key]}'");
+            } else {
+                // Try to auto-convert: lowercase, replace spaces/hyphens with underscores
+                $normalizedKey = strtolower(str_replace([' ', '-'], '_', trim($key)));
+                $normalized[$normalizedKey] = $value;
+                Log::info("normalizeRowKeys: Auto-converted '{$originalKey}' -> '{$normalizedKey}'");
+            }
+        }
+
+        Log::info('normalizeRowKeys: Output keys: ' . json_encode(array_keys($normalized)));
+        return $normalized;
     }
 
     public function state_fetch_city($state)
