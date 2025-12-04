@@ -26,6 +26,80 @@
     .swal2-cancel {
         background-color: red !important;
     }
+    
+    /* Improved readability for status messages */
+    .status-message-success {
+        color: #155724 !important;
+        background-color: #d4edda;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: 500;
+        border-left: 3px solid #28a745;
+        display: inline-block;
+    }
+    
+    .status-message-warning {
+        color: #856404 !important;
+        background-color: #fff3cd;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: 500;
+        border-left: 3px solid #ffc107;
+        display: inline-block;
+    }
+    
+    .status-message-error {
+        color: #721c24 !important;
+        background-color: #f8d7da;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: 500;
+        border-left: 3px solid #dc3545;
+        display: inline-block;
+    }
+    
+    .status-message-info {
+        color: #004085 !important;
+        background-color: #d1ecf1;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: 500;
+        border-left: 3px solid #17a2b8;
+        display: inline-block;
+    }
+    
+    /* Enhanced badge styles for better visibility */
+    .badge.bg-success {
+        background-color: #28a745 !important;
+        color: #fff !important;
+        font-weight: 600;
+        padding: 6px 12px;
+        font-size: 0.875rem;
+    }
+    
+    .badge.bg-warning {
+        background-color: #ffc107 !important;
+        color: #000 !important;
+        font-weight: 600;
+        padding: 6px 12px;
+        font-size: 0.875rem;
+    }
+    
+    .badge.bg-danger {
+        background-color: #dc3545 !important;
+        color: #fff !important;
+        font-weight: 600;
+        padding: 6px 12px;
+        font-size: 0.875rem;
+    }
+    
+    .badge.bg-secondary {
+        background-color: #6c757d !important;
+        color: #fff !important;
+        font-weight: 600;
+        padding: 6px 12px;
+        font-size: 0.875rem;
+    }
 </style>
 
 <div>
@@ -112,8 +186,10 @@
 
     <!-- Table Section -->
     <div class="card mt-3 mb-5">
-        <div class="card-header d-flex justify-content-Between align-items-center flex-wrap gap-2 mb-0 pb-2">
-            <h5 class="mb-0">File Details</h5>
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2 mb-0 pb-2 w-100">
+            <div>
+                <h5 class="mb-0">File Details</h5>
+            </div>
             <div class="d-flex gap-2">
                 <a href="{{ route('bulk.transaction.template.download') }}" class="btn btn-info">Download Template</a>
                 <button class="btn btn-primary upload-btn" disabled>Upload</button>
@@ -211,7 +287,7 @@
                 if (row.hasOwnProperty(key)) {
                     var normalizedKey;
                     var trimmedKey = String(key).trim(); // Trim whitespace from key
-                    
+
                     // Check if trimmed key exists in map
                     if (columnMap.hasOwnProperty(trimmedKey)) {
                         normalizedKey = columnMap[trimmedKey];
@@ -231,7 +307,7 @@
                         }
                     }
                     normalizedRow[normalizedKey] = row[key];
-                    
+
                     // Log first row mapping for debugging
                     if (index === 0) {
                         console.log("Mapped: '" + key + "' (trimmed: '" + trimmedKey + "') -> '" + normalizedKey + "' = " + row[key]);
@@ -244,7 +320,7 @@
         console.log('Normalized first row keys:', Object.keys(normalizedData[0] || {}));
         console.log('Normalized first row sample:', normalizedData[0]);
         console.log('=== NORMALIZATION COMPLETE ===');
-        
+
         return normalizedData;
     }
 
@@ -397,17 +473,17 @@
                             defval: '', // Default value for empty cells
                             raw: false  // Convert numbers to strings for consistency
                         });
-                        
+
                         console.log('=== EXCEL FILE READ ===');
                         console.log('Sheet name:', y);
                         console.log('Total rows:', exceljson.length);
                         console.log('First row (before normalization):', exceljson[0]);
                         console.log('First row keys (before normalization):', Object.keys(exceljson[0] || {}));
-                        
+
                         if (exceljson.length > 0 && cnt == 0) {
                             // Normalize column names to snake_case (matching backend expectations)
                             exceljson = normalizeColumnNames(exceljson);
-                            
+
                             console.log('First row (after normalization):', exceljson[0]);
                             console.log('First row keys (after normalization):', Object.keys(exceljson[0] || {}));
                             console.log('user_account value:', exceljson[0]['user_account']);
@@ -480,15 +556,15 @@
         console.log('Total validation results:', validationResults.length);
         console.log('Total table rows:', $('#exceltable tbody tr').length);
         console.log('Validation map:', validationMap);
-        
+
         // Update each row in the table
         $('#exceltable tbody tr').each(function(index) {
             var rowNumber = index + 2; // Row number in Excel (accounting for header)
             var result = validationMap[rowNumber];
-            
+
             var $row = $(this);
             var $cells = $row.find('td');
-            
+
             if ($cells.length < 14) {
                 console.warn('Row', rowNumber, 'has only', $cells.length, 'cells, expected 14. Skipping update.');
                 return;
@@ -514,18 +590,36 @@
                 $cells.eq(2).text(result.user_name); // Name column (index 2)
                 console.log('Updated Name column (index 2) to:', result.user_name);
             }
-            
+
             // Update current balance from details if available
-            if (result.details && result.details.current_balance) {
+            // Only show balance if user exists (details has current_balance)
+            // If user doesn't exist, details will be empty array, so show "N/A"
+            if (result.details && result.details.current_balance !== null && result.details.current_balance !== undefined && result.details.current_balance !== '') {
                 var balanceStr = String(result.details.current_balance).replace(/,/g, '');
                 var balance = parseFloat(balanceStr);
                 if (!isNaN(balance)) {
                     var formattedBalance = '$' + balance.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
                     $cells.eq(3).html('<strong class="info-column-cell">' + formattedBalance + '</strong>'); // Current Balance column (index 3)
                     console.log('Updated Current Balance to:', formattedBalance);
+                } else {
+                    $cells.eq(3).html('<strong class="info-column-cell">N/A</strong>');
                 }
+            } else {
+                // User doesn't exist or no balance data - show N/A
+                $cells.eq(3).html('<strong class="info-column-cell">N/A</strong>');
+                console.log('No current balance data - user may not exist');
             }
             
+            // Update enrollment fee status if available
+            // Only show if user exists and details are available
+            if (result.details && result.details.enrollment_fee_done !== null && result.details.enrollment_fee_done !== undefined) {
+                var enrollmentStatus = result.details.enrollment_fee_done === true || result.details.enrollment_fee_done === 'Yes' || result.details.enrollment_fee_done === 'yes' ? 'Already Done' : 'Not Done';
+                $cells.eq(4).text(enrollmentStatus);
+            } else if (result.status === 'Error' && result.errors && result.errors.length > 0 && result.errors[0].includes('not found')) {
+                // User doesn't exist - show N/A
+                $cells.eq(4).text('N/A');
+            }
+
             // Update transaction data columns from details
             if (result.details) {
                 // Add Balance (column index 5)
@@ -535,17 +629,17 @@
                         $cells.eq(5).text(deposit.toFixed(2));
                     }
                 }
-                
+
                 // Payment Type (column index 6)
                 if (result.details.payment_type && result.details.payment_type !== 'N/A') {
                     $cells.eq(6).text(result.details.payment_type);
                 }
-                
+
                 // Reference Number (column index 7)
                 if (result.details.reference_number && result.details.reference_number !== 'N/A') {
                     $cells.eq(7).text(result.details.reference_number);
                 }
-                
+
                 // Registration Fee Amount (column index 8)
                 if (result.details.registration_fee && result.details.registration_fee !== '0.00' && result.details.registration_fee !== 'N/A') {
                     var regFee = parseFloat(String(result.details.registration_fee).replace(/,/g, ''));
@@ -557,7 +651,7 @@
 
             if (result.status === 'Skipped') {
                 $(this).find('td:first').html('<span class="badge bg-secondary">Skipped</span>');
-                var errorHtml = '<small class="text-muted">';
+                var errorHtml = '<span class="status-message-info">';
                 if (result.errors && result.errors.length > 0) {
                     result.errors.forEach(function(err, idx) {
                         if (idx > 0) errorHtml += '<br>';
@@ -566,22 +660,22 @@
                 } else {
                     errorHtml += 'Empty row';
                 }
-                errorHtml += '</small>';
+                errorHtml += '</span>';
                 $(this).find('td:last').html(errorHtml);
                 $(this).attr('data-valid', 'false');
             } else if (result.status === 'Ready') {
                 $(this).find('td:first').html('<span class="badge bg-success">Ready</span>');
-                $(this).find('td:last').html('<small class="text-success">No errors - Ready to process</small>');
+                $(this).find('td:last').html('<span class="status-message-success">No errors - Ready to process</span>');
                 $(this).attr('data-valid', 'true');
                 ready++;
             } else if (result.status === 'Pending') {
                 $(this).find('td:first').html('<span class="badge bg-warning">Pending</span>');
-                $(this).find('td:last').html('<small class="text-warning">No transaction data filled - Please fill in transaction details</small>');
+                $(this).find('td:last').html('<span class="status-message-warning">No transaction data filled - Please fill in transaction details</span>');
                 $(this).attr('data-valid', 'false');
                 pending++;
             } else if (result.status === 'Error') {
                 $(this).find('td:first').html('<span class="badge bg-danger">Error</span>');
-                var errorHtml = '<small class="text-danger">';
+                var errorHtml = '<span class="status-message-error">';
                 if (result.errors && result.errors.length > 0) {
                     result.errors.forEach(function(err, idx) {
                         if (idx > 0) errorHtml += '<br>';
@@ -590,7 +684,7 @@
                 } else {
                     errorHtml += 'Validation error';
                 }
-                errorHtml += '</small>';
+                errorHtml += '</span>';
                 $(this).find('td:last').html(errorHtml);
                 $(this).attr('data-valid', 'false');
                 error++;
@@ -687,42 +781,55 @@
             }
 
             // Get informational columns - try normalized and original keys
-            var currentBalance = row['current_balance'] || row['Current Balance'] || row['current balance'] || '';
-            if (currentBalance !== '' && currentBalance !== null && currentBalance !== undefined) {
-                // Format as currency if it's a number
-                if (!isNaN(parseFloat(currentBalance))) {
-                    currentBalance = '$' + parseFloat(currentBalance).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-                }
-            } else {
-                currentBalance = 'N/A';
-            }
-
+            // Note: Current Balance and Enrollment Fee should come from backend validation, not Excel file
+            // We'll show "N/A" initially and update from backend validation results
+            // This ensures we don't show incorrect data if user doesn't exist
+            var currentBalance = 'N/A'; // Will be updated by backend validation
+            
             var enrollmentFeeDone = row['enrollment_fee_already_done'] || row['Enrollment Fee Already Done'] || row['enrollment fee already done'] || '';
             if (enrollmentFeeDone !== null && enrollmentFeeDone !== undefined) {
                 enrollmentFeeDone = String(enrollmentFeeDone).trim();
             }
             if (enrollmentFeeDone === '') {
-                enrollmentFeeDone = 'N/A';
+                enrollmentFeeDone = 'N/A'; // Will be updated by backend validation
             }
 
             // Get transaction data - try normalized and original keys
-            var addBalance = parseFloat(row['add_balance'] || row['Add Balance'] || row['add balance'] || 0) || 0;
+            // Only parse if value exists, otherwise keep as empty
+            var addBalanceRaw = row['add_balance'] || row['Add Balance'] || row['add balance'] || '';
+            var addBalance = (addBalanceRaw !== null && addBalanceRaw !== undefined && addBalanceRaw !== '') ? (parseFloat(addBalanceRaw) || 0) : null;
+            
             var paymentType = (row['payment_type'] || row['Payment Type'] || row['payment type'] || '').toString().toLowerCase().trim();
+            if (paymentType === '') paymentType = null;
+            
             var referenceNumber = row['reference_number'] || row['Reference Number'] || row['reference number'] || '';
             if (referenceNumber !== null && referenceNumber !== undefined) {
                 referenceNumber = String(referenceNumber).trim();
+                if (referenceNumber === '') referenceNumber = null;
             } else {
-                referenceNumber = '';
+                referenceNumber = null;
             }
-            var registrationFeeAmount = parseFloat(row['registration_fee_amount'] || row['Registration Fee Amount'] || row['registration fee amount'] || 0) || 0;
+            
+            var registrationFeeAmountRaw = row['registration_fee_amount'] || row['Registration Fee Amount'] || row['registration fee amount'] || '';
+            var registrationFeeAmount = (registrationFeeAmountRaw !== null && registrationFeeAmountRaw !== undefined && registrationFeeAmountRaw !== '') ? (parseFloat(registrationFeeAmountRaw) || 0) : null;
+            
             var deductMaintenanceType = (row['deduct_maintenance_type'] || row['Deduct Maintenance Type'] || row['deduct maintenance type'] || '').toString().toLowerCase().trim();
-            var maintenanceFeeValue = parseFloat(row['maintenance_fee_value'] || row['Maintenance Fee Value'] || row['maintenance fee value'] || 0) || 0;
+            if (deductMaintenanceType === '') deductMaintenanceType = null;
+            
+            var maintenanceFeeValueRaw = row['maintenance_fee_value'] || row['Maintenance Fee Value'] || row['maintenance fee value'] || '';
+            var maintenanceFeeValue = (maintenanceFeeValueRaw !== null && maintenanceFeeValueRaw !== undefined && maintenanceFeeValueRaw !== '') ? (parseFloat(maintenanceFeeValueRaw) || 0) : null;
 
             // Convert Excel date number to readable format (MM/DD/YYYY)
             var dateOfTransaction = row['date_of_transaction'] || row['Date Of Transaction'] || row['date of transaction'] || '';
-            dateOfTransaction = convertExcelDate(dateOfTransaction);
+            if (dateOfTransaction !== null && dateOfTransaction !== undefined && dateOfTransaction !== '') {
+                dateOfTransaction = convertExcelDate(dateOfTransaction);
+                if (dateOfTransaction === '' || dateOfTransaction === 'Invalid Date') dateOfTransaction = null;
+            } else {
+                dateOfTransaction = null;
+            }
 
             var sendRemaining = (row['send_remaining_amount_to_credit_card'] || row['Send Remaining Amount To Credit Card'] || row['send remaining amount to credit card'] || '').toString().toLowerCase().trim();
+            if (sendRemaining === '') sendRemaining = null;
 
             // Skip completely empty rows (no user_account)
             // But show them in preview so user can see what's happening
@@ -735,13 +842,13 @@
                         break;
                     }
                 }
-                
+
                 if (!hasAnyData) {
                     // Completely empty row - skip it
                     console.log('Skipping completely empty row:', index);
                     return;
                 }
-                
+
                 // Row has some data but no user_account - show as error
                 status = "Error";
                 color = 'danger';
@@ -760,7 +867,7 @@
                 failed++;
             }
             // Validate add_balance is numeric if provided
-            else if (row['add_balance'] !== null && row['add_balance'] !== undefined && row['add_balance'] !== '' && isNaN(addBalance)) {
+            else if (addBalanceRaw !== null && addBalanceRaw !== undefined && addBalanceRaw !== '' && (isNaN(addBalance) || addBalance === null)) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "Add Balance must be a valid number";
@@ -768,7 +875,7 @@
                 failed++;
             }
             // Validate add_balance is not negative
-            else if (addBalance < 0) {
+            else if (addBalance !== null && addBalance !== undefined && addBalance < 0) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "Add Balance cannot be negative";
@@ -776,8 +883,8 @@
                 failed++;
             }
             // If add_balance > 0, validate required fields
-            else if (addBalance > 0) {
-                if (!paymentType || paymentType === '') {
+            else if (addBalance !== null && addBalance !== undefined && addBalance > 0) {
+                if (paymentType === null || paymentType === undefined || paymentType === '') {
                     status = "Error";
                     color = 'danger';
                     errorMessage = "Payment Type is required when Add Balance > 0";
@@ -789,14 +896,14 @@
                     errorMessage = "Payment Type must be 'ach', 'card', or 'check'";
                     isValid = false;
                     failed++;
-                } else if (!referenceNumber || referenceNumber === '') {
+                } else if (referenceNumber === null || referenceNumber === undefined || referenceNumber === '') {
                     var refName = paymentType === 'ach' ? 'Transaction No.' : (paymentType === 'check' ? 'Check No.' : 'Card No.');
                     status = "Error";
                     color = 'danger';
                     errorMessage = refName + " is required for " + paymentType;
                     isValid = false;
                     failed++;
-                } else if (!dateOfTransaction || dateOfTransaction === '') {
+                } else if (dateOfTransaction === null || dateOfTransaction === undefined || dateOfTransaction === '') {
                     status = "Error";
                     color = 'danger';
                     errorMessage = "Date of Transaction is required when Add Balance > 0";
@@ -812,25 +919,25 @@
                 }
             }
             // Validate maintenance fee fields
-            else if (deductMaintenanceType && deductMaintenanceType !== '' && !['percentage', 'fixed'].includes(deductMaintenanceType)) {
+            else if (deductMaintenanceType !== null && deductMaintenanceType !== undefined && deductMaintenanceType !== '' && !['percentage', 'fixed'].includes(deductMaintenanceType)) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "Deduct Maintenance Type must be 'percentage' or 'fixed'";
                 isValid = false;
                 failed++;
-            } else if (deductMaintenanceType && deductMaintenanceType !== '' && maintenanceFeeValue <= 0) {
+            } else if (deductMaintenanceType !== null && deductMaintenanceType !== undefined && deductMaintenanceType !== '' && (maintenanceFeeValue === null || maintenanceFeeValue === undefined || maintenanceFeeValue <= 0)) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "Maintenance Fee Value is required when Deduct Maintenance Type is specified";
                 isValid = false;
                 failed++;
-            } else if (maintenanceFeeValue > 0 && (!deductMaintenanceType || deductMaintenanceType === '')) {
+            } else if (maintenanceFeeValue !== null && maintenanceFeeValue !== undefined && maintenanceFeeValue > 0 && (deductMaintenanceType === null || deductMaintenanceType === undefined || deductMaintenanceType === '')) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "Deduct Maintenance Type is required when Maintenance Fee Value > 0";
                 isValid = false;
                 failed++;
-            } else if (maintenanceFeeValue < 0) {
+            } else if (maintenanceFeeValue !== null && maintenanceFeeValue !== undefined && maintenanceFeeValue < 0) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "Maintenance Fee Value cannot be negative";
@@ -838,7 +945,7 @@
                 failed++;
             }
             // Validate registration fee
-            else if (registrationFeeAmount < 0) {
+            else if (registrationFeeAmount !== null && registrationFeeAmount !== undefined && registrationFeeAmount < 0) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "Registration Fee Amount cannot be negative";
@@ -846,13 +953,13 @@
                 failed++;
             }
             // Validate send_remaining_amount_to_credit_card
-            else if (sendRemaining && sendRemaining !== '' && !['yes', 'no'].includes(sendRemaining)) {
+            else if (sendRemaining !== null && sendRemaining !== undefined && sendRemaining !== '' && !['yes', 'no'].includes(sendRemaining)) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "Send Remaining Amount must be 'Yes' or 'No'";
                 isValid = false;
                 failed++;
-            } else if (sendRemaining === 'yes' && addBalance <= 0) {
+            } else if (sendRemaining === 'yes' && (addBalance === null || addBalance === undefined || addBalance <= 0)) {
                 status = "Error";
                 color = 'danger';
                 errorMessage = "'Send Remaining Amount to Credit Card' can only be used when Add Balance > 0";
@@ -868,23 +975,33 @@
             }
 
             // Store validation status in data attribute for backend processing
+            // Format values for display - show empty if null/undefined/0 (for numeric) or empty string
+            var displayAddBalance = (addBalance !== null && addBalance !== undefined && addBalance !== 0) ? addBalance.toFixed(2) : '';
+            var displayPaymentType = (paymentType !== null && paymentType !== undefined && paymentType !== '') ? paymentType : '';
+            var displayReferenceNumber = (referenceNumber !== null && referenceNumber !== undefined && referenceNumber !== '') ? referenceNumber : '';
+            var displayRegistrationFee = (registrationFeeAmount !== null && registrationFeeAmount !== undefined && registrationFeeAmount !== 0) ? registrationFeeAmount.toFixed(2) : '';
+            var displayDeductMaintenanceType = (deductMaintenanceType !== null && deductMaintenanceType !== undefined && deductMaintenanceType !== '') ? deductMaintenanceType : '';
+            var displayMaintenanceFeeValue = (maintenanceFeeValue !== null && maintenanceFeeValue !== undefined && maintenanceFeeValue !== 0) ? maintenanceFeeValue.toFixed(2) : '';
+            var displayDateOfTransaction = (dateOfTransaction !== null && dateOfTransaction !== undefined && dateOfTransaction !== '') ? dateOfTransaction : '';
+            var displaySendRemaining = (sendRemaining !== null && sendRemaining !== undefined && sendRemaining !== '') ? sendRemaining : '';
+            
             var rowHTML = '<tr style="background-color: lavender;" data-valid="' + isValid + '" data-row-index="' + index + '">';
             rowHTML += '<td class="text-nowrap"><span class="badge bg-' + color + '">' + status + '</span></td>';
             rowHTML += '<td class="text-nowrap">' + userAccount + '</td>';
             rowHTML += '<td class="text-nowrap">' + name + '</td>';
             rowHTML += '<td class="text-nowrap"><strong>' + currentBalance + '</strong></td>';
             rowHTML += '<td class="text-nowrap">' + enrollmentFeeDone + '</td>';
-            rowHTML += '<td class="text-nowrap">' + addBalance + '</td>';
-            rowHTML += '<td class="text-nowrap">' + paymentType + '</td>';
-            rowHTML += '<td class="text-nowrap">' + referenceNumber + '</td>';
-            rowHTML += '<td class="text-nowrap">' + registrationFeeAmount + '</td>';
-            rowHTML += '<td class="text-nowrap">' + deductMaintenanceType + '</td>';
-            rowHTML += '<td class="text-nowrap">' + maintenanceFeeValue + '</td>';
-            rowHTML += '<td class="text-nowrap">' + dateOfTransaction + '</td>';
-            rowHTML += '<td class="text-nowrap">' + (sendRemaining || 'No') + '</td>';
+            rowHTML += '<td class="text-nowrap">' + displayAddBalance + '</td>';
+            rowHTML += '<td class="text-nowrap">' + displayPaymentType + '</td>';
+            rowHTML += '<td class="text-nowrap">' + displayReferenceNumber + '</td>';
+            rowHTML += '<td class="text-nowrap">' + displayRegistrationFee + '</td>';
+            rowHTML += '<td class="text-nowrap">' + displayDeductMaintenanceType + '</td>';
+            rowHTML += '<td class="text-nowrap">' + displayMaintenanceFeeValue + '</td>';
+            rowHTML += '<td class="text-nowrap">' + displayDateOfTransaction + '</td>';
+            rowHTML += '<td class="text-nowrap">' + displaySendRemaining + '</td>';
             // Show error message or loading state (will be updated by backend validation)
-            var errorDisplay = errorMessage || '<small class="text-info">Validating...</small>';
-            rowHTML += '<td class="text-nowrap ' + (isValid ? (errorMessage ? 'text-danger' : 'text-info') : 'text-danger') + '">' + errorDisplay + '</td>';
+            var errorDisplay = errorMessage ? '<span class="status-message-error">' + errorMessage + '</span>' : '<span class="status-message-info">Validating...</span>';
+            rowHTML += '<td class="text-nowrap">' + errorDisplay + '</td>';
             rowHTML += '</tr>';
 
             $(tableId + " tbody").append(rowHTML);

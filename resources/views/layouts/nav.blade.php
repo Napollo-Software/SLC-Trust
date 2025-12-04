@@ -194,7 +194,7 @@ $user = App\Models\User::find(Session::get('loginId'));
                             @endif
                             @if ($user->hasPermissionTo('Deposit'))
                             <li>
-                                <a class="dropdown-item {{ Route::currentRouteName() === 'bulk.upload.transactions' ? 'active' : '' }}" href="{{ route('bulk.upload.transactions') }}"><i class="bx bx-upload"></i>Bulk Upload</a>
+                                <a class="dropdown-item {{ Route::currentRouteName() === 'bulk.upload.transactions' ? 'active' : '' }}" href="{{ route('bulk.upload.transactions') }}"><i class="bx bx-upload"></i>Bulk Balance Import</a>
                             </li>
                             @endif
                         </ul>
