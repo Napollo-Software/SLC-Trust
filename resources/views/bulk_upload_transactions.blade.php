@@ -132,7 +132,7 @@
                             <th>Enrollment Fee Already Done</th>
                             <th>Add Balance</th>
                             <th>Payment Type</th>
-                            <th>Reference Number</th>
+                            <th>Transaction No, Card Number, Check No</th>
                             <th>Registration Fee Amount</th>
                             <th>Deduct Maintenance Type</th>
                             <th>Maintenance Fee Value</th>
@@ -184,6 +184,10 @@
             'Payment Type': 'payment_type',
             'payment type': 'payment_type',
             'PaymentType': 'payment_type',
+            'Transaction No, Card Number, Check No': 'reference_number',
+            'transaction no, card number, check no': 'reference_number',
+            'TransactionNo, CardNumber, CheckNo': 'reference_number',
+            // Keep old reference_number for backward compatibility
             'Reference Number': 'reference_number',
             'reference number': 'reference_number',
             'ReferenceNumber': 'reference_number',
@@ -293,6 +297,55 @@
 
         // Return original value if all conversions fail
         return dateValue;
+    }
+
+    /**
+     * Convert scientific notation (e.g., "3.432423+19", "3.432423e+19") to full number string
+     * @param {string|number} value - Value that might be in scientific notation
+     * @returns {string} - Full number as string, or original value if not scientific notation
+     */
+    function convertScientificNotation(value) {
+        if (!value || value === '' || value === null || value === undefined) {
+            return '';
+        }
+        
+        var str = String(value).trim();
+        
+        // Try to parse as number first - JavaScript can handle scientific notation
+        if (!isNaN(str) && isFinite(str)) {
+            var num = parseFloat(str);
+            // Check if it's a very large number that might have been in scientific notation
+            // If the string representation differs from the number, it was likely scientific notation
+            if (Math.abs(num) >= 1e15) {
+                // Very large number - convert to string without scientific notation
+                // Use toFixed(0) to avoid decimal places for reference numbers
+                return num.toFixed(0);
+            }
+            // Regular number, return as string
+            return String(num);
+        }
+        
+        // Check if it's in scientific notation format (contains 'e', 'E', or '+' followed by digits)
+        // Pattern: number followed by e/E/+ and then digits (e.g., "3.432423+19", "3.432423e+19", "3.432423E+19")
+        var scientificNotationPattern = /^([+-]?\d*\.?\d+)[eE]?\+?(\d+)$/;
+        var match = str.match(scientificNotationPattern);
+        
+        if (match) {
+            try {
+                var base = parseFloat(match[1]);
+                var exponent = parseInt(match[2]);
+                // Convert to full number
+                var fullNumber = base * Math.pow(10, exponent);
+                // Return as string to preserve all digits (no scientific notation)
+                return fullNumber.toFixed(0); // Use toFixed(0) to avoid decimal places for reference numbers
+            } catch (e) {
+                // If conversion fails, return original
+                return str;
+            }
+        }
+        
+        // Not scientific notation, return as is
+        return str;
     }
 
     $(document).on('click', '#clear_form', function(e) {
@@ -541,7 +594,7 @@
                     $cells.eq(6).text(result.details.payment_type);
                 }
                 
-                // Reference Number (column index 7)
+                // Reference Number (column index 7) - single column with comma-separated header
                 if (result.details.reference_number && result.details.reference_number !== 'N/A') {
                     $cells.eq(7).text(result.details.reference_number);
                 }
@@ -708,9 +761,20 @@
             // Get transaction data - try normalized and original keys
             var addBalance = parseFloat(row['add_balance'] || row['Add Balance'] || row['add balance'] || 0) || 0;
             var paymentType = (row['payment_type'] || row['Payment Type'] || row['payment type'] || '').toString().toLowerCase().trim();
-            var referenceNumber = row['reference_number'] || row['Reference Number'] || row['reference number'] || '';
+            
+            // Get reference number - handle comma-separated header "Transaction No, Card Number, Check No"
+            // Try multiple possible key formats
+            var referenceNumber = row['reference_number'] || 
+                                  row['Transaction No, Card Number, Check No'] || 
+                                  row['transaction no, card number, check no'] ||
+                                  row['transaction_no_card_number_check_no'] ||
+                                  row['Reference Number'] || 
+                                  row['reference number'] || '';
+            
             if (referenceNumber !== null && referenceNumber !== undefined) {
                 referenceNumber = String(referenceNumber).trim();
+                // Convert scientific notation to full number (e.g., "3.432423+19" -> "34324230000000000000")
+                referenceNumber = convertScientificNotation(referenceNumber);
             } else {
                 referenceNumber = '';
             }
@@ -876,7 +940,7 @@
             rowHTML += '<td class="text-nowrap">' + enrollmentFeeDone + '</td>';
             rowHTML += '<td class="text-nowrap">' + addBalance + '</td>';
             rowHTML += '<td class="text-nowrap">' + paymentType + '</td>';
-            rowHTML += '<td class="text-nowrap">' + referenceNumber + '</td>';
+            rowHTML += '<td class="text-nowrap">' + referenceNumber + '</td>'; // Transaction No, Card Number, Check No
             rowHTML += '<td class="text-nowrap">' + registrationFeeAmount + '</td>';
             rowHTML += '<td class="text-nowrap">' + deductMaintenanceType + '</td>';
             rowHTML += '<td class="text-nowrap">' + maintenanceFeeValue + '</td>';

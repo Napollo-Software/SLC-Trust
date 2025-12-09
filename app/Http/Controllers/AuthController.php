@@ -1335,7 +1335,13 @@ class AuthController extends Controller
         // Note: Laravel Excel converts headers to snake_case, so "User Account" becomes "user_account"
         $add_balance             = $this->parseNumeric($row['add_balance'] ?? null);
         $payment_type            = $this->parseString($row['payment_type'] ?? null);
-        $reference_number        = $this->parseString($row['reference_number'] ?? null);
+        
+        // Get reference number - handle comma-separated header "Transaction No, Card Number, Check No"
+        // Laravel Excel will convert this to snake_case, so check multiple possible keys
+        $reference_number = $this->parseString($row['reference_number'] ?? 
+                                                $row['transaction_no_card_number_check_no'] ?? 
+                                                $row['transaction no, card number, check no'] ?? null);
+        
         $registration_fee_amount = $this->parseNumeric($row['registration_fee_amount'] ?? null);
         $deduct_maintenance_type = $this->parseString($row['deduct_maintenance_type'] ?? null);
         $maintenance_fee_value   = $this->parseNumeric($row['maintenance_fee_value'] ?? null);
@@ -1608,6 +1614,10 @@ class AuthController extends Controller
             'Payment Type' => 'payment_type',
             'payment type' => 'payment_type',
             'PaymentType' => 'payment_type',
+            'Transaction No, Card Number, Check No' => 'reference_number',
+            'transaction no, card number, check no' => 'reference_number',
+            'TransactionNo, CardNumber, CheckNo' => 'reference_number',
+            // Keep old reference_number for backward compatibility
             'Reference Number' => 'reference_number',
             'reference number' => 'reference_number',
             'ReferenceNumber' => 'reference_number',
