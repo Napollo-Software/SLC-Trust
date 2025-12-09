@@ -26,7 +26,7 @@
     .swal2-cancel {
         background-color: red !important;
     }
-    
+
     /* Improved readability for status messages */
     .status-message-success {
         color: #155724 !important;
@@ -37,7 +37,7 @@
         border-left: 3px solid #28a745;
         display: inline-block;
     }
-    
+
     .status-message-warning {
         color: #856404 !important;
         background-color: #fff3cd;
@@ -47,7 +47,7 @@
         border-left: 3px solid #ffc107;
         display: inline-block;
     }
-    
+
     .status-message-error {
         color: #721c24 !important;
         background-color: #f8d7da;
@@ -57,7 +57,7 @@
         border-left: 3px solid #dc3545;
         display: inline-block;
     }
-    
+
     .status-message-info {
         color: #004085 !important;
         background-color: #d1ecf1;
@@ -67,7 +67,7 @@
         border-left: 3px solid #17a2b8;
         display: inline-block;
     }
-    
+
     /* Enhanced badge styles for better visibility */
     .badge.bg-success {
         background-color: #28a745 !important;
@@ -76,7 +76,7 @@
         padding: 6px 12px;
         font-size: 0.875rem;
     }
-    
+
     .badge.bg-warning {
         background-color: #ffc107 !important;
         color: #000 !important;
@@ -84,7 +84,7 @@
         padding: 6px 12px;
         font-size: 0.875rem;
     }
-    
+
     .badge.bg-danger {
         background-color: #dc3545 !important;
         color: #fff !important;
@@ -92,7 +92,7 @@
         padding: 6px 12px;
         font-size: 0.875rem;
     }
-    
+
     .badge.bg-secondary {
         background-color: #6c757d !important;
         color: #fff !important;
@@ -609,7 +609,7 @@
                 $cells.eq(3).html('<strong class="info-column-cell">N/A</strong>');
                 console.log('No current balance data - user may not exist');
             }
-            
+
             // Update enrollment fee status if available
             // Only show if user exists and details are available
             if (result.details && result.details.enrollment_fee_done !== null && result.details.enrollment_fee_done !== undefined) {
@@ -781,27 +781,32 @@
             }
 
             // Get informational columns - try normalized and original keys
-            // Note: Current Balance and Enrollment Fee should come from backend validation, not Excel file
-            // We'll show "N/A" initially and update from backend validation results
-            // This ensures we don't show incorrect data if user doesn't exist
-            var currentBalance = 'N/A'; // Will be updated by backend validation
-            
+            var currentBalance = row['current_balance'] || row['Current Balance'] || row['current balance'] || '';
+            if (currentBalance !== '' && currentBalance !== null && currentBalance !== undefined) {
+                // Format as currency if it's a number
+                if (!isNaN(parseFloat(currentBalance))) {
+                    currentBalance = '$' + parseFloat(currentBalance).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                }
+            } else {
+                currentBalance = 'N/A';
+            }
+
             var enrollmentFeeDone = row['enrollment_fee_already_done'] || row['Enrollment Fee Already Done'] || row['enrollment fee already done'] || '';
             if (enrollmentFeeDone !== null && enrollmentFeeDone !== undefined) {
                 enrollmentFeeDone = String(enrollmentFeeDone).trim();
             }
             if (enrollmentFeeDone === '') {
-                enrollmentFeeDone = 'N/A'; // Will be updated by backend validation
+                enrollmentFeeDone = 'N/A';
             }
 
             // Get transaction data - try normalized and original keys
             // Only parse if value exists, otherwise keep as empty
             var addBalanceRaw = row['add_balance'] || row['Add Balance'] || row['add balance'] || '';
             var addBalance = (addBalanceRaw !== null && addBalanceRaw !== undefined && addBalanceRaw !== '') ? (parseFloat(addBalanceRaw) || 0) : null;
-            
+
             var paymentType = (row['payment_type'] || row['Payment Type'] || row['payment type'] || '').toString().toLowerCase().trim();
             if (paymentType === '') paymentType = null;
-            
+
             var referenceNumber = row['reference_number'] || row['Reference Number'] || row['reference number'] || '';
             if (referenceNumber !== null && referenceNumber !== undefined) {
                 referenceNumber = String(referenceNumber).trim();
@@ -809,13 +814,13 @@
             } else {
                 referenceNumber = null;
             }
-            
+
             var registrationFeeAmountRaw = row['registration_fee_amount'] || row['Registration Fee Amount'] || row['registration fee amount'] || '';
             var registrationFeeAmount = (registrationFeeAmountRaw !== null && registrationFeeAmountRaw !== undefined && registrationFeeAmountRaw !== '') ? (parseFloat(registrationFeeAmountRaw) || 0) : null;
-            
+
             var deductMaintenanceType = (row['deduct_maintenance_type'] || row['Deduct Maintenance Type'] || row['deduct maintenance type'] || '').toString().toLowerCase().trim();
             if (deductMaintenanceType === '') deductMaintenanceType = null;
-            
+
             var maintenanceFeeValueRaw = row['maintenance_fee_value'] || row['Maintenance Fee Value'] || row['maintenance fee value'] || '';
             var maintenanceFeeValue = (maintenanceFeeValueRaw !== null && maintenanceFeeValueRaw !== undefined && maintenanceFeeValueRaw !== '') ? (parseFloat(maintenanceFeeValueRaw) || 0) : null;
 
@@ -984,7 +989,7 @@
             var displayMaintenanceFeeValue = (maintenanceFeeValue !== null && maintenanceFeeValue !== undefined && maintenanceFeeValue !== 0) ? maintenanceFeeValue.toFixed(2) : '';
             var displayDateOfTransaction = (dateOfTransaction !== null && dateOfTransaction !== undefined && dateOfTransaction !== '') ? dateOfTransaction : '';
             var displaySendRemaining = (sendRemaining !== null && sendRemaining !== undefined && sendRemaining !== '') ? sendRemaining : '';
-            
+
             var rowHTML = '<tr style="background-color: lavender;" data-valid="' + isValid + '" data-row-index="' + index + '">';
             rowHTML += '<td class="text-nowrap"><span class="badge bg-' + color + '">' + status + '</span></td>';
             rowHTML += '<td class="text-nowrap">' + userAccount + '</td>';
