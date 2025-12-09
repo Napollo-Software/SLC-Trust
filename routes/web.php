@@ -268,7 +268,7 @@ Route::get('/view_user/{id}', [AuthController::class, 'view_user'])->name('view_
 Route::get('/bulk_upload_transactions', [AuthController::class, 'bulk_upload_view'])->name('bulk.upload.transactions')->middleware(['isLoggedIn', 'permission:Deposit']);
 Route::post('/bulk_upload_transactions', [AuthController::class, 'bulk_add_user_balance'])->name('bulk.add.user.balance')->middleware(['isLoggedIn', 'permission:Deposit']);
 Route::post('/bulk_upload_validate', [AuthController::class, 'validate_bulk_upload'])->name('bulk.upload.validate')->middleware(['isLoggedIn', 'permission:Deposit']);
-Route::get('/bulk_transaction_template', [AuthController::class, 'downloadBulkTransactionTemplate'])->name('bulk.transaction.template.download');
+Route::get('/bulk_transaction_template', [AuthController::class, 'downloadBulkTransactionTemplate'])->name('bulk.transaction.template.download')->middleware(['isLoggedIn', 'permission:Deposit']);
 
 Route::get('/show_user/{id}', [AuthController::class, 'show_user'])->name('show_user')->middleware(['isLoggedIn',]);
 

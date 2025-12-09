@@ -112,10 +112,10 @@
 
     <!-- Table Section -->
     <div class="card mt-3 mb-5">
-        <div class="card-header d-flex justify-content-Between align-items-center flex-wrap gap-2 mb-0 pb-2">
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2 mb-0 pb-2">
             <h5 class="mb-0">File Details</h5>
             <div class="d-flex gap-2">
-                <a href="{{ route('bulk.transaction.template.download') }}" class="btn btn-info">Download Template</a>
+                <a href="{{ route('bulk.transaction.template.download') }}" class="btn btn-info" id="downloadTemplateBtn" target="_blank">Download Template</a>
                 <button class="btn btn-primary upload-btn" disabled>Upload</button>
                 <button id="clear_form" class="btn btn-secondary"><i class="bx bx-trash"></i>Clear</button>
             </div>
@@ -215,7 +215,7 @@
                 if (row.hasOwnProperty(key)) {
                     var normalizedKey;
                     var trimmedKey = String(key).trim(); // Trim whitespace from key
-                    
+
                     // Check if trimmed key exists in map
                     if (columnMap.hasOwnProperty(trimmedKey)) {
                         normalizedKey = columnMap[trimmedKey];
@@ -235,7 +235,7 @@
                         }
                     }
                     normalizedRow[normalizedKey] = row[key];
-                    
+
                     // Log first row mapping for debugging
                     if (index === 0) {
                         console.log("Mapped: '" + key + "' (trimmed: '" + trimmedKey + "') -> '" + normalizedKey + "' = " + row[key]);
@@ -248,7 +248,7 @@
         console.log('Normalized first row keys:', Object.keys(normalizedData[0] || {}));
         console.log('Normalized first row sample:', normalizedData[0]);
         console.log('=== NORMALIZATION COMPLETE ===');
-        
+
         return normalizedData;
     }
 
@@ -308,9 +308,9 @@
         if (!value || value === '' || value === null || value === undefined) {
             return '';
         }
-        
+
         var str = String(value).trim();
-        
+
         // Try to parse as number first - JavaScript can handle scientific notation
         if (!isNaN(str) && isFinite(str)) {
             var num = parseFloat(str);
@@ -324,12 +324,12 @@
             // Regular number, return as string
             return String(num);
         }
-        
+
         // Check if it's in scientific notation format (contains 'e', 'E', or '+' followed by digits)
         // Pattern: number followed by e/E/+ and then digits (e.g., "3.432423+19", "3.432423e+19", "3.432423E+19")
         var scientificNotationPattern = /^([+-]?\d*\.?\d+)[eE]?\+?(\d+)$/;
         var match = str.match(scientificNotationPattern);
-        
+
         if (match) {
             try {
                 var base = parseFloat(match[1]);
@@ -343,7 +343,7 @@
                 return str;
             }
         }
-        
+
         // Not scientific notation, return as is
         return str;
     }
@@ -361,6 +361,10 @@
 
     $(document).on('click', '.upload-btn', function() {
         var fileInput = document.getElementById('excelfile');
+        if (!fileInput) {
+            console.warn('File input element not found');
+            return;
+        }
         if (!fileInput || !fileInput.files[0]) {
             swal.fire('Error', 'Please select a file first', 'error');
             return;
@@ -450,17 +454,17 @@
                             defval: '', // Default value for empty cells
                             raw: false  // Convert numbers to strings for consistency
                         });
-                        
+
                         console.log('=== EXCEL FILE READ ===');
                         console.log('Sheet name:', y);
                         console.log('Total rows:', exceljson.length);
                         console.log('First row (before normalization):', exceljson[0]);
                         console.log('First row keys (before normalization):', Object.keys(exceljson[0] || {}));
-                        
+
                         if (exceljson.length > 0 && cnt == 0) {
                             // Normalize column names to snake_case (matching backend expectations)
                             exceljson = normalizeColumnNames(exceljson);
-                            
+
                             console.log('First row (after normalization):', exceljson[0]);
                             console.log('First row keys (after normalization):', Object.keys(exceljson[0] || {}));
                             console.log('user_account value:', exceljson[0]['user_account']);
@@ -533,15 +537,15 @@
         console.log('Total validation results:', validationResults.length);
         console.log('Total table rows:', $('#exceltable tbody tr').length);
         console.log('Validation map:', validationMap);
-        
+
         // Update each row in the table
         $('#exceltable tbody tr').each(function(index) {
             var rowNumber = index + 2; // Row number in Excel (accounting for header)
             var result = validationMap[rowNumber];
-            
+
             var $row = $(this);
             var $cells = $row.find('td');
-            
+
             if ($cells.length < 14) {
                 console.warn('Row', rowNumber, 'has only', $cells.length, 'cells, expected 14. Skipping update.');
                 return;
@@ -567,7 +571,7 @@
                 $cells.eq(2).text(result.user_name); // Name column (index 2)
                 console.log('Updated Name column (index 2) to:', result.user_name);
             }
-            
+
             // Update current balance from details if available
             if (result.details && result.details.current_balance) {
                 var balanceStr = String(result.details.current_balance).replace(/,/g, '');
@@ -578,7 +582,7 @@
                     console.log('Updated Current Balance to:', formattedBalance);
                 }
             }
-            
+
             // Update transaction data columns from details
             if (result.details) {
                 // Add Balance (column index 5)
@@ -588,17 +592,17 @@
                         $cells.eq(5).text(deposit.toFixed(2));
                     }
                 }
-                
+
                 // Payment Type (column index 6)
                 if (result.details.payment_type && result.details.payment_type !== 'N/A') {
                     $cells.eq(6).text(result.details.payment_type);
                 }
-                
+
                 // Reference Number (column index 7) - single column with comma-separated header
                 if (result.details.reference_number && result.details.reference_number !== 'N/A') {
                     $cells.eq(7).text(result.details.reference_number);
                 }
-                
+
                 // Registration Fee Amount (column index 8)
                 if (result.details.registration_fee && result.details.registration_fee !== '0.00' && result.details.registration_fee !== 'N/A') {
                     var regFee = parseFloat(String(result.details.registration_fee).replace(/,/g, ''));
@@ -761,16 +765,16 @@
             // Get transaction data - try normalized and original keys
             var addBalance = parseFloat(row['add_balance'] || row['Add Balance'] || row['add balance'] || 0) || 0;
             var paymentType = (row['payment_type'] || row['Payment Type'] || row['payment type'] || '').toString().toLowerCase().trim();
-            
+
             // Get reference number - handle comma-separated header "Transaction No, Card Number, Check No"
             // Try multiple possible key formats
-            var referenceNumber = row['reference_number'] || 
-                                  row['Transaction No, Card Number, Check No'] || 
+            var referenceNumber = row['reference_number'] ||
+                                  row['Transaction No, Card Number, Check No'] ||
                                   row['transaction no, card number, check no'] ||
                                   row['transaction_no_card_number_check_no'] ||
-                                  row['Reference Number'] || 
+                                  row['Reference Number'] ||
                                   row['reference number'] || '';
-            
+
             if (referenceNumber !== null && referenceNumber !== undefined) {
                 referenceNumber = String(referenceNumber).trim();
                 // Convert scientific notation to full number (e.g., "3.432423+19" -> "34324230000000000000")
@@ -799,13 +803,13 @@
                         break;
                     }
                 }
-                
+
                 if (!hasAnyData) {
                     // Completely empty row - skip it
                     console.log('Skipping completely empty row:', index);
                     return;
                 }
-                
+
                 // Row has some data but no user_account - show as error
                 status = "Error";
                 color = 'danger';
@@ -960,5 +964,21 @@
         $('.pending-row').text('Validating...');
         $('.upload-btn').attr('disabled', true);
     }
+
+    // Error handler for PerfectScrollbar and other initialization errors
+    window.addEventListener('error', function(e) {
+        // Suppress PerfectScrollbar errors if element doesn't exist
+        if (e.message && e.message.includes('PerfectScrollbar')) {
+            console.warn('PerfectScrollbar initialization skipped:', e.message);
+            e.preventDefault();
+            return true;
+        }
+        // Suppress style property errors on null elements
+        if (e.message && e.message.includes("Cannot read properties of null") && e.message.includes("style")) {
+            console.warn('Style property access on null element:', e.message);
+            e.preventDefault();
+            return true;
+        }
+    }, true);
 </script>
 @endsection
