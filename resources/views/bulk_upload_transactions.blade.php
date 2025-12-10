@@ -186,12 +186,10 @@
 
     <!-- Table Section -->
     <div class="card mt-3 mb-5">
-        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2 mb-0 pb-2 w-100">
-            <div>
-                <h5 class="mb-0">File Details</h5>
-            </div>
+        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2 mb-0 pb-2">
+            <h5 class="mb-0">File Details</h5>
             <div class="d-flex gap-2">
-                <a href="{{ route('bulk.transaction.template.download') }}" class="btn btn-info">Download Template</a>
+                <a href="{{ route('bulk.transaction.template.download') }}" class="btn btn-info" id="downloadTemplateBtn">Download Template</a>
                 <button class="btn btn-primary upload-btn" disabled>Upload</button>
                 <button id="clear_form" class="btn btn-secondary"><i class="bx bx-trash"></i>Clear</button>
             </div>
@@ -208,7 +206,7 @@
                             <th>Enrollment Fee Already Done</th>
                             <th>Add Balance</th>
                             <th>Payment Type</th>
-                            <th>Reference Number</th>
+                            <th>Transaction No, Card Number, Check No</th>
                             <th>Registration Fee Amount</th>
                             <th>Deduct Maintenance Type</th>
                             <th>Maintenance Fee Value</th>
@@ -254,12 +252,19 @@
             'Enrollment Fee Already Done': 'enrollment_fee_already_done',
             'enrollment fee already done': 'enrollment_fee_already_done',
             'EnrollmentFeeAlreadyDone': 'enrollment_fee_already_done',
+            'Enrollment to One Time Registration Fee': 'enrollment_fee_already_done',
+            'enrollment to one time registration fee': 'enrollment_fee_already_done',
+            'EnrollmentToOneTimeRegistrationFee': 'enrollment_fee_already_done',
             'Add Balance': 'add_balance',
             'add balance': 'add_balance',
             'AddBalance': 'add_balance',
             'Payment Type': 'payment_type',
             'payment type': 'payment_type',
             'PaymentType': 'payment_type',
+            'Transaction No, Card Number, Check No': 'reference_number',
+            'transaction no, card number, check no': 'reference_number',
+            'TransactionNo, CardNumber, CheckNo': 'reference_number',
+            // Keep old reference_number for backward compatibility
             'Reference Number': 'reference_number',
             'reference number': 'reference_number',
             'ReferenceNumber': 'reference_number',
@@ -371,6 +376,55 @@
         return dateValue;
     }
 
+    /**
+     * Convert scientific notation (e.g., "3.432423+19", "3.432423e+19") to full number string
+     * @param {string|number} value - Value that might be in scientific notation
+     * @returns {string} - Full number as string, or original value if not scientific notation
+     */
+    function convertScientificNotation(value) {
+        if (!value || value === '' || value === null || value === undefined) {
+            return '';
+        }
+
+        var str = String(value).trim();
+
+        // Try to parse as number first - JavaScript can handle scientific notation
+        if (!isNaN(str) && isFinite(str)) {
+            var num = parseFloat(str);
+            // Check if it's a very large number that might have been in scientific notation
+            // If the string representation differs from the number, it was likely scientific notation
+            if (Math.abs(num) >= 1e15) {
+                // Very large number - convert to string without scientific notation
+                // Use toFixed(0) to avoid decimal places for reference numbers
+                return num.toFixed(0);
+            }
+            // Regular number, return as string
+            return String(num);
+        }
+
+        // Check if it's in scientific notation format (contains 'e', 'E', or '+' followed by digits)
+        // Pattern: number followed by e/E/+ and then digits (e.g., "3.432423+19", "3.432423e+19", "3.432423E+19")
+        var scientificNotationPattern = /^([+-]?\d*\.?\d+)[eE]?\+?(\d+)$/;
+        var match = str.match(scientificNotationPattern);
+
+        if (match) {
+            try {
+                var base = parseFloat(match[1]);
+                var exponent = parseInt(match[2]);
+                // Convert to full number
+                var fullNumber = base * Math.pow(10, exponent);
+                // Return as string to preserve all digits (no scientific notation)
+                return fullNumber.toFixed(0); // Use toFixed(0) to avoid decimal places for reference numbers
+            } catch (e) {
+                // If conversion fails, return original
+                return str;
+            }
+        }
+
+        // Not scientific notation, return as is
+        return str;
+    }
+
     $(document).on('click', '#clear_form', function(e) {
         $('.upload-file').removeClass('d-none');
         $('.upload-result').addClass('d-none');
@@ -384,6 +438,10 @@
 
     $(document).on('click', '.upload-btn', function() {
         var fileInput = document.getElementById('excelfile');
+        if (!fileInput) {
+            console.warn('File input element not found');
+            return;
+        }
         if (!fileInput || !fileInput.files[0]) {
             swal.fire('Error', 'Please select a file first', 'error');
             return;
@@ -526,6 +584,14 @@
                 console.log('Validation response:', response);
                 if (response.success && response.results) {
                     console.log('Validation results:', response.results);
+                    // Debug: Check if enrollment_fee_done is in results
+                    response.results.forEach(function(result, idx) {
+                        if (result.details && result.details.enrollment_fee_done !== undefined) {
+                            console.log('Row', result.row_number, 'has enrollment_fee_done:', result.details.enrollment_fee_done);
+                        } else {
+                            console.warn('Row', result.row_number, 'MISSING enrollment_fee_done in details. Details:', result.details);
+                        }
+                    });
                     updateTableWithValidationResults(response.results);
                 } else {
                     swal.fire('Error', response.message || 'Validation failed', 'error');
@@ -610,15 +676,31 @@
                 console.log('No current balance data - user may not exist');
             }
 
-            // Update enrollment fee status if available
-            // Only show if user exists and details are available
-            if (result.details && result.details.enrollment_fee_done !== null && result.details.enrollment_fee_done !== undefined) {
-                var enrollmentStatus = result.details.enrollment_fee_done === true || result.details.enrollment_fee_done === 'Yes' || result.details.enrollment_fee_done === 'yes' ? 'Already Done' : 'Not Done';
-                $cells.eq(4).text(enrollmentStatus);
-            } else if (result.status === 'Error' && result.errors && result.errors.length > 0 && result.errors[0].includes('not found')) {
-                // User doesn't exist - show N/A
-                $cells.eq(4).text('N/A');
+            // Update enrollment fee status from details - ALWAYS use backend value (source of truth from database)
+            // Column D is read-only and should only show Yes/No based on whether user already has enrollment fee
+            var enrollmentFeeStatus = 'N/A'; // Default fallback
+
+            if (result.details && result.details.enrollment_fee_done !== undefined && result.details.enrollment_fee_done !== null) {
+                enrollmentFeeStatus = String(result.details.enrollment_fee_done).trim();
+                // Normalize to Yes/No format
+                if (enrollmentFeeStatus.toLowerCase() === 'yes' || enrollmentFeeStatus === '1' || enrollmentFeeStatus === 'true') {
+                    enrollmentFeeStatus = 'Yes';
+                } else if (enrollmentFeeStatus.toLowerCase() === 'no' || enrollmentFeeStatus === '0' || enrollmentFeeStatus === 'false') {
+                    enrollmentFeeStatus = 'No';
+                } else {
+                    // If value is not Yes/No, default to No
+                    enrollmentFeeStatus = 'No';
+                }
+                console.log('Updated Enrollment Fee status to:', enrollmentFeeStatus, '(from database)');
+            } else if (result.user_account) {
+                // If user exists but enrollment_fee_done is not in details, this shouldn't happen
+                // Backend should always return enrollment_fee_done for existing users
+                console.warn('Enrollment fee status not found in validation result for user:', result.user_account, 'Result:', result);
+                // Keep as N/A - backend should have provided this value
             }
+
+            // Always update the cell, even if it's N/A (for users that don't exist)
+            $cells.eq(4).text(enrollmentFeeStatus); // Enrollment Fee Already Done column (index 4)
 
             // Update transaction data columns from details
             if (result.details) {
@@ -635,7 +717,7 @@
                     $cells.eq(6).text(result.details.payment_type);
                 }
 
-                // Reference Number (column index 7)
+                // Reference Number (column index 7) - single column with comma-separated header
                 if (result.details.reference_number && result.details.reference_number !== 'N/A') {
                     $cells.eq(7).text(result.details.reference_number);
                 }
@@ -791,12 +873,27 @@
                 currentBalance = 'N/A';
             }
 
-            var enrollmentFeeDone = row['enrollment_fee_already_done'] || row['Enrollment Fee Already Done'] || row['enrollment fee already done'] || '';
+            // Column D: Enrollment Fee Already Done - This is read-only and should only show Yes/No from database
+            // Read from Excel file initially (will be overwritten by backend validation)
+            var enrollmentFeeDone = row['enrollment_fee_already_done'] ||
+                                    row['Enrollment Fee Already Done'] ||
+                                    row['enrollment fee already done'] ||
+                                    row['Enrollment to One Time Registration Fee'] ||
+                                    row['enrollment to one time registration fee'] || '';
             if (enrollmentFeeDone !== null && enrollmentFeeDone !== undefined) {
                 enrollmentFeeDone = String(enrollmentFeeDone).trim();
+                // Normalize to Yes/No format - only accept Yes/No values
+                if (enrollmentFeeDone.toLowerCase() === 'yes' || enrollmentFeeDone === '1' || enrollmentFeeDone === 'true') {
+                    enrollmentFeeDone = 'Yes';
+                } else if (enrollmentFeeDone.toLowerCase() === 'no' || enrollmentFeeDone === '0' || enrollmentFeeDone === 'false') {
+                    enrollmentFeeDone = 'No';
+                } else {
+                    // If value is not Yes/No, set to empty (will be updated by backend)
+                    enrollmentFeeDone = '';
+                }
             }
             if (enrollmentFeeDone === '') {
-                enrollmentFeeDone = 'N/A';
+                enrollmentFeeDone = 'N/A'; // Will be updated by backend validation
             }
 
             // Get transaction data - try normalized and original keys
@@ -805,12 +902,20 @@
             var addBalance = (addBalanceRaw !== null && addBalanceRaw !== undefined && addBalanceRaw !== '') ? (parseFloat(addBalanceRaw) || 0) : null;
 
             var paymentType = (row['payment_type'] || row['Payment Type'] || row['payment type'] || '').toString().toLowerCase().trim();
-            if (paymentType === '') paymentType = null;
 
-            var referenceNumber = row['reference_number'] || row['Reference Number'] || row['reference number'] || '';
+            // Get reference number - handle comma-separated header "Transaction No, Card Number, Check No"
+            // Try multiple possible key formats
+            var referenceNumber = row['reference_number'] ||
+                                  row['Transaction No, Card Number, Check No'] ||
+                                  row['transaction no, card number, check no'] ||
+                                  row['transaction_no_card_number_check_no'] ||
+                                  row['Reference Number'] ||
+                                  row['reference number'] || '';
+
             if (referenceNumber !== null && referenceNumber !== undefined) {
                 referenceNumber = String(referenceNumber).trim();
-                if (referenceNumber === '') referenceNumber = null;
+                // Convert scientific notation to full number (e.g., "3.432423+19" -> "34324230000000000000")
+                referenceNumber = convertScientificNotation(referenceNumber);
             } else {
                 referenceNumber = null;
             }
@@ -996,14 +1101,14 @@
             rowHTML += '<td class="text-nowrap">' + name + '</td>';
             rowHTML += '<td class="text-nowrap"><strong>' + currentBalance + '</strong></td>';
             rowHTML += '<td class="text-nowrap">' + enrollmentFeeDone + '</td>';
-            rowHTML += '<td class="text-nowrap">' + displayAddBalance + '</td>';
-            rowHTML += '<td class="text-nowrap">' + displayPaymentType + '</td>';
-            rowHTML += '<td class="text-nowrap">' + displayReferenceNumber + '</td>';
-            rowHTML += '<td class="text-nowrap">' + displayRegistrationFee + '</td>';
-            rowHTML += '<td class="text-nowrap">' + displayDeductMaintenanceType + '</td>';
-            rowHTML += '<td class="text-nowrap">' + displayMaintenanceFeeValue + '</td>';
-            rowHTML += '<td class="text-nowrap">' + displayDateOfTransaction + '</td>';
-            rowHTML += '<td class="text-nowrap">' + displaySendRemaining + '</td>';
+            rowHTML += '<td class="text-nowrap">' + addBalance + '</td>';
+            rowHTML += '<td class="text-nowrap">' + paymentType + '</td>';
+            rowHTML += '<td class="text-nowrap">' + referenceNumber + '</td>'; // Transaction No, Card Number, Check No
+            rowHTML += '<td class="text-nowrap">' + registrationFeeAmount + '</td>';
+            rowHTML += '<td class="text-nowrap">' + deductMaintenanceType + '</td>';
+            rowHTML += '<td class="text-nowrap">' + maintenanceFeeValue + '</td>';
+            rowHTML += '<td class="text-nowrap">' + dateOfTransaction + '</td>';
+            rowHTML += '<td class="text-nowrap">' + (sendRemaining || 'No') + '</td>';
             // Show error message or loading state (will be updated by backend validation)
             var errorDisplay = errorMessage ? '<span class="status-message-error">' + errorMessage + '</span>' : '<span class="status-message-info">Validating...</span>';
             rowHTML += '<td class="text-nowrap">' + errorDisplay + '</td>';
@@ -1018,5 +1123,21 @@
         $('.pending-row').text('Validating...');
         $('.upload-btn').attr('disabled', true);
     }
+
+    // Error handler for PerfectScrollbar and other initialization errors
+    window.addEventListener('error', function(e) {
+        // Suppress PerfectScrollbar errors if element doesn't exist
+        if (e.message && e.message.includes('PerfectScrollbar')) {
+            console.warn('PerfectScrollbar initialization skipped:', e.message);
+            e.preventDefault();
+            return true;
+        }
+        // Suppress style property errors on null elements
+        if (e.message && e.message.includes("Cannot read properties of null") && e.message.includes("style")) {
+            console.warn('Style property access on null element:', e.message);
+            e.preventDefault();
+            return true;
+        }
+    }, true);
 </script>
 @endsection

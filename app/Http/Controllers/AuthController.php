@@ -1325,17 +1325,32 @@ class AuthController extends Controller
                 'status'       => 'Error',
                 'errors'       => ["User with Account Number {$user_id} not found"],
                 'warnings' => [],
-                'details'  => [],
+                'details'  => [
+                    'current_balance'  => '0.00',
+                    'enrollment_fee_done' => 'N/A', // User doesn't exist, so can't determine enrollment fee status
+                ],
             ];
         }
 
         Log::info("Row {$rowNumber}: User found - {$user->name} (ID: {$user->id})");
 
+        // Check enrollment fee status from database (Column D is read-only, always shows Yes/No based on database)
+        // This value is never read from Excel - it's always determined by checking if user has enrollment fee transaction
+        $enrollment_fee_done = $user->transactions()
+            ->where('type', Transaction::EnrollmentFee)
+            ->exists();
+
         // Parse values (matching import logic)
         // Note: Laravel Excel converts headers to snake_case, so "User Account" becomes "user_account"
         $add_balance             = $this->parseNumeric($row['add_balance'] ?? null);
         $payment_type            = $this->parseString($row['payment_type'] ?? null);
-        $reference_number        = $this->parseString($row['reference_number'] ?? null);
+        
+        // Get reference number - handle comma-separated header "Transaction No, Card Number, Check No"
+        // Laravel Excel will convert this to snake_case, so check multiple possible keys
+        $reference_number = $this->parseString($row['reference_number'] ?? 
+                                                $row['transaction_no_card_number_check_no'] ?? 
+                                                $row['transaction no, card number, check no'] ?? null);
+        
         $registration_fee_amount = $this->parseNumeric($row['registration_fee_amount'] ?? null);
         $deduct_maintenance_type = $this->parseString($row['deduct_maintenance_type'] ?? null);
         $maintenance_fee_value   = $this->parseNumeric($row['maintenance_fee_value'] ?? null);
@@ -1352,14 +1367,41 @@ class AuthController extends Controller
         Log::info("Row {$rowNumber}: Flags - has_add_balance: " . ($has_add_balance ? 'true' : 'false') . ", has_maintenance_fee: " . ($has_maintenance_fee ? 'true' : 'false') . ", has_registration_fee: " . ($has_registration_fee ? 'true' : 'false'));
 
         // Check if row is "Pending" - has user account/name but no transaction data
-        $has_any_transaction_data = $has_add_balance || $has_maintenance_fee || $has_registration_fee ||
-                                    !empty($payment_type) || !empty($reference_number) ||
-                                    !empty($date_of_trans_value) || $has_transfer_remaining;
+        // Only actual transaction amounts count (not dates, payment types, or reference numbers alone)
+        // User can have: Add Balance OR Maintenance Fee OR Registration Fee OR any combination
+        $has_any_transaction_data = $has_add_balance || $has_maintenance_fee || $has_registration_fee;
 
-        Log::info("Row {$rowNumber}: has_any_transaction_data = " . ($has_any_transaction_data ? 'true' : 'false'));
+        Log::info("Row {$rowNumber}: has_any_transaction_data = " . ($has_any_transaction_data ? 'true' : 'false') . 
+                  " (add_balance: " . ($has_add_balance ? 'yes' : 'no') . 
+                  ", maintenance_fee: " . ($has_maintenance_fee ? 'yes' : 'no') . 
+                  ", registration_fee: " . ($has_registration_fee ? 'yes' : 'no') . ")");
 
         // If no transaction data is filled, mark as Pending
         if (!$has_any_transaction_data) {
+            // If date, payment_type, or reference_number is provided without transaction amounts, it's an error
+            if (!empty($date_of_trans_value) || !empty($payment_type) || !empty($reference_number)) {
+                $errors[] = "Transaction data (Add Balance, Maintenance Fee, or Registration Fee) is required. Date, Payment Type, and Reference Number can only be used with Add Balance.";
+                $isValid  = false;
+                return [
+                    'row_number'   => $rowNumber,
+                    'user_account' => $user_id,
+                    'user_name'    => $user->full_name(),
+                    'is_valid'     => false,
+                    'can_process'  => false,
+                    'status'       => 'Error',
+                    'errors'       => $errors,
+                    'warnings'     => [],
+                    'details'      => [
+                        'current_balance'  => number_format(userBalance($user->id), 2),
+                        'deposit_amount'   => '0.00',
+                        'maintenance_fee'  => '0.00',
+                        'registration_fee' => '0.00',
+                        'payment_type'     => 'N/A',
+                        'reference_number' => 'N/A',
+                    ],
+                ];
+            }
+            
             Log::info("Row {$rowNumber}: Marked as Pending - no transaction data");
             return [
                 'row_number'   => $rowNumber,
@@ -1372,6 +1414,7 @@ class AuthController extends Controller
                 'warnings'     => [],
                 'details'      => [
                     'current_balance'  => number_format(userBalance($user->id), 2),
+                    'enrollment_fee_done' => ($user->transactions()->where('type', Transaction::EnrollmentFee)->exists()) ? 'Yes' : 'No',
                     'deposit_amount'   => '0.00',
                     'maintenance_fee'  => '0.00',
                     'registration_fee' => '0.00',
@@ -1379,6 +1422,25 @@ class AuthController extends Controller
                     'reference_number' => 'N/A',
                 ],
             ];
+        }
+
+        // Validate: Date, Payment Type, and Reference Number should only be present when Add Balance > 0
+        // Maintenance Fee and Registration Fee can use current balance, so they don't need these fields
+        if (!empty($date_of_trans_value) && !$has_add_balance) {
+            $errors[] = "Date of Transaction should only be provided when Add Balance > 0";
+            $isValid  = false;
+        }
+        if (!empty($payment_type) && !$has_add_balance) {
+            $errors[] = "Payment Type should only be provided when Add Balance > 0";
+            $isValid  = false;
+        }
+        if (!empty($reference_number) && !$has_add_balance) {
+            $errors[] = "Reference Number should only be provided when Add Balance > 0";
+            $isValid  = false;
+        }
+        if ($has_transfer_remaining && !$has_add_balance) {
+            $errors[] = "'Send Remaining Amount to Credit Card' can only be used when Add Balance > 0";
+            $isValid  = false;
         }
 
         // Check user status
@@ -1449,10 +1511,7 @@ class AuthController extends Controller
             $errors[] = "Send Remaining Amount must be 'yes' or 'no'";
             $isValid  = false;
         }
-        if ($has_transfer_remaining && ! $has_add_balance) {
-            $errors[] = "'Send Remaining Amount to Credit Card' can only be used when Add Balance > 0";
-            $isValid  = false;
-        }
+        // Note: Validation for "Send Remaining Amount to Credit Card" requiring Add Balance is already done above
 
         // Calculate maintenance fee (matching single user logic)
         $maintenance_fee_amount = 0;
@@ -1527,6 +1586,7 @@ class AuthController extends Controller
             'warnings'     => $warnings,
             'details'      => [
                 'current_balance'  => number_format($current_user_balance, 2),
+                'enrollment_fee_done' => $enrollment_fee_done ? 'Yes' : 'No',
                 'deposit_amount'   => number_format($add_balance, 2),
                 'maintenance_fee'  => number_format($maintenance_fee_amount, 2),
                 'registration_fee' => number_format($registration_fee_amount, 2),
@@ -1602,12 +1662,19 @@ class AuthController extends Controller
             'Enrollment Fee Already Done' => 'enrollment_fee_already_done',
             'enrollment fee already done' => 'enrollment_fee_already_done',
             'EnrollmentFeeAlreadyDone' => 'enrollment_fee_already_done',
+            'Enrollment to One Time Registration Fee' => 'enrollment_fee_already_done',
+            'enrollment to one time registration fee' => 'enrollment_fee_already_done',
+            'EnrollmentToOneTimeRegistrationFee' => 'enrollment_fee_already_done',
             'Add Balance' => 'add_balance',
             'add balance' => 'add_balance',
             'AddBalance' => 'add_balance',
             'Payment Type' => 'payment_type',
             'payment type' => 'payment_type',
             'PaymentType' => 'payment_type',
+            'Transaction No, Card Number, Check No' => 'reference_number',
+            'transaction no, card number, check no' => 'reference_number',
+            'TransactionNo, CardNumber, CheckNo' => 'reference_number',
+            // Keep old reference_number for backward compatibility
             'Reference Number' => 'reference_number',
             'reference number' => 'reference_number',
             'ReferenceNumber' => 'reference_number',

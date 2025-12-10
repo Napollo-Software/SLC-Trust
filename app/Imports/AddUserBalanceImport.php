@@ -88,7 +88,13 @@ class AddUserBalanceImport implements ToCollection, WithHeadingRow, WithStartRow
         // Extract and validate values
         $add_balance = $this->parseNumeric($row['add_balance'] ?? null);
         $payment_type = $this->parseString($row['payment_type'] ?? null);
-        $reference_number = $this->parseString($row['reference_number'] ?? null);
+        
+        // Get reference number - handle comma-separated header "Transaction No, Card Number, Check No"
+        // Laravel Excel will convert this to snake_case, so check multiple possible keys
+        $reference_number = $this->parseString($row['reference_number'] ?? 
+                                                $row['transaction_no_card_number_check_no'] ?? 
+                                                $row['transaction no, card number, check no'] ?? null);
+        
         $registration_fee_amount = $this->parseNumeric($row['registration_fee_amount'] ?? null);
         $deduct_maintenance_type = $this->parseString($row['deduct_maintenance_type'] ?? null);
         $maintenance_fee_value = $this->parseNumeric($row['maintenance_fee_value'] ?? null);
