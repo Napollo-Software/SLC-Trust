@@ -24,7 +24,7 @@ class BulkTransactionTemplateExport implements
             'User Account',                        // user id or account number
             'Name',
             'Current Balance',                      // Current user balance (informational)
-            'Enrollment to One Time Registration Fee',         // Enrollment fee status (informational)
+            'Enrollment Fee Already Done',         // Enrollment fee status: Yes if user already has enrollment fee, No if not (read-only, informational)
             'Add Balance',
             'Payment Type',                        // ach, card, check
             'Transaction No, Card Number, Check No', // Reference numbers (comma-separated header)
@@ -93,13 +93,14 @@ class BulkTransactionTemplateExport implements
         $current_balance = $this->balances[$user->id] ?? 0.0;
 
         // Check enrollment fee from pre-calculated array (no query needed)
+        // Column D: Always shows Yes/No based on whether user already has enrollment fee in database (read-only)
         $enrollment_fee_done = isset($this->enrollmentFees[$user->id]);
 
         return [
             $user->id,                                    // user_account
             $user->full_name(),                          // name
             $current_balance,                             // current_balance (numeric value, Excel will format as currency)
-            $enrollment_fee_done ? 'Yes' : 'No',         // enrollment_fee_already_done
+            $enrollment_fee_done ? 'Yes' : 'No',         // enrollment_fee_already_done (read-only, from database)
             '',                                          // add_balance
             '',                                          // payment_type
             '',                                          // reference_number (Transaction No, Card Number, or Check No based on payment type)
