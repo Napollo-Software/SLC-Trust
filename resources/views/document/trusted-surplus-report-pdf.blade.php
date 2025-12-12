@@ -140,8 +140,10 @@
                         $locationParts = array_filter([
                         $user->city ?? null,
                         $user->state ?? null,
-                        $user->zip_code ?? null,
-                        ]);
+                        $user->zipcode ?? null,
+                        ], function($value) {
+                            return !is_null($value) && trim($value) !== '';
+                        });
                         @endphp
                         @if (!empty($locationParts))
                         <p style="line-height: 0.8; margin: 0; font-family: 'Poppins-SemiBold'">
