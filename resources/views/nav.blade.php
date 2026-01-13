@@ -371,12 +371,14 @@
         // window.addEventListener('load', removeDisplayNone);
         window.addEventListener("load", function () {
             var loader = document.getElementById("loader");
-            loader.style.display = "block";
+            if (loader) {
+                loader.style.display = "block";
 
-            // Hide the loader after a certain duration (e.g., 1 second)
-            setTimeout(function () {
-                loader.style.display = "none";
-            }, 1000); // 1000 milliseconds = 1 second
+                // Hide the loader after a certain duration (e.g., 1 second)
+                setTimeout(function () {
+                    loader.style.display = "none";
+                }, 1000); // 1000 milliseconds = 1 second
+            }
         });
         //print function
         function printDivContent() {

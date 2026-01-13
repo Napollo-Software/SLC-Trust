@@ -305,7 +305,7 @@ $role = $login_user->role;
                 </div>
                 @endif
                 @if ($role == 'Admin')
-                <div class="col">
+                {{-- <div class="col">
                     <a href="{{ url('all_users') }}">
                         <div class="card radius-10 overflow-hidden">
                             <div class="card-body">
@@ -380,7 +380,7 @@ $role = $login_user->role;
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> --}}
                 @endif
                 @if ($login_user->hasPermissionTo('Front Office') || $login_user->hasPermissionTo('Business Statistics'))
                 <div class="{{ $login_user->hasPermissionTo('Business Statistics') ? 'col' : 'col-md-8' }}">
