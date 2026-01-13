@@ -455,7 +455,7 @@ Hampshire',
                                     <label for="form-label">Relationship to Patient</label>
                                     <select name="emergency_relationship" class="form-control select-2">
                                         <option value="">Select One</option>
-                                        @foreach (['child', 'parent', 'friend', 'niece', 'nephew', 'grandson', 'granddaughter', 'brother', 'sister'] as $relation)
+                                         @foreach (['child', 'parent','spouse', 'friend', 'niece', 'nephew', 'grandson', 'granddaughter', 'brother', 'sister'] as $relation)
                                             <option value="{{ $relation }}"
                                                 @if (($Referral->emergency_details->emergency_relationship ?? '') == $relation) selected @endif>
                                                 {{ ucfirst($relation) }}

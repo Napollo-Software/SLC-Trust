@@ -44,7 +44,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="user-account">Payee</label>
+                                <label for="user-account">Vendors/Payees</label>
                                 <div class="form-group">
                                     <select required id="user-account" name="user[]" class="form-control select-2"
                                         style="width: 100%">
@@ -62,9 +62,10 @@
                             <div class="col-md-6 p-2">
                                 <label for="amount-in-number">Amount in Numbers <span
                                         class="text-danger">*</span></label>
-                                <input type="number" required id="amount-in-number"
-                                    class="form-control amount-in-number-details" name="amount_in_number[]" step="0.01"
-                                    min="0.01" max="10000000" placeholder="Amount in numbers">
+                               <input type="text" required id="amount-in-number"
+    class="form-control amount-in-number-details"
+    name="amount_in_number[]" placeholder="Amount in numbers">
+
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -156,20 +157,50 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <script>
+    function sanitizeAmount(input) {
+    // Keep only digits and decimal point
+    input = input.replace(/[^0-9.]/g, "");
+
+    // Allow only one decimal point
+    let firstDot = input.indexOf(".");
+    if (firstDot !== -1) {
+        // Remove all additional dots
+        input =
+            input.substring(0, firstDot + 1) +
+            input.substring(firstDot + 1).replace(/\./g, "");
+    }
+
+    // If decimals > 2 → keep only first 2 (NO ROUNDING, strict)
+    let parts = input.split(".");
+    if (parts.length === 2 && parts[1].length > 2) {
+        parts[1] = parts[1].substring(0, 2);
+        input = parts[0] + "." + parts[1];
+    }
+
+    return input;
+}
+
+$(document).on("input", ".amount-in-number-details", function () {
+    let cleanValue = sanitizeAmount($(this).val());
+    $(this).val(cleanValue);
+
+    let wordField = $(this).closest(".card-body").find(".amount-in-word-details");
+    wordField.val(numberToWords(cleanValue));
+});
+
 function numberToWords(amount) {
-    const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
-    const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen",
-        "Nineteen"
-    ];
-    const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-    const thousands = ["", "Thousand", "Million"];
+    amount = parseFloat(amount);
 
     if (isNaN(amount) || amount <= 0 || amount > 10000000) return "";
 
-    let numStr = parseFloat(amount).toFixed(2); // keep 2 decimal places
-    let parts = numStr.split(".");
-    let integerPart = parseInt(parts[0], 10);
-    let decimalPart = parseInt(parts[1], 10);
+    const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+    const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+    const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+    const scale = ["", "Thousand", "Million", "Billion"];
+
+    let [dollarsStr, centsStr] = amount.toFixed(2).split(".");
+    let intPart = parseInt(dollarsStr);
+    let decimalPart = parseInt(centsStr);
 
     function convertHundreds(num) {
         let str = "";
@@ -188,35 +219,31 @@ function numberToWords(amount) {
         return str.trim();
     }
 
-    let word = "";
+    let words = "";
     let i = 0;
-    while (integerPart > 0) {
-        let chunk = integerPart % 1000;
-        if (chunk) {
-            word = convertHundreds(chunk) + (thousands[i] ? " " + thousands[i] + " " : " ") + word;
+
+    while (intPart > 0) {
+        let chunk = intPart % 1000;
+        if (chunk > 0) {
+            words = convertHundreds(chunk) + " " + scale[i] + " " + words;
         }
-        integerPart = Math.floor(integerPart / 1000);
+        intPart = Math.floor(intPart / 1000);
         i++;
     }
 
-    if (integerPart === 0) {
-        if (decimalPart > 0) {
-            word = convertHundreds(decimalPart) + " Cent";
-            if (decimalPart > 1) word += "s";
-            word += " Only";
-        }
-    } else {
-        if (decimalPart > 0) {
-            word += " and " + convertHundreds(decimalPart) + " Cent";
-            if (decimalPart > 1) word += "s";
-        } else {
-            word += " Only";
-        }
+    words = words.trim() || "Zero";
+
+    // ✅ Show cents ONLY if not zero
+    if (decimalPart > 0) {
+        words += " and " + centsStr + "/100";
     }
 
-
-    return word.trim();
+    return words + " Only";
 }
+
+
+
+
 
 $(document).on('input', '.amount-in-number-details', function() {
     let amount = $(this).val();
@@ -282,18 +309,22 @@ function validateFormData($cardBody) {
     }
 
     // Amount in Number validation
-    if (!$amountInNumber.val() || isNaN($amountInNumber.val()) || parseFloat($amountInNumber.val()) <= 0) {
-        errors.amountInNumber = "This field is required and must be a positive number.";
-    } else if (parseFloat($amountInNumber.val()) > 10000000) {
-        errors.amountInNumber = "This field must not exceed 10,000,000.";
-    }
+   if (
+    !$amountInNumber.val() ||
+    isNaN($amountInNumber.val()) ||
+    parseFloat($amountInNumber.val()) <= 0
+) {
+    errors.amountInNumber = "This field is required and must be a positive number.";
+} 
+else if (parseFloat($amountInNumber.val()) > 10000000) {
+    errors.amountInNumber = "This field must not exceed 10,000,000.";
+}
+
 
     // Amount in Word validation
     if (!$amountInWord.val()) {
         errors.amountInWord = "This field is required.";
-    } else if ($amountInWord.val().length > 65) {
-        errors.amountInWord = "This field must not exceed 65 characters.";
-    } else if (/^\d+$/.test($amountInWord.val())) {
+    }    else if (/^\d+$/.test($amountInWord.val())) {
         errors.amountInWord = "This field must be in words, not numbers.";
     }
 
