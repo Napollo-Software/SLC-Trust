@@ -37,7 +37,7 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $item->created_at->format('m-d-Y h:i A') }}</td>
+                                        <td>{{ $item->created_at->format('m/d/Y h:i A') }}</td>
                                         <td>
                                             {{ isset($item->action_performed_by) ? $item->action_performed_by->name . ' ' . $item->action_performed_by->last_name : 'N/A' }}
                                         </td>

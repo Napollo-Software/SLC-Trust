@@ -94,7 +94,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
 
                             $subject       = "Bill Approved";
                             $name          = "{$user->name} {$user->last_name}";
-                            $email_message = "Your bill#{$user->id} added on " . date('m-d-Y', strtotime($user->created_at)) . " has been Approved. Please use the button below to find the details of your bill:";
+                            $email_message = "Your bill#{$user->id} added on " . date('m/d/Y', strtotime($user->created_at)) . " has been Approved. Please use the button below to find the details of your bill:";
                             $url           = url("/claims/{$claim->id}");
 
                             if ($user->notify_by == "email" || $category->category_name != "Melody") {
@@ -143,7 +143,7 @@ class ApprovePendingBills implements ToCollection, WithHeadingRow, WithStartRow
 
                             $subject       = "Bill Partially Approved";
                             $name          = "{$user->name} {$user->last_name}";
-                            $email_message = "Your bill#{$user->id} added on " . date('m-d-Y', strtotime($user->created_at)) . " has been Partially Approved. Please use the button below to find the details of your bill:";
+                            $email_message = "Your bill#{$user->id} added on " . date('m/d/Y', strtotime($user->created_at)) . " has been Partially Approved. Please use the button below to find the details of your bill:";
                             $url           = url("/claims/{$claim->id}");
                             if ($user->notify_by == "email" || $category->category_name != "Melody") {
                                 SendEmailJob::dispatch($user->email, $subject, $name, $email_message, $url);

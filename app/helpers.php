@@ -45,7 +45,7 @@ if (! function_exists('us_date_format')) {
     function us_date_format($date)
     {
         if ($date) {
-            return date('m-d-Y h:i A', strtotime($date));
+            return date('m/d/Y h:i A', strtotime($date));
         }
         return "N/A";
     }

@@ -304,6 +304,84 @@ $role = $login_user->role;
                     </a>
                 </div>
                 @endif
+                @if ($role == 'Admin')
+                <div class="col">
+                    <a href="{{ url('all_users') }}">
+                        <div class="card radius-10 overflow-hidden">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0">Approved Users</p>
+                                        <h5 class="mb-0">{{ $total_approved_users }}</h5>
+                                    </div>
+                                    <div class="ms-auto"> <i class="bx bx-user-check font-30"></i>
+                                    </div>
+                                </div>
+                                <div class="progress radius-10 mt-4" style="height:4.5px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 68%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ url('all_users') }}">
+                        <div class="card radius-10 overflow-hidden">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0">Pending Users</p>
+                                        <h5 class="mb-0">{{ $pending_users }}</h5>
+                                    </div>
+                                    <div class="ms-auto"> <i class="bx bx-user-circle font-30"></i>
+                                    </div>
+                                </div>
+                                <div class="progress radius-10 mt-4" style="height:4.5px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ url('leads') }}">
+                        <div class="card radius-10 overflow-hidden">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0">Total Leads</p>
+                                        <h5 class="mb-0">{{ $total_leads }}</h5>
+                                    </div>
+                                    <div class="ms-auto"> <i class="bx bx-target-lock font-30"></i>
+                                    </div>
+                                </div>
+                                <div class="progress radius-10 mt-4" style="height:4.5px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 55%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="{{ url('referral') }}">
+                        <div class="card radius-10 overflow-hidden">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <p class="mb-0">Pending Referrals</p>
+                                        <h5 class="mb-0">{{ $pending_referrals }}</h5>
+                                    </div>
+                                    <div class="ms-auto"> <i class="bx bx-time font-30"></i>
+                                    </div>
+                                </div>
+                                <div class="progress radius-10 mt-4" style="height:4.5px;">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endif
                 @if ($login_user->hasPermissionTo('Front Office') || $login_user->hasPermissionTo('Business Statistics'))
                 <div class="{{ $login_user->hasPermissionTo('Business Statistics') ? 'col' : 'col-md-8' }}">
                     <a href="{{ url('follow-up/list') }}">
@@ -671,13 +749,13 @@ $role = $login_user->role;
                         user: event.employee,
                         from: event.from_name,
                         to: event.to_name,
-                        referral_name: event.referral_name && event.referral_name.referral_name 
-                        ? event.referral_name.referral_name 
+                        referral_name: event.referral_name && event.referral_name.referral_name
+                        ? event.referral_name.referral_name
                         : null , // Ensure safe access
                     }
                 };
             }),
-          
+
             dayCellDidMount: function (info) {
                 var clickedDate = new Date(info.date);
                 const year = clickedDate.getFullYear();
@@ -692,19 +770,19 @@ $role = $login_user->role;
                         matchingEvents.forEach(matchingEvent => {
                             // Select all elements with a unique ID based on event ID
                             var eventElements = document.querySelectorAll(`#calendar_follow_up_${matchingEvent.id}`);
-                            
+
                             eventElements.forEach(eventElement => {
                                 console.log(matchingEvent.from , authId);
                                 if (matchingEvent.from == authId) {
                                     console.log(matchingEvent.to , authId);
                                     eventElement.style.backgroundColor = "#6DC6A7"; // Soft Green (Success)
                                     eventElement.style.color = "#ffffff"; // White text
-                                    eventElement.style.border = "none"; 
-                                    // eventElement.style.opacity = "0.5"; 
+                                    eventElement.style.border = "none";
+                                    // eventElement.style.opacity = "0.5";
                                  } else {
                                     eventElement.style.backgroundColor = "#red"; // Soft Yellow
                                     eventElement.style.color = "#ffffff"; // Dark text
-                                    eventElement.style.border = "none";  
+                                    eventElement.style.border = "none";
                                  }
 
                                 // Additional styles for better UI
@@ -740,7 +818,7 @@ $role = $login_user->role;
                 const content = document.createElement('div');
                 content.id = `calendar_follow_up_${id}`;
                 content.classList.add('custom-event-content');
-                
+
                 // Set the inner HTML content for the event
                 content.innerHTML = `
                     <div ${strikeThrough}>
@@ -759,13 +837,13 @@ $role = $login_user->role;
                         content.style.setProperty("background-color", "#6DC6A7", "important");
                     }
                     content.style.color = "#ffffff"; // Dark text
-                    content.style.border = "1px solid lightgray"; // Gold border                   
-                } 
+                    content.style.border = "1px solid lightgray"; // Gold border
+                }
 
-                
-                
+
+
                 // Additional styles for better UI
-               
+
                 content.style.padding = "6px";
                 content.style.borderRadius = "0px";
                 content.style.boxShadow = "0px 2px 5px rgba(0,0,0,0.2)"; // Soft shadow
@@ -798,7 +876,7 @@ $role = $login_user->role;
                 //     day: '2-digit'
                 // }) + '</p>  ';
                 // <div class=" d-flex align-items-center justify-content-between gap-2"> <div >
-                //                 <span class="fw-bold">Date:</span> 
+                //                 <span class="fw-bold">Date:</span>
                 //                 ${clickedDate.toLocaleDateString('en-US', {
                 //                     year: 'numeric',
                 //                     month: '2-digit',
@@ -818,7 +896,7 @@ $role = $login_user->role;
                 const referral_name = event.referral_name?.referral_name || null;
                 return `
                   <div class=" pb-2"> <div >
-                                <span class="fw-semibold">Date:</span> 
+                                <span class="fw-semibold">Date:</span>
                                 ${clickedDate.toLocaleDateString('en-US', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -837,7 +915,7 @@ $role = $login_user->role;
                                  Mark as completed
                             </p>
                         </div>
-                       
+
                     </div>
                  </div>
                     <div class="p-3 border rounded bg-light mb-2 ">

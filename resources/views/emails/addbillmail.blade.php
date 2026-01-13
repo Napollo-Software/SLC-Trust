@@ -136,7 +136,7 @@
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;" style="text-align:center">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;text-align:center;" >Your bill#{{$details->id}} has been added on {{date('m-d-Y', strtotime($details->expense_date)) }}. Please find the details of your bill below:</p>
+                            <p style="margin: 0;text-align:center;" >Your bill#{{$details->id}} has been added on {{date('m/d/Y', strtotime($details->expense_date)) }}. Please find the details of your bill below:</p>
                         </td>
                     </tr>
                     <tr  style="text-align:center;">

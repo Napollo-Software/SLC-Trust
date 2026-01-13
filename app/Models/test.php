@@ -149,7 +149,7 @@
          $details = $claim;
          $subject = "Bill Refused";
          $name = $claimUser->name . ' ' . $claimUser->last_name;
-         $email_message = 'Your bill#' . $details->id . ' added on ' . date('m-d-Y', strtotime($details->created_at)) . ' has been refused because of the following reason:"' . $details->refusal_reason . '", Please use the button below to find the details of your bill:';
+         $email_message = 'Your bill#' . $details->id . ' added on ' . date('m/d/Y', strtotime($details->created_at)) . ' has been refused because of the following reason:"' . $details->refusal_reason . '", Please use the button below to find the details of your bill:';
          $url = '/claims/' . $details->id;
 
      }
@@ -203,7 +203,7 @@
          $details = $claim;
          $subject = "Partically approved";
          $name = $claimUser->name . ' ' . $claimUser->last_name;
-         $email_message = 'Your bill#' . $details->id . ' added on ' . date('m-d-Y', strtotime($details->created_at)) . ' has been partially approved with amount $' . $claim_amount . ', Please use the button below to find the details of your bill:';
+         $email_message = 'Your bill#' . $details->id . ' added on ' . date('m/d/Y', strtotime($details->created_at)) . ' has been partially approved with amount $' . $claim_amount . ', Please use the button below to find the details of your bill:';
          $url = url("/claims/{$details->id}");
          if ($claimUser->notify_by == "email") {
              // SendEmailJob::dispatch($claimUser->email,$subject,$name,$email_message,$url);

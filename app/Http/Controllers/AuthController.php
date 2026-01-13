@@ -461,6 +461,9 @@ class AuthController extends Controller
         $total_contacts  = Contacts::count();
         $total_leads     = Lead::count();
         $total_referrals = Referral::count();
+        $total_approved_users = User::where('role', 'User')->where('account_status', 'Approved')->count();
+        $pending_users = User::where('role', 'User')->where('account_status', 'Pending')->count();
+        $pending_referrals = Referral::where('status', 'Pending')->count();
         $customer        = 'all';
 
         $loggedInUser = User::where('id', '=', Session::get('loginId'))->first();
@@ -552,6 +555,9 @@ class AuthController extends Controller
                 'customer',
                 'from',
                 'to',
+                'total_approved_users',
+                'pending_users',
+                'pending_referrals',
             )
         );
     }

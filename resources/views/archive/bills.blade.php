@@ -105,7 +105,7 @@
                                     <i class="menu-icon tf-icons bx bx-cog"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a type="button" class="dropdown-item view-log-link" data-target="#viewLog"  data-toggle="modal" data-attr="{{ $claim->log_details->description }}" data-action_performed_by="{{ $claim->log_details->action_performed_by->full_name() }}" data-created_at="{{ $claim->log_details->created_at->format('m-d-Y h:i A') }}">
+                                    <a type="button" class="dropdown-item view-log-link" data-target="#viewLog"  data-toggle="modal" data-attr="{{ $claim->log_details->description }}" data-action_performed_by="{{ $claim->log_details->action_performed_by->full_name() }}" data-created_at="{{ $claim->log_details->created_at->format('m/d/Y h:i A') }}">
                                         <i class="bx bx-book me-1"></i> View log
                                     </a>
                                 </div>

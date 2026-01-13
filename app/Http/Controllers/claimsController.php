@@ -287,7 +287,7 @@ class claimsController extends Controller
                 ]);
 
                 $name = "{$claimUser->name} {$claimUser->last_name}";
-                $email_message = "Your bill#" . $details->id . " added on " . date('m-d-Y', strtotime($details->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
+                $email_message = "Your bill#" . $details->id . " added on " . date('m/d/Y', strtotime($details->created_at)) . " has been approved. Please use the button below to find the details of your bill:";
                 $url = url("/claims/$details->id");
 
                 if($category->category_name != "Melody")
@@ -301,10 +301,10 @@ class claimsController extends Controller
                 $claim->save();
                 $details = $claim;
                 $name = "{$claimUser->name} {$claimUser->last_name}";
-                $email_message = "Your bill#" . $details->id . " has been added on " . date('m-d-Y', strtotime($claim->created_at)) . ". Please use the button below to find the details of your bill:";
+                $email_message = "Your bill#" . $details->id . " has been added on " . date('m/d/Y', strtotime($claim->created_at)) . ". Please use the button below to find the details of your bill:";
                 $url = "/claims/$details->id";
 
-                $bill_message = "We are pleased to inform you that Bill #{$details->id} has been successfully added to your Senior Life Care account on " . date('m-d-Y', strtotime($claim->created_at)) . ". To view the details of your bill, please click the button below:";
+                $bill_message = "We are pleased to inform you that Bill #{$details->id} has been successfully added to your Senior Life Care account on " . date('m/d/Y', strtotime($claim->created_at)) . ". To view the details of your bill, please click the button below:";
 
                 if($category->category_name != "Melody")
                 {
@@ -331,7 +331,7 @@ class claimsController extends Controller
 
                     $details = $claim;
                     $name = "{$notify->name} {$notify->last_name}";
-                    $email_message = "{$claimUser->name} {$claimUser->last_name} has submitted bill#{$details->id} on " . date('m-d-Y', strtotime($claim->created_at)) . " and waiting for approval. Please use the button below to find the details of the bill:";
+                    $email_message = "{$claimUser->name} {$claimUser->last_name} has submitted bill#{$details->id} on " . date('m/d/Y', strtotime($claim->created_at)) . " and waiting for approval. Please use the button below to find the details of the bill:";
 
                     $url = url("/claims/{$details->id}");
 
@@ -557,7 +557,7 @@ class claimsController extends Controller
                 $name = "$claimUser->name  $claimUser->last_name";
                 $url = "/claims/$claim->id";
 
-                $bill_message = "We are pleased to inform you that Bill #{$claim->id}, submitted on " . date('m-d-Y', strtotime($claim->created_at)) . ", has been approved. To view the details of your bill, please click the button below:";
+                $bill_message = "We are pleased to inform you that Bill #{$claim->id}, submitted on " . date('m/d/Y', strtotime($claim->created_at)) . ", has been approved. To view the details of your bill, please click the button below:";
 
                 if($category->category_name != "Melody")
                 {
@@ -640,7 +640,7 @@ class claimsController extends Controller
 
                 $url = "/claims/$claim->id";
 
-                $bill_message = "We would like to inform you that Bill #{$claim->id}, submitted on " . date('m-d-Y', strtotime($claim->created_at)) . ", has been partially approved. To view the details of your bill, please click the button below:";
+                $bill_message = "We would like to inform you that Bill #{$claim->id}, submitted on " . date('m/d/Y', strtotime($claim->created_at)) . ", has been partially approved. To view the details of your bill, please click the button below:";
 
                 if($category->category_name != "Melody")
                 {
@@ -678,7 +678,7 @@ class claimsController extends Controller
             ->where('recurred', '!=', '0')
             ->get()
             ->groupBy(function ($claim) {
-                return $claim->created_at->format('m-d-Y');
+                return $claim->created_at->format('m/d/Y');
             });
         // Create a paginator manually using Laravel's LengthAwarePaginator
         $currentPageItems = $claims->slice(($page - 1) * $perPage, $perPage);
@@ -722,7 +722,7 @@ class claimsController extends Controller
             $new_claim->save();
             return response()->json(['success' => true, 'message' => 'Bill#' . $request->id . ' has been duplicated successfully!']);
         } else {
-            return response()->json(['success' => false, 'message' => 'Bill#' . $request->id . ' has already been duplicated on ' . $check->created_at->format('m-d-Y') . ' with bill Id#' . $check->id . '!']);
+            return response()->json(['success' => false, 'message' => 'Bill#' . $request->id . ' has already been duplicated on ' . $check->created_at->format('m/d/Y') . ' with bill Id#' . $check->id . '!']);
         }
     }
     public function RestoreBill(Request $request)

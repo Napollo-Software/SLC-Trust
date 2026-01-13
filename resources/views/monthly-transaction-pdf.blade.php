@@ -493,7 +493,7 @@
                           @foreach ($transactions as $data)
                           <tr>
                             <td>{{ $data->id }}</td>
-                            <td>{{date('m-d-Y h:i:s', strtotime($data->created_at)) }}</td>
+                            <td>{{date('m/d/Y h:i:s', strtotime($data->created_at)) }}</td>
                              @if($data->bill_id)
                             <td><a  href="{{route("claims.show", $data->bill_id ?? '#')}}"> {{$data->description}} ({{$data->name}}&nbsp;{{$data->user_id}})</a></td>
                             @else

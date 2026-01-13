@@ -14,12 +14,12 @@ class contacts extends Model
 
     public function getCreatedAtAttribute($date)
     {
-        return date('m-d-Y', strtotime($date));
+        return date('m/d/Y', strtotime($date));
     }
 
     public function getUpdatedAtAttribute($date)
     {
-        return date('m-d-Y', strtotime($date));
+        return date('m/d/Y', strtotime($date));
     }
 
     public function getDesignationAttribute()

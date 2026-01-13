@@ -87,7 +87,7 @@
                           @foreach ($claim->secondary_bills() as $item)
                           <tr class="">
                             <td><a href="/claims/{{ $item['id'] }}">Bill#{{ $item->id }}</a></td>
-                            <td>{{ $item->created_at->format('m-d-Y h:i A') }}</td>
+                            <td>{{ $item->created_at->format('m/d/Y h:i A') }}</td>
                           </tr>
                           @endforeach
                         </tbody>

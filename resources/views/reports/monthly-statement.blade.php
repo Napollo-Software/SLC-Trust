@@ -262,7 +262,7 @@ a:before, a:after, a > span:before, a > span:after {
                                 @endphp
                                 <td> {{$user->name.' '.$user->last_name  }}</td>
                                 <td>{{$transaction->reference_id}}</td>
-                                <td>{{$transaction->created_at->format('M d-Y h:i')}}</td>
+                                <td>{{$transaction->created_at->format('m/d/Y h:i')}}</td>
                                 <td class="text-center">
                                   @if ($transaction->claim_id)
                                      {{$transaction->description}}

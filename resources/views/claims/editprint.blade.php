@@ -112,7 +112,7 @@
                                         type="text"
                                         name="submission_date"
                                         class="form-control"
-                                        value="{{date('m-d-Y', strtotime($claim->submission_date)) }}"
+                                        value="{{date('m/d/Y', strtotime($claim->submission_date)) }}"
                                         placeholder="06/10/2022"
                                         readonly
                                 />

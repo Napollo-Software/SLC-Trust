@@ -160,7 +160,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <h6 class="cart-product-title mb-0 pl-0">{{ $item->note }}</h6>
-                                                <p class="cart-product-price mb-0">{{ date('m-d-Y',strtotime($item->date)) }}</p>
+                                                <p class="cart-product-price mb-0">{{ date('m/d/Y',strtotime($item->date)) }}</p>
                                             </div>
                                             <div class="">
                                                 <p class="cart-price mb-0">{{ $daysDiff }} D</p>
