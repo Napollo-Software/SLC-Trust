@@ -72,7 +72,7 @@
         font-family: 'Damion', cursive;
         font-size: 1.5em;
         float: right;
-        /* border-bottom: 1px solid #666; */
+        border-bottom: 1px solid #666;
         width: 6em;
         margin: 0.2em 2em 0.5em;
         padding-left: 0.5em;
@@ -91,7 +91,7 @@
     .orderof {
         font-family: 'Damion', cursive;
         font-size: 1.5em;
-        /* border-bottom: 1px solid #666; */
+        border-bottom: 1px solid #666;
         float: left;
         width: 60%;
         margin: 0 0 0 3em;
@@ -115,7 +115,7 @@
         font-family: 'Damion', cursive;
         font-size: 1.5em;
         float: left;
-        /* border: 2px solid #aaa; */
+        border: 2px solid #aaa;
         position: relative;
         margin: 0 0 0 2em;
         padding: 0 0.5em;
@@ -132,7 +132,7 @@
     .dollars {
         font-family: 'Damion', cursive;
         font-size: 1.5em;
-        /* border-bottom: 1px solid #666; */
+        border-bottom: 1px solid #666;
         width: 84%;
         float: left;
         padding: 0 0 0 4em;
@@ -151,7 +151,7 @@
     .memo {
         font-family: 'Damion', cursive;
         font-size: 1.1em;
-        /* border-bottom: 1px solid #666; */
+        border-bottom: 1px solid #666;
         clear: left;
         float: left;
         width: 60%;
@@ -173,7 +173,7 @@
         font-family: 'Mrs Saint Delafield', cursive;
         font-size: 2.3em;
         float: right;
-        /* border-bottom: 1px solid #666; */
+        border-bottom: 1px solid #666;
         line-height: 0.9em;
         margin: 0.58em;
         width: 25%;
@@ -189,7 +189,7 @@
         font-size: 14.4px;
         padding: 20px 40px;
         margin: 10px 5px 10px 5px;
-        /* border: 1px solid black; */
+        border: 1px solid #000;
         /* border-style: dashed; */
     }
 
@@ -219,7 +219,7 @@
     /* Pay to the order of */
     .my-orderof {
         font-family: Damion, cursive;
-        /* border-bottom: 1px solid #666; */
+        border-bottom: 1px solid #666;
         width: 100%;
         /* border-bottom: 1px solid black; */
         padding-bottom: 2px;
@@ -236,7 +236,7 @@
     /* Numeric Amount */
     .my-num {
         /* font-size: 15px; */
-        /* border: 2px solid #666; */
+        border: 2px solid #666;
         padding: 1px 4px;
     }
 
@@ -250,7 +250,7 @@
     .my-memo {
         /* font-size: 20px; */
         padding-left: 12px;
-        /* border-bottom: 1px solid #666; */
+        border-bottom: 0.5px solid #000;
     }
 
     /* Signature */
@@ -258,7 +258,7 @@
         font-family: 'Mrs Saint Delafield', cursive;
         font-size: 40px;
         padding-left: 7.2px;
-        /* border-bottom: 1px solid #666; */
+        border-bottom: 0.5px solid #000;
         margin-top: -65px;
     }
 
@@ -339,8 +339,8 @@
                         </div>
                     </div>
 
-                    <div class="table-cell text-end" style="width:30%;">
-                        <span style="font-weight: bold;">No.</span> {{ $formData['checkNumber'] ?? '' }}
+                    <div class="table-cell text-end " style="width:30%;  font-size: 14px;">
+                        <span style="font-weight: 500;">No.</span> {{ $formData['checkNumber'] ?? '' }}
                     </div>
                 </div>
             </div>
@@ -373,14 +373,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="table-cell" style="width: 20%; vertical-align: middle;">
+                    <div class="table-cell" style="width: 10%; vertical-align: middle; padding-left: 6px;">
                         <div class="table-layout">
-                            <div class="table-row">
+                            <div class="table-row" >
                                 <div class="table-cell"
-                                    style="width: 10%; font-size: 18px;padding-left:5px; padding-right: 2px;font-weight: bold;">
+                                    style="width: 10%; font-size: 18px;font-weight: bold;">
                                     $</div>
                                 <div class="table-cell" style="width: 90%;">
-                                    <div class="font-helvetica">* * {{ $formData['amountInNumber'] ?? '' }}</div>
+                                                                       <div class="font-helvetica">* * {{ $formData['amountInNumber'] ?? '' }}</div>
+
                                 </div>
                             </div>
                         </div>
@@ -390,7 +391,7 @@
 
             <div class="table-layout" style="margin-top: 5px;">
                 <div class="table-row">
-                    <div class="table-cell font-helvetica" style="width:70%; ">
+                   <div class="table-cell font-helvetica" style="width:70%; border-bottom:0.5px solid #000;">
                         {{ $formData['amountInWord'] ? $formData['amountInWord'].'***': '' }}
                     </div>
                     <div class="table-cell font-helvetica"
@@ -423,7 +424,8 @@
                                     <div class="font-helvetica">Memo:</div>
                                 </div>
                                 <div class="table-cell" style="width: 50%;">
-                                    <div class="my-memo font-helvetica" style="padding-right: 5px;">
+                                    <div class="my-memo font-helvetica" style="padding-right: 5px;
+">
                                         {{ $formData['memo'] ?? 'N/A' }}
                                     </div>
                                 </div>
@@ -431,8 +433,9 @@
                         </div>
                     </div>
                     <div class="table-cell"
-                        style="width: 20%; vertical-align: middle; padding-left: 80px; padding-right: 20px;">
-                        <div class="my-signature">
+                        style="width: 20%; vertical-align: middle; padding-left: 80px; padding-right: 20px;     text-decoration-line: underline;
+">
+                        <div class="my-signature " >
                             {{ $formData['signature'] }}
                         </div>
                     </div>
@@ -470,8 +473,22 @@
                 <div style="display:table-cell; padding:6px 2px; vertical-align:middle;">
                     Pay out: {{ $formData['user'] ?? '' }}
                 </div>
+               
             </div>
-
+  <div class="table-layout" style="width: 100%; ">
+                <div class="table-row">
+                    <div class="table-cell font-helvetica">{!! $formData['addressLine1'] ?? '&nbsp;' !!}</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell font-helvetica">{!! $formData['addressLine2'] ?? '&nbsp;' !!}</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell font-helvetica">{!! $formData['addressLine3'] ?? '&nbsp;' !!}</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell font-helvetica">&nbsp;</div>
+                </div>
+            </div>
             <div class="table-layout" style="margin-top:40px">
                 <div class="table-row row-gap" style="padding:10px 0px; line-height:1.6">
                     <div style="display:table-cell; padding:6px 2px; vertical-align:middle;">

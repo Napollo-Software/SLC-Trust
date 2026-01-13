@@ -44,7 +44,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="user-account">Payee</label>
+                                <label for="user-account">Vendors/Payees</label>
                                 <div class="form-group">
                                     <select required id="user-account" name="user[]" class="form-control select-2"
                                         style="width: 100%">
@@ -189,7 +189,7 @@ $(document).on("input", ".amount-in-number-details", function () {
 });
 
 function numberToWords(amount) {
-    amount = parseFloat(amount);   // Convert FIRST
+    amount = parseFloat(amount);
 
     if (isNaN(amount) || amount <= 0 || amount > 10000000) return "";
 
@@ -198,11 +198,9 @@ function numberToWords(amount) {
     const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
     const scale = ["", "Thousand", "Million", "Billion"];
 
-    let numStr = amount.toFixed(2);
-    let parts = numStr.split(".");
-    let intPart = parseInt(parts[0]);
-    let decimalPart = parseInt(parts[1]);
-    let originalInt = intPart;
+    let [dollarsStr, centsStr] = amount.toFixed(2).split(".");
+    let intPart = parseInt(dollarsStr);
+    let decimalPart = parseInt(centsStr);
 
     function convertHundreds(num) {
         let str = "";
@@ -233,23 +231,17 @@ function numberToWords(amount) {
         i++;
     }
 
-    words = words.trim();
+    words = words.trim() || "Zero";
 
-    // Handle cents
+    // ✅ Show cents ONLY if not zero
     if (decimalPart > 0) {
-        let centWords = convertHundreds(decimalPart) + " Cent" + (decimalPart > 1 ? "s" : "");
-
-        if (originalInt > 0) {
-            words += " and " + centWords + " Only";
-        } else {
-            words = centWords + " Only";
-        }
-    } else {
-        words += " Only";
+        words += " and " + centsStr + "/100";
     }
 
-    return words.trim();
+    return words + " Only";
 }
+
+
 
 
 
