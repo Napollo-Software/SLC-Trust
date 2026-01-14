@@ -238,7 +238,7 @@ function numberToWords(amount) {
         words += " and " + centsStr + "/100";
     }
 
-    return words + " Only";
+    return words;
 }
 
 
@@ -315,7 +315,7 @@ function validateFormData($cardBody) {
     parseFloat($amountInNumber.val()) <= 0
 ) {
     errors.amountInNumber = "This field is required and must be a positive number.";
-} 
+}
 else if (parseFloat($amountInNumber.val()) > 10000000) {
     errors.amountInNumber = "This field must not exceed 10,000,000.";
 }
