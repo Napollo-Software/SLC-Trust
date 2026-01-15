@@ -238,7 +238,7 @@ function numberToWords(amount) {
         words += " and " + centsStr + "/100";
     }
 
-    return words + " Only";
+    return words;
 }
 
 
