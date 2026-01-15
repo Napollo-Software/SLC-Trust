@@ -373,7 +373,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="table-cell" style="width: 10%; vertical-align: middle; padding-left: 6px;">
+                    <div class="table-cell" style="width: 20%; vertical-align: middle; padding-left: 6px;">
                         <div class="table-layout">
                             <div class="table-row" >
                                 <div class="table-cell"
