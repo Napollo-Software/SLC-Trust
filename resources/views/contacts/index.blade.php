@@ -98,7 +98,7 @@
                                     </td>
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->created_by }}</td>
-                                    <td>{{ $item->created_at }} </td>
+                                    <td>{{ $item->created_at ? date('m/d/Y', strtotime($item->created_at)) : '' }} </td>
 
                                 </tr>
                             @endforeach

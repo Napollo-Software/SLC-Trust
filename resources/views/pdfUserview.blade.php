@@ -93,7 +93,7 @@
                             <tr><td>{{ $claim->id }}</td>
                                 <td>Bill Request - {{$claim->id}}</td>
                                 <td>{{ App\Models\User::where('id',$claim->claim_user)->pluck('name')->first()}}</td>
-                                <td>{{ $claim->submission_date }}</td>
+                                <td>{{ $claim->submission_date ? date('m/d/Y', strtotime($claim->submission_date)) : '' }}</td>
                                 <td>{{ $claim->claim_category }}</td>
                                 <td>{{ $claim->claim_status }}</td>
                                 <td>${{ $claim->claim_amount }}</td>

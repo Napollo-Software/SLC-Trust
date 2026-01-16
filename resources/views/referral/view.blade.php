@@ -475,7 +475,7 @@ return $colors[$randomIndex];
                                         <label for="timeZone" class="form-label">Date of birth</label>
                                     </div>
                                     <div class="col-md-9 d-flex align-items-center " data-select2-id="8">
-                                        <p class="m-0"> {{ $referral->date_of_birth }}</p>
+                                        <p class="m-0"> {{ $referral->date_of_birth ? date('m/d/Y', strtotime($referral->date_of_birth)) : '' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -1044,10 +1044,10 @@ return $colors[$randomIndex];
             <div class="card">
                 <div class="card-body">
                     <h6 class="fw-bold mb-1">Created Date</h6>
-                    {{ $referral->created_at }}
+                    {{ $referral->created_at ? date('m/d/Y', strtotime($referral->created_at)) : '' }}
                     <hr>
                     <h6 class="fw-bold mb-1">Updated Date</h6>
-                    {{ $referral->updated_at }}
+                    {{ $referral->updated_at ? date('m/d/Y', strtotime($referral->updated_at)) : '' }}
                     <hr>
                     <h6 class="fw-bold mb-1 ">Intake Coordinator</h6>
                     {{ $referral->intake }}

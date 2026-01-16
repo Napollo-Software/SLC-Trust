@@ -20,20 +20,20 @@
 <script>
 $(document).ready(function() {
     $('.dataTable').DataTable({
-        "order": [], 
+        "order": [],
         "columnDefs": [
             {
-                "targets": 5, 
+                "targets": 5,
                 "orderable": true,
                 "type": "string",
             },
             {
-                "targets": [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11], 
+                "targets": [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11],
                 "orderable": false
             }
         ],
         "initComplete": function(settings, json) {
-            var totalRecords = this.api().rows().count(); 
+            var totalRecords = this.api().rows().count();
             $('#totalRecords').html(" Total Records: " + totalRecords );
         }
     });
@@ -168,7 +168,7 @@ $(document).ready(function() {
                         <p class="mb-0 font-13 text-secondary">
                             <i class="bx bxs-calendar"></i> <span id="totalRecords"></span>
                         </p>
-                    </div>                    
+                    </div>
                     <div class="dropdown ms-auto">
                         <form id="search_bills" action="<?= url('search-bills') ?>" method="POST">
                             <div class="d-flex custom-float">
@@ -211,8 +211,8 @@ $(document).ready(function() {
                                     <th>Status</th>
                                     <th>Payment Details</th>
                                     <th>Payee</th>
-                                    <th>Account</th>
                                     <th>Balance</th>
+                                    <th>Account</th>
                                     <th>Amount</th>
                                     <th>Attachment</th>
                                 </tr>
@@ -260,8 +260,8 @@ $(document).ready(function() {
                                             @if ($claim->claim_status == 'Pending') N @endif
                                             @if ($claim->claim_status == 'Refused') R @endif
                                         </span>
-                                    
-                                        <span class="badge 
+
+                                        <span class="badge
                                                     @if ($claim->claim_status == 'Approved') bg-success @endif
                                                     @if ($claim->claim_status == 'Partially approved') bg-primary @endif
                                                     @if ($claim->claim_status == 'Pending') bg-info @endif
@@ -270,7 +270,7 @@ $(document).ready(function() {
                                             {{ $claim->claim_status }}
                                         </span>
                                     </td>
-                                    
+
                                     <td style="vertical-align: middle;">
                                         <div class="card mt-3" style="vertical-align: middle;">
                                             <div class="card-body" style="vertical-align: middle;">
@@ -300,10 +300,10 @@ $(document).ready(function() {
                                     <td style="vertical-align: middle;">
                                         {{$claim->payee_details->name}}
                                     </td>
-                                    <td style="vertical-align: middle;">{{ $claim->account_number }}</td>
                                     <td style="vertical-align: middle;">
                                         {{userBalance($claim->claim_user)}}
                                     </td>
+                                    <td style="vertical-align: middle;">{{ $claim->account_number }}</td>
                                     <td style="vertical-align: middle;">${{ number_format((float) $claim['claim_amount'], 2, '.', ',') }}</td>
                                     <td style="vertical-align: middle;">
                                         @if($claim->claim_bill_attachment)
