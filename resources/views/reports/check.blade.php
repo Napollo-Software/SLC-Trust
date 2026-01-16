@@ -60,19 +60,19 @@
                                 </div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-number">Amount in Numbers <span
+                                <label for="amount-in-number">Amount in Numbers ($) <span
                                         class="text-danger">*</span></label>
                                <input type="text" required id="amount-in-number"
     class="form-control amount-in-number-details"
-    name="amount_in_number[]" placeholder="Amount in numbers">
+    name="amount_in_number[]" placeholder="Amount in numbers ($)">
 
                                 <div class="invalid-feedback"></div>
-                            </div>
+                        </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-word">Amount in Words <span class="text-danger">*</span></label>
+                                <label for="amount-in-word">Amount in Words ($) <span class="text-danger">*</span></label>
                                 <input type="text" required id="amount-in-word"
                                     class="form-control amount-in-word-details" name="amount_in_word[]"
-                                    placeholder="Amount in words" readonly>
+                                    placeholder="Amount in words ($)" readonly>
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -88,7 +88,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="account-number">Account Number <span class="text-danger">*</span></label>
+                                <label for="account-number">Account Number<span class="text-danger">*</span></label>
                                 <input type="text" required id="account-number" class="form-control account-number"
                                     name="accountNumber[]" placeholder="Account number" value="5000381649">
                                 <div class="invalid-feedback"></div>
