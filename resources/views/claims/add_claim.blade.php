@@ -75,7 +75,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 </div>
 
                                 <div class="col-lg-3 pt-3 pb-2">
-                                    <label for="" class="form-label">Bil Number</label>
+                                    <label for="" class="form-label">Bill Number</label>
                                     <input type="text" name="bill_number" class="form-control" maxlength="40">
                                 </div>
 
