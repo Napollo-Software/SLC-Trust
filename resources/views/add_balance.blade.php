@@ -9,7 +9,10 @@
     }
 
 </style>
-@php $one_time_registeration_fee = $user->transactions()->where('Type', \App\Models\Transaction::EnrollmentFee)->first(); @endphp
+@php
+    $one_time_registeration_fee = $user->transactions()->where('Type', \App\Models\Transaction::EnrollmentFee)->first();
+    $last_annual_fee = $user->transactions()->where('Type', \App\Models\Transaction::RenewalFee)->orderByDesc('date_of_trans')->orderByDesc('created_at')->first();
+@endphp
 <div>
     <h5 class="d-flex justify-content-start pt-3 pb-2">
         <b></b>
@@ -22,7 +25,7 @@
                 <div class="card">
                     <h5 class="card-header py-3">Select Actions</h5>
                     <div class="card-body">
-                        <div class="d-flex gap-3 flex-wrap flex-column">
+                        <div class="d-flex gap-3 flex-wrap flex-column" style="padding-bottom: 20px !important;">
                             <div class="form-check d-flex align-items-center">
                                 <input class="form-check-input toggle-field p-2" name="add_balance" type="checkbox" id="toggleBalance" data-target=".balance-section" checked>
                                 <label class="form-check-label ps-1 pt-1" for="toggleBalance">Add Balance</label>
@@ -38,6 +41,13 @@
                                 <input class="form-check-input toggle-field p-2" name="maintenance_fee_check" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
                                 <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Charge Maintenance Fee</label>
                             </div>
+                            <div class="form-check d-flex align-items-center">
+                                <input class="form-check-input toggle-field p-2" name="deduction_annual" type="checkbox" id="toggleDeductionAnnual" data-target=".deduction-annual-section">
+                                <label class="form-check-label ps-1 pt-1" for="toggleDeductionAnnual">Charge Annual Fee</label>
+                            </div>
+                            @if($last_annual_fee)
+                                <small class="text-danger">Last annual fee (${{ $last_annual_fee->debit }}) charged on {{ \Carbon\Carbon::parse($last_annual_fee->date_of_trans ?? $last_annual_fee->created_at)->format('m/d/Y') }}</small>
+                            @endif
                             <div class="form-check d-flex align-items-center d-none" id="creditCardOption">
                                 <input class="form-check-input toggle-field p-2" name="send_amount_to_credit_card" type="checkbox" id="sendToCreditCard" />
                                 <label class="form-check-label ps-1 pt-1" for="sendToCreditCard">Send Remaining Amount to Credit Card</label>
@@ -71,6 +81,10 @@
                                     <label for="registration_fee_amount" class="form-label">Registration Fee Amount</label>
                                     <input class="form-control" name="registration_fee_amount" {{ $one_time_registeration_fee ? 'readonly' : '' }} placeholder="Enter amount" type="number" value="300" min="0" step="any" />
                                 </div>
+                                <div class="col-lg-12 mb-3 deduction-annual-section d-none">
+                                    <label for="deduction_annual_amount" class="form-label">Annual Deduction Amount</label>
+                                    <input type="number" class="form-control" placeholder="Enter amount" name="deduction_annual_amount" id="deduction_annual_amount" step="any" min="0" />
+                                </div>
                                 <div class="col-lg-12 mb-3 required-with-balance">
                                     <label for="payment_type" class="form-label">Payment Type</label>
                                     <select class="form-control form-select" name="payment_type" onchange="showDiv2(this)" required>
@@ -82,7 +96,7 @@
                                 </div>
                                 <div class="col-lg-12 mb-3" id="hidden_div">
                                     <label for="exampleFormControlInput1" class="form-label">Transaction No.#</label>
-                                    <input type="text" class="form-control mb-3 trans-no" placeholder="Transaction No." name="trans_no" required />
+                                    <input type="text" class="form-control mb-3 trans-no" placeholder="Transaction No." name="trans_no" />
                                 </div>
                                 <div class="col-lg-12 mb-3" id="hidden_div2">
                                     <label for="exampleFormControlInput1" class="form-label">Check No.#</label>
@@ -92,9 +106,9 @@
                                     <label for="exampleFormControlInput1" class="form-label">Card No.#</label>
                                     <input type="text" class="form-control mb-3 card-no" placeholder="Card No" name="card_no" />
                                 </div>
-                                <div class="col-lg-12 mb-3">
+                                <div class="col-lg-12 mb-3 date-of-trans-section">
                                     <label for="exampleFormControlInput1" class="form-label">Date of Transaction</label>
-                                    <input value="{{ date('Y-m-d') }}" type="date" class="form-control" placeholder="Date of Transaction" name="date_of_trans" required />
+                                    <input value="{{ date('Y-m-d') }}" type="date" class="form-control" placeholder="Date of Transaction" name="date_of_trans" />
                                 </div>
                             </div>
                             <div class="d-flex justify-content-start">
@@ -113,9 +127,9 @@
     function showDiv2(element) {
         const value = element.value;
 
-        $('.trans-no').attr('required', value === 'ACH');
-        $('.check-no').attr('required', value === 'Check Payment');
-        $('.card-no').attr('required', value === 'Card');
+        $('.trans-no').prop('required', value === 'ACH');
+        $('.check-no').prop('required', value === 'Check Payment');
+        $('.card-no').prop('required', value === 'Card');
 
         $('#hidden_div').toggle(value === 'ACH');
         $('#hidden_div2').toggle(value === 'Check Payment');
@@ -208,14 +222,16 @@
         $(document).on('change', 'select[name="payment_type"]', function() {
             const paymentType = $(this).val();
             if (paymentType === 'ACH') {
-                $('input[name="trans_no"]').prop('required', true).closest('.form-group').show();
-                $('input[name="check_no"], input[name="card_no"]').prop('required', false).closest('.form-group').hide();
+                $('input[name="trans_no"]').prop('required', true).parent().show();
+                $('input[name="check_no"], input[name="card_no"]').prop('required', false).parent().hide();
             } else if (paymentType === 'Check Payment') {
-                $('input[name="check_no"]').prop('required', true).closest('.form-group').show();
-                $('input[name="trans_no"], input[name="card_no"]').prop('required', false).closest('.form-group').hide();
+                $('input[name="check_no"]').prop('required', true).parent().show();
+                $('input[name="trans_no"], input[name="card_no"]').prop('required', false).parent().hide();
             } else if (paymentType === 'Card') {
-                $('input[name="card_no"]').prop('required', true).closest('.form-group').show();
-                $('input[name="trans_no"], input[name="check_no"]').prop('required', false).closest('.form-group').hide();
+                $('input[name="card_no"]').prop('required', true).parent().show();
+                $('input[name="trans_no"], input[name="check_no"]').prop('required', false).parent().hide();
+            } else {
+                $('input[name="trans_no"], input[name="check_no"], input[name="card_no"]').prop('required', false).parent().hide();
             }
         });
     });
@@ -224,9 +240,14 @@
         $(document).on('submit', '#depositForm', function(e) {
             e.preventDefault();
 
+            $('#hidden_div').is(':hidden') && $('.trans-no').prop('required', false);
+            $('#hidden_div2').is(':hidden') && $('.check-no').prop('required', false);
+            $('#hidden_div3').is(':hidden') && $('.card-no').prop('required', false);
+
             const isAnyCheckboxChecked = $('#toggleBalance').is(':checked') ||
                 $('#toggleRegistrationFee').is(':checked') ||
-                $('#toggleMaintenanceFee').is(':checked');
+                $('#toggleMaintenanceFee').is(':checked') ||
+                $('#toggleDeductionAnnual').is(':checked');
 
             if (!isAnyCheckboxChecked) {
                 swal.fire('Error', 'You must select at least one action option.', 'error');
@@ -265,27 +286,41 @@
         });
     });
 
-
     $(document).ready(function() {
-
         const toggleBalance1 = $('#toggleBalance');
+        const toggleDeductionAnnual1 = $('#toggleDeductionAnnual');
 
-        toggleBalance1.change(function() {
-            if (!toggleBalance1.is(':checked')) {
+        function updatePaymentAndDateRequired() {
+            const needPayment = toggleBalance1.is(':checked');
+            const needDate = needPayment || toggleDeductionAnnual1.is(':checked');
+            const $paymentType = $('select[name="payment_type"]');
+            const $dateOfTrans = $('input[name="date_of_trans"]');
+            const $dateSection = $('.date-of-trans-section');
+
+            if (!needPayment) {
                 $('select[name="payment_type"]').val('').prop('required', false).parent().addClass('d-none');
                 $('input[name="trans_no"]').val('').prop('required', false).parent().addClass('d-none');
                 $('input[name="card_no"]').val('').prop('required', false).parent().addClass('d-none');
                 $('input[name="check_no"]').val('').prop('required', false).parent().addClass('d-none');
-                $('input[name="date_of_trans"]').val('').prop('required', false).parent().addClass('d-none');
+                $('#hidden_div, #hidden_div2, #hidden_div3').addClass('d-none');
             } else {
                 $('select[name="payment_type"]').prop('required', true).parent().removeClass('d-none');
-                $('input[name="trans_no"]').prop('required', true).parent().removeClass('d-none');
-                $('input[name="card_no"]').prop('required', true).parent().removeClass('d-none');
-                $('input[name="check_no"]').prop('required', true).parent().removeClass('d-none');
-                $('input[name="date_of_trans"]').prop('required', true).parent().removeClass('d-none');
+                $('#hidden_div, #hidden_div2, #hidden_div3').removeClass('d-none');
+                showDiv2($paymentType[0]);
             }
-        });
-    });
 
+            if (!needDate) {
+                $dateOfTrans.val('').prop('required', false);
+                $dateSection.addClass('d-none');
+            } else {
+                $dateOfTrans.prop('required', true);
+                $dateSection.removeClass('d-none');
+            }
+        }
+
+        toggleBalance1.on('change', updatePaymentAndDateRequired);
+        toggleDeductionAnnual1.on('change', updatePaymentAndDateRequired);
+        updatePaymentAndDateRequired();
+    });
 </script>
 @endsection
