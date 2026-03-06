@@ -9,7 +9,10 @@
     }
 
 </style>
-@php $one_time_registeration_fee = $user->transactions()->where('Type', \App\Models\Transaction::EnrollmentFee)->first(); @endphp
+@php
+    $one_time_registeration_fee = $user->transactions()->where('Type', \App\Models\Transaction::EnrollmentFee)->first();
+    $last_annual_fee = $user->transactions()->where('Type', \App\Models\Transaction::RenewalFee)->orderByDesc('date_of_trans')->orderByDesc('created_at')->first();
+@endphp
 <div>
     <h5 class="d-flex justify-content-start pt-3 pb-2">
         <b></b>
@@ -22,7 +25,7 @@
                 <div class="card">
                     <h5 class="card-header py-3">Select Actions</h5>
                     <div class="card-body">
-                        <div class="d-flex gap-3 flex-wrap flex-column">
+                        <div class="d-flex gap-3 flex-wrap flex-column" style="padding-bottom: 20px !important;">
                             <div class="form-check d-flex align-items-center">
                                 <input class="form-check-input toggle-field p-2" name="add_balance" type="checkbox" id="toggleBalance" data-target=".balance-section" checked>
                                 <label class="form-check-label ps-1 pt-1" for="toggleBalance">Add Balance</label>
@@ -42,6 +45,9 @@
                                 <input class="form-check-input toggle-field p-2" name="deduction_annual" type="checkbox" id="toggleDeductionAnnual" data-target=".deduction-annual-section">
                                 <label class="form-check-label ps-1 pt-1" for="toggleDeductionAnnual">Charge Annual Fee</label>
                             </div>
+                            @if($last_annual_fee)
+                                <small class="text-danger">Last annual fee (${{ $last_annual_fee->debit }}) charged on {{ \Carbon\Carbon::parse($last_annual_fee->date_of_trans ?? $last_annual_fee->created_at)->format('m/d/Y') }}</small>
+                            @endif
                             <div class="form-check d-flex align-items-center d-none" id="creditCardOption">
                                 <input class="form-check-input toggle-field p-2" name="send_amount_to_credit_card" type="checkbox" id="sendToCreditCard" />
                                 <label class="form-check-label ps-1 pt-1" for="sendToCreditCard">Send Remaining Amount to Credit Card</label>
