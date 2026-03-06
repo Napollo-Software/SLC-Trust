@@ -38,6 +38,10 @@
                                 <input class="form-check-input toggle-field p-2" name="maintenance_fee_check" type="checkbox" id="toggleMaintenanceFee" data-target=".maintenance-fee-section">
                                 <label class="form-check-label ps-1 pt-1" for="toggleMaintenanceFee">Charge Maintenance Fee</label>
                             </div>
+                            <div class="form-check d-flex align-items-center">
+                                <input class="form-check-input toggle-field p-2" name="deduction_annual" type="checkbox" id="toggleDeductionAnnual" data-target=".deduction-annual-section">
+                                <label class="form-check-label ps-1 pt-1" for="toggleDeductionAnnual">Charge Annual Fee</label>
+                            </div>
                             <div class="form-check d-flex align-items-center d-none" id="creditCardOption">
                                 <input class="form-check-input toggle-field p-2" name="send_amount_to_credit_card" type="checkbox" id="sendToCreditCard" />
                                 <label class="form-check-label ps-1 pt-1" for="sendToCreditCard">Send Remaining Amount to Credit Card</label>
@@ -70,6 +74,10 @@
                                 <div class="col-lg-12 mb-3 registration-fee-section d-none">
                                     <label for="registration_fee_amount" class="form-label">Registration Fee Amount</label>
                                     <input class="form-control" name="registration_fee_amount" {{ $one_time_registeration_fee ? 'readonly' : '' }} placeholder="Enter amount" type="number" value="300" min="0" step="any" />
+                                </div>
+                                <div class="col-lg-12 mb-3 deduction-annual-section d-none">
+                                    <label for="deduction_annual_amount" class="form-label">Annual Deduction Amount</label>
+                                    <input type="number" class="form-control" placeholder="Enter amount" name="deduction_annual_amount" id="deduction_annual_amount" step="any" min="0" />
                                 </div>
                                 <div class="col-lg-12 mb-3 required-with-balance">
                                     <label for="payment_type" class="form-label">Payment Type</label>
@@ -226,7 +234,8 @@
 
             const isAnyCheckboxChecked = $('#toggleBalance').is(':checked') ||
                 $('#toggleRegistrationFee').is(':checked') ||
-                $('#toggleMaintenanceFee').is(':checked');
+                $('#toggleMaintenanceFee').is(':checked') ||
+                $('#toggleDeductionAnnual').is(':checked');
 
             if (!isAnyCheckboxChecked) {
                 swal.fire('Error', 'You must select at least one action option.', 'error');
@@ -270,21 +279,30 @@
 
         const toggleBalance1 = $('#toggleBalance');
 
-        toggleBalance1.change(function() {
-            if (!toggleBalance1.is(':checked')) {
-                $('select[name="payment_type"]').val('').prop('required', false).parent().addClass('d-none');
-                $('input[name="trans_no"]').val('').prop('required', false).parent().addClass('d-none');
-                $('input[name="card_no"]').val('').prop('required', false).parent().addClass('d-none');
-                $('input[name="check_no"]').val('').prop('required', false).parent().addClass('d-none');
-                $('input[name="date_of_trans"]').val('').prop('required', false).parent().addClass('d-none');
+        const toggleDeductionAnnual1 = $('#toggleDeductionAnnual');
+        function updatePaymentAndDateRequired() {
+            const needPayment = toggleBalance1.is(':checked');
+            const needDate = needPayment || toggleDeductionAnnual1.is(':checked');
+            const $paymentType = $('select[name="payment_type"]');
+            const $dateOfTrans = $('input[name="date_of_trans"]');
+            if (!needPayment) {
+                $paymentType.val('').prop('required', false);
+                $('input[name="trans_no"]').val('').prop('required', false);
+                $('input[name="card_no"]').val('').prop('required', false);
+                $('input[name="check_no"]').val('').prop('required', false);
+                $('.required-with-balance').addClass('d-none');
+                $('#hidden_div, #hidden_div2, #hidden_div3').addClass('d-none');
             } else {
-                $('select[name="payment_type"]').prop('required', true).parent().removeClass('d-none');
-                $('input[name="trans_no"]').prop('required', true).parent().removeClass('d-none');
-                $('input[name="card_no"]').prop('required', true).parent().removeClass('d-none');
-                $('input[name="check_no"]').prop('required', true).parent().removeClass('d-none');
-                $('input[name="date_of_trans"]').prop('required', true).parent().removeClass('d-none');
+                $paymentType.prop('required', true);
+                $('.required-with-balance').removeClass('d-none');
+                showDiv2($paymentType[0]);
             }
-        });
+            $dateOfTrans.prop('required', needDate);
+            if (!needDate) $dateOfTrans.val('');
+        }
+        toggleBalance1.on('change', updatePaymentAndDateRequired);
+        toggleDeductionAnnual1.on('change', updatePaymentAndDateRequired);
+        updatePaymentAndDateRequired();
     });
 
 </script>
