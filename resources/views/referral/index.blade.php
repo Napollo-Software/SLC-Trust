@@ -153,26 +153,21 @@ $user = App\Models\User::find(Session::get('loginId'));
                                     <th class="row-{{ $u['id'] }}">
                                         @if($u->convert_to_customer)
                                         <button class="btn pt-1 pb-1 btn-success">Converted To Customer</button>
-                                        @elseif ($u->status == 'Pending')
+                                        @else
                                         <div class="dropdown">
                                             <button class="btn pt-1 pb-1
-                                                            @if ($u->status == 'Admitted') btn-primary
+                                                            @if ($u->status == 'Admitted') btn-secondary
                                                             @elseif ($u->status == 'Pending') btn-primary
-                                                            @elseif ($u->status == 'Rejected') btn-primary @endif
+                                                            @elseif ($u->status == 'Rejected') btn-warning @endif
                                                             dropdown-toggle" type="button" id="statusDropdown{{ $u->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 {{ $u->status }}
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="statusDropdown{{ $u->id }}">
+                                                <a class="dropdown-item status-option" href="#" data-value="Pending">Pending</a>
                                                 <a class="dropdown-item status-option" href="#" data-value="Admitted">Admitted</a>
                                                 <a class="dropdown-item status-option" href="#" data-value="Rejected">Rejected</a>
                                             </div>
                                         </div>
-                                        @else
-                                        <button style="font-size:14px" class="btn
-                                                        @if ($u->status == 'Admitted') btn-secondary
-                                                        @elseif ($u->status == 'Rejected') btn-warning @endif pt-1 pb-1">
-                                            {{ $u->status }}
-                                        </button>
                                         @endif
                                     </th>
                                     <td>{{ us_date_format($u->admission_date) }}</td>
@@ -267,7 +262,8 @@ $user = App\Models\User::find(Session::get('loginId'));
                         })
                     });
                     $(document).ready(function () {
-                        $('.status-option').on('click', function () {
+                        $(document).on('click', '.status-option', function (e) {
+                            e.preventDefault();
                             var selectedStatus = $(this).data('value');
                             var dropdown = $(this).closest('.dropdown');
                             var dropdownButton = dropdown.find('.dropdown-toggle');
@@ -278,8 +274,9 @@ $user = App\Models\User::find(Session::get('loginId'));
                                 icon: 'question',
                                 showCancelButton: true,
                                 confirmButtonColor: '#3085d6',
-                                cancelButtonColor: 'secondary',
-                                confirmButtonText: 'Yes'
+                                cancelButtonColor: '#6c757d',
+                                confirmButtonText: 'Yes',
+                                cancelButtonText: 'Cancel'
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     $.ajax({
