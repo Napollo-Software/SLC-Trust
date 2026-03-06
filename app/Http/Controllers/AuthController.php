@@ -1840,6 +1840,9 @@ class AuthController extends Controller
         $transactions = Transaction::where('user_id', $user->id)
             ->whereNotIn('type', [Transaction::MaintenanceFee, Transaction::CreditCard])
             ->whereBetween('created_at', [$startDate, $endDate])
+            ->where(function ($query) {
+                $query->where('exclude_from_vod', false)->orWhereNull('exclude_from_vod');
+            })
             ->orderByRaw("CASE WHEN type = ? THEN 1 ELSE 2 END", [Transaction::EnrollmentFee])
             ->orderBy('created_at', 'ASC')
             ->get();
