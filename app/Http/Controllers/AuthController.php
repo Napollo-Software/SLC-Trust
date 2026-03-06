@@ -800,7 +800,6 @@ class AuthController extends Controller
 
     public function add_user_balance(Request $request, $id)
     {
-        // dd($request->all());
         $this->validate($request, [
             'payment_type'            => 'nullable|required_if:payment_type,on',
             'balance'                 => ['nullable', 'required_if:add_balance,on', 'numeric', 'gt:0'],
@@ -1001,13 +1000,14 @@ class AuthController extends Controller
 
             if ($request->has('deduction_annual') && $deduction_annual_amount > 0) {
                 $reference_id                          = generateTransactionId();
+                $annual_fee_date_for_description        = Carbon::parse($request->date_of_trans)->format('d/m/Y');
 
                 $user->transactions()->create([
                     "reference_id"     => $reference_id,
                     "date_of_trans"    => $request->date_of_trans,
                     "type"             => Transaction::RenewalFee,
                     "debit"            => $deduction_annual_amount,
-                    "description" => "Annual renewal fee charged.",
+                    "description"      => "Annual renewal fee charged on {$annual_fee_date_for_description}.",
                     "transaction_type" => \TransactionType::Operational,
                 ]);
 
@@ -1017,7 +1017,7 @@ class AuthController extends Controller
                     "type"             => Transaction::RenewalFee,
                     "credit"           => $deduction_annual_amount,
                     "transaction_type" => \TransactionType::Operational,
-                    "description" => "Received annual renewal fee from {$user->name}.",
+                    "description"      => "Received annual renewal fee from {$user->name} on {$annual_fee_date_for_description}.",
                 ]);
 
                 $remaining_amount -= $deduction_annual_amount;
