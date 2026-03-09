@@ -1000,7 +1000,7 @@ class AuthController extends Controller
 
             if ($request->has('deduction_annual') && $deduction_annual_amount > 0) {
                 $reference_id                          = generateTransactionId();
-                $annual_fee_date_for_description        = Carbon::parse($request->date_of_trans)->format('d/m/Y');
+                $annual_fee_date_for_description        = Carbon::parse($request->date_of_trans)->format('m/d/Y');
 
                 $user->transactions()->create([
                     "reference_id"     => $reference_id,
