@@ -55,6 +55,19 @@ $user = App\Models\User::find(Session::get('loginId'));
         font-size: 14px;
         font-weight: 400;
     }
+
+    .dropdown-menu {
+        width: auto !important;
+        min-width: auto !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+    }
+
+    .dropdown-item {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+    }
 </style>
 <div class="primary-menu">
     <nav class="navbar navbar-expand-lg align-items-center">
@@ -191,6 +204,11 @@ $user = App\Models\User::find(Session::get('loginId'));
                             <li>
                                 <a class="dropdown-item {{ in_array(Route::currentRouteName(), ['users.all', 'view_user', 'show_user', 'edit_user']) ? 'active' : '' }}" href="{{ route('users.all') }}"><i class="bx bx-user-circle"></i>All
                                     Users</a></li>
+                            @endif
+                            @if ($user->hasPermissionTo('Deposit'))
+                            <li>
+                                <a class="dropdown-item {{ Route::currentRouteName() === 'bulk.upload.transactions' ? 'active' : '' }}" href="{{ route('bulk.upload.transactions') }}"><i class="bx bx-upload"></i>Bulk Balance Import</a>
+                            </li>
                             @endif
                         </ul>
                     </li>

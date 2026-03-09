@@ -1,7 +1,9 @@
 /node_modules
 /public/hot
 /public/storage
+/public/fonts
 /storage/*.key
+/storage/fonts
 /vendor
 .env
 .env.backup
