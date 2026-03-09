@@ -814,13 +814,15 @@ class AuthController extends Controller
 
     public function add_user_balance(Request $request, $id)
     {
-        // dd($request->all());
         $this->validate($request, [
             'payment_type'            => 'nullable|required_if:payment_type,on',
             'balance'                 => ['nullable', 'required_if:add_balance,on', 'numeric', 'gt:0'],
-            'date_of_trans'           => ['nullable', 'required_if:add_balance,on', 'date', function ($attribute, $value, $fail) use ($request) {
+            'date_of_trans'           => ['nullable', 'required_if:add_balance,on', 'required_if:deduction_annual,on', 'date', function ($attribute, $value, $fail) use ($request) {
                 if ($request->has('add_balance') && $request->add_balance === 'on' && empty($value)) {
                     $fail('The Transaction Date field is required when Add Balance is checked.');
+                }
+                if ($request->has('deduction_annual') && $request->deduction_annual === 'on' && empty($value)) {
+                    $fail('The Transaction Date field is required when Charge Annual Fee is checked.');
                 }
             }],
             'trans_no'                => ['nullable', 'string', function ($attribute, $value, $fail) use ($request) {
@@ -849,6 +851,8 @@ class AuthController extends Controller
                 }
             }],
             'registration_fee_amount' => 'nullable|numeric|min:0',
+            'deduction_annual'        => 'nullable',
+            'deduction_annual_amount' => ['nullable', 'required_if:deduction_annual,on', 'numeric', 'min:0'],
         ], [
             'date_of_trans.required_if' => 'Transaction date field is required when Add Balance is checked.',
             'trans_no.required_if'      => 'Transaction No. is required for ACH payments when Add Balance is checked.',
@@ -860,17 +864,21 @@ class AuthController extends Controller
         $admin    = User::findOrFail(\Company::Account_id);
         $app_name = config('app.professional_name');
 
-        $deposit_transaction      = null;
-        $registration_transaction = null;
-        $maintenance_transaction  = null;
-        $credit_card_transaction  = null;
-        $maintenance_fee_amount   = null;
+        $deposit_transaction          = null;
+        $registration_transaction     = null;
+        $maintenance_transaction      = null;
+        $maintenance_fee_amount       = null;
+        $deduction_annual_amount      = 0;
 
         $depost_amount    = $request->balance ? (float) $request->balance : 0;
         $remaining_amount = $depost_amount;
 
         if ($request->maintenance_fee_check) {
             $maintenance_fee_amount = $request->maintenance_fee_type === 'percentage' ? $depost_amount * ($request->maintenance_fee / 100) : $request->maintenance_fee;
+        }
+
+        if ($request->has('deduction_annual') && $request->deduction_annual === 'on' && $request->filled('deduction_annual_amount')) {
+            $deduction_annual_amount = (float) $request->deduction_annual_amount;
         }
 
         $userBalance = userBalance($id);
@@ -893,7 +901,7 @@ class AuthController extends Controller
         }
 
         if ($request->registration_fee) {
-            $deduction = $maintenance_fee_amount + $request->registration_fee_amount;
+            $deduction = ($maintenance_fee_amount ?? 0) + $request->registration_fee_amount;
             if ($deduction > $userBalance + $depost_amount) {
                 return response()->json([
                     'success' => false,
@@ -901,6 +909,15 @@ class AuthController extends Controller
                     'message' => "{$user->name}'s balance is insufficient to charge Enrollment fee.",
                 ]);
             }
+        }
+
+        $total_deductions = ($maintenance_fee_amount ?? 0) + ($request->registration_fee ? (float) $request->registration_fee_amount : 0) + $deduction_annual_amount;
+        if ($deduction_annual_amount > 0 && $userBalance + $depost_amount < $total_deductions) {
+            return response()->json([
+                'success' => false,
+                'header'  => 'Insufficient balance!',
+                'message' => "{$user->name}'s balance is insufficient to charge Annual Deduction.",
+            ]);
         }
 
         DB::beginTransaction();
@@ -995,13 +1012,38 @@ class AuthController extends Controller
                 $remaining_amount -= $request->registration_fee_amount;
             }
 
+            if ($request->has('deduction_annual') && $deduction_annual_amount > 0) {
+                $reference_id                          = generateTransactionId();
+                $annual_fee_date_for_description        = Carbon::parse($request->date_of_trans)->format('m/d/Y');
+
+                $user->transactions()->create([
+                    "reference_id"     => $reference_id,
+                    "date_of_trans"    => $request->date_of_trans,
+                    "type"             => Transaction::RenewalFee,
+                    "debit"            => $deduction_annual_amount,
+                    "description"      => "Annual renewal fee charged on {$annual_fee_date_for_description}.",
+                    "transaction_type" => \TransactionType::Operational,
+                ]);
+
+                $admin->transactions()->create([
+                    "reference_id"     => $reference_id,
+                    "date_of_trans"    => $request->date_of_trans,
+                    "type"             => Transaction::RenewalFee,
+                    "credit"           => $deduction_annual_amount,
+                    "transaction_type" => \TransactionType::Operational,
+                    "description"      => "Received annual renewal fee from {$user->name} on {$annual_fee_date_for_description}.",
+                ]);
+
+                $remaining_amount -= $deduction_annual_amount;
+            }
+
             if ($request->send_amount_to_credit_card && $remaining_amount > 0) {
                 $amount_credited_description         = "Amount \${$remaining_amount} is transferred in customer's credit card.";
                 $customer_amount_debited_description = "Amount \${$remaining_amount} is received in credit card.";
 
                 $reference_id = generateTransactionId();
 
-                $credit_card_transaction = $user->transactions()->create([
+                $user->transactions()->create([
                     "reference_id"     => $reference_id,
                     "type"             => Transaction::CreditCard,
                     "debit"            => $remaining_amount,
