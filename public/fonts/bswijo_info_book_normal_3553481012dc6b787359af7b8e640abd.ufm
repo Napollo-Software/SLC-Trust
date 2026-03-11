@@ -1,0 +1,93 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/dompdf/php-font-lib
+EncodingScheme FontSpecific
+Copyright Copyright Erik Spiekermann, Ole Sch\212fer, 1996. Published by FontShop International FontFont release 17
+FontName BSWIJO+Info-Book
+FontSubfamily Book
+UniqueID FontForge 2.0 : BSWIJO+Info-Book : 3-10-2024
+FullName BSWIJO+Info-Book
+Version Version 1.0
+PostScriptName BSWIJO+Info-Book
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 734
+Descender -203
+FontBBox 11 -205 791 739
+StartCharMetrics 69
+U 32 ; WX 196 ; N space ; G 3
+U 38 ; WX 586 ; N ampersand ; G 4
+U 39 ; WX 1000 ; N .notdef ; G 0
+U 40 ; WX 284 ; N parenleft ; G 5
+U 41 ; WX 284 ; N parenright ; G 6
+U 44 ; WX 191 ; N comma ; G 7
+U 45 ; WX 314 ; N hyphen ; G 8
+U 46 ; WX 186 ; N period ; G 9
+U 47 ; WX 307 ; N slash ; G 10
+U 48 ; WX 459 ; N zero ; G 11
+U 49 ; WX 459 ; N one ; G 12
+U 50 ; WX 459 ; N two ; G 13
+U 51 ; WX 459 ; N three ; G 14
+U 52 ; WX 459 ; N four ; G 15
+U 53 ; WX 459 ; N five ; G 16
+U 54 ; WX 459 ; N six ; G 17
+U 55 ; WX 459 ; N seven ; G 18
+U 56 ; WX 475 ; N eight ; G 19
+U 57 ; WX 459 ; N nine ; G 20
+U 58 ; WX 208 ; N colon ; G 21
+U 60 ; WX 489 ; N less ; G 22
+U 61 ; WX 1000 ; N .notdef ; G 0
+U 62 ; WX 489 ; N greater ; G 23
+U 65 ; WX 533 ; N A ; G 24
+U 66 ; WX 554 ; N B ; G 25
+U 67 ; WX 472 ; N C ; G 26
+U 68 ; WX 557 ; N D ; G 27
+U 69 ; WX 493 ; N E ; G 28
+U 70 ; WX 448 ; N F ; G 29
+U 72 ; WX 593 ; N H ; G 30
+U 73 ; WX 272 ; N I ; G 31
+U 76 ; WX 422 ; N L ; G 32
+U 77 ; WX 707 ; N M ; G 33
+U 78 ; WX 615 ; N N ; G 34
+U 79 ; WX 558 ; N O ; G 35
+U 80 ; WX 499 ; N P ; G 36
+U 82 ; WX 549 ; N R ; G 37
+U 83 ; WX 467 ; N S ; G 38
+U 84 ; WX 438 ; N T ; G 39
+U 85 ; WX 589 ; N U ; G 40
+U 86 ; WX 1000 ; N .notdef ; G 0
+U 87 ; WX 814 ; N W ; G 41
+U 88 ; WX 1000 ; N .notdef ; G 0
+U 89 ; WX 489 ; N Y ; G 42
+U 90 ; WX 489 ; N Z ; G 43
+U 97 ; WX 443 ; N a ; G 44
+U 98 ; WX 465 ; N b ; G 45
+U 99 ; WX 367 ; N c ; G 46
+U 100 ; WX 465 ; N d ; G 47
+U 101 ; WX 438 ; N e ; G 48
+U 102 ; WX 278 ; N f ; G 49
+U 103 ; WX 463 ; N g ; G 50
+U 104 ; WX 482 ; N h ; G 51
+U 105 ; WX 243 ; N i ; G 52
+U 107 ; WX 426 ; N k ; G 53
+U 108 ; WX 251 ; N l ; G 54
+U 109 ; WX 696 ; N m ; G 55
+U 110 ; WX 483 ; N n ; G 56
+U 111 ; WX 455 ; N o ; G 57
+U 112 ; WX 467 ; N p ; G 58
+U 113 ; WX 463 ; N q ; G 59
+U 114 ; WX 323 ; N r ; G 60
+U 115 ; WX 376 ; N s ; G 61
+U 116 ; WX 276 ; N t ; G 62
+U 117 ; WX 478 ; N u ; G 63
+U 118 ; WX 418 ; N v ; G 64
+U 119 ; WX 661 ; N w ; G 65
+U 120 ; WX 435 ; N x ; G 66
+U 121 ; WX 431 ; N y ; G 67
+U 8217 ; WX 191 ; N quoteright ; G 68
+EndCharMetrics
+EndFontMetrics
