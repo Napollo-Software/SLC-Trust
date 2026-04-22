@@ -1872,7 +1872,7 @@ class AuthController extends Controller
         $endDate   = Carbon::parse($request->endDate)->endOfDay();
 
         $transactions = Transaction::where('user_id', $user->id)
-            ->whereNotIn('type', [Transaction::MaintenanceFee, Transaction::CreditCard])
+            ->whereNotIn('type', [Transaction::MaintenanceFee, Transaction::CreditCard, Transaction::RenewalFee])
             ->whereBetween('created_at', [$startDate, $endDate])
             ->where(function ($query) {
                 $query->where('exclude_from_vod', false)->orWhereNull('exclude_from_vod');
