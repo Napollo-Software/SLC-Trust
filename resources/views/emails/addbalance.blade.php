@@ -140,7 +140,7 @@
                         </td>
                     </tr>
                     @php
-                    $date=date('d-m-Y');
+                    $date=date('m/d/Y');
                     @endphp
                     <tr  style="text-align:center">
                         <table border="1px solid lightgray" style="text-align:center; width:100%">

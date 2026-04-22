@@ -463,12 +463,17 @@ class AuthController extends Controller
         $pool_fund = Transaction::where('user_id', "!=", \Company::Account_id)->sum('credit')
          - Transaction::where('user_id', "!=", \Company::Account_id)->sum('debit');
 
-        $bill_payments = Transaction::whereNotNull("claim_id")->sum('credit') - Transaction::whereNotNull("claim_id")->sum('debit');
+        $bill_payments = Transaction::where('user_id', \Company::Account_id)
+            ->whereNotNull("claim_id")
+            ->sum('credit');
 
         $total_accounts  = User::where('role', 'Vendor')->count();
         $total_contacts  = Contacts::count();
         $total_leads     = Lead::count();
         $total_referrals = Referral::count();
+        $total_approved_users = User::where('role', 'User')->where('account_status', 'Approved')->count();
+        $pending_users = User::where('role', 'User')->where('account_status', 'Pending')->count();
+        $pending_referrals = Referral::where('status', 'Pending')->count();
         $customer        = 'all';
 
         $loggedInUser = User::where('id', '=', Session::get('loginId'))->first();
@@ -560,6 +565,9 @@ class AuthController extends Controller
                 'customer',
                 'from',
                 'to',
+                'total_approved_users',
+                'pending_users',
+                'pending_referrals',
             )
         );
     }
@@ -1014,7 +1022,7 @@ class AuthController extends Controller
 
             if ($request->has('deduction_annual') && $deduction_annual_amount > 0) {
                 $reference_id                          = generateTransactionId();
-                $annual_fee_date_for_description        = Carbon::parse($request->date_of_trans)->format('d/m/Y');
+                $annual_fee_date_for_description        = Carbon::parse($request->date_of_trans)->format('m/d/Y');
 
                 $user->transactions()->create([
                     "reference_id"     => $reference_id,
@@ -1386,13 +1394,13 @@ class AuthController extends Controller
         // Note: Laravel Excel converts headers to snake_case, so "User Account" becomes "user_account"
         $add_balance             = $this->parseNumeric($row['add_balance'] ?? null);
         $payment_type            = $this->parseString($row['payment_type'] ?? null);
-        
+
         // Get reference number - handle comma-separated header "Transaction No, Card Number, Check No"
         // Laravel Excel will convert this to snake_case, so check multiple possible keys
-        $reference_number = $this->parseString($row['reference_number'] ?? 
-                                                $row['transaction_no_card_number_check_no'] ?? 
+        $reference_number = $this->parseString($row['reference_number'] ??
+                                                $row['transaction_no_card_number_check_no'] ??
                                                 $row['transaction no, card number, check no'] ?? null);
-        
+
         $registration_fee_amount = $this->parseNumeric($row['registration_fee_amount'] ?? null);
         $deduct_maintenance_type = $this->parseString($row['deduct_maintenance_type'] ?? null);
         $maintenance_fee_value   = $this->parseNumeric($row['maintenance_fee_value'] ?? null);
@@ -1413,9 +1421,9 @@ class AuthController extends Controller
         // User can have: Add Balance OR Maintenance Fee OR Registration Fee OR any combination
         $has_any_transaction_data = $has_add_balance || $has_maintenance_fee || $has_registration_fee;
 
-        Log::info("Row {$rowNumber}: has_any_transaction_data = " . ($has_any_transaction_data ? 'true' : 'false') . 
-                  " (add_balance: " . ($has_add_balance ? 'yes' : 'no') . 
-                  ", maintenance_fee: " . ($has_maintenance_fee ? 'yes' : 'no') . 
+        Log::info("Row {$rowNumber}: has_any_transaction_data = " . ($has_any_transaction_data ? 'true' : 'false') .
+                  " (add_balance: " . ($has_add_balance ? 'yes' : 'no') .
+                  ", maintenance_fee: " . ($has_maintenance_fee ? 'yes' : 'no') .
                   ", registration_fee: " . ($has_registration_fee ? 'yes' : 'no') . ")");
 
         // If no transaction data is filled, mark as Pending
@@ -1443,7 +1451,7 @@ class AuthController extends Controller
                     ],
                 ];
             }
-            
+
             Log::info("Row {$rowNumber}: Marked as Pending - no transaction data");
             return [
                 'row_number'   => $rowNumber,

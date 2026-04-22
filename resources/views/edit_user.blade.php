@@ -143,7 +143,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                         </div>
                                         <div class="col-sm-8 text-secondary">
                                             @if ($user->dob)
-                                            {{ date('m-d-Y', strtotime($user->dob)) }}
+                                            {{ date('m/d/Y', strtotime($user->dob)) }}
                                             @endif
                                         </div>
                                     </div>
@@ -402,7 +402,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                         @forelse ($vod_documents as $index => $document)
                         <tr>
                             <td>{{ basename($document->vod_link) }}</td>
-                            <td>{{ date('m-d-Y', strtotime($document->created_at)) }}</td>
+                            <td>{{ date('m/d/Y', strtotime($document->created_at)) }}</td>
                             <td class="text-center">
                                 <a title="Click here to download the file" href="{{ url("storage/{$user->id}/vod_letters/{$document->vod_link}") }}" target="_blank">
                                     <i class="menu-icon tf-icons bx bx-download"></i>

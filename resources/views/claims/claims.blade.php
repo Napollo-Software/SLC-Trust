@@ -85,11 +85,11 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                 <tr>
                   <th>BID#</th>
                   <th>Bill title</th>
-                  <th>User</th>
+                  <th>Available Balance</th>
                   <th>Submission Date</th>
                   <th>Category</th>
                   <th>Status</th>
-                  <th>Available Balance</th>
+                  <th>User</th>
                   <th>Amount</th>
                   <th>Attachment</th>
                   <th>Actions</th>
@@ -102,8 +102,8 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                   <td><small><a href="claims/{{ $claim['id'] }}">Bill Request - {{ $claim['id'] }}</a></small></td>
                   <td>
                     @foreach($all_users as $user)
-                      @if($claim->claim_user==$user->id)
-                        {{$user->name }} {{$user->last_name }}
+                      @if($claim->claim_user == $user->id)
+                        ${{ $user->user_balance }}
                       @endif
                     @endforeach
                   </td>
@@ -122,8 +122,8 @@ $role = User::where('id', '=', Session::get('loginId'))->value('role');
                   </td>
                   <td>
                     @foreach($all_users as $user)
-                      @if($claim->claim_user == $user->id)
-                        ${{ $user->user_balance }}
+                      @if($claim->claim_user==$user->id)
+                        {{$user->name }} {{$user->last_name }}
                       @endif
                     @endforeach
                   </td>

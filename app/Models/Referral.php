@@ -13,11 +13,11 @@ class Referral extends Model
     protected $appends = ['case_type'];
     public function getCreatedAtAttribute($date)
     {
-        return date('m-d-Y', strtotime($date));
+        return date('m/d/Y', strtotime($date));
     }
     public function getUpdatedAtAttribute($date)
     {
-        return date('m-d-Y', strtotime($date));
+        return date('m/d/Y', strtotime($date));
     }
     public function getCaseTypeAttribute()
     {

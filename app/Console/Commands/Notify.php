@@ -56,13 +56,13 @@ class Notify extends Command
                     $notifcation->user_id=$claimUser->id;
                     $notifcation->name=$claimUser->name;
                     $notifcation->bill_id=$notify->id;
-                    $notifcation->description='Your recurring bill#'.$notify->id.' added on '.date('m-d-Y', strtotime($notify->created_at)).' will not processed on day '.$notify->recurring_day.' because you have insuficient balance.';
+                    $notifcation->description='Your recurring bill#'.$notify->id.' added on '.date('m/d/Y', strtotime($notify->created_at)).' will not processed on day '.$notify->recurring_day.' because you have insuficient balance.';
                     $notifcation->title='Insufficient Balance alert';
                     $notifcation->status = 0;
                     $notifcation->save();
                     $subject = "Insufficient balance alert";
                     $name = $claimUser->name.' '.$claimUser->last_name;
-                    $email_message = 'Your recurring bill#'.$notify->id.' added on '.date('m-d-Y', strtotime($notify->created_at)).' will not processed on day '.$notify->recurring_day.' because you have insuficient balance. Please use the button below to find the details of your bill:';
+                    $email_message = 'Your recurring bill#'.$notify->id.' added on '.date('m/d/Y', strtotime($notify->created_at)).' will not processed on day '.$notify->recurring_day.' because you have insuficient balance. Please use the button below to find the details of your bill:';
                     $url = '/claims/'.$notify->id;
                     if($claimUser->notify_by == "email"){
                         \Mail::to($claimUser->email)->send(new \App\Mail\Email($subject,$name,$email_message,$url));
@@ -75,13 +75,13 @@ class Notify extends Command
                     $notifcation->user_id=$claimUser->id;
                     $notifcation->name=$claimUser->name;
                     $notifcation->bill_id=$notify->id;
-                    $notifcation->description='Your recurring bill#'.$notify->id.' added on '.date('m-d-Y', strtotime($notify->created_at)).' will be processed on day '.$notify->recurring_day.' .';
+                    $notifcation->description='Your recurring bill#'.$notify->id.' added on '.date('m/d/Y', strtotime($notify->created_at)).' will be processed on day '.$notify->recurring_day.' .';
                     $notifcation->title='Bill approval alert';
                     $notifcation->status = 0;
                     $notifcation->save();
                     $subject = "Bill approval alert";
                     $name = $claimUser->name.' '.$claimUser->last_name;
-                    $email_message = 'Your recurring bill#'.$notify->id.' added on '.date('m-d-Y', strtotime($notify->created_at)).' will be processed on day '.$notify->recurring_day.'. Please use the button below to find the details of your bill:';
+                    $email_message = 'Your recurring bill#'.$notify->id.' added on '.date('m/d/Y', strtotime($notify->created_at)).' will be processed on day '.$notify->recurring_day.'. Please use the button below to find the details of your bill:';
                     $url = '/claims/'.$notify->id;
                     if($claimUser->notify_by == "email"){
                         \Mail::to($claimUser->email)->send(new \App\Mail\Email($subject,$name,$email_message,$url));

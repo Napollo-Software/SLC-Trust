@@ -80,7 +80,7 @@
                             <td>{{ $u->patient_email }}</td>
                             <td>{{ $u->vendor_id }}</td>
                             <td> {{ $u->type_id->name ?? $u->case_type }}</td>
-                            <td>{{ $u->created_at }}</td>
+                            <td>{{ $u->created_at ? date('m/d/Y', strtotime($u->created_at)) : '' }}</td>
                         </tr>
                         @endif
                         @endforeach

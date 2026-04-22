@@ -44,7 +44,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="user-account">Payee</label>
+                                <label for="user-account">Vendors/Payees</label>
                                 <div class="form-group">
                                     <select required id="user-account" name="user[]" class="form-control select-2"
                                         style="width: 100%">
@@ -60,19 +60,19 @@
                                 </div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-number">Amount in Numbers <span
+                                <label for="amount-in-number">Amount in Numbers ($) <span
                                         class="text-danger">*</span></label>
                                <input type="text" required id="amount-in-number"
     class="form-control amount-in-number-details"
-    name="amount_in_number[]" placeholder="Amount in numbers">
+    name="amount_in_number[]" placeholder="Amount in numbers ($)">
 
                                 <div class="invalid-feedback"></div>
-                            </div>
+                        </div>
                             <div class="col-md-6 p-2">
-                                <label for="amount-in-word">Amount in Words <span class="text-danger">*</span></label>
+                                <label for="amount-in-word">Amount in Words ($) <span class="text-danger">*</span></label>
                                 <input type="text" required id="amount-in-word"
                                     class="form-control amount-in-word-details" name="amount_in_word[]"
-                                    placeholder="Amount in words" readonly>
+                                    placeholder="Amount in words ($)" readonly>
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
@@ -88,7 +88,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="col-md-6 p-2">
-                                <label for="account-number">Account Number <span class="text-danger">*</span></label>
+                                <label for="account-number">Account Number<span class="text-danger">*</span></label>
                                 <input type="text" required id="account-number" class="form-control account-number"
                                     name="accountNumber[]" placeholder="Account number" value="5000381649">
                                 <div class="invalid-feedback"></div>
@@ -189,7 +189,7 @@ $(document).on("input", ".amount-in-number-details", function () {
 });
 
 function numberToWords(amount) {
-    amount = parseFloat(amount);   // Convert FIRST
+    amount = parseFloat(amount);
 
     if (isNaN(amount) || amount <= 0 || amount > 10000000) return "";
 
@@ -198,11 +198,9 @@ function numberToWords(amount) {
     const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
     const scale = ["", "Thousand", "Million", "Billion"];
 
-    let numStr = amount.toFixed(2);
-    let parts = numStr.split(".");
-    let intPart = parseInt(parts[0]);
-    let decimalPart = parseInt(parts[1]);
-    let originalInt = intPart;
+    let [dollarsStr, centsStr] = amount.toFixed(2).split(".");
+    let intPart = parseInt(dollarsStr);
+    let decimalPart = parseInt(centsStr);
 
     function convertHundreds(num) {
         let str = "";
@@ -233,23 +231,17 @@ function numberToWords(amount) {
         i++;
     }
 
-    words = words.trim();
+    words = words.trim() || "Zero";
 
-    // Handle cents
+    // ✅ Show cents ONLY if not zero
     if (decimalPart > 0) {
-        let centWords = convertHundreds(decimalPart) + " Cent" + (decimalPart > 1 ? "s" : "");
-
-        if (originalInt > 0) {
-            words += " and " + centWords + " Only";
-        } else {
-            words = centWords + " Only";
-        }
-    } else {
-        words += " Only";
+        words += " and " + centsStr + "/100";
     }
 
-    return words.trim();
+    return words;
 }
+
+
 
 
 
@@ -323,7 +315,7 @@ function validateFormData($cardBody) {
     parseFloat($amountInNumber.val()) <= 0
 ) {
     errors.amountInNumber = "This field is required and must be a positive number.";
-} 
+}
 else if (parseFloat($amountInNumber.val()) > 10000000) {
     errors.amountInNumber = "This field must not exceed 10,000,000.";
 }

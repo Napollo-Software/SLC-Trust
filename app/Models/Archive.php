@@ -15,6 +15,6 @@ class Archive extends Model
 
     public function getCreatedAtAttribute($date)
     {
-        return Carbon\Carbon::parse($date)->format('m-d-Y');
+        return Carbon\Carbon::parse($date)->format('m/d/Y');
     }
 }

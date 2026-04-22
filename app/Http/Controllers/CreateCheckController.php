@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -9,12 +10,15 @@ class CreateCheckController extends Controller
     public function submitForms(Request $request)
     {
         $formDataArray = [];
+
         foreach ($request->number as $k => $data) {
+            $rawAmount = $request->amount_in_number[$k] ?? null;
+
             $formDataArray[] = [
                 'checkNumber'    => $request->number[$k] ?? null,
-                'checkDate'      => date('m/d/Y', strtotime($request->date[$k])) ?? null,
+                'checkDate'      => $request->date[$k] ? date('m/d/Y', strtotime($request->date[$k])) : null,
                 'user'           => $request->user[$k] ?? null,
-                'amountInNumber' => $request->amount_in_number[$k] ?? null,
+                'amountInNumber' => $rawAmount,
                 'amountInWord'   => $request->amount_in_word[$k] ?? null,
                 'memo'           => $request->memo[$k] ?? null,
                 'routingNumber'  => $request->routingNumber[$k] ?? null,
@@ -27,9 +31,10 @@ class CreateCheckController extends Controller
             ];
         }
 
+
         // Generate PDF
         $pdf = Pdf::loadView('reports.printCheck', compact('formDataArray'));
 
-        return $pdf->download('check_report.pdf');
+        return $pdf->download('checks_report' . date('m/d/Y') . '.pdf');
     }
 }

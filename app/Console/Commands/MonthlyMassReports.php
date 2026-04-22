@@ -41,7 +41,7 @@ class MonthlyMassReports extends Command
     {
         $last_date = new DateTime();
         $last_date->modify('last day of this month');
-        if(date('m-d-Y',strtotime(now())) == $last_date->format('m-d-Y')){
+        if(date('m/d/Y',strtotime(now())) == $last_date->format('m/d/Y')){
             $users = User::where('role','User')->get();
             foreach($users as $user){
                 if($user->id == 385)

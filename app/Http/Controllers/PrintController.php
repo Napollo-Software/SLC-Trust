@@ -334,7 +334,7 @@ class PrintController extends Controller
     public function export_pending_bills(Request $request)
     {
 
-        return Excel::download(new PendingBillExport, 'pending-bills-'.rand().' '.date("m-d-Y", strtotime(now())) . '.xlsx');
+        return Excel::download(new PendingBillExport, 'pending-bills-'.rand().' '.date("m/d/Y", strtotime(now())) . '.xlsx');
     }
     public function exporttrasaction()
     {

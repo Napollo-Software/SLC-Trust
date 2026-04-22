@@ -70,7 +70,7 @@ class ForgotController extends Controller
             $user->save();
             if ($user) {
 
-                $bill_date = date('d-m-Y', strtotime($user->created_at));
+                $bill_date = date('m/d/Y', strtotime($user->created_at));
 
                 User::where('id', '=', Session::get('loginId'))->first();
 
@@ -93,7 +93,7 @@ class ForgotController extends Controller
                 return redirect()->route('login');
             } else {
 
-                $bill_date = date('d-m-Y', strtotime($user->created_at));
+                $bill_date = date('m/d/Y', strtotime($user->created_at));
                 User::where('id', '=', $claim->claim_user)->first();
                 User::where('id', '=', Session::get('loginId'))->first();
                 $notifcation = new Notifcation();

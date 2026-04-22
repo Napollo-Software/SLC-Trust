@@ -98,7 +98,7 @@
                             @foreach ($data as $item)
                            <tr>
                             {{-- <td>TID#{{substr("000$item->id",1)}}</td> --}}
-                            <td>{{$item->created_at}}</td>
+                            <td>{{ $item->created_at ? date('m/d/Y', strtotime($item->created_at)) : '' }}</td>
                             <td>{{$item->matter}}</td>
                             <td>{{$item->payee}}</td>
                             <td>{{$item->description}}</td>

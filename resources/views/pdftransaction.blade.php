@@ -66,7 +66,7 @@
                           @foreach ($data as $item)
                           <tr>
                             <td>{{ $item->id }}</td>
-                            <td>{{$item('m-d-Y h:i:s', strtotime($item->created_at)) }}</td>
+                            <td>{{date('m/d/Y h:i:s', strtotime($item->created_at)) }}</td>
                              @if($item->bill_id)
                             <td><a  href="{{route("claims.show", $item->bill_id ?? '#')}}"> {{$item->description}} ({{$data->name}}&nbsp;{{$data->user_id}})</a></td>
                             @else

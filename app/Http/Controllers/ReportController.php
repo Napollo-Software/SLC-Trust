@@ -384,7 +384,7 @@ class ReportController extends Controller
 
     public function check(Request $request)
     {
-        $users = User::where('role', 'User')
+        $users = User::where('role', 'Vendor')
             ->withSum('transactions as credit_sum', 'credit')
             ->withSum('transactions as debit_sum', 'debit')
             ->get()
