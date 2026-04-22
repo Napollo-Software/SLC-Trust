@@ -4,7 +4,7 @@ namespace App\Imports;
 
 use App\Models\Transaction;
 use App\Models\User;
-use App\Models\Notification; // Fixed typo from Notifcation
+use App\Models\Notifcation;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -88,13 +88,13 @@ class AddUserBalanceImport implements ToCollection, WithHeadingRow, WithStartRow
         // Extract and validate values
         $add_balance = $this->parseNumeric($row['add_balance'] ?? null);
         $payment_type = $this->parseString($row['payment_type'] ?? null);
-        
+
         // Get reference number - handle comma-separated header "Transaction No, Card Number, Check No"
         // Laravel Excel will convert this to snake_case, so check multiple possible keys
-        $reference_number = $this->parseString($row['reference_number'] ?? 
-                                                $row['transaction_no_card_number_check_no'] ?? 
+        $reference_number = $this->parseString($row['reference_number'] ??
+                                                $row['transaction_no_card_number_check_no'] ??
                                                 $row['transaction no, card number, check no'] ?? null);
-        
+
         $registration_fee_amount = $this->parseNumeric($row['registration_fee_amount'] ?? null);
         $deduct_maintenance_type = $this->parseString($row['deduct_maintenance_type'] ?? null);
         $maintenance_fee_value = $this->parseNumeric($row['maintenance_fee_value'] ?? null);
@@ -288,16 +288,16 @@ class AddUserBalanceImport implements ToCollection, WithHeadingRow, WithStartRow
             // Generate PDF (VOD) - matching single user logic
             $this->generateVOD($user, $deposit_transaction, $registration_transaction, $maintenance_transaction);
 
-            // Create notification
-            // Notification::create([
-            //     "status" => 0,
-            //     "user_id" => $user->id,
-            //     "title" => 'Balance Added',
-            //     "name" => "{$user->name} {$user->last_name}",
-            //     "description" => $deposit_amount > 0
-            //         ? "Your {$app_name} account has been topped up successfully with amount \${$deposit_amount}"
-            //         : "Your {$app_name} account has been updated with bulk upload actions.",
-            // ]);
+            // Create notification - matching single user logic
+            if ($deposit_amount > 0) {
+                Notifcation::create([
+                    "status" => 0,
+                    "user_id" => $user->id,
+                    "title" => 'Balance Added',
+                    "name" => "{$user->name} {$user->last_name}",
+                    "description" => "Your {$app_name} account has been topped up successfully with amount \${$deposit_amount}",
+                ]);
+            }
 
             DB::commit();
         } catch (\Exception $e) {
