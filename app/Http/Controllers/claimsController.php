@@ -719,6 +719,7 @@ class claimsController extends Controller
             $new_claim->recurred = $claim->id;
             $new_claim->recurring_day = null;
             $new_claim->created_at = date('Y-m-d H:i:s', strtotime($request->input('date') . ' ' . now()->format('H:i:s')));
+            $new_claim->submission_date = date('Y-m-d', strtotime($request->input('date')));
             $new_claim->save();
             return response()->json(['success' => true, 'message' => 'Bill#' . $request->id . ' has been duplicated successfully!']);
         } else {

@@ -71,6 +71,10 @@ class RecurringBill extends Command
                     $new_claim->recurring_bill = 0;
                     $new_claim->recurred       = $claim->id;
                     $new_claim->recurring_day  = null;
+                    $now = Carbon::now();
+                    $new_claim->submission_date = $now->toDateString();
+                    $new_claim->created_at        = $now;
+                    $new_claim->updated_at        = $now;
                     $new_claim->save();
 
                     Log::info("Recurring bill #" . $new_claim->id . " against Bill# " . $claim->id . "is duplicated successfully on " . date('d-m-y', strtotime(now())));
