@@ -48,8 +48,9 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 @else
                                 <div class="col-lg-3">
                                     @endif
-                                    <label for="exampleFormControlInput1" class="form-label">Bill Attachment (jpg,png,pdf)</label>
-                                    <input class="form-control" name="claim_bill_attachment" type="file" id="formFileMultiple" accept=".png,.jpg,.pdf">
+                                    <label for="exampleFormControlInput1" class="form-label">Bill Attachment</label>
+                                    <input class="form-control" name="claim_bill_attachment" type="file" id="formFileMultiple" accept=".png,.jpg,.jpeg,.gif,.pdf,image/png,image/jpeg,image/gif,application/pdf">
+                                    <small class="text-muted">jpg, png, pdf · max 5 MB</small>
                                     <span class="text-danger">
                                         @error('claim_bill_attachment')
                                         {{ $message }}
@@ -63,6 +64,7 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
                                 </div>
                                 @else
                                 <input type="hidden" name="payment_method" value="No">
+                                <input type="hidden" name="submission_date" value="{{ date('Y-m-d') }}">
                                 @endif
                                 <div class="col-lg-6 recurring-bill d-none">
                                     <label for="exampleFormControlInput1" class="form-label">Due Date <span class="text-danger">*</span></label>
@@ -160,10 +162,40 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
 
 @section('script')
 <script>
+    function validateBillAttachment(input) {
+        if (!input || !input.files || !input.files.length) {
+            return true;
+        }
+
+        var file = input.files[0];
+        var maxBytes = 5 * 1024 * 1024; // 5 MB
+        var allowed = ['jpg', 'jpeg', 'png', 'gif', 'pdf'];
+        var ext = (file.name.split('.').pop() || '').toLowerCase();
+
+        if (allowed.indexOf(ext) === -1) {
+            swal.fire('Invalid file', 'Bill attachment must be a jpg, jpeg, png, or pdf.', 'error');
+            return false;
+        }
+
+        if (file.size > maxBytes) {
+            swal.fire('File too large', 'Bill attachment must not be larger than 5 MB.', 'error');
+            return false;
+        }
+
+        return true;
+    }
+
     $(document).on('submit', '#add_claim', function(e) {
         e.preventDefault();
         $('.form-control').removeClass('is-invalid');
         $('.invalid-feedback.is-invalid').remove();
+
+        var attachmentInput = this.querySelector('[name="claim_bill_attachment"]');
+        if (!validateBillAttachment(attachmentInput)) {
+            $('.claim-submit').text('Submit').attr('disabled', false);
+            return;
+        }
+
         $('.claim-submit').text('Submitting...');
         $.ajax({
             type: "POST",
@@ -174,7 +206,6 @@ $role = App\Models\User::where('id', '=', Session::get('loginId'))->value('role'
             contentType: false,
             cache: false,
             success: function(data) {
-                console.log(data.message);
                 swal.fire(data.header, data.message, data.type);
                 $('.claim-submit').text('Submit');
                 if (data.type == 'success') {

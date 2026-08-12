@@ -42,7 +42,8 @@
                                 </div>
                             @endif
                             <input class="form-control mt-3" name="claim_bill_attachment" type="file"
-                                       id="formFileMultiple">
+                                       id="formFileMultiple" accept=".png,.jpg,.jpeg,.gif,.pdf,image/png,image/jpeg,image/gif,application/pdf">
+                            <small class="text-muted">jpg, png, pdf · max 5 MB</small>
                         @if ($claim->recurred != "0")
                         <div class="col-lg-12 pt-3 text-center">
                        <b for="exampleFormControlInput1" >Bill Reference :  <a href="{{url('claims/'.$claim->recurred)}}"  style="color: #559e99"><strong><i class=" tf-icons bx bx-copy-alt"></i>Bill#{{$claim->recurred}}</strong></b></a>
@@ -186,19 +187,48 @@
         </div>
     </form>
 @endsection
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+@section('script')
 <script>
+function validateBillAttachment(input) {
+    if (!input || !input.files || !input.files.length) {
+        return true;
+    }
+
+    var file = input.files[0];
+    var maxBytes = 5 * 1024 * 1024;
+    var allowed = ['jpg', 'jpeg', 'png', 'gif', 'pdf'];
+    var ext = (file.name.split('.').pop() || '').toLowerCase();
+
+    if (allowed.indexOf(ext) === -1) {
+        swal.fire('Invalid file', 'Bill attachment must be a jpg, jpeg, png, or pdf.', 'error');
+        return false;
+    }
+
+    if (file.size > maxBytes) {
+        swal.fire('File too large', 'Bill attachment must not be larger than 5 MB.', 'error');
+        return false;
+    }
+
+    return true;
+}
+
 $(document).ready(function(){
-    // $('.recurring').addClass('d-none', $('#recurring_bill').prop('checked'));
     $(document).on('click', '#recurring_bill', function() {
          $('.recurring').toggleClass('d-none', !$(this).is(':checked'));
     })
 });
 $(document).on('submit','#update_bill',function(e){
   e.preventDefault();
-  var id = $('#id').val();
   $('.form-control').removeClass('is-invalid');
   $('.invalid-feedback.is-invalid').remove();
+
+  var attachmentInput = this.querySelector('[name="claim_bill_attachment"]');
+  if (!validateBillAttachment(attachmentInput)) {
+      $('.update-bill-button').attr('disabled', false);
+      return;
+  }
+
   $('.update-bill-button').attr('disabled',true);
   $.ajax({
     type : "POST",
@@ -209,9 +239,7 @@ $(document).on('submit','#update_bill',function(e){
     processData : false,
     cache : false,
     success:function(data){
-          console.log(data.message);
           swal.fire(data.header,data.message,data.type);
-          $('.claim-submit').text('Submit');
           $('.update-bill-button').attr('disabled',false);
           if(data.type == 'success'){
                 window.location.reload();
@@ -219,10 +247,9 @@ $(document).on('submit','#update_bill',function(e){
       },
       error:function(xhr){
           erroralert(xhr);
-          $('.claim-submit').attr('disabled',false);
           $('.update-bill-button').attr('disabled',false);
-          $('.claim-submit').text('Submit');
       }
   })
 })
 </script>
+@endsection

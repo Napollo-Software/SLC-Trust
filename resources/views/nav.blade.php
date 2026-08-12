@@ -410,9 +410,19 @@
 
             if (xhr.status == 419) {
                 window.location.href = '/';
-
+                return;
             }
-            if (typeof xhr.responseJSON.errors === 'object') {
+
+            if (xhr.status == 413) {
+                if (typeof swal !== 'undefined') {
+                    swal.fire('File too large', 'The bill attachment is too large for the server. Please upload a jpg, png, gif, or pdf under 5 MB.', 'error');
+                } else {
+                    alert('The bill attachment is too large. Please upload a file under 5 MB.');
+                }
+                return;
+            }
+
+            if (xhr.responseJSON && typeof xhr.responseJSON.errors === 'object') {
                 var error = '';
                 $.each(xhr.responseJSON.errors, function (key, item) {
                     error += item + '\n';
@@ -421,13 +431,13 @@
                         if (element.hasClass('form-control')) {
                             element.addClass('is-invalid').after('<span class="invalid-feedback is-invalid">' +
                                 item + '</span>');
-                        } else {
                         }
-                    } else {
                     }
                 });
+                if (error && typeof swal !== 'undefined') {
+                    swal.fire('Validation error', error, 'error');
+                }
             } else {
-                // swal("Oops...", xhr.responseText.message, "error");
                 alert("Something went wrong.");
             }
         }
