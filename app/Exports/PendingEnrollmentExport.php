@@ -31,6 +31,8 @@ class PendingEnrollmentExport implements FromCollection, WithHeadings, WithMappi
             ->select(
                 'users.id',
                 DB::raw('CONCAT(users.name, " ", users.last_name) as full_name'),
+                'users.email',
+                'users.phone',
                 'users.billing_cycle',
                 'users.surplus_amount',
                 DB::raw('COALESCE(SUM(transactions.credit),0) as total_credit'),
@@ -43,6 +45,8 @@ class PendingEnrollmentExport implements FromCollection, WithHeadings, WithMappi
                 'users.id',
                 'users.name',
                 'users.last_name',
+                'users.email',
+                'users.phone',
                 'users.billing_cycle',
                 'users.surplus_amount'
             );
@@ -74,6 +78,8 @@ class PendingEnrollmentExport implements FromCollection, WithHeadings, WithMappi
         return [
             'Client ID',
             'Full Name',
+            'Email',
+            'Phone',
             'Billing Cycle',
             'Balance',
             'Amount Status',
@@ -86,6 +92,8 @@ class PendingEnrollmentExport implements FromCollection, WithHeadings, WithMappi
         return [
             $user->id,
             $user->full_name,
+            $user->email,
+            $user->phone,
             $user->billing_cycle,
             number_format((float) $user->balance, 2, '.', ','),
             $user->amount_status,

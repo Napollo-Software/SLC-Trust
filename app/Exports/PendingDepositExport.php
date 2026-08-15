@@ -31,6 +31,8 @@ class PendingDepositExport implements FromCollection, WithHeadings, WithMapping
             ->select(
                 'users.id',
                 DB::raw('CONCAT(users.name, " ", users.last_name) as full_name'),
+                'users.email',
+                'users.phone',
                 'users.billing_cycle',
                 'users.surplus_amount',
                 DB::raw('COALESCE(SUM(transactions.credit),0) as total_credit'),
@@ -50,6 +52,8 @@ class PendingDepositExport implements FromCollection, WithHeadings, WithMapping
             'users.id',
             'users.name',
             'users.last_name',
+            'users.email',
+            'users.phone',
             'users.billing_cycle',
             'users.surplus_amount'
         );
@@ -81,6 +85,8 @@ class PendingDepositExport implements FromCollection, WithHeadings, WithMapping
         return [
             'Client ID',
             'Full Name',
+            'Email',
+            'Phone',
             'Billing Cycle',
             'Balance',
             'Amount Status',
@@ -93,6 +99,8 @@ class PendingDepositExport implements FromCollection, WithHeadings, WithMapping
         return [
             $user->id,
             $user->full_name,
+            $user->email,
+            $user->phone,
             $user->billing_cycle_title,
             number_format((float) $user->balance, 2, '.', ','),
             $user->amount_status,
