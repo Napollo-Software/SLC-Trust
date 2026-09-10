@@ -480,7 +480,7 @@ class ReportController extends Controller
             'file'        => 'required|max:10240|mimes:xlsx,xls,csv',
         ]);
 
-        $fileName = time() . '.' . $request->file->extension();
+        $fileName = uniqueFileName($request->file);
         $request->file->move(public_path('uploaded-reports'), $fileName);
         $fileUrl             = "/uploaded-reports/$fileName";
         $report              = new Report();

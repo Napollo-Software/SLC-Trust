@@ -5,7 +5,17 @@ use App\Models\ErrorLog;
 use App\Models\Log;
 use App\Models\Referral;
 use App\Models\Type;
+use Illuminate\Support\Str;
 use Twilio\Rest\Client;
+
+if (! function_exists('uniqueFileName')) {
+    function uniqueFileName($file)
+    {
+        $ext = is_object($file) ? $file->getClientOriginalExtension() : ltrim((string) $file, '.');
+
+        return date('Ymd_His') . '_' . (string) Str::uuid() . ($ext ? '.' . $ext : '');
+    }
+}
 
 if (! class_exists('Company')) {
     class Company

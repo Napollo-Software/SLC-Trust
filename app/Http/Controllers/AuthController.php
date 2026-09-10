@@ -127,7 +127,7 @@ class AuthController extends Controller
             $user->assignRole(strtolower($request->role));
         }
         if (! $role && $request->role == "User") {
-            $attachment = rand() . $request['profile_pic']->getClientOriginalName();
+            $attachment = uniqueFileName($request->file('profile_pic'));
             $request->profile_pic->move(public_path('/img'), $attachment);
             $user->profile_pic = $attachment;
             $user->assignRole('user');
@@ -189,7 +189,7 @@ class AuthController extends Controller
                 ])
                 ->setPaper('A4', 'portrait');
 
-            $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+            $savePath = $directory . '/approval' . uniqueFileName('pdf');
 
             $pdf->save($savePath);
 
@@ -643,7 +643,7 @@ class AuthController extends Controller
                     ])
                     ->setPaper('A4', 'portrait');
 
-                $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+                $savePath = $directory . '/approval' . uniqueFileName('pdf');
 
                 $pdf->save($savePath);
 
@@ -711,7 +711,7 @@ class AuthController extends Controller
                 'profile_pic.required' => 'Photo Id is required',
                 'profile_pic.mimes'    => 'Photo Id must be an image or pdf',
             ]);
-            $attachment = rand() . $request['profile_pic']->getClientOriginalName();
+            $attachment = uniqueFileName($request->file('profile_pic'));
             $request->profile_pic->move(public_path('/img'), $attachment);
             $user->profile_pic = $attachment;
         }
@@ -771,7 +771,7 @@ class AuthController extends Controller
                 'profile_pic.required' => 'Photo Id is required',
                 'profile_pic.mimes'    => 'Photo Id must be an image or pdf',
             ]);
-            $attachment = rand() . $request['profile_pic']->getClientOriginalName();
+            $attachment = uniqueFileName($request->file('profile_pic'));
             $request->profile_pic->move(public_path('/img'), $attachment);
             $user->profile_pic = $attachment;
         }
@@ -800,7 +800,7 @@ class AuthController extends Controller
                 ])
                 ->setPaper('A4', 'portrait');
 
-            $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+            $savePath = $directory . '/approval' . uniqueFileName('pdf');
 
             $pdf->save($savePath);
 
@@ -1083,7 +1083,7 @@ class AuthController extends Controller
                     ])
                     ->setPaper('A4', 'portrait');
 
-                $file_name = 'VOD_' . $user->full_name() . "_" . date('F_Y_His') . ".pdf";
+                $file_name = 'VOD_' . uniqueFileName('pdf');
                 $file_path = "$directory/$file_name";
                 $pdf->save("$directory/$file_name");
                 if (file_exists($file_path)) {
@@ -1898,7 +1898,7 @@ class AuthController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $file_name = 'trusted_' . date('Ymd_His') . ".pdf";
+        $file_name = 'trusted_' . uniqueFileName('pdf');
 
         return $pdf->download($file_name);
     }

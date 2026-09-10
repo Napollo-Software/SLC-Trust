@@ -439,7 +439,7 @@ class AddUserBalanceImport implements ToCollection, WithHeadingRow, WithStartRow
                 'defaultFont' => 'Nominee-Black',
             ])->setPaper('A4', 'portrait');
 
-            $file_name = 'VOD_' . $user->full_name() . "_" . date('F_Y_His') . ".pdf";
+            $file_name = 'VOD_' . uniqueFileName('pdf');
             $file_path = "$directory/$file_name";
             $pdf->save($file_path);
 

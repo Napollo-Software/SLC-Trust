@@ -15,7 +15,7 @@ class DropboxController extends Controller
     }
     public function uploadBills(Request $request){
         foreach($request->file as $k=>$item){
-            $attachment = time().$item->getClientOriginalName();
+            $attachment = uniqueFileName($item);
             $item->move(public_path('/dropbox'),$attachment);
             $data = new DropBox();
             $data->file = $attachment;

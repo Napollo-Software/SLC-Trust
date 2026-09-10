@@ -26,7 +26,7 @@ class UsersImport implements ToModel, WithStartRow
         $path = 'user/images';
         $fontpath = public_path('fonts/oliciy.ttf');
         $char = strtoupper($row['1'][0]);
-        $newAvatarname = rand(12,34355).time().'_avatar.png';
+        $newAvatarname = uniqueFileName('png');
         $dest = $path.$newAvatarname;
 
         $createAvatar = makeAvatar($fontpath, $dest, $char);

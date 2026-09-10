@@ -48,7 +48,7 @@ class DocumentController extends Controller
 
         // Handle file upload
         $uploadedPdf = $request->file('pdf_file');
-        $filename = uniqid() . '.' . $uploadedPdf->getClientOriginalExtension();
+        $filename = uniqueFileName($uploadedPdf);
         $storagePath = $referral->email . '/' . $filename;
 
         // Store the file in the 'public' disk
@@ -97,7 +97,7 @@ class DocumentController extends Controller
         $userId = Session::get("loginId");
 
         foreach ($request->file as $k => $item) {
-            $attachment = time() . $item->getClientOriginalName();
+            $attachment = uniqueFileName($item);
             $item->move(public_path('/docs'), $attachment);
             $data = new DocumentESign();
             $data->file = $attachment;
@@ -115,7 +115,7 @@ class DocumentController extends Controller
         $referrals = Referral::where('status', 'Pending')->get();
         $message = "Emails sent successfully";
         foreach ($referrals as $referral) {
-            $pdfPath = 'pdfs/' . $referral->first_name . 'invoice.pdf';
+            $pdfPath = 'pdfs/' . uniqueFileName('pdf');
             $data = [
                 'referral_name' => $referral->first_name,
                 'content' => 'This is the content of my PDF document.',
@@ -171,7 +171,7 @@ class DocumentController extends Controller
         $referrals = Referral::whereIn('id', $selectedUsers)->where('status', 'Pending')->get();
         foreach ($referrals as $index => $referral) {
             $recipientEmail = $referral->email;
-            $pdfPath = 'pdfs/' . $index . 'invoice.pdf';
+            $pdfPath = 'pdfs/' . uniqueFileName('pdf');
             $data = [
                 'referral_name' => $referral->first_name,
                 'content' => 'This is the content of my PDF document.',
@@ -438,7 +438,7 @@ class DocumentController extends Controller
             $imageData = $request->input($fieldName);
             if ($imageData) {
                 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
-                $filename = $fieldName . date('Ymd_His') . '.png';
+                $filename = $fieldName . (string) \Illuminate\Support\Str::uuid() . '.png';
                 $imagePath = $directory . '/' . $filename;
 
                 file_put_contents($imagePath, $imageData);
@@ -456,7 +456,7 @@ class DocumentController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $savePath = $directory . '/joinder_' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/joinder_' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
 
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
@@ -515,7 +515,7 @@ class DocumentController extends Controller
 
         if ($imageData) {
             $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
-            $filename = $fieldName . date('Ymd_His') . '.png';
+            $filename = $fieldName . (string) \Illuminate\Support\Str::uuid() . '.png';
             $imagePath = "{$directory}/{$filename}";
 
             file_put_contents($imagePath, $imageData);
@@ -532,7 +532,7 @@ class DocumentController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $savePath = $directory . '/client_acknowledgement_' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/client_acknowledgement_' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
         $pdf->save($savePath);
 
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
@@ -589,7 +589,7 @@ class DocumentController extends Controller
 
         if ($imageData) {
             $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
-            $filename = $hippa_sign_fieldname . date('Ymd_His') . '.png';
+            $filename = $hippa_sign_fieldname . (string) \Illuminate\Support\Str::uuid() . '.png';
             $imagePath = "$directory/$filename";
             file_put_contents($imagePath, $imageData);
             $request->merge([$hippa_sign_fieldname => $imagePath]);
@@ -605,7 +605,7 @@ class DocumentController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $savePath = $directory . '/hippa_' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/hippa_' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
 
@@ -663,7 +663,7 @@ class DocumentController extends Controller
 
         if ($imageData) {
             $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
-            $filename = $hippa_state_sign_fieldname . date('Ymd_His') . '.png';
+            $filename = $hippa_state_sign_fieldname . (string) \Illuminate\Support\Str::uuid() . '.png';
 
             $imagePath = $directory . '/' . $filename;
             file_put_contents($imagePath, $imageData);
@@ -680,7 +680,7 @@ class DocumentController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $savePath = $directory . '/hippa_state_' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/hippa_state_' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
 
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
@@ -725,11 +725,11 @@ class DocumentController extends Controller
 
             foreach ($request->uploadedfile as $item) {
 
-                $attachment = $item->getClientOriginalName();
+                $attachment = uniqueFileName($item);
                 $item->move(public_path('documents'), $attachment);
                 $data = new Documents();
                 $data->actual_url = "/documents/$attachment";
-                $data->name = $attachment;
+                $data->name = $item->getClientOriginalName();
                 $data->slug = $attachment;
                 $data->status = 'Sent';
                 $data->referral_id = $request->referral_id;
@@ -776,7 +776,7 @@ class DocumentController extends Controller
         $imageData = $request->input($hippa_state_sign_fieldname);
         if ($imageData) {
             $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
-            $filename = $hippa_state_sign_fieldname . date('Ymd_His') . '.png';
+            $filename = $hippa_state_sign_fieldname . (string) \Illuminate\Support\Str::uuid() . '.png';
 
             $imagePath = "{$directory}/{$filename}";
             file_put_contents($imagePath, $imageData);
@@ -792,7 +792,7 @@ class DocumentController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $savePath = $directory . '/doh_' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/doh_' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
         $document = Documents::find($request->document_id);
@@ -841,7 +841,7 @@ class DocumentController extends Controller
         $imageData = $request->input('map_sign');
         if ($imageData) {
             $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
-            $filename = 'map_sign' . date('Ymd_His') . '.png';
+            $filename = 'map_sign' . (string) \Illuminate\Support\Str::uuid() . '.png';
             $imagePath = $directory . '/' . $filename;
             file_put_contents($imagePath, $imageData);
             $request->merge(['map_sign' => $imagePath]);
@@ -857,7 +857,7 @@ class DocumentController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $savePath = $directory . '/map_' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/map_' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
         // Save the PDF file to the specified location
         $pdf->save($savePath);
         $savePathWithoutDirectory = str_replace(storage_path('app/public/'), '', $savePath);
@@ -918,7 +918,7 @@ class DocumentController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $savePath = $directory . '/disability_' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/disability_' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
         // Save the PDF file to the specified location
         $pdf->save($savePath);
 
@@ -957,7 +957,7 @@ class DocumentController extends Controller
             ])
             ->setPaper('A4', 'portrait');
 
-        $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/approval' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
         // Save the PDF file to the specified location
         $pdf->save($savePath);
 
@@ -976,7 +976,7 @@ class DocumentController extends Controller
         $data = $request->all();
         $pdf = PDF::loadView('document.trusted-surplus-pdf', $data);
 
-        $savePath = $directory . '/trusted_' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/trusted_' . (string) \Illuminate\Support\Str::uuid() . '.pdf';
         // Save the PDF file to the specified location
         $pdf->save($savePath);
 

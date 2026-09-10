@@ -520,7 +520,7 @@ class ReferralController extends Controller
                 'defaultFont' => 'Nominee-Black'
             ])
             ->setPaper('A4', 'portrait');
-        $savePath = $directory . '/approval' . date('Ymd_His') . '.pdf';
+        $savePath = $directory . '/approval' . uniqueFileName('pdf');
 
         $pdf->save($savePath);
 

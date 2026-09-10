@@ -215,8 +215,7 @@ class claimsController extends Controller
             $attachment = null;
             if ($request->hasFile('claim_bill_attachment')) {
                 $file = $request->file('claim_bill_attachment');
-                $safeName = preg_replace('/[^A-Za-z0-9._-]/', '_', $file->getClientOriginalName());
-                $attachment = time() . '_' . $safeName;
+                $attachment = uniqueFileName($file);
                 $file->move(public_path('img'), $attachment);
             }
 
@@ -847,8 +846,7 @@ class claimsController extends Controller
 
         if ($request->hasFile('claim_bill_attachment')) {
             $file = $request->file('claim_bill_attachment');
-            $safeName = preg_replace('/[^A-Za-z0-9._-]/', '_', $file->getClientOriginalName());
-            $attachment = time() . '_' . $safeName;
+            $attachment = uniqueFileName($file);
             $file->move(public_path('img'), $attachment);
             $claim->claim_bill_attachment = $attachment;
         }
